@@ -136,7 +136,7 @@ public class GameState : MonoBehaviour
 
 		if (_lives < 0)
 		{
-			gameObject.GetComponent<LevelManager>().LoadLevel(0);
+			gameObject.GetComponent<LevelManager>().LoadMainMenu();
 		}
 
 		BroadcastMessage("UpdateLives");
@@ -205,7 +205,7 @@ public class GameState : MonoBehaviour
 
 		if (Input.GetButtonDown("Cancel"))
 		{
-			gameObject.GetComponent<LevelManager>().LoadLevel(0);
+			gameObject.GetComponent<LevelManager>().LoadMainMenu();
 		}
 	}
 	#endregion

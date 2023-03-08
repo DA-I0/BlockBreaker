@@ -4,9 +4,14 @@ using UnityEngine.SceneManagement;
 public class LevelManager : MonoBehaviour
 {
 	#region Methods (public)
-	public void LoadLevel(int levelID)
+	public void LoadLevel(string levelName)
 	{
-		SceneManager.LoadScene(levelID);
+		SceneManager.LoadScene(levelName);
+	}
+
+	public void LoadMainMenu()
+	{
+		SceneManager.LoadScene("menu");
 	}
 
 	public void NextLevel()
@@ -18,7 +23,7 @@ public class LevelManager : MonoBehaviour
 		}
 		else
 		{
-			SceneManager.LoadScene(0);
+			LoadMainMenu();
 		}
 	}
 

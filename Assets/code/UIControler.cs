@@ -19,6 +19,7 @@ public class UIControler : MonoBehaviour
 	public void ToggleLevelList()
 	{
 		_levelList.SetActive(!_levelList.activeSelf);
+		_levelList.GetComponent<UILevelList>().UpdateLevelList();
 	}
 
 	public void ExitGame()

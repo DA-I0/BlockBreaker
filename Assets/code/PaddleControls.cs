@@ -7,7 +7,8 @@ public class PaddleControls : MonoBehaviour
 	private static float MinSizeMultiplier = 0.5f;
 	private static float MaxSizeMultiplier = 2.0f;
 
-	[SerializeField] private float _defaultSpeed = 10f;
+	[SerializeField] private float _speedGeneral = 10f;
+	[SerializeField] private float _speedMouse = 10f;
 	[SerializeField] private float _sizeMultiplier = 1f;
 
 	private SpriteRenderer _sprite;
@@ -40,6 +41,7 @@ public class PaddleControls : MonoBehaviour
 
 	private void Awake()
 	{
+		// _speedMouse = _speed * 0.75f;
 		_sprite = gameObject.GetComponent<SpriteRenderer>();
 		_paddleRB = gameObject.GetComponent<Rigidbody2D>();
 	}
@@ -60,11 +62,11 @@ public class PaddleControls : MonoBehaviour
 
 		if (Input.GetAxis("Mouse X") != 0)
 		{
-			paddleTransform = Vector2.right * Input.GetAxis("Mouse X") * _defaultSpeed;
+			paddleTransform = Vector2.right * Input.GetAxis("Mouse X") * _speedMouse;
 		}
 		else
 		{
-			paddleTransform = Vector2.right * Input.GetAxis("Horizontal") * _defaultSpeed;
+			paddleTransform = Vector2.right * Input.GetAxis("Horizontal") * _speedGeneral;
 		}
 
 		_paddleRB.MovePosition(_paddleRB.position + paddleTransform * Time.deltaTime);
