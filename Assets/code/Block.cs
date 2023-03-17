@@ -8,7 +8,7 @@ public class Block : MonoBehaviour
 	[SerializeField] private int _pointValue = 1;
 	[SerializeField] private int _maxHealth = 1;
 	[SerializeField] private Sprite[] _sprites = null;
-	[SerializeField] private float _pickupChance = 0.1f;
+	[SerializeField] private float _pickupSpawnChance = 0.1f;
 	[SerializeField] private Transform[] _pickups;
 
 	private int _health;
@@ -49,7 +49,7 @@ public class Block : MonoBehaviour
 	{
 		float dropRandomization = Random.Range(0f, 1f);
 
-		if (dropRandomization <= _pickupChance)
+		if (dropRandomization <= _pickupSpawnChance)
 		{
 			int pickupType = Random.Range(0, _pickups.Length);
 			Instantiate(_pickups[pickupType], transform.position, Quaternion.identity);

@@ -45,11 +45,11 @@ public class Pickup : MonoBehaviour
 					break;
 
 				case PickupType.paddle_thin:
-					collision.gameObject.GetComponent<PaddleControls>().ChangePaddleSize(0.5f);
+					collision.gameObject.GetComponent<PaddleControls>().ChangePaddleSize(-0.25f);
 					break;
 
 				case PickupType.paddle_wide:
-					collision.gameObject.GetComponent<PaddleControls>().ChangePaddleSize(2f);
+					collision.gameObject.GetComponent<PaddleControls>().ChangePaddleSize(0.25f);
 					break;
 
 				case PickupType.safetyNet:

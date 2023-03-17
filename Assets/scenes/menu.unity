@@ -636,8 +636,8 @@ MonoBehaviour:
   m_StartCorner: 0
   m_StartAxis: 0
   m_CellSize: {x: 100, y: 100}
-  m_Spacing: {x: 0, y: 0}
-  m_Constraint: 0
+  m_Spacing: {x: 5, y: 5}
+  m_Constraint: 1
   m_ConstraintCount: 5
 --- !u!114 &476211275
 MonoBehaviour:
@@ -2694,6 +2694,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 396701770}
     m_Modifications:
+    - target: {fileID: 4944032095691528832, guid: 5bee013769b56ed1593a3a5461014b3c, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4944032095691528834, guid: 5bee013769b56ed1593a3a5461014b3c, type: 3}
       propertyPath: m_Name
       value: ball

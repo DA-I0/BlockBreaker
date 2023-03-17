@@ -18,11 +18,11 @@ public class LevelExit : MonoBehaviour
 		LevelClear(false);
 	}
 
-	public void LevelClear(bool active)
+	public void LevelClear(bool isActive)
 	{
-		_door.SetActive(!active);
-		_arrow.SetActive(active);
-		_exitTrigger.enabled = active;
+		_door.SetActive(!isActive);
+		_arrow.SetActive(isActive);
+		_exitTrigger.enabled = isActive;
 	}
 
 	private void OnTriggerEnter2D(Collider2D collider)

@@ -493,6 +493,90 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: pole_01
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 31
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9db4e8d83e968baaaa6081a3dd4fba26
+      internalID: -1944458647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pole_02
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 35
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2dba48d90fe3a14ff8f59ce071f49f33
+      internalID: 1345018350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pole_03
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 31
+        width: 4
+        height: 7
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2857143}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 188ab9b8cbae35eae99e62aeaf28e531
+      internalID: 305327101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pole_04
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 31
+        width: 4
+        height: 10
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bff7d54cbbf0e477a08159a5ee8ffe4
+      internalID: -1673041574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -506,11 +590,15 @@ TextureImporter:
     nameFileIdTable:
       block_sturdy_02: -300434435
       barrier_breakable_02: 559457164
+      pole_04: -1673041574
       exit_arrow_01: 1540527386
       barrier: 741435686
+      pole_02: 1345018350
+      pole_01: -1944458647
       exit_arrow_03: 1908432841
       paddle: -1329291136
       safety_block: -1935982035
+      pole_03: 305327101
       barrier_breakable_03: 36678803
       coffin_01: 228781567
       coffin_02: 192102870

@@ -6,7 +6,7 @@ public class Resetzone : MonoBehaviour
 	{
 		if (collider.gameObject.tag == "ball")
 		{
-			collider.gameObject.GetComponent<BallControler>().ResetBall();
+			collider.gameObject.GetComponent<BallControler>().ResetBall(false);
 		}
 		else
 		{

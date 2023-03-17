@@ -8,6 +8,7 @@ public class BallControler : MonoBehaviour
 	private static float DebugRayLength = 1f;
 	private static float FlatAngleFixValue = 4f;
 	private static int MaxStartingAngle = 60;
+	private static float BounceAnimationSpeed = 0.35f;
 
 	[SerializeField] private float _defaultSpeed = 5f;
 	[SerializeField] private float _multiBallSpawnAngle = 30f;
@@ -20,10 +21,9 @@ public class BallControler : MonoBehaviour
 	private Animator _animator;
 
 	private Transform _systemObject;
-	private GameState _game;
 
-	private bool _rotationSelect = false;
-	private bool _rotationIncrease = true;
+	private bool _selectingRotation = false;
+	private bool _increasingRotation = true;
 	private int _startingRotation = 0;
 
 	private bool _bounced = false;
@@ -31,7 +31,7 @@ public class BallControler : MonoBehaviour
 	#endregion
 
 	#region Methods (public)
-	public void ResetBall()
+	public void ResetBall(bool isFullReset)
 	{
 		if (gameObject.name != "ball")
 		{
@@ -39,23 +39,26 @@ public class BallControler : MonoBehaviour
 			return;
 		}
 
-		ChangeSpeed(1f);
-		ChangeSize(1f);
+		if (isFullReset)
+		{
+			ChangeSpeed(1f);
+			ChangeSize(1f);
+		}
 
 		_startingRotation = 0;
 
 		transform.SetParent(_paddle);
-		_arrow.gameObject.SetActive(_rotationSelect);
+		_arrow.gameObject.SetActive(_selectingRotation);
 
 		_lastPosition = transform.localPosition;
 		UpdateBallPosition();
-		_animator.Play("Base Layer.ball_rolling", 0, 0);
+		_animator.Play("Base Layer.ball_rolling", 0, _speedMultiplier);
 		_animator.StartPlayback();
 	}
 
 	public void PlayBall()
 	{
-		_rotationSelect = false;
+		_selectingRotation = false;
 
 		Vector3 newRotation = new Vector3(0f, 0f, _startingRotation);
 		transform.Rotate(newRotation);
@@ -67,14 +70,14 @@ public class BallControler : MonoBehaviour
 	public void ChangeSpeed(float multiplier)
 	{
 		_speedMultiplier = multiplier;
-
 		_boostEffect.emitting = multiplier > 1f;
-		_animator.speed = multiplier;
 	}
 
 	public void ChangeSize(float multiplier)
 	{
 		transform.localScale = new Vector3(multiplier, multiplier, multiplier);
+		float arrowScale = (multiplier == 1) ? 1 : (1 / multiplier);
+		_arrow.localScale = new Vector3(arrowScale, arrowScale, arrowScale);
 		_boostEffect.widthMultiplier = multiplier;
 	}
 
@@ -92,12 +95,7 @@ public class BallControler : MonoBehaviour
 		_systemObject = GameObject.Find("_system").transform;
 		_paddle = GameObject.Find("paddle").transform;
 		_animator = gameObject.GetComponent<Animator>();
-		ResetBall();
-	}
-
-	private void Start()
-	{
-		_game = GameObject.Find("_system").GetComponent<GameState>();
+		ResetBall(true);
 	}
 
 	private void Update()
@@ -118,17 +116,19 @@ public class BallControler : MonoBehaviour
 	{
 		if (Input.GetButtonDown("Fire"))
 		{
-			if (_rotationSelect == false)
+			if (_selectingRotation == false)
 			{
-				_rotationSelect = true;
+				_paddle.GetComponent<PaddleControls>().BlockPaddleMovement(true);
+				_selectingRotation = true;
 				RotationSelect();
 			}
 			else
 			{
+				_paddle.GetComponent<PaddleControls>().BlockPaddleMovement(false);
 				PlayBall();
 			}
 
-			_arrow.gameObject.SetActive(_rotationSelect);
+			_arrow.gameObject.SetActive(_selectingRotation);
 		}
 	}
 
@@ -154,7 +154,8 @@ public class BallControler : MonoBehaviour
 	{
 		if (transform.parent == _systemObject)
 		{
-			transform.Translate(Vector3.up * _defaultSpeed * _speedMultiplier * Time.deltaTime);
+			Vector3 newDirection = Vector3.up * _defaultSpeed * _speedMultiplier * Time.deltaTime;
+			transform.Translate(newDirection);
 
 			EmergencyBounce();
 			_lastPosition = transform.localPosition;
@@ -180,7 +181,7 @@ public class BallControler : MonoBehaviour
 			return;
 		}
 
-		_animator.Play("Base Layer.ball_bounce", 0, 0.25f);
+		_animator.Play("Base Layer.ball_bounce", 0, BounceAnimationSpeed);
 
 		Debug.DrawRay(collision.GetContact(0).point, transform.up * -DebugRayLength, Color.green, 10f);
 
@@ -216,7 +217,6 @@ public class BallControler : MonoBehaviour
 	private bool IsAngleFlat(float currentAngle)
 	{
 		float angleLean = currentAngle % 90;
-		Debug.Log(currentAngle + " : " + angleLean);
 
 		return (Mathf.Abs(angleLean) <= 92 && Mathf.Abs(angleLean) >= 88 ||
 		Mathf.Abs(angleLean) <= 2 && Mathf.Abs(angleLean) >= -2);
@@ -224,14 +224,14 @@ public class BallControler : MonoBehaviour
 
 	private void RotationSelect()
 	{
-		if (_rotationSelect)
+		if (_selectingRotation)
 		{
 			if (_startingRotation >= MaxStartingAngle || _startingRotation <= -MaxStartingAngle)
 			{
-				_rotationIncrease = !_rotationIncrease;
+				_increasingRotation = !_increasingRotation;
 			}
 
-			_startingRotation += _rotationIncrease ? 1 : -1;
+			_startingRotation += _increasingRotation ? 1 : -1;
 
 			Vector3 newRotation = new Vector3(0f, 0f, _startingRotation);
 

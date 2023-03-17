@@ -54,12 +54,12 @@ public class GameState : MonoBehaviour
 		StartFreshGame();
 	}
 
-	public void Cleanup(bool fullReset)
+	public void Cleanup(bool isFullReset)
 	{
 		_blocks = null;
 		_barriers = null;
 
-		if (fullReset)
+		if (isFullReset)
 		{
 			_score = 0;
 			_lives = _startingLives;
@@ -68,6 +68,7 @@ public class GameState : MonoBehaviour
 
 		if (_paddle != null)
 		{
+			_paddle.ResetPaddle();
 			_paddle.gameObject.SetActive(false);
 		}
 	}
@@ -79,7 +80,6 @@ public class GameState : MonoBehaviour
 
 	public void StartFreshGame()
 	{
-		_paddle.ResetPaddle();
 		CleanBalls();
 
 		foreach (Transform block in _blocks)
@@ -131,7 +131,7 @@ public class GameState : MonoBehaviour
 		{
 			PlaySound(0);
 			_paddle.ResetPaddle();
-			GameObject.Find("ball").GetComponent<BallControler>().ResetBall();
+			GameObject.Find("ball").GetComponent<BallControler>().ResetBall(true);
 		}
 
 		if (_lives < 0)
@@ -142,11 +142,11 @@ public class GameState : MonoBehaviour
 		BroadcastMessage("UpdateLives");
 	}
 
-	public void ToggleSafetyNet(bool active)
+	public void ToggleSafetyNet(bool isActive)
 	{
 		foreach (Transform block in _safetyNet)
 		{
-			if (active)
+			if (isActive)
 			{
 				block.GetComponent<Block>().ResetBlock();
 			}
@@ -188,7 +188,7 @@ public class GameState : MonoBehaviour
 		{
 			if (i == 0)
 			{
-				ballCopies[i].GetComponent<BallControler>().ResetBall();
+				ballCopies[i].GetComponent<BallControler>().ResetBall(false);
 				continue;
 			}
 

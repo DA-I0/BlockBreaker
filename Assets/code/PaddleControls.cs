@@ -11,6 +11,8 @@ public class PaddleControls : MonoBehaviour
 	[SerializeField] private float _speedMouse = 10f;
 	[SerializeField] private float _sizeMultiplier = 1f;
 
+	private bool _freezePaddle = false;
+
 	private SpriteRenderer _sprite;
 	private Rigidbody2D _paddleRB;
 	#endregion
@@ -20,11 +22,12 @@ public class PaddleControls : MonoBehaviour
 		_sizeMultiplier = 1f;
 		ResizePaddle();
 		transform.position = new Vector3(0f, transform.position.y, transform.position.z);
+		_freezePaddle = false;
 	}
 
 	public void ChangePaddleSize(float multiplier)
 	{
-		_sizeMultiplier *= multiplier;
+		_sizeMultiplier += multiplier;
 
 		if (_sizeMultiplier < MinSizeMultiplier)
 		{
@@ -37,6 +40,11 @@ public class PaddleControls : MonoBehaviour
 		}
 
 		ResizePaddle();
+	}
+
+	public void BlockPaddleMovement(bool blockMovement)
+	{
+		_freezePaddle = blockMovement;
 	}
 
 	private void Awake()
@@ -58,6 +66,11 @@ public class PaddleControls : MonoBehaviour
 
 	private void Move()
 	{
+		if (_freezePaddle)
+		{
+			return;
+		}
+
 		Vector2 paddleTransform;
 
 		if (Input.GetAxis("Mouse X") != 0)
