@@ -1,12 +1,13 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class UIGameState : MonoBehaviour
 {
 	[SerializeField] private GameObject _gameStateBar;
-	[SerializeField] private Text _score;
+	[SerializeField] private TMP_Text _score;
 	[SerializeField] private Transform _lives;
-	[SerializeField] private Text _info;
+	[SerializeField] private TMP_Text _info;
 
 	private GameState _system;
 
@@ -23,6 +24,7 @@ public class UIGameState : MonoBehaviour
 	public void ToggleGameStats(bool hide)
 	{
 		_gameStateBar.SetActive(hide);
+		_info.gameObject.SetActive(hide);
 	}
 
 	public void UpdateScore()

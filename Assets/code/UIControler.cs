@@ -1,10 +1,11 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class UIControler : MonoBehaviour
 {
-	[SerializeField] private Text _gameTitle;
-	[SerializeField] private Text _version;
+	[SerializeField] private TMP_Text _gameTitle;
+	[SerializeField] private TMP_Text _version;
 
 	[SerializeField] private GameObject _levelList;
 

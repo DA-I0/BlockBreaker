@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.IO;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -25,7 +26,7 @@ public class UILevelList : MonoBehaviour
 			Transform levelButton = Instantiate(_buttonPrefab).transform;
 			levelButton.SetParent(transform);
 
-			levelButton.GetChild(0).GetComponent<Text>().text = levelName;
+			levelButton.GetChild(0).GetComponent<TMP_Text>().text = levelName;
 			levelButton.GetComponent<Button>().onClick.AddListener(() =>
 			{
 				GameObject.Find("_system").GetComponent<LevelManager>().LoadLevel(levelName);
