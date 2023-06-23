@@ -18,7 +18,7 @@ public class UIGameState : MonoBehaviour
 
 	private void FixedUpdate()
 	{
-		_info.text = "R - restart\nBlocks remaining: " + _system.BlocksLeft.ToString();
+		_info.text = "[ESC] - Quit to menu\n[R] - restart\nBlocks remaining: " + _system.BlocksLeft.ToString();
 	}
 
 	public void ToggleGameStats(bool hide)
