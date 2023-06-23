@@ -1,17 +1,12 @@
-using System.Collections.Generic;
-using System.IO;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class UILevelList : MonoBehaviour
 {
-	private static string SceneAssetPath;
-	private static string SceneFilter = "level*.unity";
-
 	[SerializeField] private GameObject _buttonPrefab;
-	private List<string> _levels = new List<string>();
 
+	private LevelManager levelManager;
 	private bool _levelsLoaded = false;
 
 	public void UpdateLevelList()
@@ -21,15 +16,15 @@ public class UILevelList : MonoBehaviour
 			return;
 		}
 
-		foreach (string levelName in _levels)
+		foreach (var level in levelManager.Levels)
 		{
 			Transform levelButton = Instantiate(_buttonPrefab).transform;
 			levelButton.SetParent(transform);
 
-			levelButton.GetChild(0).GetComponent<TMP_Text>().text = levelName;
+			levelButton.GetChild(0).GetComponent<TMP_Text>().text = level.Value;
 			levelButton.GetComponent<Button>().onClick.AddListener(() =>
 			{
-				GameObject.Find("_system").GetComponent<LevelManager>().LoadLevel(levelName);
+				levelManager.LoadLevel(level.Key);
 			});
 		}
 
@@ -38,18 +33,6 @@ public class UILevelList : MonoBehaviour
 
 	private void Awake()
 	{
-		SceneAssetPath = Application.dataPath + "/scenes";
-		FindGameLevels();
-	}
-
-	private void FindGameLevels()
-	{
-		string[] sceneFiles = Directory.GetFiles(SceneAssetPath, SceneFilter);
-
-		foreach (string scene in sceneFiles)
-		{
-			string levelName = scene.Split('/')[^1];
-			_levels.Add(levelName.Replace(".unity", string.Empty));
-		}
+		levelManager = GameObject.Find("_system").GetComponent<LevelManager>();
 	}
 }

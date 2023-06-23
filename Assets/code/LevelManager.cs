@@ -1,12 +1,21 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
-	#region Methods (public)
-	public void LoadLevel(string levelName)
+	private const int FirstLevelIndex = 1;
+	private Dictionary<int, string> _levels = new Dictionary<int, string>();
+
+	public Dictionary<int, string> Levels
 	{
-		SceneManager.LoadScene(levelName);
+		get { return _levels; }
+	}
+
+	#region Methods (public)
+	public void LoadLevel(int levelIndex)
+	{
+		SceneManager.LoadScene(levelIndex);
 	}
 
 	public void LoadMainMenu()
@@ -29,15 +38,31 @@ public class LevelManager : MonoBehaviour
 
 	public void Exit()
 	{
-#if UNITY_EDITOR
-		UnityEditor.EditorApplication.isPlaying = false;
-#else
-		Application.Quit();
-#endif
+		#if UNITY_EDITOR
+			UnityEditor.EditorApplication.isPlaying = false;
+		#else
+			Application.Quit();
+		#endif
 	}
 	#endregion
 
 	#region Methods (private)
+	private void Awake()
+	{
+		FindGameLevels();
+	}
+
+	private void FindGameLevels()
+	{
+		int tempLevelCounter = 1;
+
+		for (int i = FirstLevelIndex; i < SceneManager.sceneCountInBuildSettings; i++)
+		{
+			_levels.Add(i, "Level " + tempLevelCounter);
+			tempLevelCounter++;
+		}
+	}
+
 	private void OnEnable()
 	{
 		SceneManager.sceneLoaded += OnSceneLoaded;
