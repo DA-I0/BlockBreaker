@@ -111,7 +111,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.31, y: 0.2}
+  m_Size: {x: 0.31, y: 0.19}
   m_EdgeRadius: 0
 --- !u!50 &6652316843234046433
 Rigidbody2D:
@@ -151,6 +151,6 @@ MonoBehaviour:
   _sprites:
   - {fileID: 228781567, guid: 886c3ff2e7c4a258cb6ae088ace28334, type: 3}
   - {fileID: 192102870, guid: 886c3ff2e7c4a258cb6ae088ace28334, type: 3}
-  _pickupChance: 1
+  _pickupSpawnChance: 1
   _pickups:
   - {fileID: 2396349498945967666, guid: d3d7b7a54e1c306cca22df743b0e95a3, type: 3}

@@ -3399,7 +3399,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1339482892}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &496311657
 PrefabInstance:
@@ -6198,14 +6198,14 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 457295220}
   - {fileID: 673350915}
   - {fileID: 499238093}
-  - {fileID: 457295220}
   - {fileID: 2137112502}
   - {fileID: 876363741}
   - {fileID: 299681067}
-  - {fileID: 40612702}
   - {fileID: 1968024393}
+  - {fileID: 40612702}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7494,7 +7494,7 @@ Transform:
   - {fileID: 1488400625}
   - {fileID: 517702386}
   m_Father: {fileID: 1339482892}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1969149378
 PrefabInstance:
@@ -8832,6 +8832,10 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
+  - {x: 6.1, y: -7}
+  - {x: 6.1, y: 4.1}
+  - {x: -6.1, y: 4.1}
+  - {x: -6.1, y: -7}
   - {x: -6, y: -7}
   - {x: -6, y: 4}
   - {x: 6, y: 4}
