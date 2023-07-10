@@ -48,7 +48,7 @@ public class BallControler : MonoBehaviour
 		_startingRotation = 0;
 
 		transform.SetParent(_paddle);
-		_arrow.gameObject.SetActive(_selectingRotation);
+		_arrow.gameObject.SetActive(false);
 
 		_lastPosition = transform.localPosition;
 		UpdateBallPosition();
@@ -85,6 +85,16 @@ public class BallControler : MonoBehaviour
 	{
 		InstantiateBall(1);
 		InstantiateBall(-1);
+	}
+
+	public float GetBallSize()
+	{
+		return transform.localScale.x;
+	}
+
+	public float GetBallSpeed()
+	{
+		return _speedMultiplier;
 	}
 	#endregion
 

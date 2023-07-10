@@ -4,12 +4,12 @@ using UnityEngine.UI;
 public class PaddleControls : MonoBehaviour
 {
 	#region Variables
-	private static float MinSizeMultiplier = 0.5f;
-	private static float MaxSizeMultiplier = 2.0f;
+	private static int MinSizeMultiplier = -2;
+	private static int MaxSizeMultiplier = 4;
 
 	[SerializeField] private float _speedGeneral = 10f;
 	[SerializeField] private float _speedMouse = 10f;
-	[SerializeField] private float _sizeMultiplier = 1f;
+	[SerializeField] private int _sizeMultiplier = 0;
 
 	private bool _freezePaddle = false;
 
@@ -17,15 +17,21 @@ public class PaddleControls : MonoBehaviour
 	private Rigidbody2D _paddleRB;
 	#endregion
 
+	public int SizeMultiplier
+	{
+		get { return _sizeMultiplier; }
+		set { _sizeMultiplier = value; }
+	}
+
 	public void ResetPaddle()
 	{
-		_sizeMultiplier = 1f;
+		_sizeMultiplier = 0;
 		ResizePaddle();
 		transform.position = new Vector3(0f, transform.position.y, transform.position.z);
 		_freezePaddle = false;
 	}
 
-	public void ChangePaddleSize(float multiplier)
+	public void ChangePaddleSize(int multiplier)
 	{
 		_sizeMultiplier += multiplier;
 
@@ -49,7 +55,6 @@ public class PaddleControls : MonoBehaviour
 
 	private void Awake()
 	{
-		// _speedMouse = _speed * 0.75f;
 		_sprite = gameObject.GetComponent<SpriteRenderer>();
 		_paddleRB = gameObject.GetComponent<Rigidbody2D>();
 	}
@@ -61,7 +66,8 @@ public class PaddleControls : MonoBehaviour
 
 	private void ResizePaddle()
 	{
-		_sprite.size = new Vector2(_sizeMultiplier, _sprite.size.y);
+		float newSize = 1 + (_sizeMultiplier * 0.25f);
+		_sprite.size = new Vector2(newSize, _sprite.size.y);
 	}
 
 	private void Move()

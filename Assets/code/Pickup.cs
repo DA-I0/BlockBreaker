@@ -45,11 +45,11 @@ public class Pickup : MonoBehaviour
 					break;
 
 				case PickupType.paddle_thin:
-					collision.gameObject.GetComponent<PaddleControls>().ChangePaddleSize(-0.25f);
+					collision.gameObject.GetComponent<PaddleControls>().ChangePaddleSize(-1);
 					break;
 
 				case PickupType.paddle_wide:
-					collision.gameObject.GetComponent<PaddleControls>().ChangePaddleSize(0.25f);
+					collision.gameObject.GetComponent<PaddleControls>().ChangePaddleSize(1);
 					break;
 
 				case PickupType.safetyNet:
@@ -60,7 +60,7 @@ public class Pickup : MonoBehaviour
 					break;
 			}
 
-			GameObject.Find("_system").GetComponent<GameState>().ChangeScore(_pointValue);
+			GameObject.Find("_system").GetComponent<GameScore>().ChangeScore(_pointValue, false);
 			Destroy(gameObject);
 		}
 	}
