@@ -15,6 +15,8 @@ public class PaddleControls : MonoBehaviour
 
 	private SpriteRenderer _sprite;
 	private Rigidbody2D _paddleRB;
+
+	private Settings _settings;
 	#endregion
 
 	public int SizeMultiplier
@@ -57,6 +59,8 @@ public class PaddleControls : MonoBehaviour
 	{
 		_sprite = gameObject.GetComponent<SpriteRenderer>();
 		_paddleRB = gameObject.GetComponent<Rigidbody2D>();
+
+		_settings = GameObject.Find("_system").GetComponent<Settings>();
 	}
 
 	private void FixedUpdate()
@@ -81,11 +85,11 @@ public class PaddleControls : MonoBehaviour
 
 		if (Input.GetAxis("Mouse X") != 0)
 		{
-			paddleTransform = Vector2.right * Input.GetAxis("Mouse X") * _speedMouse;
+			paddleTransform = Vector2.right * Input.GetAxis("Mouse X") * (_speedMouse * _settings.SpeedMouse + 0.1f);
 		}
 		else
 		{
-			paddleTransform = Vector2.right * Input.GetAxis("Horizontal") * _speedGeneral;
+			paddleTransform = Vector2.right * Input.GetAxis("Horizontal") * (_speedGeneral * _settings.SpeedKeyboard + 0.1f);
 		}
 
 		_paddleRB.MovePosition(_paddleRB.position + paddleTransform * Time.deltaTime);

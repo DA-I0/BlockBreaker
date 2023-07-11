@@ -14,7 +14,7 @@ public class Block : MonoBehaviour
 	private int _health;
 
 	private SpriteRenderer _spriteRenderer;
-	private GameState _gameState;
+	private Gameplay _game;
 	private GameScore _gameScore;
 	#endregion
 
@@ -34,7 +34,7 @@ public class Block : MonoBehaviour
 			}
 			else
 			{
-				_gameState.ChangeProgress(_pointValue);
+				_game.ChangeProgress(_pointValue);
 			}
 		}
 	}
@@ -42,7 +42,7 @@ public class Block : MonoBehaviour
 	private void Start()
 	{
 		_spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
-		_gameState = GameObject.Find("_system").GetComponent<GameState>();
+		_game = GameObject.Find("_system").GetComponent<Gameplay>();
 		_gameScore = GameObject.Find("_system").GetComponent<GameScore>();
 		ResetBlock();
 	}

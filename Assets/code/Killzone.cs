@@ -19,7 +19,7 @@ public class Killzone : MonoBehaviour
 			}
 			else
 			{
-				GameObject.Find("_system").GetComponent<GameState>().ChangeLives(-1);
+				GameObject.Find("_system").GetComponent<Gameplay>().ChangeLives(-1);
 			}
 		}
 		else

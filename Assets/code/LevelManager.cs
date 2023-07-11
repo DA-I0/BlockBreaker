@@ -38,11 +38,11 @@ public class LevelManager : MonoBehaviour
 
 	public void Exit()
 	{
-		#if UNITY_EDITOR
+#if UNITY_EDITOR
 			UnityEditor.EditorApplication.isPlaying = false;
-		#else
-			Application.Quit();
-		#endif
+#else
+		Application.Quit();
+#endif
 	}
 	#endregion
 
@@ -73,14 +73,12 @@ public class LevelManager : MonoBehaviour
 		if (scene.buildIndex > 0)
 		{
 			GameObject.Find("UI").GetComponent<UIGameState>().ToggleGameStats(true);
-			GameObject.Find("_system").GetComponent<GameState>().SetupLevel();
-			Cursor.lockState = CursorLockMode.Locked;
+			GameObject.Find("_system").GetComponent<Gameplay>().SetupLevel();
 		}
 		else
 		{
-			GameObject.Find("_system").GetComponent<GameState>().Cleanup(true);
+			GameObject.Find("_system").GetComponent<Gameplay>().Cleanup(true);
 			GameObject.Find("UI").GetComponent<UIGameState>().ToggleGameStats(false);
-			Cursor.lockState = CursorLockMode.None;
 		}
 	}
 

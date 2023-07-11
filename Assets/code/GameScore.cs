@@ -11,7 +11,7 @@ public class GameScore : MonoBehaviour
 	private int _comboChain = 0;
 	private int _scoreMultiplier = 1;
 
-	private GameState _gameState;
+	private Gameplay _gameState;
 	private PaddleControls _paddle;
 	#endregion
 
@@ -66,14 +66,14 @@ public class GameScore : MonoBehaviour
 
 	private void Start()
 	{
-		_gameState = gameObject.GetComponent<GameState>();
+		_gameState = gameObject.GetComponent<Gameplay>();
 		Cleanup();
 	}
 
 	private void UpdateMultiplier()
 	{
 		int chainMultiplier = (_comboChain / 10) + 1;
-		_scoreMultiplier =  (chainMultiplier > _maxChainMultiplier) ? _maxChainMultiplier : chainMultiplier;
+		_scoreMultiplier = (chainMultiplier > _maxChainMultiplier) ? _maxChainMultiplier : chainMultiplier;
 
 		if (_paddle.SizeMultiplier < 0)
 		{

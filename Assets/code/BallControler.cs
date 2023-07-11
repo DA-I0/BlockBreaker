@@ -20,7 +20,7 @@ public class BallControler : MonoBehaviour
 	private Transform _paddle;
 	private Animator _animator;
 
-	private Transform _systemObject;
+	private Gameplay _game;
 
 	private bool _selectingRotation = false;
 	private bool _increasingRotation = true;
@@ -63,7 +63,7 @@ public class BallControler : MonoBehaviour
 		Vector3 newRotation = new Vector3(0f, 0f, _startingRotation);
 		transform.Rotate(newRotation);
 
-		transform.SetParent(_systemObject);
+		transform.SetParent(_game.transform);
 		_animator.StopPlayback();
 	}
 
@@ -102,7 +102,7 @@ public class BallControler : MonoBehaviour
 	private void Awake()
 	{
 		_boostEffect = gameObject.GetComponent<TrailRenderer>();
-		_systemObject = GameObject.Find("_system").transform;
+		_game = GameObject.Find("_system").GetComponent<Gameplay>();
 		_paddle = GameObject.Find("paddle").transform;
 		_animator = gameObject.GetComponent<Animator>();
 		ResetBall(true);
@@ -124,6 +124,11 @@ public class BallControler : MonoBehaviour
 
 	private void BallControls()
 	{
+		if (_game.Mode != GameState.game)
+		{
+			return;
+		}
+
 		if (Input.GetButtonDown("Fire"))
 		{
 			if (_selectingRotation == false)
@@ -146,7 +151,7 @@ public class BallControler : MonoBehaviour
 	// with other elements (mainly moving paddle). Improvements needed.
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
-		_systemObject.GetComponent<GameState>().PlaySound(1);
+		_game.PlaySound(1);
 		Bounce(collision);
 
 		if (collision.gameObject.name != "map_background")
@@ -162,7 +167,7 @@ public class BallControler : MonoBehaviour
 
 	private void UpdateBallPosition()
 	{
-		if (transform.parent == _systemObject)
+		if (transform.parent == _game.transform)
 		{
 			Vector3 newDirection = Vector3.up * _defaultSpeed * _speedMultiplier * Time.deltaTime;
 			transform.Translate(newDirection);
