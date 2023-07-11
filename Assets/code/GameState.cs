@@ -11,11 +11,11 @@ public class GameState : MonoBehaviour
 	[SerializeField] private int _maxLives = 5;
 	[SerializeField] private int _startingLives = 3;
 
-	private int _score = 0;
 	private int _lives = 0;
 	private int _blocksLeft;
 
 	private AudioSource _soundSource;
+	private GameScore _score;
 	private Transform _blocks;
 	private Transform _barriers;
 	private Transform _safetyNet;
@@ -24,12 +24,6 @@ public class GameState : MonoBehaviour
 	#endregion
 
 	#region Properties
-	public int Score
-	{
-		get { return _score; }
-		set { _score = value; }
-	}
-
 	public int Lives
 	{
 		get { return _lives; }
@@ -61,7 +55,7 @@ public class GameState : MonoBehaviour
 
 		if (isFullReset)
 		{
-			_score = 0;
+			_score.Cleanup();
 			_lives = _startingLives;
 			CleanBalls();
 		}
@@ -101,21 +95,13 @@ public class GameState : MonoBehaviour
 
 	public void ChangeProgress(int points)
 	{
-		ChangeScore(points);
+		_score.ChangeScore(points);
 		_blocksLeft--;
 
 		if (_blocksLeft <= 0)
 		{
 			_levelExit.LevelClear(true);
 		}
-	}
-
-	public void ChangeScore(int amount)
-	{
-		_score += amount;
-
-		PlaySound(2);
-		BroadcastMessage("UpdateScore");
 	}
 
 	public void ChangeLives(int amount)
@@ -132,6 +118,7 @@ public class GameState : MonoBehaviour
 			PlaySound(0);
 			_paddle.ResetPaddle();
 			GameObject.Find("ball").GetComponent<BallControler>().ResetBall(true);
+			_score.ResetMultiplier();
 		}
 
 		if (_lives < 0)
@@ -168,6 +155,7 @@ public class GameState : MonoBehaviour
 		}
 
 		_highlander = gameObject;
+		_score = gameObject.GetComponent<GameScore>();
 	}
 
 	private void Start()

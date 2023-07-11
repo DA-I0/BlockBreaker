@@ -10,15 +10,17 @@ public class UIGameState : MonoBehaviour
 	[SerializeField] private TMP_Text _info;
 
 	private GameState _system;
+	private GameScore _gameScore;
 
 	private void Awake()
 	{
 		_system = GameObject.Find("_system").GetComponent<GameState>();
+		_gameScore = GameObject.Find("_system").GetComponent<GameScore>();
 	}
 
 	private void FixedUpdate()
 	{
-		_info.text = "[ESC] - Quit to menu\n[R] - restart\nBlocks remaining: " + _system.BlocksLeft.ToString();
+		_info.text = $"[ESC] - Quit to menu\n[R] - reset ball (-1 life)\nBlocks remaining: {_system.BlocksLeft.ToString()}";
 	}
 
 	public void ToggleGameStats(bool hide)
@@ -29,7 +31,7 @@ public class UIGameState : MonoBehaviour
 
 	public void UpdateScore()
 	{
-		_score.text = "SCORE: " + _system.Score.ToString();
+		_score.text = $"SCORE: {_gameScore.Score.ToString()} (x{_gameScore.Multiplier.ToString()})";
 	}
 
 	public void UpdateLives()

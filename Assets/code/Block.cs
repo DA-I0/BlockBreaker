@@ -15,6 +15,7 @@ public class Block : MonoBehaviour
 
 	private SpriteRenderer _spriteRenderer;
 	private GameState _gameState;
+	private GameScore _gameScore;
 	#endregion
 
 	public void Damage(int power)
@@ -29,7 +30,7 @@ public class Block : MonoBehaviour
 
 			if (gameObject.tag == "barrier")
 			{
-				_gameState.ChangeScore(_pointValue);
+				_gameScore.ChangeScore(_pointValue);
 			}
 			else
 			{
@@ -42,6 +43,7 @@ public class Block : MonoBehaviour
 	{
 		_spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
 		_gameState = GameObject.Find("_system").GetComponent<GameState>();
+		_gameScore = GameObject.Find("_system").GetComponent<GameScore>();
 		ResetBlock();
 	}
 
