@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameState : MonoBehaviour
+public class Gameplay : MonoBehaviour
 {
 	#region Variables
 	public static GameObject _highlander;
+
+	private GameState _gameState = GameState.game;
 
 	[SerializeField] private AudioClip[] _sounds;
 	[SerializeField] private int _maxLives = 5;
@@ -15,15 +17,21 @@ public class GameState : MonoBehaviour
 	private int _blocksLeft;
 
 	private AudioSource _soundSource;
-	private GameScore _score;
+	private GameScore _gameScore;
 	private Transform _blocks;
 	private Transform _barriers;
 	private Transform _safetyNet;
 	private PaddleControls _paddle;
 	private LevelExit _levelExit;
+	private Settings _settings;
 	#endregion
 
 	#region Properties
+	public GameState Mode
+	{
+		get { return _gameState; }
+	}
+
 	public int Lives
 	{
 		get { return _lives; }
@@ -55,7 +63,7 @@ public class GameState : MonoBehaviour
 
 		if (isFullReset)
 		{
-			_score.Cleanup();
+			_gameScore.Cleanup();
 			_lives = _startingLives;
 			CleanBalls();
 		}
@@ -65,11 +73,13 @@ public class GameState : MonoBehaviour
 			_paddle.ResetPaddle();
 			_paddle.gameObject.SetActive(false);
 		}
+
+		ChangeGameState("menu");
 	}
 
 	public void PlaySound(int type)
 	{
-		_soundSource.PlayOneShot(_sounds[type], 0.5f);
+		_soundSource.PlayOneShot(_sounds[type], _settings.Volume);
 	}
 
 	public void StartFreshGame()
@@ -91,11 +101,12 @@ public class GameState : MonoBehaviour
 
 		BroadcastMessage("UpdateScore");
 		BroadcastMessage("UpdateLives");
+		ChangeGameState("game");
 	}
 
 	public void ChangeProgress(int points)
 	{
-		_score.ChangeScore(points);
+		_gameScore.ChangeScore(points);
 		_blocksLeft--;
 
 		if (_blocksLeft <= 0)
@@ -118,7 +129,7 @@ public class GameState : MonoBehaviour
 			PlaySound(0);
 			_paddle.ResetPaddle();
 			GameObject.Find("ball").GetComponent<BallControler>().ResetBall(true);
-			_score.ResetMultiplier();
+			_gameScore.ResetMultiplier();
 		}
 
 		if (_lives < 0)
@@ -143,6 +154,28 @@ public class GameState : MonoBehaviour
 			}
 		}
 	}
+
+	public void ChangeGameState(string newState)
+	{
+		switch (newState)
+		{
+			case "game":
+				_gameState = GameState.game;
+				Time.timeScale = 1f;
+				break;
+
+			case "pause":
+				_gameState = GameState.pause;
+				Time.timeScale = 0f;
+				break;
+
+			default:
+				_gameState = GameState.menu;
+				break;
+		}
+
+		BroadcastMessage("TogglePauseMenu");
+	}
 	#endregion
 
 	#region Methods (private)
@@ -155,7 +188,8 @@ public class GameState : MonoBehaviour
 		}
 
 		_highlander = gameObject;
-		_score = gameObject.GetComponent<GameScore>();
+		_settings = gameObject.GetComponent<Settings>();
+		_gameScore = gameObject.GetComponent<GameScore>();
 	}
 
 	private void Start()
@@ -191,9 +225,18 @@ public class GameState : MonoBehaviour
 			ChangeLives(-1);
 		}
 
-		if (Input.GetButtonDown("Cancel"))
+		if (_gameState != GameState.menu && Input.GetButtonDown("Cancel"))
 		{
-			gameObject.GetComponent<LevelManager>().LoadMainMenu();
+			if (_gameState == GameState.game)
+			{
+				ChangeGameState("pause");
+			}
+			else
+			{
+				ChangeGameState("game");
+			}
+
+			BroadcastMessage("TogglePauseMenu");
 		}
 	}
 	#endregion

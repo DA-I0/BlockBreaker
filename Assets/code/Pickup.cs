@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-enum PickupType { ball_fast, ball_multi, ball_small, ghost, life, paddle_thin, paddle_wide, safetyNet };
-
 public class Pickup : MonoBehaviour
 {
 	[SerializeField] private PickupType _type;
@@ -37,11 +35,11 @@ public class Pickup : MonoBehaviour
 					break;
 
 				case PickupType.ghost:
-					GameObject.Find("_system").GetComponent<GameState>().ChangeLives(-1);
+					GameObject.Find("_system").GetComponent<Gameplay>().ChangeLives(-1);
 					break;
 
 				case PickupType.life:
-					GameObject.Find("_system").GetComponent<GameState>().ChangeLives(1);
+					GameObject.Find("_system").GetComponent<Gameplay>().ChangeLives(1);
 					break;
 
 				case PickupType.paddle_thin:
@@ -53,7 +51,7 @@ public class Pickup : MonoBehaviour
 					break;
 
 				case PickupType.safetyNet:
-					GameObject.Find("_system").GetComponent<GameState>().ToggleSafetyNet(true);
+					GameObject.Find("_system").GetComponent<Gameplay>().ToggleSafetyNet(true);
 					break;
 
 				default:
