@@ -7,8 +7,6 @@ public class PaddleControls : MonoBehaviour
 	private static int MinSizeMultiplier = -2;
 	private static int MaxSizeMultiplier = 4;
 
-	[SerializeField] private float _speedGeneral = 10f;
-	[SerializeField] private float _speedMouse = 10f;
 	[SerializeField] private int _sizeMultiplier = 0;
 
 	private bool _freezePaddle = false;
@@ -85,11 +83,11 @@ public class PaddleControls : MonoBehaviour
 
 		if (Input.GetAxis("Mouse X") != 0)
 		{
-			paddleTransform = Vector2.right * Input.GetAxis("Mouse X") * (_speedMouse * _settings.SpeedMouse + 0.1f);
+			paddleTransform = Vector2.right * Input.GetAxis("Mouse X") * _settings.SpeedMouse;
 		}
 		else
 		{
-			paddleTransform = Vector2.right * Input.GetAxis("Horizontal") * (_speedGeneral * _settings.SpeedKeyboard + 0.1f);
+			paddleTransform = Vector2.right * Input.GetAxis("Horizontal") * _settings.SpeedKeyboard;
 		}
 
 		_paddleRB.MovePosition(_paddleRB.position + paddleTransform * Time.deltaTime);

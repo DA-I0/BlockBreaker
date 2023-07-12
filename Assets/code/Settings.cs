@@ -6,8 +6,8 @@ public class Settings : MonoBehaviour
 
 	[SerializeField] private float _volume = 0.5f;
 
-	[SerializeField] private float _speedMouse = 1.0f;
-	[SerializeField] private float _speedKeyboard = 1.0f;
+	[SerializeField] private int _speedMouse = 10;
+	[SerializeField] private int _speedKeyboard = 10;
 
 	FileOperations fileOperations;
 
@@ -17,13 +17,13 @@ public class Settings : MonoBehaviour
 		set { _volume = value; }
 	}
 
-	public float SpeedMouse
+	public int SpeedMouse
 	{
 		get { return _speedMouse; }
 		set { _speedMouse = value; }
 	}
 
-	public float SpeedKeyboard
+	public int SpeedKeyboard
 	{
 		get { return _speedKeyboard; }
 		set { _speedKeyboard = value; }
@@ -32,8 +32,8 @@ public class Settings : MonoBehaviour
 	public void SetDefaultValues()
 	{
 		_volume = 0.5f;
-		_speedMouse = 1.0f;
-		_speedKeyboard = 1.0f;
+		_speedMouse = 14;
+		_speedKeyboard = 14;
 	}
 
 	public SettingsFile ExportSettings()

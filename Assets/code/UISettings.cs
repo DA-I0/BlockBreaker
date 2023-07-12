@@ -4,9 +4,9 @@ using UnityEngine.UI;
 
 public class UISettings : MonoBehaviour
 {
-	[SerializeField] private Scrollbar _volume;
-	[SerializeField] private Scrollbar _speedMouse;
-	[SerializeField] private Scrollbar _speedKeyboard;
+	[SerializeField] private Slider _volume;
+	[SerializeField] private Slider _speedMouse;
+	[SerializeField] private Slider _speedKeyboard;
 
 	private Settings _settings;
 
@@ -20,8 +20,8 @@ public class UISettings : MonoBehaviour
 	public void SetValues()
 	{
 		_settings.Volume = _volume.value;
-		_settings.SpeedMouse = _speedMouse.value;
-		_settings.SpeedKeyboard = _speedKeyboard.value;
+		_settings.SpeedMouse = (int)_speedMouse.value;
+		_settings.SpeedKeyboard = (int)_speedKeyboard.value;
 		_settings.SaveSettings();
 	}
 

@@ -6,6 +6,6 @@ public enum PickupType { ball_fast, ball_multi, ball_small, ghost, life, paddle_
 public struct SettingsFile
 {
 	public float volume;
-	public float speedMouse;
-	public float speedKeyboard;
+	public int speedMouse;
+	public int speedKeyboard;
 }
