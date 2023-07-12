@@ -111,6 +111,7 @@ public class Gameplay : MonoBehaviour
 
 		if (_blocksLeft <= 0)
 		{
+			_gameScore.InvokeExitTimer();
 			_levelExit.LevelClear(true);
 		}
 	}

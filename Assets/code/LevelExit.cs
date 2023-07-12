@@ -29,6 +29,7 @@ public class LevelExit : MonoBehaviour
 	{
 		if (collider.gameObject.tag == "ball")
 		{
+			GameObject.Find("_system").GetComponent<GameScore>().AddBonusScore();
 			gameObject.GetComponent<LevelManager>().NextLevel();
 		}
 	}

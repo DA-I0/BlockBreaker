@@ -9,6 +9,7 @@ public class UIGameState : MonoBehaviour
 	[SerializeField] private TMP_Text _score;
 	[SerializeField] private Transform _lives;
 	[SerializeField] private TMP_Text _info;
+	[SerializeField] private TMP_Text _bonusTime;
 
 	private Gameplay _system;
 	private GameScore _gameScore;
@@ -17,6 +18,8 @@ public class UIGameState : MonoBehaviour
 	{
 		_system = GameObject.Find("_system").GetComponent<Gameplay>();
 		_gameScore = GameObject.Find("_system").GetComponent<GameScore>();
+
+		_bonusTime.transform.parent.gameObject.SetActive(false);
 	}
 
 	private void FixedUpdate()
@@ -55,6 +58,13 @@ public class UIGameState : MonoBehaviour
 		{
 			live.gameObject.SetActive(live.GetSiblingIndex() < _system.Lives);
 		}
+	}
+
+	public void UpdateTimer()
+	{
+		_bonusTime.transform.parent.gameObject.SetActive(_gameScore.TimeToExit > 0);
+
+		_bonusTime.text = _gameScore.TimeToExit.ToString();
 	}
 
 	public void ToggleCursor()

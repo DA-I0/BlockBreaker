@@ -5,11 +5,14 @@ public class GameScore : MonoBehaviour
 	#region Variables
 	private static int _maxMultiplier = 10;
 	private static int _maxChainMultiplier = 5;
+	private static int _bonusTime = 60;
 
 	private int _score = 0;
 
 	private int _comboChain = 0;
 	private int _scoreMultiplier = 1;
+
+	private int _timeToExit = -1;
 
 	private Gameplay _gameState;
 	private PaddleControls _paddle;
@@ -27,6 +30,10 @@ public class GameScore : MonoBehaviour
 		get { return _scoreMultiplier; }
 		set { _scoreMultiplier = value; }
 	}
+
+	public int TimeToExit { get => _timeToExit; set => _timeToExit = value; }
+
+
 	#endregion
 
 	#region Methods (public)
@@ -55,6 +62,20 @@ public class GameScore : MonoBehaviour
 		_comboChain = 0;
 		_scoreMultiplier = 1;
 		BroadcastMessage("UpdateScore");
+	}
+
+	public void InvokeExitTimer()
+	{
+		_timeToExit = _bonusTime;
+		BroadcastMessage("UpdateTimer");
+		Invoke("DecreaseBonusTimer", 1f);
+	}
+
+	public void AddBonusScore()
+	{
+		ChangeScore(_timeToExit, false);
+		_timeToExit = -1;
+		BroadcastMessage("UpdateTimer");
 	}
 	#endregion
 
@@ -107,6 +128,19 @@ public class GameScore : MonoBehaviour
 		{
 			_scoreMultiplier = _maxMultiplier;
 		}
+	}
+
+	private void DecreaseBonusTimer()
+	{
+		_timeToExit--;
+		BroadcastMessage("UpdateTimer");
+
+		if (_timeToExit > 0)
+		{
+			Invoke("DecreaseBonusTimer", 1f);
+		}
+
+		Debug.Log("exit timer: " + _timeToExit);
 	}
 	#endregion
 }
