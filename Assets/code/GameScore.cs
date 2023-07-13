@@ -139,8 +139,6 @@ public class GameScore : MonoBehaviour
 		{
 			Invoke("DecreaseBonusTimer", 1f);
 		}
-
-		Debug.Log("exit timer: " + _timeToExit);
 	}
 	#endregion
 }

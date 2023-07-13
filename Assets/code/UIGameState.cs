@@ -24,7 +24,7 @@ public class UIGameState : MonoBehaviour
 
 	private void FixedUpdate()
 	{
-		_info.text = $"[ESC] - Quit to menu\n[R] - reset ball (-1 life)\nBlocks remaining: {_system.BlocksLeft.ToString()}";
+		_info.text = $"[ESC] - Pause\n[R] - reset ball (-1 life)\nBlocks remaining: {_system.BlocksLeft.ToString()}";
 	}
 
 	public void ToggleGameStats(bool hide)
