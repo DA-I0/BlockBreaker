@@ -5,10 +5,24 @@ using UnityEngine;
 public class Hazard_Whirpool : MonoBehaviour
 {
 	private GameObject _ball;
+	private bool _active = true;
+	[SerializeField] private int _deactivationTime = 10;
+	[SerializeField] private Color deactivatedColor;
+
+	private int _timeLeft = -1;
+
+	private SpriteRenderer _spriteRenderer;
+	private Animator _animator;
+
+	private void Awake()
+	{
+		_spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+		_animator = gameObject.GetComponent<Animator>();
+	}
 
 	private void OnTriggerEnter2D(Collider2D collider)
 	{
-		if (collider.gameObject.tag == "ball" && _ball == null)
+		if (_active && collider.gameObject.tag == "ball" && _ball == null)
 		{
 			Physics2D.IgnoreCollision(collider, GetComponent<Collider2D>(), true);
 
@@ -28,6 +42,7 @@ public class Hazard_Whirpool : MonoBehaviour
 	{
 		_ball.transform.SetParent(GameObject.Find("_system").transform);
 		_ball = null;
+		StartTimer();
 	}
 
 	private void OnTriggerExit2D(Collider2D collider)
@@ -35,6 +50,32 @@ public class Hazard_Whirpool : MonoBehaviour
 		if (collider.gameObject.tag == "ball")
 		{
 			Physics2D.IgnoreCollision(collider, GetComponent<Collider2D>(), false);
+		}
+	}
+
+	private void StartTimer()
+	{
+		_timeLeft = _deactivationTime;
+		ToggleHazard();
+		Invoke("Timer", 1f);
+	}
+
+	private void ToggleHazard()
+	{
+		_active = _timeLeft <= 0;
+		_spriteRenderer.color = _active ? Color.white : deactivatedColor;
+		_animator.speed = _active ? 1f : 0f;
+	}
+
+	private void Timer()
+	{
+		_timeLeft--;
+		ToggleHazard();
+
+		if (_timeLeft > 0)
+		{
+			Invoke("Timer", 1f);
+			return;
 		}
 	}
 }

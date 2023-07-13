@@ -157,3 +157,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aede03da7c8f6b16b40b27bb1cedf9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _deactivationTime: 10
+  deactivatedColor: {r: 1, g: 1, b: 1, a: 0.5019608}
