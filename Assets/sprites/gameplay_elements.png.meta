@@ -577,6 +577,48 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: teleport
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 8
+        width: 19
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a33cc6a825a9252b8f32f370d2fde85
+      internalID: -1459516526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: teleport_door
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 9
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7539b7f95756317fbb21ff5166913b22
+      internalID: -2046508673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -603,10 +645,12 @@ TextureImporter:
       coffin_01: 228781567
       coffin_02: 192102870
       exit: 1147298146
+      teleport: -1459516526
       exit_door: 2119298630
       exit_arrow_02: -585710305
       direction_arrow: 1264367479
       block_sturdy_01: 859002887
+      teleport_door: -2046508673
       block_normal: -360952536
       block_sturdy_03: 997310275
       barrier_breakable_01: 1975257067
