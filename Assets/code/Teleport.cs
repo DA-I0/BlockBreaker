@@ -5,7 +5,7 @@ public class Teleport : MonoBehaviour
 	[SerializeField] private bool _active;
 	[SerializeField] private GameObject _door;
 	[SerializeField] private Transform _linkedDoor;
-	[SerializeField] private float _ballDisplacement = 0.8f;
+	[SerializeField] private float _ballDisplacement = 0.8f; // replace with "gameObject.GetComponent<CircleCollider2D>().radius * 2"?
 	[SerializeField] private float _reactivationDelay = 1f;
 	private BoxCollider2D _trigger;
 

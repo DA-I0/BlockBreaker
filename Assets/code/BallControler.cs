@@ -3,6 +3,7 @@ using UnityEngine;
 public class BallControler : MonoBehaviour
 {
 	#region Variables
+	private static float MinTravelDistance = 0.00005f;
 	private static float DebugRayLength = 1f;
 	private static float FlatAngleFixValue = 4f;
 	private static int MaxStartingAngle = 60;
@@ -46,6 +47,7 @@ public class BallControler : MonoBehaviour
 		_startingRotation = 0;
 
 		transform.SetParent(_paddle);
+		_selectingRotation = false;
 		_arrow.gameObject.SetActive(false);
 
 		_lastPosition = transform.localPosition;
@@ -62,6 +64,7 @@ public class BallControler : MonoBehaviour
 		transform.Rotate(newRotation);
 
 		transform.SetParent(_game.transform);
+		_animator.Play("Base Layer.ball_rolling", 0, _speedMultiplier);
 		_animator.StopPlayback();
 	}
 
@@ -165,6 +168,15 @@ public class BallControler : MonoBehaviour
 
 	private void UpdateBallPosition()
 	{
+		if (transform.parent == _paddle)
+		{
+			Vector3 newPosition = _paddle.position;
+			newPosition.y += gameObject.GetComponent<CircleCollider2D>().radius * 2;
+			transform.position = newPosition;
+			transform.rotation = Quaternion.Euler(Vector3.zero);
+			return;
+		}
+
 		if (transform.parent == _game.transform)
 		{
 			Vector3 newDirection = Vector3.up * _defaultSpeed * _speedMultiplier * Time.deltaTime;
@@ -172,15 +184,6 @@ public class BallControler : MonoBehaviour
 
 			EmergencyBounce();
 			_lastPosition = transform.localPosition;
-			return;
-		}
-
-		if (transform.parent == _paddle)
-		{
-			Vector3 newPosition = _paddle.position;
-			newPosition.y += gameObject.GetComponent<CircleCollider2D>().radius * 2;
-			transform.position = newPosition;
-			transform.rotation = Quaternion.Euler(Vector3.zero);
 			return;
 		}
 
@@ -255,7 +258,7 @@ public class BallControler : MonoBehaviour
 
 	private void EmergencyBounce()
 	{
-		if (_lastPosition.x == transform.localPosition.x || _lastPosition.y == transform.localPosition.y)
+		if (IsBallStuck())
 		{
 			Vector3 newRotation = new Vector3(0f, 0f, AngleCheck(transform.rotation.z, 180f));
 			transform.Rotate(newRotation);
@@ -274,6 +277,21 @@ public class BallControler : MonoBehaviour
 			)
 		);
 		newBall.name = "ball";
+	}
+
+	private bool IsBallStuck()
+	{
+		if (Mathf.Abs(_lastPosition.x - transform.localPosition.x) < MinTravelDistance)
+		{
+			return true;
+		}
+
+		if (Mathf.Abs(_lastPosition.y - transform.localPosition.y) < MinTravelDistance)
+		{
+			return true;
+		}
+
+		return false;
 	}
 	#endregion
 }

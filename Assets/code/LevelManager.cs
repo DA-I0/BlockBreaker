@@ -25,7 +25,9 @@ public class LevelManager : MonoBehaviour
 
 	public void NextLevel()
 	{
+		GameObject.Find("_system").GetComponent<GameScore>().AddBonusScore();
 		Scene currentScene = SceneManager.GetActiveScene();
+
 		if (currentScene.buildIndex < SceneManager.sceneCountInBuildSettings - 1)
 		{
 			SceneManager.LoadScene(currentScene.buildIndex + 1);

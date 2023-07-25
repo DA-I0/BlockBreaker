@@ -3,16 +3,16 @@ using UnityEngine;
 public class GameScore : MonoBehaviour
 {
 	#region Variables
-	private static int _maxMultiplier = 10;
-	private static int _maxChainMultiplier = 5;
-	private static int _bonusTime = 60;
+	private static int MaxMultiplier = 10;
+	private static int MaxChainMultiplier = 5;
+	private static int BonusTime = 60;
 
 	private int _score = 0;
 
 	private int _comboChain = 0;
 	private int _scoreMultiplier = 1;
 
-	private int _timeToExit = -1;
+	private int _timeToExit = -99;
 
 	private Gameplay _gameState;
 	private PaddleControls _paddle;
@@ -31,7 +31,11 @@ public class GameScore : MonoBehaviour
 		set { _scoreMultiplier = value; }
 	}
 
-	public int TimeToExit { get => _timeToExit; set => _timeToExit = value; }
+	public int TimeToExit
+	{
+		get { return _timeToExit; }
+		set { _timeToExit = value; }
+	}
 
 
 	#endregion
@@ -41,9 +45,10 @@ public class GameScore : MonoBehaviour
 	{
 		_score = 0;
 		ResetMultiplier();
+		ResetTimer();
 	}
 
-	public void ChangeScore(int amount, bool increaseCombo = true)
+	public void ChangeScore(int pointValue, bool increaseCombo = true)
 	{
 		if (increaseCombo)
 		{
@@ -51,7 +56,7 @@ public class GameScore : MonoBehaviour
 		}
 
 		UpdateMultiplier();
-		_score += amount * _scoreMultiplier;
+		_score += pointValue * _scoreMultiplier;
 
 		_gameState.PlaySound(2);
 		BroadcastMessage("UpdateScore");
@@ -66,16 +71,19 @@ public class GameScore : MonoBehaviour
 
 	public void InvokeExitTimer()
 	{
-		_timeToExit = _bonusTime;
+		_timeToExit = BonusTime;
 		BroadcastMessage("UpdateTimer");
 		Invoke("DecreaseBonusTimer", 1f);
 	}
 
 	public void AddBonusScore()
 	{
-		ChangeScore(_timeToExit, false);
-		_timeToExit = -1;
-		BroadcastMessage("UpdateTimer");
+		if (_timeToExit > 0)
+		{
+			ChangeScore(_timeToExit, false);
+		}
+
+		ResetTimer();
 	}
 	#endregion
 
@@ -94,7 +102,7 @@ public class GameScore : MonoBehaviour
 	private void UpdateMultiplier()
 	{
 		int chainMultiplier = (_comboChain / 10) + 1;
-		_scoreMultiplier = (chainMultiplier > _maxChainMultiplier) ? _maxChainMultiplier : chainMultiplier;
+		_scoreMultiplier = (chainMultiplier > MaxChainMultiplier) ? MaxChainMultiplier : chainMultiplier;
 
 		if (_paddle.SizeMultiplier < 0)
 		{
@@ -124,9 +132,9 @@ public class GameScore : MonoBehaviour
 			return;
 		}
 
-		if (_scoreMultiplier > _maxMultiplier)
+		if (_scoreMultiplier > MaxMultiplier)
 		{
-			_scoreMultiplier = _maxMultiplier;
+			_scoreMultiplier = MaxMultiplier;
 		}
 	}
 
@@ -139,6 +147,12 @@ public class GameScore : MonoBehaviour
 		{
 			Invoke("DecreaseBonusTimer", 1f);
 		}
+	}
+
+	private void ResetTimer()
+	{
+		_timeToExit = -99;
+		BroadcastMessage("UpdateTimer");
 	}
 	#endregion
 }

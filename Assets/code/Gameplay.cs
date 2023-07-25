@@ -83,6 +83,7 @@ public class Gameplay : MonoBehaviour
 	public void StartFreshGame()
 	{
 		CleanBalls();
+		_paddle.ResetPaddle();
 
 		foreach (Transform block in _blocks)
 		{

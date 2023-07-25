@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1964649102769743914}
   m_Layer: 0
   m_Name: safety_block
-  m_TagString: Untagged
+  m_TagString: barrier
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -146,8 +146,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 900056c7622d34c8a9fee468e523771c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointValue: 0
-  maxHealth: 1
-  sprites: []
-  pickupChance: 0
-  pickups: []
+  _pointValue: 0
+  _maxHealth: 1
+  _sprites: []
+  _pickupSpawnChance: 0.1
+  _pickups: []
