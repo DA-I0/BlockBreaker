@@ -49,7 +49,7 @@ public class Pickup : MonoBehaviour
 					break;
 
 				case PickupType.safetyNet:
-					GameObject.Find("_system").GetComponent<Gameplay>().ToggleSafetyNet(true);
+					GameObject.Find("_system").GetComponent<Gameplay>().DisplaySafetyNet(true);
 					break;
 
 				default:
@@ -64,10 +64,5 @@ public class Pickup : MonoBehaviour
 	private GameObject[] FindAllBalls()
 	{
 		return GameObject.FindGameObjectsWithTag("ball");
-	}
-
-	private void Explode()
-	{
-		Destroy(gameObject);
 	}
 }

@@ -2,12 +2,13 @@ using UnityEngine;
 
 public class Hazard_Whirpool : MonoBehaviour
 {
-	private GameObject _ball;
-	private bool _active = true;
 	[SerializeField] private int _deactivationTime = 10;
 	[SerializeField] private Color deactivatedColor;
 
+	private bool _active = true;
 	private int _timeLeft = -1;
+
+	private GameObject _ball;
 
 	private SpriteRenderer _spriteRenderer;
 	private Animator _animator;

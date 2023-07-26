@@ -5,8 +5,8 @@ public class Teleport : MonoBehaviour
 	[SerializeField] private bool _active;
 	[SerializeField] private GameObject _door;
 	[SerializeField] private Transform _linkedDoor;
-	[SerializeField] private float _ballDisplacement = 0.8f; // replace with "gameObject.GetComponent<CircleCollider2D>().radius * 2"?
-	[SerializeField] private float _reactivationDelay = 1f;
+	[SerializeField] private float _ballDisplacement = 0.6f;
+	[SerializeField] private float _reactivationDelay = 3f;
 	private BoxCollider2D _trigger;
 
 	public void UpdateDoorState(bool isActive, bool updateLinked = true)
@@ -27,23 +27,13 @@ public class Teleport : MonoBehaviour
 		{
 			Transform ball = collider.transform;
 
-			float angleChange = (_linkedDoor.rotation.z != 0) ? _linkedDoor.rotation.z : 180;
-			Vector3 newRotation = new Vector3(0f, 0f, ball.rotation.z + angleChange);
-			ball.Rotate(newRotation);
+			float angleChange = -(_linkedDoor.eulerAngles.z - transform.eulerAngles.z);
+			ball.GetComponent<BallControler>().RotateBall(angleChange);
 
 			_linkedDoor.GetComponent<Teleport>().UpdateDoorState(false, false);
-
-			if (transform.rotation.z != 0)
-			{
-				ball.position = _linkedDoor.position + (transform.up * _ballDisplacement);
-			}
-			else
-			{
-				ball.position = _linkedDoor.position - (transform.up * _ballDisplacement);
-			}
+			ball.position = _linkedDoor.position - (_linkedDoor.up * _ballDisplacement);
 
 			UpdateDoorState(false, false);
-			Time.timeScale = 0f;
 		}
 	}
 

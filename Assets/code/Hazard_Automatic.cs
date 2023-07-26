@@ -2,10 +2,8 @@ using UnityEngine;
 
 public class Hazard_Automatic : MonoBehaviour
 {
-	[SerializeField]
-	private bool isActivated = false;
-	[SerializeField]
-	private float _stateChangeDelay = 1f;
+	[SerializeField] private bool isActivated = false;
+	[SerializeField] private float _stateChangeDelay = 1f;
 
 	private Animator _animator;
 

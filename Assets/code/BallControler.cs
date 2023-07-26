@@ -6,20 +6,14 @@ public class BallControler : MonoBehaviour
 	private static float MinTravelDistance = 0.00005f;
 	private static float DebugRayLength = 1f;
 	private static float FlatAngleFixValue = 4f;
-	private static int MaxStartingAngle = 60;
+	private static int MaxReleaseAngle = 60;
 	private static float BounceAnimationSpeed = 0.35f;
 
 	[SerializeField] private float _defaultSpeed = 5f;
 	[SerializeField] private float _multiBallSpawnAngle = 30f;
 
+	// In-game used variables
 	private float _speedMultiplier = 1f;
-
-	[SerializeField] private Transform _arrow;
-	private TrailRenderer _boostEffect;
-	private Transform _paddle;
-	private Animator _animator;
-
-	private Gameplay _game;
 
 	private bool _selectingRotation = false;
 	private bool _increasingRotation = true;
@@ -27,6 +21,14 @@ public class BallControler : MonoBehaviour
 
 	private bool _bounced = false;
 	private Vector3 _lastPosition = Vector3.zero;
+
+	// References
+	[SerializeField] private Transform _arrow;
+	private TrailRenderer _boostEffect;
+	private Transform _paddle;
+	private Animator _animator;
+
+	private Gameplay _game;
 	#endregion
 
 	#region Methods (public)
@@ -68,6 +70,19 @@ public class BallControler : MonoBehaviour
 		_animator.StopPlayback();
 	}
 
+	public void RotateBall(float turnAngle)
+	{
+		float newAngle = transform.rotation.z + turnAngle;
+
+		if (IsAngleFlat(newAngle))
+		{
+			newAngle += (turnAngle < 0) ? FlatAngleFixValue : -FlatAngleFixValue;
+		}
+
+		Vector3 newRotation = new Vector3(0f, 0f, newAngle);
+		transform.Rotate(newRotation);
+	}
+
 	public void ChangeSpeed(float multiplier)
 	{
 		_speedMultiplier = multiplier;
@@ -88,14 +103,14 @@ public class BallControler : MonoBehaviour
 		InstantiateBall(-1);
 	}
 
-	public float GetBallSize()
-	{
-		return transform.localScale.x;
-	}
-
 	public float GetBallSpeed()
 	{
 		return _speedMultiplier;
+	}
+
+	public float GetBallSize()
+	{
+		return transform.localScale.x;
 	}
 	#endregion
 
@@ -136,7 +151,7 @@ public class BallControler : MonoBehaviour
 			{
 				_paddle.GetComponent<PaddleControls>().BlockPaddleMovement(true);
 				_selectingRotation = true;
-				RotationSelect();
+				BallRotationSelect();
 			}
 			else
 			{
@@ -205,8 +220,7 @@ public class BallControler : MonoBehaviour
 		Vector2 temp = new Vector2(transform.up.x, transform.up.y);
 
 		float toRotate = Vector2.SignedAngle(temp, reflectNormal);
-		Vector3 newRotation = new Vector3(0f, 0f, AngleCheck(transform.rotation.z, toRotate));
-		transform.Rotate(newRotation);
+		RotateBall(toRotate);
 
 		Debug.DrawRay(collision.GetContact(0).point, reflectNormal * DebugRayLength, Color.red, 10f);
 
@@ -218,18 +232,6 @@ public class BallControler : MonoBehaviour
 		_bounced = true;
 	}
 
-	private float AngleCheck(float currentAngle, float turnAngle)
-	{
-		float newAngle = currentAngle + turnAngle;
-
-		if (IsAngleFlat(newAngle))
-		{
-			newAngle += (turnAngle < 0) ? FlatAngleFixValue : -FlatAngleFixValue;
-		}
-
-		return newAngle;
-	}
-
 	private bool IsAngleFlat(float currentAngle)
 	{
 		float angleLean = currentAngle % 90;
@@ -238,11 +240,11 @@ public class BallControler : MonoBehaviour
 		Mathf.Abs(angleLean) <= 2 && Mathf.Abs(angleLean) >= -2);
 	}
 
-	private void RotationSelect()
+	private void BallRotationSelect()
 	{
 		if (_selectingRotation)
 		{
-			if (_startingRotation >= MaxStartingAngle || _startingRotation <= -MaxStartingAngle)
+			if (_startingRotation >= MaxReleaseAngle || _startingRotation <= -MaxReleaseAngle)
 			{
 				_increasingRotation = !_increasingRotation;
 			}
@@ -252,7 +254,7 @@ public class BallControler : MonoBehaviour
 			Vector3 newRotation = new Vector3(0f, 0f, _startingRotation);
 
 			_arrow.rotation = Quaternion.Euler(newRotation);
-			Invoke("RotationSelect", 0.01f);
+			Invoke("BallRotationSelect", 0.01f);
 		}
 	}
 
@@ -260,8 +262,7 @@ public class BallControler : MonoBehaviour
 	{
 		if (IsBallStuck())
 		{
-			Vector3 newRotation = new Vector3(0f, 0f, AngleCheck(transform.rotation.z, 180f));
-			transform.Rotate(newRotation);
+			RotateBall(180f);
 			Debug.Log("emergency bounce!");
 		}
 	}
@@ -273,10 +274,13 @@ public class BallControler : MonoBehaviour
 			new Vector3(
 				0f,
 				0f,
-				newBall.transform.rotation.z + (_multiBallSpawnAngle * spawnDirection)
+				transform.eulerAngles.z + (_multiBallSpawnAngle * spawnDirection)
 			)
 		);
+
 		newBall.name = "ball";
+		newBall.GetComponent<BallControler>().ChangeSpeed(_speedMultiplier);
+		newBall.GetComponent<BallControler>().ChangeSize(transform.localScale.x);
 	}
 
 	private bool IsBallStuck()

@@ -19,13 +19,17 @@ public class PaddleControls : MonoBehaviour
 	public int SizeMultiplier
 	{
 		get { return _sizeMultiplier; }
-		set { _sizeMultiplier = value; }
 	}
 
 	public void ResetPaddle()
 	{
 		_sizeMultiplier = 0;
 		ResizePaddle();
+		RecenterPaddle();
+	}
+
+	public void RecenterPaddle()
+	{
 		transform.position = new Vector3(0f, transform.position.y, transform.position.z);
 		_freezePaddle = false;
 	}
@@ -65,12 +69,6 @@ public class PaddleControls : MonoBehaviour
 		Move();
 	}
 
-	private void ResizePaddle()
-	{
-		float newSize = 1 + (_sizeMultiplier * 0.25f);
-		_sprite.size = new Vector2(newSize, _sprite.size.y);
-	}
-
 	private void Move()
 	{
 		if (_freezePaddle)
@@ -90,5 +88,11 @@ public class PaddleControls : MonoBehaviour
 		}
 
 		_paddleRB.MovePosition(_paddleRB.position + paddleTransform * Time.deltaTime);
+	}
+
+	private void ResizePaddle()
+	{
+		float newSize = 1 + (_sizeMultiplier * 0.25f);
+		_sprite.size = new Vector2(newSize, _sprite.size.y);
 	}
 }

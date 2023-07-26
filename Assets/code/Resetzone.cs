@@ -4,13 +4,19 @@ public class Resetzone : MonoBehaviour
 {
 	private void OnTriggerEnter2D(Collider2D collider)
 	{
-		if (collider.gameObject.tag == "ball")
+		switch (collider.gameObject.tag)
 		{
-			collider.gameObject.GetComponent<BallControler>().ResetBall(false);
-		}
-		else
-		{
-			Destroy(collider.gameObject);
+			case "ball":
+				collider.gameObject.GetComponent<BallControler>().ResetBall(false);
+				break;
+
+			case "Player":
+				collider.gameObject.GetComponent<PaddleControls>().ResetPaddle();
+				break;
+
+			default:
+				Destroy(collider.gameObject);
+				break;
 		}
 	}
 }

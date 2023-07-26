@@ -54,20 +54,14 @@ public class LevelManager : MonoBehaviour
 		FindGameLevels();
 	}
 
-	private void FindGameLevels()
-	{
-		int tempLevelCounter = 1;
-
-		for (int i = FirstLevelIndex; i < SceneManager.sceneCountInBuildSettings; i++)
-		{
-			_levels.Add(i, "Level " + tempLevelCounter);
-			tempLevelCounter++;
-		}
-	}
-
 	private void OnEnable()
 	{
 		SceneManager.sceneLoaded += OnSceneLoaded;
+	}
+
+	private void OnDisable()
+	{
+		SceneManager.sceneLoaded -= OnSceneLoaded;
 	}
 
 	private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -84,9 +78,15 @@ public class LevelManager : MonoBehaviour
 		}
 	}
 
-	private void OnDisable()
+	private void FindGameLevels()
 	{
-		SceneManager.sceneLoaded -= OnSceneLoaded;
+		int tempLevelCounter = 1;
+
+		for (int i = FirstLevelIndex; i < SceneManager.sceneCountInBuildSettings; i++)
+		{
+			_levels.Add(i, "Level " + tempLevelCounter);
+			tempLevelCounter++;
+		}
 	}
 	#endregion
 }

@@ -11,6 +11,7 @@ public class Block : MonoBehaviour
 
 	private int _health;
 
+	// References
 	private SpriteRenderer _spriteRenderer;
 	private Gameplay _game;
 	private GameScore _gameScore;

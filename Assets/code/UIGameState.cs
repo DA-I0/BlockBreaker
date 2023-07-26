@@ -8,7 +8,6 @@ public class UIGameState : MonoBehaviour
 	[SerializeField] private GameObject _gameStateBar;
 	[SerializeField] private TMP_Text _score;
 	[SerializeField] private Transform _lives;
-	[SerializeField] private TMP_Text _info;
 	[SerializeField] private TMP_Text _bonusTime;
 	[SerializeField] private GameObject _proceedText;
 
@@ -24,15 +23,9 @@ public class UIGameState : MonoBehaviour
 		_proceedText.SetActive(false);
 	}
 
-	private void FixedUpdate()
-	{
-		_info.text = $"[ESC] - Pause\n[R] - reset ball (-1 life)\nBlocks remaining: {_system.BlocksLeft.ToString()}";
-	}
-
 	public void ToggleGameStats(bool hide)
 	{
 		_gameStateBar.SetActive(hide);
-		_info.gameObject.SetActive(hide);
 	}
 
 	public void TogglePauseMenu()

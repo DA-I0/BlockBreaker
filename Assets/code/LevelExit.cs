@@ -26,14 +26,6 @@ public class LevelExit : MonoBehaviour
 		LevelClear(false);
 	}
 
-	private void OnTriggerEnter2D(Collider2D collider)
-	{
-		if (collider.gameObject.tag == "ball")
-		{
-			gameObject.GetComponent<LevelManager>().NextLevel();
-		}
-	}
-
 	private void FixedUpdate()
 	{
 		if (_exitTrigger.enabled && _score.TimeToExit < 1)
@@ -42,6 +34,14 @@ public class LevelExit : MonoBehaviour
 			{
 				gameObject.GetComponent<LevelManager>().NextLevel();
 			}
+		}
+	}
+
+	private void OnTriggerEnter2D(Collider2D collider)
+	{
+		if (collider.gameObject.tag == "ball")
+		{
+			gameObject.GetComponent<LevelManager>().NextLevel();
 		}
 	}
 }

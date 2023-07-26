@@ -14,6 +14,7 @@ public class GameScore : MonoBehaviour
 
 	private int _timeToExit = -99;
 
+	// References
 	private Gameplay _gameState;
 	private PaddleControls _paddle;
 	#endregion
@@ -22,19 +23,16 @@ public class GameScore : MonoBehaviour
 	public int Score
 	{
 		get { return _score; }
-		set { _score = value; }
 	}
 
 	public int Multiplier
 	{
 		get { return _scoreMultiplier; }
-		set { _scoreMultiplier = value; }
 	}
 
 	public int TimeToExit
 	{
 		get { return _timeToExit; }
-		set { _timeToExit = value; }
 	}
 
 

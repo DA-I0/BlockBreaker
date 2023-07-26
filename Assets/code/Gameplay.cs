@@ -14,6 +14,7 @@ public class Gameplay : MonoBehaviour
 	private int _lives = 0;
 	private int _blocksLeft;
 
+	// References
 	private AudioSource _soundSource;
 	private GameScore _gameScore;
 	private Transform _blocks;
@@ -33,7 +34,6 @@ public class Gameplay : MonoBehaviour
 	public int Lives
 	{
 		get { return _lives; }
-		set { _lives = value; }
 	}
 
 	public int BlocksLeft
@@ -48,7 +48,6 @@ public class Gameplay : MonoBehaviour
 		_paddle.gameObject.SetActive(true);
 		_blocks = GameObject.Find("blocks").transform;
 		_barriers = GameObject.Find("barriers_breakable").transform;
-		_safetyNet = GameObject.Find("safetyNet").transform;
 		_levelExit = GameObject.Find("level_exit").GetComponent<LevelExit>();
 
 		StartFreshGame();
@@ -72,6 +71,7 @@ public class Gameplay : MonoBehaviour
 			_paddle.gameObject.SetActive(false);
 		}
 
+		DisplaySafetyNet(false);
 		ChangeGameState("menu");
 	}
 
@@ -83,7 +83,7 @@ public class Gameplay : MonoBehaviour
 	public void StartFreshGame()
 	{
 		CleanBalls();
-		_paddle.ResetPaddle();
+		_paddle.RecenterPaddle();
 
 		foreach (Transform block in _blocks)
 		{
@@ -95,7 +95,6 @@ public class Gameplay : MonoBehaviour
 			barrier.GetComponent<Block>().ResetBlock();
 		}
 
-		ToggleSafetyNet(false);
 		_blocksLeft = _blocks.childCount;
 
 		BroadcastMessage("UpdateScore");
@@ -140,11 +139,11 @@ public class Gameplay : MonoBehaviour
 		BroadcastMessage("UpdateLives");
 	}
 
-	public void ToggleSafetyNet(bool isActive)
+	public void DisplaySafetyNet(bool activate)
 	{
 		foreach (Transform block in _safetyNet)
 		{
-			if (isActive)
+			if (activate)
 			{
 				block.GetComponent<Block>().ResetBlock();
 			}
@@ -190,6 +189,7 @@ public class Gameplay : MonoBehaviour
 		_highlander = gameObject;
 		_settings = gameObject.GetComponent<Settings>();
 		_gameScore = gameObject.GetComponent<GameScore>();
+		_safetyNet = GameObject.Find("safetyNet").transform;
 	}
 
 	private void Start()
@@ -200,22 +200,6 @@ public class Gameplay : MonoBehaviour
 		_soundSource = gameObject.GetComponent<AudioSource>();
 		_paddle = GameObject.Find("paddle").GetComponent<PaddleControls>();
 		Cleanup(false);
-	}
-
-	private void CleanBalls()
-	{
-		GameObject[] ballCopies = GameObject.FindGameObjectsWithTag("ball");
-
-		for (int i = 0; i < ballCopies.Length; i++)
-		{
-			if (i == 0)
-			{
-				ballCopies[i].GetComponent<BallControler>().ResetBall(false);
-				continue;
-			}
-
-			Destroy(ballCopies[i]);
-		}
 	}
 
 	private void Update()
@@ -237,6 +221,22 @@ public class Gameplay : MonoBehaviour
 			}
 
 			BroadcastMessage("TogglePauseMenu");
+		}
+	}
+
+	private void CleanBalls()
+	{
+		GameObject[] ballCopies = GameObject.FindGameObjectsWithTag("ball");
+
+		for (int i = 0; i < ballCopies.Length; i++)
+		{
+			if (i == 0)
+			{
+				ballCopies[i].GetComponent<BallControler>().ResetBall(false);
+				continue;
+			}
+
+			Destroy(ballCopies[i]);
 		}
 	}
 	#endregion
