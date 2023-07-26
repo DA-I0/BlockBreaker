@@ -75,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: -360952536, guid: 886c3ff2e7c4a258cb6ae088ace28334, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -149,7 +149,7 @@ MonoBehaviour:
   _pointValue: 1
   _maxHealth: 1
   _sprites: []
-  _pickupChance: 0.1
+  _pickupSpawnChance: 0.1
   _pickups:
   - {fileID: 222874506310079968, guid: 06e05c02f86399a5e963f2cc01b64f42, type: 3}
   - {fileID: 2386382901692576862, guid: cc9ebd87873277f048cdb5b4807b7a27, type: 3}
