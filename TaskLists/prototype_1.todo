@@ -49,7 +49,7 @@ Prototype 1:
 			✔ Save and load from file @done(23-08-01 18:09)
 	Tasks:
 		☐ Update patchnotes
-		☐ Remove unused keys from input manager
+		✔ Remove unused keys from input manager @done(23-08-01 23:28)
 		☐ Write basic game description
 	Issues:
 		☐ Ball slides along the wall instead of bouncing @critical
@@ -58,18 +58,3 @@ Prototype 1:
 		✔ Safety blocks reset on map change @done(23-08-01 18:09)
 		✔ Pickups shouldn't be drawn on top of the ball @done(23-08-01 18:09)
 		✔ When cursor is visible paddle might not be able to reach a wall @done(23-08-01 18:10)
-
-Prototype 2:
-	Features:
-		☐ Splash screen on map load
-		☐ Game localization
-			☐ Load from file into GameData dictionary
-			☐ Apply to UI elements
-		☐ Add functionality to dynamic elements
-			☐ Add repeating timed toggle for teleport door?
-			☐ Add on-map buttons that toggle connected element when hit with the ball?
-	Map elements:
-		☐ Stairs + railing
-			☐ Ball can move over stairs
-			☐ Ball can move **down** through broken railing
-			☐ Ball can't move up through wall at the bottom of the stairs or railing
