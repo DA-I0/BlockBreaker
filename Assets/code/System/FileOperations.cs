@@ -9,30 +9,18 @@ public class FileOperations
 	public FileOperations(Settings settings)
 	{
 		_settings = settings;
+		_settings.gameData.patchNotes = LoadTextFile(_settings.gameData.ChangelogFilePath);
 	}
 
-	public void LoadSettings()
+	private string LoadTextFile(string filePath)
 	{
-		if (File.Exists(_settings.ConfigFilePath))
+		string fileContent = "<file_not_found>";
+
+		if (File.Exists(filePath))
 		{
-			string configFile = File.ReadAllText(_settings.ConfigFilePath);
-			StringReader reader = new StringReader(configFile);
-
-			System.Xml.Serialization.XmlSerializer serializer = new System.Xml.Serialization.XmlSerializer(typeof(SettingsFile));
-			SettingsFile data = (SettingsFile)serializer.Deserialize(reader);
-			reader.Close();
-			_settings.ImportSettings(data);
+			fileContent = File.ReadAllText(filePath);
 		}
-	}
 
-	public void SaveSettings()
-	{
-		FileStream fileStream;
-		fileStream = new FileStream(_settings.ConfigFilePath, FileMode.Create);
-
-		System.Xml.Serialization.XmlSerializer serializer = new System.Xml.Serialization.XmlSerializer(typeof(SettingsFile));
-		serializer.Serialize(fileStream, _settings.ExportSettings());
-
-		fileStream.Close();
+		return fileContent;
 	}
 }

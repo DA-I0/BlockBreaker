@@ -9,6 +9,7 @@ public class UIControler : MonoBehaviour
 
 	[SerializeField] private GameObject _levelList;
 	[SerializeField] private GameObject _instructionPanel;
+	[SerializeField] private GameObject _changelogPanel;
 	[SerializeField] private GameObject _optionsPanel;
 
 	private GameObject _activePanel = null;
@@ -25,6 +26,7 @@ public class UIControler : MonoBehaviour
 	{
 		_levelList.SetActive(false);
 		_instructionPanel.SetActive(false);
+		_changelogPanel.SetActive(false);
 		_optionsPanel.SetActive(false);
 	}
 
@@ -52,6 +54,12 @@ public class UIControler : MonoBehaviour
 			case "info_panel":
 				_instructionPanel.SetActive(true);
 				_activePanel = _instructionPanel;
+				break;
+
+			case "changelog_panel":
+				_changelogPanel.SetActive(true);
+				_activePanel = _changelogPanel;
+				BroadcastMessage("UpdateUI");
 				break;
 
 			case "options_panel":

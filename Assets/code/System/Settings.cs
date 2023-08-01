@@ -2,7 +2,10 @@ using UnityEngine;
 
 public class Settings : MonoBehaviour
 {
-	public string ConfigFilePath;
+	private const bool DefaultFullScreen = true;
+	private const float DefaultMasterVolume = 0.5f;
+	private const int DefaultMouseSpeed = 14;
+	private const int DefaultKeyboardSpeed = 14;
 
 	[SerializeField] private bool _fullScreen = true;
 	[SerializeField] private Resolution _resolution;
@@ -12,7 +15,8 @@ public class Settings : MonoBehaviour
 	[SerializeField] private int _speedMouse = 10;
 	[SerializeField] private int _speedKeyboard = 10;
 
-	FileOperations fileOperations;
+	public GameData gameData;
+	private FileOperations fileOperations;
 
 	public bool FullScreen
 	{
@@ -46,45 +50,32 @@ public class Settings : MonoBehaviour
 
 	public void SetDefaultValues()
 	{
-		_fullScreen = true;
+		_fullScreen = DefaultFullScreen;
 		_resolution = Screen.currentResolution;
-		_volume = 0.5f;
-		_speedMouse = 14;
-		_speedKeyboard = 14;
-	}
-
-	public SettingsFile ExportSettings()
-	{
-		SettingsFile data = new SettingsFile();
-
-		data.fullScreen = _fullScreen;
-		data.screenWidth = _resolution.width;
-		data.screenHeight = _resolution.height;
-		data.volume = _volume;
-		data.speedMouse = _speedMouse;
-		data.speedKeyboard = _speedKeyboard;
-
-		return data;
-	}
-
-	public void ImportSettings(SettingsFile data)
-	{
-		_fullScreen = data.fullScreen;
-		_resolution = CreateNewResolution(data.screenWidth, data.screenHeight);
-		_volume = data.volume;
-		_speedMouse = data.speedMouse;
-		_speedKeyboard = data.speedKeyboard;
-		ApplySettings();
+		_volume = DefaultMasterVolume;
+		_speedMouse = DefaultMouseSpeed;
+		_speedKeyboard = DefaultKeyboardSpeed;
 	}
 
 	public void LoadSettings()
 	{
-		fileOperations.LoadSettings();
+		_fullScreen = PlayerPrefs.GetInt("Screenmanager Fullscreen mode") > 0;
+		_resolution = CreateNewResolution(PlayerPrefs.GetInt("Screenmanager Resolution Width"), PlayerPrefs.GetInt("Screenmanager Resolution Height"));
+		_volume = PlayerPrefs.GetFloat("Master volume", DefaultMasterVolume);
+		_speedMouse = PlayerPrefs.GetInt("Input Mouse Speed", DefaultMouseSpeed);
+		_speedKeyboard = PlayerPrefs.GetInt("Input Keyboard Speed", DefaultKeyboardSpeed);
 	}
 
 	public void SaveSettings()
 	{
-		fileOperations.SaveSettings();
+		PlayerPrefs.SetInt("Screenmanager Fullscreen mode", (_fullScreen ? 1 : 0));
+		PlayerPrefs.SetInt("Screenmanager Resolution Width", _resolution.width);
+		PlayerPrefs.SetInt("Screenmanager Resolution Height", _resolution.height);
+		PlayerPrefs.SetFloat("Master volume", _volume);
+		PlayerPrefs.SetInt("Input Mouse Speed", _speedMouse);
+		PlayerPrefs.SetInt("Input Keyboard Speed", _speedKeyboard);
+
+		PlayerPrefs.Save();
 		ApplySettings();
 	}
 
@@ -106,7 +97,10 @@ public class Settings : MonoBehaviour
 
 	private void Awake()
 	{
-		ConfigFilePath = Application.persistentDataPath + "/config.xml";
+		string localConfigPath = Application.persistentDataPath + "/config.xml";
+		string localChangelogPath = Application.dataPath + "/patchnotes.txt";
+
+		gameData = new GameData(localConfigPath, localChangelogPath);
 		fileOperations = new FileOperations(this);
 		LoadSettings();
 	}
