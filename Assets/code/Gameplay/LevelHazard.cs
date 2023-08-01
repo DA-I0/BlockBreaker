@@ -1,6 +1,6 @@
 using UnityEngine;
 
-// River thingy, doesn't really work atm
+// NOTE: River thingy, doesn't really work atm
 public class LevelHazard : MonoBehaviour
 {
 	[SerializeField] private Vector2 _rotateForce = Vector2.zero;
