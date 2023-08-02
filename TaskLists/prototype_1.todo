@@ -58,3 +58,5 @@ Prototype 1:
 		✔ Safety blocks reset on map change @done(23-08-01 18:09)
 		✔ Pickups shouldn't be drawn on top of the ball @done(23-08-01 18:09)
 		✔ When cursor is visible paddle might not be able to reach a wall @done(23-08-01 18:10)
+		✔ Fix text overflow in main menu buttons @done(23-08-02 14:23)
+		✔ Fix ball misalignment when parenting to the paddle @low @done(23-08-02 23:56)

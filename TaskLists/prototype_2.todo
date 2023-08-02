@@ -4,6 +4,11 @@ Prototype 2:
 		☐ Game localization
 			☐ Load from file into GameData dictionary
 			☐ Apply to UI elements
+		☐ High-score system
+			☐ Store top 10 results between sessions
+			☐ Let player input their name when joining top 10
+			☐ Display on game over
+			☐ Display in main menu
 		☐ Add functionality to dynamic elements
 			☐ Add repeating timed toggle for teleport door?
 			☐ Add on-map buttons that toggle connected element when hit with the ball?
@@ -12,3 +17,5 @@ Prototype 2:
 			☐ Ball can move over stairs
 			☐ Ball can move **down** through broken railing
 			☐ Ball can't move up through wall at the bottom of the stairs or railing
+	Issues:
+		☐ UI scaling @high

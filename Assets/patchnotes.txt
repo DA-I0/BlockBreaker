@@ -10,4 +10,4 @@ Current features:
 ---
 Known issues:
 - ball collisions can be a little funky
-- UI scaling
+- bad UI scaling
