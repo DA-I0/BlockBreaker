@@ -52,8 +52,8 @@ public class BallControler : MonoBehaviour
 		_selectingRotation = false;
 		_arrow.gameObject.SetActive(false);
 
-		_lastPosition = transform.localPosition;
 		UpdateBallPosition();
+		_lastPosition = transform.localPosition;
 		_animator.Play("Base Layer.ball_rolling", 0, _speedMultiplier);
 		_animator.StartPlayback();
 	}
@@ -163,7 +163,7 @@ public class BallControler : MonoBehaviour
 		}
 	}
 
-	// Ball collision system isn't perfect and can be a bit wonky when interacting
+	// NOTE: Ball collision system isn't perfect and can be a bit wonky when interacting
 	// with other elements (mainly moving paddle). Improvements needed.
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
@@ -185,9 +185,9 @@ public class BallControler : MonoBehaviour
 	{
 		if (transform.parent == _paddle)
 		{
-			Vector3 newPosition = _paddle.position;
+			Vector3 newPosition = Vector3.zero;
 			newPosition.y += gameObject.GetComponent<CircleCollider2D>().radius * 2;
-			transform.position = newPosition;
+			transform.localPosition = newPosition;
 			transform.rotation = Quaternion.Euler(Vector3.zero);
 			return;
 		}
