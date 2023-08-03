@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIControler : MonoBehaviour
+public class UIController : MonoBehaviour
 {
 	[SerializeField] private TMP_Text _gameTitle;
 	[SerializeField] private TMP_Text _version;

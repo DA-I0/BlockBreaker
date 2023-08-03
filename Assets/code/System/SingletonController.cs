@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SingletonControler : MonoBehaviour
+public class SingletonController : MonoBehaviour
 {
 	public static GameObject Singleton;
 
