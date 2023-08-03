@@ -323,7 +323,7 @@ PrefabInstance:
     - target: {fileID: 1106098176562519544, guid: c5b0dcc522d4a0f45832399bf2d46d42, type: 3}
       propertyPath: _linkedDoor
       value: 
-      objectReference: {fileID: 1461485747}
+      objectReference: {fileID: 40612702}
     - target: {fileID: 4860689685460604681, guid: c5b0dcc522d4a0f45832399bf2d46d42, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -451,7 +451,7 @@ PrefabInstance:
     - target: {fileID: 1106098176562519544, guid: c5b0dcc522d4a0f45832399bf2d46d42, type: 3}
       propertyPath: _linkedDoor
       value: 
-      objectReference: {fileID: 610639073}
+      objectReference: {fileID: 1461485747}
     - target: {fileID: 4860689685460604681, guid: c5b0dcc522d4a0f45832399bf2d46d42, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -3912,7 +3912,7 @@ PrefabInstance:
     - target: {fileID: 1106098176562519544, guid: c5b0dcc522d4a0f45832399bf2d46d42, type: 3}
       propertyPath: _linkedDoor
       value: 
-      objectReference: {fileID: 113412728}
+      objectReference: {fileID: 57864372}
     - target: {fileID: 4860689685460604681, guid: c5b0dcc522d4a0f45832399bf2d46d42, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -6352,7 +6352,7 @@ PrefabInstance:
     - target: {fileID: 1106098176562519544, guid: c5b0dcc522d4a0f45832399bf2d46d42, type: 3}
       propertyPath: _linkedDoor
       value: 
-      objectReference: {fileID: 57864372}
+      objectReference: {fileID: 113412728}
     - target: {fileID: 4860689685460604681, guid: c5b0dcc522d4a0f45832399bf2d46d42, type: 3}
       propertyPath: m_RootOrder
       value: 9
