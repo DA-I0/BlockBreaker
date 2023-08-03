@@ -12,6 +12,7 @@ Prototype 2:
 		☐ Add functionality to dynamic elements
 			☐ Add repeating timed toggle for teleport door?
 			☐ Add on-map buttons that toggle connected element when hit with the ball?
+		☐ Game over screen
 	Map elements:
 		☐ Stairs + railing
 			☐ Ball can move over stairs

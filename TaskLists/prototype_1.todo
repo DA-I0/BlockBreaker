@@ -51,6 +51,13 @@ Prototype 1:
 		☐ Update patchnotes
 		✔ Remove unused keys from input manager @done(23-08-01 23:28)
 		☐ Write basic game description
+		✔ Switch map order for simpler teleport door introduction @done(23-08-03 16:28)
+		✔ Add placeholder music @low @done(23-08-03 19:55)
+			✔ Extract audio management to a separate class @done(23-08-03 19:55)
+			✔ Update settings @done(23-08-03 19:55)
+			✔ Update settings menu @done(23-08-03 19:55)
+			✔ Find music for main menu and gameplay @done(23-08-03 19:55)
+		✔ Change connections of teleport doors in level 10 for variety @done(23-08-03 16:48)
 	Issues:
 		☐ Ball slides along the wall instead of bouncing @critical
 		☐ Ball flies sideways on release after death (rare) @high
@@ -60,3 +67,6 @@ Prototype 1:
 		✔ When cursor is visible paddle might not be able to reach a wall @done(23-08-01 18:10)
 		✔ Fix text overflow in main menu buttons @done(23-08-02 14:23)
 		✔ Fix ball misalignment when parenting to the paddle @low @done(23-08-02 23:56)
+		✔ Bollard sorting order is wrong when in active state @low @done(23-08-03 16:48)
+		✔ Blocks without pickups try to spawn them @done(23-08-03 17:34)
+		✔ Ball doesn't collide with reactivated safety net blocks if they were hit previously @done(23-08-03 17:35) @high
