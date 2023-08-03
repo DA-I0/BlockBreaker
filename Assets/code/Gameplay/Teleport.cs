@@ -28,7 +28,7 @@ public class Teleport : MonoBehaviour
 			Transform ball = collider.transform;
 
 			float angleChange = -(_linkedDoor.eulerAngles.z - transform.eulerAngles.z);
-			ball.GetComponent<BallControler>().RotateBall(angleChange);
+			ball.GetComponent<BallController>().RotateBall(angleChange);
 
 			_linkedDoor.GetComponent<Teleport>().UpdateDoorState(false, false);
 			ball.position = _linkedDoor.position - (_linkedDoor.up * _ballDisplacement);

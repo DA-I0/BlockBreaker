@@ -123,7 +123,7 @@ public class Gameplay : MonoBehaviour
 		{
 			_audio.PlaySound(0);
 			_paddle.ResetPaddle();
-			GameObject.Find("ball").GetComponent<BallControler>().ResetBall(true);
+			GameObject.Find("ball").GetComponent<BallController>().ResetBall(true);
 			_gameScore.ResetMultiplier();
 		}
 
@@ -228,7 +228,7 @@ public class Gameplay : MonoBehaviour
 		{
 			if (i == 0)
 			{
-				ballCopies[i].GetComponent<BallControler>().ResetBall(false);
+				ballCopies[i].GetComponent<BallController>().ResetBall(false);
 				continue;
 			}
 

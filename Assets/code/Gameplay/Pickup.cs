@@ -19,17 +19,17 @@ public class Pickup : MonoBehaviour
 			{
 				case PickupType.ball_fast:
 					foreach (GameObject ball in FindAllBalls())
-						ball.GetComponent<BallControler>().ChangeSpeed(1.5f);
+						ball.GetComponent<BallController>().ChangeSpeed(1.5f);
 					break;
 
 				case PickupType.ball_multi:
 					foreach (GameObject ball in FindAllBalls())
-						ball.GetComponent<BallControler>().SpawnCopies();
+						ball.GetComponent<BallController>().SpawnCopies();
 					break;
 
 				case PickupType.ball_small:
 					foreach (GameObject ball in FindAllBalls())
-						ball.GetComponent<BallControler>().ChangeSize(0.5f);
+						ball.GetComponent<BallController>().ChangeSize(0.5f);
 					break;
 
 				case PickupType.ghost:

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BallControler : MonoBehaviour
+public class BallController : MonoBehaviour
 {
 	#region Variables
 	private static float MinTravelDistance = 0.00005f;
@@ -271,8 +271,8 @@ public class BallControler : MonoBehaviour
 		);
 
 		newBall.name = "ball";
-		newBall.GetComponent<BallControler>().ChangeSpeed(_speedMultiplier);
-		newBall.GetComponent<BallControler>().ChangeSize(transform.localScale.x);
+		newBall.GetComponent<BallController>().ChangeSpeed(_speedMultiplier);
+		newBall.GetComponent<BallController>().ChangeSize(transform.localScale.x);
 	}
 
 	private bool IsBallStuck()

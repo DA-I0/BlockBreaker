@@ -7,7 +7,7 @@ public class Resetzone : MonoBehaviour
 		switch (collider.gameObject.tag)
 		{
 			case "ball":
-				collider.gameObject.GetComponent<BallControler>().ResetBall(false);
+				collider.gameObject.GetComponent<BallController>().ResetBall(false);
 				break;
 
 			case "Player":

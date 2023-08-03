@@ -109,7 +109,7 @@ public class GameScore : MonoBehaviour
 			_scoreMultiplier -= _paddle.SizeMultiplier;
 		}
 
-		BallControler ball = GameObject.FindGameObjectWithTag("ball").GetComponent<BallControler>();
+		BallController ball = GameObject.FindGameObjectWithTag("ball").GetComponent<BallController>();
 
 		if (ball.GetBallSize() < 1)
 		{
