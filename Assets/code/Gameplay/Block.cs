@@ -25,7 +25,6 @@ public class Block : MonoBehaviour
 		if (_health <= 0)
 		{
 			SpawnPickup();
-			gameObject.SetActive(false);
 
 			if (gameObject.tag == "barrier")
 			{
@@ -35,7 +34,16 @@ public class Block : MonoBehaviour
 			{
 				_game.ChangeProgress(_pointValue);
 			}
+
+			gameObject.SetActive(false);
 		}
+	}
+
+	public void ResetBlock()
+	{
+		gameObject.SetActive(true);
+		_health = _maxHealth;
+		AdjustSprite();
 	}
 
 	private void Start()
@@ -48,6 +56,11 @@ public class Block : MonoBehaviour
 
 	private void SpawnPickup()
 	{
+		if (_pickups.Length < 1)
+		{
+			return;
+		}
+
 		float dropRandomization = Random.Range(0f, 1f);
 
 		if (dropRandomization <= _pickupSpawnChance)
@@ -64,12 +77,5 @@ public class Block : MonoBehaviour
 			int spriteIndex = (_health <= 0) ? 0 : _maxHealth - _health;
 			_spriteRenderer.sprite = _sprites[spriteIndex];
 		}
-	}
-
-	public void ResetBlock()
-	{
-		gameObject.SetActive(true);
-		_health = _maxHealth;
-		AdjustSprite();
 	}
 }
