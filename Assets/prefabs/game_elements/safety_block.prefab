@@ -149,5 +149,5 @@ MonoBehaviour:
   _pointValue: 0
   _maxHealth: 1
   _sprites: []
-  _pickupSpawnChance: 0.1
+  _pickupSpawnChance: 0
   _pickups: []
