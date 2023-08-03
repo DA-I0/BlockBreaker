@@ -7,7 +7,6 @@ public class Gameplay : MonoBehaviour
 
 	private GameState _gameState = GameState.game;
 
-	[SerializeField] private AudioClip[] _sounds;
 	[SerializeField] private int _maxLives = 5;
 	[SerializeField] private int _startingLives = 3;
 
@@ -15,7 +14,7 @@ public class Gameplay : MonoBehaviour
 	private int _blocksLeft;
 
 	// References
-	private AudioSource _soundSource;
+	private AudioController _audio;
 	private GameScore _gameScore;
 	private Transform _blocks;
 	private Transform _barriers;
@@ -73,11 +72,7 @@ public class Gameplay : MonoBehaviour
 
 		DisplaySafetyNet(false);
 		ChangeGameState("menu");
-	}
-
-	public void PlaySound(int type)
-	{
-		_soundSource.PlayOneShot(_sounds[type], _settings.Volume);
+		_audio.ChangeSong(0);
 	}
 
 	public void StartFreshGame()
@@ -100,6 +95,7 @@ public class Gameplay : MonoBehaviour
 		BroadcastMessage("UpdateScore");
 		BroadcastMessage("UpdateLives");
 		ChangeGameState("game");
+		_audio.ChangeSong(1);
 	}
 
 	public void ChangeProgress(int points)
@@ -125,7 +121,7 @@ public class Gameplay : MonoBehaviour
 
 		if (amount < 0)
 		{
-			PlaySound(0);
+			_audio.PlaySound(0);
 			_paddle.ResetPaddle();
 			GameObject.Find("ball").GetComponent<BallControler>().ResetBall(true);
 			_gameScore.ResetMultiplier();
@@ -188,6 +184,7 @@ public class Gameplay : MonoBehaviour
 
 		_highlander = gameObject;
 		_settings = gameObject.GetComponent<Settings>();
+		_audio = gameObject.GetComponent<AudioController>();
 		_gameScore = gameObject.GetComponent<GameScore>();
 		_safetyNet = GameObject.Find("safetyNet").transform;
 	}
@@ -197,7 +194,6 @@ public class Gameplay : MonoBehaviour
 		DontDestroyOnLoad(gameObject);
 		DontDestroyOnLoad(Camera.main.gameObject);
 
-		_soundSource = gameObject.GetComponent<AudioSource>();
 		_paddle = GameObject.Find("paddle").GetComponent<PaddleControls>();
 		Cleanup(false);
 	}

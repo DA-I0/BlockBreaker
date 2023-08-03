@@ -15,6 +15,7 @@ public class GameScore : MonoBehaviour
 	private int _timeToExit = -99;
 
 	// References
+	private AudioController _audio;
 	private Gameplay _gameState;
 	private PaddleControls _paddle;
 	#endregion
@@ -56,7 +57,7 @@ public class GameScore : MonoBehaviour
 		UpdateMultiplier();
 		_score += pointValue * _scoreMultiplier;
 
-		_gameState.PlaySound(2);
+		_audio.PlaySound(2);
 		BroadcastMessage("UpdateScore");
 	}
 
@@ -93,6 +94,7 @@ public class GameScore : MonoBehaviour
 
 	private void Start()
 	{
+		_audio = gameObject.GetComponent<AudioController>();
 		_gameState = gameObject.GetComponent<Gameplay>();
 		Cleanup();
 	}

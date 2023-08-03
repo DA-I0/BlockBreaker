@@ -6,7 +6,9 @@ public class UISettings : MonoBehaviour
 {
 	[SerializeField] private Toggle _fullscreen;
 	[SerializeField] private TMP_Dropdown _resolution;
-	[SerializeField] private Slider _volume;
+	[SerializeField] private Slider _masterVolume;
+	[SerializeField] private Slider _musicVolume;
+	[SerializeField] private Slider _effectVolume;
 	[SerializeField] private Slider _speedMouse;
 	[SerializeField] private Slider _speedKeyboard;
 
@@ -16,7 +18,9 @@ public class UISettings : MonoBehaviour
 	{
 		_fullscreen.isOn = _settings.FullScreen;
 		_resolution.value = FindResolution(_settings.Resolution);
-		_volume.value = _settings.Volume;
+		_masterVolume.value = _settings.MasterVolume;
+		_musicVolume.value = _settings.MusicVolume;
+		_effectVolume.value = _settings.EffectVolume;
 		_speedMouse.value = _settings.SpeedMouse;
 		_speedKeyboard.value = _settings.SpeedKeyboard;
 	}
@@ -25,7 +29,9 @@ public class UISettings : MonoBehaviour
 	{
 		_settings.FullScreen = _fullscreen.isOn;
 		_settings.Resolution = _settings.StringToResolution(_resolution.options[_resolution.value].text);
-		_settings.Volume = _volume.value;
+		_settings.MasterVolume = _masterVolume.value;
+		_settings.MusicVolume = _musicVolume.value;
+		_settings.EffectVolume = _effectVolume.value;
 		_settings.SpeedMouse = (int)_speedMouse.value;
 		_settings.SpeedKeyboard = (int)_speedKeyboard.value;
 		_settings.SaveSettings();

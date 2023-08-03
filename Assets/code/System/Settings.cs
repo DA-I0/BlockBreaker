@@ -3,14 +3,18 @@ using UnityEngine;
 public class Settings : MonoBehaviour
 {
 	private const bool DefaultFullScreen = true;
-	private const float DefaultMasterVolume = 0.5f;
+	private const float DefaultMasterVolume = 1f;
+	private const float DefaultMusicVolume = 0.2f;
+	private const float DefaultEffectVolume = 0.5f;
 	private const int DefaultMouseSpeed = 14;
 	private const int DefaultKeyboardSpeed = 14;
 
 	[SerializeField] private bool _fullScreen = true;
 	[SerializeField] private Resolution _resolution;
 
-	[SerializeField] private float _volume = 0.5f;
+	[SerializeField] private float _masterVolume = 1f;
+	[SerializeField] private float _musicVolume = 0.5f;
+	[SerializeField] private float _effectVolume = 0.5f;
 
 	[SerializeField] private int _speedMouse = 10;
 	[SerializeField] private int _speedKeyboard = 10;
@@ -30,10 +34,22 @@ public class Settings : MonoBehaviour
 		set { _resolution = value; }
 	}
 
-	public float Volume
+	public float MasterVolume
 	{
-		get { return _volume; }
-		set { _volume = value; }
+		get { return _masterVolume; }
+		set { _masterVolume = value; }
+	}
+
+	public float MusicVolume
+	{
+		get { return _musicVolume; }
+		set { _musicVolume = value; }
+	}
+
+	public float EffectVolume
+	{
+		get { return _effectVolume; }
+		set { _effectVolume = value; }
 	}
 
 	public int SpeedMouse
@@ -52,7 +68,9 @@ public class Settings : MonoBehaviour
 	{
 		_fullScreen = DefaultFullScreen;
 		_resolution = Screen.currentResolution;
-		_volume = DefaultMasterVolume;
+		_masterVolume = DefaultMasterVolume;
+		_musicVolume = DefaultMusicVolume;
+		_effectVolume = DefaultEffectVolume;
 		_speedMouse = DefaultMouseSpeed;
 		_speedKeyboard = DefaultKeyboardSpeed;
 	}
@@ -61,7 +79,9 @@ public class Settings : MonoBehaviour
 	{
 		_fullScreen = PlayerPrefs.GetInt("Screenmanager Fullscreen mode") > 0;
 		_resolution = CreateNewResolution(PlayerPrefs.GetInt("Screenmanager Resolution Width"), PlayerPrefs.GetInt("Screenmanager Resolution Height"));
-		_volume = PlayerPrefs.GetFloat("Master volume", DefaultMasterVolume);
+		_masterVolume = PlayerPrefs.GetFloat("Master volume", DefaultMasterVolume);
+		_musicVolume = PlayerPrefs.GetFloat("Music volume", DefaultMusicVolume);
+		_effectVolume = PlayerPrefs.GetFloat("Effect volume", DefaultEffectVolume);
 		_speedMouse = PlayerPrefs.GetInt("Input Mouse Speed", DefaultMouseSpeed);
 		_speedKeyboard = PlayerPrefs.GetInt("Input Keyboard Speed", DefaultKeyboardSpeed);
 	}
@@ -71,7 +91,9 @@ public class Settings : MonoBehaviour
 		PlayerPrefs.SetInt("Screenmanager Fullscreen mode", (_fullScreen ? 1 : 0));
 		PlayerPrefs.SetInt("Screenmanager Resolution Width", _resolution.width);
 		PlayerPrefs.SetInt("Screenmanager Resolution Height", _resolution.height);
-		PlayerPrefs.SetFloat("Master volume", _volume);
+		PlayerPrefs.SetFloat("Master volume", _masterVolume);
+		PlayerPrefs.SetFloat("Music volume", _musicVolume);
+		PlayerPrefs.SetFloat("Effect volume", _effectVolume);
 		PlayerPrefs.SetInt("Input Mouse Speed", _speedMouse);
 		PlayerPrefs.SetInt("Input Keyboard Speed", _speedKeyboard);
 
@@ -115,6 +137,8 @@ public class Settings : MonoBehaviour
 		{
 			Screen.SetResolution(_resolution.width, _resolution.height, FullScreenMode.Windowed);
 		}
+
+		BroadcastMessage("UpdateVolume");
 	}
 
 	private Resolution CreateNewResolution(int width, int height)

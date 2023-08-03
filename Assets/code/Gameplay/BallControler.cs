@@ -28,6 +28,7 @@ public class BallControler : MonoBehaviour
 	private Transform _paddle;
 	private Animator _animator;
 
+	private AudioController _audio;
 	private Gameplay _game;
 	#endregion
 
@@ -118,6 +119,7 @@ public class BallControler : MonoBehaviour
 	private void Awake()
 	{
 		_boostEffect = gameObject.GetComponent<TrailRenderer>();
+		_audio = GameObject.Find("_system").GetComponent<AudioController>();
 		_game = GameObject.Find("_system").GetComponent<Gameplay>();
 		_paddle = GameObject.Find("paddle").transform;
 		_animator = gameObject.GetComponent<Animator>();
@@ -167,7 +169,7 @@ public class BallControler : MonoBehaviour
 	// with other elements (mainly moving paddle). Improvements needed.
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
-		_game.PlaySound(1);
+		_audio.PlaySound(1);
 		Bounce(collision);
 	}
 
