@@ -169,16 +169,6 @@ public class BallControler : MonoBehaviour
 	{
 		_game.PlaySound(1);
 		Bounce(collision);
-
-		if (collision.gameObject.name != "map_background")
-		{
-			Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>(), true);
-		}
-	}
-
-	private void OnCollisionExit2D(Collision2D collision)
-	{
-		Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>(), false);
 	}
 
 	private void UpdateBallPosition()
