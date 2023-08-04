@@ -14,15 +14,6 @@ public class UIGameState : MonoBehaviour
 	private Gameplay _system;
 	private GameScore _gameScore;
 
-	private void Awake()
-	{
-		_system = GameObject.Find("_system").GetComponent<Gameplay>();
-		_gameScore = GameObject.Find("_system").GetComponent<GameScore>();
-
-		_bonusTime.transform.parent.gameObject.SetActive(false);
-		_proceedText.SetActive(false);
-	}
-
 	public void ToggleGameStats(bool hide)
 	{
 		_gameStateBar.SetActive(hide);
@@ -73,5 +64,14 @@ public class UIGameState : MonoBehaviour
 		{
 			Cursor.lockState = CursorLockMode.None;
 		}
+	}
+
+	private void Awake()
+	{
+		_system = GameObject.Find("_system").GetComponent<Gameplay>();
+		_gameScore = GameObject.Find("_system").GetComponent<GameScore>();
+
+		_bonusTime.transform.parent.gameObject.SetActive(false);
+		_proceedText.SetActive(false);
 	}
 }

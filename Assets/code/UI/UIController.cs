@@ -14,22 +14,6 @@ public class UIController : MonoBehaviour
 
 	private GameObject _activePanel = null;
 
-	private void Start()
-	{
-		_gameTitle.text = Application.productName;
-		_version.text = Application.version;
-
-		HideAllPanels();
-	}
-
-	private void HideAllPanels()
-	{
-		_levelList.SetActive(false);
-		_instructionPanel.SetActive(false);
-		_changelogPanel.SetActive(false);
-		_optionsPanel.SetActive(false);
-	}
-
 	public void TogglePanel(string panelName)
 	{
 		if (_activePanel != null)
@@ -76,5 +60,21 @@ public class UIController : MonoBehaviour
 	public void ExitGame()
 	{
 		GetComponent<LevelManager>().Exit();
+	}
+
+	private void Start()
+	{
+		_gameTitle.text = Application.productName;
+		_version.text = Application.version;
+
+		HideAllPanels();
+	}
+
+	private void HideAllPanels()
+	{
+		_levelList.SetActive(false);
+		_instructionPanel.SetActive(false);
+		_changelogPanel.SetActive(false);
+		_optionsPanel.SetActive(false);
 	}
 }

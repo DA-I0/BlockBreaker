@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class Hazard_Automatic : MonoBehaviour
+public class HazardAutomatic : MonoBehaviour
 {
-	[SerializeField] private bool isActivated = false;
+	[SerializeField] private bool _isActivated = false;
 	[SerializeField] private float _stateChangeDelay = 1f;
 
 	private Animator _animator;
@@ -15,7 +15,7 @@ public class Hazard_Automatic : MonoBehaviour
 
 	private void SetStartingAnimation()
 	{
-		if (isActivated)
+		if (_isActivated)
 		{
 			_animator.Play("Base Layer.idle_active", 0, 0.001f);
 		}
@@ -29,7 +29,7 @@ public class Hazard_Automatic : MonoBehaviour
 
 	private void ToggleState()
 	{
-		if (isActivated)
+		if (_isActivated)
 		{
 			_animator.Play("Base Layer.deactivate", 0, 0);
 

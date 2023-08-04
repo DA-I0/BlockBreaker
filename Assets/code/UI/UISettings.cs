@@ -17,7 +17,7 @@ public class UISettings : MonoBehaviour
 	public void UpdateUI()
 	{
 		_fullscreen.isOn = _settings.FullScreen;
-		_resolution.value = FindResolution(_settings.Resolution);
+		_resolution.value = FindResolution(_settings.CurrentResolution);
 		_masterVolume.value = _settings.MasterVolume;
 		_musicVolume.value = _settings.MusicVolume;
 		_effectVolume.value = _settings.EffectVolume;
@@ -28,7 +28,7 @@ public class UISettings : MonoBehaviour
 	public void SetValues()
 	{
 		_settings.FullScreen = _fullscreen.isOn;
-		_settings.Resolution = _settings.StringToResolution(_resolution.options[_resolution.value].text);
+		_settings.CurrentResolution = _settings.StringToResolution(_resolution.options[_resolution.value].text);
 		_settings.MasterVolume = _masterVolume.value;
 		_settings.MusicVolume = _musicVolume.value;
 		_settings.EffectVolume = _effectVolume.value;

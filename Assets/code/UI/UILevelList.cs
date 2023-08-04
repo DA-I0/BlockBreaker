@@ -6,7 +6,7 @@ public class UILevelList : MonoBehaviour
 {
 	[SerializeField] private GameObject _buttonPrefab;
 
-	private LevelManager levelManager;
+	private LevelManager _levelManager;
 	private bool _levelsLoaded = false;
 
 	public void UpdateLevelList()
@@ -16,7 +16,7 @@ public class UILevelList : MonoBehaviour
 			return;
 		}
 
-		foreach (var level in levelManager.Levels)
+		foreach (var level in _levelManager.Levels)
 		{
 			Transform levelButton = Instantiate(_buttonPrefab).transform;
 			levelButton.SetParent(transform);
@@ -24,7 +24,7 @@ public class UILevelList : MonoBehaviour
 			levelButton.GetChild(0).GetComponent<TMP_Text>().text = level.Value;
 			levelButton.GetComponent<Button>().onClick.AddListener(() =>
 			{
-				levelManager.LoadLevel(level.Key);
+				_levelManager.LoadLevel(level.Key);
 			});
 		}
 
@@ -33,6 +33,6 @@ public class UILevelList : MonoBehaviour
 
 	private void Awake()
 	{
-		levelManager = GameObject.Find("_system").GetComponent<LevelManager>();
+		_levelManager = GameObject.Find("_system").GetComponent<LevelManager>();
 	}
 }

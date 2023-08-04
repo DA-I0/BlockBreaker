@@ -1,9 +1,9 @@
 using UnityEngine;
 
-public class Hazard_Whirpool : MonoBehaviour
+public class HazardWhirpool : MonoBehaviour
 {
 	[SerializeField] private int _deactivationTime = 10;
-	[SerializeField] private Color deactivatedColor;
+	[SerializeField] private Color _deactivatedColor;
 
 	private bool _active = true;
 	private int _timeLeft = -1;
@@ -62,7 +62,7 @@ public class Hazard_Whirpool : MonoBehaviour
 	private void ToggleHazard()
 	{
 		_active = _timeLeft <= 0;
-		_spriteRenderer.color = _active ? Color.white : deactivatedColor;
+		_spriteRenderer.color = _active ? Color.white : _deactivatedColor;
 		_animator.speed = _active ? 1f : 0f;
 	}
 

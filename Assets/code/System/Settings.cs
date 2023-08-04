@@ -28,7 +28,7 @@ public class Settings : MonoBehaviour
 		set { _fullScreen = value; }
 	}
 
-	public Resolution Resolution
+	public Resolution CurrentResolution
 	{
 		get { return _resolution; }
 		set { _resolution = value; }
