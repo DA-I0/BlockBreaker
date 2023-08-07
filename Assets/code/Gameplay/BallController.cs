@@ -181,6 +181,7 @@ public class BallController : MonoBehaviour
 			newPosition.y += gameObject.GetComponent<CircleCollider2D>().radius * 2;
 			transform.localPosition = newPosition;
 			transform.rotation = Quaternion.Euler(Vector3.zero);
+			gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
 			return;
 		}
 
