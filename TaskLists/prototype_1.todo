@@ -48,6 +48,7 @@ Prototype 1:
 			✔ Return to default @done(23-08-01 18:09)
 			✔ Save and load from file @done(23-08-01 18:09)
 	Tasks:
+		✔ Come up with a title @done(23-08-08 22:26)
 		☐ Update patchnotes
 		✔ Remove unused keys from input manager @done(23-08-01 23:28)
 		☐ Write basic game description
@@ -59,8 +60,8 @@ Prototype 1:
 			✔ Find music for main menu and gameplay @done(23-08-03 19:55)
 		✔ Change connections of teleport doors in level 10 for variety @done(23-08-03 16:48)
 	Issues:
-		☐ Ball slides along the wall instead of bouncing @critical
-		☐ Ball flies sideways on release after death (rare) @high
+		✔ Ball slides along the wall instead of bouncing @critical @done(23-08-08 22:26)
+		✔ Ball flies sideways on release after death (rare) @high @done(23-08-08 22:26)
 		✔ "Speed trail" appears under "whirpool" sprite @done(23-08-01 18:09)
 		✔ Safety blocks reset on map change @done(23-08-01 18:09)
 		✔ Pickups shouldn't be drawn on top of the ball @done(23-08-01 18:09)
