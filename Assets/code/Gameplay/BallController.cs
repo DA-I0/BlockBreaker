@@ -189,6 +189,7 @@ public class BallController : MonoBehaviour
 		{
 			Vector3 newDirection = Vector3.up * _defaultSpeed * _speedMultiplier * Time.deltaTime;
 			transform.Translate(newDirection);
+			gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
 
 			EmergencyBounce();
 			_lastPosition = transform.localPosition;
