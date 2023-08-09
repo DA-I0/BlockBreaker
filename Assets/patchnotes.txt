@@ -6,8 +6,9 @@ Current features:
 - 7 pickups
 - level hazards
 - score multiplier/combo system
-- game settings
 ---
 Known issues:
 - ball collisions can be a little funky
 - bad UI scaling
+- limited song selection
+- lack of gophers
