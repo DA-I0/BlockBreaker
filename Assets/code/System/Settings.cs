@@ -5,7 +5,7 @@ public class Settings : MonoBehaviour
 	private const bool DefaultFullScreen = true;
 	private const float DefaultMasterVolume = 1f;
 	private const float DefaultMusicVolume = 0.2f;
-	private const float DefaultEffectVolume = 0.5f;
+	private const float DefaultEffectVolume = 0.15f;
 	private const int DefaultMouseSpeed = 14;
 	private const int DefaultKeyboardSpeed = 14;
 
