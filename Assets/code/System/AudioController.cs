@@ -6,9 +6,7 @@ public class AudioController : MonoBehaviour
 	[SerializeField] private AudioClip _stageMusic;
 	[SerializeField] private AudioClip[] _sounds;
 
-	private float _currentMusicVolume = 0;
-	private float _currentEffectVolume = 0;
-
+	private AudioSource _musicSource;
 	private AudioSource _soundSource;
 	private Settings _settings;
 
@@ -29,19 +27,19 @@ public class AudioController : MonoBehaviour
 
 	public void PlaySound(int type)
 	{
-		_soundSource.PlayOneShot(_sounds[type], _currentEffectVolume);
+		_soundSource.PlayOneShot(_sounds[type], 1f);
 	}
 
 	public void UpdateVolume()
 	{
-		_currentMusicVolume = GetVolumeValue(true);
-		_currentEffectVolume = GetVolumeValue();
-		_soundSource.volume = _currentMusicVolume;
+		_musicSource.volume = GetVolumeValue(true);
+		_soundSource.volume = GetVolumeValue();
 	}
 
 	private void Awake()
 	{
-		_soundSource = gameObject.GetComponent<AudioSource>();
+		_musicSource = gameObject.GetComponent<AudioSource>();
+		_soundSource = GameObject.Find("sfx_source").GetComponent<AudioSource>();
 		_settings = gameObject.GetComponent<Settings>();
 	}
 
@@ -58,14 +56,13 @@ public class AudioController : MonoBehaviour
 
 	private void PlayMusic(AudioClip song)
 	{
-		if (_soundSource == null)
+		if (_musicSource == null)
 		{
 			return;
 		}
 
-		_soundSource.volume = _currentMusicVolume;
-		_soundSource.loop = true;
-		_soundSource.clip = song;
-		_soundSource.Play();
+		_musicSource.loop = true;
+		_musicSource.clip = song;
+		_musicSource.Play();
 	}
 }
