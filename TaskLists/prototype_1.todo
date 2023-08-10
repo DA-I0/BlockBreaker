@@ -72,3 +72,4 @@ Prototype 1:
 		✔ Blocks without pickups try to spawn them @done(23-08-03 17:34)
 		✔ Ball doesn't collide with reactivated safety net blocks if they were hit previously @done(23-08-03 17:35) @high
 		✔ SFX volume tied to music audio settings @done(23-08-09 21:08)
+		✔ Bad UI scaling @high @done(23-08-10 19:59)

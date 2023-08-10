@@ -20,7 +20,7 @@ public class UILevelList : MonoBehaviour
 		{
 			Transform levelButton = Instantiate(_buttonPrefab).transform;
 			levelButton.SetParent(transform);
-
+			levelButton.localScale = new Vector3(1, 1, 1);
 			levelButton.GetChild(0).GetComponent<TMP_Text>().text = level.Value;
 			levelButton.GetComponent<Button>().onClick.AddListener(() =>
 			{
