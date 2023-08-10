@@ -33,11 +33,11 @@ public class HazardWhirpool : MonoBehaviour
 			_ball.transform.transform.Rotate(newRotation);
 
 			collider.transform.position = transform.position;
-			Invoke("FreeBall", 1f);
+			Invoke("ReleaseBall", 1f);
 		}
 	}
 
-	private void FreeBall()
+	private void ReleaseBall()
 	{
 		_ball.transform.SetParent(GameObject.Find("_system").transform);
 		_ball = null;

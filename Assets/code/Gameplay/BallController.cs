@@ -128,10 +128,7 @@ public class BallController : MonoBehaviour
 
 	private void Update()
 	{
-		if (transform.parent == _paddle)
-		{
-			BallControls();
-		}
+		BallControls();
 	}
 
 	private void FixedUpdate()
@@ -143,6 +140,11 @@ public class BallController : MonoBehaviour
 	private void BallControls()
 	{
 		if (_game.Mode != GameState.game)
+		{
+			return;
+		}
+
+		if (transform.parent != _paddle)
 		{
 			return;
 		}
