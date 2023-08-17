@@ -9,5 +9,5 @@ Current features:
 ---
 Known issues:
 - ball collisions can be a little funky
-- limited song selection
+- stage music is fully randomized, might select the same song multiple times
 - lack of gophers
