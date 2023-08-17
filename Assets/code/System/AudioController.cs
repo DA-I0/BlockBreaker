@@ -3,7 +3,7 @@ using UnityEngine;
 public class AudioController : MonoBehaviour
 {
 	[SerializeField] private AudioClip _menuMusic;
-	[SerializeField] private AudioClip _stageMusic;
+	[SerializeField] private AudioClip[] _stageMusic;
 	[SerializeField] private AudioClip[] _sounds;
 
 	private AudioSource _musicSource;
@@ -13,16 +13,23 @@ public class AudioController : MonoBehaviour
 	// NOTE: temp types
 	// 0 - menu
 	// 1 - level
-	public void ChangeSong(int type)
+	// TODO: move songID/Index to a new "LevelInfo" class that will
+	// also include level name, other stuff? Defaults to -1 (randomize)
+	// This class should be responsible for changing song on load.
+	public void ChangeSong(int type, int songIndex = -1)
 	{
+		AudioClip songToPlay;
+
 		if (type == 0)
 		{
-			PlayMusic(_menuMusic);
+			songToPlay = _menuMusic;
 		}
 		else
 		{
-			PlayMusic(_stageMusic);
+			songToPlay = (songIndex > 0) ? _stageMusic[songIndex] : RandomizeSong(ref _stageMusic);
 		}
+
+		PlayMusic(songToPlay);
 	}
 
 	public void PlaySound(int type)
@@ -64,5 +71,11 @@ public class AudioController : MonoBehaviour
 		_musicSource.loop = true;
 		_musicSource.clip = song;
 		_musicSource.Play();
+	}
+
+	private AudioClip RandomizeSong(ref AudioClip[] sourceArray)
+	{
+		int songIndex = Random.Range(0, sourceArray.Length);
+		return sourceArray[songIndex];
 	}
 }
