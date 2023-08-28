@@ -42,14 +42,14 @@ public class Gameplay : MonoBehaviour
 	#endregion
 
 	#region Methods (public)
-	public void SetupLevel()
+	public void FindGameElements()
 	{
 		_paddle.gameObject.SetActive(true);
 		_blocks = GameObject.Find("blocks").transform;
 		_barriers = GameObject.Find("barriers_breakable").transform;
 		_levelExit = GameObject.Find("level_exit").GetComponent<LevelExit>();
 
-		StartFreshGame();
+		SetupLevel();
 	}
 
 	public void Cleanup(bool isFullReset)
@@ -61,7 +61,7 @@ public class Gameplay : MonoBehaviour
 		{
 			_gameScore.Cleanup();
 			_lives = _startingLives;
-			CleanBalls();
+			CleanBalls(true);
 		}
 
 		if (_paddle != null)
@@ -75,9 +75,9 @@ public class Gameplay : MonoBehaviour
 		_audio.ChangeSong(0);
 	}
 
-	public void StartFreshGame()
+	public void SetupLevel()
 	{
-		CleanBalls();
+		CleanBalls(false);
 		_paddle.RecenterPaddle();
 
 		foreach (Transform block in _blocks)
@@ -117,6 +117,7 @@ public class Gameplay : MonoBehaviour
 		if (_lives > _maxLives)
 		{
 			_lives = _maxLives;
+			// TODO: add bonus points if picked up life when full
 		}
 
 		if (amount < 0)
@@ -220,7 +221,7 @@ public class Gameplay : MonoBehaviour
 		}
 	}
 
-	private void CleanBalls()
+	private void CleanBalls(bool isFullReset)
 	{
 		GameObject[] ballCopies = GameObject.FindGameObjectsWithTag("ball");
 
@@ -228,7 +229,7 @@ public class Gameplay : MonoBehaviour
 		{
 			if (i == 0)
 			{
-				ballCopies[i].GetComponent<BallController>().ResetBall(false);
+				ballCopies[i].GetComponent<BallController>().ResetBall(isFullReset);
 				continue;
 			}
 

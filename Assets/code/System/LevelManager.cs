@@ -69,7 +69,7 @@ public class LevelManager : MonoBehaviour
 		if (scene.buildIndex > 0)
 		{
 			GameObject.Find("UI").GetComponent<UIGameState>().ToggleGameStats(true);
-			GameObject.Find("_system").GetComponent<Gameplay>().SetupLevel();
+			GameObject.Find("_system").GetComponent<Gameplay>().FindGameElements();
 		}
 		else
 		{
