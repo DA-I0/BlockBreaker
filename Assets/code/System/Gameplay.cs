@@ -4,7 +4,7 @@ public class Gameplay : MonoBehaviour
 {
 	#region Variables
 	public static int BonusPoints = 10;
-	public static GameObject _highlander;
+	public static GameObject Highlander;
 
 	private GameState _gameState = GameState.game;
 
@@ -178,13 +178,13 @@ public class Gameplay : MonoBehaviour
 	#region Methods (private)
 	private void Awake()
 	{
-		if (_highlander != null && _highlander != gameObject)
+		if (Highlander != null && Highlander != gameObject)
 		{
 			Destroy(gameObject);
 			return;
 		}
 
-		_highlander = gameObject;
+		Highlander = gameObject;
 		_settings = gameObject.GetComponent<Settings>();
 		_audio = gameObject.GetComponent<AudioController>();
 		_gameScore = gameObject.GetComponent<GameScore>();
