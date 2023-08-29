@@ -3,6 +3,11 @@ Prototype 2:
 		☐ Game localization
 			☐ Load from file into GameData dictionary
 			☐ Apply to UI elements
+		☐ Game difficulty
+			☐ Different amount of lives (1 on hard, 3 on normal, 5 on easy)
+			☐ Different base ball speed
+			☐ Different max paddle size
+			☐ Custom difficulty (set your own values)
 		☐ High-score system
 			☐ Store top 10 results between sessions
 			☐ Let player input their name when joining top 10
@@ -12,12 +17,13 @@ Prototype 2:
 		☐ New interactive elements
 			☐ River (slightly changes ball direction)
 			☐ TNT (explodes when hit, blasts breakable elements nearby: blocks, barricades, cracked walls)
-		☐ Game difficulty
-			☐ Different amount of lives (1 on hard, 3 on normal, 5 on easy)
-			☐ Different base ball speed
-			☐ Custom difficulty (set your own values)
 		☐ New pickups
 			☐ Ice (freeze the paddle for 2-3 seconds)
+			☐ Reverse (reverse paddle controls)
+		☐ New paddles
+			☐ Sticky (catch ball on touch, release like new)
+			☐ Bouncy (add temp speed boost on bounce)
+			☐ Roguelike (time moves when paddle moves)
 		☐ Multi-room levels (ball can travel to another room/screen, can be side-to-side or up-down)
 	Map elements:
 		☐ Stairs + railing
@@ -27,8 +33,10 @@ Prototype 2:
 		☐ Tunnels (allow to move through walls)
 		☐ Cracked walls (can be destroyed with TNT)
 		☐ More map decorations (up the visual variety)
+		☐ New tileset
 	UI:
 		☐ Splash screen on map load (display map name/number)
+		☐ Loading screen
 		☐ Game over screen
 			☐ Display end score
 			☐ Name input if reached top 10
