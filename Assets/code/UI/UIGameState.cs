@@ -35,7 +35,12 @@ public class UIGameState : MonoBehaviour
 
 	public void UpdateScore()
 	{
-		_score.text = $"SCORE: {_gameScore.Score.ToString()} (x{_gameScore.Multiplier.ToString()})";
+		_score.text = $"SCORE: {_gameScore.Score.ToString()}";
+
+		if (_gameScore.Multiplier > 1)
+		{
+			_score.text += $" (x{_gameScore.Multiplier.ToString()})";
+		}
 	}
 
 	public void UpdateLives()
