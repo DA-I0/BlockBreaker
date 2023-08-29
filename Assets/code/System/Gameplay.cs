@@ -3,6 +3,7 @@ using UnityEngine;
 public class Gameplay : MonoBehaviour
 {
 	#region Variables
+	public static int BonusPoints = 10;
 	public static GameObject _highlander;
 
 	private GameState _gameState = GameState.game;
@@ -117,7 +118,7 @@ public class Gameplay : MonoBehaviour
 		if (_lives > _maxLives)
 		{
 			_lives = _maxLives;
-			// TODO: add bonus points if picked up life when full
+			_gameScore.ChangeScore(BonusPoints);
 		}
 
 		if (amount < 0)
