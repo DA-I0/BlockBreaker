@@ -24,6 +24,10 @@ Prototype 2:
 			☐ Sticky (catch ball on touch, release like new)
 			☐ Bouncy (add temp speed boost on bounce)
 			☐ Roguelike (time moves when paddle moves)
+		☐ Shake functionality (press LMB/Space to slightly change ball trajectory)
+			☐ Change ball rotation
+			☐ Temporarily lock paddle
+			☐ Cooldown
 		☐ Multi-room levels (ball can travel to another room/screen, can be side-to-side or up-down)
 	Map elements:
 		☐ Stairs + railing
