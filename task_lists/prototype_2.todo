@@ -1,0 +1,101 @@
+Prototype 2:
+	Features:
+		☐ Configurable controls
+		☐ Game localization
+		☐ Game difficulty
+			✔ Different max & starting lives @done(23-09-21 22:35)
+			✔ Different base ball speed @done(23-09-21 22:35)
+			✔ Different max, min & starting paddle size @done(23-09-21 22:35)
+			☐ Custom difficulty (set your own values) @done(23-09-21 22:35)
+			✔ Load from file @done(23-09-21 22:35)
+				✔ Default ones (resource) @done(23-09-21 22:35)
+				✔ Custom ones (asset) @done(23-09-21 22:35)
+			☐ Score multiplier based on settings
+		☐ High-score system
+			✔ Struct @done(23-09-21 22:35)
+			✔ Store results between sessions @done(23-09-21 22:35)
+			☐ Let player input their name when joining top 10
+		☐ New functionality for dynamic elements
+			☐ Add repeating timed toggle for teleport door?
+			☐ Add on-map buttons that toggle connected element when hit with the ball?
+		☐ New interactive elements
+			☐ River (slightly changes ball direction)
+			☐ TNT (explodes when hit, blasts breakable elements nearby: blocks, barricades, cracked walls)
+				☐ Explosion animation
+				☐ Damage breakables in range
+				☐ Sound effect
+		☐ New pickups
+			☐ Ice (freeze the paddle for 2-3 seconds)
+			☐ Reverse controls (reverse paddle controls)
+			☐ Sticky paddle (catch ball on touch, release like new)
+			☐ Bouncy paddle (add temp speed boost on bounce)
+			☐ Magnet (pull pickups near the paddle towards it, not exclusive unlike sticky/bouncy paddle?)
+			☐ Random (randomize on spawn, ? as icon?)
+		☐ New paddles
+			☐ Roguelike (time moves when paddle moves; ball slowdown when near paddle - visible "time zone")
+			☐ Arced inward
+			☐ Arced outward
+			☐ Static bounce (front part of the paddle consists of 3 zones, each rotates ball to a specific angle on bounce)
+			☐ Roguelike
+		☐ New animations
+			☐ Ball
+				☐ Kicking up dust particles (separate from fire trail used for fast ball)
+				☐ Getting sucked into whirpool
+			☐ Block
+				☐ Hit (shake?)
+				☐ Destruction
+			☐ Barrier
+				☐ Hit
+				☐ Destruction
+			☐ Coffin
+				☐ Hit
+				☐ Destruction
+			☐ Death pit (skulls floating up)
+		☐ Shake functionality (press LMB/Space to slightly change ball trajectory)
+			☐ Change ball rotation
+			☐ Temporarily lock paddle
+			☐ Cooldown
+			☐ Cooldown symbol (sprite/animation around the paddle?)
+			☐ Camera shake (optional)
+			☐ Sound effects
+				☐ Use
+				☐ Ready
+		☐ Multi-room levels (ball can travel to another room/screen, can be side-to-side or up-down)
+		☐ Replace music randomization with shuffle
+		☐ Change whirpool functionality (decrease main trigger, add secondary one that lightly slides the ball towards the center)
+	Map elements:
+		☐ Stairs + railing
+			☐ Ball can move over stairs
+			☐ Ball can move **down** through broken railing
+			☐ Ball can't move up through wall at the bottom of the stairs or railing
+		☐ Tunnels (allow to move through walls)
+		☐ Cracked walls (can be destroyed with TNT)
+		☐ More map decorations (up the visual variety)
+			☐ Barred window
+			☐ Normal window?
+			☐ Table (+ decorations to make prefab variants, colliders for legs)
+			☐ Chair (colliders for legs, destructible?)
+			☐ Painting
+			☐ Torch
+		☐ New tileset
+	UI:
+		☐ Splash screen on map load (display map name/number)
+		✔ Loading screen @done(23-09-13 19:33)
+		☐ Game over screen
+			☐ Display end score
+			☐ Name input if reached top 10
+		✔ Highscore panel in main menu @done(23-09-21 23:00)
+		☐ Difficulty
+			☐ Selection panel (after selecting level?)
+			☐ Customization panel
+		☐ Paddle selection
+		☐ Options
+			☐ Language selection
+			☐ Font selection (pixelated and basic)
+			☐ Pickup display ordering (under ball, over ball)
+		☐ Improve main menu layout and theming
+	Other:
+		☐ Add 1-2 translations (besides english)
+		☐ Secure leaderboard file from outside modification @low
+		☐ Make a new logo @low
+	Issues:

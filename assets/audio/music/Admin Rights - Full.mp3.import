@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dj3llaub1mmyu"
+path="res://.godot/imported/Admin Rights - Full.mp3-d56b0d65f4ad3af9d56a494d77accd46.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/music/Admin Rights - Full.mp3"
+dest_files=["res://.godot/imported/Admin Rights - Full.mp3-d56b0d65f4ad3af9d56a494d77accd46.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

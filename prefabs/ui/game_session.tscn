@@ -1,0 +1,194 @@
+[gd_scene load_steps=6 format=3 uid="uid://bfkkajngi247g"]
+
+[ext_resource type="Script" path="res://code/ui/UIGameSession.cs" id="1_wdiid"]
+[ext_resource type="Texture2D" uid="uid://ct1i42wllkc35" path="res://assets/sprites/ui_elements/ui_frame_thin.png" id="2_2kwjs"]
+[ext_resource type="Texture2D" uid="uid://dkyo1knm2xxhn" path="res://assets/sprites/ui_elements/ui_frame.png" id="2_vgonm"]
+[ext_resource type="Texture2D" uid="uid://bynfnyg3xa7g6" path="res://assets/sprites/ui_elements/ui_life.png" id="3_npm6i"]
+[ext_resource type="Texture2D" uid="uid://csp7417ptlu6y" path="res://assets/sprites/ui_elements/ui_shake.png" id="4_5cocx"]
+
+[node name="UIGameSession" type="Node" node_paths=PackedStringArray("_score", "_lives", "_exitTimer", "_exitPrompt")]
+script = ExtResource("1_wdiid")
+_score = NodePath("TopBar/SessionElements/Score")
+_lives = NodePath("TopBar/SessionElements/Lives")
+_exitTimer = NodePath("ExitTimer")
+_exitPrompt = NodePath("ExitPrompt")
+
+[node name="TopBar" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -128.0
+offset_top = -112.0
+offset_right = 128.0
+offset_bottom = -96.0
+
+[node name="Background" type="NinePatchRect" parent="TopBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_2kwjs")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="SessionElements" type="HBoxContainer" parent="TopBar"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_right = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Score" type="Label" parent="TopBar/SessionElements"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "<score>"
+vertical_alignment = 2
+
+[node name="Shake" type="TextureRect" parent="TopBar/SessionElements"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+texture = ExtResource("4_5cocx")
+expand_mode = 2
+stretch_mode = 3
+
+[node name="Lives" type="HBoxContainer" parent="TopBar/SessionElements"]
+layout_direction = 3
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="Life" type="TextureRect" parent="TopBar/SessionElements/Lives"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("3_npm6i")
+stretch_mode = 5
+
+[node name="Life2" type="TextureRect" parent="TopBar/SessionElements/Lives"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("3_npm6i")
+stretch_mode = 5
+
+[node name="Life3" type="TextureRect" parent="TopBar/SessionElements/Lives"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("3_npm6i")
+stretch_mode = 5
+
+[node name="Life4" type="TextureRect" parent="TopBar/SessionElements/Lives"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("3_npm6i")
+stretch_mode = 5
+
+[node name="Life5" type="TextureRect" parent="TopBar/SessionElements/Lives"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("3_npm6i")
+stretch_mode = 5
+
+[node name="Life6" type="TextureRect" parent="TopBar/SessionElements/Lives"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("3_npm6i")
+stretch_mode = 5
+
+[node name="Life7" type="TextureRect" parent="TopBar/SessionElements/Lives"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("3_npm6i")
+stretch_mode = 5
+
+[node name="Life8" type="TextureRect" parent="TopBar/SessionElements/Lives"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("3_npm6i")
+stretch_mode = 5
+
+[node name="Life9" type="TextureRect" parent="TopBar/SessionElements/Lives"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("3_npm6i")
+stretch_mode = 5
+
+[node name="ExitTimer" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -20.0
+offset_top = -112.0
+offset_right = 24.0
+offset_bottom = -79.0
+
+[node name="Background" type="NinePatchRect" parent="ExitTimer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_vgonm")
+patch_margin_left = 4
+patch_margin_top = 5
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="Label" type="Label" parent="ExitTimer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = 8.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 22
+text = "60"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ExitPrompt" type="Control" parent="."]
+z_index = 1
+layout_mode = 3
+anchors_preset = 0
+offset_top = -102.0
+offset_bottom = -102.0
+
+[node name="Label" type="Label" parent="ExitPrompt"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -75.5
+offset_right = 75.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Press [Space] or [LMB] to continue..."
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Background" type="NinePatchRect" parent="ExitPrompt/Label"]
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -5.0
+offset_top = -2.0
+offset_right = 5.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_vgonm")
+patch_margin_left = 4
+patch_margin_top = 5
+patch_margin_right = 4
+patch_margin_bottom = 4

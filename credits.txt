@@ -1,5 +1,7 @@
 Temporary credits while it's just a prototype.
 
+Sound effects made with [sfxr by DrPetter](https://www.drpetter.se/project_sfxr.html).
+
 Music:
 "beam" by sinneslöschen (https://pixabay.com/users/sinneschl%C3%B6sen-1888724/)
 "Admin Rights - Full", "Claimed" and "Grind" by TipTopTomCat (https://tiptoptomcat.itch.io/)

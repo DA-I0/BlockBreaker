@@ -1,0 +1,8 @@
+name:Normal;
+maxLives:5;
+startingLives:3;
+ballSpeedMultiplier:1;
+angleSelectSpeed:1;
+maxPaddleSize:4;
+startPaddleSize:3;
+minPaddleSize:-2;

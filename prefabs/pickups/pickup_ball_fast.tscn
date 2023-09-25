@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://code/gameplay/pickups/PickupBallFast.cs" id="1_l7y0j"]
+[ext_resource type="Texture2D" uid="uid://gq8cpwfylt5w" path="res://assets/sprites/pickups/pickup_ball_fast.png" id="2_ak6kd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ow3q6"]
+radius = 6.0
+
+[node name="PickupBallFast" type="Area2D"]
+collision_layer = 8
+collision_mask = 4
+monitorable = false
+script = ExtResource("1_l7y0j")
+_speed = 35.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ak6kd")
+centered = false
+offset = Vector2(-5, -5)
+
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0.5)
+shape = SubResource("CircleShape2D_ow3q6")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="OnBodyEntered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="OnScreenExited"]

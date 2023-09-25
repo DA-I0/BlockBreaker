@@ -1,0 +1,107 @@
+[gd_scene load_steps=9 format=3 uid="uid://cpxycxfqmwant"]
+
+[ext_resource type="Script" path="res://code/gameplay/Ball.cs" id="1_474hh"]
+[ext_resource type="Texture2D" uid="uid://bn7hvqyy8kyln" path="res://assets/sprites/ball.png" id="1_thobj"]
+[ext_resource type="Texture2D" uid="uid://dgv6rt4mplbwy" path="res://assets/sprites/ui_elements/ui_ball_arrow.png" id="3_ehaev"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j0lxo"]
+radius = 4.0
+
+[sub_resource type="Animation" id="Animation_rkybt"]
+resource_name = "bounce"
+length = 0.600002
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0416667, 0.0833333, 0.208333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [8, 9, 10, 11]
+}
+
+[sub_resource type="Animation" id="Animation_5uva4"]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_0l7ba"]
+resource_name = "roll"
+length = 0.7
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y7qwh"]
+_data = {
+"bounce": SubResource("Animation_rkybt"),
+"idle": SubResource("Animation_5uva4"),
+"roll": SubResource("Animation_0l7ba")
+}
+
+[node name="Ball" type="CharacterBody2D" node_paths=PackedStringArray("_sprite", "_arrow", "_arrowTimer", "_collider", "_animator")]
+collision_layer = 2
+collision_mask = 5
+collision_priority = 5.0
+slide_on_ceiling = false
+floor_stop_on_slope = false
+platform_floor_layers = 4
+platform_wall_layers = 4
+safe_margin = 0.1
+script = ExtResource("1_474hh")
+_sprite = NodePath("Sprite")
+_arrow = NodePath("ArrowSprite")
+_arrowTimer = NodePath("ArrowSprite/Timer")
+_collider = NodePath("Collider")
+_animator = NodePath("Animator")
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_j0lxo")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_thobj")
+centered = false
+offset = Vector2(-4, -4)
+hframes = 4
+vframes = 4
+
+[node name="ArrowSprite" type="Sprite2D" parent="."]
+texture = ExtResource("3_ehaev")
+centered = false
+offset = Vector2(-2.5, -14)
+
+[node name="Timer" type="Timer" parent="ArrowSprite"]
+
+[node name="Animator" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_y7qwh")
+}
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="timeout" from="ArrowSprite/Timer" to="." method="RotationSelect"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="OnScreenExited"]

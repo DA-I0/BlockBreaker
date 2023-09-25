@@ -1,0 +1,8 @@
+name:Easy;
+maxLives:10;
+startingLives:5;
+ballSpeedMultiplier:0.75;
+angleSelectSpeed:0.75;
+maxPaddleSize:5;
+startPaddleSize:4;
+minPaddleSize:0;

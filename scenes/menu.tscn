@@ -1,0 +1,562 @@
+[gd_scene load_steps=9 format=3 uid="uid://2bhhrfvm7kux"]
+
+[ext_resource type="Script" path="res://code/ui/UIController.cs" id="1_5ctlo"]
+[ext_resource type="PackedScene" uid="uid://brvyqbw1p1q8q" path="res://prefabs/ui/level_button.tscn" id="2_idrcj"]
+[ext_resource type="Texture2D" uid="uid://dkyo1knm2xxhn" path="res://assets/sprites/ui_elements/ui_frame.png" id="3_nmycr"]
+[ext_resource type="Theme" uid="uid://dj60ywofwk371" path="res://ui.theme" id="4_64s2n"]
+[ext_resource type="Script" path="res://code/ui/UIChangelog.cs" id="5_j3nyw"]
+[ext_resource type="Script" path="res://code/ui/UILeaderboard.cs" id="6_3powx"]
+[ext_resource type="Script" path="res://code/ui/UIOptions.cs" id="7_ti3v4"]
+[ext_resource type="Texture2D" uid="uid://ct1i42wllkc35" path="res://assets/sprites/ui_elements/ui_frame_thin.png" id="8_dpkjf"]
+
+[node name="Menu" type="Node" node_paths=PackedStringArray("_gameTitle")]
+script = ExtResource("1_5ctlo")
+_buttonPrefab = ExtResource("2_idrcj")
+_gameTitle = NodePath("Control/GameTitle")
+
+[node name="Control" type="Control" parent="."]
+z_index = 1
+layout_mode = 3
+anchors_preset = 0
+offset_left = -128.0
+offset_top = -112.0
+offset_right = 128.0
+offset_bottom = 112.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_nmycr")
+patch_margin_left = 4
+patch_margin_top = 5
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="GameTitle" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.2
+offset_left = 5.0
+offset_top = 5.0
+offset_right = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+auto_translate = false
+theme_override_font_sizes/font_size = 22
+text = "<game_title>"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MenuButtons" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.2
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 8.0
+offset_bottom = -5.0
+alignment = 2
+
+[node name="Play" type="Button" parent="Control/MenuButtons"]
+layout_mode = 2
+text = "button_play"
+
+[node name="Info" type="Button" parent="Control/MenuButtons"]
+layout_mode = 2
+text = "Info"
+
+[node name="Changelog" type="Button" parent="Control/MenuButtons"]
+layout_mode = 2
+text = "Changelog"
+
+[node name="Options" type="Button" parent="Control/MenuButtons"]
+layout_mode = 2
+text = "Options"
+
+[node name="Exit" type="Button" parent="Control/MenuButtons"]
+layout_mode = 2
+text = "Exit"
+
+[node name="LeaderboardPanel" type="Panel" parent="Control" node_paths=PackedStringArray("_playerNames", "_playerScore")]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2
+anchor_top = 0.2
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = -5.0
+theme = ExtResource("4_64s2n")
+script = ExtResource("6_3powx")
+_playerNames = NodePath("PlayerNames")
+_playerScore = NodePath("PlayerScore")
+
+[node name="Header" type="Control" parent="Control/LeaderboardPanel"]
+layout_mode = 1
+anchor_right = 1.0
+anchor_bottom = 0.12
+grow_horizontal = 2
+
+[node name="Background" type="NinePatchRect" parent="Control/LeaderboardPanel/Header"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_nmycr")
+patch_margin_left = 4
+patch_margin_top = 5
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="HeaderLabel" type="Label" parent="Control/LeaderboardPanel/Header"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 2.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Leaderboard"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerNames" type="Label" parent="Control/LeaderboardPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.12
+anchor_right = 0.7
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 1.0
+offset_right = -4.0
+offset_bottom = -4.0
+text = "<player_names>"
+text_overrun_behavior = 3
+
+[node name="PlayerScore" type="Label" parent="Control/LeaderboardPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.7
+anchor_top = 0.12
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+offset_right = -4.0
+offset_bottom = -4.0
+text = "<score>"
+horizontal_alignment = 2
+
+[node name="LevelPanel" type="GridContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 9.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 4
+
+[node name="InfoPanel" type="ScrollContainer" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 9.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = -5.0
+
+[node name="InfoContent" type="VBoxContainer" parent="Control/InfoPanel"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/InfoPanel/InfoContent"]
+layout_mode = 2
+theme = ExtResource("4_64s2n")
+bbcode_enabled = true
+text = "[b]Controls:[/b]
+[b]Move paddle:[/b] [←][→] or [Mouse]
+[b]Release ball:[/b] [{input_keyboard_release}] or [{input_mouse_release}]
+[b]Reset ball (-1 life):[/b] [{input_keyboard_reset}]
+[b]Pause game:[/b] [{input_keyboard_pause}]"
+fit_content = true
+scroll_active = false
+shortcut_keys_enabled = false
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Control/InfoPanel/InfoContent"]
+layout_mode = 2
+theme = ExtResource("4_64s2n")
+bbcode_enabled = true
+text = "[u][b]Blocks:[/b][/u]
+Exist in two variants - basic and sturdy.
+Basic blocks break after {block_health} hit, sturdy ones after {sturdy_block_health}.
+
+Destroy all to complete a level."
+fit_content = true
+scroll_active = false
+shortcut_keys_enabled = false
+
+[node name="ChangelogPanel" type="ScrollContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 9.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = -5.0
+
+[node name="ChangelogContent" type="RichTextLabel" parent="Control/ChangelogPanel"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("4_64s2n")
+bbcode_enabled = true
+text = "<changelog>"
+fit_content = true
+scroll_active = false
+shortcut_keys_enabled = false
+script = ExtResource("5_j3nyw")
+
+[node name="OptionsPanel3" type="TabContainer" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2
+anchor_top = 0.2
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_right = -5.0
+offset_bottom = -5.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("4_64s2n")
+
+[node name="General" type="VBoxContainer" parent="Control/OptionsPanel3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="LanguageSetting" type="HSplitContainer" parent="Control/OptionsPanel3/General"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/OptionsPanel3/General/LanguageSetting"]
+layout_mode = 2
+text = "Language"
+
+[node name="OptionButton" type="OptionButton" parent="Control/OptionsPanel3/General/LanguageSetting"]
+layout_mode = 2
+
+[node name="FontSetting2" type="HSplitContainer" parent="Control/OptionsPanel3/General"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/OptionsPanel3/General/FontSetting2"]
+layout_mode = 2
+text = "Font"
+
+[node name="OptionButton" type="OptionButton" parent="Control/OptionsPanel3/General/FontSetting2"]
+layout_mode = 2
+item_count = 2
+popup/item_0/text = "Basic"
+popup/item_0/id = 1
+popup/item_1/text = "Pixelated"
+popup/item_1/id = 0
+
+[node name="Video" type="VBoxContainer" parent="Control/OptionsPanel3"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="FullscreenSetting" type="HSplitContainer" parent="Control/OptionsPanel3/Video"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/OptionsPanel3/Video/FullscreenSetting"]
+layout_mode = 2
+text = "Fullscreen"
+
+[node name="CheckButton" type="CheckButton" parent="Control/OptionsPanel3/Video/FullscreenSetting"]
+layout_mode = 2
+flat = true
+
+[node name="ResolutionSetting" type="HSplitContainer" parent="Control/OptionsPanel3/Video"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/OptionsPanel3/Video/ResolutionSetting"]
+layout_mode = 2
+text = "Resolution"
+
+[node name="OptionButton" type="OptionButton" parent="Control/OptionsPanel3/Video/ResolutionSetting"]
+layout_mode = 2
+
+[node name="ScreenShakeSetting" type="HSplitContainer" parent="Control/OptionsPanel3/Video"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/OptionsPanel3/Video/ScreenShakeSetting"]
+layout_mode = 2
+text = "Screen shake"
+
+[node name="CheckButton" type="CheckButton" parent="Control/OptionsPanel3/Video/ScreenShakeSetting"]
+layout_mode = 2
+flat = true
+
+[node name="Audio" type="VBoxContainer" parent="Control/OptionsPanel3"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MasterVolumeSetting" type="HSplitContainer" parent="Control/OptionsPanel3/Audio"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/OptionsPanel3/Audio/MasterVolumeSetting"]
+layout_mode = 2
+text = "Master volume"
+
+[node name="HSlider" type="HSlider" parent="Control/OptionsPanel3/Audio/MasterVolumeSetting"]
+layout_mode = 2
+
+[node name="MusicVolumeSetting" type="HSplitContainer" parent="Control/OptionsPanel3/Audio"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/OptionsPanel3/Audio/MusicVolumeSetting"]
+layout_mode = 2
+text = "Music volume"
+
+[node name="HSlider" type="HSlider" parent="Control/OptionsPanel3/Audio/MusicVolumeSetting"]
+layout_mode = 2
+
+[node name="EffectsVolumeSetting" type="HSplitContainer" parent="Control/OptionsPanel3/Audio"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/OptionsPanel3/Audio/EffectsVolumeSetting"]
+layout_mode = 2
+text = "Effects volume"
+
+[node name="HSlider" type="HSlider" parent="Control/OptionsPanel3/Audio/EffectsVolumeSetting"]
+layout_mode = 2
+
+[node name="OptionsPanel" type="ScrollContainer" parent="Control" node_paths=PackedStringArray("_fullscreen", "_resolution")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = -5.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("4_64s2n")
+script = ExtResource("7_ti3v4")
+_fullscreen = NodePath("General/FullscreenSetting/CheckButton")
+_resolution = NodePath("General/ResolutionSetting/OptionButton")
+
+[node name="General" type="VBoxContainer" parent="Control/OptionsPanel"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Header2" type="Control" parent="Control/OptionsPanel/General"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+
+[node name="Background" type="NinePatchRect" parent="Control/OptionsPanel/General/Header2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_dpkjf")
+patch_margin_left = 4
+patch_margin_top = 5
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="HeaderLabel" type="Label" parent="Control/OptionsPanel/General/Header2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 2.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "General"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LanguageSetting" type="HSplitContainer" parent="Control/OptionsPanel/General"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/OptionsPanel/General/LanguageSetting"]
+layout_mode = 2
+text = "Language"
+
+[node name="OptionButton" type="OptionButton" parent="Control/OptionsPanel/General/LanguageSetting"]
+layout_mode = 2
+
+[node name="FontSetting2" type="HSplitContainer" parent="Control/OptionsPanel/General"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/OptionsPanel/General/FontSetting2"]
+layout_mode = 2
+text = "Font"
+
+[node name="OptionButton" type="OptionButton" parent="Control/OptionsPanel/General/FontSetting2"]
+layout_mode = 2
+item_count = 2
+popup/item_0/text = "Basic"
+popup/item_0/id = 1
+popup/item_1/text = "Pixelated"
+popup/item_1/id = 0
+
+[node name="Header3" type="Control" parent="Control/OptionsPanel/General"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+
+[node name="Background" type="NinePatchRect" parent="Control/OptionsPanel/General/Header3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_dpkjf")
+patch_margin_left = 4
+patch_margin_top = 5
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="HeaderLabel" type="Label" parent="Control/OptionsPanel/General/Header3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 2.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Video"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FullscreenSetting" type="HSplitContainer" parent="Control/OptionsPanel/General"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/OptionsPanel/General/FullscreenSetting"]
+layout_mode = 2
+text = "Fullscreen"
+
+[node name="CheckButton" type="CheckButton" parent="Control/OptionsPanel/General/FullscreenSetting"]
+layout_mode = 2
+flat = true
+
+[node name="ResolutionSetting" type="HSplitContainer" parent="Control/OptionsPanel/General"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/OptionsPanel/General/ResolutionSetting"]
+layout_mode = 2
+text = "Resolution"
+
+[node name="OptionButton" type="OptionButton" parent="Control/OptionsPanel/General/ResolutionSetting"]
+layout_mode = 2
+
+[node name="ScreenShakeSetting" type="HSplitContainer" parent="Control/OptionsPanel/General"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/OptionsPanel/General/ScreenShakeSetting"]
+layout_mode = 2
+text = "Screen shake"
+
+[node name="CheckButton" type="CheckButton" parent="Control/OptionsPanel/General/ScreenShakeSetting"]
+layout_mode = 2
+flat = true
+
+[node name="Header4" type="Control" parent="Control/OptionsPanel/General"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+
+[node name="Background" type="NinePatchRect" parent="Control/OptionsPanel/General/Header4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_dpkjf")
+patch_margin_left = 4
+patch_margin_top = 5
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="HeaderLabel" type="Label" parent="Control/OptionsPanel/General/Header4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 2.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Audio"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MasterVolumeSetting" type="HSplitContainer" parent="Control/OptionsPanel/General"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/OptionsPanel/General/MasterVolumeSetting"]
+layout_mode = 2
+text = "Master volume"
+
+[node name="HSlider" type="HSlider" parent="Control/OptionsPanel/General/MasterVolumeSetting"]
+layout_mode = 2
+
+[node name="MusicVolumeSetting" type="HSplitContainer" parent="Control/OptionsPanel/General"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/OptionsPanel/General/MusicVolumeSetting"]
+layout_mode = 2
+text = "Music volume"
+
+[node name="HSlider" type="HSlider" parent="Control/OptionsPanel/General/MusicVolumeSetting"]
+layout_mode = 2
+
+[node name="EffectsVolumeSetting" type="HSplitContainer" parent="Control/OptionsPanel/General"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/OptionsPanel/General/EffectsVolumeSetting"]
+layout_mode = 2
+text = "Effects volume"
+
+[node name="HSlider" type="HSlider" parent="Control/OptionsPanel/General/EffectsVolumeSetting"]
+layout_mode = 2
+
+[connection signal="pressed" from="Control/MenuButtons/Play" to="." method="TogglePanel" binds= ["LevelPanel"]]
+[connection signal="pressed" from="Control/MenuButtons/Info" to="." method="TogglePanel" binds= ["InfoPanel"]]
+[connection signal="pressed" from="Control/MenuButtons/Changelog" to="." method="TogglePanel" binds= ["ChangelogPanel"]]
+[connection signal="pressed" from="Control/MenuButtons/Options" to="." method="TogglePanel" binds= ["OptionsPanel"]]
+[connection signal="pressed" from="Control/MenuButtons/Exit" to="." method="ExitGame"]

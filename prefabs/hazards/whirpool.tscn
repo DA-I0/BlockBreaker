@@ -1,0 +1,163 @@
+[gd_scene load_steps=10 format=3 uid="uid://c7ob1oeeah2yr"]
+
+[ext_resource type="Script" path="res://code/gameplay/interactables/InteractableWhirpool.cs" id="1_h0u3k"]
+[ext_resource type="Texture2D" uid="uid://4t3etw7ju070" path="res://assets/sprites/interactables/whirpool_01.png" id="1_nyjkc"]
+[ext_resource type="Texture2D" uid="uid://c3ktdhmaejwul" path="res://assets/sprites/interactables/whirpool_02.png" id="3_ea7vr"]
+[ext_resource type="Texture2D" uid="uid://cq8dd4c6015vn" path="res://assets/sprites/interactables/whirpool_03.png" id="4_drjl4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_28lk8"]
+radius = 4.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jkltg"]
+radius = 8.06226
+
+[sub_resource type="Animation" id="Animation_emjfj"]
+resource_name = "idle_disabled"
+length = 0.500017
+loop_mode = 1
+step = 0.166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_nyjkc")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.501961)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CatchArea:monitoring")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Attractor:monitoring")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_q6de1"]
+resource_name = "idle_enabled"
+length = 0.500017
+loop_mode = 1
+step = 0.166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_nyjkc"), ExtResource("3_ea7vr"), ExtResource("4_drjl4")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CatchArea:monitoring")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Attractor:monitoring")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xte0x"]
+_data = {
+"idle_disabled": SubResource("Animation_emjfj"),
+"idle_enabled": SubResource("Animation_q6de1")
+}
+
+[node name="Whirpool" type="Node2D" node_paths=PackedStringArray("_animator", "_timer")]
+script = ExtResource("1_h0u3k")
+_animator = NodePath("Animator")
+_timer = NodePath("Timer")
+
+[node name="CatchArea" type="Area2D" parent="."]
+collision_mask = 2
+monitorable = false
+
+[node name="Trigger" type="CollisionShape2D" parent="CatchArea"]
+shape = SubResource("CircleShape2D_28lk8")
+
+[node name="Attractor" type="Area2D" parent="."]
+collision_mask = 2
+monitorable = false
+gravity_space_override = 1
+gravity_point = true
+gravity_point_center = Vector2(0, 0)
+gravity_direction = Vector2(0, 0)
+
+[node name="Zone" type="CollisionShape2D" parent="Attractor"]
+shape = SubResource("CircleShape2D_jkltg")
+debug_color = Color(0.729412, 0.462745, 0.294118, 0.419608)
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_nyjkc")
+
+[node name="Animator" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_xte0x")
+}
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="CatchArea" to="." method="OnBodyEntered"]
+[connection signal="timeout" from="Timer" to="." method="Toggle"]
