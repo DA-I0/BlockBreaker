@@ -35,17 +35,6 @@ public partial class LevelManager : Node
 		SceneChanged?.Invoke();
 	}
 
-	public void LoadNextLevel()
-	{
-		// if (refsgameData.Levels.Count - 1 < _currentLevel)
-		// {
-		// 	levelManager.LoadNextLevel();
-		// }
-		// check if there are any further levels available and if not load the main menu
-		// LoadMenuScene();
-		LoadGameScene("level_02");
-	}
-
 	private void ClearCurrentScene()
 	{
 		if (currentScene.GetChildCount() > 0)
