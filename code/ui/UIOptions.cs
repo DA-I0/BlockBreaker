@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using Godot;
 
 public partial class UIOptions : Panel
@@ -18,11 +20,11 @@ public partial class UIOptions : Panel
 	{
 		refs = GetNode("/root/GameController/SessionController") as SessionController;
 		((UIController)GetNode("../..")).RefreshUI += UpdateSettings;
+		PopulateLanguageList();
 	}
 
 	private void UpdateSettings()
 	{
-		PopulateLanguageList();
 		_language.Selected = FindOptionIndex(_language, TranslationServer.GetLanguageName(refs.settings.Language));
 		_mouseSpeed.Value = refs.settings.SpeedMouse;
 		_keyboardSpeed.Value = refs.settings.SpeedKeyboard;
@@ -65,14 +67,20 @@ public partial class UIOptions : Panel
 
 	private void PopulateLanguageList()
 	{
+		List<string> languageNames = new List<string>();
 		foreach (string languageCode in TranslationServer.GetLoadedLocales())
 		{
-			string languageName = TranslationServer.GetLanguageName(languageCode);
-
-			if (FindOptionIndex(_language, languageName) < 0)
+			if (!languageNames.Contains(languageCode))
 			{
-				_language.AddItem(languageName);
+				languageNames.Add(TranslationServer.GetLanguageName(languageCode));
 			}
+		}
+
+		languageNames.Sort();
+
+		foreach (string languageName in languageNames)
+		{
+			_language.AddItem(languageName);
 		}
 	}
 
