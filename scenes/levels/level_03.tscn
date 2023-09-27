@@ -1,8 +1,8 @@
 [gd_scene load_steps=11 format=3 uid="uid://cl2ld0qppk5rr"]
 
 [ext_resource type="Texture2D" uid="uid://clfnabf8ysvwd" path="res://assets/sprites/tilesets/map_tiles_bricked.png" id="1_cmoep"]
-[ext_resource type="PackedScene" uid="uid://brd85852daks" path="res://prefabs/blocks/block_basic.tscn" id="2_qw5vu"]
-[ext_resource type="PackedScene" uid="uid://b1vhjdrxg737f" path="res://prefabs/blocks/block_sturdy.tscn" id="3_3ty0w"]
+[ext_resource type="PackedScene" path="res://prefabs/blocks/block_basic.tscn" id="2_qw5vu"]
+[ext_resource type="PackedScene" path="res://prefabs/blocks/block_sturdy.tscn" id="3_3ty0w"]
 [ext_resource type="PackedScene" uid="uid://dlrofqirtncwr" path="res://prefabs/blocks/barrier_basic.tscn" id="4_4ce56"]
 [ext_resource type="PackedScene" uid="uid://cgpa7sf8jgxu8" path="res://prefabs/level_exit.tscn" id="5_uf0o5"]
 
@@ -142,7 +142,9 @@ normal = Vector2(-1, 0)
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_7jrrh"]
 normal = Vector2(0, 1)
 
-[node name="Map" type="Node"]
+[node name="Map" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_qov5v")
@@ -164,7 +166,9 @@ shape = SubResource("WorldBoundaryShape2D_37x88")
 position = Vector2(0, -65)
 shape = SubResource("WorldBoundaryShape2D_7jrrh")
 
-[node name="Blocks" type="Node" parent="."]
+[node name="Blocks" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
 
 [node name="BlockBasic" parent="Blocks" instance=ExtResource("2_qw5vu")]
 position = Vector2(-80, 6)
@@ -286,7 +290,9 @@ position = Vector2(64, -10)
 [node name="BlockSturdy11" parent="Blocks" instance=ExtResource("3_3ty0w")]
 position = Vector2(80, -10)
 
-[node name="Barriers" type="Node" parent="."]
+[node name="Barriers" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
 
 [node name="BarrierBasic" parent="Barriers" instance=ExtResource("4_4ce56")]
 position = Vector2(-48, 12)
