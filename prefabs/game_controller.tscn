@@ -20,8 +20,15 @@
 
 [node name="GameController" type="Node"]
 
-[node name="SessionController" type="Node" parent="."]
+[node name="SessionController" type="Node" parent="." node_paths=PackedStringArray("musicController", "audioController", "gameScore", "health", "levelManager", "gameElements", "subView")]
 script = ExtResource("1_uqmtw")
+musicController = NodePath("../MusicController")
+audioController = NodePath("../AudioController")
+gameScore = NodePath("../Score")
+health = NodePath("../Health")
+levelManager = NodePath("../LevelManager")
+gameElements = NodePath("../SubViewportContainer/SubViewport/GameElements")
+subView = NodePath("../SubViewportContainer/SubViewport")
 
 [node name="MusicController" type="AudioStreamPlayer" parent="."]
 bus = &"Music"
@@ -38,7 +45,23 @@ _clips = Array[AudioStream]([ExtResource("3_5ds7p"), ExtResource("4_0r48c"), Ext
 [node name="LevelManager" type="Node" parent="."]
 script = ExtResource("2_fqfgb")
 
-[node name="CurrentScene" type="Node" parent="."]
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+anchors_preset = -1
+offset_left = -128.0
+offset_top = -112.0
+offset_right = 128.0
+offset_bottom = 112.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+disable_3d = true
+handle_input_locally = false
+canvas_item_default_texture_filter = 0
+size = Vector2i(256, 224)
+render_target_update_mode = 4
+
+[node name="CurrentScene" type="Node" parent="SubViewportContainer/SubViewport"]
+
+[node name="GameElements" type="Node" parent="SubViewportContainer/SubViewport"]
 
 [node name="Health" type="Node" parent="."]
 script = ExtResource("3_fiiwk")
@@ -52,13 +75,14 @@ one_shot = true
 
 [node name="UIGameSession" parent="." instance=ExtResource("4_l3xv6")]
 
-[node name="GameElements" type="Node" parent="."]
-
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("4_jrwof")
 
 [node name="Timer" type="Timer" parent="Camera2D"]
 one_shot = true
 
-[connection signal="child_entered_tree" from="CurrentScene" to="LevelManager" method="OnCurrentSceneChildEnteredTree"]
+[node name="UI" type="Node" parent="."]
+
+[connection signal="child_entered_tree" from="SubViewportContainer/SubViewport/CurrentScene" to="LevelManager" method="OnCurrentSceneChildEnteredTree"]
 [connection signal="timeout" from="Score/Timer" to="Score" method="AddBonusScore"]
+[connection signal="child_entered_tree" from="UI" to="LevelManager" method="OnCurrentSceneChildEnteredTree"]

@@ -6,18 +6,18 @@ public partial class SessionController : Node
 	private int _currentDifficulty = 1;
 	private int _currentLevel = -1;
 
-	public Difficulty difficulty;
 	public GameData gameData;
-	public AudioController musicController;
-	public AudioController audioController;
+	[Export] public AudioController musicController;
+	[Export] public AudioController audioController;
 	public FileOperations fileOperations;
-	public Score gameScore;
+	[Export] public Score gameScore;
 	// public Gameplay gameState;
-	public Health health;
-	public LevelManager levelManager;
+	[Export] public Health health;
+	[Export] public LevelManager levelManager;
 	// public PaddleControls paddle;
-	// public Settings settings;
-	public Node gameElements;
+	public Settings settings;
+	[Export] public Node gameElements;
+	[Export] public Node subView;
 
 	public Paddle paddle;
 
@@ -35,16 +35,9 @@ public partial class SessionController : Node
 
 	public override void _Ready()
 	{
-		gameData = new GameData(this, string.Empty, string.Empty);
-		musicController = GetNode("../MusicController") as AudioController;
-		audioController = GetNode("../AudioController") as AudioController;
+		gameData = new GameData(this);
 		fileOperations = new FileOperations(this);
-		gameScore = GetNode("../Score") as Score;
-		gameElements = GetNode("../GameElements");
-		health = GetNode("../Health") as Health;
-		// gameState = gameObject.GetComponent<Gameplay>();
-		levelManager = GetNode("../LevelManager") as LevelManager;
-		// settings = gameObject.GetComponent<Settings>();
+		settings = new Settings(this);
 
 		Start();
 	}
@@ -68,7 +61,7 @@ public partial class SessionController : Node
 		}
 
 		paddle = (Paddle)ResourceLoader.Load<PackedScene>("res://prefabs/paddles/paddle_01.tscn").Instantiate();
-		GetParent().AddChild(paddle);
+		subView.AddChild(paddle);
 		gameElements.AddChild((Ball)ResourceLoader.Load<PackedScene>("res://prefabs/ball.tscn").Instantiate());
 	}
 

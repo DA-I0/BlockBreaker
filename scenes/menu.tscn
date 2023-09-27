@@ -9,19 +9,25 @@
 [ext_resource type="Script" path="res://code/ui/UIOptions.cs" id="7_ti3v4"]
 [ext_resource type="Texture2D" uid="uid://ct1i42wllkc35" path="res://assets/sprites/ui_elements/ui_frame_thin.png" id="8_dpkjf"]
 
-[node name="Menu" type="Node" node_paths=PackedStringArray("_gameTitle")]
+[node name="Menu" type="AspectRatioContainer" node_paths=PackedStringArray("_gameTitle", "_menuButtons")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -128.0
+offset_top = -112.0
+offset_right = -128.0
+offset_bottom = -112.0
+grow_horizontal = 2
+grow_vertical = 2
+ratio = 1.1429
 script = ExtResource("1_5ctlo")
 _buttonPrefab = ExtResource("2_idrcj")
 _gameTitle = NodePath("Control/GameTitle")
+_menuButtons = NodePath("Control/MenuButtons")
 
 [node name="Control" type="Control" parent="."]
 z_index = 1
-layout_mode = 3
-anchors_preset = 0
-offset_left = -128.0
-offset_top = -112.0
-offset_right = 128.0
-offset_bottom = 112.0
+layout_mode = 2
 
 [node name="NinePatchRect" type="NinePatchRect" parent="Control"]
 layout_mode = 1
@@ -40,7 +46,7 @@ patch_margin_bottom = 4
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
-anchor_bottom = 0.2
+anchor_bottom = 0.15
 offset_left = 5.0
 offset_top = 5.0
 offset_right = -5.0
@@ -55,11 +61,12 @@ vertical_alignment = 1
 [node name="MenuButtons" type="VBoxContainer" parent="Control"]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.2
+anchor_top = 0.15
+anchor_right = 0.18
 anchor_bottom = 1.0
 offset_left = 5.0
 offset_top = 5.0
-offset_right = 8.0
+offset_right = -5.0
 offset_bottom = -5.0
 alignment = 2
 
@@ -69,29 +76,32 @@ text = "button_play"
 
 [node name="Info" type="Button" parent="Control/MenuButtons"]
 layout_mode = 2
-text = "Info"
+text = "button_info"
 
 [node name="Changelog" type="Button" parent="Control/MenuButtons"]
 layout_mode = 2
-text = "Changelog"
+text = "button_changelog"
 
 [node name="Options" type="Button" parent="Control/MenuButtons"]
 layout_mode = 2
-text = "Options"
+text = "button_options"
+
+[node name="Return" type="Button" parent="Control/MenuButtons"]
+layout_mode = 2
+text = "button_return"
 
 [node name="Exit" type="Button" parent="Control/MenuButtons"]
 layout_mode = 2
-text = "Exit"
+text = "button_exit"
 
 [node name="LeaderboardPanel" type="Panel" parent="Control" node_paths=PackedStringArray("_playerNames", "_playerScore")]
-visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.2
-anchor_top = 0.2
+anchor_top = 0.15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 20.0
+offset_left = 1.0
 offset_top = 5.0
 offset_right = -5.0
 offset_bottom = -5.0
@@ -128,7 +138,7 @@ offset_top = 2.0
 offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Leaderboard"
+text = "header_leaderboard"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -161,10 +171,10 @@ horizontal_alignment = 2
 [node name="LevelPanel" type="GridContainer" parent="Control"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.2
+anchor_left = 0.18
+anchor_top = 0.15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 9.0
 offset_top = 5.0
 offset_right = -5.0
 offset_bottom = -5.0
@@ -173,13 +183,13 @@ grow_vertical = 2
 columns = 4
 
 [node name="InfoPanel" type="ScrollContainer" parent="Control"]
-visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.2
+anchor_top = 0.15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 9.0
+offset_left = 1.0
 offset_top = 5.0
 offset_right = -5.0
 offset_bottom = -5.0
@@ -215,18 +225,36 @@ fit_content = true
 scroll_active = false
 shortcut_keys_enabled = false
 
-[node name="ChangelogPanel" type="ScrollContainer" parent="Control"]
+[node name="ChangelogPanel" type="NinePatchRect" parent="Control"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.2
+anchor_top = 0.15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 9.0
+offset_left = 1.0
 offset_top = 5.0
 offset_right = -5.0
 offset_bottom = -5.0
+texture = ExtResource("8_dpkjf")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 3
 
-[node name="ChangelogContent" type="RichTextLabel" parent="Control/ChangelogPanel"]
+[node name="ChangelogScrollContainer" type="ScrollContainer" parent="Control/ChangelogPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ChangelogContent" type="RichTextLabel" parent="Control/ChangelogPanel/ChangelogScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("4_64s2n")
@@ -239,15 +267,10 @@ script = ExtResource("5_j3nyw")
 
 [node name="OptionsPanel3" type="TabContainer" parent="Control"]
 visible = false
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.2
-anchor_top = 0.2
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 20.0
-offset_right = -5.0
-offset_bottom = -5.0
+layout_mode = 2
+offset_left = 16.0
+offset_right = 240.0
+offset_bottom = 224.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("4_64s2n")
@@ -356,33 +379,62 @@ text = "Effects volume"
 [node name="HSlider" type="HSlider" parent="Control/OptionsPanel3/Audio/EffectsVolumeSetting"]
 layout_mode = 2
 
-[node name="OptionsPanel" type="ScrollContainer" parent="Control" node_paths=PackedStringArray("_fullscreen", "_resolution")]
+[node name="OptionsPanel" type="Panel" parent="Control" node_paths=PackedStringArray("_language", "_fullscreen", "_mouseSpeed", "_keyboardSpeed", "_resolution", "_screenShake", "_masterVolume", "_musicVolume", "_effectsVolume")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.2
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 20.0
+offset_left = 1.0
 offset_top = 5.0
 offset_right = -5.0
 offset_bottom = -5.0
+script = ExtResource("7_ti3v4")
+_language = NodePath("ScrollContainer/Options/LanguageSetting/LanguageOptions")
+_fullscreen = NodePath("ScrollContainer/Options/FullscreenSetting/FullscreenToggle")
+_mouseSpeed = NodePath("ScrollContainer/Options/MouseSpeedSetting/MouseSpeedSlider")
+_keyboardSpeed = NodePath("ScrollContainer/Options/KeyboardSpeedSetting/KeyboardSpeedSlider")
+_resolution = NodePath("ScrollContainer/Options/ResolutionSetting/ResolutionOptions")
+_screenShake = NodePath("ScrollContainer/Options/ScreenShakeSetting/ScreenShakeToggle")
+_masterVolume = NodePath("ScrollContainer/Options/MasterVolumeSetting/MasterVolumeSlider")
+_musicVolume = NodePath("ScrollContainer/Options/MusicVolumeSetting/MusicVolumeSlider")
+_effectsVolume = NodePath("ScrollContainer/Options/EffectsVolumeSetting/EffectsVolumeSlider")
+
+[node name="Background" type="NinePatchRect" parent="Control/OptionsPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_dpkjf")
+patch_margin_left = 3
+patch_margin_top = 4
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/OptionsPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1.0
+offset_bottom = -26.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("4_64s2n")
-script = ExtResource("7_ti3v4")
-_fullscreen = NodePath("General/FullscreenSetting/CheckButton")
-_resolution = NodePath("General/ResolutionSetting/OptionButton")
+follow_focus = true
 
-[node name="General" type="VBoxContainer" parent="Control/OptionsPanel"]
+[node name="Options" type="VBoxContainer" parent="Control/OptionsPanel/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Header2" type="Control" parent="Control/OptionsPanel/General"]
-custom_minimum_size = Vector2(0, 16)
+[node name="GeneralHeader" type="Control" parent="Control/OptionsPanel/ScrollContainer/Options"]
+custom_minimum_size = Vector2(0, 19)
 layout_mode = 2
 
-[node name="Background" type="NinePatchRect" parent="Control/OptionsPanel/General/Header2"]
+[node name="Background" type="NinePatchRect" parent="Control/OptionsPanel/ScrollContainer/Options/GeneralHeader"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -395,7 +447,7 @@ patch_margin_top = 5
 patch_margin_right = 4
 patch_margin_bottom = 4
 
-[node name="HeaderLabel" type="Label" parent="Control/OptionsPanel/General/Header2"]
+[node name="HeaderLabel" type="Label" parent="Control/OptionsPanel/ScrollContainer/Options/GeneralHeader"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -404,40 +456,107 @@ offset_top = 2.0
 offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "General"
+text = "header_general"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="LanguageSetting" type="HSplitContainer" parent="Control/OptionsPanel/General"]
+[node name="LanguageSetting" type="Control" parent="Control/OptionsPanel/ScrollContainer/Options"]
+custom_minimum_size = Vector2(0, 19)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Control/OptionsPanel/General/LanguageSetting"]
-layout_mode = 2
-text = "Language"
+[node name="LanguageLabel" type="Label" parent="Control/OptionsPanel/ScrollContainer/Options/LanguageSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.4
+anchor_bottom = 1.0
+offset_left = 4.0
+text = "option_language"
+vertical_alignment = 2
 
-[node name="OptionButton" type="OptionButton" parent="Control/OptionsPanel/General/LanguageSetting"]
+[node name="LanguageOptions" type="OptionButton" parent="Control/OptionsPanel/ScrollContainer/Options/LanguageSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_right = -4.0
+focus_neighbor_left = NodePath("../../../../../MenuButtons/Return")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath("../../../../HBoxContainer/ButtonConfirm")
+focus_neighbor_bottom = NodePath("../../MouseSpeedSetting/MouseSpeedSlider")
+focus_next = NodePath("../../MouseSpeedSetting/MouseSpeedSlider")
+focus_previous = NodePath("../../../../HBoxContainer/ButtonConfirm")
+
+[node name="MouseSpeedSetting" type="Control" parent="Control/OptionsPanel/ScrollContainer/Options"]
+custom_minimum_size = Vector2(0, 19)
 layout_mode = 2
 
-[node name="FontSetting2" type="HSplitContainer" parent="Control/OptionsPanel/General"]
+[node name="MouseSpeedLabel" type="Label" parent="Control/OptionsPanel/ScrollContainer/Options/MouseSpeedSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.4
+anchor_bottom = 1.0
+offset_left = 4.0
+text = "option_mouse_speed"
+vertical_alignment = 2
+
+[node name="MouseSpeedSlider" type="HSlider" parent="Control/OptionsPanel/ScrollContainer/Options/MouseSpeedSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_right = -4.0
+focus_neighbor_left = NodePath("../../../../../MenuButtons/Return")
+focus_neighbor_top = NodePath("../../LanguageSetting/LanguageOptions")
+focus_neighbor_right = NodePath("../../../../HBoxContainer/ButtonConfirm")
+focus_neighbor_bottom = NodePath("../../KeyboardSpeedSetting/KeyboardSpeedSlider")
+focus_next = NodePath("../../KeyboardSpeedSetting/KeyboardSpeedSlider")
+focus_previous = NodePath("../../LanguageSetting/LanguageOptions")
+min_value = 0.1
+max_value = 2.0
+step = 0.1
+value = 1.0
+
+[node name="KeyboardSpeedSetting" type="Control" parent="Control/OptionsPanel/ScrollContainer/Options"]
+custom_minimum_size = Vector2(0, 19)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Control/OptionsPanel/General/FontSetting2"]
-layout_mode = 2
-text = "Font"
+[node name="KeyboardSpeedLabel" type="Label" parent="Control/OptionsPanel/ScrollContainer/Options/KeyboardSpeedSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.4
+anchor_bottom = 1.0
+offset_left = 4.0
+text = "option_keyboard_speed"
+vertical_alignment = 2
 
-[node name="OptionButton" type="OptionButton" parent="Control/OptionsPanel/General/FontSetting2"]
-layout_mode = 2
-item_count = 2
-popup/item_0/text = "Basic"
-popup/item_0/id = 1
-popup/item_1/text = "Pixelated"
-popup/item_1/id = 0
+[node name="KeyboardSpeedSlider" type="HSlider" parent="Control/OptionsPanel/ScrollContainer/Options/KeyboardSpeedSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_right = -4.0
+focus_neighbor_left = NodePath("../../../../../MenuButtons/Return")
+focus_neighbor_top = NodePath("../../MouseSpeedSetting/MouseSpeedSlider")
+focus_neighbor_right = NodePath("../../../../HBoxContainer/ButtonConfirm")
+focus_neighbor_bottom = NodePath("../../FullscreenSetting/FullscreenToggle")
+focus_next = NodePath("../../FullscreenSetting/FullscreenToggle")
+focus_previous = NodePath("../../MouseSpeedSetting/MouseSpeedSlider")
+min_value = 0.5
+max_value = 2.0
+step = 0.1
+value = 1.0
 
-[node name="Header3" type="Control" parent="Control/OptionsPanel/General"]
-custom_minimum_size = Vector2(0, 16)
+[node name="VideoHeader" type="Control" parent="Control/OptionsPanel/ScrollContainer/Options"]
+custom_minimum_size = Vector2(0, 19)
 layout_mode = 2
 
-[node name="Background" type="NinePatchRect" parent="Control/OptionsPanel/General/Header3"]
+[node name="Background" type="NinePatchRect" parent="Control/OptionsPanel/ScrollContainer/Options/VideoHeader"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -450,7 +569,7 @@ patch_margin_top = 5
 patch_margin_right = 4
 patch_margin_bottom = 4
 
-[node name="HeaderLabel" type="Label" parent="Control/OptionsPanel/General/Header3"]
+[node name="HeaderLabel" type="Label" parent="Control/OptionsPanel/ScrollContainer/Options/VideoHeader"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -459,47 +578,109 @@ offset_top = 2.0
 offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Video"
+text = "header_video"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="FullscreenSetting" type="HSplitContainer" parent="Control/OptionsPanel/General"]
+[node name="FullscreenSetting" type="Control" parent="Control/OptionsPanel/ScrollContainer/Options"]
+custom_minimum_size = Vector2(0, 19)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Control/OptionsPanel/General/FullscreenSetting"]
-layout_mode = 2
-text = "Fullscreen"
+[node name="FullscreenLabel" type="Label" parent="Control/OptionsPanel/ScrollContainer/Options/FullscreenSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.4
+anchor_bottom = 1.0
+offset_left = 4.0
+text = "option_fullscreen"
+vertical_alignment = 2
 
-[node name="CheckButton" type="CheckButton" parent="Control/OptionsPanel/General/FullscreenSetting"]
-layout_mode = 2
+[node name="FullscreenToggle" type="CheckButton" parent="Control/OptionsPanel/ScrollContainer/Options/FullscreenSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_right = -4.0
+focus_neighbor_left = NodePath("../../../../../MenuButtons/Return")
+focus_neighbor_top = NodePath("../../KeyboardSpeedSetting/KeyboardSpeedSlider")
+focus_neighbor_right = NodePath("../../../../HBoxContainer/ButtonConfirm")
+focus_neighbor_bottom = NodePath("../../ResolutionSetting/ResolutionOptions")
+focus_next = NodePath("../../ResolutionSetting/ResolutionOptions")
+focus_previous = NodePath("../../KeyboardSpeedSetting/KeyboardSpeedSlider")
 flat = true
 
-[node name="ResolutionSetting" type="HSplitContainer" parent="Control/OptionsPanel/General"]
+[node name="ResolutionSetting" type="Control" parent="Control/OptionsPanel/ScrollContainer/Options"]
+custom_minimum_size = Vector2(0, 19)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Control/OptionsPanel/General/ResolutionSetting"]
-layout_mode = 2
-text = "Resolution"
+[node name="ResolutionLabel" type="Label" parent="Control/OptionsPanel/ScrollContainer/Options/ResolutionSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.4
+anchor_bottom = 1.0
+offset_left = 4.0
+text = "option_resolution"
+vertical_alignment = 2
 
-[node name="OptionButton" type="OptionButton" parent="Control/OptionsPanel/General/ResolutionSetting"]
+[node name="ResolutionOptions" type="OptionButton" parent="Control/OptionsPanel/ScrollContainer/Options/ResolutionSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_right = -4.0
+focus_neighbor_left = NodePath("../../../../../MenuButtons/Return")
+focus_neighbor_top = NodePath("../../FullscreenSetting/FullscreenToggle")
+focus_neighbor_right = NodePath("../../../../HBoxContainer/ButtonConfirm")
+focus_neighbor_bottom = NodePath("../../ScreenShakeSetting/ScreenShakeToggle")
+focus_next = NodePath("../../ScreenShakeSetting/ScreenShakeToggle")
+focus_previous = NodePath("../../FullscreenSetting/FullscreenToggle")
+item_count = 3
+popup/item_0/text = "256x224"
+popup/item_0/id = 0
+popup/item_1/text = "640x480"
+popup/item_1/id = 1
+popup/item_2/text = "1280x720"
+popup/item_2/id = 2
+
+[node name="ScreenShakeSetting" type="Control" parent="Control/OptionsPanel/ScrollContainer/Options"]
+custom_minimum_size = Vector2(0, 19)
 layout_mode = 2
 
-[node name="ScreenShakeSetting" type="HSplitContainer" parent="Control/OptionsPanel/General"]
-layout_mode = 2
+[node name="ShakeScreenLabel" type="Label" parent="Control/OptionsPanel/ScrollContainer/Options/ScreenShakeSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.4
+anchor_bottom = 1.0
+offset_left = 4.0
+text = "option_screen_shake"
+vertical_alignment = 2
 
-[node name="Label" type="Label" parent="Control/OptionsPanel/General/ScreenShakeSetting"]
-layout_mode = 2
-text = "Screen shake"
-
-[node name="CheckButton" type="CheckButton" parent="Control/OptionsPanel/General/ScreenShakeSetting"]
-layout_mode = 2
+[node name="ScreenShakeToggle" type="CheckButton" parent="Control/OptionsPanel/ScrollContainer/Options/ScreenShakeSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_right = -4.0
+tooltip_text = "tooltip_screen_shake"
+focus_neighbor_left = NodePath("../../../../../MenuButtons/Return")
+focus_neighbor_top = NodePath("../../ResolutionSetting/ResolutionOptions")
+focus_neighbor_right = NodePath("../../../../HBoxContainer/ButtonConfirm")
+focus_neighbor_bottom = NodePath("../../MasterVolumeSetting/MasterVolumeSlider")
+focus_next = NodePath("../../MasterVolumeSetting/MasterVolumeSlider")
+focus_previous = NodePath("../../ResolutionSetting/ResolutionOptions")
 flat = true
 
-[node name="Header4" type="Control" parent="Control/OptionsPanel/General"]
-custom_minimum_size = Vector2(0, 16)
+[node name="AudioHeader" type="Control" parent="Control/OptionsPanel/ScrollContainer/Options"]
+custom_minimum_size = Vector2(0, 19)
 layout_mode = 2
 
-[node name="Background" type="NinePatchRect" parent="Control/OptionsPanel/General/Header4"]
+[node name="Background" type="NinePatchRect" parent="Control/OptionsPanel/ScrollContainer/Options/AudioHeader"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -512,7 +693,7 @@ patch_margin_top = 5
 patch_margin_right = 4
 patch_margin_bottom = 4
 
-[node name="HeaderLabel" type="Label" parent="Control/OptionsPanel/General/Header4"]
+[node name="HeaderLabel" type="Label" parent="Control/OptionsPanel/ScrollContainer/Options/AudioHeader"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -521,42 +702,140 @@ offset_top = 2.0
 offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Audio"
+text = "header_audio"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MasterVolumeSetting" type="HSplitContainer" parent="Control/OptionsPanel/General"]
+[node name="MasterVolumeSetting" type="Control" parent="Control/OptionsPanel/ScrollContainer/Options"]
+custom_minimum_size = Vector2(0, 19)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Control/OptionsPanel/General/MasterVolumeSetting"]
-layout_mode = 2
-text = "Master volume"
+[node name="MasterVolumeLabel" type="Label" parent="Control/OptionsPanel/ScrollContainer/Options/MasterVolumeSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.4
+anchor_bottom = 1.0
+offset_left = 4.0
+text = "option_master_volume"
+vertical_alignment = 2
 
-[node name="HSlider" type="HSlider" parent="Control/OptionsPanel/General/MasterVolumeSetting"]
+[node name="MasterVolumeSlider" type="HSlider" parent="Control/OptionsPanel/ScrollContainer/Options/MasterVolumeSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_right = -4.0
+focus_neighbor_left = NodePath("../../../../../MenuButtons/Return")
+focus_neighbor_top = NodePath("../../ScreenShakeSetting/ScreenShakeToggle")
+focus_neighbor_right = NodePath("../../../../HBoxContainer/ButtonConfirm")
+focus_neighbor_bottom = NodePath("../../MusicVolumeSetting/MusicVolumeSlider")
+focus_next = NodePath("../../MusicVolumeSetting/MusicVolumeSlider")
+focus_previous = NodePath("../../ScreenShakeSetting/ScreenShakeToggle")
+min_value = -60.0
+max_value = 6.0
+
+[node name="MusicVolumeSetting" type="Control" parent="Control/OptionsPanel/ScrollContainer/Options"]
+custom_minimum_size = Vector2(0, 19)
 layout_mode = 2
 
-[node name="MusicVolumeSetting" type="HSplitContainer" parent="Control/OptionsPanel/General"]
+[node name="MusicVolumeLabel" type="Label" parent="Control/OptionsPanel/ScrollContainer/Options/MusicVolumeSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.4
+anchor_bottom = 1.0
+offset_left = 4.0
+text = "option_music_volume"
+vertical_alignment = 2
+
+[node name="MusicVolumeSlider" type="HSlider" parent="Control/OptionsPanel/ScrollContainer/Options/MusicVolumeSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_right = -4.0
+focus_neighbor_left = NodePath("../../../../../MenuButtons/Return")
+focus_neighbor_top = NodePath("../../MasterVolumeSetting/MasterVolumeSlider")
+focus_neighbor_right = NodePath("../../../../HBoxContainer/ButtonConfirm")
+focus_neighbor_bottom = NodePath("../../EffectsVolumeSetting/EffectsVolumeSlider")
+focus_next = NodePath("../../EffectsVolumeSetting/EffectsVolumeSlider")
+focus_previous = NodePath("../../MasterVolumeSetting/MasterVolumeSlider")
+min_value = -60.0
+max_value = 6.0
+
+[node name="EffectsVolumeSetting" type="Control" parent="Control/OptionsPanel/ScrollContainer/Options"]
+custom_minimum_size = Vector2(0, 19)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Control/OptionsPanel/General/MusicVolumeSetting"]
-layout_mode = 2
-text = "Music volume"
+[node name="EffectsVolumeLabel" type="Label" parent="Control/OptionsPanel/ScrollContainer/Options/EffectsVolumeSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.4
+anchor_bottom = 1.0
+offset_left = 4.0
+text = "option_effects_volume"
+vertical_alignment = 2
 
-[node name="HSlider" type="HSlider" parent="Control/OptionsPanel/General/MusicVolumeSetting"]
-layout_mode = 2
+[node name="EffectsVolumeSlider" type="HSlider" parent="Control/OptionsPanel/ScrollContainer/Options/EffectsVolumeSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_right = -4.0
+focus_neighbor_left = NodePath("../../../../../MenuButtons/Return")
+focus_neighbor_top = NodePath("../../MusicVolumeSetting/MusicVolumeSlider")
+focus_neighbor_right = NodePath("../../../../HBoxContainer/ButtonConfirm")
+focus_neighbor_bottom = NodePath("../../../../HBoxContainer/ButtonConfirm")
+focus_next = NodePath("../../../../HBoxContainer/ButtonConfirm")
+focus_previous = NodePath("../../MusicVolumeSetting/MusicVolumeSlider")
+min_value = -60.0
+max_value = 6.0
 
-[node name="EffectsVolumeSetting" type="HSplitContainer" parent="Control/OptionsPanel/General"]
-layout_mode = 2
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/OptionsPanel"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -158.0
+offset_top = -25.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 0
+grow_vertical = 0
+alignment = 2
 
-[node name="Label" type="Label" parent="Control/OptionsPanel/General/EffectsVolumeSetting"]
+[node name="ButtonConfirm" type="Button" parent="Control/OptionsPanel/HBoxContainer"]
 layout_mode = 2
-text = "Effects volume"
+focus_neighbor_left = NodePath("../../../MenuButtons/Return")
+focus_neighbor_top = NodePath("../../ScrollContainer/Options/EffectsVolumeSetting/EffectsVolumeSlider")
+focus_neighbor_right = NodePath("../ButtonCancel")
+focus_neighbor_bottom = NodePath("../../ScrollContainer/Options/LanguageSetting/LanguageOptions")
+focus_next = NodePath("../ButtonCancel")
+focus_previous = NodePath("../../ScrollContainer/Options/LanguageSetting/LanguageOptions")
+text = "button_confirm"
 
-[node name="HSlider" type="HSlider" parent="Control/OptionsPanel/General/EffectsVolumeSetting"]
+[node name="ButtonCancel" type="Button" parent="Control/OptionsPanel/HBoxContainer"]
 layout_mode = 2
+focus_neighbor_left = NodePath("../ButtonConfirm")
+focus_neighbor_top = NodePath("../../ScrollContainer/Options/EffectsVolumeSetting/EffectsVolumeSlider")
+focus_neighbor_right = NodePath("../../../MenuButtons/Return")
+focus_neighbor_bottom = NodePath("../../ScrollContainer/Options/LanguageSetting/LanguageOptions")
+focus_next = NodePath("../../ScrollContainer/Options/LanguageSetting/LanguageOptions")
+focus_previous = NodePath("../ButtonConfirm")
+text = "button_cancel"
 
 [connection signal="pressed" from="Control/MenuButtons/Play" to="." method="TogglePanel" binds= ["LevelPanel"]]
 [connection signal="pressed" from="Control/MenuButtons/Info" to="." method="TogglePanel" binds= ["InfoPanel"]]
 [connection signal="pressed" from="Control/MenuButtons/Changelog" to="." method="TogglePanel" binds= ["ChangelogPanel"]]
 [connection signal="pressed" from="Control/MenuButtons/Options" to="." method="TogglePanel" binds= ["OptionsPanel"]]
+[connection signal="pressed" from="Control/MenuButtons/Return" to="." method="TogglePanel" binds= ["LeaderboardPanel"]]
 [connection signal="pressed" from="Control/MenuButtons/Exit" to="." method="ExitGame"]
+[connection signal="pressed" from="Control/OptionsPanel/HBoxContainer/ButtonConfirm" to="Control/OptionsPanel" method="SaveSettings"]
+[connection signal="pressed" from="Control/OptionsPanel/HBoxContainer/ButtonCancel" to="Control/OptionsPanel" method="CancelSettings"]

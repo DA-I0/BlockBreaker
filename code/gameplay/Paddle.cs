@@ -5,7 +5,8 @@ public delegate void PaddleNotification(int size, int movementDirection);
 public partial class Paddle : CharacterBody2D
 {
 	private const int MoveSpeed = 100;
-	private const int PositionY = 95;
+	private const int PositionX = 128;
+	private const int PositionY = 207;
 
 	private int _size = 1;
 
@@ -48,12 +49,12 @@ public partial class Paddle : CharacterBody2D
 
 		if (@event is InputEventMouseMotion eventMouseMotion)
 		{
-			inputHorizontal = eventMouseMotion.Relative.X;
+			inputHorizontal = eventMouseMotion.Relative.X * refs.settings.SpeedMouse;
 			_mouseControlls = true;
 		}
 		else
 		{
-			inputHorizontal = Input.GetActionStrength("game_right") - Input.GetActionStrength("game_left");
+			inputHorizontal = (Input.GetActionStrength("game_right") - Input.GetActionStrength("game_left")) * refs.settings.SpeedKeyboard;
 			_mouseControlls = false;
 		}
 
@@ -98,7 +99,6 @@ public partial class Paddle : CharacterBody2D
 
 	private void SetupInitialValues()
 	{
-		// _positionY = Position.Y;
 		Recenter();
 		_size = refs.SelectedDifficulty.StartPaddleSize;
 		Resize();
@@ -122,7 +122,7 @@ public partial class Paddle : CharacterBody2D
 
 	private void Recenter()
 	{
-		Position = new Vector2(0, PositionY);
+		Position = new Vector2(PositionX, PositionY);
 		blockMovement = false;
 	}
 

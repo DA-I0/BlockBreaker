@@ -4,6 +4,7 @@ public delegate void Notification();
 
 public partial class LevelManager : Node
 {
+	private Node uiNode;
 	private Node currentScene;
 	private Node loadingScreen;
 	public event Notification ResetSession;
@@ -11,7 +12,8 @@ public partial class LevelManager : Node
 
 	public override void _Ready()
 	{
-		currentScene = GetNode("../CurrentScene");
+		uiNode = GetNode("../UI");
+		currentScene = GetNode("../SubViewportContainer/SubViewport/CurrentScene");
 		loadingScreen = ResourceLoader.Load<PackedScene>("res://prefabs/ui/loading_screen.tscn").Instantiate();
 		((SessionController)GetParent().GetChild(0)).health.GameOver += LoadMenuScene;
 		LoadMenuScene();
@@ -21,7 +23,8 @@ public partial class LevelManager : Node
 	{
 		string scenePath = $"res://scenes/menu.tscn";
 		AddChild(loadingScreen);
-		ClearCurrentScene();
+		ClearCurrentScene(uiNode);
+		ClearCurrentScene(currentScene);
 		SetupNewScene(scenePath);
 		ResetSession?.Invoke();
 	}
@@ -30,16 +33,17 @@ public partial class LevelManager : Node
 	{
 		string scenePath = $"res://scenes/levels/{sceneName}";
 		AddChild(loadingScreen);
-		ClearCurrentScene();
+		ClearCurrentScene(uiNode);
+		ClearCurrentScene(currentScene);
 		SetupNewScene(scenePath);
 		SceneChanged?.Invoke();
 	}
 
-	private void ClearCurrentScene()
+	private void ClearCurrentScene(Node parentNode)
 	{
-		if (currentScene.GetChildCount() > 0)
+		if (parentNode.GetChildCount() > 0)
 		{
-			foreach (Node scene in currentScene.GetChildren())
+			foreach (Node scene in parentNode.GetChildren())
 			{
 				scene.QueueFree();
 			}
@@ -50,7 +54,16 @@ public partial class LevelManager : Node
 	{
 		ResourceLoader.LoadThreadedRequest(scenePath);
 		Node newScene = (ResourceLoader.LoadThreadedGet(scenePath) as PackedScene).Instantiate();
-		currentScene.CallDeferred("add_child", newScene);
+
+		if (newScene.Name == "Menu")
+		{
+			uiNode.CallDeferred("add_child", newScene);
+		}
+		else
+		{
+			currentScene.CallDeferred("add_child", newScene);
+			((Control)newScene).Position = Vector2.Zero;
+		}
 
 		Input.MouseMode = (newScene.Name == "Menu") ? Input.MouseModeEnum.Visible : Input.MouseModeEnum.Captured;
 	}

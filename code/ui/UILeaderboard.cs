@@ -11,7 +11,7 @@ public partial class UILeaderboard : Panel
 	public override void _Ready()
 	{
 		refs = GetNode("/root/GameController/SessionController") as SessionController;
-		((UIController)GetParent().GetParent()).RefreshUI += ApplyLeaderboardValues;
+		((UIController)GetNode("../..")).RefreshUI += ApplyLeaderboardValues;
 	}
 
 	private void ApplyLeaderboardValues()

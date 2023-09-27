@@ -6,6 +6,7 @@ public partial class UIController : Node
 	[Export] private PackedScene _buttonPrefab;
 
 	[Export] private Label _gameTitle;
+	[Export] private Node _menuButtons;
 	private Dictionary<string, CanvasItem> _panels = new Dictionary<string, CanvasItem>();
 
 	private string _activePanel;
@@ -49,8 +50,23 @@ public partial class UIController : Node
 		{
 			TogglePanel("LeaderboardPanel");
 		}
-
+		ToggleMenuButtons();
 		RefreshUI?.Invoke();
+	}
+
+	private void ToggleMenuButtons()
+	{
+		foreach (CanvasItem button in _menuButtons.GetChildren())
+		{
+			if (button.Name == "Return")
+			{
+				button.Visible = (_activePanel != "LeaderboardPanel");
+			}
+			else
+			{
+				button.Visible = (_activePanel == "LeaderboardPanel");
+			}
+		}
 	}
 
 	private void SelectLevel(string levelName)

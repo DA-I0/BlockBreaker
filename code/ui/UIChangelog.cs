@@ -6,8 +6,8 @@ public partial class UIChangelog : RichTextLabel
 
 	public override void _Ready()
 	{
-		((UIController)GetParent().GetParent().GetParent()).RefreshUI += LoadChangelog;
 		refs = GetNode("/root/GameController/SessionController") as SessionController;
+		((UIController)GetNode("../../../..")).RefreshUI += LoadChangelog; // TODO: replace the GetParent chain
 	}
 
 	public void LoadChangelog()

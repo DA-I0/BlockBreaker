@@ -6,6 +6,7 @@ public class GameData
 	public readonly string LevelFolder = "res://scenes/levels";
 	public readonly string DefaultDifficultyFolder = "res://assets/text/difficulties";
 	public readonly string CustomDifficultyFolder = "user://difficulties";
+	public readonly string ConfigFilePath = "user://settings.cfg";
 	public readonly string ChangelogFilePath = "res://assets/text/patchnotes.txt";
 	public readonly string DefaultLeaderboardFilePath = "res://assets/text/defaultLeaderboard.txt";
 	public readonly string CustomLeaderboardFilePath = "user://leaderboard.txt";
@@ -47,7 +48,7 @@ public class GameData
 		get { return _leaderboard; }
 	}
 
-	public GameData(SessionController commonRefs, string persistentDataPath, string appDataPath)
+	public GameData(SessionController commonRefs)
 	{
 		refs = commonRefs;
 	}
