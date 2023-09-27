@@ -4,8 +4,7 @@ Simple prototype of a block breaker game made out of boredom.
 Everything is a work in progress and/or placeholder (including the name).
 
 # Credits
-Font: LanaPixel by [eishiya](https://mastodon.art/@eishiya)
-
+Font: [Silver by Poppy Works](https://poppyworks.itch.io/silver)
 Sound effects made with [sfxr by DrPetter](https://www.drpetter.se/project_sfxr.html).
 
 ## Music:

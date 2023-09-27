@@ -89,9 +89,9 @@ Features:
 		✔ Toggle loading screen @done(23-09-17 03:09)
 		✔ Receive scene to load from outside @done(23-09-17 19:08)
 	Settings:
-		☐ Read from file
-		☐ Write to file
-		☐ Change game state
+		✔ Read from file @done(23-09-26 20:15)
+		✔ Write to file @done(23-09-26 20:15)
+		✔ Change game state @done(23-09-26 20:15)
 	Audio:
 		✔ Play music @done(23-09-22 17:23)
 		✔ Play sound @done(23-09-22 17:23)
@@ -103,7 +103,7 @@ UI:
 			☐ Info
 			✔ Changelog @done(23-09-21 23:01)
 				✔ Load from file @done(23-09-21 23:01)
-			☐ Options
+			☐ Options @done(23-09-26 20:15)
 			✔ Exit @done(23-09-20 20:17)
 		✔ Panel switching @done(23-09-20 22:00)
 		✔ Load selected level @done(23-09-17 20:37)
@@ -121,10 +121,10 @@ Levels:
 		✔ Level 2 @done(23-09-22 18:16)
 		✔ Level 3 @done(23-09-22 18:21)
 		✔ Level 4 @done(23-09-22 18:48)
-		☐ Level 5
-		☐ Level 6
-		☐ Level 7
-		☐ Level 8
+		✔ Level 5 @done(23-09-27 19:44)
+		✔ Level 6 @done(23-09-27 20:05)
+		✔ Level 7 @done(23-09-27 20:49)
+		✔ Level 8 @done(23-09-27 22:00)
 		☐ Level 9
 		☐ Level 10
 Issues:
