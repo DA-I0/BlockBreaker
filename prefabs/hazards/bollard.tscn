@@ -208,17 +208,16 @@ _data = {
 }
 
 [node name="Bollard" type="StaticBody2D"]
-z_index = 2
 script = ExtResource("1_7nh2g")
-_isActived = true
 
 [node name="Collider" type="CollisionShape2D" parent="."]
 position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_xjr6v")
+disabled = true
 
 [node name="Sprite" type="Sprite2D" parent="."]
 position = Vector2(-2, -10)
-texture = ExtResource("1_h6vwd")
+texture = ExtResource("1_5hspi")
 centered = false
 
 [node name="Animator" type="AnimationPlayer" parent="."]
