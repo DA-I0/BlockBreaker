@@ -26,13 +26,17 @@ window/stretch/scale=5.0
 
 project/assembly_name="BlockBreaker"
 
+[editor]
+
+naming/default_signal_callback_name="On{NodeName}{SignalName}"
+naming/default_signal_callback_to_self_name="On{SignalName}"
+
 [gui]
 
 theme/custom="res://ui.theme"
-theme/custom_font="res://assets/LanaPixel.ttf"
+theme/custom_font="res://assets/Silver.ttf"
 theme/default_font_antialiasing=0
 theme/default_font_subpixel_positioning=0
-fonts/dynamic_fonts/use_oversampling=false
 
 [input]
 

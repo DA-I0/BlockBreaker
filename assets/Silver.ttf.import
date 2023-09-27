@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://08uep7pw5djm"
-path="res://.godot/imported/LanaPixel.ttf-1d17fe07869ad7b34d1e1bce09c42f3c.fontdata"
+uid="uid://crw2wviey0xdh"
+path="res://.godot/imported/Silver.ttf-eaae97e43f5b01d5613745993ae1d272.fontdata"
 
 [deps]
 
-source_file="res://assets/LanaPixel.ttf"
-dest_files=["res://.godot/imported/LanaPixel.ttf-1d17fe07869ad7b34d1e1bce09c42f3c.fontdata"]
+source_file="res://assets/Silver.ttf"
+dest_files=["res://.godot/imported/Silver.ttf-eaae97e43f5b01d5613745993ae1d272.fontdata"]
 
 [params]
 
