@@ -5,8 +5,7 @@ public delegate void PaddleNotification(int size, int movementDirection);
 public partial class Paddle : CharacterBody2D
 {
 	private const int MoveSpeed = 100;
-	private const int PositionX = 128;
-	private const int PositionY = 207;
+	private const int PositionY = 90;
 
 	private int _size = 1;
 
@@ -122,7 +121,7 @@ public partial class Paddle : CharacterBody2D
 
 	private void Recenter()
 	{
-		Position = new Vector2(PositionX, PositionY);
+		Position = new Vector2(0, PositionY);
 		blockMovement = false;
 	}
 

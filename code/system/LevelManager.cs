@@ -13,7 +13,7 @@ public partial class LevelManager : Node
 	public override void _Ready()
 	{
 		uiNode = GetNode("../UI");
-		currentScene = GetNode("../SubViewportContainer/SubViewport/CurrentScene");
+		currentScene = GetNode("../CurrentScene");
 		loadingScreen = ResourceLoader.Load<PackedScene>("res://prefabs/ui/loading_screen.tscn").Instantiate();
 		((SessionController)GetParent().GetChild(0)).health.GameOver += LoadMenuScene;
 		LoadMenuScene();
@@ -62,7 +62,7 @@ public partial class LevelManager : Node
 		else
 		{
 			currentScene.CallDeferred("add_child", newScene);
-			((Control)newScene).Position = Vector2.Zero;
+			// ((Control)newScene).Position = new Vector2(-128, -112);
 		}
 
 		Input.MouseMode = (newScene.Name == "Menu") ? Input.MouseModeEnum.Visible : Input.MouseModeEnum.Captured;

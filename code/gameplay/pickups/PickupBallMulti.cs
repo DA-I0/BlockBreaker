@@ -9,8 +9,9 @@ public partial class PickupBallMulti : Pickup
 		int ballCount = refs.Balls.Count;
 		for (int i = 0; i < ballCount; i++)
 		{
-			((Ball)refs.gameElements.GetChild(i)).SpawnCopy(_angleChange);
-			((Ball)refs.gameElements.GetChild(i)).SpawnCopy(-_angleChange);
+			Ball sourceBall = (Ball)refs.Balls[i];
+			sourceBall.SpawnCopy(_angleChange);
+			sourceBall.SpawnCopy(-_angleChange);
 		}
 	}
 }

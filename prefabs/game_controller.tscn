@@ -20,15 +20,14 @@
 
 [node name="GameController" type="Node"]
 
-[node name="SessionController" type="Node" parent="." node_paths=PackedStringArray("musicController", "audioController", "gameScore", "health", "levelManager", "gameElements", "subView")]
+[node name="SessionController" type="Node" parent="." node_paths=PackedStringArray("musicController", "audioController", "gameScore", "health", "levelManager", "gameElements")]
 script = ExtResource("1_uqmtw")
 musicController = NodePath("../MusicController")
 audioController = NodePath("../AudioController")
 gameScore = NodePath("../Score")
 health = NodePath("../Health")
 levelManager = NodePath("../LevelManager")
-gameElements = NodePath("../SubViewportContainer/SubViewport/GameElements")
-subView = NodePath("../SubViewportContainer/SubViewport")
+gameElements = NodePath("../GameElements")
 
 [node name="MusicController" type="AudioStreamPlayer" parent="."]
 bus = &"Music"
@@ -46,7 +45,6 @@ _clips = Array[AudioStream]([ExtResource("3_5ds7p"), ExtResource("4_0r48c"), Ext
 script = ExtResource("2_fqfgb")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
-anchors_preset = -1
 offset_left = -128.0
 offset_top = -112.0
 offset_right = 128.0
@@ -56,12 +54,10 @@ offset_bottom = 112.0
 disable_3d = true
 handle_input_locally = false
 canvas_item_default_texture_filter = 0
-size = Vector2i(256, 224)
+size = Vector2i(1280, 1120)
+size_2d_override = Vector2i(1280, 1120)
+size_2d_override_stretch = true
 render_target_update_mode = 4
-
-[node name="CurrentScene" type="Node" parent="SubViewportContainer/SubViewport"]
-
-[node name="GameElements" type="Node" parent="SubViewportContainer/SubViewport"]
 
 [node name="Health" type="Node" parent="."]
 script = ExtResource("3_fiiwk")
@@ -83,6 +79,12 @@ one_shot = true
 
 [node name="UI" type="Node" parent="."]
 
-[connection signal="child_entered_tree" from="SubViewportContainer/SubViewport/CurrentScene" to="LevelManager" method="OnCurrentSceneChildEnteredTree"]
+[node name="CurrentScene" type="Node" parent="."]
+
+[node name="GameElements" type="Node" parent="."]
+
+[node name="Balls" type="Node" parent="GameElements"]
+
 [connection signal="timeout" from="Score/Timer" to="Score" method="AddBonusScore"]
 [connection signal="child_entered_tree" from="UI" to="LevelManager" method="OnCurrentSceneChildEnteredTree"]
+[connection signal="child_entered_tree" from="CurrentScene" to="LevelManager" method="OnCurrentSceneChildEnteredTree"]

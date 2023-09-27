@@ -225,7 +225,7 @@ public partial class Ball : CharacterBody2D
 
 	private void OnScreenExited()
 	{
-		if (refs.gameElements.GetChildCount() > 1)
+		if (refs.Balls.Count > 1)
 		{
 			Destroy();
 		}

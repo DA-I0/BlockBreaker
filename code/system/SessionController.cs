@@ -11,13 +11,10 @@ public partial class SessionController : Node
 	[Export] public AudioController audioController;
 	public FileOperations fileOperations;
 	[Export] public Score gameScore;
-	// public Gameplay gameState;
 	[Export] public Health health;
 	[Export] public LevelManager levelManager;
-	// public PaddleControls paddle;
 	public Settings settings;
 	[Export] public Node gameElements;
-	[Export] public Node subView;
 
 	public Paddle paddle;
 
@@ -30,7 +27,7 @@ public partial class SessionController : Node
 
 	public Godot.Collections.Array<Node> Balls
 	{
-		get { return gameElements.GetChildren(); }
+		get { return gameElements.GetChild(0).GetChildren(); }
 	}
 
 	public override void _Ready()
@@ -61,8 +58,8 @@ public partial class SessionController : Node
 		}
 
 		paddle = (Paddle)ResourceLoader.Load<PackedScene>("res://prefabs/paddles/paddle_01.tscn").Instantiate();
-		subView.AddChild(paddle);
-		gameElements.AddChild((Ball)ResourceLoader.Load<PackedScene>("res://prefabs/ball.tscn").Instantiate());
+		gameElements.AddChild(paddle);
+		gameElements.GetChild(0).AddChild((Ball)ResourceLoader.Load<PackedScene>("res://prefabs/ball.tscn").Instantiate());
 	}
 
 	public void SelectLevel(int levelIndex)

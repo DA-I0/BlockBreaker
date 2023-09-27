@@ -96,7 +96,7 @@ public partial class Score : Node
 		_currentScoreMultiplier += (refs.paddle.Size < PaddleSizeForMultiplier) ? PaddleSizeForMultiplier - refs.paddle.Size : 0;
 		_currentScoreMultiplier += (refs.paddle.MovementDirection < 0) ? 1 : 0;
 
-		Ball ball = refs.gameElements.GetChild(0) as Ball;
+		Ball ball = refs.Balls[0] as Ball;
 
 		_currentScoreMultiplier += (ball.GetBallSize() < 1) ? 1 : 0;
 		_currentScoreMultiplier += (ball.SpeedMultiplier > 1) ? 1 : 0;
