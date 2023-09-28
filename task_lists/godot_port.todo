@@ -64,7 +64,7 @@ Features:
 			✔ Extra life @done(23-09-20 22:15)
 			✔ Paddle bigger @done(23-09-19 18:07)
 			✔ Paddle smaller @done(23-09-19 18:07)
-			☐ Safety net
+			✔ Safety net @done(23-09-28 15:24)
 			✔ Ghost @done(23-09-25 14:55)
 	Score:
 		✔ Modify points @done(23-09-17 19:07)
@@ -96,7 +96,7 @@ Features:
 		✔ Play music @done(23-09-22 17:23)
 		✔ Play sound @done(23-09-22 17:23)
 UI:
-	☐ Theme
+	✔ Theme @done(23-09-28 20:16)
 	Main menu:
 		☐ Panels
 			✔ Level selection @done(23-09-20 16:59)
@@ -112,10 +112,10 @@ UI:
 		✔ Lives @done(23-09-20 20:54)
 		✔ Exit timer @done(23-09-21 18:23)
 		✔ Post timer text @done(23-09-21 18:49)
-		☐ Pause prompt
+		✔ Pause prompt @done(23-09-28 19:00)
 Levels:
 	✔ Tile map @done(23-09-17 20:37)
-	☐ Map details
+	✔ Map details @done(23-09-28 20:15)
 	Remake:
 		✔ Level 1 @done(23-09-22 18:16)
 		✔ Level 2 @done(23-09-22 18:16)
@@ -125,8 +125,8 @@ Levels:
 		✔ Level 6 @done(23-09-27 20:05)
 		✔ Level 7 @done(23-09-27 20:49)
 		✔ Level 8 @done(23-09-27 22:00)
-		☐ Level 9
-		☐ Level 10
+		✔ Level 9 @done(23-09-28 15:58)
+		✔ Level 10 @done(23-09-28 16:45)
 Issues:
 	✔ Calls to disposed ball and paddle objects on map change/session reset. @critical @done(23-09-20 22:47)
 	✔ Fast moving paddle might end up with ball inside its' collider getting both stuck. @critical @done(23-09-22 17:23)

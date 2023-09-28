@@ -1,7 +1,8 @@
 Prototype 2:
 	Features:
 		☐ Configurable controls
-		☐ Game localization @done(23-09-26 20:15)
+		☐ Game localization
+			☐ Manual localization system for RichTextLabels.
 		☐ Game difficulty
 			✔ Different max & starting lives @done(23-09-21 22:35)
 			✔ Different base ball speed @done(23-09-21 22:35)
