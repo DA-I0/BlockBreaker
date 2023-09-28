@@ -1,8 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://2rendjslrt3g"]
+[gd_scene load_steps=12 format=3 uid="uid://7gsh2bx2alvg"]
 
 [ext_resource type="Texture2D" uid="uid://rlvlqv7y5ge2" path="res://assets/sprites/blocks/bollard_01.png" id="1_5hspi"]
-[ext_resource type="Script" path="res://code/gameplay/Bollard.cs" id="1_7nh2g"]
 [ext_resource type="Texture2D" uid="uid://dx8n5vcq3tnxq" path="res://assets/sprites/blocks/bollard_04.png" id="1_h6vwd"]
+[ext_resource type="Script" path="res://code/gameplay/interactables/InteractableBollard.cs" id="1_nhunc"]
 [ext_resource type="Texture2D" uid="uid://df4dyfblsq6a2" path="res://assets/sprites/blocks/bollard_02.png" id="3_pg1rd"]
 [ext_resource type="Texture2D" uid="uid://07ywpul68v63" path="res://assets/sprites/blocks/bollard_03.png" id="4_05j7l"]
 
@@ -208,7 +208,7 @@ _data = {
 }
 
 [node name="Bollard" type="StaticBody2D" node_paths=PackedStringArray("_animator", "_timer")]
-script = ExtResource("1_7nh2g")
+script = ExtResource("1_nhunc")
 _isActived = true
 _stateChangeCooldown = 2.0
 _animator = NodePath("Animator")

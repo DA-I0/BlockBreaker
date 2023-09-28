@@ -1,18 +1,15 @@
 using Godot;
-using System;
 
-public partial class Bollard : Node
+public partial class InteractableBollard : Node
 {
 	[Export] private bool _isActived = false;
 	[Export] private float _stateChangeCooldown = 1f;
 
-	private AnimationPlayer _animator;
-	private Timer _timer;
+	[Export] private AnimationPlayer _animator;
+	[Export] private Timer _timer;
 
 	public override void _Ready()
 	{
-		_animator = (AnimationPlayer)GetChild(2);
-		_timer = (Timer)GetChild(3);
 		SetInitialState();
 	}
 
