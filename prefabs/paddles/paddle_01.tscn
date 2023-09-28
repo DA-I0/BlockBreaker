@@ -353,6 +353,7 @@ platform_floor_layers = 0
 platform_wall_layers = 1
 safe_margin = 0.1
 script = ExtResource("1_fg4cs")
+_positionY = 100
 
 [node name="Collider" type="CollisionPolygon2D" parent="."]
 position = Vector2(-2, -0.28125)
@@ -382,7 +383,7 @@ patch_margin_bottom = 2
 libraries = {
 "": SubResource("AnimationLibrary_6a3eu")
 }
-blend_times = [&"size_5", &"size_4", 1.0, &"size_5", &"size_2", 1.0, &"size_5", &"size_3", 1.0, &"size_5", &"size_5", 1.0, &"size_5", &"size_1", 1.0]
+blend_times = [&"size_5", &"size_2", 1.0, &"size_5", &"size_1", 1.0, &"size_5", &"size_4", 1.0, &"size_5", &"size_5", 1.0, &"size_5", &"size_3", 1.0]
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0

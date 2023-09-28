@@ -4,8 +4,8 @@ public delegate void PaddleNotification(int size, int movementDirection);
 
 public partial class Paddle : CharacterBody2D
 {
-	private const int MoveSpeed = 100;
-	private const int PositionY = 90;
+	[Export] private int _baseMoveSpeed = 100;
+	[Export] private int _positionY = 90;
 
 	private int _size = 1;
 
@@ -121,7 +121,7 @@ public partial class Paddle : CharacterBody2D
 
 	private void Recenter()
 	{
-		Position = new Vector2(0, PositionY);
+		Position = new Vector2(0, _positionY);
 		blockMovement = false;
 	}
 
@@ -132,7 +132,7 @@ public partial class Paddle : CharacterBody2D
 			return;
 		}
 
-		CalculateMoveVelocity(_inputDirection, MoveSpeed);
+		CalculateMoveVelocity(_inputDirection, _baseMoveSpeed);
 		var collision = MoveAndCollide(Velocity * (float)delta);
 
 		if (collision != null)
@@ -141,7 +141,7 @@ public partial class Paddle : CharacterBody2D
 			ball?.AddVelocity(Velocity);
 		}
 
-		Position = new Vector2(Position.X, PositionY);
+		Position = new Vector2(Position.X, _positionY);
 		_inputDirection = _mouseControlls ? Vector2.Zero : _inputDirection;
 	}
 
