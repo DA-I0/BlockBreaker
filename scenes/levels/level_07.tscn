@@ -4,11 +4,11 @@
 [ext_resource type="PackedScene" path="res://prefabs/blocks/block_basic.tscn" id="2_3jjvs"]
 [ext_resource type="PackedScene" path="res://prefabs/blocks/block_sturdy.tscn" id="3_kim4u"]
 [ext_resource type="PackedScene" uid="uid://dlrofqirtncwr" path="res://prefabs/blocks/barrier_basic.tscn" id="4_r0cbu"]
-[ext_resource type="PackedScene" path="res://prefabs/blocks/barrier_sturdy.tscn" id="5_dbai0"]
+[ext_resource type="PackedScene" uid="uid://bg5r3twijp0e" path="res://prefabs/blocks/barrier_sturdy.tscn" id="5_dbai0"]
 [ext_resource type="PackedScene" path="res://prefabs/blocks/coffin.tscn" id="6_wkcwx"]
 [ext_resource type="PackedScene" uid="uid://c7ob1oeeah2yr" path="res://prefabs/hazards/whirpool.tscn" id="7_b5yil"]
 [ext_resource type="PackedScene" uid="uid://cgpa7sf8jgxu8" path="res://prefabs/level_exit.tscn" id="8_07854"]
-[ext_resource type="PackedScene" uid="uid://2rendjslrt3g" path="res://prefabs/hazards/bollard.tscn" id="8_spffk"]
+[ext_resource type="PackedScene" uid="uid://7gsh2bx2alvg" path="res://prefabs/hazards/bollard.tscn" id="8_spffk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y748h"]
 texture = ExtResource("1_t5b0n")
@@ -149,9 +149,7 @@ normal = Vector2(-1, 0)
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_7jrrh"]
 normal = Vector2(0, 1)
 
-[node name="Map" type="Control"]
-layout_mode = 3
-anchors_preset = 0
+[node name="Map" type="Node"]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_qov5v")
@@ -181,9 +179,7 @@ shape = SubResource("WorldBoundaryShape2D_37x88")
 position = Vector2(0, -65)
 shape = SubResource("WorldBoundaryShape2D_7jrrh")
 
-[node name="Blocks" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
+[node name="Blocks" type="Node" parent="."]
 
 [node name="BlockBasic" parent="Blocks" instance=ExtResource("2_3jjvs")]
 position = Vector2(-72, -28)
@@ -350,9 +346,7 @@ position = Vector2(13, -6)
 [node name="BlockSturdy11" parent="Blocks" instance=ExtResource("3_kim4u")]
 position = Vector2(80, -6)
 
-[node name="Barriers" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
+[node name="Barriers" type="Node" parent="."]
 
 [node name="BarrierBasic" parent="Barriers" instance=ExtResource("4_r0cbu")]
 position = Vector2(29, -3)
@@ -369,10 +363,7 @@ position = Vector2(46, -20)
 [node name="BarrierSturdy3" parent="Barriers" instance=ExtResource("5_dbai0")]
 position = Vector2(-40, 59)
 
-[node name="OtherBreakables" type="Control" parent="."]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="OtherBreakables" type="Node" parent="."]
 
 [node name="Coffin" parent="OtherBreakables" instance=ExtResource("6_wkcwx")]
 position = Vector2(-55, -16)
@@ -380,10 +371,7 @@ position = Vector2(-55, -16)
 [node name="Coffin2" parent="OtherBreakables" instance=ExtResource("6_wkcwx")]
 position = Vector2(47, 15)
 
-[node name="Interactables" type="Control" parent="."]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Interactables" type="Node" parent="."]
 
 [node name="Whirpool" parent="Interactables" instance=ExtResource("7_b5yil")]
 position = Vector2(-56, 27)
@@ -397,16 +385,13 @@ position = Vector2(63, -34)
 [node name="Bollard" parent="Interactables" instance=ExtResource("8_spffk")]
 position = Vector2(16, 48)
 _isActived = false
-_stateChangeCooldown = 2.0
 
 [node name="Bollard2" parent="Interactables" instance=ExtResource("8_spffk")]
 position = Vector2(46, 48)
-_stateChangeCooldown = 2.0
 
 [node name="Bollard3" parent="Interactables" instance=ExtResource("8_spffk")]
 position = Vector2(80, 48)
 _isActived = false
-_stateChangeCooldown = 2.0
 
 [node name="LevelExit" parent="." instance=ExtResource("8_07854")]
 position = Vector2(-56, -63)

@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" path="res://prefabs/blocks/block_basic.tscn" id="2_6ge52"]
 [ext_resource type="PackedScene" path="res://prefabs/blocks/block_sturdy.tscn" id="3_ox10q"]
 [ext_resource type="PackedScene" uid="uid://dlrofqirtncwr" path="res://prefabs/blocks/barrier_basic.tscn" id="4_v27tv"]
-[ext_resource type="PackedScene" path="res://prefabs/blocks/barrier_sturdy.tscn" id="5_3mumk"]
+[ext_resource type="PackedScene" uid="uid://bg5r3twijp0e" path="res://prefabs/blocks/barrier_sturdy.tscn" id="5_3mumk"]
 [ext_resource type="PackedScene" path="res://prefabs/blocks/coffin.tscn" id="6_cwrtl"]
 [ext_resource type="PackedScene" uid="uid://c7ob1oeeah2yr" path="res://prefabs/hazards/whirpool.tscn" id="6_ubsue"]
 [ext_resource type="PackedScene" uid="uid://cgpa7sf8jgxu8" path="res://prefabs/level_exit.tscn" id="7_ejwvx"]
@@ -145,9 +145,7 @@ normal = Vector2(-1, 0)
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_7jrrh"]
 normal = Vector2(0, 1)
 
-[node name="Map" type="Control"]
-layout_mode = 3
-anchors_preset = 0
+[node name="Map" type="Node"]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_qov5v")
@@ -169,9 +167,7 @@ shape = SubResource("WorldBoundaryShape2D_37x88")
 position = Vector2(0, -65)
 shape = SubResource("WorldBoundaryShape2D_7jrrh")
 
-[node name="Blocks" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
+[node name="Blocks" type="Node" parent="."]
 
 [node name="BlockBasic" parent="Blocks" instance=ExtResource("2_6ge52")]
 position = Vector2(-72, -28)
@@ -332,9 +328,7 @@ position = Vector2(8, -14)
 [node name="BlockSturdy11" parent="Blocks" instance=ExtResource("3_ox10q")]
 position = Vector2(15, -20)
 
-[node name="Barriers" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
+[node name="Barriers" type="Node" parent="."]
 
 [node name="BarrierBasic" parent="Barriers" instance=ExtResource("4_v27tv")]
 position = Vector2(-19, 27)
@@ -354,10 +348,7 @@ position = Vector2(-53, -6)
 [node name="BarrierSturdy4" parent="Barriers" instance=ExtResource("5_3mumk")]
 position = Vector2(52, -5)
 
-[node name="OtherBreakables" type="Control" parent="."]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="OtherBreakables" type="Node" parent="."]
 
 [node name="Coffin" parent="OtherBreakables" instance=ExtResource("6_cwrtl")]
 position = Vector2(-72, -19)
@@ -365,10 +356,7 @@ position = Vector2(-72, -19)
 [node name="Coffin2" parent="OtherBreakables" instance=ExtResource("6_cwrtl")]
 position = Vector2(73, -19)
 
-[node name="Interactables" type="Control" parent="."]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Interactables" type="Node" parent="."]
 
 [node name="Whirpool" parent="Interactables" instance=ExtResource("6_ubsue")]
 position = Vector2(-64, 32)

@@ -145,9 +145,7 @@ normal = Vector2(-1, 0)
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_7jrrh"]
 normal = Vector2(0, 1)
 
-[node name="Map" type="Control"]
-layout_mode = 3
-anchors_preset = 0
+[node name="Map" type="Node"]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_qov5v")
@@ -169,11 +167,7 @@ shape = SubResource("WorldBoundaryShape2D_37x88")
 position = Vector2(0, -65)
 shape = SubResource("WorldBoundaryShape2D_7jrrh")
 
-[node name="Blocks" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_top = 2.0
-offset_bottom = 2.0
+[node name="Blocks" type="Node" parent="."]
 
 [node name="BlockBasic" parent="Blocks" instance=ExtResource("2_sfg8v")]
 position = Vector2(-80, 47)
@@ -391,10 +385,7 @@ position = Vector2(-56, 59)
 [node name="BlockSturdy11" parent="Blocks" instance=ExtResource("3_mmhu2")]
 position = Vector2(-16, 23)
 
-[node name="OtherBreakables" type="Control" parent="."]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="OtherBreakables" type="Node" parent="."]
 
 [node name="Coffin" parent="OtherBreakables" instance=ExtResource("5_qdidp")]
 position = Vector2(-55, -43)
@@ -402,10 +393,7 @@ position = Vector2(-55, -43)
 [node name="Coffin2" parent="OtherBreakables" instance=ExtResource("5_qdidp")]
 position = Vector2(56, -43)
 
-[node name="Interactables" type="Control" parent="."]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Interactables" type="Node" parent="."]
 
 [node name="Whirpool" parent="Interactables" instance=ExtResource("6_kwydn")]
 position = Vector2(0, 7)

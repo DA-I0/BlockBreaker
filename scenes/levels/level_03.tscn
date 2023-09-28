@@ -142,9 +142,7 @@ normal = Vector2(-1, 0)
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_7jrrh"]
 normal = Vector2(0, 1)
 
-[node name="Map" type="Control"]
-layout_mode = 3
-anchors_preset = 0
+[node name="Map" type="Node"]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_qov5v")
@@ -166,9 +164,7 @@ shape = SubResource("WorldBoundaryShape2D_37x88")
 position = Vector2(0, -65)
 shape = SubResource("WorldBoundaryShape2D_7jrrh")
 
-[node name="Blocks" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
+[node name="Blocks" type="Node" parent="."]
 
 [node name="BlockBasic" parent="Blocks" instance=ExtResource("2_qw5vu")]
 position = Vector2(-80, 6)
@@ -290,9 +286,7 @@ position = Vector2(64, -10)
 [node name="BlockSturdy11" parent="Blocks" instance=ExtResource("3_3ty0w")]
 position = Vector2(80, -10)
 
-[node name="Barriers" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
+[node name="Barriers" type="Node" parent="."]
 
 [node name="BarrierBasic" parent="Barriers" instance=ExtResource("4_4ce56")]
 position = Vector2(-48, 12)

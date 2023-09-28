@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" path="res://prefabs/blocks/block_basic.tscn" id="2_dtyl6"]
 [ext_resource type="PackedScene" path="res://prefabs/blocks/block_sturdy.tscn" id="3_226jb"]
 [ext_resource type="PackedScene" uid="uid://dlrofqirtncwr" path="res://prefabs/blocks/barrier_basic.tscn" id="4_ldjqy"]
-[ext_resource type="PackedScene" path="res://prefabs/blocks/barrier_sturdy.tscn" id="5_28tdw"]
+[ext_resource type="PackedScene" uid="uid://bg5r3twijp0e" path="res://prefabs/blocks/barrier_sturdy.tscn" id="5_28tdw"]
 [ext_resource type="PackedScene" uid="uid://cgpa7sf8jgxu8" path="res://prefabs/level_exit.tscn" id="5_qclmh"]
 [ext_resource type="PackedScene" uid="uid://c7ob1oeeah2yr" path="res://prefabs/hazards/whirpool.tscn" id="6_h1wkv"]
 
@@ -144,9 +144,7 @@ normal = Vector2(-1, 0)
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_7jrrh"]
 normal = Vector2(0, 1)
 
-[node name="Map" type="Control"]
-layout_mode = 3
-anchors_preset = 0
+[node name="Map" type="Node"]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_qov5v")
@@ -168,9 +166,7 @@ shape = SubResource("WorldBoundaryShape2D_37x88")
 position = Vector2(0, -65)
 shape = SubResource("WorldBoundaryShape2D_7jrrh")
 
-[node name="Blocks" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
+[node name="Blocks" type="Node" parent="."]
 
 [node name="BlockBasic" parent="Blocks" instance=ExtResource("2_dtyl6")]
 position = Vector2(-80, 3)
@@ -277,9 +273,7 @@ position = Vector2(16, 3)
 [node name="BlockSturdy11" parent="Blocks" instance=ExtResource("3_226jb")]
 position = Vector2(32, 3)
 
-[node name="Barriers" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
+[node name="Barriers" type="Node" parent="."]
 
 [node name="BarrierBasic" parent="Barriers" instance=ExtResource("4_ldjqy")]
 position = Vector2(-48, 10)
@@ -305,10 +299,7 @@ position = Vector2(70, -8)
 [node name="BarrierSturdy6" parent="Barriers" instance=ExtResource("5_28tdw")]
 position = Vector2(83, -8)
 
-[node name="Interactables" type="Control" parent="."]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Interactables" type="Node" parent="."]
 
 [node name="Whirpool" parent="Interactables" instance=ExtResource("6_h1wkv")]
 position = Vector2(0, -13)

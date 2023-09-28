@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://c7ob1oeeah2yr" path="res://prefabs/hazards/whirpool.tscn" id="7_sp84k"]
 [ext_resource type="PackedScene" uid="uid://ctgplrud2njoq" path="res://prefabs/hazards/teleport_door.tscn" id="7_yhfdl"]
 [ext_resource type="PackedScene" uid="uid://cgpa7sf8jgxu8" path="res://prefabs/level_exit.tscn" id="8_0fyb8"]
-[ext_resource type="PackedScene" uid="uid://2rendjslrt3g" path="res://prefabs/hazards/bollard.tscn" id="8_pigvy"]
+[ext_resource type="PackedScene" uid="uid://7gsh2bx2alvg" path="res://prefabs/hazards/bollard.tscn" id="8_pigvy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y748h"]
 texture = ExtResource("1_512im")
@@ -146,9 +146,7 @@ normal = Vector2(-1, 0)
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_7jrrh"]
 normal = Vector2(0, 1)
 
-[node name="Map" type="Control"]
-layout_mode = 3
-anchors_preset = 0
+[node name="Map" type="Node"]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_qov5v")
@@ -170,9 +168,7 @@ shape = SubResource("WorldBoundaryShape2D_37x88")
 position = Vector2(0, -65)
 shape = SubResource("WorldBoundaryShape2D_7jrrh")
 
-[node name="Blocks" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
+[node name="Blocks" type="Node" parent="."]
 
 [node name="BlockBasic" parent="Blocks" instance=ExtResource("2_nrxq6")]
 position = Vector2(-64, 39)
@@ -378,9 +374,7 @@ position = Vector2(16, 39)
 [node name="BlockSturdy11" parent="Blocks" instance=ExtResource("3_2yqvw")]
 position = Vector2(-8, -33)
 
-[node name="Barriers" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
+[node name="Barriers" type="Node" parent="."]
 
 [node name="BarrierSturdy" parent="Barriers" instance=ExtResource("5_f0l5a")]
 position = Vector2(40, 52)
@@ -388,10 +382,7 @@ position = Vector2(40, 52)
 [node name="BarrierSturdy3" parent="Barriers" instance=ExtResource("5_f0l5a")]
 position = Vector2(-40, 52)
 
-[node name="OtherBreakables" type="Control" parent="."]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="OtherBreakables" type="Node" parent="."]
 
 [node name="Coffin" parent="OtherBreakables" instance=ExtResource("6_k1spd")]
 position = Vector2(-39, 34)
@@ -399,10 +390,7 @@ position = Vector2(-39, 34)
 [node name="Coffin2" parent="OtherBreakables" instance=ExtResource("6_k1spd")]
 position = Vector2(40, 34)
 
-[node name="Interactables" type="Control" parent="."]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Interactables" type="Node" parent="."]
 
 [node name="Whirpool" parent="Interactables" instance=ExtResource("7_sp84k")]
 position = Vector2(-72, -44)
