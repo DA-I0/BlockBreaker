@@ -156,39 +156,27 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ExitPrompt" type="Control" parent="."]
-z_index = 1
 layout_mode = 3
 anchors_preset = 0
-offset_top = -102.0
-offset_bottom = -102.0
+offset_left = -128.0
+offset_top = -112.0
+offset_right = 128.0
+offset_bottom = -87.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
 
-[node name="Label" type="Label" parent="ExitPrompt"]
+[node name="PanelContainer" type="PanelContainer" parent="ExitPrompt"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -75.5
-offset_right = 75.5
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -51.0
+offset_right = 51.0
+offset_bottom = 25.0
 grow_horizontal = 2
-grow_vertical = 2
-text = "Press [Space] or [LMB] to continue..."
+
+[node name="Label" type="Label" parent="ExitPrompt/PanelContainer"]
+layout_mode = 2
+text = "message_advance_to_next_map"
 horizontal_alignment = 1
 vertical_alignment = 2
-
-[node name="Background" type="NinePatchRect" parent="ExitPrompt/Label"]
-z_index = -1
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -5.0
-offset_top = -2.0
-offset_right = 5.0
-offset_bottom = 4.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_vgonm")
-patch_margin_left = 4
-patch_margin_top = 5
-patch_margin_right = 4
-patch_margin_bottom = 4

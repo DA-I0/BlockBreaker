@@ -62,10 +62,7 @@ public partial class LevelManager : Node
 		else
 		{
 			currentScene.CallDeferred("add_child", newScene);
-			// ((Control)newScene).Position = new Vector2(-128, -112);
 		}
-
-		Input.MouseMode = (newScene.Name == "Menu") ? Input.MouseModeEnum.Visible : Input.MouseModeEnum.Captured;
 	}
 
 	private void OnCurrentSceneChildEnteredTree(Node node)

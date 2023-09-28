@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://jpldd4vrbmum"]
+[gd_scene load_steps=19 format=3 uid="uid://jpldd4vrbmum"]
 
 [ext_resource type="Script" path="res://code/system/SessionController.cs" id="1_uqmtw"]
 [ext_resource type="Script" path="res://code/system/AudioController.cs" id="2_adfrp"]
@@ -17,10 +17,12 @@
 [ext_resource type="AudioStream" uid="uid://daguq1ydeal20" path="res://assets/audio/music/sinnesloschen-beam-117362.mp3" id="6_n5ei6"]
 [ext_resource type="AudioStream" uid="uid://bjfu5jvkqqjd1" path="res://assets/audio/sfx/shake_available.wav" id="6_v8ycg"]
 [ext_resource type="AudioStream" uid="uid://cpd3aml2jsiie" path="res://assets/audio/sfx/shake.wav" id="7_arthc"]
+[ext_resource type="PackedScene" uid="uid://dseel27vbf765" path="res://prefabs/ui/pause_prompt.tscn" id="17_ewsqo"]
 
 [node name="GameController" type="Node"]
 
 [node name="SessionController" type="Node" parent="." node_paths=PackedStringArray("musicController", "audioController", "gameScore", "health", "levelManager", "gameElements")]
+process_mode = 3
 script = ExtResource("1_uqmtw")
 musicController = NodePath("../MusicController")
 audioController = NodePath("../AudioController")
@@ -51,7 +53,6 @@ script = ExtResource("3_fiiwk")
 script = ExtResource("3_kncmn")
 
 [node name="Timer" type="Timer" parent="Score"]
-wait_time = 60.0
 one_shot = true
 
 [node name="CurrentScene" type="Node" parent="."]
@@ -59,6 +60,8 @@ one_shot = true
 [node name="UI" type="Node" parent="."]
 
 [node name="UIGameSession" parent="." instance=ExtResource("4_l3xv6")]
+
+[node name="Control" parent="UIGameSession" instance=ExtResource("17_ewsqo")]
 
 [node name="GameElements" type="Node" parent="."]
 
