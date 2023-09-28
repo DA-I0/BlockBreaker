@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3]
+[gd_scene load_steps=4 format=3 uid="uid://cav5klqn0n3k6"]
 
 [ext_resource type="Script" path="res://code/gameplay/pickups/PickupPaddleResize.cs" id="1_jhawf"]
 [ext_resource type="Texture2D" uid="uid://dib086emaagmc" path="res://assets/sprites/pickups/pickup_paddle_wide.png" id="2_66wmf"]
@@ -14,14 +14,14 @@ script = ExtResource("1_jhawf")
 _pointValue = 2
 _speed = 35.0
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Collider" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0.5)
+shape = SubResource("CircleShape2D_ow3q6")
+
+[node name="Sprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_66wmf")
 centered = false
 offset = Vector2(-5, -5)
-
-[node name="CollisionPolygon2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 0.5)
-shape = SubResource("CircleShape2D_ow3q6")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 

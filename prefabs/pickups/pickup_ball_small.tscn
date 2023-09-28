@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3]
+[gd_scene load_steps=4 format=3 uid="uid://c6jkva33lu2x0"]
 
 [ext_resource type="Script" path="res://code/gameplay/pickups/PickupBallSmall.cs" id="1_4x5rl"]
 [ext_resource type="Texture2D" uid="uid://kywmtx5kgbqk" path="res://assets/sprites/pickups/pickup_ball_small.png" id="2_y7lel"]
@@ -13,14 +13,14 @@ monitorable = false
 script = ExtResource("1_4x5rl")
 _speed = 35.0
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Collider" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0.5)
+shape = SubResource("CircleShape2D_ow3q6")
+
+[node name="Sprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_y7lel")
 centered = false
 offset = Vector2(-5, -5)
-
-[node name="CollisionPolygon2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 0.5)
-shape = SubResource("CircleShape2D_ow3q6")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
