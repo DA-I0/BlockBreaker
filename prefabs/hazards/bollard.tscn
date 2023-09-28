@@ -64,7 +64,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_18ftg"]
 resource_name = "deactivate"
-length = 0.500002
+length = 0.500003
 step = 0.0166667
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -207,16 +207,19 @@ _data = {
 "idle_enabled": SubResource("Animation_gxprl")
 }
 
-[node name="Bollard" type="StaticBody2D"]
+[node name="Bollard" type="StaticBody2D" node_paths=PackedStringArray("_animator", "_timer")]
 script = ExtResource("1_7nh2g")
+_isActived = true
+_stateChangeCooldown = 2.0
+_animator = NodePath("Animator")
+_timer = NodePath("Timer")
 
 [node name="Collider" type="CollisionShape2D" parent="."]
-position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_xjr6v")
 disabled = true
 
 [node name="Sprite" type="Sprite2D" parent="."]
-position = Vector2(-2, -10)
+position = Vector2(-2, -8)
 texture = ExtResource("1_5hspi")
 centered = false
 
