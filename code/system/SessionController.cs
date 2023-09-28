@@ -59,7 +59,10 @@ public partial class SessionController : Node
 
 		paddle = (Paddle)ResourceLoader.Load<PackedScene>("res://prefabs/paddles/paddle_01.tscn").Instantiate();
 		gameElements.AddChild(paddle);
-		gameElements.GetChild(0).AddChild((Ball)ResourceLoader.Load<PackedScene>("res://prefabs/ball.tscn").Instantiate());
+
+		Ball startingBall = (Ball)ResourceLoader.Load<PackedScene>("res://prefabs/ball.tscn").Instantiate();
+		startingBall.Position = paddle.Position;
+		gameElements.GetChild(0).AddChild(startingBall);
 	}
 
 	public void SelectLevel(int levelIndex)
