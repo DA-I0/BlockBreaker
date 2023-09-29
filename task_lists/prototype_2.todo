@@ -2,7 +2,7 @@ Prototype 2:
 	Features:
 		☐ Configurable controls
 		☐ Game localization
-			☐ Manual localization system for RichTextLabels.
+			✔ Manual localization system for RichTextLabels. @done(23-09-29 17:45)
 		☐ Game difficulty
 			✔ Different max & starting lives @done(23-09-21 22:35)
 			✔ Different base ball speed @done(23-09-21 22:35)
@@ -93,6 +93,7 @@ Prototype 2:
 		☐ Options
 			☐ Language selection @done(23-09-26 20:15)
 			☐ Pickup display ordering (under ball, over ball)
+			☐ Controller icon style (generic, nintendo, playstation, xbox)?
 		☐ Improve main menu layout and theming
 	Other:
 		☐ Add 1-2 translations (besides english)

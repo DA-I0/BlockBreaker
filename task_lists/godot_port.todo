@@ -98,9 +98,9 @@ Features:
 UI:
 	✔ Theme @done(23-09-28 20:16)
 	Main menu:
-		☐ Panels
+		☐ Panels @done(23-09-29 13:45)
 			✔ Level selection @done(23-09-20 16:59)
-			☐ Info
+			✔ Info @done(23-09-29 13:45)
 			✔ Changelog @done(23-09-21 23:01)
 				✔ Load from file @done(23-09-21 23:01)
 			☐ Options @done(23-09-26 20:15)
