@@ -109,4 +109,21 @@ public partial class SessionController : Node
 		Input.MouseMode = (_gameState == GameState.gameplay) ? Input.MouseModeEnum.Captured : Input.MouseModeEnum.Visible;
 		GameStateChanged?.Invoke();
 	}
+
+	public override void _Input(InputEvent @event)
+	{
+		if (@event.AsText().Contains("Joypad"))
+		{
+			settings.ActiveController = InputType.gamepad;
+			return;
+		}
+
+		if (@event.AsText().Contains("Mouse"))
+		{
+			settings.ActiveController = InputType.mouse;
+			return;
+		}
+
+		settings.ActiveController = InputType.keyboard;
+	}
 }

@@ -1,22 +1,21 @@
 using Godot;
 
-public partial class UIChangelog : Panel
+public partial class UIInfo : Panel
 {
-	[Export] private ScrollContainer _focusTarget;
-	[Export] private RichTextLabel _content;
+	[Export] ScrollContainer _focusTarget;
+
 	private SessionController refs;
 
 	public override void _Ready()
 	{
 		refs = GetNode("/root/GameController/SessionController") as SessionController;
-		((UIController)GetNode("../..")).RefreshUI += LoadChangelog;
+		((UIController)GetNode("../..")).RefreshUI += Focus;
 	}
 
-	public void LoadChangelog()
+	private void Focus()
 	{
 		if (Visible)
 		{
-			_content.Text = refs.gameData.PatchNotes;
 			_focusTarget.GrabFocus();
 		}
 	}

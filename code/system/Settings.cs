@@ -1,8 +1,11 @@
 using Godot;
 
+public enum InputType { gamepad, keyboard, mouse };
+
 public class Settings
 {
 	private const string DefaultLanguage = "en";
+	private const int DefaultInputType = 1;
 	private const int DefaultScreenMode = 3;
 	private const int DefaultScreenWidth = 1280;
 	private const int DefaultScreenHeight = 1120;
@@ -13,6 +16,7 @@ public class Settings
 	private const float DefaultMouseSpeed = 1f;
 	private const float DefaultKeyboardSpeed = 1f;
 
+	private InputType _activeController = global::InputType.keyboard;
 	private ConfigFile _config;
 	private SessionController refs;
 
@@ -76,9 +80,20 @@ public class Settings
 		set { _config.SetValue("general", "keyboard_speed", value); }
 	}
 
+	public InputType ActiveController
+	{
+		get { return _activeController; }
+		set
+		{
+			_activeController = value;
+			_config.SetValue("general", "inputType", (int)value);
+		}
+	}
+
 	public void SetDefaultValues()
 	{
 		Language = DefaultLanguage;
+		ActiveController = (InputType)DefaultInputType;
 		ScreenMode = DefaultScreenMode;
 		ScreenWidth = DefaultScreenWidth;
 		ScreenHeight = DefaultScreenHeight;

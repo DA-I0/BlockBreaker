@@ -20,6 +20,7 @@ public partial class UIOptions : Panel
 	{
 		refs = GetNode("/root/GameController/SessionController") as SessionController;
 		((UIController)GetNode("../..")).RefreshUI += UpdateSettings;
+		((UIController)GetNode("../..")).RefreshUI += Focus;
 		PopulateLanguageList();
 	}
 
@@ -100,5 +101,13 @@ public partial class UIOptions : Panel
 		}
 
 		return -1;
+	}
+
+	private void Focus()
+	{
+		if (Visible)
+		{
+			_language.GrabFocus();
+		}
 	}
 }

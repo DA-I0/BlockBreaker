@@ -3,8 +3,6 @@ using System.Collections.Generic;
 
 public partial class UIController : Node
 {
-	[Export] private PackedScene _buttonPrefab;
-
 	[Export] private Label _gameTitle;
 	[Export] private Node _menuButtons;
 	private Dictionary<string, CanvasItem> _panels = new Dictionary<string, CanvasItem>();
@@ -20,7 +18,6 @@ public partial class UIController : Node
 		refs = GetNode("/root/GameController/SessionController") as SessionController;
 
 		FindPanels();
-		PopulateLevelPanel();
 		HideAllPanels();
 		TogglePanel("LeaderboardPanel");
 		_gameTitle.Text = ProjectSettings.GetSetting("application/config/name").ToString();
@@ -67,6 +64,11 @@ public partial class UIController : Node
 				button.Visible = (_activePanel == "LeaderboardPanel");
 			}
 		}
+
+		if (((CanvasItem)_menuButtons.GetChild(0)).Visible)
+		{
+			((Button)_menuButtons.GetChild(0)).GrabFocus();
+		}
 	}
 
 	private void SelectLevel(string levelName)
@@ -79,19 +81,6 @@ public partial class UIController : Node
 		foreach (var panel in _panels)
 		{
 			panel.Value.Visible = false;
-		}
-	}
-
-	private void PopulateLevelPanel()
-	{
-		// string[] levels = DirAccess.GetFilesAt("res://scenes/levels");
-
-		// foreach (string level in levels)
-		for (int index = 0; index < refs.gameData.Levels.Count; index++)//levels)
-		{
-			UILevelButton newButton = (UILevelButton)_buttonPrefab.Instantiate();
-			newButton.ButtonSetup(index, refs.gameData.Levels[index]);
-			_panels["LevelPanel"].AddChild(newButton);
 		}
 	}
 

@@ -9,7 +9,6 @@ public partial class Paddle : CharacterBody2D
 
 	private int _size = 1;
 
-	private bool _mouseControlls = false;
 	public bool blockMovement = false;
 	private int _movementDirection = 1;
 
@@ -39,22 +38,38 @@ public partial class Paddle : CharacterBody2D
 
 	public override void _PhysicsProcess(double delta)
 	{
+		GetMovement();
 		Movement(delta);
 	}
 
 	public override void _Input(InputEvent @event)
 	{
-		float inputHorizontal;
+		float inputHorizontal = 0;
 
 		if (@event is InputEventMouseMotion eventMouseMotion)
 		{
 			inputHorizontal = eventMouseMotion.Relative.X * refs.settings.SpeedMouse;
-			_mouseControlls = true;
 		}
-		else
+
+		_inputDirection = new Vector2(inputHorizontal, 0);
+	}
+
+	private void GetMovement()
+	{
+		float inputHorizontal;
+
+		switch (refs.settings.ActiveController)
 		{
-			inputHorizontal = (Input.GetActionStrength("game_right") - Input.GetActionStrength("game_left")) * refs.settings.SpeedKeyboard;
-			_mouseControlls = false;
+			case InputType.gamepad:
+				inputHorizontal = Input.GetJoyAxis(0, JoyAxis.LeftX);
+				break;
+
+			case InputType.keyboard:
+				inputHorizontal = (Input.GetActionStrength("game_right") - Input.GetActionStrength("game_left")) * refs.settings.SpeedKeyboard;
+				break;
+
+			default:
+				return;
 		}
 
 		_inputDirection = new Vector2(inputHorizontal, 0);
@@ -142,7 +157,7 @@ public partial class Paddle : CharacterBody2D
 		}
 
 		Position = new Vector2(Position.X, _positionY);
-		_inputDirection = _mouseControlls ? Vector2.Zero : _inputDirection;
+		_inputDirection = (refs.settings.ActiveController/*_controller*/ == InputType.mouse) ? Vector2.Zero : _inputDirection;
 	}
 
 	private void CalculateMoveVelocity(Vector2 direction, int speed)

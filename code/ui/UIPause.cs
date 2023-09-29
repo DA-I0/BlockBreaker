@@ -29,6 +29,7 @@ public partial class UIPause : Control
 	private void TogglePausePanel()
 	{
 		Visible = (refs.CurrentGameState == GameState.pause);
+		Focus();
 	}
 
 	private void ReturnToMenu()
@@ -39,5 +40,13 @@ public partial class UIPause : Control
 	private void ReturnToGame()
 	{
 		refs.ChangeGameState(GameState.gameplay);
+	}
+
+	private void Focus()
+	{
+		if (Visible)
+		{
+			((Button)FindChild("ButtonConfirm")).GrabFocus();
+		}
 	}
 }

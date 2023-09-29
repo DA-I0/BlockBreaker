@@ -62,7 +62,7 @@ one_shot = true
 
 [node name="UIGameSession" parent="." instance=ExtResource("4_l3xv6")]
 
-[node name="Control" parent="UIGameSession" instance=ExtResource("17_ewsqo")]
+[node name="PausePrompt" parent="UIGameSession" instance=ExtResource("17_ewsqo")]
 
 [node name="GameElements" type="Node" parent="."]
 
