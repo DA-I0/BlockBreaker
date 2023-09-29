@@ -72,7 +72,6 @@ public partial class Ball : CharacterBody2D
 
 	public override void _Input(InputEvent @event)
 	{
-
 		if (@event.IsActionReleased("game_play"))
 		{
 			switch (_ballMode)

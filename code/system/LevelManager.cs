@@ -55,14 +55,7 @@ public partial class LevelManager : Node
 		ResourceLoader.LoadThreadedRequest(scenePath);
 		Node newScene = (ResourceLoader.LoadThreadedGet(scenePath) as PackedScene).Instantiate();
 
-		if (newScene.Name == "Menu")
-		{
-			uiNode.CallDeferred("add_child", newScene);
-		}
-		else
-		{
-			currentScene.CallDeferred("add_child", newScene);
-		}
+		currentScene.CallDeferred("add_child", newScene);
 	}
 
 	private void OnCurrentSceneChildEnteredTree(Node node)
