@@ -1,11 +1,16 @@
 using Godot;
 
 public delegate void PaddleNotification(int size, int movementDirection);
+public enum PaddleMode { basic, bouncy, sticky };
 
 public partial class Paddle : CharacterBody2D
 {
 	[Export] private int _baseMoveSpeed = 100;
+	[Export] private float _bouncyBoost = 1.5f;
 	[Export] private int _positionY = 90;
+	[Export] private Texture2D[] _sprites;
+
+	private PaddleMode _paddleMode = PaddleMode.basic;
 
 	private int _size = 1;
 
@@ -14,6 +19,7 @@ public partial class Paddle : CharacterBody2D
 
 	Vector2 _inputDirection = Vector2.Zero;
 
+	private NinePatchRect _sprite;
 	private AnimationPlayer _animator;
 	private SessionController refs;
 
@@ -101,9 +107,17 @@ public partial class Paddle : CharacterBody2D
 		Resize();
 	}
 
+	public void SetPaddleMode(PaddleMode mode)
+	{
+		_paddleMode = mode;
+		AdjustSprite();
+	}
+
 	private void SetupReferences()
 	{
+		_sprite = GetNode("Sprite") as NinePatchRect;
 		_animator = GetNode("Animator") as AnimationPlayer;
+
 		refs = GetNode("/root/GameController/SessionController") as SessionController;
 		refs.paddle = this;
 		refs.health.ResetElements += SetupInitialValues;
@@ -113,11 +127,11 @@ public partial class Paddle : CharacterBody2D
 
 	private void SetupInitialValues()
 	{
-		Recenter();
+		_movementDirection = 1;
 		_size = refs.SelectedDifficulty.StartPaddleSize;
 		Resize();
-		_movementDirection = 1;
-		// SetPaddleMode(PaddleMode.basic);
+		Recenter();
+		SetPaddleMode(PaddleMode.basic);
 	}
 
 	// NOTE: Potential fix for ball getting stuck inside the paddle, gotta test more.
@@ -153,11 +167,34 @@ public partial class Paddle : CharacterBody2D
 		if (collision != null)
 		{
 			Ball ball = collision.GetCollider() as Ball;
-			ball?.AddVelocity(Velocity);
+
+			if (ball != null) // doesn't trigger every time (trigger manually from the ball?)
+			{
+				PaddleModeAction(ball);
+			}
+			// ball?.AddVelocity(Velocity);
 		}
 
 		Position = new Vector2(Position.X, _positionY);
 		_inputDirection = (refs.settings.ActiveController/*_controller*/ == InputType.mouse) ? Vector2.Zero : _inputDirection;
+	}
+
+	private void PaddleModeAction(Ball targetBall)
+	{
+		switch (_paddleMode)
+		{
+			case PaddleMode.bouncy:
+				targetBall.SetTempBoost(_bouncyBoost);
+				break;
+
+			case PaddleMode.sticky:
+				targetBall.Reset();
+				break;
+
+			default:
+				targetBall.AddVelocity(Velocity);
+				break;
+		}
 	}
 
 	private void CalculateMoveVelocity(Vector2 direction, int speed)
@@ -172,6 +209,16 @@ public partial class Paddle : CharacterBody2D
 	{
 		_animator.Play($"size_{_size}");
 		PaddleChanged?.Invoke(_size, _movementDirection);
+	}
+
+	private void AdjustSprite()
+	{
+		if (_sprites.Length < (int)_paddleMode)
+		{
+			return;
+		}
+
+		_sprite.Texture = _sprites[(int)_paddleMode];
 	}
 
 	private void Destroy()

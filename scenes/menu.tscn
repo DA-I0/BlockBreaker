@@ -7,13 +7,13 @@
 [ext_resource type="Theme" uid="uid://dj60ywofwk371" path="res://ui.theme" id="4_64s2n"]
 [ext_resource type="Script" path="res://code/ui/UIChangelog.cs" id="5_j3nyw"]
 [ext_resource type="Script" path="res://code/ui/UILeaderboard.cs" id="6_3powx"]
-[ext_resource type="Texture2D" uid="uid://bdnrfv0eveohj" path="res://assets/sprites/paddle.png" id="6_ig3jx"]
 [ext_resource type="Script" path="res://code/ui/UILevelSelection.cs" id="6_la3rx"]
 [ext_resource type="Texture2D" uid="uid://f7a58ge3hksa" path="res://assets/sprites/blocks/block_basic.png" id="7_26x0h"]
 [ext_resource type="Script" path="res://code/ui/UIOptions.cs" id="7_ti3v4"]
 [ext_resource type="Texture2D" uid="uid://d0cnr320o626e" path="res://assets/sprites/blocks/block_sturdy_01.png" id="8_a12sc"]
 [ext_resource type="Texture2D" uid="uid://ct1i42wllkc35" path="res://assets/sprites/ui_elements/ui_frame_thin.png" id="8_dpkjf"]
 [ext_resource type="Script" path="res://code/ui/UIInfo.cs" id="8_dx3ap"]
+[ext_resource type="Texture2D" uid="uid://bdnrfv0eveohj" path="res://assets/sprites/paddles/basic.png" id="9_kl5m5"]
 [ext_resource type="Texture2D" uid="uid://7d4eyxkvyukd" path="res://assets/sprites/blocks/barrier_basic.png" id="9_ps03f"]
 [ext_resource type="Texture2D" uid="uid://bnni5cj6uglbh" path="res://assets/sprites/blocks/barrier_sturdy_01.png" id="10_b3uxo"]
 
@@ -204,7 +204,7 @@ layout_mode = 2
 [node name="Icon" type="TextureRect" parent="Control/InfoPanel/ScrollContainer/InfoContent/InfoMovement"]
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
-texture = ExtResource("6_ig3jx")
+texture = ExtResource("9_kl5m5")
 stretch_mode = 4
 
 [node name="info_controls_desc" type="RichTextLabel" parent="Control/InfoPanel/ScrollContainer/InfoContent/InfoMovement" groups=["manual_translation"]]
@@ -281,7 +281,7 @@ layout_mode = 2
 [node name="Icon" type="TextureRect" parent="Control/InfoPanel/ScrollContainer/InfoContent/InfoScore"]
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
-texture = ExtResource("6_ig3jx")
+texture = ExtResource("9_kl5m5")
 stretch_mode = 4
 
 [node name="info_score_multiplier_desc" type="RichTextLabel" parent="Control/InfoPanel/ScrollContainer/InfoContent/InfoScore" groups=["manual_translation"]]
@@ -333,7 +333,6 @@ scroll_active = false
 shortcut_keys_enabled = false
 
 [node name="OptionsPanel" type="Panel" parent="Control" node_paths=PackedStringArray("_language", "_fullscreen", "_mouseSpeed", "_keyboardSpeed", "_resolution", "_screenShake", "_masterVolume", "_musicVolume", "_effectsVolume")]
-visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.2

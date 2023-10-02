@@ -1,7 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://d3cenf7vduiem"]
+[gd_scene load_steps=15 format=3 uid="uid://d3cenf7vduiem"]
 
 [ext_resource type="Script" path="res://code/gameplay/Paddle.cs" id="1_fg4cs"]
-[ext_resource type="Texture2D" uid="uid://bdnrfv0eveohj" path="res://assets/sprites/paddle.png" id="2_4aqyw"]
+[ext_resource type="Texture2D" uid="uid://bdnrfv0eveohj" path="res://assets/sprites/paddles/basic.png" id="2_admir"]
+[ext_resource type="Texture2D" uid="uid://p1ln6vt0i3ak" path="res://assets/sprites/paddles/basic_bouncy.png" id="3_0h25r"]
+[ext_resource type="Texture2D" uid="uid://ch81qs8133yeu" path="res://assets/sprites/paddles/basic_sticky.png" id="4_w1ssb"]
 
 [sub_resource type="Animation" id="Animation_lj8sh"]
 length = 0.001
@@ -353,7 +355,9 @@ platform_floor_layers = 0
 platform_wall_layers = 1
 safe_margin = 0.1
 script = ExtResource("1_fg4cs")
+_bouncyBoost = 2.0
 _positionY = 100
+_sprites = Array[Texture2D]([ExtResource("2_admir"), ExtResource("3_0h25r"), ExtResource("4_w1ssb")])
 
 [node name="Collider" type="CollisionPolygon2D" parent="."]
 position = Vector2(-2, -0.28125)
@@ -373,17 +377,18 @@ offset_top = -2.0
 offset_bottom = 3.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_4aqyw")
-patch_margin_left = 4
+texture = ExtResource("2_admir")
+region_rect = Rect2(0, -0.0822372, 20.3487, 5.08224)
+patch_margin_left = 2
 patch_margin_top = 2
-patch_margin_right = 4
+patch_margin_right = 2
 patch_margin_bottom = 2
 
 [node name="Animator" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_6a3eu")
 }
-blend_times = [&"size_5", &"size_2", 1.0, &"size_5", &"size_1", 1.0, &"size_5", &"size_4", 1.0, &"size_5", &"size_5", 1.0, &"size_5", &"size_3", 1.0]
+blend_times = [&"size_5", &"size_1", 1.0, &"size_5", &"size_3", 1.0, &"size_5", &"size_4", 1.0, &"size_5", &"size_5", 1.0, &"size_5", &"size_2", 1.0]
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0
