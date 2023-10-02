@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3]
+[gd_scene load_steps=6 format=3 uid="uid://doawgt0jptjhp"]
 
 [ext_resource type="Script" path="res://code/gameplay/Block.cs" id="1_l54pj"]
-[ext_resource type="PackedScene" path="res://prefabs/pickups/pickup_ghost.tscn" id="2_iu6jv"]
+[ext_resource type="PackedScene" uid="uid://dpwpfxkjnkw8c" path="res://prefabs/pickups/pickup_ghost.tscn" id="2_iu6jv"]
 [ext_resource type="Texture2D" uid="uid://cfwd78cd45f2o" path="res://assets/sprites/blocks/coffin_01.png" id="3_or7tx"]
 [ext_resource type="Texture2D" uid="uid://dh5ugyvjrst75" path="res://assets/sprites/blocks/coffin_02.png" id="4_r3vry"]
 

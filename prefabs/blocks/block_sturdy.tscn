@@ -1,13 +1,13 @@
-[gd_scene load_steps=10 format=3]
+[gd_scene load_steps=10 format=3 uid="uid://clchdmucxr4xn"]
 
 [ext_resource type="Script" path="res://code/gameplay/Block.cs" id="1_vydik"]
-[ext_resource type="PackedScene" path="res://prefabs/pickups/pickup_ball_fast.tscn" id="2_685qm"]
+[ext_resource type="PackedScene" uid="uid://cnvdvox3cga5v" path="res://prefabs/pickups/pickup_ball_fast.tscn" id="2_685qm"]
 [ext_resource type="Texture2D" uid="uid://d0cnr320o626e" path="res://assets/sprites/blocks/block_sturdy_01.png" id="2_jpovs"]
 [ext_resource type="Texture2D" uid="uid://db71nvusk7eot" path="res://assets/sprites/blocks/block_sturdy_02.png" id="3_0a3ch"]
-[ext_resource type="PackedScene" path="res://prefabs/pickups/pickup_ball_small.tscn" id="3_p0kf1"]
+[ext_resource type="PackedScene" uid="uid://c6jkva33lu2x0" path="res://prefabs/pickups/pickup_ball_small.tscn" id="3_p0kf1"]
 [ext_resource type="Texture2D" uid="uid://cw0f1lvjr54n5" path="res://assets/sprites/blocks/block_sturdy_03.png" id="4_k8bhm"]
-[ext_resource type="PackedScene" path="res://prefabs/pickups/pickup_paddle_thin.tscn" id="4_ugw4u"]
-[ext_resource type="PackedScene" path="res://prefabs/pickups/pickup_paddle_wide.tscn" id="5_cym8p"]
+[ext_resource type="PackedScene" uid="uid://tt41n2fom0vc" path="res://prefabs/pickups/pickup_paddle_thin.tscn" id="4_ugw4u"]
+[ext_resource type="PackedScene" uid="uid://cav5klqn0n3k6" path="res://prefabs/pickups/pickup_paddle_wide.tscn" id="5_cym8p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jer7o"]
 size = Vector2(16, 6)
