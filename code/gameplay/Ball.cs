@@ -11,9 +11,10 @@ public partial class Ball : CharacterBody2D
 
 	private BallMode _ballMode = BallMode.idle;
 
-	private float _difficultySpeedMultiplier = 1f;
 	private float _difficultyArrowSpeed = 1f;
+	private float _difficultySpeedMultiplier = 1f;
 	private float _speedMultiplier = 1f;
+	private float _boostMultiplier = 0f;
 
 	[Export] private float _multiBallSpawnAngle = 30f;
 
@@ -55,18 +56,20 @@ public partial class Ball : CharacterBody2D
 		switch (_ballMode)
 		{
 			case BallMode.frozen:
+				SetTempBoost(1);
 				_animator.Play("idle");
 				break;
 
 			case BallMode.moving:
 				Move(delta);
+				ReduceTempBoost();
 				break;
 
 			default:
+				SetTempBoost(1);
 				Position = (refs.paddle != null) ? new Vector2(refs.paddle.Position.X, refs.paddle.Position.Y - _idlePositionOffset) : Vector2.Zero;
 				_animator.Play("idle");
 				break;
-
 		}
 	}
 
@@ -78,6 +81,7 @@ public partial class Ball : CharacterBody2D
 			{
 				case BallMode.angleSelection:
 					PlayBall();
+					refs.paddle.SetPaddleState(PaddleState.idle);
 					break;
 
 				case BallMode.moving:
@@ -85,7 +89,7 @@ public partial class Ball : CharacterBody2D
 					break;
 
 				default:
-					refs.paddle.blockMovement = true;
+					refs.paddle.SetPaddleState(PaddleState.locked);
 					_ballMode = BallMode.angleSelection;
 					_arrowTimer.Start(0.001f);
 					break;
@@ -160,6 +164,12 @@ public partial class Ball : CharacterBody2D
 		return _collider.Scale.X;
 	}
 
+	public void SetTempBoost(float boostMultiplier)
+	{
+		_boostMultiplier = boostMultiplier;
+		UpdateSpeed();
+	}
+
 	private void SetupReferences()
 	{
 		refs = GetNode("/root/GameController/SessionController") as SessionController;
@@ -197,6 +207,11 @@ public partial class Ball : CharacterBody2D
 
 		Breakable breakable = collision.GetCollider() as Breakable;
 		breakable?.Damage(1);
+
+		if (collision.GetCollider() == refs.paddle)
+		{
+			refs.paddle.ApplyPaddleEffect(this);
+		}
 	}
 
 	private void AdjustSpriteRotation()
@@ -207,7 +222,7 @@ public partial class Ball : CharacterBody2D
 
 	private void UpdateSpeed()
 	{
-		_speed = _baseSpeed * _difficultySpeedMultiplier * _speedMultiplier;
+		_speed = _baseSpeed * _difficultySpeedMultiplier * _speedMultiplier * _boostMultiplier;
 		_animator.Play("roll", 0, _difficultySpeedMultiplier * _speedMultiplier);
 	}
 
@@ -222,7 +237,20 @@ public partial class Ball : CharacterBody2D
 		_arrow.RotationDegrees = _startingRotation;
 	}
 
-	private void OnScreenExited()
+	private void ReduceTempBoost()
+	{
+		if (_boostMultiplier > 1)
+		{
+			_boostMultiplier -= _boostDrag;
+			UpdateSpeed();
+		}
+		else
+		{
+			_boostMultiplier = 1;
+		}
+	}
+
+	private void OnScreenExited(bool levelChange = false)
 	{
 		if (refs.Balls.Count > 1)
 		{
@@ -231,13 +259,17 @@ public partial class Ball : CharacterBody2D
 		else
 		{
 			Reset();
-			refs.health.ChangeLives(-1);
+
+			if (!levelChange)
+			{
+				refs.health.ChangeLives(-1);
+			}
 		}
 	}
 
 	private void SceneChangeCleanup()
 	{
-		OnScreenExited();
+		OnScreenExited(true);
 	}
 
 	private void Destroy()
