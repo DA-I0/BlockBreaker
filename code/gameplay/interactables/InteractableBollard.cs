@@ -1,6 +1,6 @@
 using Godot;
 
-public partial class InteractableBollard : Node
+public partial class InteractableBollard : Node2D
 {
 	[Export] private bool _isActived = false;
 	[Export] private float _stateChangeCooldown = 1f;
