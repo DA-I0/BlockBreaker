@@ -4,7 +4,7 @@ public partial class Breakable : StaticBody2D
 {
 	[Export] protected int _pointValue = 1;
 	[Export] protected int _maxHealth = 1;
-	[Export] Texture2D[] _sprites;
+	[Export] protected Texture2D[] _sprites;
 
 	protected int _health;
 
@@ -13,9 +13,9 @@ public partial class Breakable : StaticBody2D
 
 	public override void _Ready()
 	{
-		_health = _maxHealth;
 		_sprite = GetNode("Sprite") as Sprite2D;
 		refs = GetNode("/root/GameController/SessionController") as SessionController;
+		SetInitialValues();
 		AdjustSprite();
 	}
 
@@ -31,7 +31,12 @@ public partial class Breakable : StaticBody2D
 		AdjustSprite();
 	}
 
-	protected void AdjustSprite()
+	protected virtual void SetInitialValues()
+	{
+		_health = _maxHealth;
+	}
+
+	protected virtual void AdjustSprite()
 	{
 		if (_sprite != null && _sprites.Length > 0)
 		{
@@ -40,7 +45,7 @@ public partial class Breakable : StaticBody2D
 		}
 	}
 
-	protected void Destroy()
+	protected virtual void Destroy()
 	{
 		refs.gameScore.ChangeScore(_pointValue);
 		QueueFree();
