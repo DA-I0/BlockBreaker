@@ -12,6 +12,7 @@ collision_mask = 4
 monitorable = false
 script = ExtResource("1_82q6j")
 _paddleMode = 2
+_speed = 35.0
 
 [node name="Collider" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 0.5)
