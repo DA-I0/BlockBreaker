@@ -105,6 +105,7 @@ platform_on_leave = 2
 platform_floor_layers = 0
 platform_wall_layers = 4
 script = ExtResource("1_474hh")
+_baseSpeed = 8.0
 _sprite = NodePath("Sprite")
 _arrow = NodePath("ArrowSprite")
 _arrowTimer = NodePath("ArrowSprite/Timer")

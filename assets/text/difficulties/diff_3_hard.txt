@@ -2,7 +2,7 @@ name:Hard;
 maxLives:3;
 startingLives:2;
 ballSpeedMultiplier:1.5;
-angleSelectSpeed:1.5;
+angleSelectSpeed:2;
 maxPaddleSize:1;
 startPaddleSize:2;
 minPaddleSize:-2;
