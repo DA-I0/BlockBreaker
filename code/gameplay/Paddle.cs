@@ -16,7 +16,6 @@ public partial class Paddle : CharacterBody2D
 
 	private int _size = 1;
 
-	public bool blockMovement = false;
 	private int _movementDirection = 1;
 
 	Vector2 _inputDirection = Vector2.Zero;
@@ -35,6 +34,7 @@ public partial class Paddle : CharacterBody2D
 	public int MovementDirection
 	{
 		get { return _movementDirection; }
+		set { _movementDirection = value; }
 	}
 
 	public override void _Ready()
@@ -174,7 +174,7 @@ public partial class Paddle : CharacterBody2D
 	private void Recenter()
 	{
 		Position = new Vector2(0, _positionY);
-		blockMovement = false;
+		_state = PaddleState.idle;
 	}
 
 	private void Movement(double delta)
@@ -195,7 +195,7 @@ public partial class Paddle : CharacterBody2D
 	{
 		var newVelocity = Velocity;
 
-		newVelocity.X = speed * direction.X;
+		newVelocity.X = speed * direction.X * _movementDirection;
 		Velocity = newVelocity;
 	}
 
