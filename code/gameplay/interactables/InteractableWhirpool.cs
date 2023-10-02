@@ -28,14 +28,13 @@ public partial class InteractableWhirpool : Node2D
 	private void CatchBall(Ball targetBall)
 	{
 		_ball = targetBall;
-		_ball.BallMode = BallMode.frozen;
+		_ball.BallMode = BallMode.spinning;
 		_ball.Position = Position;
 
 		float newRotation = Mathf.DegToRad(GD.RandRange(0, 359));
 		_ball.Velocity = _ball.Velocity.Rotated(newRotation);
 
 		_timer.Start(_releaseDelay);
-		_animator.Pause();
 	}
 
 	private void ReleaseBall()
