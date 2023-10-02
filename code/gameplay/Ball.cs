@@ -73,9 +73,13 @@ public partial class Ball : CharacterBody2D
 		{
 			switch (_ballMode)
 			{
+				case BallMode.idle:
+					BallMode = BallMode.angleSelection;
+					_arrowTimer.Start(0.001f);
+					break;
+
 				case BallMode.angleSelection:
 					PlayBall();
-					refs.paddle.SetPaddleState(PaddleState.idle);
 					break;
 
 				case BallMode.moving:
@@ -83,9 +87,6 @@ public partial class Ball : CharacterBody2D
 					break;
 
 				default:
-					refs.paddle.SetPaddleState(PaddleState.locked);
-					BallMode = BallMode.angleSelection;
-					_arrowTimer.Start(0.001f);
 					break;
 			}
 		}
@@ -110,10 +111,6 @@ public partial class Ball : CharacterBody2D
 
 	private void PlayBall()
 	{
-		if (refs != null)
-		{
-			refs.paddle.blockMovement = false;
-		}
 		UpdateSpeed();
 		Velocity = new Vector2(0, -_speed).Rotated(_arrow.Rotation);
 		_arrowTimer.Stop();
@@ -252,9 +249,11 @@ public partial class Ball : CharacterBody2D
 		{
 			case BallMode.angleSelection:
 				_arrow.Visible = true;
+				refs.paddle.SetPaddleState(PaddleState.locked);
 				break;
 
 			case BallMode.moving:
+				refs.paddle.SetPaddleState(PaddleState.idle);
 				_animator.Play("roll");
 				break;
 
