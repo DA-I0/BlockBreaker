@@ -2,6 +2,7 @@ using Godot;
 
 public delegate void PaddleNotification(int size, int movementDirection);
 public enum PaddleMode { basic, bouncy, sticky };
+public enum PaddleState { idle, frozen, locked, collisionLocked };
 
 public partial class Paddle : CharacterBody2D
 {
@@ -11,6 +12,7 @@ public partial class Paddle : CharacterBody2D
 	[Export] private Texture2D[] _sprites;
 
 	private PaddleMode _paddleMode = PaddleMode.basic;
+	private PaddleState _state = PaddleState.idle;
 
 	private int _size = 1;
 
@@ -46,7 +48,14 @@ public partial class Paddle : CharacterBody2D
 	{
 		GetMovement();
 		Movement(delta);
+
+		if (_state == PaddleState.collisionLocked)
+		{
+			SetPaddleState(PaddleState.idle);
+		}
 	}
+
+	// public override void _
 
 	public override void _Input(InputEvent @event)
 	{
@@ -113,6 +122,34 @@ public partial class Paddle : CharacterBody2D
 		AdjustSprite();
 	}
 
+	public void SetPaddleState(PaddleState state)
+	{
+		_state = state;
+	}
+
+	public void ApplyPaddleEffect(Ball targetBall)
+	{
+		switch (_paddleMode)
+		{
+			case PaddleMode.bouncy:
+				targetBall.SetTempBoost(_bouncyBoost);
+				break;
+
+			case PaddleMode.sticky:
+				targetBall.Reset();
+				break;
+
+			default:
+				targetBall.AddVelocity(Velocity);
+				break;
+		}
+
+		if (_state == PaddleState.idle)
+		{
+			SetPaddleState(PaddleState.collisionLocked);
+		}
+	}
+
 	private void SetupReferences()
 	{
 		_sprite = GetNode("Sprite") as NinePatchRect;
@@ -134,20 +171,6 @@ public partial class Paddle : CharacterBody2D
 		SetPaddleMode(PaddleMode.basic);
 	}
 
-	// NOTE: Potential fix for ball getting stuck inside the paddle, gotta test more.
-	private void OnBallEnterPaddle(Node2D body)
-	{
-		Ball ball = (Ball)body;
-		ball?.SetCollisionMaskValue(3, false);
-	}
-
-
-	private void OnBallExitPaddle(Node2D body)
-	{
-		Ball ball = (Ball)body;
-		ball?.SetCollisionMaskValue(3, true);
-	}
-
 	private void Recenter()
 	{
 		Position = new Vector2(0, _positionY);
@@ -156,45 +179,16 @@ public partial class Paddle : CharacterBody2D
 
 	private void Movement(double delta)
 	{
-		if (blockMovement)
+		if (_state != PaddleState.idle)
 		{
 			return;
 		}
 
 		CalculateMoveVelocity(_inputDirection, _baseMoveSpeed);
-		var collision = MoveAndCollide(Velocity * (float)delta);
-
-		if (collision != null)
-		{
-			Ball ball = collision.GetCollider() as Ball;
-
-			if (ball != null) // doesn't trigger every time (trigger manually from the ball?)
-			{
-				PaddleModeAction(ball);
-			}
-			// ball?.AddVelocity(Velocity);
-		}
+		MoveAndCollide(Velocity * (float)delta);
 
 		Position = new Vector2(Position.X, _positionY);
-		_inputDirection = (refs.settings.ActiveController/*_controller*/ == InputType.mouse) ? Vector2.Zero : _inputDirection;
-	}
-
-	private void PaddleModeAction(Ball targetBall)
-	{
-		switch (_paddleMode)
-		{
-			case PaddleMode.bouncy:
-				targetBall.SetTempBoost(_bouncyBoost);
-				break;
-
-			case PaddleMode.sticky:
-				targetBall.Reset();
-				break;
-
-			default:
-				targetBall.AddVelocity(Velocity);
-				break;
-		}
+		_inputDirection = (refs.settings.ActiveController == InputType.mouse) ? Vector2.Zero : _inputDirection;
 	}
 
 	private void CalculateMoveVelocity(Vector2 direction, int speed)
