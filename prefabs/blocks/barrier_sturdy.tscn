@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://bg5r3twijp0e"]
+[gd_scene load_steps=11 format=3 uid="uid://bg5r3twijp0e"]
 
 [ext_resource type="Script" path="res://code/gameplay/Block.cs" id="1_p13vu"]
 [ext_resource type="PackedScene" uid="uid://dwa3x1brydi56" path="res://prefabs/pickups/pickup_extra_life.tscn" id="2_e47up"]
 [ext_resource type="PackedScene" uid="uid://b8bq57bmas7sq" path="res://prefabs/pickups/pickup_ball_multi.tscn" id="3_r4yjm"]
 [ext_resource type="PackedScene" uid="uid://iq10idmsyirx" path="res://prefabs/pickups/pickup_safety_net.tscn" id="4_8equa"]
+[ext_resource type="PackedScene" uid="uid://dcky3cvrc86mx" path="res://prefabs/pickups/pickup_paddle_bouncy.tscn" id="5_30keu"]
+[ext_resource type="PackedScene" uid="uid://b2bctq01a4fwu" path="res://prefabs/pickups/pickup_paddle_sticky.tscn" id="6_a0ewh"]
 [ext_resource type="Texture2D" uid="uid://b5w8asty5fsym" path="res://assets/sprites/blocks/barrier_sturdy_02.png" id="7_qx51v"]
 [ext_resource type="Texture2D" uid="uid://cr75twmkya1kv" path="res://assets/sprites/blocks/barrier_sturdy_03.png" id="8_ygf6q"]
 [ext_resource type="Texture2D" uid="uid://bnni5cj6uglbh" path="res://assets/sprites/blocks/barrier_sturdy_01.png" id="9_lsrqh"]
@@ -14,7 +16,7 @@ size = Vector2(10, 3)
 [node name="BarrierSturdy" type="StaticBody2D"]
 z_index = 2
 script = ExtResource("1_p13vu")
-_pickups = Array[PackedScene]([ExtResource("2_e47up"), ExtResource("3_r4yjm"), ExtResource("4_8equa")])
+_pickups = Array[PackedScene]([ExtResource("2_e47up"), ExtResource("3_r4yjm"), ExtResource("4_8equa"), ExtResource("5_30keu"), ExtResource("6_a0ewh")])
 _pointValue = 3
 _maxHealth = 3
 _sprites = Array[Texture2D]([ExtResource("9_lsrqh"), ExtResource("7_qx51v"), ExtResource("8_ygf6q")])

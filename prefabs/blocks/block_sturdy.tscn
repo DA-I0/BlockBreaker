@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://clchdmucxr4xn"]
+[gd_scene load_steps=11 format=3 uid="uid://clchdmucxr4xn"]
 
 [ext_resource type="Script" path="res://code/gameplay/Block.cs" id="1_vydik"]
 [ext_resource type="PackedScene" uid="uid://cnvdvox3cga5v" path="res://prefabs/pickups/pickup_ball_fast.tscn" id="2_685qm"]
@@ -8,13 +8,14 @@
 [ext_resource type="Texture2D" uid="uid://cw0f1lvjr54n5" path="res://assets/sprites/blocks/block_sturdy_03.png" id="4_k8bhm"]
 [ext_resource type="PackedScene" uid="uid://tt41n2fom0vc" path="res://prefabs/pickups/pickup_paddle_thin.tscn" id="4_ugw4u"]
 [ext_resource type="PackedScene" uid="uid://cav5klqn0n3k6" path="res://prefabs/pickups/pickup_paddle_wide.tscn" id="5_cym8p"]
+[ext_resource type="PackedScene" uid="uid://ccwj4m630w7qu" path="res://prefabs/pickups/pickup_paddle_reverse.tscn" id="6_ucqdu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jer7o"]
 size = Vector2(16, 6)
 
 [node name="BlockSturdy" type="StaticBody2D"]
 script = ExtResource("1_vydik")
-_pickups = Array[PackedScene]([ExtResource("2_685qm"), ExtResource("3_p0kf1"), ExtResource("4_ugw4u"), ExtResource("5_cym8p")])
+_pickups = Array[PackedScene]([ExtResource("2_685qm"), ExtResource("3_p0kf1"), ExtResource("4_ugw4u"), ExtResource("5_cym8p"), ExtResource("6_ucqdu")])
 _pointValue = 3
 _maxHealth = 3
 _sprites = Array[Texture2D]([ExtResource("2_jpovs"), ExtResource("3_0a3ch"), ExtResource("4_k8bhm")])
