@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://c5l15cwtikj2l"]
 
 [ext_resource type="Texture2D" uid="uid://clfnabf8ysvwd" path="res://assets/sprites/tilesets/map_tiles_bricked.png" id="1_ogv0s"]
-[ext_resource type="PackedScene" path="res://prefabs/blocks/block_basic.tscn" id="2_ph5yg"]
+[ext_resource type="PackedScene" uid="uid://too80a13ex5u" path="res://prefabs/blocks/block_basic.tscn" id="2_ph5yg"]
 [ext_resource type="PackedScene" uid="uid://cgpa7sf8jgxu8" path="res://prefabs/level_exit.tscn" id="3_s2ab8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y748h"]

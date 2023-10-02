@@ -1,12 +1,13 @@
-[gd_scene load_steps=14 format=3 uid="uid://si648hfoph5q"]
+[gd_scene load_steps=15 format=3 uid="uid://si648hfoph5q"]
 
 [ext_resource type="Texture2D" uid="uid://clfnabf8ysvwd" path="res://assets/sprites/tilesets/map_tiles_bricked.png" id="1_hpeuu"]
-[ext_resource type="PackedScene" path="res://prefabs/blocks/block_basic.tscn" id="2_sfg8v"]
-[ext_resource type="PackedScene" path="res://prefabs/blocks/block_sturdy.tscn" id="3_mmhu2"]
-[ext_resource type="PackedScene" path="res://prefabs/blocks/coffin.tscn" id="5_qdidp"]
+[ext_resource type="PackedScene" uid="uid://too80a13ex5u" path="res://prefabs/blocks/block_basic.tscn" id="2_sfg8v"]
+[ext_resource type="PackedScene" uid="uid://clchdmucxr4xn" path="res://prefabs/blocks/block_sturdy.tscn" id="3_mmhu2"]
+[ext_resource type="PackedScene" uid="uid://doawgt0jptjhp" path="res://prefabs/blocks/coffin.tscn" id="5_qdidp"]
 [ext_resource type="PackedScene" uid="uid://c7ob1oeeah2yr" path="res://prefabs/hazards/whirpool.tscn" id="6_kwydn"]
 [ext_resource type="PackedScene" uid="uid://ctgplrud2njoq" path="res://prefabs/hazards/teleport_door.tscn" id="7_vdsi0"]
 [ext_resource type="PackedScene" uid="uid://7gsh2bx2alvg" path="res://prefabs/hazards/bollard.tscn" id="8_bdtib"]
+[ext_resource type="PackedScene" uid="uid://wl2u6pnrqvcy" path="res://prefabs/blocks/explosives.tscn" id="8_wpbud"]
 [ext_resource type="PackedScene" uid="uid://cgpa7sf8jgxu8" path="res://prefabs/level_exit.tscn" id="9_bxojv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y748h"]
@@ -459,6 +460,12 @@ position = Vector2(25, 47)
 
 [node name="Bollard5" parent="Interactables" instance=ExtResource("8_bdtib")]
 position = Vector2(-48, 7)
+
+[node name="Explosives" parent="Interactables" instance=ExtResource("8_wpbud")]
+position = Vector2(-61, 9)
+
+[node name="Explosives2" parent="Interactables" instance=ExtResource("8_wpbud")]
+position = Vector2(61, 9)
 
 [node name="LevelExit" parent="." instance=ExtResource("9_bxojv")]
 position = Vector2(0, -63)
