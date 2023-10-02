@@ -22,20 +22,20 @@ Prototype 2:
 		☐ New interactive elements
 			☐ River (slightly changes ball direction)
 			☐ TNT (explodes when hit, blasts breakable elements nearby: blocks, barricades, cracked walls)
-				☐ Explosion animation
-				☐ Damage breakables in range
+				✔ Explosion animation @done(23-10-02 18:02)
+				✔ Damage breakables in range @done(23-10-02 18:02)
 				☐ Sound effect
 		☐ New pickups
 			☐ Ice (freeze the paddle for 2-3 seconds)
-			☐ Reverse controls (reverse paddle controls)
-			☐ Sticky paddle (catch ball on touch, release like new)
-			☐ Bouncy paddle (add temp speed boost on bounce)
+			✔ Reverse controls (reverse paddle controls) @done(23-10-02 22:39)
+			✔ Sticky paddle (catch ball on touch, release like new) @done(23-10-02 18:28)
+			✔ Bouncy paddle (add temp speed boost on bounce) @done(23-10-02 18:28)
 			☐ Magnet (pull pickups near the paddle towards it, not exclusive unlike sticky/bouncy paddle?)
 			☐ Random (randomize on spawn, ? as icon?)
 		☐ New paddles
 			☐ Roguelike (time moves when paddle moves; ball slowdown when near paddle - visible "time zone")
-			☐ Arced inward
-			☐ Arced outward
+			✔ Arced inward @done(23-10-02 21:22)
+			✔ Arced outward @done(23-10-02 21:22)
 			☐ Static bounce (front part of the paddle consists of 3 zones, each rotates ball to a specific angle on bounce)
 			☐ Roguelike
 		☐ New animations
@@ -63,7 +63,6 @@ Prototype 2:
 				☐ Ready
 		☐ Multi-room levels (ball can travel to another room/screen, can be side-to-side or up-down)
 		☐ Replace music randomization with shuffle
-		☐ Change whirpool functionality (decrease main trigger, add secondary one that lightly slides the ball towards the center)
 	Map elements:
 		☐ Stairs + railing
 			☐ Ball can move over stairs
@@ -77,7 +76,8 @@ Prototype 2:
 			☐ Table (+ decorations to make prefab variants, colliders for legs)
 			☐ Chair (colliders for legs, destructible?)
 			☐ Painting
-			☐ Torch
+			☐ Wall torch
+			☐ Candle stand
 		☐ New tileset
 	UI:
 		☐ Splash screen on map load (display map name/number)
