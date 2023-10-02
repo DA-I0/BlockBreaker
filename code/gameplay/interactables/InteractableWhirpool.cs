@@ -7,7 +7,7 @@ public partial class InteractableWhirpool : Node2D
 
 	private bool _isActive = true;
 
-	private Ball ball = null;
+	private Ball _ball = null;
 
 	[Export] private AnimationPlayer _animator;
 	[Export] private Timer _timer;
@@ -19,7 +19,7 @@ public partial class InteractableWhirpool : Node2D
 
 	private void OnBodyEntered(Node2D body)
 	{
-		if (ball == null && (Ball)body != null)
+		if (_ball == null && (Ball)body != null)
 		{
 			CatchBall((Ball)body);
 		}
@@ -27,18 +27,26 @@ public partial class InteractableWhirpool : Node2D
 
 	private void CatchBall(Ball targetBall)
 	{
-		ball = targetBall;
-		ball.BallMode = BallMode.frozen;
-		ball.Position = Position;
+		_ball = targetBall;
+		_ball.BallMode = BallMode.frozen;
+		_ball.Position = Position;
+
+		float newRotation = Mathf.DegToRad(GD.RandRange(0, 359));
+		_ball.Velocity = _ball.Velocity.Rotated(newRotation);
+
 		_timer.Start(_releaseDelay);
+		_animator.Pause();
 	}
 
 	private void ReleaseBall()
 	{
-		float newRotation = Mathf.DegToRad(GD.RandRange(0, 359));
-		ball.Velocity = ball.Velocity.Rotated(newRotation);
-		ball.BallMode = BallMode.moving;
-		ball = null;
+		if (_ball == null)
+		{
+			return;
+		}
+
+		_ball.BallMode = BallMode.moving;
+		_ball = null;
 	}
 
 	private void AdjustSprite()
