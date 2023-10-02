@@ -31,7 +31,7 @@ public partial class Block : Breakable
 		{
 			int pickupType = GD.RandRange(0, _pickups.Length - 1);
 			Area2D pickup = _pickups[pickupType].Instantiate() as Area2D;
-			GetNode("../../..").AddChild(pickup);
+			GetNode("../../..").CallDeferred("add_child", pickup);
 			pickup.Position = Position;
 		}
 	}
