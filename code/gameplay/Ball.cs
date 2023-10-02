@@ -1,6 +1,6 @@
 using Godot;
 
-public enum BallMode { idle, angleSelection, moving, frozen };
+public enum BallMode { idle, angleSelection, moving, frozen, spinning };
 
 public partial class Ball : CharacterBody2D
 {
@@ -34,7 +34,11 @@ public partial class Ball : CharacterBody2D
 	public BallMode BallMode
 	{
 		get { return _ballMode; }
-		set { _ballMode = value; }
+		set
+		{
+			_ballMode = value;
+			AdjustToState();
+		}
 	}
 
 	public float SpeedMultiplier
@@ -46,30 +50,20 @@ public partial class Ball : CharacterBody2D
 	{
 		SetupReferences();
 		SetInitialValues();
-		_animator.AnimationSetNext("bounce", "roll");
 	}
 
 	public override void _PhysicsProcess(double delta)
 	{
-		_arrow.Visible = (_ballMode == BallMode.angleSelection);
-
-		switch (_ballMode)
+		if (_ballMode == BallMode.moving)
 		{
-			case BallMode.frozen:
-				SetTempBoost(1);
-				_animator.Play("idle");
-				break;
+			Move(delta);
+			ReduceTempBoost();
+			return;
+		}
 
-			case BallMode.moving:
-				Move(delta);
-				ReduceTempBoost();
-				break;
-
-			default:
-				SetTempBoost(1);
-				Position = (refs.paddle != null) ? new Vector2(refs.paddle.Position.X, refs.paddle.Position.Y - _idlePositionOffset) : Vector2.Zero;
-				_animator.Play("idle");
-				break;
+		if (_ballMode == BallMode.idle)
+		{
+			Position = (refs.paddle != null) ? new Vector2(refs.paddle.Position.X, refs.paddle.Position.Y - _idlePositionOffset) : Vector2.Zero;
 		}
 	}
 
@@ -90,7 +84,7 @@ public partial class Ball : CharacterBody2D
 
 				default:
 					refs.paddle.SetPaddleState(PaddleState.locked);
-					_ballMode = BallMode.angleSelection;
+					BallMode = BallMode.angleSelection;
 					_arrowTimer.Start(0.001f);
 					break;
 			}
@@ -123,7 +117,7 @@ public partial class Ball : CharacterBody2D
 		UpdateSpeed();
 		Velocity = new Vector2(0, -_speed).Rotated(_arrow.Rotation);
 		_arrowTimer.Stop();
-		_ballMode = BallMode.moving;
+		BallMode = BallMode.moving;
 	}
 
 	public void AddVelocity(Vector2 velocity)
@@ -150,8 +144,7 @@ public partial class Ball : CharacterBody2D
 		_arrow.RotationDegrees = 0;
 		ChangeSpeedMultiplier(1f);
 		ChangeSize(1f);
-		_ballMode = BallMode.idle;
-		_animator.Play("roll", 0);
+		BallMode = BallMode.idle;
 	}
 
 	public float GetBallSpeed()
@@ -181,8 +174,8 @@ public partial class Ball : CharacterBody2D
 	{
 		_difficultySpeedMultiplier = refs.SelectedDifficulty.BallSpeedMultiplier;
 		_difficultyArrowSpeed = refs.SelectedDifficulty.AngleSelectSpeed;
+		_animator.AnimationSetNext("bounce", "roll");
 		Reset();
-		UpdateSpeed();
 	}
 
 	private void Move(double delta)
@@ -224,6 +217,7 @@ public partial class Ball : CharacterBody2D
 	{
 		_speed = _baseSpeed * _difficultySpeedMultiplier * _speedMultiplier * _boostMultiplier;
 		_animator.Play("roll", 0, _difficultySpeedMultiplier * _speedMultiplier);
+		GD.Print("updating speed");
 	}
 
 	private void RotationSelect()
@@ -247,6 +241,31 @@ public partial class Ball : CharacterBody2D
 		else
 		{
 			_boostMultiplier = 1;
+		}
+	}
+
+	private void AdjustToState()
+	{
+		_arrow.Visible = false;
+
+		switch (_ballMode)
+		{
+			case BallMode.angleSelection:
+				_arrow.Visible = true;
+				break;
+
+			case BallMode.moving:
+				_animator.Play("roll");
+				break;
+
+			case BallMode.spinning:
+				_animator.Play("spin");
+				break;
+
+			default:
+				SetTempBoost(1);
+				_animator.Play("idle");
+				break;
 		}
 	}
 

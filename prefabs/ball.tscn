@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cpxycxfqmwant"]
+[gd_scene load_steps=10 format=3 uid="uid://cpxycxfqmwant"]
 
 [ext_resource type="Script" path="res://code/gameplay/Ball.cs" id="1_474hh"]
 [ext_resource type="Texture2D" uid="uid://bn7hvqyy8kyln" path="res://assets/sprites/ball.png" id="1_thobj"]
@@ -26,6 +26,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_5uva4"]
 resource_name = "idle"
+length = 0.10001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -56,11 +57,42 @@ tracks/0/keys = {
 "values": [0, 1, 2, 3, 4, 5, 6, 7]
 }
 
+[sub_resource type="Animation" id="Animation_kqgmf"]
+resource_name = "spin"
+length = 0.400002
+loop_mode = 1
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1e-05),
+"update": 0,
+"values": [0.0, 0.785398, 1.5708, 2.35619, 3.14159, 3.92699, 4.71239, 5.49779, 6.26573]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_y7qwh"]
 _data = {
 "bounce": SubResource("Animation_rkybt"),
 "idle": SubResource("Animation_5uva4"),
-"roll": SubResource("Animation_0l7ba")
+"roll": SubResource("Animation_0l7ba"),
+"spin": SubResource("Animation_kqgmf")
 }
 
 [node name="Ball" type="CharacterBody2D" node_paths=PackedStringArray("_sprite", "_arrow", "_arrowTimer", "_collider", "_animator")]
@@ -69,9 +101,9 @@ collision_mask = 5
 motion_mode = 1
 slide_on_ceiling = false
 floor_stop_on_slope = false
-platform_floor_layers = 4
+platform_on_leave = 2
+platform_floor_layers = 0
 platform_wall_layers = 4
-safe_margin = 0.1
 script = ExtResource("1_474hh")
 _sprite = NodePath("Sprite")
 _arrow = NodePath("ArrowSprite")
@@ -104,4 +136,4 @@ libraries = {
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
 [connection signal="timeout" from="ArrowSprite/Timer" to="." method="RotationSelect"]
-[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="OnScreenExited"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="OnScreenExited" binds= [false]]
