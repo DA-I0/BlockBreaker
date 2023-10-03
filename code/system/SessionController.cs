@@ -20,10 +20,13 @@ public partial class SessionController : Node
 	[Export] public Node gameElements;
 
 	public Paddle paddle;
+	[Export] private Timer _skillTimer;
 
 	public event Notification LastBallLost; // can't be here, gotta move it to a single place
 	public event Notification GameStateChanged;
 	public event Notification GameSetup;
+	public event Notification SkillReady;
+	public event Notification SkillUsed;
 
 	public GameState CurrentGameState
 	{
@@ -80,6 +83,7 @@ public partial class SessionController : Node
 		startingBall.Position = paddle.Position;
 		gameElements.GetChild(0).AddChild(startingBall);
 
+		_skillTimer.Start();
 		GameSetup?.Invoke();
 	}
 
@@ -109,6 +113,7 @@ public partial class SessionController : Node
 		_currentPaddle = -1;
 		_currentDifficulty = -1;
 		_currentLevel = -1;
+		_skillTimer.Stop();
 		ChangeGameState(GameState.menu);
 	}
 
@@ -122,6 +127,8 @@ public partial class SessionController : Node
 
 	public override void _Input(InputEvent @event)
 	{
+		Shake(@event);
+
 		if (@event.AsText().Contains("Joypad"))
 		{
 			settings.ActiveController = InputType.gamepad;
@@ -145,5 +152,33 @@ public partial class SessionController : Node
 	public void SetDifficulty(int index)
 	{
 		_currentDifficulty = index;
+	}
+
+	private void Shake(InputEvent @event)
+	{
+		if (_gameState == GameState.gameplay && @event.IsActionReleased("game_play"))
+		{
+			if (_skillTimer.TimeLeft <= 0)
+			{
+				paddle.SetPaddleState(PaddleState.confused, 3f);
+
+				for (int i = 0; i < Balls.Count; i++)
+				{
+					float angleChange = GD.RandRange(5, 15);
+					int direction = GD.RandRange(-1, 1) < 0 ? -1 : 1;
+					((Ball)Balls[i]).RotateBall(angleChange * direction);
+				}
+
+				audioController.PlayAudio(3);
+				_skillTimer.Start();
+				SkillUsed?.Invoke();
+			}
+		}
+	}
+
+	private void EnableSkill()
+	{
+		audioController.PlayAudio(4);
+		SkillReady?.Invoke();
 	}
 }

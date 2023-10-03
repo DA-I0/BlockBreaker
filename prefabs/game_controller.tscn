@@ -22,7 +22,7 @@
 
 [node name="GameController" type="Node"]
 
-[node name="SessionController" type="Node" parent="." node_paths=PackedStringArray("musicController", "audioController", "gameScore", "health", "levelManager", "gameElements")]
+[node name="SessionController" type="Node" parent="." node_paths=PackedStringArray("musicController", "audioController", "gameScore", "health", "levelManager", "gameElements", "_skillTimer")]
 process_mode = 3
 script = ExtResource("1_uqmtw")
 musicController = NodePath("../MusicController")
@@ -31,6 +31,7 @@ gameScore = NodePath("../Score")
 health = NodePath("../Health")
 levelManager = NodePath("../LevelManager")
 gameElements = NodePath("../GameElements")
+_skillTimer = NodePath("../SkillTimer")
 
 [node name="MusicController" type="AudioStreamPlayer" parent="."]
 bus = &"Music"
@@ -59,15 +60,15 @@ one_shot = true
 
 [node name="CurrentScene" type="Node" parent="."]
 
+[node name="GameElements" type="Node" parent="."]
+
+[node name="Balls" type="Node" parent="GameElements"]
+
 [node name="UI" type="Node" parent="."]
 
 [node name="UIGameSession" parent="." instance=ExtResource("4_l3xv6")]
 
 [node name="PausePrompt" parent="UIGameSession" instance=ExtResource("17_ewsqo")]
-
-[node name="GameElements" type="Node" parent="."]
-
-[node name="Balls" type="Node" parent="GameElements"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("4_jrwof")
@@ -75,6 +76,11 @@ script = ExtResource("4_jrwof")
 [node name="Timer" type="Timer" parent="Camera2D"]
 one_shot = true
 
+[node name="SkillTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
 [connection signal="timeout" from="Score/Timer" to="Score" method="AddBonusScore"]
 [connection signal="child_entered_tree" from="CurrentScene" to="LevelManager" method="OnCurrentSceneChildEnteredTree"]
 [connection signal="child_entered_tree" from="UI" to="LevelManager" method="OnCurrentSceneChildEnteredTree"]
+[connection signal="timeout" from="SkillTimer" to="SessionController" method="EnableSkill"]

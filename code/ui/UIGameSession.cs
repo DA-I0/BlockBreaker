@@ -3,9 +3,10 @@ using Godot;
 public partial class UIGameSession : Node
 {
 	[Export] private Label _score;
-	[Export] private Node _lives;
-	[Export] private Node _exitTimer;
-	[Export] private Node _exitPrompt;
+	[Export] private Control _skill;
+	[Export] private Control _lives;
+	[Export] private Control _exitTimer;
+	[Export] private Control _exitPrompt;
 
 	private SessionController refs;
 
@@ -31,17 +32,21 @@ public partial class UIGameSession : Node
 	private void SetupReferences()
 	{
 		refs = GetNode("/root/GameController/SessionController") as SessionController;
+		refs.SkillReady += DisplaySkillIcon;
+		refs.SkillUsed += HideSkillIcon;
 		refs.gameScore.ScoreChanged += UpdateScore;
 		refs.gameScore.TimerStart += DisplayExitTimer;
 		refs.gameScore.TimerEnd += DisplayExitPrompt;
 		refs.health.LifeChanged += UpdateLives;
 		refs.levelManager.ResetSession += HideExitElements;
+		refs.levelManager.ResetSession += HideSkillIcon;
 		refs.levelManager.SceneChanged += HideExitElements;
 	}
 
 	private void SetupInitialValues()
 	{
 		HideExitElements();
+		HideSkillIcon();
 		UpdateScore(0, 1);
 	}
 
@@ -61,23 +66,33 @@ public partial class UIGameSession : Node
 
 	private void HideExitElements()
 	{
-		((CanvasItem)_exitTimer).Visible = false;
-		((CanvasItem)_exitPrompt).Visible = false;
+		_exitTimer.Visible = false;
+		_exitPrompt.Visible = false;
 	}
 
 	private void DisplayExitTimer()
 	{
-		((CanvasItem)_exitTimer).Visible = true;
+		_exitTimer.Visible = true;
 	}
 
 	private void DisplayExitPrompt()
 	{
-		((CanvasItem)_exitTimer).Visible = false;
-		((CanvasItem)_exitPrompt).Visible = true;
+		_exitTimer.Visible = false;
+		_exitPrompt.Visible = true;
 	}
 
 	private void UpdateTimer()
 	{
 		((Label)_exitTimer.GetChild(1)).Text = refs.gameScore.TimeLeft.ToString();
+	}
+
+	private void HideSkillIcon()
+	{
+		_skill.Visible = false;
+	}
+
+	private void DisplaySkillIcon()
+	{
+		_skill.Visible = true;
 	}
 }

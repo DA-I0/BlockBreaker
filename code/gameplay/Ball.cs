@@ -160,6 +160,11 @@ public partial class Ball : CharacterBody2D
 		UpdateSpeed();
 	}
 
+	public void RotateBall(float angleChange)
+	{
+		Velocity = Velocity.Rotated(Mathf.DegToRad(angleChange));
+	}
+
 	private void SetupReferences()
 	{
 		refs = GetNode("/root/GameController/SessionController") as SessionController;
@@ -214,7 +219,6 @@ public partial class Ball : CharacterBody2D
 	{
 		_speed = _baseSpeed * _difficultySpeedMultiplier * _speedMultiplier * _boostMultiplier;
 		_animator.Play("roll", 0, _difficultySpeedMultiplier * _speedMultiplier);
-		GD.Print("updating speed");
 	}
 
 	private void RotationSelect()
