@@ -1,0 +1,102 @@
+[gd_scene load_steps=7 format=3 uid="uid://bplm8akef2gwt"]
+
+[ext_resource type="Script" path="res://code/ui/UIPaddleEffects.cs" id="1_i4nm1"]
+[ext_resource type="Texture2D" uid="uid://bj8ypmgst4rpb" path="res://assets/sprites/animations/effects.png" id="5_1yw0w"]
+
+[sub_resource type="Animation" id="Animation_oorx0"]
+resource_name = "effect_confused"
+length = 0.66667
+loop_mode = 1
+step = 0.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EffectSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.333333, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [4, 5, 6, 7]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("EffectSprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_hkblj"]
+resource_name = "effect_frozen"
+length = 0.66667
+loop_mode = 1
+step = 0.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EffectSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.333333, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [8, 9, 10, 11]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("EffectSprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_74oql"]
+resource_name = "effect_idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EffectSprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5kih0"]
+_data = {
+"effect_confused": SubResource("Animation_oorx0"),
+"effect_frozen": SubResource("Animation_hkblj"),
+"effect_idle": SubResource("Animation_74oql")
+}
+
+[node name="Effect" type="Node2D"]
+script = ExtResource("1_i4nm1")
+
+[node name="EffectSprite" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.74902)
+position = Vector2(0, -10)
+texture = ExtResource("5_1yw0w")
+hframes = 4
+vframes = 4
+frame = 8
+
+[node name="EffectAnimator" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_5kih0")
+}

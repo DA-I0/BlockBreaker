@@ -1,16 +1,17 @@
-[gd_scene load_steps=15 format=3 uid="uid://d3cenf7vduiem"]
+[gd_scene load_steps=16 format=3 uid="uid://d3cenf7vduiem"]
 
 [ext_resource type="Script" path="res://code/gameplay/Paddle.cs" id="1_fg4cs"]
 [ext_resource type="Texture2D" uid="uid://bdnrfv0eveohj" path="res://assets/sprites/paddles/paddle_1.png" id="2_qjynj"]
 [ext_resource type="Texture2D" uid="uid://p1ln6vt0i3ak" path="res://assets/sprites/paddles/paddle_1_bouncy.png" id="3_1nd2x"]
 [ext_resource type="Texture2D" uid="uid://ch81qs8133yeu" path="res://assets/sprites/paddles/paddle_1_sticky.png" id="4_4g85y"]
+[ext_resource type="PackedScene" uid="uid://bplm8akef2gwt" path="res://prefabs/ui/paddle_effects.tscn" id="5_jjrqj"]
 
 [sub_resource type="Animation" id="Animation_lj8sh"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:position")
+tracks/0/path = NodePath("PaddleSprite:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -38,7 +39,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite:size")
+tracks/1/path = NodePath("PaddleSprite:size")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -50,7 +51,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite:position")
+tracks/2/path = NodePath("PaddleSprite:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -89,7 +90,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite:size")
+tracks/1/path = NodePath("PaddleSprite:size")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -101,7 +102,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite:position")
+tracks/2/path = NodePath("PaddleSprite:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -140,7 +141,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite:size")
+tracks/1/path = NodePath("PaddleSprite:size")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -152,7 +153,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite:position")
+tracks/2/path = NodePath("PaddleSprite:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -191,7 +192,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite:size")
+tracks/1/path = NodePath("PaddleSprite:size")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -203,7 +204,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite:position")
+tracks/2/path = NodePath("PaddleSprite:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -242,7 +243,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite:size")
+tracks/1/path = NodePath("PaddleSprite:size")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -254,7 +255,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite:position")
+tracks/2/path = NodePath("PaddleSprite:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -293,7 +294,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite:size")
+tracks/1/path = NodePath("PaddleSprite:size")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -305,7 +306,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite:position")
+tracks/2/path = NodePath("PaddleSprite:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -344,7 +345,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite:size")
+tracks/1/path = NodePath("PaddleSprite:size")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -356,7 +357,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite:position")
+tracks/2/path = NodePath("PaddleSprite:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -395,7 +396,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite:size")
+tracks/1/path = NodePath("PaddleSprite:size")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -407,7 +408,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite:position")
+tracks/2/path = NodePath("PaddleSprite:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -442,7 +443,7 @@ _data = {
 "size_8": SubResource("Animation_e0xqm")
 }
 
-[node name="paddle" type="CharacterBody2D"]
+[node name="Paddle" type="CharacterBody2D"]
 disable_mode = 1
 collision_layer = 4
 collision_mask = 11
@@ -473,7 +474,7 @@ polygon = PackedVector2Array(-28.8, -3.08823, 16, -3.08824, 19.2, -2.14706, 19.2
 one_way_collision = true
 one_way_collision_margin = 5.0
 
-[node name="Sprite" type="NinePatchRect" parent="."]
+[node name="PaddleSprite" type="NinePatchRect" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -492,8 +493,14 @@ patch_margin_top = 2
 patch_margin_right = 2
 patch_margin_bottom = 2
 
-[node name="Animator" type="AnimationPlayer" parent="."]
+[node name="PaddleAnimator" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_6a3eu")
 }
-blend_times = [&"size_5", &"size_5", 1.0, &"size_5", &"size_2", 1.0, &"size_5", &"size_3", 1.0, &"size_5", &"size_4", 1.0, &"size_5", &"size_1", 1.0]
+blend_times = [&"size_5", &"size_5", 1.0, &"size_5", &"size_3", 1.0, &"size_5", &"size_2", 1.0, &"size_5", &"size_4", 1.0, &"size_5", &"size_1", 1.0]
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Effect" parent="." instance=ExtResource("5_jjrqj")]
+
+[connection signal="timeout" from="Timer" to="." method="SetPaddleState" binds= [0, -1]]

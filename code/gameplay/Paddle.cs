@@ -1,8 +1,9 @@
 using Godot;
 
 public delegate void PaddleNotification(int size, int movementDirection);
+public delegate void PaddleStateNotification(PaddleState state);
 public enum PaddleMode { basic, bouncy, sticky };
-public enum PaddleState { idle, frozen, locked, collisionLocked };
+public enum PaddleState { idle, frozen, confused, locked, collisionLocked };
 
 public partial class Paddle : CharacterBody2D
 {
@@ -22,9 +23,11 @@ public partial class Paddle : CharacterBody2D
 
 	private NinePatchRect _sprite;
 	private AnimationPlayer _animator;
+	private Timer _timer;
 	private SessionController refs;
 
 	public event PaddleNotification PaddleChanged;
+	public event PaddleStateNotification StateChanged;
 
 	public int Size
 	{
@@ -54,8 +57,6 @@ public partial class Paddle : CharacterBody2D
 			SetPaddleState(PaddleState.idle);
 		}
 	}
-
-	// public override void _
 
 	public override void _Input(InputEvent @event)
 	{
@@ -90,15 +91,6 @@ public partial class Paddle : CharacterBody2D
 		_inputDirection = new Vector2(inputHorizontal, 0);
 	}
 
-	public void OnAreaEntered(Area2D area)
-	{
-		//if (area is Ball ball)
-		//{
-		// Assign new direction
-		//	ball.direction = new Vector2(_ballDir, ((float)new Random().NextDouble()) * 2 - 1).Normalized();
-		//}
-	}
-
 	public void ChangeSize(int value)
 	{
 		_size += value;
@@ -122,9 +114,16 @@ public partial class Paddle : CharacterBody2D
 		AdjustSprite();
 	}
 
-	public void SetPaddleState(PaddleState state)
+	public void SetPaddleState(PaddleState state, float length = -1)
 	{
 		_state = state;
+
+		if (length > 0)
+		{
+			_timer.Start(length);
+		}
+
+		StateChanged?.Invoke(_state);
 	}
 
 	public void ApplyPaddleEffect(Ball targetBall)
@@ -143,17 +142,13 @@ public partial class Paddle : CharacterBody2D
 				targetBall.AddVelocity(Velocity);
 				break;
 		}
-
-		if (_state == PaddleState.idle)
-		{
-			SetPaddleState(PaddleState.collisionLocked);
-		}
 	}
 
 	private void SetupReferences()
 	{
-		_sprite = GetNode("Sprite") as NinePatchRect;
-		_animator = GetNode("Animator") as AnimationPlayer;
+		_sprite = GetNode("PaddleSprite") as NinePatchRect;
+		_animator = GetNode("PaddleAnimator") as AnimationPlayer;
+		_timer = GetNode("Timer") as Timer;
 
 		refs = GetNode("/root/GameController/SessionController") as SessionController;
 		refs.paddle = this;
@@ -169,6 +164,7 @@ public partial class Paddle : CharacterBody2D
 		Resize();
 		Recenter();
 		SetPaddleMode(PaddleMode.basic);
+		SetPaddleState(PaddleState.idle);
 	}
 
 	private void Recenter()
