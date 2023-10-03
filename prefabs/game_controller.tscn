@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://jpldd4vrbmum"]
+[gd_scene load_steps=20 format=3 uid="uid://jpldd4vrbmum"]
 
 [ext_resource type="Script" path="res://code/system/SessionController.cs" id="1_uqmtw"]
 [ext_resource type="Script" path="res://code/system/AudioController.cs" id="2_adfrp"]
@@ -17,6 +17,7 @@
 [ext_resource type="AudioStream" uid="uid://daguq1ydeal20" path="res://assets/audio/music/sinnesloschen-beam-117362.mp3" id="6_n5ei6"]
 [ext_resource type="AudioStream" uid="uid://bjfu5jvkqqjd1" path="res://assets/audio/sfx/shake_available.wav" id="6_v8ycg"]
 [ext_resource type="AudioStream" uid="uid://cpd3aml2jsiie" path="res://assets/audio/sfx/shake.wav" id="7_arthc"]
+[ext_resource type="AudioStream" uid="uid://cig284vodgdhh" path="res://assets/audio/sfx/explosion.wav" id="13_7yk1x"]
 [ext_resource type="PackedScene" uid="uid://dseel27vbf765" path="res://prefabs/ui/pause_prompt.tscn" id="17_ewsqo"]
 
 [node name="GameController" type="Node"]
@@ -38,10 +39,10 @@ _menuSong = ExtResource("6_n5ei6")
 _clips = Array[AudioStream]([ExtResource("3_we41i"), ExtResource("4_boptt"), ExtResource("5_dwmw2")])
 
 [node name="AudioController" type="AudioStreamPlayer" parent="."]
-max_polyphony = 6
+max_polyphony = 10
 bus = &"Effects"
 script = ExtResource("2_adfrp")
-_clips = Array[AudioStream]([ExtResource("3_5ds7p"), ExtResource("4_0r48c"), ExtResource("5_pxp6u"), ExtResource("7_arthc"), ExtResource("6_v8ycg")])
+_clips = Array[AudioStream]([ExtResource("3_5ds7p"), ExtResource("4_0r48c"), ExtResource("5_pxp6u"), ExtResource("7_arthc"), ExtResource("6_v8ycg"), ExtResource("13_7yk1x")])
 
 [node name="LevelManager" type="Node" parent="."]
 script = ExtResource("2_fqfgb")

@@ -13,9 +13,10 @@ public partial class Explosives : Breakable
 
 	protected override void Destroy()
 	{
+		refs.gameScore.ChangeScore(_pointValue);
+		refs.audioController.PlayAudio(5);
 		_animator.Play("explosion");
 		_animator.AnimationFinished += Cleanup;
-		refs.gameScore.ChangeScore(_pointValue);
 	}
 
 	private void Cleanup(StringName animName)
