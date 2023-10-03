@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://tgq441egdpu0"
-path="res://.godot/imported/arced_in_bouncy.png-27fb3d1a5b9aee593c578e065af7b865.ctex"
+uid="uid://ch81qs8133yeu"
+path="res://.godot/imported/paddle_1_sticky.png-dad4993c54eb2adf3ec90a051a177ab4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/paddles/arced_in_bouncy.png"
-dest_files=["res://.godot/imported/arced_in_bouncy.png-27fb3d1a5b9aee593c578e065af7b865.ctex"]
+source_file="res://assets/sprites/paddles/paddle_1_sticky.png"
+dest_files=["res://.godot/imported/paddle_1_sticky.png-dad4993c54eb2adf3ec90a051a177ab4.ctex"]
 
 [params]
 

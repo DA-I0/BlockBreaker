@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://p1ln6vt0i3ak"
-path="res://.godot/imported/basic_bouncy.png-4be5e0b117e23fcd19b27f65cd448bcc.ctex"
+uid="uid://hfk6vlgis5yd"
+path="res://.godot/imported/paddle_2.png-3b1daa942794b174ad5e00ac09839b1b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/paddles/basic_bouncy.png"
-dest_files=["res://.godot/imported/basic_bouncy.png-4be5e0b117e23fcd19b27f65cd448bcc.ctex"]
+source_file="res://assets/sprites/paddles/paddle_2.png"
+dest_files=["res://.godot/imported/paddle_2.png-3b1daa942794b174ad5e00ac09839b1b.ctex"]
 
 [params]
 

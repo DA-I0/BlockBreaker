@@ -5,7 +5,7 @@ public enum GameState { gameplay, menu, pause }
 public partial class SessionController : Node
 {
 	private GameState _gameState = GameState.menu;
-	private int _currentPaddle = 0;
+	private int _currentPaddle = -1;
 	private int _currentDifficulty = 1;
 	private int _currentLevel = -1;
 
@@ -32,6 +32,11 @@ public partial class SessionController : Node
 	public Difficulty SelectedDifficulty
 	{
 		get { return gameData.Difficulties[_currentDifficulty]; }
+	}
+
+	public string SelectedPaddle
+	{
+		get { return $"res://prefabs/paddles/paddle_{_currentPaddle}.tscn"; }
 	}
 
 	public Godot.Collections.Array<Node> Balls
@@ -67,7 +72,7 @@ public partial class SessionController : Node
 			return;
 		}
 
-		paddle = (Paddle)ResourceLoader.Load<PackedScene>("res://prefabs/paddles/paddle_01.tscn").Instantiate();
+		paddle = (Paddle)ResourceLoader.Load<PackedScene>(SelectedPaddle).Instantiate();
 		gameElements.AddChild(paddle);
 
 		Ball startingBall = (Ball)ResourceLoader.Load<PackedScene>("res://prefabs/ball.tscn").Instantiate();
@@ -98,6 +103,7 @@ public partial class SessionController : Node
 
 	private void ResetSession()
 	{
+		_currentPaddle = -1;
 		_currentLevel = -1;
 		ChangeGameState(GameState.menu);
 	}
@@ -125,5 +131,10 @@ public partial class SessionController : Node
 		}
 
 		settings.ActiveController = InputType.keyboard;
+	}
+
+	public void SetPaddle(int number)
+	{
+		_currentPaddle = number;
 	}
 }

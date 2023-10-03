@@ -34,7 +34,7 @@ public partial class UIController : Node
 		}
 	}
 
-	private void TogglePanel(string panelName)
+	public void TogglePanel(string panelName)
 	{
 		HideAllPanels();
 

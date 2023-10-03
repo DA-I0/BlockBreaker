@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dp2mia4urmu3q"
-path="res://.godot/imported/arced_in_sticky.png-7629b6b69dfab5d526449595276d0713.ctex"
+path="res://.godot/imported/paddle_2_sticky.png-c0346d95d9eb5b1c0d2a275354f8cdd9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/paddles/arced_in_sticky.png"
-dest_files=["res://.godot/imported/arced_in_sticky.png-7629b6b69dfab5d526449595276d0713.ctex"]
+source_file="res://assets/sprites/paddles/paddle_2_sticky.png"
+dest_files=["res://.godot/imported/paddle_2_sticky.png-c0346d95d9eb5b1c0d2a275354f8cdd9.ctex"]
 
 [params]
 

@@ -1,9 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://d3cenf7vduiem"]
+[gd_scene load_steps=15 format=3 uid="uid://bkbest8omytqs"]
 
-[ext_resource type="Script" path="res://code/gameplay/Paddle.cs" id="1_fg4cs"]
-[ext_resource type="Texture2D" uid="uid://bdnrfv0eveohj" path="res://assets/sprites/paddles/basic.png" id="2_admir"]
-[ext_resource type="Texture2D" uid="uid://p1ln6vt0i3ak" path="res://assets/sprites/paddles/basic_bouncy.png" id="3_0h25r"]
-[ext_resource type="Texture2D" uid="uid://ch81qs8133yeu" path="res://assets/sprites/paddles/basic_sticky.png" id="4_w1ssb"]
+[ext_resource type="Script" path="res://code/gameplay/Paddle.cs" id="1_vadrw"]
+[ext_resource type="Texture2D" uid="uid://hfk6vlgis5yd" path="res://assets/sprites/paddles/paddle_2.png" id="2_kn5sb"]
+[ext_resource type="Texture2D" uid="uid://tgq441egdpu0" path="res://assets/sprites/paddles/paddle_2_bouncy.png" id="3_ssupe"]
+[ext_resource type="Texture2D" uid="uid://dp2mia4urmu3q" path="res://assets/sprites/paddles/paddle_2_sticky.png" id="4_yjsch"]
 
 [sub_resource type="Animation" id="Animation_lj8sh"]
 length = 0.001
@@ -22,7 +22,6 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_sx6pf"]
 resource_name = "size_1"
-loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -33,7 +32,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [PackedVector2Array(-3.2, -1.61765, 16, -1.61765, 19.2, -0.676471, 19.2, 0.264706, -6.4, 0.264706, -6.4, -0.676471)]
+"values": [PackedVector2Array(-6.4, -1.61765, 0, -1.61765, 6.4, 0.264706, 12.8, -1.61765, 19.2, -1.61765, 22.4, -0.676471, 22.4, 2.14706, 12.8, 4.97059, 0, 4.97059, -9.6, 2.14706, -9.6, -0.676471)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -45,7 +44,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(8, 5)]
+"values": [Vector2(10, 7)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -57,7 +56,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-4, -2)]
+"values": [Vector2(-5, -2)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -69,7 +68,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [PackedVector2Array(-16, -3.08823, 3.2, -3.08824, 6.4, -2.14706, 6.4, -0.264706, -19.2, -0.264705, -19.2, -2.14706)]
+"values": [PackedVector2Array(-1.43051e-06, -4.97059, 9.6, -2.14706, -22.4, -2.14706, -12.8, -4.97059)]
 }
 
 [sub_resource type="Animation" id="Animation_ryi87"]
@@ -84,7 +83,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [PackedVector2Array(-9.6, -1.61765, 22.4, -1.61765, 25.6, -0.676471, 25.6, 0.264706, -12.8, 0.264706, -12.8, -0.676471)]
+"values": [PackedVector2Array(-9.6, -1.61765, -3.2, -1.61765, 3.2, 0.264706, 9.6, 0.264706, 16, -1.61765, 22.4, -1.61765, 25.6, -0.676471, 25.6, 2.14706, -12.8, 2.14706, -12.8, -0.676471)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -96,7 +95,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(12, 5)]
+"values": [Vector2(12, 7)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -120,7 +119,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [PackedVector2Array(-22.4, -3.08823, 9.6, -3.08824, 12.8, -2.14706, 12.8, -0.264706, -25.6, -0.264705, -25.6, -2.14706)]
+"values": [PackedVector2Array(3.2, -4.97059, 12.8, -2.14706, -25.6, -2.14706, -16, -4.97059)]
 }
 
 [sub_resource type="Animation" id="Animation_f5lgp"]
@@ -135,7 +134,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [PackedVector2Array(-16, -1.61765, 28.8, -1.61765, 32, -0.676471, 32, 0.264706, -19.2, 0.264706, -19.2, -0.676471)]
+"values": [PackedVector2Array(-16, -1.61765, -9.6, -1.61765, -3.2, 0.264706, 16, 0.264706, 22.4, -1.61765, 28.8, -1.61765, 32, -0.676471, 32, 2.14706, -19.2, 2.14706, -19.2, -0.676471)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -147,7 +146,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(16, 5)]
+"values": [Vector2(16, 7)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -171,7 +170,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [PackedVector2Array(-28.8, -3.08823, 16, -3.08824, 19.2, -2.14706, 19.2, -0.264706, -32, -0.264705, -32, -2.14706)]
+"values": [PackedVector2Array(9.6, -4.97059, 19.2, -2.14706, -32, -2.14706, -22.4, -4.97059)]
 }
 
 [sub_resource type="Animation" id="Animation_kek1c"]
@@ -186,7 +185,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [PackedVector2Array(-22.4, -1.61765, 35.2, -1.61765, 38.4, -0.676471, 38.4, 0.264706, -25.6, 0.264706, -25.6, -0.676471)]
+"values": [PackedVector2Array(-22.4, -1.61765, -16, -1.61765, -9.6, 0.264706, 22.4, 0.264706, 28.8, -1.61765, 35.2, -1.61765, 38.4, -0.676471, 38.4, 2.14706, -25.6, 2.14706, -25.6, -0.676471)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -198,7 +197,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(20, 5)]
+"values": [Vector2(20, 7)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -222,7 +221,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [PackedVector2Array(-35.2, -3.08823, 22.4, -3.08824, 25.6, -2.14706, 25.6, -0.264707, -38.4, -0.264705, -38.4, -2.14706)]
+"values": [PackedVector2Array(16, -4.97059, 25.6, -2.14706, -38.4, -2.14706, -28.8, -4.97059)]
 }
 
 [sub_resource type="Animation" id="Animation_k3vdl"]
@@ -237,7 +236,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [PackedVector2Array(-28.8, -1.61765, 41.6, -1.61765, 44.8, -0.676471, 44.8, 0.264706, -32, 0.264706, -32, -0.676471)]
+"values": [PackedVector2Array(-28.8, -1.61765, -22.4, -1.61765, -16, 0.264706, 28.8, 0.264706, 35.2, -1.61765, 41.6, -1.61765, 44.8, -0.676471, 44.8, 2.14706, -32, 2.14706, -32, -0.676471)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -249,7 +248,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(24, 5)]
+"values": [Vector2(24, 7)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -273,7 +272,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [PackedVector2Array(-41.6, -3.08823, 28.8, -3.08824, 32, -2.14706, 32, -0.264707, -44.8, -0.264705, -44.8, -2.14706)]
+"values": [PackedVector2Array(22.4, -4.97059, 32, -2.14706, -44.8, -2.14706, -35.2, -4.97059)]
 }
 
 [sub_resource type="Animation" id="Animation_a1qq5"]
@@ -288,7 +287,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [PackedVector2Array(-35.2, -1.61765, 48, -1.61765, 51.2, -0.676471, 51.2, 0.264706, -38.4, 0.264706, -38.4, -0.676471)]
+"values": [PackedVector2Array(-35.2, -1.61765, -28.8, -1.61765, -22.4, 0.264706, 35.2, 0.264706, 41.6, -1.61765, 48, -1.61765, 51.2, -0.676471, 51.2, 2.14706, -38.4, 2.14706, -38.4, -0.676471)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -300,7 +299,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(28, 5)]
+"values": [Vector2(28, 7)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -324,7 +323,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [PackedVector2Array(-48, -3.08823, 35.2, -3.08824, 38.4, -2.14706, 38.4, -0.264707, -51.2, -0.264705, -51.2, -2.14706)]
+"values": [PackedVector2Array(28.8, -4.97059, 38.4, -2.14706, -51.2, -2.14706, -41.6, -4.97059)]
 }
 
 [sub_resource type="Animation" id="Animation_1xuyw"]
@@ -339,7 +338,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [PackedVector2Array(-41.6, -1.61765, 54.4, -1.61765, 57.6, -0.676471, 57.6, 0.264706, -44.8, 0.264706, -44.8, -0.676471)]
+"values": [PackedVector2Array(-41.6, -1.61765, -35.2, -1.61765, -28.8, 0.264706, 41.6, 0.264706, 48, -1.61765, 54.4, -1.61765, 57.6, -0.676471, 57.6, 2.14706, -44.8, 2.14706, -44.8, -0.676471)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -351,7 +350,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(32, 5)]
+"values": [Vector2(32, 7)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -375,7 +374,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [PackedVector2Array(-54.4, -3.08823, 41.6, -3.08824, 44.8, -2.14706, 44.8, -0.264707, -57.6, -0.264704, -57.6, -2.14706)]
+"values": [PackedVector2Array(35.2, -4.97059, 44.8, -2.14706, -57.6, -2.14706, -48, -4.97059)]
 }
 
 [sub_resource type="Animation" id="Animation_e0xqm"]
@@ -390,7 +389,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [PackedVector2Array(-48, -1.61765, 60.8, -1.61765, 64, -0.676471, 64, 0.264706, -51.2, 0.264706, -51.2, -0.676471)]
+"values": [PackedVector2Array(-48, -1.61765, -41.6, -1.61765, -35.2, 0.264706, 48, 0.264706, 54.4, -1.61765, 60.8, -1.61765, 64, -0.676471, 64, 2.14706, -51.2, 2.14706, -51.2, -0.676471)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -402,7 +401,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(36, 5)]
+"values": [Vector2(36, 7)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -426,7 +425,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [PackedVector2Array(-60.8, -3.08823, 48, -3.08824, 51.2, -2.14706, 51.2, -0.264707, -64, -0.264704, -64, -2.14706)]
+"values": [PackedVector2Array(41.6, -4.97059, 51.2, -2.14706, -64, -2.14706, -54.4, -4.97059)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6a3eu"]
@@ -451,16 +450,16 @@ platform_on_leave = 2
 platform_floor_layers = 0
 platform_wall_layers = 1
 safe_margin = 0.1
-script = ExtResource("1_fg4cs")
+script = ExtResource("1_vadrw")
 _bouncyBoost = 2.0
 _positionY = 100
-_sprites = Array[Texture2D]([ExtResource("2_admir"), ExtResource("3_0h25r"), ExtResource("4_w1ssb")])
+_sprites = Array[Texture2D]([ExtResource("2_kn5sb"), ExtResource("3_ssupe"), ExtResource("4_yjsch")])
 
 [node name="TopCollider" type="CollisionPolygon2D" parent="."]
 position = Vector2(-2, -0.28125)
 scale = Vector2(0.3125, 1.0625)
 build_mode = 1
-polygon = PackedVector2Array(-16, -1.61765, 28.8, -1.61765, 32, -0.676471, 32, 0.264706, -19.2, 0.264706, -19.2, -0.676471)
+polygon = PackedVector2Array(-35.2, -1.61765, -28.8, -1.61765, -22.4, 0.264706, 35.2, 0.264706, 41.6, -1.61765, 48, -1.61765, 51.2, -0.676471, 51.2, 2.14706, -38.4, 2.14706, -38.4, -0.676471)
 one_way_collision = true
 one_way_collision_margin = 5.0
 
@@ -469,7 +468,7 @@ position = Vector2(-2, -0.28125)
 rotation = 3.14159
 scale = Vector2(0.3125, 1.0625)
 build_mode = 1
-polygon = PackedVector2Array(-28.8, -3.08823, 16, -3.08824, 19.2, -2.14706, 19.2, -0.264706, -32, -0.264705, -32, -2.14706)
+polygon = PackedVector2Array(28.8, -4.97059, 38.4, -2.14706, -51.2, -2.14706, -41.6, -4.97059)
 one_way_collision = true
 one_way_collision_margin = 5.0
 
@@ -481,16 +480,16 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -8.0
 offset_top = -2.0
-offset_right = 8.0
-offset_bottom = 3.0
+offset_right = 20.0
+offset_bottom = 5.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_admir")
-region_rect = Rect2(0, 0, 20, 5)
-patch_margin_left = 2
-patch_margin_top = 2
-patch_margin_right = 2
-patch_margin_bottom = 2
+texture = ExtResource("2_kn5sb")
+region_rect = Rect2(0, 0, 20, 7)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 1
 
 [node name="Animator" type="AnimationPlayer" parent="."]
 libraries = {

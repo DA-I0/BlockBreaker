@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://hfk6vlgis5yd"
-path="res://.godot/imported/arced_in.png-a20d3e49a7def76acb48ffee1dba7031.ctex"
+uid="uid://dchblk7wfrqvi"
+path="res://.godot/imported/paddle_3.png-eef0f7a97a026846f52107db8b863d1e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/paddles/arced_in.png"
-dest_files=["res://.godot/imported/arced_in.png-a20d3e49a7def76acb48ffee1dba7031.ctex"]
+source_file="res://assets/sprites/paddles/paddle_3.png"
+dest_files=["res://.godot/imported/paddle_3.png-eef0f7a97a026846f52107db8b863d1e.ctex"]
 
 [params]
 
