@@ -3,15 +3,14 @@ Prototype 2:
 		☐ Configurable controls
 		☐ Game localization
 			✔ Manual localization system for RichTextLabels. @done(23-09-29 17:45)
-		☐ Game difficulty
+		✔ Game difficulty @done(23-10-03 16:16)
 			✔ Different max & starting lives @done(23-09-21 22:35)
 			✔ Different base ball speed @done(23-09-21 22:35)
 			✔ Different max, min & starting paddle size @done(23-09-21 22:35)
-			☐ Custom difficulty (set your own values) @done(23-09-21 22:35)
+			✔ Custom difficulty (set your own values) @done(23-09-21 22:35)
 			✔ Load from file @done(23-09-21 22:35)
 				✔ Default ones (resource) @done(23-09-21 22:35)
 				✔ Custom ones (asset) @done(23-09-21 22:35)
-			☐ Score multiplier based on settings
 		☐ High-score system
 			✔ Struct @done(23-09-21 22:35)
 			✔ Store results between sessions @done(23-09-21 22:35)
@@ -21,12 +20,12 @@ Prototype 2:
 			☐ Add on-map buttons that toggle connected element when hit with the ball?
 		☐ New interactive elements
 			☐ River (slightly changes ball direction)
-			☐ TNT (explodes when hit, blasts breakable elements nearby: blocks, barricades, cracked walls)
+			✔ TNT (explodes when hit, blasts breakable elements nearby: blocks, barricades, cracked walls) @done(23-10-03 18:12)
 				✔ Explosion animation @done(23-10-02 18:02)
 				✔ Damage breakables in range @done(23-10-02 18:02)
-				☐ Sound effect
+				✔ Sound effect @done(23-10-03 18:12)
 		☐ New pickups
-			☐ Ice (freeze the paddle for 2-3 seconds)
+			✔ Ice (freeze the paddle for 2-3 seconds) @done(23-10-03 17:04)
 			✔ Reverse controls (reverse paddle controls) @done(23-10-02 22:39)
 			✔ Sticky paddle (catch ball on touch, release like new) @done(23-10-02 18:28)
 			✔ Bouncy paddle (add temp speed boost on bounce) @done(23-10-02 18:28)
@@ -52,15 +51,14 @@ Prototype 2:
 				☐ Hit
 				☐ Destruction
 			☐ Death pit (skulls floating up)
-		☐ Shake functionality (press LMB/Space to slightly change ball trajectory)
-			☐ Change ball rotation
-			☐ Temporarily lock paddle
-			☐ Cooldown
-			☐ Cooldown symbol (sprite/animation around the paddle?)
-			☐ Camera shake (optional)
-			☐ Sound effects
-				☐ Use
-				☐ Ready
+		✔ Shake functionality (press LMB/Space to slightly change ball trajectory) @done(23-10-03 18:57)
+			✔ Change ball rotation @done(23-10-03 18:57)
+			✔ Temporarily lock paddle @done(23-10-03 18:57)
+			✔ Cooldown @done(23-10-03 18:57)
+			✔ Camera shake (optional) @done(23-10-03 18:58)
+			✔ Sound effects @done(23-10-03 18:58)
+				✔ Use @done(23-10-03 18:58)
+				✔ Ready @done(23-10-03 18:58)
 		☐ Multi-room levels (ball can travel to another room/screen, can be side-to-side or up-down)
 		☐ Replace music randomization with shuffle
 	Map elements:
@@ -86,10 +84,10 @@ Prototype 2:
 			☐ Display end score
 			☐ Name input if reached top 10
 		✔ Highscore panel in main menu @done(23-09-21 23:00)
-		☐ Difficulty
-			☐ Selection panel (after selecting level?)
-			☐ Customization panel
-		☐ Paddle selection
+		✔ Difficulty @done(23-10-03 16:15)
+			✔ Selection panel @done(23-10-03 16:15)
+			✔ Customization panel @done(23-10-03 16:15)
+		✔ Paddle selection @done(23-10-03 12:49)
 		☐ Options
 			☐ Language selection @done(23-09-26 20:15)
 			☐ Pickup display ordering (under ball, over ball)
