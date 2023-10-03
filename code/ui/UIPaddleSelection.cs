@@ -43,6 +43,6 @@ public partial class UIPaddleSelection : Panel
 	private void SelectPaddle()
 	{
 		refs.SetPaddle(_currentPaddle);
-		uiController.TogglePanel("LevelPanel");
+		uiController.TogglePanel("DifficultyPanel");
 	}
 }

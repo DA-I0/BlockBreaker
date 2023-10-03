@@ -6,7 +6,7 @@ public partial class SessionController : Node
 {
 	private GameState _gameState = GameState.menu;
 	private int _currentPaddle = -1;
-	private int _currentDifficulty = 1;
+	private int _currentDifficulty = -1;
 	private int _currentLevel = -1;
 
 	public GameData gameData;
@@ -23,6 +23,7 @@ public partial class SessionController : Node
 
 	public event Notification LastBallLost; // can't be here, gotta move it to a single place
 	public event Notification GameStateChanged;
+	public event Notification GameSetup;
 
 	public GameState CurrentGameState
 	{
@@ -78,6 +79,8 @@ public partial class SessionController : Node
 		Ball startingBall = (Ball)ResourceLoader.Load<PackedScene>("res://prefabs/ball.tscn").Instantiate();
 		startingBall.Position = paddle.Position;
 		gameElements.GetChild(0).AddChild(startingBall);
+
+		GameSetup?.Invoke();
 	}
 
 	public void SelectLevel(int levelIndex)
@@ -104,6 +107,7 @@ public partial class SessionController : Node
 	private void ResetSession()
 	{
 		_currentPaddle = -1;
+		_currentDifficulty = -1;
 		_currentLevel = -1;
 		ChangeGameState(GameState.menu);
 	}
@@ -136,5 +140,10 @@ public partial class SessionController : Node
 	public void SetPaddle(int number)
 	{
 		_currentPaddle = number;
+	}
+
+	public void SetDifficulty(int index)
+	{
+		_currentDifficulty = index;
 	}
 }

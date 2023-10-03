@@ -43,7 +43,6 @@ public partial class UIGameSession : Node
 	{
 		HideExitElements();
 		UpdateScore(0, 1);
-		UpdateLives(refs.SelectedDifficulty.StartingLives);
 	}
 
 	private void UpdateScore(int score, int scoreMultiplier)

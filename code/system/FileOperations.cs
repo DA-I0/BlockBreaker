@@ -44,7 +44,7 @@ public class FileOperations
 
 	public void SaveDifficulty(string oldDifficultyName, Difficulty newDifficulty)
 	{
-		if (oldDifficultyName != newDifficulty.DifficultyName)
+		if (oldDifficultyName != string.Empty && oldDifficultyName != newDifficulty.DifficultyName)
 		{
 			DeleteDifficulty(oldDifficultyName);
 		}
