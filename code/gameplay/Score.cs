@@ -98,7 +98,7 @@ public partial class Score : Node
 
 		Ball ball = refs.Balls[0] as Ball;
 
-		_currentScoreMultiplier += (ball.GetBallSize() < 1) ? 1 : 0;
+		_currentScoreMultiplier += (ball.Size < 1) ? 1 : 0;
 		_currentScoreMultiplier += (ball.SpeedMultiplier > 1) ? 1 : 0;
 
 		CheckMultiplierRange();

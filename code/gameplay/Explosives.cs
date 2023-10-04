@@ -32,7 +32,7 @@ public partial class Explosives : Breakable
 	{
 		if (target as Ball != null)
 		{
-			((Ball)target).SetTempBoost(_strength / 2);
+			((Ball)target).ChangeTempSpeedMultiplier(_strength / 2);
 			return;
 		}
 

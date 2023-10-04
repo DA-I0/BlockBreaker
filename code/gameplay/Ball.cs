@@ -4,24 +4,20 @@ public enum BallMode { idle, angleSelection, moving, frozen, spinning };
 
 public partial class Ball : CharacterBody2D
 {
+	private BallMode _ballMode = BallMode.idle;
+
 	[Export] private int _maxReleaseAngle = 60;
 	[Export] private float _baseSpeed = 10;
 	[Export] private float _boostDrag = 0.01f;
 	[Export] private float _idlePositionOffset = 7f;
 
-	private BallMode _ballMode = BallMode.idle;
-
-	private float _difficultyArrowSpeed = 1f;
-	private float _difficultySpeedMultiplier = 1f;
 	private float _speedMultiplier = 1f;
-	private float _boostMultiplier = 0f;
-
-	[Export] private float _multiBallSpawnAngle = 30f;
+	private float _boostMultiplier = 1f;
 
 	private bool _increasingRotation = true;
 	private float _startingRotation = 0;
 
-	private float _speed;
+	private float _combinedSpeedMultiplier;
 
 	[Export] private Sprite2D _sprite;
 	[Export] private Sprite2D _arrow;
@@ -37,7 +33,7 @@ public partial class Ball : CharacterBody2D
 		set
 		{
 			_ballMode = value;
-			AdjustToState();
+			ApplyModeValues();
 		}
 	}
 
@@ -46,30 +42,14 @@ public partial class Ball : CharacterBody2D
 		get { return _speedMultiplier; }
 	}
 
-	public override void _Ready()
+	public float Size
 	{
-		SetupReferences();
-		SetInitialValues();
-	}
-
-	public override void _PhysicsProcess(double delta)
-	{
-		if (_ballMode == BallMode.moving)
-		{
-			Move(delta);
-			ReduceTempBoost();
-			return;
-		}
-
-		if (_ballMode == BallMode.idle)
-		{
-			Position = (refs.paddle != null) ? new Vector2(refs.paddle.Position.X, refs.paddle.Position.Y - _idlePositionOffset) : Vector2.Zero;
-		}
+		get { return _collider.Scale.X; }
 	}
 
 	public override void _Input(InputEvent @event)
 	{
-		if (@event.IsActionReleased("game_play"))
+		if (@event.IsActionPressed("game_play"))
 		{
 			switch (_ballMode)
 			{
@@ -79,7 +59,7 @@ public partial class Ball : CharacterBody2D
 					break;
 
 				case BallMode.angleSelection:
-					PlayBall();
+					Release();
 					break;
 
 				case BallMode.moving:
@@ -92,29 +72,62 @@ public partial class Ball : CharacterBody2D
 		}
 	}
 
+	public override void _PhysicsProcess(double delta)
+	{
+		if (_ballMode == BallMode.moving)
+		{
+			Move(delta);
+			ReduceTempSpeedMultiplier();
+			return;
+		}
+
+		if (_ballMode == BallMode.idle)
+		{
+			Position = (refs.paddle != null) ? new Vector2(refs.paddle.Position.X, refs.paddle.Position.Y - _idlePositionOffset) : Vector2.Zero;
+		}
+	}
+
+	public void SetupReferences(SessionController sessionController)
+	{
+		refs = sessionController;
+		refs.levelManager.ResetSession += Destroy;
+		refs.levelManager.SceneChanged += SceneChangeCleanup;
+	}
+
+	public void SetInitialValues(SessionController sessionController, Ball sourceBall = null, float angleChange = 0)
+	{
+		SetupReferences(sessionController);
+		_animator.AnimationSetNext("bounce", "roll");
+
+
+		if (sourceBall == null)
+		{
+			Position = refs.paddle.Position;
+			Reset();
+			return;
+		}
+		else
+		{
+			Position = sourceBall.Position;
+			ChangeSize(sourceBall.Size);
+			ChangeSpeedMultiplier(sourceBall.SpeedMultiplier);
+			Release();
+			ChangeRotation(sourceBall.RotationDegrees + angleChange);
+		}
+	}
+
+	public void Reset()
+	{
+		ChangeSpeedMultiplier(1f);
+		ChangeSize(1f);
+		StateReset();
+	}
+
 	public void SpawnCopy(float angleChange)
 	{
-		var newBall = (Ball)ResourceLoader.Load<PackedScene>("res://prefabs/ball.tscn").Instantiate();
+		Ball newBall = (Ball)ResourceLoader.Load<PackedScene>("res://prefabs/ball.tscn").Instantiate();
+		newBall.CallDeferred("SetInitialValues", refs, this, angleChange);
 		GetParent().CallDeferred(Node.MethodName.AddChild, newBall);
-		newBall.CallDeferred("SetupCloneBall", Position, angleChange, _collider.Scale.X, _speedMultiplier);
-	}
-
-	// NOTE: Not sure about implementation of this one but it works for now.
-	private void SetupCloneBall(Vector2 position, float angleChange, float size, float speedMultiplier)
-	{
-		Position = position;
-		_arrow.Rotation += Rotation + Mathf.DegToRad(angleChange);
-		ChangeSize(size);
-		ChangeSpeedMultiplier(speedMultiplier);
-		PlayBall();
-	}
-
-	private void PlayBall()
-	{
-		UpdateSpeed();
-		Velocity = new Vector2(0, -_speed).Rotated(_arrow.Rotation);
-		_arrowTimer.Stop();
-		BallMode = BallMode.moving;
 	}
 
 	public void AddVelocity(Vector2 velocity)
@@ -128,62 +141,45 @@ public partial class Ball : CharacterBody2D
 		UpdateSpeed();
 	}
 
+	public void ChangeTempSpeedMultiplier(float value)
+	{
+		_boostMultiplier = value;
+		UpdateSpeed();
+	}
+
 	public void ChangeSize(float value)
 	{
 		_sprite.Scale = new Vector2(value, value);
 		_collider.Scale = new Vector2(value, value);
 	}
 
-	public void Reset()
+	public void ChangeRotation(float value)
+	{
+		Velocity = Velocity.Rotated(Mathf.DegToRad(value));
+	}
+
+	private void StateReset()
 	{
 		RotationDegrees = 0;
 		_sprite.RotationDegrees = 0;
 		_arrow.RotationDegrees = 0;
-		ChangeSpeedMultiplier(1f);
-		ChangeSize(1f);
+		_increasingRotation = true;
+		ChangeTempSpeedMultiplier(1f);
+		Velocity = Vector2.Zero;
 		BallMode = BallMode.idle;
 	}
 
-	public float GetBallSpeed()
+	private void Release()
 	{
-		return _speedMultiplier;
-	}
-
-	public float GetBallSize()
-	{
-		return _collider.Scale.X;
-	}
-
-	public void SetTempBoost(float boostMultiplier)
-	{
-		_boostMultiplier = boostMultiplier;
-		UpdateSpeed();
-	}
-
-	public void RotateBall(float angleChange)
-	{
-		Velocity = Velocity.Rotated(Mathf.DegToRad(angleChange));
-	}
-
-	private void SetupReferences()
-	{
-		refs = GetNode("/root/GameController/SessionController") as SessionController;
-		refs.levelManager.ResetSession += Destroy;
-		refs.levelManager.SceneChanged += SceneChangeCleanup;
-	}
-
-	private void SetInitialValues()
-	{
-		_difficultySpeedMultiplier = refs.SelectedDifficulty.BallSpeedMultiplier;
-		_difficultyArrowSpeed = refs.SelectedDifficulty.AngleSelectSpeed;
-		_animator.AnimationSetNext("bounce", "roll");
-		Reset();
+		Velocity = new Vector2(0, -_baseSpeed).Rotated(_arrow.Rotation);
+		_arrowTimer.Stop();
+		BallMode = BallMode.moving;
 	}
 
 	private void Move(double delta)
 	{
-		float _moveSpeed = (float)delta * _speed;
-		var collision = MoveAndCollide(Velocity * _moveSpeed);
+		float _moveSpeed = (float)delta * _combinedSpeedMultiplier;
+		KinematicCollision2D collision = MoveAndCollide(Velocity * _moveSpeed);
 		Bounce(collision);
 		AdjustSpriteRotation();
 	}
@@ -209,30 +205,13 @@ public partial class Ball : CharacterBody2D
 		}
 	}
 
-	private void AdjustSpriteRotation()
-	{
-		_sprite.Rotation = Velocity.Angle();
-		_sprite.RotationDegrees += 90;
-	}
-
 	private void UpdateSpeed()
 	{
-		_speed = _baseSpeed * _difficultySpeedMultiplier * _speedMultiplier * _boostMultiplier;
-		_animator.Play("roll", 0, _difficultySpeedMultiplier * _speedMultiplier);
+		_combinedSpeedMultiplier = _baseSpeed * refs.SelectedDifficulty.BallSpeedMultiplier * _speedMultiplier * _boostMultiplier;
+		_animator.Play("roll", 0, _combinedSpeedMultiplier);
 	}
 
-	private void RotationSelect()
-	{
-		if (_startingRotation >= _maxReleaseAngle || _startingRotation <= -_maxReleaseAngle)
-		{
-			_increasingRotation = !_increasingRotation;
-		}
-
-		_startingRotation += _increasingRotation ? _difficultyArrowSpeed : -_difficultyArrowSpeed;
-		_arrow.RotationDegrees = _startingRotation;
-	}
-
-	private void ReduceTempBoost()
+	private void ReduceTempSpeedMultiplier()
 	{
 		if (_boostMultiplier > 1)
 		{
@@ -245,7 +224,24 @@ public partial class Ball : CharacterBody2D
 		}
 	}
 
-	private void AdjustToState()
+	private void RotateArrow()
+	{
+		if (_startingRotation >= _maxReleaseAngle || _startingRotation <= -_maxReleaseAngle)
+		{
+			_increasingRotation = !_increasingRotation;
+		}
+
+		_startingRotation += _increasingRotation ? refs.SelectedDifficulty.AngleSelectSpeed : -refs.SelectedDifficulty.AngleSelectSpeed;
+		_arrow.RotationDegrees = _startingRotation;
+	}
+
+	private void AdjustSpriteRotation()
+	{
+		_sprite.Rotation = Velocity.Angle();
+		_sprite.RotationDegrees += 90;
+	}
+
+	private void ApplyModeValues()
 	{
 		_arrow.Visible = false;
 
@@ -266,7 +262,7 @@ public partial class Ball : CharacterBody2D
 				break;
 
 			default:
-				SetTempBoost(1);
+				ChangeTempSpeedMultiplier(1);
 				_animator.Play("idle");
 				break;
 		}
@@ -280,11 +276,14 @@ public partial class Ball : CharacterBody2D
 		}
 		else
 		{
-			Reset();
-
 			if (!levelChange)
 			{
 				refs.health.ChangeLives(-1);
+				Reset();
+			}
+			else
+			{
+				StateReset();
 			}
 		}
 	}

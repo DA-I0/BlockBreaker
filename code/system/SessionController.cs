@@ -79,9 +79,9 @@ public partial class SessionController : Node
 		paddle = (Paddle)ResourceLoader.Load<PackedScene>(SelectedPaddle).Instantiate();
 		gameElements.AddChild(paddle);
 
-		Ball startingBall = (Ball)ResourceLoader.Load<PackedScene>("res://prefabs/ball.tscn").Instantiate();
-		startingBall.Position = paddle.Position;
-		gameElements.GetChild(0).AddChild(startingBall);
+		Ball ball = (Ball)ResourceLoader.Load<PackedScene>("res://prefabs/ball.tscn").Instantiate();
+		ball.SetInitialValues(this);
+		gameElements.GetChild(0).AddChild(ball);
 
 		_skillTimer.Start();
 		GameSetup?.Invoke();
@@ -166,7 +166,7 @@ public partial class SessionController : Node
 				{
 					float angleChange = GD.RandRange(5, 15);
 					int direction = GD.RandRange(-1, 1) < 0 ? -1 : 1;
-					((Ball)Balls[i]).RotateBall(angleChange * direction);
+					((Ball)Balls[i]).ChangeRotation(angleChange * direction);
 				}
 
 				audioController.PlayAudio(3);
