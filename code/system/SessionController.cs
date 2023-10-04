@@ -156,7 +156,7 @@ public partial class SessionController : Node
 
 	private void Shake(InputEvent @event)
 	{
-		if (_gameState == GameState.gameplay && @event.IsActionReleased("game_play"))
+		if (_gameState == GameState.gameplay && @event.IsActionReleased("game_skill"))
 		{
 			if (_skillTimer.TimeLeft <= 0)
 			{
