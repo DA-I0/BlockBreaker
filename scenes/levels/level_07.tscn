@@ -376,15 +376,11 @@ position = Vector2(47, 15)
 [node name="Whirlpool" parent="Interactables" instance=ExtResource("7_b5yil")]
 position = Vector2(-56, 27)
 
-[node name="Whirlpool2" parent="Interactables" node_paths=PackedStringArray("_animator", "_timer") instance=ExtResource("7_b5yil")]
+[node name="Whirlpool2" parent="Interactables" instance=ExtResource("7_b5yil")]
 position = Vector2(30, -34)
-_animator = NodePath("../Whirlpool/Animator")
-_timer = NodePath("../Whirlpool/Timer")
 
-[node name="Whirlpool3" parent="Interactables" node_paths=PackedStringArray("_animator", "_timer") instance=ExtResource("7_b5yil")]
+[node name="Whirlpool3" parent="Interactables" instance=ExtResource("7_b5yil")]
 position = Vector2(63, -34)
-_animator = NodePath("../Whirlpool/Animator")
-_timer = NodePath("../Whirlpool/Timer")
 
 [node name="Bollard" parent="Interactables" instance=ExtResource("8_spffk")]
 position = Vector2(16, 48)
