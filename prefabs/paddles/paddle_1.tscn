@@ -447,7 +447,6 @@ _data = {
 disable_mode = 1
 collision_layer = 4
 collision_mask = 11
-motion_mode = 1
 platform_on_leave = 2
 platform_floor_layers = 0
 platform_wall_layers = 1
@@ -497,7 +496,7 @@ patch_margin_bottom = 2
 libraries = {
 "": SubResource("AnimationLibrary_6a3eu")
 }
-blend_times = [&"size_5", &"size_5", 1.0, &"size_5", &"size_3", 1.0, &"size_5", &"size_2", 1.0, &"size_5", &"size_4", 1.0, &"size_5", &"size_1", 1.0]
+blend_times = [&"size_5", &"size_4", 1.0, &"size_5", &"size_1", 1.0, &"size_5", &"size_5", 1.0, &"size_5", &"size_2", 1.0, &"size_5", &"size_3", 1.0]
 
 [node name="Timer" type="Timer" parent="."]
 
