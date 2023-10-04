@@ -1,12 +1,12 @@
 [gd_scene load_steps=13 format=3 uid="uid://btsc5rctrsb6i"]
 
 [ext_resource type="Texture2D" uid="uid://clfnabf8ysvwd" path="res://assets/sprites/tilesets/map_tiles_bricked.png" id="1_xsx1m"]
-[ext_resource type="PackedScene" path="res://prefabs/blocks/block_basic.tscn" id="2_dtyl6"]
-[ext_resource type="PackedScene" path="res://prefabs/blocks/block_sturdy.tscn" id="3_226jb"]
+[ext_resource type="PackedScene" uid="uid://too80a13ex5u" path="res://prefabs/blocks/block_basic.tscn" id="2_dtyl6"]
+[ext_resource type="PackedScene" uid="uid://clchdmucxr4xn" path="res://prefabs/blocks/block_sturdy.tscn" id="3_226jb"]
 [ext_resource type="PackedScene" uid="uid://dlrofqirtncwr" path="res://prefabs/blocks/barrier_basic.tscn" id="4_ldjqy"]
 [ext_resource type="PackedScene" uid="uid://bg5r3twijp0e" path="res://prefabs/blocks/barrier_sturdy.tscn" id="5_28tdw"]
 [ext_resource type="PackedScene" uid="uid://cgpa7sf8jgxu8" path="res://prefabs/level_exit.tscn" id="5_qclmh"]
-[ext_resource type="PackedScene" uid="uid://c7ob1oeeah2yr" path="res://prefabs/hazards/whirpool.tscn" id="6_h1wkv"]
+[ext_resource type="PackedScene" uid="uid://c7ob1oeeah2yr" path="res://prefabs/hazards/whirlpool.tscn" id="6_h1wkv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y748h"]
 texture = ExtResource("1_xsx1m")
@@ -301,7 +301,7 @@ position = Vector2(83, -8)
 
 [node name="Interactables" type="Node" parent="."]
 
-[node name="Whirpool" parent="Interactables" instance=ExtResource("6_h1wkv")]
+[node name="Whirlpool" parent="Interactables" instance=ExtResource("6_h1wkv")]
 position = Vector2(0, -13)
 
 [node name="LevelExit" parent="." instance=ExtResource("5_qclmh")]

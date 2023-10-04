@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://too80a13ex5u" path="res://prefabs/blocks/block_basic.tscn" id="2_sfg8v"]
 [ext_resource type="PackedScene" uid="uid://clchdmucxr4xn" path="res://prefabs/blocks/block_sturdy.tscn" id="3_mmhu2"]
 [ext_resource type="PackedScene" uid="uid://doawgt0jptjhp" path="res://prefabs/blocks/coffin.tscn" id="5_qdidp"]
-[ext_resource type="PackedScene" uid="uid://c7ob1oeeah2yr" path="res://prefabs/hazards/whirpool.tscn" id="6_kwydn"]
+[ext_resource type="PackedScene" uid="uid://c7ob1oeeah2yr" path="res://prefabs/hazards/whirlpool.tscn" id="6_kwydn"]
 [ext_resource type="PackedScene" uid="uid://ctgplrud2njoq" path="res://prefabs/hazards/teleport_door.tscn" id="7_vdsi0"]
 [ext_resource type="PackedScene" uid="uid://7gsh2bx2alvg" path="res://prefabs/hazards/bollard.tscn" id="8_bdtib"]
 [ext_resource type="PackedScene" uid="uid://wl2u6pnrqvcy" path="res://prefabs/blocks/explosives.tscn" id="8_wpbud"]
@@ -396,7 +396,7 @@ position = Vector2(56, -43)
 
 [node name="Interactables" type="Node" parent="."]
 
-[node name="Whirpool" parent="Interactables" instance=ExtResource("6_kwydn")]
+[node name="Whirlpool" parent="Interactables" instance=ExtResource("6_kwydn")]
 position = Vector2(0, 7)
 
 [node name="TeleportDoor" parent="Interactables" node_paths=PackedStringArray("_linkedDoor") instance=ExtResource("7_vdsi0")]

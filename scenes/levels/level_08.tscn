@@ -1,11 +1,11 @@
 [gd_scene load_steps=15 format=3 uid="uid://dasrpw3chbkir"]
 
 [ext_resource type="Texture2D" uid="uid://clfnabf8ysvwd" path="res://assets/sprites/tilesets/map_tiles_bricked.png" id="1_512im"]
-[ext_resource type="PackedScene" path="res://prefabs/blocks/block_basic.tscn" id="2_nrxq6"]
-[ext_resource type="PackedScene" path="res://prefabs/blocks/block_sturdy.tscn" id="3_2yqvw"]
+[ext_resource type="PackedScene" uid="uid://too80a13ex5u" path="res://prefabs/blocks/block_basic.tscn" id="2_nrxq6"]
+[ext_resource type="PackedScene" uid="uid://clchdmucxr4xn" path="res://prefabs/blocks/block_sturdy.tscn" id="3_2yqvw"]
 [ext_resource type="PackedScene" uid="uid://bg5r3twijp0e" path="res://prefabs/blocks/barrier_sturdy.tscn" id="5_f0l5a"]
-[ext_resource type="PackedScene" path="res://prefabs/blocks/coffin.tscn" id="6_k1spd"]
-[ext_resource type="PackedScene" uid="uid://c7ob1oeeah2yr" path="res://prefabs/hazards/whirpool.tscn" id="7_sp84k"]
+[ext_resource type="PackedScene" uid="uid://doawgt0jptjhp" path="res://prefabs/blocks/coffin.tscn" id="6_k1spd"]
+[ext_resource type="PackedScene" uid="uid://c7ob1oeeah2yr" path="res://prefabs/hazards/whirlpool.tscn" id="7_sp84k"]
 [ext_resource type="PackedScene" uid="uid://ctgplrud2njoq" path="res://prefabs/hazards/teleport_door.tscn" id="7_yhfdl"]
 [ext_resource type="PackedScene" uid="uid://cgpa7sf8jgxu8" path="res://prefabs/level_exit.tscn" id="8_0fyb8"]
 [ext_resource type="PackedScene" uid="uid://7gsh2bx2alvg" path="res://prefabs/hazards/bollard.tscn" id="8_pigvy"]
@@ -392,7 +392,7 @@ position = Vector2(40, 34)
 
 [node name="Interactables" type="Node" parent="."]
 
-[node name="Whirpool" parent="Interactables" instance=ExtResource("7_sp84k")]
+[node name="Whirlpool" parent="Interactables" instance=ExtResource("7_sp84k")]
 position = Vector2(-72, -44)
 
 [node name="TeleportDoor" parent="Interactables" node_paths=PackedStringArray("_linkedDoor") instance=ExtResource("7_yhfdl")]
@@ -407,26 +407,21 @@ _linkedDoor = NodePath("../TeleportDoor")
 
 [node name="Bollard" parent="Interactables" instance=ExtResource("8_pigvy")]
 position = Vector2(72, 5)
-_isActived = false
-_stateChangeCooldown = 3.0
+_cooldown = 3.0
 
 [node name="Bollard2" parent="Interactables" instance=ExtResource("8_pigvy")]
 position = Vector2(-36, 5)
-_isActived = false
 
 [node name="Bollard3" parent="Interactables" instance=ExtResource("8_pigvy")]
 position = Vector2(0, 5)
-_isActived = false
-_stateChangeCooldown = 1.0
+_cooldown = 1.0
 
 [node name="Bollard4" parent="Interactables" instance=ExtResource("8_pigvy")]
 position = Vector2(36, 5)
-_isActived = false
 
 [node name="Bollard5" parent="Interactables" instance=ExtResource("8_pigvy")]
 position = Vector2(-72, 5)
-_isActived = false
-_stateChangeCooldown = 3.0
+_cooldown = 3.0
 
 [node name="LevelExit" parent="." instance=ExtResource("8_0fyb8")]
 position = Vector2(0, -63)

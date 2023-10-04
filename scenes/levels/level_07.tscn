@@ -1,12 +1,12 @@
 [gd_scene load_steps=15 format=3 uid="uid://fs6jq84iqldm"]
 
 [ext_resource type="Texture2D" uid="uid://clfnabf8ysvwd" path="res://assets/sprites/tilesets/map_tiles_bricked.png" id="1_t5b0n"]
-[ext_resource type="PackedScene" path="res://prefabs/blocks/block_basic.tscn" id="2_3jjvs"]
-[ext_resource type="PackedScene" path="res://prefabs/blocks/block_sturdy.tscn" id="3_kim4u"]
+[ext_resource type="PackedScene" uid="uid://too80a13ex5u" path="res://prefabs/blocks/block_basic.tscn" id="2_3jjvs"]
+[ext_resource type="PackedScene" uid="uid://clchdmucxr4xn" path="res://prefabs/blocks/block_sturdy.tscn" id="3_kim4u"]
 [ext_resource type="PackedScene" uid="uid://dlrofqirtncwr" path="res://prefabs/blocks/barrier_basic.tscn" id="4_r0cbu"]
 [ext_resource type="PackedScene" uid="uid://bg5r3twijp0e" path="res://prefabs/blocks/barrier_sturdy.tscn" id="5_dbai0"]
-[ext_resource type="PackedScene" path="res://prefabs/blocks/coffin.tscn" id="6_wkcwx"]
-[ext_resource type="PackedScene" uid="uid://c7ob1oeeah2yr" path="res://prefabs/hazards/whirpool.tscn" id="7_b5yil"]
+[ext_resource type="PackedScene" uid="uid://doawgt0jptjhp" path="res://prefabs/blocks/coffin.tscn" id="6_wkcwx"]
+[ext_resource type="PackedScene" uid="uid://c7ob1oeeah2yr" path="res://prefabs/hazards/whirlpool.tscn" id="7_b5yil"]
 [ext_resource type="PackedScene" uid="uid://cgpa7sf8jgxu8" path="res://prefabs/level_exit.tscn" id="8_07854"]
 [ext_resource type="PackedScene" uid="uid://7gsh2bx2alvg" path="res://prefabs/hazards/bollard.tscn" id="8_spffk"]
 
@@ -373,14 +373,18 @@ position = Vector2(47, 15)
 
 [node name="Interactables" type="Node" parent="."]
 
-[node name="Whirpool" parent="Interactables" instance=ExtResource("7_b5yil")]
+[node name="Whirlpool" parent="Interactables" instance=ExtResource("7_b5yil")]
 position = Vector2(-56, 27)
 
-[node name="Whirpool2" parent="Interactables" instance=ExtResource("7_b5yil")]
+[node name="Whirlpool2" parent="Interactables" node_paths=PackedStringArray("_animator", "_timer") instance=ExtResource("7_b5yil")]
 position = Vector2(30, -34)
+_animator = NodePath("../Whirlpool/Animator")
+_timer = NodePath("../Whirlpool/Timer")
 
-[node name="Whirpool3" parent="Interactables" instance=ExtResource("7_b5yil")]
+[node name="Whirlpool3" parent="Interactables" node_paths=PackedStringArray("_animator", "_timer") instance=ExtResource("7_b5yil")]
 position = Vector2(63, -34)
+_animator = NodePath("../Whirlpool/Animator")
+_timer = NodePath("../Whirlpool/Timer")
 
 [node name="Bollard" parent="Interactables" instance=ExtResource("8_spffk")]
 position = Vector2(16, 48)

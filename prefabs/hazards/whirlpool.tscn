@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://c7ob1oeeah2yr"]
 
-[ext_resource type="Script" path="res://code/gameplay/interactables/InteractableWhirpool.cs" id="1_h0u3k"]
+[ext_resource type="Script" path="res://code/gameplay/interactables/Whirlpool.cs" id="1_iacfm"]
 [ext_resource type="Texture2D" uid="uid://4t3etw7ju070" path="res://assets/sprites/interactables/whirpool_01.png" id="1_nyjkc"]
 [ext_resource type="Texture2D" uid="uid://c3ktdhmaejwul" path="res://assets/sprites/interactables/whirpool_02.png" id="3_ea7vr"]
 [ext_resource type="Texture2D" uid="uid://cq8dd4c6015vn" path="res://assets/sprites/interactables/whirpool_03.png" id="4_drjl4"]
@@ -40,7 +40,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("CatchArea:monitoring")
+tracks/2/path = NodePath(".:monitoring")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -82,7 +82,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("CatchArea:monitoring")
+tracks/2/path = NodePath(".:monitoring")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -98,16 +98,14 @@ _data = {
 "idle_enabled": SubResource("Animation_q6de1")
 }
 
-[node name="Whirpool" type="Node2D" node_paths=PackedStringArray("_animator", "_timer")]
-script = ExtResource("1_h0u3k")
+[node name="Whirlpool" type="Area2D" node_paths=PackedStringArray("_animator", "_timer")]
+collision_mask = 2
+script = ExtResource("1_iacfm")
+_cooldown = 10.0
 _animator = NodePath("Animator")
 _timer = NodePath("Timer")
 
-[node name="CatchArea" type="Area2D" parent="."]
-collision_mask = 2
-monitorable = false
-
-[node name="Trigger" type="CollisionShape2D" parent="CatchArea"]
+[node name="Trigger" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_28lk8")
 
 [node name="Sprite" type="Sprite2D" parent="."]
@@ -119,6 +117,7 @@ libraries = {
 }
 
 [node name="Timer" type="Timer" parent="."]
+one_shot = true
 
-[connection signal="body_entered" from="CatchArea" to="." method="OnBodyEntered"]
+[connection signal="body_entered" from="." to="." method="OnBodyEntered"]
 [connection signal="timeout" from="Timer" to="." method="Toggle"]
