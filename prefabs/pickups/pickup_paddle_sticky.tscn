@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://b2bctq01a4fwu"]
 
-[ext_resource type="Script" path="res://code/gameplay/pickups/PickupPaddleMode.cs" id="1_82q6j"]
+[ext_resource type="Script" path="res://code/gameplay/pickups/PaddleChangeMode.cs" id="1_82q6j"]
 [ext_resource type="Texture2D" uid="uid://4axmswk3rs8j" path="res://assets/sprites/pickups/pickup_paddle_sticky.png" id="2_q24ou"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ow3q6"]

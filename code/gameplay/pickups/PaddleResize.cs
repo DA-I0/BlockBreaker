@@ -1,6 +1,6 @@
 using Godot;
 
-public partial class PickupPaddleResize : Pickup
+public partial class PaddleResize : Pickup
 {
 	[Export] private int _sizeChange = 1;
 

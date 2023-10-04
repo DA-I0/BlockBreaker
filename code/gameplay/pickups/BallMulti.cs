@@ -1,6 +1,6 @@
 using Godot;
 
-public partial class PickupBallMulti : Pickup
+public partial class BallMulti : Pickup
 {
 	[Export] private float _angleChange = 15f;
 

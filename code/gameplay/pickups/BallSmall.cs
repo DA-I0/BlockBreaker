@@ -1,6 +1,6 @@
 using Godot;
 
-public partial class PickupBallSmall : Pickup
+public partial class BallSmall : Pickup
 {
 	[Export] private float _newSize = 0.5f;
 

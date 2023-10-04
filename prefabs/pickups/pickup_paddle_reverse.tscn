@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://ccwj4m630w7qu"]
 
-[ext_resource type="Script" path="res://code/gameplay/pickups/PickupPaddleDirection.cs" id="1_quq2r"]
+[ext_resource type="Script" path="res://code/gameplay/pickups/PaddleSwapDirection.cs" id="1_quq2r"]
 [ext_resource type="Texture2D" uid="uid://befhyt14pkqnt" path="res://assets/sprites/pickups/pickup_paddle_reverse.png" id="2_dsgnp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ow3q6"]
@@ -23,6 +23,8 @@ centered = false
 offset = Vector2(-5, -5)
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(0.5, 0.5)
+scale = Vector2(0.85, 0.85)
 
 [connection signal="body_entered" from="." to="." method="OnBodyEntered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="OnScreenExited"]

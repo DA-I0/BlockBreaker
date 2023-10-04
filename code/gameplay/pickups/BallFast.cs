@@ -1,6 +1,6 @@
 using Godot;
 
-public partial class PickupBallFast : Pickup
+public partial class BallFast : Pickup
 {
 	[Export] private float _newSpeedMultiplier = 2f;
 

@@ -1,4 +1,4 @@
-public partial class PickupPaddleDirection : Pickup
+public partial class PaddleSwapDirection : Pickup
 {
 	protected override void ApplyPickup()
 	{

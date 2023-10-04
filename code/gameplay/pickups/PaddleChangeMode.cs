@@ -1,6 +1,6 @@
 using Godot;
 
-public partial class PickupPaddleMode : Pickup
+public partial class PaddleChangeMode : Pickup
 {
 	[Export] PaddleMode _paddleMode;
 

@@ -1,6 +1,6 @@
 using Godot;
 
-public partial class PickupSafetyNet : Pickup
+public partial class SafetyNet : Pickup
 {
 	protected override void ApplyPickup()
 	{
