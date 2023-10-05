@@ -16,7 +16,7 @@ public partial class UIChangelog : Panel
 	{
 		if (Visible)
 		{
-			_content.Text = refs.gameData.PatchNotes;
+			_content.Text = refs.gameData.Changelog;
 			_focusTarget.GrabFocus();
 		}
 	}

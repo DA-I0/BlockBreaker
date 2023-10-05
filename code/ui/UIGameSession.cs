@@ -53,7 +53,7 @@ public partial class UIGameSession : Node
 	private void UpdateScore(int score, int scoreMultiplier)
 	{
 		string multiplier = scoreMultiplier > 1 ? $"(x{scoreMultiplier})" : string.Empty;
-		_score.Text = $"{Tr("score")}: {score} {multiplier}";
+		_score.Text = $"{Tr("game_score")}: {score} {multiplier}";
 	}
 
 	private void UpdateLives(int lives)

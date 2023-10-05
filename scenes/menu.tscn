@@ -1,8 +1,7 @@
-[gd_scene load_steps=46 format=3 uid="uid://2bhhrfvm7kux"]
+[gd_scene load_steps=45 format=3 uid="uid://2bhhrfvm7kux"]
 
 [ext_resource type="Script" path="res://code/ui/UIController.cs" id="1_5ctlo"]
 [ext_resource type="PackedScene" uid="uid://brvyqbw1p1q8q" path="res://prefabs/ui/level_button.tscn" id="2_idrcj"]
-[ext_resource type="Script" path="res://code/system/LocalizationController.cs" id="3_e4dxu"]
 [ext_resource type="Texture2D" uid="uid://dkyo1knm2xxhn" path="res://assets/sprites/ui_elements/ui_frame.png" id="3_nmycr"]
 [ext_resource type="Theme" uid="uid://dj60ywofwk371" path="res://ui.theme" id="4_64s2n"]
 [ext_resource type="Script" path="res://code/ui/UIChangelog.cs" id="5_j3nyw"]
@@ -76,7 +75,6 @@ _menuButtons = NodePath("Control/MenuButtons")
 [node name="Control" type="Control" parent="."]
 z_index = 1
 layout_mode = 2
-script = ExtResource("3_e4dxu")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="Control"]
 layout_mode = 1
@@ -412,7 +410,7 @@ text = "diff_ball_speed"
 layout_mode = 2
 size_flags_horizontal = 3
 min_value = 0.5
-max_value = 2.0
+max_value = 1.5
 step = 0.1
 value = 0.5
 
