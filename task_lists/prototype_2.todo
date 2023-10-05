@@ -11,10 +11,10 @@ Prototype 2:
 			✔ Load from file @done(23-09-21 22:35)
 				✔ Default ones (resource) @done(23-09-21 22:35)
 				✔ Custom ones (asset) @done(23-09-21 22:35)
-		☐ High-score system
+		✔ High-score system @done(23-10-05 17:38)
 			✔ Struct @done(23-09-21 22:35)
 			✔ Store results between sessions @done(23-09-21 22:35)
-			☐ Let player input their name when joining top 10
+			✔ Let player input their name when joining top 10 @done(23-10-05 17:38)
 		☐ New functionality for dynamic elements
 			☐ Add repeating timed toggle for teleport door?
 			☐ Add on-map buttons that toggle connected element when hit with the ball?
@@ -40,7 +40,7 @@ Prototype 2:
 		☐ New animations
 			☐ Ball
 				☐ Kicking up dust particles (separate from fire trail used for fast ball)
-				☐ Getting sucked into whirpool
+				✔ Getting sucked into whirpool @done(23-10-02 22:05)
 			☐ Block
 				☐ Hit (shake?)
 				☐ Destruction
@@ -80,9 +80,9 @@ Prototype 2:
 	UI:
 		☐ Splash screen on map load (display map name/number)
 		✔ Loading screen @done(23-09-13 19:33)
-		☐ Game over screen
-			☐ Display end score
-			☐ Name input if reached top 10
+		✔ Game over screen @done(23-10-05 17:37)
+			✔ Display end score @done(23-10-05 17:37)
+			✔ Name input if reached top 10 @done(23-10-05 17:37)
 		✔ Highscore panel in main menu @done(23-09-21 23:00)
 		✔ Difficulty @done(23-10-03 16:15)
 			✔ Selection panel @done(23-10-03 16:15)
@@ -93,6 +93,7 @@ Prototype 2:
 			☐ Pickup display ordering (under ball, over ball)
 			☐ Controller icon style (generic, nintendo, playstation, xbox)?
 		☐ Improve main menu layout and theming
+		☐ Setup non-mouse controlls for all the panels and elements
 	Other:
 		☐ Add 1-2 translations (besides english)
 		☐ Secure leaderboard file from outside modification @low
