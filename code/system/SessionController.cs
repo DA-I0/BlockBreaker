@@ -1,6 +1,6 @@
 using Godot;
 
-public enum GameState { gameplay, menu, pause }
+public enum GameState { gameplay, menu, pause, gameOver }
 
 public partial class SessionController : Node
 {
@@ -37,6 +37,11 @@ public partial class SessionController : Node
 	public Difficulty SelectedDifficulty
 	{
 		get { return gameData.Difficulties[_currentDifficulty]; }
+	}
+
+	public bool IsCustomDifficultySelected
+	{
+		get { return _currentDifficulty > (gameData.DefaultDifficultyCount - 1); }
 	}
 
 	public string SelectedPaddle
@@ -107,7 +112,7 @@ public partial class SessionController : Node
 		else
 		{
 			_currentLevel = -1;
-			levelManager.LoadMenuScene();
+			ChangeGameState(GameState.gameOver);
 		}
 	}
 

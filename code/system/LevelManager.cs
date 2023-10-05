@@ -15,7 +15,6 @@ public partial class LevelManager : Node
 		uiNode = GetNode("../UI");
 		currentScene = GetNode("../CurrentScene");
 		loadingScreen = ResourceLoader.Load<PackedScene>("res://prefabs/ui/loading_screen.tscn").Instantiate();
-		((SessionController)GetParent().GetChild(0)).health.GameOver += LoadMenuScene;
 		LoadMenuScene();
 	}
 
