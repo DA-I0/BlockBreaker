@@ -13,15 +13,20 @@ public partial class UIPause : Control
 
 	public override void _Input(InputEvent @event)
 	{
-		if (@event.IsActionReleased("game_pause") && refs.CurrentGameState != GameState.menu)
+		if (@event.IsActionReleased("game_pause"))
 		{
-			if (refs.CurrentGameState == GameState.gameplay)
+			switch (refs.CurrentGameState)
 			{
-				refs.ChangeGameState(GameState.pause);
-			}
-			else
-			{
-				refs.ChangeGameState(GameState.gameplay);
+				case GameState.gameplay:
+					refs.ChangeGameState(GameState.pause);
+					break;
+
+				case GameState.pause:
+					refs.ChangeGameState(GameState.gameplay);
+					break;
+
+				default:
+					break;
 			}
 		}
 	}

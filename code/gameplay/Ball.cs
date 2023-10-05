@@ -49,6 +49,11 @@ public partial class Ball : CharacterBody2D
 
 	public override void _Input(InputEvent @event)
 	{
+		if (refs.CurrentGameState != GameState.gameplay)
+		{
+			return;
+		}
+
 		if (@event.IsActionPressed("game_play"))
 		{
 			switch (_ballMode)
@@ -60,10 +65,6 @@ public partial class Ball : CharacterBody2D
 
 				case BallMode.angleSelection:
 					Release();
-					break;
-
-				case BallMode.moving:
-					// Shake();
 					break;
 
 				default:

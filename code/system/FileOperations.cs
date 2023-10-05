@@ -64,23 +64,6 @@ public class FileOperations
 		}
 	}
 
-	// public string[] ReturnLocalizations()
-	// {
-	// 	return Directory.GetFiles(_refs.gameData.LocalizationFolder, "*.txt");
-	// }
-
-	// public string LoadLocalization(string name)
-	// {
-	// 	if (!Directory.Exists(_refs.gameData.LocalizationFolder))
-	// 	{
-	// 		return string.Empty;
-	// 	}
-
-	// 	string filePath = $"{_refs.gameData.LocalizationFolder}/{name}.txt";
-
-	// 	return LoadTextFile(filePath);
-	// }
-
 	public string LoadLeaderboard()
 	{
 		string content = LoadTextFile(_refs.gameData.CustomLeaderboardFilePath);

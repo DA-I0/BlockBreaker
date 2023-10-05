@@ -60,6 +60,11 @@ public partial class Paddle : CharacterBody2D
 
 	public override void _Input(InputEvent @event)
 	{
+		if (refs.CurrentGameState != GameState.gameplay)
+		{
+			return;
+		}
+
 		float inputHorizontal = 0;
 
 		if (@event is InputEventMouseMotion eventMouseMotion)
@@ -72,6 +77,11 @@ public partial class Paddle : CharacterBody2D
 
 	private void GetMovement()
 	{
+		if (refs.CurrentGameState != GameState.gameplay)
+		{
+			return;
+		}
+
 		float inputHorizontal;
 
 		switch (refs.settings.ActiveController)

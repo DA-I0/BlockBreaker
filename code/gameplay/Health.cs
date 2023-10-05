@@ -46,7 +46,7 @@ public partial class Health : Node
 
 	private void CheckForGameOver()
 	{
-		if (_lives < 0)
+		if (_lives < 1)
 		{
 			GameOver?.Invoke();
 		}

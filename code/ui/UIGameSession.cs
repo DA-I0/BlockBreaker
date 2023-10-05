@@ -60,7 +60,7 @@ public partial class UIGameSession : Node
 	{
 		for (int i = 0; i < _lives.GetChildCount(); i++)
 		{
-			((CanvasItem)_lives.GetChild(i)).Visible = i < lives;
+			((CanvasItem)_lives.GetChild(i)).Visible = i < (lives - 1);
 		}
 	}
 
