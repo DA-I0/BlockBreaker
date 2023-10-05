@@ -12,6 +12,7 @@ public partial class SessionController : Node
 	public GameData gameData;
 	public FileOperations fileOperations;
 	public Settings settings;
+	public LocalizationController localization;
 	[Export] public AudioController musicController;
 	[Export] public AudioController audioController;
 	[Export] public Score gameScore;
@@ -52,6 +53,7 @@ public partial class SessionController : Node
 	{
 		SetupReferences();
 		gameData.SetupData();
+		localization.UpdateUILocalization();
 	}
 
 	public void NotifyOfDeath()
@@ -64,6 +66,7 @@ public partial class SessionController : Node
 		gameData = new GameData(this);
 		fileOperations = new FileOperations(this);
 		settings = new Settings(this);
+		localization = new LocalizationController(this);
 
 		levelManager.ResetSession += ResetSession;
 		levelManager.SceneChanged += SetupGameElements;

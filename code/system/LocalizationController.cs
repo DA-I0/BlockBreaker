@@ -2,100 +2,36 @@ using System.Collections.Generic;
 using System.Linq;
 using Godot;
 
-public partial class LocalizationController : Node
+public partial class LocalizationController
 {
-	private InputType _controller = InputType.keyboard;
+	Dictionary<string, string> _customValues = new Dictionary<string, string>();
+	// 	Joypad Button 0 -> PS x,      X a,    N b
+	// 	Joypad Button 1 -> PS o,      X b,    N a
+	// 	Joypad Button 2 -> PS [],     X x,    N y
+	// 	Joypad Button 3 -> PS ^,      X y,    N x
+	// 	Joypad Button 4 -> PS select, X back, N -
+	// 	Joypad Button 5 -> PS PS,     X home, N home?
+	// 	Joypad Button 6 -> PS start,  X start, N+
+	// 	Joypad Button 7 -> left stick click
+	// 	Joypad Button 8 -> right stick click
+	// 	Joypad Button 9 -> left shoulder
+	// 	Joypad Button 10 -> right shoulder
+	// 	Joypad Button 11 -> d-pad up
+	// 	Joypad Button 12 -> d-pad down
+	// 	Joypad Button 13 -> d-pad left
+	// 	Joypad Button 14 -> d-pad right
 
-	Dictionary<string, string> _customValues = new Dictionary<string, string>()
+	private readonly SessionController refs;
+
+	public LocalizationController(SessionController sessionController)
 	{
-		{ "Mouse", "⑴" },
-		{ "Left Mouse Button", "⑵" },
-		{ "Right Mouse Button", "⑶" },
-		{ "1", "①" },
-		{ "2", "②" },
-		{ "3", "③" },
-		{ "4", "④" },
-		{ "5", "⑤" },
-		{ "6", "⑥" },
-		{ "7", "⑦" },
-		{ "8", "⑧" },
-		{ "9", "⑨" },
-		{ "0", "⓪" },
-		{ "A", "Ⓐ" },
-		{ "B", "Ⓑ" },
-		{ "C", "Ⓒ" },
-		{ "D", "Ⓓ" },
-		{ "E", "Ⓔ" },
-		{ "F", "Ⓕ" },
-		{ "G", "Ⓖ" },
-		{ "H", "Ⓗ" },
-		{ "I", "Ⓘ" },
-		{ "J", "Ⓙ" },
-		{ "K", "Ⓚ" },
-		{ "L", "Ⓛ" },
-		{ "M", "Ⓜ" },
-		{ "N", "Ⓝ" },
-		{ "O", "Ⓞ" },
-		{ "P", "Ⓟ" },
-		{ "Q", "Ⓠ" },
-		{ "R", "Ⓡ" },
-		{ "S", "Ⓢ" },
-		{ "T", "Ⓣ" },
-		{ "U", "Ⓤ" },
-		{ "V", "Ⓥ" },
-		{ "W", "Ⓦ" },
-		{ "X", "Ⓧ" },
-		{ "Y", "Ⓨ" },
-		{ "Z", "Ⓩ" },
-		{ "Alt", "⒃" },
-		{ "Ctrl", "⒄" },
-		{ "Enter", "⒅" },
-		{ "Escape", "⒆" },
-		{ "Shift", "⒂" },
-		{ "Space", "⒁" },
-		{ "Tab", "⒇" },
-		{ "Down", "⒞" },
-		{ "Left", "⒟" },
-		{ "Right", "⒠" },
-		{ "Up", "⒝" },
-		{ "Joypad Axis 0 -", "L⒯" },
-		{ "Joypad Motion on Axis 0", "⒯⒰" },
-		{ "Joypad Axis 0 +", "L⒰" },
-		{ "Joypad Button 0", "⒨" }, // x, Xa, Nb
-		{ "Joypad Button 1", "⒪" }, // o, xB, Na
-		{ "Joypad Button 2", "⒩" }, // [], Xx, Ny
-		{ "Joypad Button 3", "⒧" }, // ^, Xy, Nx
-		{ "Joypad Button 4", "⒱" }, // select, Xback, N-
-		{ "Joypad Button 5", "⓪" }, // PS, Xhome
-		{ "Joypad Button 6", "⒲" }, // start, N+
-		{ "Joypad Button 7", "L⒬" }, // left stick
-		{ "Joypad Button 8", "R⒬" }, // right stick
-		{ "Joypad Button 9", "⒒" }, // left shoulder
-		{ "Joypad Button 10", "⒓" }, // right shoulder
-		{ "Joypad Button 11", "⒢" }, // d-pad up
-		{ "Joypad Button 12", "⒣" }, // d-pad down
-		{ "Joypad Button 13", "⒤" }, // d-pad left
-		{ "Joypad Button 14", "⒥" }, // d-pad right
-		{ "block_health", "1" }, //
-		{ "sturdy_block_health", "3" }, //
-		{ "sturdy_barrier_health", "3" }, //
-		{ "multiplier_combo_step", "10" }, //
-		{ "multiplier_max", "9" }, //
-		{ "multiplier_max_combo", "5" }, //
-	};
-
-	private SessionController refs;
-
-	public override void _Ready()
-	{
-		refs = GetNode("/root/GameController/SessionController") as SessionController;
-		((UIController)GetParent()).RefreshUI += FindLabelsToTranslate;
-		FindLabelsToTranslate();
+		refs = sessionController;
+		LoadCustomValues();
 	}
 
-	private void FindLabelsToTranslate()
+	public void UpdateUILocalization()
 	{
-		List<Node> nodes = GetTree().GetNodesInGroup("manual_translation").ToList();
+		List<Node> nodes = refs.GetTree().GetNodesInGroup("manual_translation").ToList();
 
 		foreach (Node node in nodes)
 		{
@@ -103,9 +39,31 @@ public partial class LocalizationController : Node
 		}
 	}
 
+	private void LoadCustomValues()
+	{
+		_customValues.Clear();
+		string content = refs.fileOperations.LoadTextFile("res://assets/text/custom_text_values.txt");
+		ParseCustomValues(content);
+	}
+
+	private void ParseCustomValues(string content)
+	{
+		string[] splitContent = content.Split(";");
+
+		foreach (string line in splitContent)
+		{
+			string[] keyValuePair = line.Split(":");
+
+			if (keyValuePair.Count() == 2)
+			{
+				_customValues.Add(keyValuePair[0].Trim(), keyValuePair[1].Trim());
+			}
+		}
+	}
+
 	private void TranslateContent(RichTextLabel label)
 	{
-		string rawLocalization = Tr(label.Name);
+		string rawLocalization = TranslationServer.Translate(label.Name);
 		label.Text = InsertCustomValues(rawLocalization);
 	}
 
@@ -126,7 +84,7 @@ public partial class LocalizationController : Node
 		return modifiedString;
 	}
 
-	public string GetInputValues(string inputs)
+	private string GetInputValues(string inputs)
 	{
 		var inputEvents = InputMap.ActionGetEvents(inputs);
 		string inputValue = string.Empty;
@@ -157,7 +115,7 @@ public partial class LocalizationController : Node
 		return inputValue;
 	}
 
-	public string GetCustomValue(string key)
+	private string GetCustomValue(string key)
 	{
 		try
 		{

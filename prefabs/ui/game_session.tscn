@@ -176,8 +176,10 @@ offset_right = 51.0
 offset_bottom = 25.0
 grow_horizontal = 2
 
-[node name="Label" type="Label" parent="ExitPrompt/PanelContainer"]
+[node name="message_advance_to_next_map" type="RichTextLabel" parent="ExitPrompt/PanelContainer" groups=["manual_translation"]]
 layout_mode = 2
-text = "message_advance_to_next_map"
-horizontal_alignment = 1
-vertical_alignment = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "<advance_to_next_map>"
+fit_content = true
+autowrap_mode = 0
