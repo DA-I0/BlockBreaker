@@ -162,73 +162,73 @@ shape = SubResource("WorldBoundaryShape2D_37x88")
 position = Vector2(0, -65)
 shape = SubResource("WorldBoundaryShape2D_7jrrh")
 
-[node name="Blocks" type="Node" parent="."]
+[node name="Blocks" type="Node2D" parent="."]
 
 [node name="BlockBasic" parent="Blocks" instance=ExtResource("2_ph5yg")]
-position = Vector2(-80, -10)
+position = Vector2(-80, -13)
 
 [node name="BlockBasic2" parent="Blocks" instance=ExtResource("2_ph5yg")]
-position = Vector2(-64, -10)
+position = Vector2(-64, -13)
 
 [node name="BlockBasic3" parent="Blocks" instance=ExtResource("2_ph5yg")]
-position = Vector2(-48, -10)
+position = Vector2(-48, -13)
 
 [node name="BlockBasic4" parent="Blocks" instance=ExtResource("2_ph5yg")]
-position = Vector2(-32, -10)
+position = Vector2(-32, -13)
 
 [node name="BlockBasic5" parent="Blocks" instance=ExtResource("2_ph5yg")]
-position = Vector2(-16, -10)
+position = Vector2(-16, -13)
 
 [node name="BlockBasic6" parent="Blocks" instance=ExtResource("2_ph5yg")]
-position = Vector2(0, -10)
+position = Vector2(0, -13)
 
 [node name="BlockBasic7" parent="Blocks" instance=ExtResource("2_ph5yg")]
-position = Vector2(16, -10)
+position = Vector2(16, -13)
 
 [node name="BlockBasic8" parent="Blocks" instance=ExtResource("2_ph5yg")]
-position = Vector2(32, -10)
+position = Vector2(32, -13)
 
 [node name="BlockBasic9" parent="Blocks" instance=ExtResource("2_ph5yg")]
-position = Vector2(48, -10)
+position = Vector2(48, -13)
 
 [node name="BlockBasic10" parent="Blocks" instance=ExtResource("2_ph5yg")]
-position = Vector2(64, -10)
+position = Vector2(64, -13)
 
 [node name="BlockBasic11" parent="Blocks" instance=ExtResource("2_ph5yg")]
-position = Vector2(80, -10)
+position = Vector2(80, -13)
 
 [node name="BlockBasic12" parent="Blocks" instance=ExtResource("2_ph5yg")]
-position = Vector2(-80, -26)
+position = Vector2(-80, -29)
 
 [node name="BlockBasic13" parent="Blocks" instance=ExtResource("2_ph5yg")]
-position = Vector2(-64, -26)
+position = Vector2(-64, -29)
 
 [node name="BlockBasic14" parent="Blocks" instance=ExtResource("2_ph5yg")]
-position = Vector2(-48, -26)
+position = Vector2(-48, -29)
 
 [node name="BlockBasic15" parent="Blocks" instance=ExtResource("2_ph5yg")]
-position = Vector2(-32, -26)
+position = Vector2(-32, -29)
 
 [node name="BlockBasic16" parent="Blocks" instance=ExtResource("2_ph5yg")]
-position = Vector2(-16, -26)
+position = Vector2(-16, -29)
 
 [node name="BlockBasic17" parent="Blocks" instance=ExtResource("2_ph5yg")]
-position = Vector2(0, -26)
+position = Vector2(0, -29)
 
 [node name="BlockBasic18" parent="Blocks" instance=ExtResource("2_ph5yg")]
-position = Vector2(16, -26)
+position = Vector2(16, -29)
 
 [node name="BlockBasic19" parent="Blocks" instance=ExtResource("2_ph5yg")]
-position = Vector2(32, -26)
+position = Vector2(32, -29)
 
 [node name="BlockBasic20" parent="Blocks" instance=ExtResource("2_ph5yg")]
-position = Vector2(48, -26)
+position = Vector2(48, -29)
 
 [node name="BlockBasic21" parent="Blocks" instance=ExtResource("2_ph5yg")]
-position = Vector2(64, -26)
+position = Vector2(64, -29)
 
 [node name="BlockBasic22" parent="Blocks" instance=ExtResource("2_ph5yg")]
-position = Vector2(80, -26)
+position = Vector2(80, -29)
 
 [node name="BlockBasic23" parent="Blocks" instance=ExtResource("2_ph5yg")]
 position = Vector2(-80, -45)
