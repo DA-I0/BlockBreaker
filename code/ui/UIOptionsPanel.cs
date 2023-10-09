@@ -10,6 +10,7 @@ public partial class UIOptionsPanel : UIPanel
 	[Export] private CheckButton _fullscreen;
 	[Export] private OptionButton _resolution;
 	[Export] private CheckButton _screenShake;
+	[Export] private HSlider _backgroundBrightness;
 	[Export] private HSlider _masterVolume;
 	[Export] private HSlider _musicVolume;
 	[Export] private HSlider _effectsVolume;
@@ -29,6 +30,7 @@ public partial class UIOptionsPanel : UIPanel
 		_fullscreen.ButtonPressed = (refs.settings.ScreenMode > 0);
 		_resolution.Selected = FindOptionIndex(_resolution, $"{refs.settings.ScreenWidth}x{refs.settings.ScreenHeight}");
 		_screenShake.ButtonPressed = refs.settings.ScreenShake;
+		_backgroundBrightness.Value = refs.settings.BackgroundBrightness;
 		_masterVolume.Value = refs.settings.MasterVolume;
 		_musicVolume.Value = refs.settings.MusicVolume;
 		_effectsVolume.Value = refs.settings.EffectsVolume;
@@ -44,6 +46,7 @@ public partial class UIOptionsPanel : UIPanel
 		refs.settings.ScreenWidth = int.Parse(resolutionString.Split("x")[0]);
 		refs.settings.ScreenHeight = int.Parse(resolutionString.Split("x")[1]);
 		refs.settings.ScreenShake = _screenShake.ButtonPressed;
+		refs.settings.BackgroundBrightness = (float)_backgroundBrightness.Value;
 		refs.settings.MasterVolume = (float)_masterVolume.Value;
 		refs.settings.MasterVolume = (float)_masterVolume.Value;
 		refs.settings.MusicVolume = (float)_musicVolume.Value;

@@ -941,7 +941,7 @@ _keyboardSpeed = NodePath("ScrollContainer/Options/KeyboardSpeedSetting/Keyboard
 _fullscreen = NodePath("ScrollContainer/Options/FullscreenSetting/FullscreenToggle")
 _resolution = NodePath("ScrollContainer/Options/ResolutionSetting/ResolutionOptions")
 _screenShake = NodePath("ScrollContainer/Options/ScreenShakeSetting/ScreenShakeToggle")
-_backgroundBrightness = NodePath("")
+_backgroundBrightness = NodePath("ScrollContainer/Options/BackgroundSetting/BackgroundSlider")
 _masterVolume = NodePath("ScrollContainer/Options/MasterVolumeSetting/MasterVolumeSlider")
 _musicVolume = NodePath("ScrollContainer/Options/MusicVolumeSetting/MusicVolumeSlider")
 _effectsVolume = NodePath("ScrollContainer/Options/EffectsVolumeSetting/EffectsVolumeSlider")
@@ -1223,6 +1223,37 @@ focus_neighbor_bottom = NodePath("../../MasterVolumeSetting/MasterVolumeSlider")
 focus_next = NodePath("../../MasterVolumeSetting/MasterVolumeSlider")
 focus_previous = NodePath("../../ResolutionSetting/ResolutionOptions")
 flat = true
+
+[node name="BackgroundSetting" type="Control" parent="Control/OptionsPanel/ScrollContainer/Options"]
+custom_minimum_size = Vector2(0, 19)
+layout_mode = 2
+
+[node name="BackgroundLabel" type="Label" parent="Control/OptionsPanel/ScrollContainer/Options/BackgroundSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.4
+anchor_bottom = 1.0
+offset_left = 4.0
+text = "option_background_brightness"
+vertical_alignment = 1
+
+[node name="BackgroundSlider" type="HSlider" parent="Control/OptionsPanel/ScrollContainer/Options/BackgroundSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_right = -4.0
+focus_neighbor_top = NodePath("../../MusicVolumeSetting/MusicVolumeSlider")
+focus_neighbor_right = NodePath("../../../../OptionsButtons/ButtonConfirm")
+focus_neighbor_bottom = NodePath("../../../../OptionsButtons/ButtonConfirm")
+focus_next = NodePath("../../../../OptionsButtons/ButtonConfirm")
+focus_previous = NodePath("../../MusicVolumeSetting/MusicVolumeSlider")
+min_value = 0.4
+max_value = 1.0
+step = 0.1
+value = 1.0
 
 [node name="AudioHeader" type="Panel" parent="Control/OptionsPanel/ScrollContainer/Options"]
 custom_minimum_size = Vector2(0, 20)

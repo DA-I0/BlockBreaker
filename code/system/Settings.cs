@@ -10,13 +10,14 @@ public class Settings
 	private const int DefaultScreenWidth = 1280;
 	private const int DefaultScreenHeight = 1120;
 	private const bool DefaultScreenShake = true;
+	private const float DefaultBackgroundBrightness = 1f;
 	private const float DefaultMasterVolume = 0f;
 	private const float DefaultMusicVolume = -10f;
 	private const float DefaultEffectsVolume = -20f;
 	private const float DefaultMouseSpeed = 1f;
 	private const float DefaultKeyboardSpeed = 1f;
 
-	private InputType _activeController = global::InputType.keyboard;
+	private InputType _activeController = InputType.keyboard;
 	private ConfigFile _config;
 	private SessionController refs;
 
@@ -48,6 +49,12 @@ public class Settings
 	{
 		get { return (bool)_config.GetValue("display", "screen_shake", DefaultScreenShake); }
 		set { _config.SetValue("display", "screen_shake", value); }
+	}
+
+	public float BackgroundBrightness
+	{
+		get { return (float)_config.GetValue("display", "background_brightness", DefaultBackgroundBrightness); }
+		set { _config.SetValue("display", "background_brightness", value); }
 	}
 
 	public float MasterVolume
@@ -98,6 +105,7 @@ public class Settings
 		ScreenWidth = DefaultScreenWidth;
 		ScreenHeight = DefaultScreenHeight;
 		ScreenShake = DefaultScreenShake;
+		BackgroundBrightness = DefaultBackgroundBrightness;
 		MasterVolume = DefaultMasterVolume;
 		MusicVolume = DefaultMusicVolume;
 		EffectsVolume = DefaultEffectsVolume;

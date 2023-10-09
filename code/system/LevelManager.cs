@@ -10,10 +10,11 @@ public partial class LevelManager : Node
 	public event Notification ResetSession;
 	public event Notification SceneChanged;
 
+	SessionController refs;
+
 	public override void _Ready()
 	{
-		uiNode = GetNode("../UI");
-		currentScene = GetNode("../CurrentScene");
+		SetupReferences();
 		loadingScreen = ResourceLoader.Load<PackedScene>("res://prefabs/ui/loading_screen.tscn").Instantiate();
 		LoadMenuScene();
 	}
@@ -38,6 +39,14 @@ public partial class LevelManager : Node
 		SceneChanged?.Invoke();
 	}
 
+	private void SetupReferences()
+	{
+		uiNode = GetNode("../UI");
+		currentScene = GetNode("../CurrentScene");
+
+		refs = (SessionController)GetParent().GetChild(0);
+	}
+
 	private void ClearCurrentScene(Node parentNode)
 	{
 		if (parentNode.GetChildCount() > 0)
@@ -53,6 +62,12 @@ public partial class LevelManager : Node
 	{
 		ResourceLoader.LoadThreadedRequest(scenePath);
 		Node newScene = (ResourceLoader.LoadThreadedGet(scenePath) as PackedScene).Instantiate();
+
+		if (!scenePath.Contains("menu"))
+		{
+			TileMap mapBackground = (TileMap)newScene.GetChild(0);
+			mapBackground.Modulate = new Color(mapBackground.Modulate.R, mapBackground.Modulate.G, mapBackground.Modulate.B, refs.settings.BackgroundBrightness);
+		}
 
 		currentScene.CallDeferred("add_child", newScene);
 	}
