@@ -92,6 +92,7 @@ Prototype 2:
 			☐ Language selection @done(23-09-26 20:15)
 			☐ Pickup display ordering (under ball, over ball)
 			☐ Controller icon style (generic, nintendo, playstation, xbox)?
+			✔ Map background brightness (in case player needs gameplay elements to pop out more) @done(23-10-09 18:54)
 		☐ Improve main menu layout and theming
 		☐ Setup non-mouse controlls for all the panels and elements
 	Other:
