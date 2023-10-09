@@ -1,17 +1,13 @@
 using Godot;
 
-public partial class UIPaddleSelection : Panel
+public partial class UIPaddlePanel : UIPanel
 {
 	[Export] private TextureRect _paddleSprite;
 	private int _currentPaddle = 1;
 
-	private SessionController refs;
-	private UIController uiController;
-
 	public override void _Ready()
 	{
-		refs = GetNode("/root/GameController/SessionController") as SessionController;
-		uiController = (UIController)GetNode("../..");
+		SetupReferences();
 		UpdateDisplayedValues();
 	}
 

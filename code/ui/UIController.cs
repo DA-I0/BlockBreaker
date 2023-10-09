@@ -47,22 +47,17 @@ public partial class UIController : Node
 		{
 			TogglePanel("LeaderboardPanel");
 		}
+
 		ToggleMenuButtons();
 		RefreshUI?.Invoke();
+		refs.localization.UpdateUILocalization();
 	}
 
 	private void ToggleMenuButtons()
 	{
 		foreach (CanvasItem button in _menuButtons.GetChildren())
 		{
-			if (button.Name == "Return")
-			{
-				button.Visible = (_activePanel != "LeaderboardPanel");
-			}
-			else
-			{
-				button.Visible = (_activePanel == "LeaderboardPanel");
-			}
+			button.Visible = (_activePanel == "LeaderboardPanel");
 		}
 
 		if (((CanvasItem)_menuButtons.GetChild(0)).Visible)

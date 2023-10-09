@@ -1,7 +1,7 @@
 using System;
 using Godot;
 
-public partial class UIDifficultySelection : Panel
+public partial class UIDifficultyPanel : UIPanel
 {
 	[Export] private Label _name;
 	[Export] private LineEdit _newName;
@@ -29,16 +29,28 @@ public partial class UIDifficultySelection : Panel
 	private int _currentDifficulty = 0;
 	private bool _inEditMode = false;
 
-	private SessionController refs;
-	private UIController uiController;
 
 	public override void _Ready()
 	{
-		refs = GetNode("/root/GameController/SessionController") as SessionController;
-		uiController = (UIController)GetNode("../..");
+		SetupReferences();
 		ToggleEditorControls(false);
 		UpdateDisplayedValues();
 		UpdateEditorButtons();
+	}
+
+	protected override void Focus()
+	{
+		if (Visible)
+		{
+			if (_inEditMode)
+			{
+				_newName.GrabFocus();
+			}
+			else
+			{
+				_focusTarget.GrabFocus();
+			}
+		}
 	}
 
 	private void UpdateDisplayedValues()

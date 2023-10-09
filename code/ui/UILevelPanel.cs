@@ -1,15 +1,12 @@
 using Godot;
 
-public partial class UILevelSelection : Panel
+public partial class UILevelPanel : UIPanel
 {
 	[Export] private PackedScene _buttonPrefab;
 
-	private SessionController refs;
-
 	public override void _Ready()
 	{
-		refs = GetNode("/root/GameController/SessionController") as SessionController;
-		((UIController)GetNode("../..")).RefreshUI += Focus;
+		SetupReferences();
 		PopulateLevels();
 	}
 
@@ -19,15 +16,15 @@ public partial class UILevelSelection : Panel
 		{
 			UILevelButton newButton = (UILevelButton)_buttonPrefab.Instantiate();
 			newButton.ButtonSetup(index, refs.gameData.Levels[index]);
-			GetChild(0).AddChild(newButton);
+			GetChild(1).AddChild(newButton);
 		}
 	}
 
-	private void Focus()
+	protected override void Focus()
 	{
 		if (Visible)
 		{
-			((Button)GetChild(0).GetChild(0)).GrabFocus();
+			((Button)(GetChild(1).GetChild(0))).GrabFocus();
 		}
 	}
 }

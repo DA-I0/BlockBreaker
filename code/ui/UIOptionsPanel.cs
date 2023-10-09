@@ -2,25 +2,22 @@ using System.Collections.Generic;
 using System.Linq;
 using Godot;
 
-public partial class UIOptions : Panel
+public partial class UIOptionsPanel : UIPanel
 {
 	[Export] private OptionButton _language;
-	[Export] private CheckButton _fullscreen;
 	[Export] private HSlider _mouseSpeed;
 	[Export] private HSlider _keyboardSpeed;
+	[Export] private CheckButton _fullscreen;
 	[Export] private OptionButton _resolution;
 	[Export] private CheckButton _screenShake;
 	[Export] private HSlider _masterVolume;
 	[Export] private HSlider _musicVolume;
 	[Export] private HSlider _effectsVolume;
 
-	private SessionController refs;
-
 	public override void _Ready()
 	{
-		refs = GetNode("/root/GameController/SessionController") as SessionController;
-		((UIController)GetNode("../..")).RefreshUI += UpdateSettings;
-		((UIController)GetNode("../..")).RefreshUI += Focus;
+		SetupReferences();
+		UpdateSettings();
 		PopulateLanguageList();
 	}
 
@@ -47,6 +44,7 @@ public partial class UIOptions : Panel
 		refs.settings.ScreenWidth = int.Parse(resolutionString.Split("x")[0]);
 		refs.settings.ScreenHeight = int.Parse(resolutionString.Split("x")[1]);
 		refs.settings.ScreenShake = _screenShake.ButtonPressed;
+		refs.settings.MasterVolume = (float)_masterVolume.Value;
 		refs.settings.MasterVolume = (float)_masterVolume.Value;
 		refs.settings.MusicVolume = (float)_musicVolume.Value;
 		refs.settings.EffectsVolume = (float)_effectsVolume.Value;
@@ -101,13 +99,5 @@ public partial class UIOptions : Panel
 		}
 
 		return -1;
-	}
-
-	private void Focus()
-	{
-		if (Visible)
-		{
-			_language.GrabFocus();
-		}
 	}
 }

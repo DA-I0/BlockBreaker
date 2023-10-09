@@ -1,31 +1,31 @@
-[gd_scene load_steps=45 format=3 uid="uid://2bhhrfvm7kux"]
+[gd_scene load_steps=43 format=3 uid="uid://2bhhrfvm7kux"]
 
 [ext_resource type="Script" path="res://code/ui/UIController.cs" id="1_5ctlo"]
 [ext_resource type="PackedScene" uid="uid://brvyqbw1p1q8q" path="res://prefabs/ui/level_button.tscn" id="2_idrcj"]
 [ext_resource type="Texture2D" uid="uid://dkyo1knm2xxhn" path="res://assets/sprites/ui_elements/ui_frame.png" id="3_nmycr"]
 [ext_resource type="Theme" uid="uid://dj60ywofwk371" path="res://ui.theme" id="4_64s2n"]
-[ext_resource type="Script" path="res://code/ui/UIChangelog.cs" id="5_j3nyw"]
+[ext_resource type="Script" path="res://code/ui/UIPaddlePanel.cs" id="5_yyr40"]
 [ext_resource type="Script" path="res://code/ui/UILeaderboard.cs" id="6_3powx"]
-[ext_resource type="Script" path="res://code/ui/UIPaddleSelection.cs" id="6_304gv"]
-[ext_resource type="Script" path="res://code/ui/UILevelSelection.cs" id="6_la3rx"]
+[ext_resource type="Shortcut" uid="uid://b0g14u724bnvg" path="res://shortcuts/previous.tres" id="6_dwepl"]
 [ext_resource type="Texture2D" uid="uid://f7a58ge3hksa" path="res://assets/sprites/blocks/block_basic.png" id="7_26x0h"]
 [ext_resource type="Texture2D" uid="uid://bkkbuv1lumwpe" path="res://assets/sprites/ui_elements/icons/ui_icon_arrow_left.png" id="7_jq31p"]
-[ext_resource type="Script" path="res://code/ui/UIOptions.cs" id="7_ti3v4"]
 [ext_resource type="Texture2D" uid="uid://d0cnr320o626e" path="res://assets/sprites/blocks/block_sturdy_01.png" id="8_a12sc"]
 [ext_resource type="Texture2D" uid="uid://ct1i42wllkc35" path="res://assets/sprites/ui_elements/ui_frame_thin.png" id="8_dpkjf"]
-[ext_resource type="Script" path="res://code/ui/UIInfo.cs" id="8_dx3ap"]
 [ext_resource type="Texture2D" uid="uid://cy50s2cbk4uju" path="res://assets/sprites/ui_elements/icons/ui_icon_arrow_left_pressed.png" id="8_j01t3"]
 [ext_resource type="Texture2D" uid="uid://d2igfcna5mbgv" path="res://assets/sprites/ui_elements/icons/ui_icon_arrow_left_hover.png" id="9_2ddjg"]
 [ext_resource type="Texture2D" uid="uid://7d4eyxkvyukd" path="res://assets/sprites/blocks/barrier_basic.png" id="9_ps03f"]
 [ext_resource type="Texture2D" uid="uid://bnni5cj6uglbh" path="res://assets/sprites/blocks/barrier_sturdy_01.png" id="10_b3uxo"]
 [ext_resource type="Texture2D" uid="uid://bmqn8ykrxswu5" path="res://assets/sprites/ui_elements/icons/ui_icon_arrow_left_disabled.png" id="10_enfqf"]
 [ext_resource type="Texture2D" uid="uid://chk6oivvrr8nn" path="res://assets/sprites/ui_elements/icons/ui_icon_arrow_right.png" id="11_27sep"]
+[ext_resource type="Shortcut" uid="uid://dbejlkyilhqj6" path="res://shortcuts/next.tres" id="11_tce16"]
 [ext_resource type="Texture2D" uid="uid://1ucmb2n300ts" path="res://assets/sprites/ui_elements/icons/ui_icon_arrow_right_pressed.png" id="12_ovde2"]
 [ext_resource type="Texture2D" uid="uid://bkkudkcwwl8ml" path="res://assets/sprites/ui_elements/icons/ui_icon_arrow_right_hover.png" id="13_5d0sh"]
 [ext_resource type="Texture2D" uid="uid://bbd31fqk7ctsp" path="res://assets/sprites/ui_elements/icons/ui_icon_arrow_right_disabled.png" id="14_rbym7"]
 [ext_resource type="Texture2D" uid="uid://bdnrfv0eveohj" path="res://assets/sprites/paddles/paddle_1.png" id="15_4m24n"]
 [ext_resource type="Texture2D" uid="uid://c6d4r5rvlnwnj" path="res://assets/sprites/game_area.png" id="15_ppnoe"]
-[ext_resource type="Script" path="res://code/ui/UIDifficultySelection.cs" id="16_yn0pw"]
+[ext_resource type="Script" path="res://code/ui/UIDifficultyPanel.cs" id="15_swngl"]
+[ext_resource type="Shortcut" uid="uid://b5ydjlfn0ps7g" path="res://shortcuts/confirm.tres" id="16_dq4b3"]
+[ext_resource type="Shortcut" uid="uid://bhk5vranx2qfl" path="res://shortcuts/cancel.tres" id="17_c27yp"]
 [ext_resource type="Texture2D" uid="uid://cp27aowbjgp2l" path="res://assets/sprites/ui_elements/icons/ui_icon_remove.png" id="17_is4ul"]
 [ext_resource type="Texture2D" uid="uid://cf0h3lftyyhft" path="res://assets/sprites/ui_elements/icons/ui_icon_remove_pressed.png" id="18_p68cf"]
 [ext_resource type="Texture2D" uid="uid://bdp7f07yfa3ey" path="res://assets/sprites/ui_elements/icons/ui_icon_remove_hover.png" id="19_b1nm1"]
@@ -37,25 +37,11 @@
 [ext_resource type="Texture2D" uid="uid://83kany0im6u1" path="res://assets/sprites/ui_elements/icons/ui_icon_add.png" id="25_q7ksc"]
 [ext_resource type="Texture2D" uid="uid://n2wtamb35ikq" path="res://assets/sprites/ui_elements/icons/ui_icon_add_pressed.png" id="26_y7c7v"]
 [ext_resource type="Texture2D" uid="uid://b32gq7r2tvcf3" path="res://assets/sprites/ui_elements/icons/ui_icon_add_hover.png" id="27_ld2id"]
+[ext_resource type="Script" path="res://code/ui/UILevelPanel.cs" id="28_5o2bk"]
 [ext_resource type="Texture2D" uid="uid://bn53u7bjick3w" path="res://assets/sprites/ui_elements/icons/ui_icon_add_disabled.png" id="28_jvlsi"]
-
-[sub_resource type="InputEventAction" id="InputEventAction_ko8st"]
-action = &"ui_left"
-
-[sub_resource type="Shortcut" id="Shortcut_lwd8j"]
-events = [SubResource("InputEventAction_ko8st")]
-
-[sub_resource type="InputEventAction" id="InputEventAction_gwygv"]
-action = &"ui_right"
-
-[sub_resource type="Shortcut" id="Shortcut_aenor"]
-events = [SubResource("InputEventAction_gwygv")]
-
-[sub_resource type="InputEventAction" id="InputEventAction_0noqr"]
-action = &"ui_accept"
-
-[sub_resource type="Shortcut" id="Shortcut_7q1tm"]
-events = [SubResource("InputEventAction_0noqr")]
+[ext_resource type="Script" path="res://code/ui/UIInfoPanel.cs" id="30_g7tuq"]
+[ext_resource type="Script" path="res://code/ui/UIChangelogPanel.cs" id="36_xfcm0"]
+[ext_resource type="Script" path="res://code/ui/UIOptionsPanel.cs" id="37_7pgst"]
 
 [node name="Menu" type="AspectRatioContainer" node_paths=PackedStringArray("_gameTitle", "_menuButtons")]
 anchors_preset = 15
@@ -105,6 +91,54 @@ text = "<game_title>"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="MenuButtons" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.15
+anchor_right = 0.18
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = -5.0
+alignment = 2
+
+[node name="Play" type="Button" parent="Control/MenuButtons"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Exit")
+focus_neighbor_bottom = NodePath("../Info")
+focus_next = NodePath("../Info")
+focus_previous = NodePath("../Exit")
+text = "button_play"
+
+[node name="Info" type="Button" parent="Control/MenuButtons"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Play")
+focus_neighbor_bottom = NodePath("../Changelog")
+focus_next = NodePath("../Changelog")
+focus_previous = NodePath("../Play")
+text = "button_info"
+
+[node name="Changelog" type="Button" parent="Control/MenuButtons"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Info")
+focus_neighbor_bottom = NodePath("../Options")
+focus_next = NodePath("../Options")
+focus_previous = NodePath("../Info")
+text = "button_changelog"
+
+[node name="Options" type="Button" parent="Control/MenuButtons"]
+layout_mode = 2
+text = "button_options"
+
+[node name="Exit" type="Button" parent="Control/MenuButtons"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Options")
+focus_neighbor_bottom = NodePath("../Play")
+focus_next = NodePath("../Play")
+focus_previous = NodePath("../Options")
+text = "button_exit"
+
 [node name="LeaderboardPanel" type="Panel" parent="Control" node_paths=PackedStringArray("_playerNames", "_playerScore")]
 layout_mode = 1
 anchors_preset = -1
@@ -142,11 +176,9 @@ patch_margin_bottom = 4
 
 [node name="HeaderLabel" type="Label" parent="Control/LeaderboardPanel/Header"]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 2.0
-offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "header_leaderboard"
@@ -179,28 +211,48 @@ offset_bottom = -4.0
 text = "<score>"
 horizontal_alignment = 2
 
-[node name="PaddlePanel" type="Panel" parent="Control" node_paths=PackedStringArray("_paddleSprite")]
+[node name="PaddlePanel" type="Panel" parent="Control" node_paths=PackedStringArray("_paddleSprite", "_focusTarget")]
+visible = false
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.2
-anchor_top = 0.15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 1.0
+offset_left = 5.0
 offset_top = 5.0
 offset_right = -5.0
 offset_bottom = -5.0
-script = ExtResource("6_304gv")
+script = ExtResource("5_yyr40")
 _paddleSprite = NodePath("PaddleSprite")
+_focusTarget = NodePath("ConfirmPaddle")
 
-[node name="PreviousPaddle" type="TextureButton" parent="Control/PaddlePanel"]
+[node name="PaddleHeader" type="Panel" parent="Control/PaddlePanel"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+offset_bottom = 20.0
+
+[node name="PaddleHeaderLabel" type="Label" parent="Control/PaddlePanel/PaddleHeader"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "panel_paddle"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PreviousPaddle" type="TextureButton" parent="Control/PaddlePanel" node_paths=PackedStringArray("shortcut_context")]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.1
 anchor_bottom = 1.0
 grow_vertical = 2
 pivot_offset = Vector2(0, 50)
-shortcut = SubResource("Shortcut_lwd8j")
+focus_mode = 0
+shortcut_context = NodePath("..")
+shortcut = ExtResource("6_dwepl")
 texture_normal = ExtResource("7_jq31p")
 texture_pressed = ExtResource("8_j01t3")
 texture_hover = ExtResource("9_2ddjg")
@@ -208,7 +260,7 @@ texture_disabled = ExtResource("10_enfqf")
 texture_focused = ExtResource("9_2ddjg")
 stretch_mode = 5
 
-[node name="NextPaddle" type="TextureButton" parent="Control/PaddlePanel"]
+[node name="NextPaddle" type="TextureButton" parent="Control/PaddlePanel" node_paths=PackedStringArray("shortcut_context")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.9
@@ -217,7 +269,9 @@ anchor_bottom = 1.0
 grow_horizontal = 0
 grow_vertical = 2
 pivot_offset = Vector2(100, 50)
-shortcut = SubResource("Shortcut_aenor")
+focus_mode = 0
+shortcut_context = NodePath("..")
+shortcut = ExtResource("11_tce16")
 texture_normal = ExtResource("11_27sep")
 texture_pressed = ExtResource("12_ovde2")
 texture_hover = ExtResource("13_5d0sh")
@@ -239,63 +293,95 @@ texture = ExtResource("15_ppnoe")
 expand_mode = 5
 stretch_mode = 5
 
-[node name="ConfirmPaddle" type="Button" parent="Control/PaddlePanel"]
+[node name="ConfirmPaddle" type="Button" parent="Control/PaddlePanel" node_paths=PackedStringArray("shortcut_context")]
 layout_mode = 1
-anchors_preset = 7
+anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -29.0
-offset_top = -23.0
-offset_right = 29.0
+offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 0
-shortcut = SubResource("Shortcut_7q1tm")
+shortcut_context = NodePath("..")
+shortcut = ExtResource("16_dq4b3")
 text = "button_confirm"
 
-[node name="DifficultyPanel" type="Panel" parent="Control" node_paths=PackedStringArray("_name", "_newName", "_livesMax", "_livesMaxSlider", "_livesStart", "_livesStartSlider", "_ballSpeed", "_ballSpeedSlider", "_ballAngleSpeed", "_ballAngleSlider", "_paddleSizeMax", "_paddleSizeMaxSlider", "_paddleSizeStart", "_paddleSizeStartSlider", "_paddleSizeMin", "_paddleSizeMinSlider", "_nameEditControls", "_deleteDifficulty", "_editDifficulty", "_addDifficulty", "_cancelEdit")]
+[node name="Return" type="Button" parent="Control/PaddlePanel" node_paths=PackedStringArray("shortcut_context")]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.2
-anchor_top = 0.15
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_bottom = -5.0
+grow_vertical = 0
+focus_mode = 0
+shortcut_context = NodePath("..")
+shortcut = ExtResource("17_c27yp")
+text = "button_return"
+
+[node name="DifficultyPanel" type="Panel" parent="Control" node_paths=PackedStringArray("_name", "_newName", "_livesMax", "_livesMaxSlider", "_livesStart", "_livesStartSlider", "_ballSpeed", "_ballSpeedSlider", "_ballAngleSpeed", "_ballAngleSlider", "_paddleSizeMax", "_paddleSizeMaxSlider", "_paddleSizeStart", "_paddleSizeStartSlider", "_paddleSizeMin", "_paddleSizeMinSlider", "_nameEditControls", "_deleteDifficulty", "_editDifficulty", "_addDifficulty", "_cancelEdit", "_focusTarget")]
+visible = false
+layout_mode = 1
+anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 1.0
+offset_left = 5.0
 offset_top = 5.0
 offset_right = -5.0
 offset_bottom = -5.0
-script = ExtResource("16_yn0pw")
-_name = NodePath("VBoxContainer/Name/NameLabel")
-_newName = NodePath("VBoxContainer/Name/DifficultyNewName/LineEdit")
-_livesMax = NodePath("VBoxContainer/MaxLives/LivesMaxLabel")
-_livesMaxSlider = NodePath("VBoxContainer/MaxLives/LivesMaxSlider")
-_livesStart = NodePath("VBoxContainer/StartingLives/LivesStartLabel")
-_livesStartSlider = NodePath("VBoxContainer/StartingLives/LivesStartSlider")
-_ballSpeed = NodePath("VBoxContainer/BallSpeed/BallSpeedLabel")
-_ballSpeedSlider = NodePath("VBoxContainer/BallSpeed/BallSpeedSlider")
-_ballAngleSpeed = NodePath("VBoxContainer/AngleSelectSpeed/AngleSelectLabel")
-_ballAngleSlider = NodePath("VBoxContainer/AngleSelectSpeed/AngleSelectSlider")
-_paddleSizeMax = NodePath("VBoxContainer/MaxPaddleSize/PaddleSizeMaxLabel")
-_paddleSizeMaxSlider = NodePath("VBoxContainer/MaxPaddleSize/PaddleSizeMaxSlider")
-_paddleSizeStart = NodePath("VBoxContainer/StartPaddleSize/PaddleSizeStartLabel")
-_paddleSizeStartSlider = NodePath("VBoxContainer/StartPaddleSize/PaddleSizeStartSlider")
-_paddleSizeMin = NodePath("VBoxContainer/MinPaddleSize/PaddleSizeMinLabel")
-_paddleSizeMinSlider = NodePath("VBoxContainer/MinPaddleSize/PaddleSizeMinSlider")
-_nameEditControls = NodePath("VBoxContainer/Name/DifficultyNewName")
+script = ExtResource("15_swngl")
+_name = NodePath("DifficultyOptions/Name/NameLabel")
+_newName = NodePath("DifficultyOptions/Name/DifficultyNewName/LineEdit")
+_livesMax = NodePath("DifficultyOptions/MaxLives/LivesMaxLabel")
+_livesMaxSlider = NodePath("DifficultyOptions/MaxLives/LivesMaxSlider")
+_livesStart = NodePath("DifficultyOptions/StartingLives/LivesStartLabel")
+_livesStartSlider = NodePath("DifficultyOptions/StartingLives/LivesStartSlider")
+_ballSpeed = NodePath("DifficultyOptions/BallSpeed/BallSpeedLabel")
+_ballSpeedSlider = NodePath("DifficultyOptions/BallSpeed/BallSpeedSlider")
+_ballAngleSpeed = NodePath("DifficultyOptions/AngleSelectSpeed/AngleSelectLabel")
+_ballAngleSlider = NodePath("DifficultyOptions/AngleSelectSpeed/AngleSelectSlider")
+_paddleSizeMax = NodePath("DifficultyOptions/MaxPaddleSize/PaddleSizeMaxLabel")
+_paddleSizeMaxSlider = NodePath("DifficultyOptions/MaxPaddleSize/PaddleSizeMaxSlider")
+_paddleSizeStart = NodePath("DifficultyOptions/StartPaddleSize/PaddleSizeStartLabel")
+_paddleSizeStartSlider = NodePath("DifficultyOptions/StartPaddleSize/PaddleSizeStartSlider")
+_paddleSizeMin = NodePath("DifficultyOptions/MinPaddleSize/PaddleSizeMinLabel")
+_paddleSizeMinSlider = NodePath("DifficultyOptions/MinPaddleSize/PaddleSizeMinSlider")
+_nameEditControls = NodePath("DifficultyOptions/Name/DifficultyNewName")
 _deleteDifficulty = NodePath("CustomDifficultyButtons/DeleteDifficulty")
 _editDifficulty = NodePath("CustomDifficultyButtons/EditDifficulty")
 _addDifficulty = NodePath("CustomDifficultyButtons/AddDifficulty")
-_cancelEdit = NodePath("HBoxContainer/CancelEditor")
+_cancelEdit = NodePath("ConfirmationButtons/CancelEditor")
+_focusTarget = NodePath("DifficultyOptions")
 
-[node name="PreviousDifficulty" type="TextureButton" parent="Control/DifficultyPanel"]
+[node name="DifficultyHeader" type="Panel" parent="Control/DifficultyPanel"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+offset_bottom = 20.0
+
+[node name="DifficultyHeaderLabel" type="Label" parent="Control/DifficultyPanel/DifficultyHeader"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "panel_difficulty"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PreviousDifficulty" type="TextureButton" parent="Control/DifficultyPanel" node_paths=PackedStringArray("shortcut_context")]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.1
 anchor_bottom = 1.0
 grow_vertical = 2
 pivot_offset = Vector2(0, 50)
-shortcut = SubResource("Shortcut_lwd8j")
+focus_mode = 0
+shortcut_context = NodePath("..")
+shortcut = ExtResource("6_dwepl")
 texture_normal = ExtResource("7_jq31p")
 texture_pressed = ExtResource("8_j01t3")
 texture_hover = ExtResource("9_2ddjg")
@@ -303,7 +389,7 @@ texture_disabled = ExtResource("10_enfqf")
 texture_focused = ExtResource("9_2ddjg")
 stretch_mode = 5
 
-[node name="NextDifficulty" type="TextureButton" parent="Control/DifficultyPanel"]
+[node name="NextDifficulty" type="TextureButton" parent="Control/DifficultyPanel" node_paths=PackedStringArray("shortcut_context")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.9
@@ -312,7 +398,9 @@ anchor_bottom = 1.0
 grow_horizontal = 0
 grow_vertical = 2
 pivot_offset = Vector2(100, 50)
-shortcut = SubResource("Shortcut_aenor")
+focus_mode = 0
+shortcut_context = NodePath("..")
+shortcut = ExtResource("11_tce16")
 texture_normal = ExtResource("11_27sep")
 texture_pressed = ExtResource("12_ovde2")
 texture_hover = ExtResource("13_5d0sh")
@@ -320,20 +408,21 @@ texture_disabled = ExtResource("14_rbym7")
 texture_focused = ExtResource("13_5d0sh")
 stretch_mode = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/DifficultyPanel"]
+[node name="DifficultyOptions" type="VBoxContainer" parent="Control/DifficultyPanel"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.1
 anchor_right = 0.9
 anchor_bottom = 1.0
-offset_top = 5.0
-offset_bottom = -30.0
+offset_top = 24.0
+offset_bottom = -32.0
+focus_mode = 2
 
-[node name="Name" type="Control" parent="Control/DifficultyPanel/VBoxContainer"]
+[node name="Name" type="Control" parent="Control/DifficultyPanel/DifficultyOptions"]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="NameLabel" type="Label" parent="Control/DifficultyPanel/VBoxContainer/Name"]
+[node name="NameLabel" type="Label" parent="Control/DifficultyPanel/DifficultyOptions/Name"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -345,7 +434,7 @@ text = "<diff_name>"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="DifficultyNewName" type="HBoxContainer" parent="Control/DifficultyPanel/VBoxContainer/Name"]
+[node name="DifficultyNewName" type="HBoxContainer" parent="Control/DifficultyPanel/DifficultyOptions/Name"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -353,26 +442,26 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="NewNameLabel" type="Label" parent="Control/DifficultyPanel/VBoxContainer/Name/DifficultyNewName"]
+[node name="NewNameLabel" type="Label" parent="Control/DifficultyPanel/DifficultyOptions/Name/DifficultyNewName"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "diff_name"
 vertical_alignment = 1
 
-[node name="LineEdit" type="LineEdit" parent="Control/DifficultyPanel/VBoxContainer/Name/DifficultyNewName"]
+[node name="LineEdit" type="LineEdit" parent="Control/DifficultyPanel/DifficultyOptions/Name/DifficultyNewName"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MaxLives" type="HBoxContainer" parent="Control/DifficultyPanel/VBoxContainer"]
+[node name="MaxLives" type="HBoxContainer" parent="Control/DifficultyPanel/DifficultyOptions"]
 layout_mode = 2
 
-[node name="LivesMaxLabel" type="Label" parent="Control/DifficultyPanel/VBoxContainer/MaxLives"]
+[node name="LivesMaxLabel" type="Label" parent="Control/DifficultyPanel/DifficultyOptions/MaxLives"]
 layout_mode = 2
 size_flags_horizontal = 3
 auto_translate = false
 text = "diff_lives_start"
 
-[node name="LivesMaxSlider" type="HSlider" parent="Control/DifficultyPanel/VBoxContainer/MaxLives"]
+[node name="LivesMaxSlider" type="HSlider" parent="Control/DifficultyPanel/DifficultyOptions/MaxLives"]
 layout_mode = 2
 size_flags_horizontal = 3
 min_value = 1.0
@@ -380,16 +469,16 @@ max_value = 10.0
 value = 1.0
 rounded = true
 
-[node name="StartingLives" type="HBoxContainer" parent="Control/DifficultyPanel/VBoxContainer"]
+[node name="StartingLives" type="HBoxContainer" parent="Control/DifficultyPanel/DifficultyOptions"]
 layout_mode = 2
 
-[node name="LivesStartLabel" type="Label" parent="Control/DifficultyPanel/VBoxContainer/StartingLives"]
+[node name="LivesStartLabel" type="Label" parent="Control/DifficultyPanel/DifficultyOptions/StartingLives"]
 layout_mode = 2
 size_flags_horizontal = 3
 auto_translate = false
 text = "diff_lives_start"
 
-[node name="LivesStartSlider" type="HSlider" parent="Control/DifficultyPanel/VBoxContainer/StartingLives"]
+[node name="LivesStartSlider" type="HSlider" parent="Control/DifficultyPanel/DifficultyOptions/StartingLives"]
 layout_mode = 2
 size_flags_horizontal = 3
 min_value = 1.0
@@ -397,16 +486,16 @@ max_value = 10.0
 value = 1.0
 rounded = true
 
-[node name="BallSpeed" type="HBoxContainer" parent="Control/DifficultyPanel/VBoxContainer"]
+[node name="BallSpeed" type="HBoxContainer" parent="Control/DifficultyPanel/DifficultyOptions"]
 layout_mode = 2
 
-[node name="BallSpeedLabel" type="Label" parent="Control/DifficultyPanel/VBoxContainer/BallSpeed"]
+[node name="BallSpeedLabel" type="Label" parent="Control/DifficultyPanel/DifficultyOptions/BallSpeed"]
 layout_mode = 2
 size_flags_horizontal = 3
 auto_translate = false
 text = "diff_ball_speed"
 
-[node name="BallSpeedSlider" type="HSlider" parent="Control/DifficultyPanel/VBoxContainer/BallSpeed"]
+[node name="BallSpeedSlider" type="HSlider" parent="Control/DifficultyPanel/DifficultyOptions/BallSpeed"]
 layout_mode = 2
 size_flags_horizontal = 3
 min_value = 0.5
@@ -414,16 +503,16 @@ max_value = 1.5
 step = 0.1
 value = 0.5
 
-[node name="AngleSelectSpeed" type="HBoxContainer" parent="Control/DifficultyPanel/VBoxContainer"]
+[node name="AngleSelectSpeed" type="HBoxContainer" parent="Control/DifficultyPanel/DifficultyOptions"]
 layout_mode = 2
 
-[node name="AngleSelectLabel" type="Label" parent="Control/DifficultyPanel/VBoxContainer/AngleSelectSpeed"]
+[node name="AngleSelectLabel" type="Label" parent="Control/DifficultyPanel/DifficultyOptions/AngleSelectSpeed"]
 layout_mode = 2
 size_flags_horizontal = 3
 auto_translate = false
 text = "diff_angle_speed"
 
-[node name="AngleSelectSlider" type="HSlider" parent="Control/DifficultyPanel/VBoxContainer/AngleSelectSpeed"]
+[node name="AngleSelectSlider" type="HSlider" parent="Control/DifficultyPanel/DifficultyOptions/AngleSelectSpeed"]
 layout_mode = 2
 size_flags_horizontal = 3
 min_value = 0.5
@@ -431,16 +520,16 @@ max_value = 2.5
 step = 0.1
 value = 0.5
 
-[node name="MaxPaddleSize" type="HBoxContainer" parent="Control/DifficultyPanel/VBoxContainer"]
+[node name="MaxPaddleSize" type="HBoxContainer" parent="Control/DifficultyPanel/DifficultyOptions"]
 layout_mode = 2
 
-[node name="PaddleSizeMaxLabel" type="Label" parent="Control/DifficultyPanel/VBoxContainer/MaxPaddleSize"]
+[node name="PaddleSizeMaxLabel" type="Label" parent="Control/DifficultyPanel/DifficultyOptions/MaxPaddleSize"]
 layout_mode = 2
 size_flags_horizontal = 3
 auto_translate = false
 text = "diff_paddle_size_max"
 
-[node name="PaddleSizeMaxSlider" type="HSlider" parent="Control/DifficultyPanel/VBoxContainer/MaxPaddleSize"]
+[node name="PaddleSizeMaxSlider" type="HSlider" parent="Control/DifficultyPanel/DifficultyOptions/MaxPaddleSize"]
 layout_mode = 2
 size_flags_horizontal = 3
 min_value = 1.0
@@ -448,16 +537,16 @@ max_value = 8.0
 value = 1.0
 rounded = true
 
-[node name="StartPaddleSize" type="HBoxContainer" parent="Control/DifficultyPanel/VBoxContainer"]
+[node name="StartPaddleSize" type="HBoxContainer" parent="Control/DifficultyPanel/DifficultyOptions"]
 layout_mode = 2
 
-[node name="PaddleSizeStartLabel" type="Label" parent="Control/DifficultyPanel/VBoxContainer/StartPaddleSize"]
+[node name="PaddleSizeStartLabel" type="Label" parent="Control/DifficultyPanel/DifficultyOptions/StartPaddleSize"]
 layout_mode = 2
 size_flags_horizontal = 3
 auto_translate = false
 text = "diff_paddle_size_start"
 
-[node name="PaddleSizeStartSlider" type="HSlider" parent="Control/DifficultyPanel/VBoxContainer/StartPaddleSize"]
+[node name="PaddleSizeStartSlider" type="HSlider" parent="Control/DifficultyPanel/DifficultyOptions/StartPaddleSize"]
 layout_mode = 2
 size_flags_horizontal = 3
 min_value = 1.0
@@ -465,16 +554,16 @@ max_value = 8.0
 value = 1.0
 rounded = true
 
-[node name="MinPaddleSize" type="HBoxContainer" parent="Control/DifficultyPanel/VBoxContainer"]
+[node name="MinPaddleSize" type="HBoxContainer" parent="Control/DifficultyPanel/DifficultyOptions"]
 layout_mode = 2
 
-[node name="PaddleSizeMinLabel" type="Label" parent="Control/DifficultyPanel/VBoxContainer/MinPaddleSize"]
+[node name="PaddleSizeMinLabel" type="Label" parent="Control/DifficultyPanel/DifficultyOptions/MinPaddleSize"]
 layout_mode = 2
 size_flags_horizontal = 3
 auto_translate = false
 text = "diff_paddle_size_min"
 
-[node name="PaddleSizeMinSlider" type="HSlider" parent="Control/DifficultyPanel/VBoxContainer/MinPaddleSize"]
+[node name="PaddleSizeMinSlider" type="HSlider" parent="Control/DifficultyPanel/DifficultyOptions/MinPaddleSize"]
 layout_mode = 2
 size_flags_horizontal = 3
 min_value = 1.0
@@ -482,39 +571,39 @@ max_value = 8.0
 value = 1.0
 rounded = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/DifficultyPanel"]
+[node name="ConfirmationButtons" type="HBoxContainer" parent="Control/DifficultyPanel"]
 layout_mode = 1
-anchors_preset = 7
+anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -407.0
-offset_top = -23.0
-offset_right = 407.0
+offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 0
 alignment = 1
 
-[node name="ConfirmDifficulty" type="Button" parent="Control/DifficultyPanel/HBoxContainer"]
+[node name="ConfirmDifficulty" type="Button" parent="Control/DifficultyPanel/ConfirmationButtons" node_paths=PackedStringArray("shortcut_context")]
 layout_mode = 2
-shortcut = SubResource("Shortcut_7q1tm")
+shortcut_context = NodePath("../..")
+shortcut = ExtResource("16_dq4b3")
 text = "button_confirm"
 
-[node name="CancelEditor" type="Button" parent="Control/DifficultyPanel/HBoxContainer"]
+[node name="CancelEditor" type="Button" parent="Control/DifficultyPanel/ConfirmationButtons" node_paths=PackedStringArray("shortcut_context")]
 layout_mode = 2
-shortcut = SubResource("Shortcut_7q1tm")
+shortcut_context = NodePath("../..")
+shortcut = ExtResource("17_c27yp")
 text = "button_cancel"
 
 [node name="CustomDifficultyButtons" type="HBoxContainer" parent="Control/DifficultyPanel"]
 layout_mode = 1
-anchors_preset = 3
+anchors_preset = -1
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -44.0
-offset_top = -20.0
+offset_right = -5.0
+offset_bottom = -5.0
 grow_horizontal = 0
 grow_vertical = 0
 alignment = 2
@@ -543,20 +632,49 @@ texture_hover = ExtResource("27_ld2id")
 texture_disabled = ExtResource("28_jvlsi")
 texture_focused = ExtResource("27_ld2id")
 
+[node name="Return" type="Button" parent="Control/DifficultyPanel" node_paths=PackedStringArray("shortcut_context")]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_bottom = -5.0
+grow_vertical = 0
+focus_mode = 0
+shortcut_context = NodePath("..")
+shortcut = ExtResource("17_c27yp")
+text = "button_return"
+
 [node name="LevelPanel" type="Panel" parent="Control"]
 visible = false
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.2
-anchor_top = 0.15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 1.0
+offset_left = 5.0
 offset_top = 5.0
 offset_right = -5.0
 offset_bottom = -5.0
-script = ExtResource("6_la3rx")
+script = ExtResource("28_5o2bk")
 _buttonPrefab = ExtResource("2_idrcj")
+
+[node name="LevelHeader" type="Panel" parent="Control/LevelPanel"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+offset_bottom = 20.0
+
+[node name="LevelHeaderLabel" type="Label" parent="Control/LevelPanel/LevelHeader"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "panel_level"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Levels" type="GridContainer" parent="Control/LevelPanel"]
 layout_mode = 1
@@ -564,36 +682,64 @@ anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 4.0
-offset_top = 4.0
+offset_top = 22.0
 offset_right = -4.0
 offset_bottom = -4.0
 grow_horizontal = 2
 grow_vertical = 2
 columns = 5
 
+[node name="Return" type="Button" parent="Control/LevelPanel" node_paths=PackedStringArray("shortcut_context")]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_bottom = -5.0
+grow_vertical = 0
+focus_mode = 0
+shortcut_context = NodePath("..")
+shortcut = ExtResource("17_c27yp")
+text = "button_return"
+
 [node name="InfoPanel" type="Panel" parent="Control" node_paths=PackedStringArray("_focusTarget")]
 visible = false
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.2
-anchor_top = 0.15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 1.0
+offset_left = 5.0
 offset_top = 5.0
 offset_right = -5.0
 offset_bottom = -5.0
 focus_mode = 2
-script = ExtResource("8_dx3ap")
+script = ExtResource("30_g7tuq")
 _focusTarget = NodePath("ScrollContainer")
+
+[node name="InfoHeader" type="Panel" parent="Control/InfoPanel"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+
+[node name="InfoHeaderLabel" type="Label" parent="Control/InfoPanel/InfoHeader"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "panel_info"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Control/InfoPanel"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 4.0
-offset_top = 4.0
+offset_left = 5.0
+offset_top = 22.0
 offset_right = -4.0
 offset_bottom = -4.0
 focus_mode = 2
@@ -699,29 +845,57 @@ fit_content = true
 scroll_active = false
 shortcut_keys_enabled = false
 
-[node name="ChangelogPanel" type="Panel" parent="Control" node_paths=PackedStringArray("_focusTarget", "_content")]
+[node name="Return" type="Button" parent="Control/InfoPanel" node_paths=PackedStringArray("shortcut_context")]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_bottom = -5.0
+grow_vertical = 0
+shortcut_context = NodePath("..")
+shortcut = ExtResource("17_c27yp")
+text = "button_return"
+
+[node name="ChangelogPanel" type="Panel" parent="Control" node_paths=PackedStringArray("_content", "_focusTarget")]
 visible = false
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.2
-anchor_top = 0.15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 1.0
+offset_left = 5.0
 offset_top = 5.0
 offset_right = -5.0
 offset_bottom = -5.0
-script = ExtResource("5_j3nyw")
-_focusTarget = NodePath("ChangelogScrollContainer")
+script = ExtResource("36_xfcm0")
 _content = NodePath("ChangelogScrollContainer/ChangelogContent")
+_focusTarget = NodePath("ChangelogScrollContainer")
+
+[node name="ChangelogHeader" type="Panel" parent="Control/ChangelogPanel"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+offset_bottom = 20.0
+
+[node name="ChangelogHeaderLabel" type="Label" parent="Control/ChangelogPanel/ChangelogHeader"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "panel_changelog"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ChangelogScrollContainer" type="ScrollContainer" parent="Control/ChangelogPanel"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 4.0
-offset_top = 4.0
+offset_left = 5.0
+offset_top = 20.0
 offset_right = -4.0
 offset_bottom = -4.0
 grow_horizontal = 2
@@ -738,27 +912,40 @@ fit_content = true
 scroll_active = false
 shortcut_keys_enabled = false
 
-[node name="OptionsPanel" type="Panel" parent="Control" node_paths=PackedStringArray("_language", "_fullscreen", "_mouseSpeed", "_keyboardSpeed", "_resolution", "_screenShake", "_masterVolume", "_musicVolume", "_effectsVolume")]
+[node name="Return" type="Button" parent="Control/ChangelogPanel" node_paths=PackedStringArray("shortcut_context")]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_bottom = -5.0
+grow_vertical = 0
+shortcut_context = NodePath("..")
+shortcut = ExtResource("17_c27yp")
+text = "button_return"
+
+[node name="OptionsPanel" type="Panel" parent="Control" node_paths=PackedStringArray("_language", "_mouseSpeed", "_keyboardSpeed", "_fullscreen", "_resolution", "_screenShake", "_backgroundBrightness", "_masterVolume", "_musicVolume", "_effectsVolume", "_focusTarget")]
 visible = false
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.2
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 1.0
+offset_left = 5.0
 offset_top = 5.0
 offset_right = -5.0
 offset_bottom = -5.0
-script = ExtResource("7_ti3v4")
+script = ExtResource("37_7pgst")
 _language = NodePath("ScrollContainer/Options/LanguageSetting/LanguageOptions")
-_fullscreen = NodePath("ScrollContainer/Options/FullscreenSetting/FullscreenToggle")
 _mouseSpeed = NodePath("ScrollContainer/Options/MouseSpeedSetting/MouseSpeedSlider")
 _keyboardSpeed = NodePath("ScrollContainer/Options/KeyboardSpeedSetting/KeyboardSpeedSlider")
+_fullscreen = NodePath("ScrollContainer/Options/FullscreenSetting/FullscreenToggle")
 _resolution = NodePath("ScrollContainer/Options/ResolutionSetting/ResolutionOptions")
 _screenShake = NodePath("ScrollContainer/Options/ScreenShakeSetting/ScreenShakeToggle")
+_backgroundBrightness = NodePath("")
 _masterVolume = NodePath("ScrollContainer/Options/MasterVolumeSetting/MasterVolumeSlider")
 _musicVolume = NodePath("ScrollContainer/Options/MusicVolumeSetting/MusicVolumeSlider")
 _effectsVolume = NodePath("ScrollContainer/Options/EffectsVolumeSetting/EffectsVolumeSlider")
+_focusTarget = NodePath("ScrollContainer/Options/LanguageSetting/LanguageOptions")
 
 [node name="Background" type="NinePatchRect" parent="Control/OptionsPanel"]
 layout_mode = 1
@@ -778,7 +965,6 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -1.0
 offset_bottom = -26.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -790,30 +976,15 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="GeneralHeader" type="Control" parent="Control/OptionsPanel/ScrollContainer/Options"]
-custom_minimum_size = Vector2(0, 19)
+[node name="GeneralHeader" type="Panel" parent="Control/OptionsPanel/ScrollContainer/Options"]
+custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
-
-[node name="Background" type="NinePatchRect" parent="Control/OptionsPanel/ScrollContainer/Options/GeneralHeader"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("8_dpkjf")
-patch_margin_left = 4
-patch_margin_top = 5
-patch_margin_right = 4
-patch_margin_bottom = 4
 
 [node name="HeaderLabel" type="Label" parent="Control/OptionsPanel/ScrollContainer/Options/GeneralHeader"]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 2.0
-offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "header_general"
@@ -831,7 +1002,7 @@ anchor_right = 0.4
 anchor_bottom = 1.0
 offset_left = 4.0
 text = "option_language"
-vertical_alignment = 2
+vertical_alignment = 1
 
 [node name="LanguageOptions" type="OptionButton" parent="Control/OptionsPanel/ScrollContainer/Options/LanguageSetting"]
 layout_mode = 1
@@ -841,7 +1012,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 4.0
 offset_right = -4.0
-focus_neighbor_left = NodePath("../../../../../MenuButtons/Return")
 focus_neighbor_top = NodePath(".")
 focus_neighbor_right = NodePath("../../../../OptionsButtons/ButtonConfirm")
 focus_neighbor_bottom = NodePath("../../MouseSpeedSetting/MouseSpeedSlider")
@@ -859,7 +1029,7 @@ anchor_right = 0.4
 anchor_bottom = 1.0
 offset_left = 4.0
 text = "option_ui_controls"
-vertical_alignment = 2
+vertical_alignment = 1
 
 [node name="UIControlsOptions" type="OptionButton" parent="Control/OptionsPanel/ScrollContainer/Options/UIControlsSetting"]
 layout_mode = 1
@@ -869,7 +1039,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 4.0
 offset_right = -4.0
-focus_neighbor_left = NodePath("../../../../../MenuButtons/Return")
 focus_neighbor_top = NodePath(".")
 focus_neighbor_right = NodePath("../../../../OptionsButtons/ButtonConfirm")
 focus_neighbor_bottom = NodePath("../../MouseSpeedSetting/MouseSpeedSlider")
@@ -898,7 +1067,7 @@ anchor_right = 0.4
 anchor_bottom = 1.0
 offset_left = 4.0
 text = "option_mouse_speed"
-vertical_alignment = 2
+vertical_alignment = 1
 
 [node name="MouseSpeedSlider" type="HSlider" parent="Control/OptionsPanel/ScrollContainer/Options/MouseSpeedSetting"]
 layout_mode = 1
@@ -908,7 +1077,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 4.0
 offset_right = -4.0
-focus_neighbor_left = NodePath("../../../../../MenuButtons/Return")
 focus_neighbor_top = NodePath("../../LanguageSetting/LanguageOptions")
 focus_neighbor_right = NodePath("../../../../OptionsButtons/ButtonConfirm")
 focus_neighbor_bottom = NodePath("../../KeyboardSpeedSetting/KeyboardSpeedSlider")
@@ -930,7 +1098,7 @@ anchor_right = 0.4
 anchor_bottom = 1.0
 offset_left = 4.0
 text = "option_keyboard_speed"
-vertical_alignment = 2
+vertical_alignment = 1
 
 [node name="KeyboardSpeedSlider" type="HSlider" parent="Control/OptionsPanel/ScrollContainer/Options/KeyboardSpeedSetting"]
 layout_mode = 1
@@ -940,7 +1108,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 4.0
 offset_right = -4.0
-focus_neighbor_left = NodePath("../../../../../MenuButtons/Return")
 focus_neighbor_top = NodePath("../../MouseSpeedSetting/MouseSpeedSlider")
 focus_neighbor_right = NodePath("../../../../OptionsButtons/ButtonConfirm")
 focus_neighbor_bottom = NodePath("../../FullscreenSetting/FullscreenToggle")
@@ -951,30 +1118,15 @@ max_value = 2.0
 step = 0.1
 value = 1.0
 
-[node name="VideoHeader" type="Control" parent="Control/OptionsPanel/ScrollContainer/Options"]
-custom_minimum_size = Vector2(0, 19)
+[node name="VideoHeader" type="Panel" parent="Control/OptionsPanel/ScrollContainer/Options"]
+custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
-
-[node name="Background" type="NinePatchRect" parent="Control/OptionsPanel/ScrollContainer/Options/VideoHeader"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("8_dpkjf")
-patch_margin_left = 4
-patch_margin_top = 5
-patch_margin_right = 4
-patch_margin_bottom = 4
 
 [node name="HeaderLabel" type="Label" parent="Control/OptionsPanel/ScrollContainer/Options/VideoHeader"]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 2.0
-offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "header_video"
@@ -992,7 +1144,7 @@ anchor_right = 0.4
 anchor_bottom = 1.0
 offset_left = 4.0
 text = "option_fullscreen"
-vertical_alignment = 2
+vertical_alignment = 1
 
 [node name="FullscreenToggle" type="CheckButton" parent="Control/OptionsPanel/ScrollContainer/Options/FullscreenSetting"]
 layout_mode = 1
@@ -1002,7 +1154,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 4.0
 offset_right = -4.0
-focus_neighbor_left = NodePath("../../../../../MenuButtons/Return")
 focus_neighbor_top = NodePath("../../KeyboardSpeedSetting/KeyboardSpeedSlider")
 focus_neighbor_right = NodePath("../../../../OptionsButtons/ButtonConfirm")
 focus_neighbor_bottom = NodePath("../../ResolutionSetting/ResolutionOptions")
@@ -1021,7 +1172,7 @@ anchor_right = 0.4
 anchor_bottom = 1.0
 offset_left = 4.0
 text = "option_resolution"
-vertical_alignment = 2
+vertical_alignment = 1
 
 [node name="ResolutionOptions" type="OptionButton" parent="Control/OptionsPanel/ScrollContainer/Options/ResolutionSetting"]
 layout_mode = 1
@@ -1031,7 +1182,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 4.0
 offset_right = -4.0
-focus_neighbor_left = NodePath("../../../../../MenuButtons/Return")
 focus_neighbor_top = NodePath("../../FullscreenSetting/FullscreenToggle")
 focus_neighbor_right = NodePath("../../../../OptionsButtons/ButtonConfirm")
 focus_neighbor_bottom = NodePath("../../ScreenShakeSetting/ScreenShakeToggle")
@@ -1057,7 +1207,7 @@ anchor_right = 0.4
 anchor_bottom = 1.0
 offset_left = 4.0
 text = "option_screen_shake"
-vertical_alignment = 2
+vertical_alignment = 1
 
 [node name="ScreenShakeToggle" type="CheckButton" parent="Control/OptionsPanel/ScrollContainer/Options/ScreenShakeSetting"]
 layout_mode = 1
@@ -1067,7 +1217,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 4.0
 offset_right = -4.0
-focus_neighbor_left = NodePath("../../../../../MenuButtons/Return")
 focus_neighbor_top = NodePath("../../ResolutionSetting/ResolutionOptions")
 focus_neighbor_right = NodePath("../../../../OptionsButtons/ButtonConfirm")
 focus_neighbor_bottom = NodePath("../../MasterVolumeSetting/MasterVolumeSlider")
@@ -1075,30 +1224,15 @@ focus_next = NodePath("../../MasterVolumeSetting/MasterVolumeSlider")
 focus_previous = NodePath("../../ResolutionSetting/ResolutionOptions")
 flat = true
 
-[node name="AudioHeader" type="Control" parent="Control/OptionsPanel/ScrollContainer/Options"]
-custom_minimum_size = Vector2(0, 19)
+[node name="AudioHeader" type="Panel" parent="Control/OptionsPanel/ScrollContainer/Options"]
+custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
-
-[node name="Background" type="NinePatchRect" parent="Control/OptionsPanel/ScrollContainer/Options/AudioHeader"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("8_dpkjf")
-patch_margin_left = 4
-patch_margin_top = 5
-patch_margin_right = 4
-patch_margin_bottom = 4
 
 [node name="HeaderLabel" type="Label" parent="Control/OptionsPanel/ScrollContainer/Options/AudioHeader"]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 2.0
-offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "header_audio"
@@ -1116,7 +1250,7 @@ anchor_right = 0.4
 anchor_bottom = 1.0
 offset_left = 4.0
 text = "option_master_volume"
-vertical_alignment = 2
+vertical_alignment = 1
 
 [node name="MasterVolumeSlider" type="HSlider" parent="Control/OptionsPanel/ScrollContainer/Options/MasterVolumeSetting"]
 layout_mode = 1
@@ -1126,7 +1260,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 4.0
 offset_right = -4.0
-focus_neighbor_left = NodePath("../../../../../MenuButtons/Return")
 focus_neighbor_top = NodePath("../../ScreenShakeSetting/ScreenShakeToggle")
 focus_neighbor_right = NodePath("../../../../OptionsButtons/ButtonConfirm")
 focus_neighbor_bottom = NodePath("../../MusicVolumeSetting/MusicVolumeSlider")
@@ -1146,7 +1279,7 @@ anchor_right = 0.4
 anchor_bottom = 1.0
 offset_left = 4.0
 text = "option_music_volume"
-vertical_alignment = 2
+vertical_alignment = 1
 
 [node name="MusicVolumeSlider" type="HSlider" parent="Control/OptionsPanel/ScrollContainer/Options/MusicVolumeSetting"]
 layout_mode = 1
@@ -1156,7 +1289,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 4.0
 offset_right = -4.0
-focus_neighbor_left = NodePath("../../../../../MenuButtons/Return")
 focus_neighbor_top = NodePath("../../MasterVolumeSetting/MasterVolumeSlider")
 focus_neighbor_right = NodePath("../../../../OptionsButtons/ButtonConfirm")
 focus_neighbor_bottom = NodePath("../../EffectsVolumeSetting/EffectsVolumeSlider")
@@ -1176,7 +1308,7 @@ anchor_right = 0.4
 anchor_bottom = 1.0
 offset_left = 4.0
 text = "option_effects_volume"
-vertical_alignment = 2
+vertical_alignment = 1
 
 [node name="EffectsVolumeSlider" type="HSlider" parent="Control/OptionsPanel/ScrollContainer/Options/EffectsVolumeSetting"]
 layout_mode = 1
@@ -1186,7 +1318,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 4.0
 offset_right = -4.0
-focus_neighbor_left = NodePath("../../../../../MenuButtons/Return")
 focus_neighbor_top = NodePath("../../MusicVolumeSetting/MusicVolumeSlider")
 focus_neighbor_right = NodePath("../../../../OptionsButtons/ButtonConfirm")
 focus_neighbor_bottom = NodePath("../../../../OptionsButtons/ButtonConfirm")
@@ -1197,112 +1328,76 @@ max_value = 6.0
 
 [node name="OptionsButtons" type="HBoxContainer" parent="Control/OptionsPanel"]
 layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
+anchors_preset = -1
+anchor_left = 0.5
 anchor_top = 1.0
-anchor_right = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -158.0
-offset_top = -25.0
-offset_right = -1.0
-offset_bottom = -1.0
-grow_horizontal = 0
+offset_bottom = -5.0
+grow_horizontal = 2
 grow_vertical = 0
 alignment = 2
 
-[node name="ButtonConfirm" type="Button" parent="Control/OptionsPanel/OptionsButtons"]
+[node name="ButtonConfirm" type="Button" parent="Control/OptionsPanel/OptionsButtons" node_paths=PackedStringArray("shortcut_context")]
 layout_mode = 2
-focus_neighbor_left = NodePath("../../../MenuButtons/Return")
 focus_neighbor_top = NodePath("../../ScrollContainer/Options/EffectsVolumeSetting/EffectsVolumeSlider")
 focus_neighbor_right = NodePath("../ButtonCancel")
 focus_neighbor_bottom = NodePath("../../ScrollContainer/Options/LanguageSetting/LanguageOptions")
 focus_next = NodePath("../ButtonCancel")
 focus_previous = NodePath("../../ScrollContainer/Options/LanguageSetting/LanguageOptions")
+shortcut_context = NodePath("../..")
+shortcut = ExtResource("16_dq4b3")
 text = "button_confirm"
 
-[node name="ButtonCancel" type="Button" parent="Control/OptionsPanel/OptionsButtons"]
+[node name="ButtonCancel" type="Button" parent="Control/OptionsPanel/OptionsButtons" node_paths=PackedStringArray("shortcut_context")]
 layout_mode = 2
 focus_neighbor_left = NodePath("../ButtonConfirm")
 focus_neighbor_top = NodePath("../../ScrollContainer/Options/EffectsVolumeSetting/EffectsVolumeSlider")
-focus_neighbor_right = NodePath("../../../MenuButtons/Return")
 focus_neighbor_bottom = NodePath("../../ScrollContainer/Options/LanguageSetting/LanguageOptions")
 focus_next = NodePath("../../ScrollContainer/Options/LanguageSetting/LanguageOptions")
 focus_previous = NodePath("../ButtonConfirm")
+shortcut_context = NodePath("../..")
+shortcut = ExtResource("17_c27yp")
 text = "button_cancel"
 
-[node name="MenuButtons" type="VBoxContainer" parent="Control"]
+[node name="Return" type="Button" parent="Control/OptionsPanel" node_paths=PackedStringArray("shortcut_context")]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.15
-anchor_right = 0.18
+anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 5.0
-offset_top = 5.0
-offset_right = -5.0
 offset_bottom = -5.0
-alignment = 2
-
-[node name="Play" type="Button" parent="Control/MenuButtons"]
-layout_mode = 2
-focus_neighbor_top = NodePath("../Exit")
-focus_neighbor_bottom = NodePath("../Info")
-focus_next = NodePath("../Info")
-focus_previous = NodePath("../Exit")
-text = "button_play"
-
-[node name="Info" type="Button" parent="Control/MenuButtons"]
-layout_mode = 2
-focus_neighbor_top = NodePath("../Play")
-focus_neighbor_bottom = NodePath("../Changelog")
-focus_next = NodePath("../Changelog")
-focus_previous = NodePath("../Play")
-text = "button_info"
-
-[node name="Changelog" type="Button" parent="Control/MenuButtons"]
-layout_mode = 2
-focus_neighbor_top = NodePath("../Info")
-focus_neighbor_bottom = NodePath("../Options")
-focus_next = NodePath("../Options")
-focus_previous = NodePath("../Info")
-text = "button_changelog"
-
-[node name="Options" type="Button" parent="Control/MenuButtons"]
-layout_mode = 2
-text = "button_options"
-
-[node name="Exit" type="Button" parent="Control/MenuButtons"]
-layout_mode = 2
-focus_neighbor_top = NodePath("../Options")
-focus_neighbor_bottom = NodePath("../Play")
-focus_next = NodePath("../Play")
-focus_previous = NodePath("../Options")
-text = "button_exit"
-
-[node name="Return" type="Button" parent="Control/MenuButtons"]
-layout_mode = 2
+grow_vertical = 0
+shortcut_context = NodePath("..")
+shortcut = ExtResource("17_c27yp")
 text = "button_return"
 
-[connection signal="pressed" from="Control/PaddlePanel/PreviousPaddle" to="Control/PaddlePanel" method="ChangePaddle" binds= [false]]
-[connection signal="pressed" from="Control/PaddlePanel/NextPaddle" to="Control/PaddlePanel" method="ChangePaddle" binds= [true]]
-[connection signal="pressed" from="Control/PaddlePanel/ConfirmPaddle" to="Control/PaddlePanel" method="SelectPaddle"]
-[connection signal="pressed" from="Control/DifficultyPanel/PreviousDifficulty" to="Control/DifficultyPanel" method="ChangeDifficulty" binds= [false]]
-[connection signal="pressed" from="Control/DifficultyPanel/NextDifficulty" to="Control/DifficultyPanel" method="ChangeDifficulty" binds= [true]]
-[connection signal="value_changed" from="Control/DifficultyPanel/VBoxContainer/MaxLives/LivesMaxSlider" to="Control/DifficultyPanel" method="UpdateEditorValues"]
-[connection signal="value_changed" from="Control/DifficultyPanel/VBoxContainer/StartingLives/LivesStartSlider" to="Control/DifficultyPanel" method="UpdateEditorValues"]
-[connection signal="value_changed" from="Control/DifficultyPanel/VBoxContainer/BallSpeed/BallSpeedSlider" to="Control/DifficultyPanel" method="UpdateEditorValues"]
-[connection signal="value_changed" from="Control/DifficultyPanel/VBoxContainer/AngleSelectSpeed/AngleSelectSlider" to="Control/DifficultyPanel" method="UpdateEditorValues"]
-[connection signal="value_changed" from="Control/DifficultyPanel/VBoxContainer/MaxPaddleSize/PaddleSizeMaxSlider" to="Control/DifficultyPanel" method="UpdateEditorValues"]
-[connection signal="value_changed" from="Control/DifficultyPanel/VBoxContainer/StartPaddleSize/PaddleSizeStartSlider" to="Control/DifficultyPanel" method="UpdateEditorValues"]
-[connection signal="value_changed" from="Control/DifficultyPanel/VBoxContainer/MinPaddleSize/PaddleSizeMinSlider" to="Control/DifficultyPanel" method="UpdateEditorValues"]
-[connection signal="pressed" from="Control/DifficultyPanel/HBoxContainer/ConfirmDifficulty" to="Control/DifficultyPanel" method="Confirm"]
-[connection signal="pressed" from="Control/DifficultyPanel/HBoxContainer/CancelEditor" to="Control/DifficultyPanel" method="ToggleEditorControls" binds= [false]]
-[connection signal="pressed" from="Control/DifficultyPanel/CustomDifficultyButtons/EditDifficulty" to="Control/DifficultyPanel" method="EnableEditor" binds= [false]]
-[connection signal="pressed" from="Control/DifficultyPanel/CustomDifficultyButtons/AddDifficulty" to="Control/DifficultyPanel" method="EnableEditor" binds= [true]]
-[connection signal="pressed" from="Control/OptionsPanel/OptionsButtons/ButtonConfirm" to="Control/OptionsPanel" method="SaveSettings"]
-[connection signal="pressed" from="Control/OptionsPanel/OptionsButtons/ButtonCancel" to="Control/OptionsPanel" method="CancelSettings"]
 [connection signal="pressed" from="Control/MenuButtons/Play" to="." method="TogglePanel" binds= ["PaddlePanel"]]
 [connection signal="pressed" from="Control/MenuButtons/Info" to="." method="TogglePanel" binds= ["InfoPanel"]]
 [connection signal="pressed" from="Control/MenuButtons/Changelog" to="." method="TogglePanel" binds= ["ChangelogPanel"]]
 [connection signal="pressed" from="Control/MenuButtons/Options" to="." method="TogglePanel" binds= ["OptionsPanel"]]
 [connection signal="pressed" from="Control/MenuButtons/Exit" to="." method="ExitGame"]
-[connection signal="pressed" from="Control/MenuButtons/Return" to="." method="TogglePanel" binds= ["LeaderboardPanel"]]
+[connection signal="pressed" from="Control/PaddlePanel/PreviousPaddle" to="Control/PaddlePanel" method="ChangePaddle" binds= [false]]
+[connection signal="pressed" from="Control/PaddlePanel/NextPaddle" to="Control/PaddlePanel" method="ChangePaddle" binds= [true]]
+[connection signal="pressed" from="Control/PaddlePanel/ConfirmPaddle" to="Control/PaddlePanel" method="SelectPaddle"]
+[connection signal="pressed" from="Control/PaddlePanel/Return" to="." method="TogglePanel" binds= ["LeaderboardPanel"]]
+[connection signal="pressed" from="Control/DifficultyPanel/PreviousDifficulty" to="Control/DifficultyPanel" method="ChangeDifficulty" binds= [false]]
+[connection signal="pressed" from="Control/DifficultyPanel/NextDifficulty" to="Control/DifficultyPanel" method="ChangeDifficulty" binds= [true]]
+[connection signal="value_changed" from="Control/DifficultyPanel/DifficultyOptions/MaxLives/LivesMaxSlider" to="Control/DifficultyPanel" method="UpdateEditorValues"]
+[connection signal="value_changed" from="Control/DifficultyPanel/DifficultyOptions/StartingLives/LivesStartSlider" to="Control/DifficultyPanel" method="UpdateEditorValues"]
+[connection signal="value_changed" from="Control/DifficultyPanel/DifficultyOptions/BallSpeed/BallSpeedSlider" to="Control/DifficultyPanel" method="UpdateEditorValues"]
+[connection signal="value_changed" from="Control/DifficultyPanel/DifficultyOptions/AngleSelectSpeed/AngleSelectSlider" to="Control/DifficultyPanel" method="UpdateEditorValues"]
+[connection signal="value_changed" from="Control/DifficultyPanel/DifficultyOptions/MaxPaddleSize/PaddleSizeMaxSlider" to="Control/DifficultyPanel" method="UpdateEditorValues"]
+[connection signal="value_changed" from="Control/DifficultyPanel/DifficultyOptions/StartPaddleSize/PaddleSizeStartSlider" to="Control/DifficultyPanel" method="UpdateEditorValues"]
+[connection signal="value_changed" from="Control/DifficultyPanel/DifficultyOptions/MinPaddleSize/PaddleSizeMinSlider" to="Control/DifficultyPanel" method="UpdateEditorValues"]
+[connection signal="pressed" from="Control/DifficultyPanel/ConfirmationButtons/ConfirmDifficulty" to="Control/DifficultyPanel" method="Confirm"]
+[connection signal="pressed" from="Control/DifficultyPanel/ConfirmationButtons/CancelEditor" to="Control/DifficultyPanel" method="ToggleEditorControls" binds= [false]]
+[connection signal="pressed" from="Control/DifficultyPanel/CustomDifficultyButtons/EditDifficulty" to="Control/DifficultyPanel" method="EnableEditor" binds= [false]]
+[connection signal="pressed" from="Control/DifficultyPanel/CustomDifficultyButtons/AddDifficulty" to="Control/DifficultyPanel" method="EnableEditor" binds= [true]]
+[connection signal="pressed" from="Control/DifficultyPanel/Return" to="." method="TogglePanel" binds= ["PaddlePanel"]]
+[connection signal="pressed" from="Control/LevelPanel/Return" to="." method="TogglePanel" binds= ["DifficultyPanel"]]
+[connection signal="pressed" from="Control/InfoPanel/Return" to="." method="TogglePanel" binds= ["LeaderboardPanel"]]
+[connection signal="pressed" from="Control/ChangelogPanel/Return" to="." method="TogglePanel" binds= ["LeaderboardPanel"]]
+[connection signal="pressed" from="Control/OptionsPanel/OptionsButtons/ButtonConfirm" to="Control/OptionsPanel" method="SaveSettings"]
+[connection signal="pressed" from="Control/OptionsPanel/OptionsButtons/ButtonCancel" to="Control/OptionsPanel" method="CancelSettings"]
+[connection signal="pressed" from="Control/OptionsPanel/Return" to="." method="TogglePanel" binds= ["LeaderboardPanel"]]

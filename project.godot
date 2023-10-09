@@ -34,7 +34,7 @@ naming/default_signal_callback_to_self_name="On{SignalName}"
 [gui]
 
 theme/custom="res://ui.theme"
-theme/custom_font="res://assets/Silver.ttf"
+theme/custom_font="res://assets/Silver_adjusted.tres"
 theme/default_font_antialiasing=0
 
 [input]
