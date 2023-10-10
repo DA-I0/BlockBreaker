@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=3 uid="uid://3o4xaawp25f5"]
+
+[ext_resource type="PackedScene" uid="uid://so3bce2g2ii0" path="res://prefabs/decorations/death_pit_marker_single.tscn" id="2_bmjq0"]
+
+[node name="DeathPitMarkerLevel" type="Node2D"]
+modulate = Color(1, 1, 1, 0.784314)
+position = Vector2(0, 112)
+
+[node name="DeathPitWarning" parent="." instance=ExtResource("2_bmjq0")]
+position = Vector2(4, 0)
+
+[node name="DeathPitWarning7" parent="." instance=ExtResource("2_bmjq0")]
+position = Vector2(20, 3)
+
+[node name="DeathPitWarning8" parent="." instance=ExtResource("2_bmjq0")]
+position = Vector2(34, 6)
+
+[node name="DeathPitWarning9" parent="." instance=ExtResource("2_bmjq0")]
+position = Vector2(49, 1)
+
+[node name="DeathPitWarning10" parent="." instance=ExtResource("2_bmjq0")]
+position = Vector2(66, 3)
+
+[node name="DeathPitWarning11" parent="." instance=ExtResource("2_bmjq0")]
+position = Vector2(83, 0)
+
+[node name="DeathPitWarning2" parent="." instance=ExtResource("2_bmjq0")]
+position = Vector2(-12, 3)
+
+[node name="DeathPitWarning3" parent="." instance=ExtResource("2_bmjq0")]
+position = Vector2(-28, -1)
+
+[node name="DeathPitWarning4" parent="." instance=ExtResource("2_bmjq0")]
+position = Vector2(-50, 5)
+
+[node name="DeathPitWarning5" parent="." instance=ExtResource("2_bmjq0")]
+position = Vector2(-64, 2)
+
+[node name="DeathPitWarning6" parent="." instance=ExtResource("2_bmjq0")]
+position = Vector2(-84, 0)

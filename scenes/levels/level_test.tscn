@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://bu5ya82taokd3"]
+[gd_scene load_steps=12 format=3 uid="uid://bu5ya82taokd3"]
 
 [ext_resource type="Texture2D" uid="uid://clfnabf8ysvwd" path="res://assets/sprites/tilesets/map_tiles_bricked.png" id="1_5c5mi"]
 [ext_resource type="Texture2D" uid="uid://uadotagtweom" path="res://assets/sprites/tilesets/map_details_bricked.png" id="2_g58qi"]
-[ext_resource type="PackedScene" path="res://prefabs/blocks/block_basic.tscn" id="2_mbvls"]
+[ext_resource type="PackedScene" uid="uid://too80a13ex5u" path="res://prefabs/blocks/block_basic.tscn" id="2_mbvls"]
 [ext_resource type="PackedScene" uid="uid://cgpa7sf8jgxu8" path="res://prefabs/level_exit.tscn" id="3_cc6sw"]
+[ext_resource type="PackedScene" uid="uid://b8bq57bmas7sq" path="res://prefabs/pickups/pickup_ball_multi.tscn" id="5_wdnqv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y748h"]
 texture = ExtResource("1_5c5mi")
@@ -212,3 +213,6 @@ position = Vector2(-3, -31)
 
 [node name="LevelExit" parent="." instance=ExtResource("3_cc6sw")]
 position = Vector2(0, -63)
+
+[node name="PickupBallFast" parent="." instance=ExtResource("5_wdnqv")]
+position = Vector2(8, 30)

@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://ddl74mrmcw0qb"]
+[gd_scene load_steps=14 format=3 uid="uid://ddl74mrmcw0qb"]
 
 [ext_resource type="Texture2D" uid="uid://clfnabf8ysvwd" path="res://assets/sprites/tilesets/map_tiles_bricked.png" id="1_qmyep"]
 [ext_resource type="PackedScene" uid="uid://too80a13ex5u" path="res://prefabs/blocks/block_basic.tscn" id="2_0tlwp"]
+[ext_resource type="PackedScene" uid="uid://3o4xaawp25f5" path="res://prefabs/decorations/death_pit_marker_level.tscn" id="2_h857v"]
 [ext_resource type="PackedScene" uid="uid://clchdmucxr4xn" path="res://prefabs/blocks/block_sturdy.tscn" id="3_25bwf"]
 [ext_resource type="PackedScene" uid="uid://bg5r3twijp0e" path="res://prefabs/blocks/barrier_sturdy.tscn" id="4_2n8cg"]
 [ext_resource type="PackedScene" uid="uid://doawgt0jptjhp" path="res://prefabs/blocks/coffin.tscn" id="5_1gn76"]
@@ -205,6 +206,8 @@ shape = SubResource("WorldBoundaryShape2D_37x88")
 [node name="ColliderTop" type="CollisionShape2D" parent="MapColliders"]
 position = Vector2(0, -65)
 shape = SubResource("WorldBoundaryShape2D_7jrrh")
+
+[node name="DeathPitMarkerLevel" parent="." instance=ExtResource("2_h857v")]
 
 [node name="Blocks" type="Node2D" parent="."]
 

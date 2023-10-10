@@ -11,6 +11,7 @@ public class Settings
 	private const int DefaultScreenHeight = 1120;
 	private const bool DefaultScreenShake = true;
 	private const float DefaultBackgroundBrightness = 1f;
+	private const float DefaultHelperTransparency = 0.4f;
 	private const float DefaultMasterVolume = 0f;
 	private const float DefaultMusicVolume = -10f;
 	private const float DefaultEffectsVolume = -20f;
@@ -55,6 +56,12 @@ public class Settings
 	{
 		get { return (float)_config.GetValue("display", "background_brightness", DefaultBackgroundBrightness); }
 		set { _config.SetValue("display", "background_brightness", value); }
+	}
+
+	public float HelperTransparency
+	{
+		get { return (float)_config.GetValue("display", "helper_transparency", DefaultHelperTransparency); }
+		set { _config.SetValue("display", "helper_transparency", value); }
 	}
 
 	public float MasterVolume
@@ -106,6 +113,7 @@ public class Settings
 		ScreenHeight = DefaultScreenHeight;
 		ScreenShake = DefaultScreenShake;
 		BackgroundBrightness = DefaultBackgroundBrightness;
+		HelperTransparency = DefaultHelperTransparency;
 		MasterVolume = DefaultMasterVolume;
 		MusicVolume = DefaultMusicVolume;
 		EffectsVolume = DefaultEffectsVolume;

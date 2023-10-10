@@ -65,8 +65,10 @@ public partial class LevelManager : Node
 
 		if (!scenePath.Contains("menu"))
 		{
-			TileMap mapBackground = (TileMap)newScene.GetChild(0);
+			Node2D mapBackground = (Node2D)newScene.GetChild(0);
 			mapBackground.Modulate = new Color(mapBackground.Modulate.R, mapBackground.Modulate.G, mapBackground.Modulate.B, refs.settings.BackgroundBrightness);
+			Node2D deathPitAnimation = (Node2D)newScene.GetChild(2);
+			deathPitAnimation.Modulate = new Color(deathPitAnimation.Modulate.R, deathPitAnimation.Modulate.G, deathPitAnimation.Modulate.B, refs.settings.HelperTransparency);
 		}
 
 		currentScene.CallDeferred("add_child", newScene);

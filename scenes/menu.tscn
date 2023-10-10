@@ -10,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://f7a58ge3hksa" path="res://assets/sprites/blocks/block_basic.png" id="7_26x0h"]
 [ext_resource type="Texture2D" uid="uid://bkkbuv1lumwpe" path="res://assets/sprites/ui_elements/icons/ui_icon_arrow_left.png" id="7_jq31p"]
 [ext_resource type="Texture2D" uid="uid://d0cnr320o626e" path="res://assets/sprites/blocks/block_sturdy_01.png" id="8_a12sc"]
-[ext_resource type="Texture2D" uid="uid://ct1i42wllkc35" path="res://assets/sprites/ui_elements/ui_frame_thin.png" id="8_dpkjf"]
 [ext_resource type="Texture2D" uid="uid://cy50s2cbk4uju" path="res://assets/sprites/ui_elements/icons/ui_icon_arrow_left_pressed.png" id="8_j01t3"]
 [ext_resource type="Texture2D" uid="uid://d2igfcna5mbgv" path="res://assets/sprites/ui_elements/icons/ui_icon_arrow_left_hover.png" id="9_2ddjg"]
 [ext_resource type="Texture2D" uid="uid://7d4eyxkvyukd" path="res://assets/sprites/blocks/barrier_basic.png" id="9_ps03f"]
@@ -42,6 +41,8 @@
 [ext_resource type="Script" path="res://code/ui/UIInfoPanel.cs" id="30_g7tuq"]
 [ext_resource type="Script" path="res://code/ui/UIChangelogPanel.cs" id="36_xfcm0"]
 [ext_resource type="Script" path="res://code/ui/UIOptionsPanel.cs" id="37_7pgst"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4dctt"]
 
 [node name="Menu" type="AspectRatioContainer" node_paths=PackedStringArray("_gameTitle", "_menuButtons")]
 anchors_preset = 15
@@ -924,16 +925,16 @@ shortcut_context = NodePath("..")
 shortcut = ExtResource("17_c27yp")
 text = "button_return"
 
-[node name="OptionsPanel" type="Panel" parent="Control" node_paths=PackedStringArray("_language", "_mouseSpeed", "_keyboardSpeed", "_fullscreen", "_resolution", "_screenShake", "_backgroundBrightness", "_masterVolume", "_musicVolume", "_effectsVolume", "_focusTarget")]
-visible = false
+[node name="OptionsPanel" type="Panel" parent="Control" node_paths=PackedStringArray("_language", "_mouseSpeed", "_keyboardSpeed", "_fullscreen", "_resolution", "_screenShake", "_backgroundBrightness", "_helperTransparency", "_masterVolume", "_musicVolume", "_effectsVolume", "_focusTarget")]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 5.0
-offset_top = 5.0
-offset_right = -5.0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = -3.0
 offset_bottom = -5.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_4dctt")
 script = ExtResource("37_7pgst")
 _language = NodePath("ScrollContainer/Options/LanguageSetting/LanguageOptions")
 _mouseSpeed = NodePath("ScrollContainer/Options/MouseSpeedSetting/MouseSpeedSlider")
@@ -942,23 +943,11 @@ _fullscreen = NodePath("ScrollContainer/Options/FullscreenSetting/FullscreenTogg
 _resolution = NodePath("ScrollContainer/Options/ResolutionSetting/ResolutionOptions")
 _screenShake = NodePath("ScrollContainer/Options/ScreenShakeSetting/ScreenShakeToggle")
 _backgroundBrightness = NodePath("ScrollContainer/Options/BackgroundSetting/BackgroundSlider")
+_helperTransparency = NodePath("ScrollContainer/Options/HelperTransparencySetting/HelperTransparencySlider")
 _masterVolume = NodePath("ScrollContainer/Options/MasterVolumeSetting/MasterVolumeSlider")
 _musicVolume = NodePath("ScrollContainer/Options/MusicVolumeSetting/MusicVolumeSlider")
 _effectsVolume = NodePath("ScrollContainer/Options/EffectsVolumeSetting/EffectsVolumeSlider")
 _focusTarget = NodePath("ScrollContainer/Options/LanguageSetting/LanguageOptions")
-
-[node name="Background" type="NinePatchRect" parent="Control/OptionsPanel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("8_dpkjf")
-patch_margin_left = 3
-patch_margin_top = 4
-patch_margin_right = 3
-patch_margin_bottom = 3
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Control/OptionsPanel"]
 layout_mode = 1
@@ -1254,6 +1243,31 @@ min_value = 0.4
 max_value = 1.0
 step = 0.1
 value = 1.0
+
+[node name="HelperTransparencySetting" type="Control" parent="Control/OptionsPanel/ScrollContainer/Options"]
+custom_minimum_size = Vector2(0, 19)
+layout_mode = 2
+
+[node name="HelperTransparencyLabel" type="Label" parent="Control/OptionsPanel/ScrollContainer/Options/HelperTransparencySetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.4
+anchor_bottom = 1.0
+offset_left = 4.0
+text = "option_helper_transparency"
+vertical_alignment = 1
+
+[node name="HelperTransparencySlider" type="HSlider" parent="Control/OptionsPanel/ScrollContainer/Options/HelperTransparencySetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_right = -4.0
+max_value = 1.0
+step = 0.1
+value = 0.1
 
 [node name="AudioHeader" type="Panel" parent="Control/OptionsPanel/ScrollContainer/Options"]
 custom_minimum_size = Vector2(0, 20)
