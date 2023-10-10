@@ -83,7 +83,7 @@ public partial class UIGameSession : Node
 
 	private void UpdateTimer()
 	{
-		((Label)_exitTimer.GetChild(1)).Text = refs.gameScore.TimeLeft.ToString();
+		((Label)_exitTimer.GetChild(0)).Text = refs.gameScore.TimeLeft.ToString();
 	}
 
 	private void HideSkillIcon()
