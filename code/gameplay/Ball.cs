@@ -23,6 +23,7 @@ public partial class Ball : CharacterBody2D
 	[Export] private Sprite2D _arrow;
 	[Export] private Timer _arrowTimer;
 	[Export] private AnimationPlayer _animator;
+	[Export] private CpuParticles2D _particles;
 
 	private SessionController refs;
 
@@ -243,6 +244,7 @@ public partial class Ball : CharacterBody2D
 	private void ApplyModeValues()
 	{
 		_arrow.Visible = false;
+		_particles.Emitting = false;
 
 		switch (_ballMode)
 		{
@@ -254,6 +256,7 @@ public partial class Ball : CharacterBody2D
 			case BallMode.moving:
 				refs.paddle.SetPaddleState(PaddleState.idle);
 				_animator.Play("roll");
+				_particles.Emitting = true;
 				break;
 
 			case BallMode.spinning:
