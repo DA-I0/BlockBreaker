@@ -22,7 +22,6 @@ public partial class Ball : CharacterBody2D
 	[Export] private Sprite2D _sprite;
 	[Export] private Sprite2D _arrow;
 	[Export] private Timer _arrowTimer;
-	[Export] private CollisionShape2D _collider;
 	[Export] private AnimationPlayer _animator;
 
 	private SessionController refs;
@@ -44,7 +43,7 @@ public partial class Ball : CharacterBody2D
 
 	public float Size
 	{
-		get { return _collider.Scale.X; }
+		get { return Scale.X; }
 	}
 
 	public override void _Input(InputEvent @event)
@@ -150,8 +149,7 @@ public partial class Ball : CharacterBody2D
 
 	public void ChangeSize(float value)
 	{
-		_sprite.Scale = new Vector2(value, value);
-		_collider.Scale = new Vector2(value, value);
+		Scale = new Vector2(value, value);
 	}
 
 	public void ChangeRotation(float value)
