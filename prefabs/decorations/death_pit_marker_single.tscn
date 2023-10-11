@@ -50,6 +50,7 @@ _data = {
 
 [node name="DeathPitMarker" type="Node2D"]
 script = ExtResource("1_yjn13")
+_maxDelay = 1.5
 
 [node name="Sprite" type="Sprite2D" parent="."]
 position = Vector2(0, 10)

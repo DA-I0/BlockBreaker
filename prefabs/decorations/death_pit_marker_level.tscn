@@ -7,34 +7,28 @@ modulate = Color(1, 1, 1, 0.784314)
 position = Vector2(0, 112)
 
 [node name="DeathPitWarning" parent="." instance=ExtResource("2_bmjq0")]
-position = Vector2(4, 0)
+position = Vector2(0, 2)
 
 [node name="DeathPitWarning7" parent="." instance=ExtResource("2_bmjq0")]
-position = Vector2(20, 3)
-
-[node name="DeathPitWarning8" parent="." instance=ExtResource("2_bmjq0")]
-position = Vector2(34, 6)
+position = Vector2(21, 2)
 
 [node name="DeathPitWarning9" parent="." instance=ExtResource("2_bmjq0")]
-position = Vector2(49, 1)
-
-[node name="DeathPitWarning10" parent="." instance=ExtResource("2_bmjq0")]
-position = Vector2(66, 3)
+position = Vector2(42, 2)
 
 [node name="DeathPitWarning11" parent="." instance=ExtResource("2_bmjq0")]
-position = Vector2(83, 0)
+position = Vector2(84, 2)
 
 [node name="DeathPitWarning2" parent="." instance=ExtResource("2_bmjq0")]
-position = Vector2(-12, 3)
+position = Vector2(-21, 2)
 
 [node name="DeathPitWarning3" parent="." instance=ExtResource("2_bmjq0")]
-position = Vector2(-28, -1)
+position = Vector2(-42, 2)
 
 [node name="DeathPitWarning4" parent="." instance=ExtResource("2_bmjq0")]
-position = Vector2(-50, 5)
+position = Vector2(-63, 2)
 
 [node name="DeathPitWarning5" parent="." instance=ExtResource("2_bmjq0")]
-position = Vector2(-64, 2)
+position = Vector2(-84, 2)
 
 [node name="DeathPitWarning6" parent="." instance=ExtResource("2_bmjq0")]
-position = Vector2(-84, 0)
+position = Vector2(63, 2)
