@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://bam54mlcohbbx"]
+
+[ext_resource type="Script" path="res://code/gameplay/Breakable.cs" id="1_rk47a"]
+[ext_resource type="Texture2D" uid="uid://jspedcyfs2nc" path="res://assets/sprites/props/chair_down_01.png" id="2_buaay"]
+[ext_resource type="Texture2D" uid="uid://bfqrnlgwclry8" path="res://assets/sprites/props/chair_down_02.png" id="3_totox"]
+[ext_resource type="Texture2D" uid="uid://dw5plo03dxtmo" path="res://assets/sprites/props/chair_down_03.png" id="4_pcvoe"]
+[ext_resource type="Texture2D" uid="uid://c0l2nxhgie6re" path="res://assets/sprites/props/chair_down_04.png" id="5_tu516"]
+
+[node name="ChairDown" type="StaticBody2D"]
+z_index = 2
+script = ExtResource("1_rk47a")
+_pointValue = 2
+_maxHealth = 4
+_sprites = Array[Texture2D]([ExtResource("2_buaay"), ExtResource("3_totox"), ExtResource("4_pcvoe"), ExtResource("5_tu516")])
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(-3, -19)
+texture = ExtResource("2_buaay")
+centered = false
+
+[node name="LegCollider" type="CollisionPolygon2D" parent="."]
+position = Vector2(-0.74375, 0)
+scale = Vector2(1.4375, 1)
+polygon = PackedVector2Array(2.60435, 0, 2.60435, -1, 3.3, -1, 3.3, 0)
+
+[node name="LegCollider2" type="CollisionPolygon2D" parent="."]
+position = Vector2(-4, 0)
+polygon = PackedVector2Array(1, 0, 1, -1, 2, -1, 2, 0)
+
+[node name="LegCollider3" type="CollisionPolygon2D" parent="."]
+position = Vector2(0, -5)
+polygon = PackedVector2Array(2, 0, 2, -1, 4, -1, 4, 0)
+
+[node name="LegCollider4" type="CollisionPolygon2D" parent="."]
+position = Vector2(-5, -5)
+polygon = PackedVector2Array(2, 0, 2, -1, 4, -1, 4, 0)
