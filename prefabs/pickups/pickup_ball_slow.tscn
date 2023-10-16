@@ -1,17 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://cnvdvox3cga5v"]
+[gd_scene load_steps=4 format=3 uid="uid://r3x55smb3e0x"]
 
-[ext_resource type="Script" path="res://code/gameplay/pickups/BallChangeSpeed.cs" id="1_hht0u"]
-[ext_resource type="Texture2D" uid="uid://gq8cpwfylt5w" path="res://assets/sprites/pickups/pickup_ball_fast.png" id="2_ak6kd"]
+[ext_resource type="Script" path="res://code/gameplay/pickups/BallChangeSpeed.cs" id="1_ikv57"]
+[ext_resource type="Texture2D" uid="uid://bqsvyrk6qmrin" path="res://assets/sprites/pickups/pickup_ball_slow.png" id="2_m5fq2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ow3q6"]
 radius = 6.0
 
-[node name="PickupBallFast" type="Area2D"]
+[node name="PickupBallSlow" type="Area2D"]
 collision_layer = 8
 collision_mask = 4
 monitorable = false
-script = ExtResource("1_hht0u")
-_speedChange = 0.5
+script = ExtResource("1_ikv57")
+_speedChange = -0.5
 _speed = 35.0
 
 [node name="Collider" type="CollisionShape2D" parent="."]
@@ -19,7 +19,7 @@ position = Vector2(0.5, 0.5)
 shape = SubResource("CircleShape2D_ow3q6")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-texture = ExtResource("2_ak6kd")
+texture = ExtResource("2_m5fq2")
 centered = false
 offset = Vector2(-5, -5)
 

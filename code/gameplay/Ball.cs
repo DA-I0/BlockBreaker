@@ -4,6 +4,9 @@ public enum BallMode { idle, angleSelection, moving, frozen, spinning };
 
 public partial class Ball : CharacterBody2D
 {
+	private const float MaxBallSpeedMultiplier = 1.5f;
+	private const float MinBallSpeedMultiplier = 0.5f;
+
 	private BallMode _ballMode = BallMode.idle;
 
 	[Export] private int _maxReleaseAngle = 60;
@@ -40,6 +43,12 @@ public partial class Ball : CharacterBody2D
 	public float SpeedMultiplier
 	{
 		get { return _speedMultiplier; }
+		set
+		{
+			_speedMultiplier = value;
+			CheckSpeedMultiplierLimits();
+			UpdateSpeed();
+		}
 	}
 
 	public float Size
@@ -111,7 +120,7 @@ public partial class Ball : CharacterBody2D
 		{
 			Position = sourceBall.Position;
 			ChangeSize(sourceBall.Size);
-			ChangeSpeedMultiplier(sourceBall.SpeedMultiplier);
+			SpeedMultiplier = sourceBall.SpeedMultiplier;
 			Release();
 			ChangeRotation(sourceBall.RotationDegrees + angleChange);
 		}
@@ -119,7 +128,7 @@ public partial class Ball : CharacterBody2D
 
 	public void Reset()
 	{
-		ChangeSpeedMultiplier(1f);
+		SpeedMultiplier = 1f;
 		ChangeSize(1f);
 		StateReset();
 	}
@@ -138,8 +147,7 @@ public partial class Ball : CharacterBody2D
 
 	public void ChangeSpeedMultiplier(float value)
 	{
-		_speedMultiplier = value;
-		UpdateSpeed();
+		SpeedMultiplier += value;
 	}
 
 	public void ChangeTempSpeedMultiplier(float value)
@@ -202,6 +210,19 @@ public partial class Ball : CharacterBody2D
 		if (collision.GetCollider() == refs.paddle)
 		{
 			refs.paddle.ApplyPaddleEffect(this);
+		}
+	}
+
+	private void CheckSpeedMultiplierLimits()
+	{
+		if (_speedMultiplier > MaxBallSpeedMultiplier)
+		{
+			_speedMultiplier = MaxBallSpeedMultiplier;
+		}
+
+		if (_speedMultiplier < MinBallSpeedMultiplier)
+		{
+			_speedMultiplier = MinBallSpeedMultiplier;
 		}
 	}
 
