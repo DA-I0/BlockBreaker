@@ -14,7 +14,7 @@ public partial class Breakable : StaticBody2D
 	public override void _Ready()
 	{
 		_sprite = GetNode("Sprite") as Sprite2D;
-		refs = GetNode("/root/GameController/SessionController") as SessionController;
+		refs = GetNode("/root/GameController") as SessionController;
 		SetInitialValues();
 		AdjustSprite();
 	}

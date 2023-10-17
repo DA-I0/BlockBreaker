@@ -16,7 +16,6 @@ public partial class LevelManager : Node
 	{
 		SetupReferences();
 		loadingScreen = ResourceLoader.Load<PackedScene>("res://prefabs/ui/loading_screen.tscn").Instantiate();
-		LoadMenuScene();
 	}
 
 	public void LoadMenuScene()
@@ -44,7 +43,7 @@ public partial class LevelManager : Node
 		uiNode = GetNode("../UI");
 		currentScene = GetNode("../CurrentScene");
 
-		refs = (SessionController)GetParent().GetChild(0);
+		refs = (SessionController)GetParent();
 	}
 
 	private void ClearCurrentScene(Node parentNode)

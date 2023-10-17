@@ -14,7 +14,7 @@ public partial class UIPanel : Panel
 
 	protected void SetupReferences()
 	{
-		refs = GetNode("/root/GameController/SessionController") as SessionController;
+		refs = GetNode("/root/GameController") as SessionController;
 		uiController = (UIController)GetNode("../..");
 		uiController.RefreshUI += Focus;
 	}

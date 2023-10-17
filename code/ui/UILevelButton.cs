@@ -8,7 +8,7 @@ public partial class UILevelButton : Button
 
 	public override void _Ready()
 	{
-		refs = GetNode("/root/GameController/SessionController") as SessionController;
+		refs = GetNode("/root/GameController") as SessionController;
 	}
 
 	public void ButtonSetup(int index, string fileName)

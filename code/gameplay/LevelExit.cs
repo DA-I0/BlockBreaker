@@ -13,7 +13,7 @@ public partial class LevelExit : Node
 	{
 		_blockParent = GetNode("../Blocks");
 		_blockParent.ChildExitingTree += CheckLevelProgress;
-		refs = GetNode("/root/GameController/SessionController") as SessionController;
+		refs = GetNode("/root/GameController") as SessionController;
 
 		UpdateLevelExit();
 	}

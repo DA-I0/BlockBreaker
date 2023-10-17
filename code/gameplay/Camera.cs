@@ -23,7 +23,7 @@ public partial class Camera : Camera2D
 		_defaultPosition = Position;
 		_timer = GetChild(0) as Timer;
 
-		refs = GetParent().GetChild(0) as SessionController;
+		refs = GetParent() as SessionController;
 		refs.SkillUsed += Shake;
 	}
 

@@ -57,8 +57,7 @@ public partial class SessionController : Node
 	public override void _Ready()
 	{
 		SetupReferences();
-		gameData.SetupData();
-		localization.UpdateUILocalization();
+		SetupInitialValues();
 	}
 
 	public void NotifyOfDeath()
@@ -75,6 +74,13 @@ public partial class SessionController : Node
 
 		levelManager.ResetSession += ResetSession;
 		levelManager.SceneChanged += SetupGameElements;
+	}
+
+	private void SetupInitialValues()
+	{
+		gameData.SetupData();
+		localization.UpdateUILocalization();
+		levelManager.LoadMenuScene();
 	}
 
 	private void SetupGameElements()

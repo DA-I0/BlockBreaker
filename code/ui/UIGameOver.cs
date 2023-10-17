@@ -18,7 +18,7 @@ public partial class UIGameOver : Control
 
 	private void SetupReferences()
 	{
-		refs = GetNode("/root/GameController/SessionController") as SessionController;
+		refs = GetNode("/root/GameController") as SessionController;
 		refs.GameSetup += TogglePrompt;
 		refs.levelManager.ResetSession += TogglePrompt;
 		refs.GameStateChanged += DisplayVictoryPrompt;

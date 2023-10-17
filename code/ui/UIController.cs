@@ -15,7 +15,7 @@ public partial class UIController : Node
 
 	public override void _Ready()
 	{
-		refs = GetNode("/root/GameController/SessionController") as SessionController;
+		refs = GetNode("/root/GameController") as SessionController;
 
 		FindPanels();
 		HideAllPanels();

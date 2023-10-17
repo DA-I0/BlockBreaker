@@ -6,7 +6,7 @@ public partial class UIPause : Control
 
 	public override void _Ready()
 	{
-		refs = GetNode("/root/GameController/SessionController") as SessionController;
+		refs = GetNode("/root/GameController") as SessionController;
 		refs.GameStateChanged += TogglePausePanel;
 		TogglePausePanel();
 	}

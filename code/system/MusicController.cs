@@ -6,7 +6,7 @@ public partial class MusicController : AudioController
 
 	public override void _Ready()
 	{
-		SessionController tempRef = (SessionController)GetParent().GetChild(0);
+		SessionController tempRef = (SessionController)GetParent();
 		tempRef.levelManager.ResetSession += PlayMenuMusic;
 		tempRef.levelManager.SceneChanged += PlayRandomAudio;
 	}

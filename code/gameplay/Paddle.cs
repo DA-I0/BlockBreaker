@@ -160,7 +160,7 @@ public partial class Paddle : CharacterBody2D
 		_animator = GetNode("PaddleAnimator") as AnimationPlayer;
 		_timer = GetNode("Timer") as Timer;
 
-		refs = GetNode("/root/GameController/SessionController") as SessionController;
+		refs = GetNode("/root/GameController") as SessionController;
 		refs.paddle = this;
 		refs.health.ResetElements += SetupInitialValues;
 		refs.levelManager.ResetSession += Destroy;

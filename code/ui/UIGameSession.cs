@@ -1,6 +1,6 @@
 using Godot;
 
-public partial class UIGameSession : Node
+public partial class UIGameSession : Control
 {
 	[Export] private Label _score;
 	[Export] private Control _skill;
@@ -31,16 +31,15 @@ public partial class UIGameSession : Node
 
 	private void SetupReferences()
 	{
-		refs = GetNode("/root/GameController/SessionController") as SessionController;
+		refs = GetNode("/root/GameController") as SessionController;
 		refs.SkillReady += DisplaySkillIcon;
 		refs.SkillUsed += HideSkillIcon;
 		refs.gameScore.ScoreChanged += UpdateScore;
 		refs.gameScore.TimerStart += DisplayExitTimer;
 		refs.gameScore.TimerEnd += DisplayExitPrompt;
 		refs.health.LifeChanged += UpdateLives;
-		refs.levelManager.ResetSession += HideExitElements;
-		refs.levelManager.ResetSession += HideSkillIcon;
-		refs.levelManager.SceneChanged += HideExitElements;
+		refs.levelManager.ResetSession += HideGameStateUI;
+		refs.levelManager.SceneChanged += DisplayGameStateUI;
 	}
 
 	private void SetupInitialValues()
@@ -64,10 +63,23 @@ public partial class UIGameSession : Node
 		}
 	}
 
+	private void HideGameStateUI()
+	{
+		HideExitElements();
+		HideSkillIcon();
+		Visible = false;
+	}
+
 	private void HideExitElements()
 	{
 		_exitTimer.Visible = false;
 		_exitPrompt.Visible = false;
+	}
+
+	private void DisplayGameStateUI()
+	{
+		HideExitElements();
+		Visible = true;
 	}
 
 	private void DisplayExitTimer()
