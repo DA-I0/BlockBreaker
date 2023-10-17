@@ -166,14 +166,8 @@ public partial class Ball : CharacterBody2D
 		Velocity = Velocity.Rotated(Mathf.DegToRad(value));
 	}
 
-	private void StateReset()
+	public void StateReset()
 	{
-		RotationDegrees = 0;
-		_sprite.RotationDegrees = 0;
-		_arrow.RotationDegrees = 0;
-		_increasingRotation = true;
-		ChangeTempSpeedMultiplier(1f);
-		Velocity = Vector2.Zero;
 		BallMode = BallMode.idle;
 	}
 
@@ -258,8 +252,7 @@ public partial class Ball : CharacterBody2D
 
 	private void AdjustSpriteRotation()
 	{
-		_sprite.Rotation = Velocity.Angle();
-		_sprite.RotationDegrees += 90;
+		_sprite.Rotation = (Velocity != Vector2.Zero) ? Velocity.Angle() + Mathf.DegToRad(90) : 0;
 	}
 
 	private void ApplyModeValues()
@@ -270,7 +263,10 @@ public partial class Ball : CharacterBody2D
 		switch (_ballMode)
 		{
 			case BallMode.angleSelection:
+				_startingRotation = 0;
+				_arrow.Rotation = 0;
 				_arrow.Visible = true;
+				_increasingRotation = true;
 				refs.paddle.SetPaddleState(PaddleState.locked);
 				break;
 
@@ -285,6 +281,7 @@ public partial class Ball : CharacterBody2D
 				break;
 
 			default:
+				Velocity = Vector2.Zero;
 				ChangeTempSpeedMultiplier(1);
 				_animator.Play("idle");
 				break;
