@@ -145,7 +145,7 @@ public partial class Paddle : CharacterBody2D
 				break;
 
 			case PaddleMode.sticky:
-				targetBall.Reset();
+				targetBall.StateReset();
 				break;
 
 			default:
