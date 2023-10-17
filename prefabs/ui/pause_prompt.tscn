@@ -4,6 +4,7 @@
 
 [node name="PausePrompt" type="Control"]
 process_mode = 3
+z_index = 10
 layout_mode = 3
 anchors_preset = 0
 offset_left = -128.0

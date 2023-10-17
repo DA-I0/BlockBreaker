@@ -5,7 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://bynfnyg3xa7g6" path="res://assets/sprites/ui_elements/ui_life.png" id="3_npm6i"]
 [ext_resource type="Texture2D" uid="uid://csp7417ptlu6y" path="res://assets/sprites/ui_elements/ui_shake.png" id="4_5cocx"]
 
-[node name="UIGameSession" type="Node" node_paths=PackedStringArray("_score", "_skill", "_lives", "_exitTimer", "_exitPrompt")]
+[node name="UIGameSession" type="Control" node_paths=PackedStringArray("_score", "_skill", "_lives", "_exitTimer", "_exitPrompt")]
+z_index = 10
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_wdiid")
 _score = NodePath("TopBar/SessionElements/Score")
 _skill = NodePath("TopBar/SessionElements/SkillIcon")

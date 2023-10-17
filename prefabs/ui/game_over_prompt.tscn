@@ -4,6 +4,7 @@
 
 [node name="GameOverPrompt" type="Control" node_paths=PackedStringArray("_header", "_score", "_playerName")]
 process_mode = 3
+z_index = 10
 layout_mode = 3
 anchors_preset = 0
 offset_left = -128.0
