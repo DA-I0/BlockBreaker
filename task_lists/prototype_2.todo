@@ -2,7 +2,8 @@ Prototype 2:
 	Features:
 		☐ Configurable controls
 		☐ Game localization
-			✔ Manual localization system for RichTextLabels. @done(23-09-29 17:45)
+			✔ Manual localization system for RichTextLabels @done(23-09-29 17:45)
+			☐ Dynamic translation loading
 		✔ Game difficulty @done(23-10-03 16:16)
 			✔ Different max & starting lives @done(23-09-21 22:35)
 			✔ Different base ball speed @done(23-09-21 22:35)
@@ -24,11 +25,14 @@ Prototype 2:
 				✔ Explosion animation @done(23-10-02 18:02)
 				✔ Damage breakables in range @done(23-10-02 18:02)
 				✔ Sound effect @done(23-10-03 18:12)
+			☐ New block type (2HP one)?
 		☐ New pickups
 			✔ Ice (freeze the paddle for 2-3 seconds) @done(23-10-03 17:04)
 			✔ Reverse controls (reverse paddle controls) @done(23-10-02 22:39)
 			✔ Sticky paddle (catch ball on touch, release like new) @done(23-10-02 18:28)
 			✔ Bouncy paddle (add temp speed boost on bounce) @done(23-10-02 18:28)
+			✔ Slow ball @done(23-10-16 09:49)
+			☐ Bouncy ball? (similar to bouncy paddle but boost added on every ball bounce)
 			☐ Magnet (pull pickups near the paddle towards it, not exclusive unlike sticky/bouncy paddle?)
 			☐ Random (randomize on spawn, ? as icon?)
 		☐ New paddles
@@ -36,10 +40,9 @@ Prototype 2:
 			✔ Arced inward @done(23-10-02 21:22)
 			✔ Arced outward @done(23-10-02 21:22)
 			☐ Static bounce (front part of the paddle consists of 3 zones, each rotates ball to a specific angle on bounce)
-			☐ Roguelike
 		☐ New animations
-			☐ Ball
-				☐ Kicking up dust particles (separate from fire trail used for fast ball)
+			✔ Ball @done(23-10-11 14:44)
+				✔ Kicking up dust particles (separate from fire trail used for fast ball) @done(23-10-11 14:44)
 				✔ Getting sucked into whirpool @done(23-10-02 22:05)
 			☐ Block
 				☐ Hit (shake?)
@@ -50,7 +53,7 @@ Prototype 2:
 			☐ Coffin
 				☐ Hit
 				☐ Destruction
-			☐ Death pit (skulls floating up)
+			✔ Death pit (skulls floating up) @done(23-10-10 15:00)
 		✔ Shake functionality (press LMB/Space to slightly change ball trajectory) @done(23-10-03 18:57)
 			✔ Change ball rotation @done(23-10-03 18:57)
 			✔ Temporarily lock paddle @done(23-10-03 18:57)
@@ -71,11 +74,22 @@ Prototype 2:
 		☐ More map decorations (up the visual variety)
 			☐ Barred window
 			☐ Normal window?
-			☐ Table (+ decorations to make prefab variants, colliders for legs)
-			☐ Chair (colliders for legs, destructible?)
+			✔ Table @done(23-10-17 14:31)
+				✔ Sprite @done(23-10-17 14:31)
+				✔ Colliders @done(23-10-17 14:31)
+				✔ Destructability @done(23-10-17 14:31)
+			✔ Chair @done(23-10-16 15:12)
+				✔ Sprite @done(23-10-16 11:30)
+				✔ Colliders @done(23-10-16 11:30)
+				✔ Destructability @done(23-10-16 15:11)
+			✔ Bookcase @done(23-10-17 17:49)
+				✔ Sprite @done(23-10-17 17:49)
+				✔ Collider @done(23-10-17 17:49)
 			☐ Painting
 			☐ Wall torch
-			☐ Candle stand
+			✔ Candle stand @done(23-10-16 11:30)
+				✔ Sprite @done(23-10-16 11:30)
+				✔ Colliders @done(23-10-16 15:18)
 		☐ New tileset
 	UI:
 		☐ Splash screen on map load (display map name/number)
@@ -100,3 +114,4 @@ Prototype 2:
 		☐ Secure leaderboard file from outside modification @low
 		☐ Make a new logo @low
 	Issues:
+		✔ UI displayed under game elements @done(23-10-17 15:34)
