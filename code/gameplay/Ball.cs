@@ -159,6 +159,8 @@ public partial class Ball : CharacterBody2D
 	public void ChangeSize(float value)
 	{
 		Scale = new Vector2(value, value);
+		float arrowScale = (value == 1) ? 1 : (1 / value);
+		_arrow.Scale = new Vector2(arrowScale, arrowScale);
 	}
 
 	public void ChangeRotation(float value)
