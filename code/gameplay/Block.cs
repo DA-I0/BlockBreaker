@@ -15,6 +15,7 @@ public partial class Block : Breakable
 			Destroy();
 		}
 
+		_timer?.Start(_shakeDuration);
 		AdjustSprite();
 	}
 

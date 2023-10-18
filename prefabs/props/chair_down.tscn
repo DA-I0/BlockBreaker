@@ -6,12 +6,13 @@
 [ext_resource type="Texture2D" uid="uid://dw5plo03dxtmo" path="res://assets/sprites/props/chair_down_03.png" id="4_pcvoe"]
 [ext_resource type="Texture2D" uid="uid://c0l2nxhgie6re" path="res://assets/sprites/props/chair_down_04.png" id="5_tu516"]
 
-[node name="ChairDown" type="StaticBody2D"]
+[node name="ChairDown" type="StaticBody2D" node_paths=PackedStringArray("_timer")]
 z_index = 2
 script = ExtResource("1_rk47a")
 _pointValue = 2
 _maxHealth = 4
 _sprites = Array[Texture2D]([ExtResource("2_buaay"), ExtResource("3_totox"), ExtResource("4_pcvoe"), ExtResource("5_tu516")])
+_timer = NodePath("Timer")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 position = Vector2(-3, -19)
@@ -34,3 +35,6 @@ polygon = PackedVector2Array(2, 0, 2, -1, 4, -1, 4, 0)
 [node name="LegCollider4" type="CollisionPolygon2D" parent="."]
 position = Vector2(-5, -5)
 polygon = PackedVector2Array(2, 0, 2, -1, 4, -1, 4, 0)
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true

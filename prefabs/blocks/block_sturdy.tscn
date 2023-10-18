@@ -13,12 +13,13 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jer7o"]
 size = Vector2(16, 6)
 
-[node name="BlockSturdy" type="StaticBody2D"]
+[node name="BlockSturdy" type="StaticBody2D" node_paths=PackedStringArray("_timer")]
 script = ExtResource("1_vydik")
 _pickups = Array[PackedScene]([ExtResource("2_685qm"), ExtResource("3_p0kf1"), ExtResource("4_ugw4u"), ExtResource("5_cym8p"), ExtResource("6_ucqdu")])
 _pointValue = 3
 _maxHealth = 3
 _sprites = Array[Texture2D]([ExtResource("2_jpovs"), ExtResource("3_0a3ch"), ExtResource("4_k8bhm")])
+_timer = NodePath("Timer")
 
 [node name="Collider" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_jer7o")
@@ -26,3 +27,6 @@ shape = SubResource("RectangleShape2D_jer7o")
 [node name="Sprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_jpovs")
 region_rect = Rect2(4, 4, 44, 33)
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true

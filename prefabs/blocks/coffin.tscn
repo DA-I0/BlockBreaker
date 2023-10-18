@@ -8,7 +8,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jer7o"]
 size = Vector2(5, 2)
 
-[node name="Coffin" type="StaticBody2D"]
+[node name="Coffin" type="StaticBody2D" node_paths=PackedStringArray("_timer")]
 z_index = 2
 script = ExtResource("1_l54pj")
 _pickupSpawnChance = 1.0
@@ -16,6 +16,7 @@ _pickups = Array[PackedScene]([ExtResource("2_iu6jv")])
 _pointValue = 3
 _maxHealth = 2
 _sprites = Array[Texture2D]([ExtResource("3_or7tx"), ExtResource("4_r3vry")])
+_timer = NodePath("Timer")
 
 [node name="Collider" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, -1)
@@ -26,3 +27,6 @@ position = Vector2(-4, -11)
 texture = ExtResource("3_or7tx")
 centered = false
 region_rect = Rect2(4, 4, 44, 33)
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
