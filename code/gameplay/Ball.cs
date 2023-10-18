@@ -254,7 +254,7 @@ public partial class Ball : CharacterBody2D
 
 	private void AdjustSpriteRotation()
 	{
-		_sprite.Rotation = (Velocity != Vector2.Zero) ? Velocity.Angle() + Mathf.DegToRad(90) : 0;
+		_sprite.Rotation = Velocity.Angle() + Mathf.DegToRad(90);
 	}
 
 	private void ApplyModeValues()
