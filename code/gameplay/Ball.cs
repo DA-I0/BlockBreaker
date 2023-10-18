@@ -266,7 +266,6 @@ public partial class Ball : CharacterBody2D
 		{
 			case BallMode.angleSelection:
 				_startingRotation = 0;
-				_arrow.Rotation = 0;
 				_arrow.Visible = true;
 				_increasingRotation = true;
 				refs.paddle.SetPaddleState(PaddleState.locked);
