@@ -29,6 +29,11 @@ public partial class Paddle : CharacterBody2D
 	public event PaddleNotification PaddleChanged;
 	public event PaddleStateNotification StateChanged;
 
+	public PaddleState PaddleState
+	{
+		get { return _state; }
+	}
+
 	public int Size
 	{
 		get { return _size; }
@@ -171,6 +176,7 @@ public partial class Paddle : CharacterBody2D
 	{
 		_movementDirection = 1;
 		_size = refs.SelectedDifficulty.StartPaddleSize;
+		_timer.Stop();
 		Resize();
 		Recenter();
 		SetPaddleMode(PaddleMode.basic);

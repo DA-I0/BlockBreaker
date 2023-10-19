@@ -172,7 +172,7 @@ public partial class SessionController : Node
 	{
 		if (_gameState == GameState.gameplay && @event.IsActionReleased("game_skill"))
 		{
-			if (_skillTimer.TimeLeft <= 0)
+			if (paddle.PaddleState != PaddleState.locked && _skillTimer.TimeLeft <= 0)
 			{
 				paddle.SetPaddleState(PaddleState.confused, 3f);
 
