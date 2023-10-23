@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://rv6ehrudwl3l"]
+
+[ext_resource type="Script" path="res://code/gameplay/Breakable.cs" id="1_ccd8b"]
+[ext_resource type="Texture2D" uid="uid://dn5wmng8xvv1r" path="res://assets/sprites/props/grave_03_01.png" id="2_mtv7a"]
+[ext_resource type="Texture2D" uid="uid://d17f8ywnv1lno" path="res://assets/sprites/props/grave_03_02.png" id="3_pqrow"]
+[ext_resource type="Texture2D" uid="uid://d4hrxuwihdm2c" path="res://assets/sprites/props/grave_03_03.png" id="4_i0luj"]
+[ext_resource type="Texture2D" uid="uid://yqetd84eyrh4" path="res://assets/sprites/props/grave_03_04.png" id="5_j05vh"]
+
+[node name="Grave03" type="StaticBody2D" node_paths=PackedStringArray("_timer")]
+z_index = 2
+script = ExtResource("1_ccd8b")
+_pointValue = 2
+_maxHealth = 4
+_sprites = Array[Texture2D]([ExtResource("2_mtv7a"), ExtResource("3_pqrow"), ExtResource("4_i0luj"), ExtResource("5_j05vh")])
+_timer = NodePath("Timer")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(-8, -14)
+texture = ExtResource("2_mtv7a")
+centered = false
+
+[node name="Collider" type="CollisionPolygon2D" parent="."]
+position = Vector2(-9, -2)
+scale = Vector2(1.4375, 1)
+polygon = PackedVector2Array(4.17391, 2, 4.17391, -1, 7.65217, -1, 7.65217, 2)
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
