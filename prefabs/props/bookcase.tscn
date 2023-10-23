@@ -13,6 +13,6 @@ position = Vector2(-9, -25)
 texture = ExtResource("1_mdjtp")
 centered = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Collider" type="CollisionShape2D" parent="."]
 position = Vector2(0, -3)
 shape = SubResource("RectangleShape2D_47th3")
