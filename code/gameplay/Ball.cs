@@ -84,6 +84,11 @@ public partial class Ball : CharacterBody2D
 
 	public override void _PhysicsProcess(double delta)
 	{
+		if (refs.CurrentGameState != GameState.gameplay)
+		{
+			return;
+		}
+
 		if (_ballMode == BallMode.moving)
 		{
 			Move(delta);
