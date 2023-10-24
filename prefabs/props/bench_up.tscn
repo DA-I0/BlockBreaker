@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://btfjqc4cjmasg"]
+
+[ext_resource type="Texture2D" uid="uid://c13h44fa5aoub" path="res://assets/sprites/props/bench_up.png" id="1_ukjts"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_47th3"]
+size = Vector2(2, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r42h8"]
+size = Vector2(2, 1)
+
+[node name="BenchUp" type="StaticBody2D"]
+z_index = 2
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(-16, -11)
+texture = ExtResource("1_ukjts")
+centered = false
+
+[node name="LegCollider" type="CollisionShape2D" parent="."]
+position = Vector2(-15, -0.5)
+shape = SubResource("RectangleShape2D_47th3")
+
+[node name="LegCollider2" type="CollisionShape2D" parent="."]
+position = Vector2(15, -0.5)
+shape = SubResource("RectangleShape2D_r42h8")
+
+[node name="LegCollider3" type="CollisionShape2D" parent="."]
+position = Vector2(-15, -6)
+shape = SubResource("RectangleShape2D_r42h8")
+
+[node name="LegCollider4" type="CollisionShape2D" parent="."]
+position = Vector2(15, -6)
+shape = SubResource("RectangleShape2D_r42h8")
