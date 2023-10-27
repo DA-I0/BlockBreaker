@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://djmnmdvjpyq1i"]
+
+[ext_resource type="Script" path="res://code/gameplay/Breakable.cs" id="1_qljyq"]
+[ext_resource type="Texture2D" uid="uid://bhpkud7stglym" path="res://assets/sprites/props/fence_down_right_out_01.png" id="2_blw0y"]
+[ext_resource type="Texture2D" uid="uid://4ucqiarqn1t7" path="res://assets/sprites/props/fence_down_right_out_02.png" id="3_t6f34"]
+[ext_resource type="Texture2D" uid="uid://dkldvv4ie13ov" path="res://assets/sprites/props/fence_down_right_out_03.png" id="4_6i7n3"]
+[ext_resource type="Texture2D" uid="uid://dbwfh0dj8ma0b" path="res://assets/sprites/props/fence_down_right_out_04.png" id="5_nq7m2"]
+
+[node name="FenceDownRightOut" type="StaticBody2D" node_paths=PackedStringArray("_timer")]
+z_index = 2
+script = ExtResource("1_qljyq")
+_pointValue = 2
+_maxHealth = 4
+_sprites = Array[Texture2D]([ExtResource("2_blw0y"), ExtResource("3_t6f34"), ExtResource("4_6i7n3"), ExtResource("5_nq7m2")])
+_timer = NodePath("Timer")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(-8, -16)
+texture = ExtResource("2_blw0y")
+centered = false
+
+[node name="Collider" type="CollisionPolygon2D" parent="."]
+position = Vector2(-1, 9)
+scale = Vector2(1.4375, 1)
+polygon = PackedVector2Array(4.17391, -11, 4.17391, -16, 4.86957, -16, 4.86957, -10, -4.17391, -10, -4.17391, -11)
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
