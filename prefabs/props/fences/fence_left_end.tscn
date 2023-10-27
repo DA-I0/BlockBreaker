@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://dps5d016c3rw2"]
 
 [ext_resource type="Script" path="res://code/gameplay/Breakable.cs" id="1_dxpeo"]
-[ext_resource type="Texture2D" uid="uid://c3sqk61ss3gx6" path="res://assets/sprites/props/fence_left_end_01.png" id="2_t8gn2"]
-[ext_resource type="Texture2D" uid="uid://7e8nw0ymd26d" path="res://assets/sprites/props/fence_left_end_02.png" id="3_ksvry"]
-[ext_resource type="Texture2D" uid="uid://dpb0fkx31wvtv" path="res://assets/sprites/props/fence_left_end_03.png" id="4_4aafh"]
-[ext_resource type="Texture2D" uid="uid://d4nswgqkb20ec" path="res://assets/sprites/props/fence_left_end_04.png" id="5_go05b"]
+[ext_resource type="Texture2D" uid="uid://c3sqk61ss3gx6" path="res://assets/sprites/props/fences/fence_left_end_01.png" id="2_t8gn2"]
+[ext_resource type="Texture2D" uid="uid://7e8nw0ymd26d" path="res://assets/sprites/props/fences/fence_left_end_02.png" id="3_ksvry"]
+[ext_resource type="Texture2D" uid="uid://dpb0fkx31wvtv" path="res://assets/sprites/props/fences/fence_left_end_03.png" id="4_4aafh"]
+[ext_resource type="Texture2D" uid="uid://d4nswgqkb20ec" path="res://assets/sprites/props/fences/fence_left_end_04.png" id="5_go05b"]
 
 [node name="FenceLeftEnd" type="StaticBody2D" node_paths=PackedStringArray("_timer")]
 z_index = 2

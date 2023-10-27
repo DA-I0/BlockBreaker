@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://bbgqag4ncp4nt"]
 
 [ext_resource type="Script" path="res://code/gameplay/Breakable.cs" id="1_8w66s"]
-[ext_resource type="Texture2D" uid="uid://2qlavsg27blm" path="res://assets/sprites/props/fence_down_right_in_01.png" id="2_yp11o"]
-[ext_resource type="Texture2D" uid="uid://blibm2y57mdn3" path="res://assets/sprites/props/fence_down_right_in_02.png" id="3_qh40h"]
-[ext_resource type="Texture2D" uid="uid://cdp0c4d1eennx" path="res://assets/sprites/props/fence_down_right_in_03.png" id="4_qa8xq"]
-[ext_resource type="Texture2D" uid="uid://e4vmjjib6njc" path="res://assets/sprites/props/fence_down_right_in_04.png" id="5_tnwcs"]
+[ext_resource type="Texture2D" uid="uid://2qlavsg27blm" path="res://assets/sprites/props/fences/fence_down_right_in_01.png" id="2_yp11o"]
+[ext_resource type="Texture2D" uid="uid://blibm2y57mdn3" path="res://assets/sprites/props/fences/fence_down_right_in_02.png" id="3_qh40h"]
+[ext_resource type="Texture2D" uid="uid://cdp0c4d1eennx" path="res://assets/sprites/props/fences/fence_down_right_in_03.png" id="4_qa8xq"]
+[ext_resource type="Texture2D" uid="uid://e4vmjjib6njc" path="res://assets/sprites/props/fences/fence_down_right_in_04.png" id="5_tnwcs"]
 
 [node name="FenceDownRightIn" type="StaticBody2D" node_paths=PackedStringArray("_timer")]
 z_index = 2

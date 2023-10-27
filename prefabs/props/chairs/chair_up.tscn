@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://c6ceg4xn26hvr"]
 
-[ext_resource type="Texture2D" uid="uid://btru72ath1dsg" path="res://assets/sprites/props/chair_up_01.png" id="1_5sl3a"]
+[ext_resource type="Texture2D" uid="uid://btru72ath1dsg" path="res://assets/sprites/props/chairs/chair_up_01.png" id="1_5sl3a"]
 [ext_resource type="Script" path="res://code/gameplay/Breakable.cs" id="1_pasw3"]
-[ext_resource type="Texture2D" uid="uid://bs7novc0w8dxn" path="res://assets/sprites/props/chair_up_02.png" id="3_abefp"]
-[ext_resource type="Texture2D" uid="uid://drx3088qf7qy0" path="res://assets/sprites/props/chair_up_03.png" id="4_ccgyi"]
-[ext_resource type="Texture2D" uid="uid://6ix0egxf5sdp" path="res://assets/sprites/props/chair_up_04.png" id="5_omupg"]
+[ext_resource type="Texture2D" uid="uid://bs7novc0w8dxn" path="res://assets/sprites/props/chairs/chair_up_02.png" id="3_abefp"]
+[ext_resource type="Texture2D" uid="uid://drx3088qf7qy0" path="res://assets/sprites/props/chairs/chair_up_03.png" id="4_ccgyi"]
+[ext_resource type="Texture2D" uid="uid://6ix0egxf5sdp" path="res://assets/sprites/props/chairs/chair_up_04.png" id="5_omupg"]
 
 [node name="ChairUp" type="StaticBody2D" node_paths=PackedStringArray("_timer")]
 script = ExtResource("1_pasw3")

@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://cmdj43x3y0oq8"]
 
 [ext_resource type="Script" path="res://code/gameplay/Breakable.cs" id="1_plh30"]
-[ext_resource type="Texture2D" uid="uid://b1k0ag3jre2ll" path="res://assets/sprites/props/chair_side_l_01.png" id="2_8llq1"]
-[ext_resource type="Texture2D" uid="uid://7hywqiltktll" path="res://assets/sprites/props/chair_side_l_02.png" id="3_w6b57"]
-[ext_resource type="Texture2D" uid="uid://cu0g856blxj5l" path="res://assets/sprites/props/chair_side_l_03.png" id="4_cqocy"]
-[ext_resource type="Texture2D" uid="uid://b3tjfjywhf2o7" path="res://assets/sprites/props/chair_side_l_04.png" id="5_o8uba"]
+[ext_resource type="Texture2D" uid="uid://b1k0ag3jre2ll" path="res://assets/sprites/props/chairs/chair_side_l_01.png" id="2_8llq1"]
+[ext_resource type="Texture2D" uid="uid://7hywqiltktll" path="res://assets/sprites/props/chairs/chair_side_l_02.png" id="3_w6b57"]
+[ext_resource type="Texture2D" uid="uid://cu0g856blxj5l" path="res://assets/sprites/props/chairs/chair_side_l_03.png" id="4_cqocy"]
+[ext_resource type="Texture2D" uid="uid://b3tjfjywhf2o7" path="res://assets/sprites/props/chairs/chair_side_l_04.png" id="5_o8uba"]
 
 [node name="ChairSideLeft" type="StaticBody2D" node_paths=PackedStringArray("_timer")]
 z_index = 2

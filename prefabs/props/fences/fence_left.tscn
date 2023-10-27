@@ -1,22 +1,22 @@
 [gd_scene load_steps=6 format=3 uid="uid://d35418gb0o456"]
 
 [ext_resource type="Script" path="res://code/gameplay/Breakable.cs" id="1_dbxqv"]
-[ext_resource type="Texture2D" uid="uid://bhhwa58sth1vv" path="res://assets/sprites/props/fence_left_01.png" id="2_rupqd"]
-[ext_resource type="Texture2D" uid="uid://b3d4uajwg148g" path="res://assets/sprites/props/fence_left_02.png" id="3_ns2p4"]
-[ext_resource type="Texture2D" uid="uid://bkj5igysdjrbl" path="res://assets/sprites/props/fence_left_03.png" id="4_tdxi7"]
-[ext_resource type="Texture2D" uid="uid://b25vq3mqsu7vf" path="res://assets/sprites/props/fence_left_04.png" id="5_esivm"]
+[ext_resource type="Texture2D" uid="uid://bhhwa58sth1vv" path="res://assets/sprites/props/fences/fence_left_01.png" id="2_k3x28"]
+[ext_resource type="Texture2D" uid="uid://b3d4uajwg148g" path="res://assets/sprites/props/fences/fence_left_02.png" id="3_wq4or"]
+[ext_resource type="Texture2D" uid="uid://bkj5igysdjrbl" path="res://assets/sprites/props/fences/fence_left_03.png" id="4_8xjr0"]
+[ext_resource type="Texture2D" uid="uid://b25vq3mqsu7vf" path="res://assets/sprites/props/fences/fence_left_04.png" id="5_ao3gu"]
 
 [node name="FenceLeft" type="StaticBody2D" node_paths=PackedStringArray("_timer")]
 z_index = 2
 script = ExtResource("1_dbxqv")
 _pointValue = 2
 _maxHealth = 4
-_sprites = Array[Texture2D]([ExtResource("2_rupqd"), ExtResource("3_ns2p4"), ExtResource("4_tdxi7"), ExtResource("5_esivm")])
+_sprites = Array[Texture2D]([ExtResource("2_k3x28"), ExtResource("3_wq4or"), ExtResource("4_8xjr0"), ExtResource("5_ao3gu")])
 _timer = NodePath("Timer")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 position = Vector2(-8, -16)
-texture = ExtResource("2_rupqd")
+texture = ExtResource("2_k3x28")
 centered = false
 
 [node name="Collider" type="CollisionPolygon2D" parent="."]

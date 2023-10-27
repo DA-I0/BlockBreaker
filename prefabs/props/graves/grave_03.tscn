@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://rv6ehrudwl3l"]
 
 [ext_resource type="Script" path="res://code/gameplay/Breakable.cs" id="1_ccd8b"]
-[ext_resource type="Texture2D" uid="uid://dn5wmng8xvv1r" path="res://assets/sprites/props/grave_03_01.png" id="2_mtv7a"]
-[ext_resource type="Texture2D" uid="uid://d17f8ywnv1lno" path="res://assets/sprites/props/grave_03_02.png" id="3_pqrow"]
-[ext_resource type="Texture2D" uid="uid://d4hrxuwihdm2c" path="res://assets/sprites/props/grave_03_03.png" id="4_i0luj"]
-[ext_resource type="Texture2D" uid="uid://yqetd84eyrh4" path="res://assets/sprites/props/grave_03_04.png" id="5_j05vh"]
+[ext_resource type="Texture2D" uid="uid://dn5wmng8xvv1r" path="res://assets/sprites/props/graves/grave_03_01.png" id="2_mtv7a"]
+[ext_resource type="Texture2D" uid="uid://d17f8ywnv1lno" path="res://assets/sprites/props/graves/grave_03_02.png" id="3_pqrow"]
+[ext_resource type="Texture2D" uid="uid://d4hrxuwihdm2c" path="res://assets/sprites/props/graves/grave_03_03.png" id="4_i0luj"]
+[ext_resource type="Texture2D" uid="uid://yqetd84eyrh4" path="res://assets/sprites/props/graves/grave_03_04.png" id="5_j05vh"]
 
 [node name="Grave03" type="StaticBody2D" node_paths=PackedStringArray("_timer")]
 z_index = 2

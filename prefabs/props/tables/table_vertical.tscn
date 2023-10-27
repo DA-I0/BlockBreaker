@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://fewn6ij2dpue"]
 
 [ext_resource type="Script" path="res://code/gameplay/Breakable.cs" id="1_q2dg3"]
-[ext_resource type="Texture2D" uid="uid://pbc5xl3a0s4d" path="res://assets/sprites/props/table_ver_01.png" id="2_1osff"]
-[ext_resource type="Texture2D" uid="uid://v1ns4kmnxwwv" path="res://assets/sprites/props/table_ver_02.png" id="3_bdiyn"]
-[ext_resource type="Texture2D" uid="uid://7bfj7gesf5sd" path="res://assets/sprites/props/table_ver_03.png" id="4_a1k77"]
-[ext_resource type="Texture2D" uid="uid://b15bb1715sy3f" path="res://assets/sprites/props/table_ver_04.png" id="5_ax0ws"]
-[ext_resource type="Texture2D" uid="uid://bvr2653sr54r2" path="res://assets/sprites/props/table_ver_05.png" id="6_q5gt0"]
+[ext_resource type="Texture2D" uid="uid://pbc5xl3a0s4d" path="res://assets/sprites/props/tables/table_ver_01.png" id="2_1osff"]
+[ext_resource type="Texture2D" uid="uid://v1ns4kmnxwwv" path="res://assets/sprites/props/tables/table_ver_02.png" id="3_bdiyn"]
+[ext_resource type="Texture2D" uid="uid://7bfj7gesf5sd" path="res://assets/sprites/props/tables/table_ver_03.png" id="4_a1k77"]
+[ext_resource type="Texture2D" uid="uid://b15bb1715sy3f" path="res://assets/sprites/props/tables/table_ver_04.png" id="5_ax0ws"]
+[ext_resource type="Texture2D" uid="uid://bvr2653sr54r2" path="res://assets/sprites/props/tables/table_ver_05.png" id="6_q5gt0"]
 
 [node name="TableVertical" type="StaticBody2D" node_paths=PackedStringArray("_timer")]
 script = ExtResource("1_q2dg3")
