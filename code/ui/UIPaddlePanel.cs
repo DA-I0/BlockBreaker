@@ -1,13 +1,16 @@
+using System.Linq;
 using Godot;
 
 public partial class UIPaddlePanel : UIPanel
 {
 	[Export] private TextureRect _paddleSprite;
 	private int _currentPaddle = 1;
+	private int _paddleCount = 0;
 
 	public override void _Ready()
 	{
 		SetupReferences();
+		_paddleCount = DirAccess.GetFilesAt("res://prefabs/paddles/").Count();
 		UpdateDisplayedValues();
 	}
 
@@ -25,14 +28,14 @@ public partial class UIPaddlePanel : UIPanel
 
 	private void CheckPaddleRange()
 	{
-		if (_currentPaddle > 3)
+		if (_currentPaddle > _paddleCount)
 		{
 			_currentPaddle = 1;
 		}
 
 		if (_currentPaddle < 1)
 		{
-			_currentPaddle = 3;
+			_currentPaddle = _paddleCount;
 		}
 	}
 
