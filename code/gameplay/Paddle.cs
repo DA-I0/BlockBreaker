@@ -13,7 +13,7 @@ public partial class Paddle : CharacterBody2D
 	[Export] private Texture2D[] _sprites;
 
 	private PaddleMode _paddleMode = PaddleMode.basic;
-	private PaddleState _state = PaddleState.idle;
+	protected PaddleState _state = PaddleState.idle;
 
 	private int _size = 1;
 
