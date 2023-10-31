@@ -33,7 +33,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [PackedVector2Array(3.2, -1.61765, 9.6, -1.61765, 22.4, 2.14706, -9.6, 2.14706)]
+"values": [PackedVector2Array(0, -0.676471, 12.8, -0.676471, 22.4, 2.14706, -9.6, 2.14706)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -84,7 +84,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [PackedVector2Array(0, -1.61765, 12.8, -1.61765, 25.6, 2.14706, -12.8, 2.14706)]
+"values": [PackedVector2Array(3.2, -1.61765, 9.6, -1.61765, 16, -0.676471, 25.6, 2.14706, -12.8, 2.14706, -3.2, -0.676471)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -246,10 +246,10 @@ tracks/1/path = NodePath("PaddleSprite:size")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": []
+"values": [Vector2(24, 8)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -258,10 +258,10 @@ tracks/2/path = NodePath("PaddleSprite:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": []
+"values": [Vector2(-12, -2)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -288,7 +288,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [PackedVector2Array(-28.8, -0.676471, -19.2, -1.61765, 32, -1.61765, 41.6, -0.676471, 51.2, 2.14706, -38.4, 2.14706)]
+"values": [PackedVector2Array(-28.8, -0.676471, -22.4, -1.61765, 35.2, -1.61765, 41.6, -0.676471, 51.2, 2.14706, -38.4, 2.14706)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -339,7 +339,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [PackedVector2Array(-35.2, -0.676471, -25.6, -1.61765, 38.4, -1.61765, 48, -0.676471, 57.6, 2.14706, -44.8, 2.14706)]
+"values": [PackedVector2Array(-35.2, -0.676471, -28.8, -1.61765, 41.6, -1.61765, 48, -0.676471, 57.6, 2.14706, -44.8, 2.14706)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -390,7 +390,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [PackedVector2Array(-41.6, -0.676471, -32, -1.61765, 44.8, -1.61765, 54.4, -0.676471, 64, 2.14706, -51.2, 2.14706)]
+"values": [PackedVector2Array(-41.6, -0.676471, -35.2, -1.61765, 48, -1.61765, 54.4, -0.676471, 64, 2.14706, -51.2, 2.14706)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -459,7 +459,7 @@ _sprites = Array[Texture2D]([ExtResource("2_xhvh6"), ExtResource("3_75gev"), Ext
 position = Vector2(-2, -0.28125)
 scale = Vector2(0.3125, 1.0625)
 build_mode = 1
-polygon = PackedVector2Array(-41.6, -0.676471, -32, -1.61765, 44.8, -1.61765, 54.4, -0.676471, 64, 2.14706, -51.2, 2.14706)
+polygon = PackedVector2Array(-9.6, -0.676471, -3.2, -1.61765, 16, -1.61765, 22.4, -0.676471, 32, 2.14706, -19.2, 2.14706)
 one_way_collision = true
 one_way_collision_margin = 5.0
 
@@ -468,7 +468,7 @@ position = Vector2(-2, -0.28125)
 rotation = 3.14159
 scale = Vector2(0.3125, 1.0625)
 build_mode = 1
-polygon = PackedVector2Array(48.0001, -5.91173, 51.2, -4.97055, 51.2, -2.14706, -64, -2.14706, -64, -4.97064, -60.7999, -5.91181, -54.3999, -5.91181, -51.2, -4.97063, 38.4, -4.97056, 41.6001, -5.91173)
+polygon = PackedVector2Array(16.0001, -5.91175, 19.2, -4.97057, 19.2, -2.14706, -32, -2.14706, -32, -4.97061, -28.7999, -5.91179, -22.3999, -5.91178, -19.2, -4.9706, 6.40004, -4.97058, 9.60005, -5.91176)
 one_way_collision = true
 one_way_collision_margin = 5.0
 
@@ -480,22 +480,22 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -8.0
 offset_top = -2.0
-offset_right = 28.0
+offset_right = 8.0
 offset_bottom = 6.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_xhvh6")
 region_rect = Rect2(0, 0, 20, 8)
-patch_margin_left = 4
+patch_margin_left = 5
 patch_margin_top = 2
-patch_margin_right = 4
+patch_margin_right = 5
 patch_margin_bottom = 3
 
 [node name="PaddleAnimator" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_6a3eu")
 }
-blend_times = [&"size_5", &"size_4", 1.0, &"size_5", &"size_1", 1.0, &"size_5", &"size_5", 1.0, &"size_5", &"size_2", 1.0, &"size_5", &"size_3", 1.0]
+blend_times = [&"size_5", &"size_5", 1.0, &"size_5", &"size_4", 1.0, &"size_5", &"size_2", 1.0, &"size_5", &"size_3", 1.0, &"size_5", &"size_1", 1.0]
 
 [node name="Timer" type="Timer" parent="."]
 
