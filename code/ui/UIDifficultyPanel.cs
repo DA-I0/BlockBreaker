@@ -26,7 +26,7 @@ public partial class UIDifficultyPanel : UIPanel
 	[Export] private TextureButton _addDifficulty;
 	[Export] private Button _cancelEdit;
 
-	private int _currentDifficulty = 0;
+	private int _currentDifficulty = 1;
 	private bool _inEditMode = false;
 
 
