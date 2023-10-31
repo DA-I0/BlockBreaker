@@ -8,11 +8,11 @@ public enum PaddleState { idle, frozen, confused, locked, collisionLocked };
 public partial class Paddle : CharacterBody2D
 {
 	[Export] private int _baseMoveSpeed = 100;
-	[Export] private float _bouncyBoost = 1.5f;
+	[Export] protected float _bouncyBoost = 1.5f;
 	[Export] private int _positionY = 90;
 	[Export] private Texture2D[] _sprites;
 
-	private PaddleMode _paddleMode = PaddleMode.basic;
+	protected PaddleMode _paddleMode = PaddleMode.basic;
 	protected PaddleState _state = PaddleState.idle;
 
 	private int _size = 1;
@@ -141,7 +141,7 @@ public partial class Paddle : CharacterBody2D
 		StateChanged?.Invoke(_state);
 	}
 
-	public void ApplyPaddleEffect(Ball targetBall)
+	public virtual void ApplyPaddleEffect(Ball targetBall)
 	{
 		switch (_paddleMode)
 		{

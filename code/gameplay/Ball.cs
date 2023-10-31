@@ -173,6 +173,12 @@ public partial class Ball : CharacterBody2D
 		Velocity = Velocity.Rotated(Mathf.DegToRad(value));
 	}
 
+	public void ChangeRotationTo(float value)
+	{
+		float rotationDifference = Mathf.DegToRad(value) - Velocity.Angle();
+		Velocity = Velocity.Rotated(rotationDifference);
+	}
+
 	public void StateReset()
 	{
 		BallMode = BallMode.idle;
