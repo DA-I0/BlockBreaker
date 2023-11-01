@@ -1,0 +1,32 @@
+Prototype 3:
+	Features:
+		☐ Keep mode
+			☐ "Tree" level progression (think Outrun, Shadow the Hedgehog)
+			☐ Boss fights
+			☐ Store with items to buy (lives, pickups, paddles etc? available after each 5 levels or after boss fights)
+		☐ New skills
+			☐ Ball angle selection in flight?
+			☐ Power ball
+			☐ Temporary safety net?
+	Map elements:
+		☐ More map decorations (up the visual variety)
+			☐ ?
+		☐ New tileset
+			☐ Floor tiles
+				☐ ?
+			☐ Wall tiles
+				☐ Straight
+				☐ Corners
+				☐ Thin internal walls
+			☐ Props
+				☐ ?
+			☐ Interactables
+				☐ Level exit (big gate)
+				☐ Teleport (small gate)
+	UI:
+		?
+	Other:
+		☐ Add 1-2 translations (besides english)
+		☐ Secure leaderboard file from outside modification @low
+		☐ Make a new logo @low
+	Issues:

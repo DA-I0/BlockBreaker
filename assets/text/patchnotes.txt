@@ -2,15 +2,19 @@
 ?
 
 Added:
-- difficulty settings: 3 default levels + customization
-- interactable: explosives
-- paddles: arced in, arced out
-- pickups: bouncy paddle, freeze paddle, sticky paddle, reverse controls
-- screen shake (press [Space]/[Left Mouse Button] during gameplay to shake the screen which randomly changes ball rotation and freezes paddle for a short time)
+- 7 levels
+- difficulty settings: 3 default presets + customization
+- new gameplay effects
+- new breakables: explosives, tables, chairs, benches, graves, fences
+- new paddles: arced in, arced out, roguelike
+- new pickups: bouncy paddle, freeze paddle, sticky paddle, reverse controls, slow ball
+- new decorations: bookcase, candle stand, paintings, windows
+- screen shake "skill" (press [Left Control]/[Right Mouse Button] during gameplay to shake the screen which randomly changes ball rotation and freezes paddle for a short time)
+- new tileset elements
 - game over screen
-- leaderboard support (local one)
+- local leaderboard
 - localization support (including user made)
-- paddle velocity affects ball bounce angle
+- more user settings
 
 Changed:
 - switched from Unity to Godot Engine
@@ -18,8 +22,8 @@ Changed:
 
 Fixed:
 - fullscreen toggle doesn't update to loaded state
+- weird ball collisions
 
 Known issues:
-- ball collisions can be a little funky
 - stage music is fully randomized, might select the same song multiple times
 - lack of gophers

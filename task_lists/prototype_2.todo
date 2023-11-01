@@ -36,22 +36,17 @@ Prototype 2:
 			☐ Magnet (pull pickups near the paddle towards it, not exclusive unlike sticky/bouncy paddle?)
 			☐ Random (randomize on spawn, ? as icon?)
 		☐ New paddles
-			☐ Roguelike (time moves when paddle moves; ball slowdown when near paddle - visible "time zone")
+			✔ Roguelike (time moves when paddle moves; ball slowdown when near paddle - visible "time zone") @done(23-10-30 14:22)
 			✔ Arced inward @done(23-10-02 21:22)
 			✔ Arced outward @done(23-10-02 21:22)
-			☐ Static bounce (front part of the paddle consists of 3 zones, each rotates ball to a specific angle on bounce)
+			✔ Static bounce (front part of the paddle consists of 3 zones, each rotates ball to a specific angle on bounce) @done(23-10-31 16:05)
+			☐ Double (half-length, consists of two paddles, one under another, moving in opposit directions, might be a pickup instead?)
 		☐ New animations
 			✔ Ball @done(23-10-11 14:44)
 				✔ Kicking up dust particles (separate from fire trail used for fast ball) @done(23-10-11 14:44)
 				✔ Getting sucked into whirpool @done(23-10-02 22:05)
-			☐ Block
-				☐ Hit (shake?)
-				☐ Destruction
-			☐ Barrier
-				☐ Hit
-				☐ Destruction
-			☐ Coffin
-				☐ Hit
+			☐ Breakable
+				✔ Hit (shake?) @done(23-10-18 16:28)
 				☐ Destruction
 			✔ Death pit (skulls floating up) @done(23-10-10 15:00)
 		✔ Shake functionality (press LMB/Space to slightly change ball trajectory) @done(23-10-03 18:57)
@@ -72,8 +67,8 @@ Prototype 2:
 		☐ Tunnels (allow to move through walls)
 		☐ Cracked walls (can be destroyed with TNT)
 		☐ More map decorations (up the visual variety)
-			☐ Barred window
-			☐ Normal window?
+			✔ Barred window @done(23-10-19 15:05)
+			✔ Normal window? @done(23-10-19 15:05)
 			✔ Table @done(23-10-17 14:31)
 				✔ Sprite @done(23-10-17 14:31)
 				✔ Colliders @done(23-10-17 14:31)
@@ -85,12 +80,30 @@ Prototype 2:
 			✔ Bookcase @done(23-10-17 17:49)
 				✔ Sprite @done(23-10-17 17:49)
 				✔ Collider @done(23-10-17 17:49)
-			☐ Painting
-			☐ Wall torch
+			✔ Painting @done(23-10-31 14:23)
+			✔ Wall torch @done(23-10-19 14:55)
 			✔ Candle stand @done(23-10-16 11:30)
 				✔ Sprite @done(23-10-16 11:30)
 				✔ Colliders @done(23-10-16 15:18)
 		☐ New tileset
+			☐ Floor tiles
+				✔ Grass @done(23-10-24 15:20)
+				✔ Path @done(23-10-24 15:20)
+				✔ Pond @done(23-10-25 17:26)
+				☐ ?
+			☐ Wall tiles
+				✔ Straight @done(23-10-24 15:20)
+				☐ Corners
+				✔ Thin internal walls (hedge) @done(23-10-26 13:41)
+			☐ Props
+				✔ Grave (breakable) @done(23-10-23 15:47)
+				✔ Bench @done(23-10-23 18:59)
+				✔ Wooden fence (brekable) @done(23-10-27 15:57)
+				☐ Fountain
+				✔ Wall fountain (2 types so far) @done(23-10-30 18:38)
+			☐ Interactables
+				☐ Level exit (big gate)
+				☐ Teleport (small gate)
 	UI:
 		☐ Splash screen on map load (display map name/number)
 		✔ Loading screen @done(23-09-13 19:33)
@@ -102,9 +115,10 @@ Prototype 2:
 			✔ Selection panel @done(23-10-03 16:15)
 			✔ Customization panel @done(23-10-03 16:15)
 		✔ Paddle selection @done(23-10-03 12:49)
+			☐ Name and short description?
 		☐ Options
 			☐ Language selection @done(23-09-26 20:15)
-			☐ Pickup display ordering (under ball, over ball)
+			✔ Pickup display ordering (under ball, above ball, above all) @done(23-11-01 16:05)
 			☐ Controller icon style (generic, nintendo, playstation, xbox)?
 			✔ Map background brightness (in case player needs gameplay elements to pop out more) @done(23-10-09 18:54)
 		☐ Improve main menu layout and theming
@@ -115,3 +129,5 @@ Prototype 2:
 		☐ Make a new logo @low
 	Issues:
 		✔ UI displayed under game elements @done(23-10-17 15:34)
+		✔ Paddle movement unlocks during ball angle select @done(23-10-19 13:30)
+		☐ Ball sometimes slides along the paddle instead of bouncing @high
