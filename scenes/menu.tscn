@@ -925,7 +925,7 @@ shortcut_context = NodePath("..")
 shortcut = ExtResource("17_c27yp")
 text = "button_return"
 
-[node name="OptionsPanel" type="Panel" parent="Control" node_paths=PackedStringArray("_language", "_mouseSpeed", "_keyboardSpeed", "_fullscreen", "_resolution", "_screenShake", "_backgroundBrightness", "_helperTransparency", "_masterVolume", "_musicVolume", "_effectsVolume", "_focusTarget")]
+[node name="OptionsPanel" type="Panel" parent="Control" node_paths=PackedStringArray("_language", "_mouseSpeed", "_keyboardSpeed", "_fullscreen", "_resolution", "_screenShake", "_backgroundBrightness", "_pickupOrder", "_helperTransparency", "_masterVolume", "_musicVolume", "_effectsVolume", "_focusTarget")]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -943,6 +943,7 @@ _fullscreen = NodePath("ScrollContainer/Options/FullscreenSetting/FullscreenTogg
 _resolution = NodePath("ScrollContainer/Options/ResolutionSetting/ResolutionOptions")
 _screenShake = NodePath("ScrollContainer/Options/ScreenShakeSetting/ScreenShakeToggle")
 _backgroundBrightness = NodePath("ScrollContainer/Options/BackgroundSetting/BackgroundSlider")
+_pickupOrder = NodePath("ScrollContainer/Options/PickupSetting/PickupOptions")
 _helperTransparency = NodePath("ScrollContainer/Options/HelperTransparencySetting/HelperTransparencySlider")
 _masterVolume = NodePath("ScrollContainer/Options/MasterVolumeSetting/MasterVolumeSlider")
 _musicVolume = NodePath("ScrollContainer/Options/MusicVolumeSetting/MusicVolumeSlider")
@@ -1243,6 +1244,40 @@ min_value = 0.4
 max_value = 1.0
 step = 0.1
 value = 1.0
+
+[node name="PickupSetting" type="Control" parent="Control/OptionsPanel/ScrollContainer/Options"]
+custom_minimum_size = Vector2(0, 19)
+layout_mode = 2
+
+[node name="PickupLabel" type="Label" parent="Control/OptionsPanel/ScrollContainer/Options/PickupSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.4
+anchor_bottom = 1.0
+offset_left = 4.0
+text = "option_pickup"
+vertical_alignment = 1
+
+[node name="PickupOptions" type="OptionButton" parent="Control/OptionsPanel/ScrollContainer/Options/PickupSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_right = -4.0
+focus_neighbor_top = NodePath("../../FullscreenSetting/FullscreenToggle")
+focus_neighbor_right = NodePath("../../../../OptionsButtons/ButtonConfirm")
+focus_neighbor_bottom = NodePath("../../ScreenShakeSetting/ScreenShakeToggle")
+focus_next = NodePath("../../ScreenShakeSetting/ScreenShakeToggle")
+focus_previous = NodePath("../../FullscreenSetting/FullscreenToggle")
+item_count = 3
+popup/item_0/text = "pickup_order_bottom"
+popup/item_0/id = 0
+popup/item_1/text = "pickup_order_middle"
+popup/item_1/id = 1
+popup/item_2/text = "pickup_order_top"
+popup/item_2/id = 2
 
 [node name="HelperTransparencySetting" type="Control" parent="Control/OptionsPanel/ScrollContainer/Options"]
 custom_minimum_size = Vector2(0, 19)

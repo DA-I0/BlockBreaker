@@ -11,6 +11,7 @@ public class Settings
 	private const int DefaultScreenHeight = 1120;
 	private const bool DefaultScreenShake = true;
 	private const float DefaultBackgroundBrightness = 1f;
+	private const int DefaultPickupOrder = 0;
 	private const float DefaultHelperTransparency = 0.4f;
 	private const float DefaultMasterVolume = 0f;
 	private const float DefaultMusicVolume = -10f;
@@ -56,6 +57,12 @@ public class Settings
 	{
 		get { return (float)_config.GetValue("display", "background_brightness", DefaultBackgroundBrightness); }
 		set { _config.SetValue("display", "background_brightness", value); }
+	}
+
+	public int PickupOrder
+	{
+		get { return (int)_config.GetValue("display", "pickup_order", DefaultPickupOrder); }
+		set { _config.SetValue("display", "pickup_order", value); }
 	}
 
 	public float HelperTransparency
@@ -113,6 +120,7 @@ public class Settings
 		ScreenHeight = DefaultScreenHeight;
 		ScreenShake = DefaultScreenShake;
 		BackgroundBrightness = DefaultBackgroundBrightness;
+		PickupOrder = DefaultPickupOrder;
 		HelperTransparency = DefaultHelperTransparency;
 		MasterVolume = DefaultMasterVolume;
 		MusicVolume = DefaultMusicVolume;

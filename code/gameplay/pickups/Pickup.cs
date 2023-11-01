@@ -10,6 +10,7 @@ public partial class Pickup : Area2D
 	public override void _Ready()
 	{
 		refs = GetNode("/root/GameController") as SessionController;
+		ZIndex = refs.settings.PickupOrder;
 	}
 
 	public override void _PhysicsProcess(double delta)
