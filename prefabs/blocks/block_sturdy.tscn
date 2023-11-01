@@ -14,6 +14,7 @@
 size = Vector2(16, 6)
 
 [node name="BlockSturdy" type="StaticBody2D" node_paths=PackedStringArray("_timer")]
+z_index = 2
 script = ExtResource("1_vydik")
 _pickups = Array[PackedScene]([ExtResource("2_685qm"), ExtResource("3_p0kf1"), ExtResource("4_ugw4u"), ExtResource("5_cym8p"), ExtResource("6_ucqdu")])
 _pointValue = 3
