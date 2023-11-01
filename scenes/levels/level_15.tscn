@@ -1,13 +1,16 @@
-[gd_scene load_steps=14 format=3 uid="uid://ddl74mrmcw0qb"]
+[gd_scene load_steps=17 format=3 uid="uid://ddl74mrmcw0qb"]
 
 [ext_resource type="Texture2D" uid="uid://clfnabf8ysvwd" path="res://assets/sprites/tilesets/map_tiles_bricked.png" id="1_qmyep"]
 [ext_resource type="PackedScene" uid="uid://too80a13ex5u" path="res://prefabs/blocks/block_basic.tscn" id="2_0tlwp"]
-[ext_resource type="PackedScene" uid="uid://3o4xaawp25f5" path="res://prefabs/decorations/death_pit_marker_level.tscn" id="2_h857v"]
 [ext_resource type="PackedScene" uid="uid://clchdmucxr4xn" path="res://prefabs/blocks/block_sturdy.tscn" id="3_25bwf"]
 [ext_resource type="PackedScene" uid="uid://bg5r3twijp0e" path="res://prefabs/blocks/barrier_sturdy.tscn" id="4_2n8cg"]
 [ext_resource type="PackedScene" uid="uid://doawgt0jptjhp" path="res://prefabs/blocks/coffin.tscn" id="5_1gn76"]
 [ext_resource type="PackedScene" uid="uid://ctgplrud2njoq" path="res://prefabs/hazards/teleport_door.tscn" id="7_g5ogm"]
+[ext_resource type="PackedScene" uid="uid://bcgjn3w6ux0au" path="res://prefabs/props/bookcase_horizontal.tscn" id="8_rpnqv"]
+[ext_resource type="PackedScene" uid="uid://bbn2xxwftj53k" path="res://prefabs/props/tables/table_horizontal.tscn" id="9_0hu25"]
 [ext_resource type="PackedScene" uid="uid://cgpa7sf8jgxu8" path="res://prefabs/level_exit.tscn" id="9_g53u8"]
+[ext_resource type="PackedScene" uid="uid://c6ceg4xn26hvr" path="res://prefabs/props/chairs/chair_up.tscn" id="10_1b1ud"]
+[ext_resource type="PackedScene" uid="uid://bjqqfreqrhl48" path="res://prefabs/props/candle_stand.tscn" id="11_ho6wf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y748h"]
 texture = ExtResource("1_qmyep")
@@ -207,8 +210,6 @@ shape = SubResource("WorldBoundaryShape2D_37x88")
 position = Vector2(0, -65)
 shape = SubResource("WorldBoundaryShape2D_7jrrh")
 
-[node name="DeathPitMarkerLevel" parent="." instance=ExtResource("2_h857v")]
-
 [node name="Blocks" type="Node2D" parent="."]
 
 [node name="BlockBasic" parent="Blocks" instance=ExtResource("2_0tlwp")]
@@ -380,6 +381,26 @@ _linkedDoor = NodePath("../TeleportDoor2")
 [node name="TeleportDoor2" parent="Interactables" node_paths=PackedStringArray("_linkedDoor") instance=ExtResource("7_g5ogm")]
 position = Vector2(-48, 50)
 _linkedDoor = NodePath("../TeleportDoor")
+
+[node name="Props" type="Node2D" parent="."]
+
+[node name="Bookcase" parent="Props" instance=ExtResource("8_rpnqv")]
+position = Vector2(-67, 55)
+
+[node name="Bookcase2" parent="Props" instance=ExtResource("8_rpnqv")]
+position = Vector2(-86, 55)
+
+[node name="TableHorizontal" parent="Props" instance=ExtResource("9_0hu25")]
+position = Vector2(-12, 59)
+
+[node name="ChairUp" parent="Props" instance=ExtResource("10_1b1ud")]
+position = Vector2(-18, 62)
+
+[node name="ChairUp2" parent="Props" instance=ExtResource("10_1b1ud")]
+position = Vector2(-8, 64)
+
+[node name="CandleStand" parent="Props" instance=ExtResource("11_ho6wf")]
+position = Vector2(-30, 53)
 
 [node name="LevelExit" parent="." instance=ExtResource("9_g53u8")]
 position = Vector2(64, -63)
