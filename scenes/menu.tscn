@@ -239,7 +239,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "panel_paddle"
+text = "header_paddle"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -368,7 +368,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "panel_difficulty"
+text = "header_difficulty"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -672,7 +672,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "panel_level"
+text = "header_level"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -729,7 +729,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "panel_info"
+text = "header_info"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -885,7 +885,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "panel_changelog"
+text = "header_changelog"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -1205,11 +1205,11 @@ focus_neighbor_bottom = NodePath("../../ScreenShakeSetting/ScreenShakeToggle")
 focus_next = NodePath("../../ScreenShakeSetting/ScreenShakeToggle")
 focus_previous = NodePath("../../FullscreenSetting/FullscreenToggle")
 item_count = 3
-popup/item_0/text = "pickup_order_bottom"
+popup/item_0/text = "option_pickup_order_bottom"
 popup/item_0/id = 0
-popup/item_1/text = "pickup_order_middle"
+popup/item_1/text = "option_pickup_order_middle"
 popup/item_1/id = 1
-popup/item_2/text = "pickup_order_top"
+popup/item_2/text = "option_pickup_order_top"
 popup/item_2/id = 2
 
 [node name="HelperTransparencySetting" type="Control" parent="Control/OptionsPanel/VideoOptions/Options"]
