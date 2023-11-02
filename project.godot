@@ -122,7 +122,7 @@ game_skill={
 
 [internationalization]
 
-locale/translations=PackedStringArray("res://assets/text/localization/localization.en.translation", "res://assets/text/localization/localization.de.translation", "res://assets/text/localization/localization.pl.translation")
+locale/translations=PackedStringArray("res://assets/text/localization/localization.de.translation", "res://assets/text/localization/localization.en.translation", "res://assets/text/localization/localization.ja.translation", "res://assets/text/localization/localization.pl.translation")
 
 [layer_names]
 
