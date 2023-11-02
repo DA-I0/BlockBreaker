@@ -3,6 +3,7 @@ using Godot;
 
 public partial class UIOptionsPanel : UIPanel
 {
+	[Export] private Label _header;
 	[Export] private OptionButton _language;
 	[Export] private HSlider _mouseSpeed;
 	[Export] private HSlider _keyboardSpeed;
@@ -16,11 +17,22 @@ public partial class UIOptionsPanel : UIPanel
 	[Export] private HSlider _musicVolume;
 	[Export] private HSlider _effectsVolume;
 
+	private int _activePanel = 0;
+
 	public override void _Ready()
 	{
 		SetupReferences();
-		UpdateSettings();
+		DisplayActivePanel();
 		PopulateLanguageList();
+	}
+
+	protected override void Focus()
+	{
+		if (Visible)
+		{
+			_focusTarget.GrabFocus();
+			ChangeActivePanel(0);
+		}
 	}
 
 	private void UpdateSettings()
@@ -68,13 +80,53 @@ public partial class UIOptionsPanel : UIPanel
 
 	private void RestoreDefaultSettings()
 	{
-		refs.settings.SetDefaultValues();
+		switch (_activePanel)
+		{
+			case 0:
+				refs.settings.SetDefaultGeneralValues();
+				break;
+
+			case 1:
+				refs.settings.SetDefaultVideoValues();
+				break;
+
+			case 2:
+				refs.settings.SetDefaultAudioValues();
+				break;
+
+			case 3:
+				refs.settings.SetDefaultControlValues();
+				break;
+
+			default:
+				refs.settings.SetDefaultValues();
+				break;
+		}
+
 		UpdateSettings();
+	}
+
+	private void ChangeActivePanel(int targetPanelIndex)
+	{
+		_activePanel = targetPanelIndex;
+		DisplayActivePanel();
+	}
+
+	private void DisplayActivePanel()
+	{
+		for (int index = 1; index < GetChildCount() - 2; index++)
+		{
+			((Control)GetChild(index)).Visible = ((index - 1) == _activePanel);
+		}
+
+		UpdateSettings();
+		UpdateHeaderText();
 	}
 
 	private void PopulateLanguageList()
 	{
 		List<string> languageNames = new List<string>();
+
 		foreach (string languageCode in TranslationServer.GetLoadedLocales())
 		{
 			if (!languageNames.Contains(languageCode))
@@ -82,8 +134,6 @@ public partial class UIOptionsPanel : UIPanel
 				languageNames.Add(TranslationServer.GetLanguageName(languageCode));
 			}
 		}
-
-		languageNames.Sort();
 
 		foreach (string languageName in languageNames)
 		{
@@ -107,5 +157,31 @@ public partial class UIOptionsPanel : UIPanel
 		}
 
 		return -1;
+	}
+
+	private void UpdateHeaderText()
+	{
+		switch (_activePanel)
+		{
+			case 0:
+				_header.Text = $"{Tr("header_options")} - {Tr("header_general")}";
+				break;
+
+			case 1:
+				_header.Text = $"{Tr("header_options")} - {Tr("header_video")}";
+				break;
+
+			case 2:
+				_header.Text = $"{Tr("header_options")} - {Tr("header_audio")}";
+				break;
+
+			case 3:
+				_header.Text = $"{Tr("header_options")} - {Tr("header_controls")}";
+				break;
+
+			default:
+				_header.Text = Tr("header_options");
+				break;
+		}
 	}
 }

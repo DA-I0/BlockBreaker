@@ -113,8 +113,20 @@ public class Settings
 
 	public void SetDefaultValues()
 	{
+		SetDefaultGeneralValues();
+		SetDefaultVideoValues();
+		SetDefaultAudioValues();
+		SetDefaultControlValues();
+	}
+
+	public void SetDefaultGeneralValues()
+	{
 		Language = DefaultLanguage;
 		ActiveController = (InputType)DefaultInputType;
+	}
+
+	public void SetDefaultVideoValues()
+	{
 		ScreenMode = DefaultScreenMode;
 		ScreenWidth = DefaultScreenWidth;
 		ScreenHeight = DefaultScreenHeight;
@@ -122,9 +134,17 @@ public class Settings
 		BackgroundBrightness = DefaultBackgroundBrightness;
 		PickupOrder = DefaultPickupOrder;
 		HelperTransparency = DefaultHelperTransparency;
+	}
+
+	public void SetDefaultAudioValues()
+	{
 		MasterVolume = DefaultMasterVolume;
 		MusicVolume = DefaultMusicVolume;
 		EffectsVolume = DefaultEffectsVolume;
+	}
+
+	public void SetDefaultControlValues()
+	{
 		SpeedMouse = DefaultMouseSpeed;
 		SpeedKeyboard = DefaultKeyboardSpeed;
 	}
