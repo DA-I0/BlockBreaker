@@ -11,23 +11,23 @@ button_return,Back,Zurück,,Wróć
 diff_angle_speed,Angle selection speed,,,Prędkość wyboru kąta
 diff_ball_speed,Ball speed,,,Prędkość piłki
 diff_lives_max,Max lives,,,Maksimum żyć
-diff_lives_start,Starting lives,,,
+diff_lives_start,Starting lives,,,Początkowe życia
 diff_name,Name,Name,,Nazwa
 diff_paddle_size_max,Max paddle size,,,Maksymalna wielkość paletki
 diff_paddle_size_min,Min paddle size,,,Minimalna wielkość paletki
-diff_paddle_size_start,Starting paddle size,,,Startowy rozmiar paletki
+diff_paddle_size_start,Starting paddle size,,,Początkowy rozmiar paletki
 diff_placeholder_name,New difficulty,,,Nowy poziom trudności
 game_over,Game over,,,Koniec gry
 game_score,Score,Punkte,,Punkty
 game_win,Victory!,,,Zwycięstwo!
 header_audio,Audio,Audio,,Dźwięk
 header_changelog,Changelog,Änderungsprotokoll,,Lista zmian
-header_controls,Controls,,,
+header_controls,Controls,,,Sterowanie
 header_difficulty,Select difficulty,,,Wybierz poziom trudności
 header_general,General,,,Ogólne
-header_info,Game info,,,
+header_info,Game info,,,Informacje o grze
 header_leaderboard,Leaderboard,Rangliste,,Lista wyników
-header_options,Options,Einstellungen,,
+header_options,Options,Einstellungen,,Opcje
 header_paddle,Select paddle,,,Wybierz paletkę
 header_video,Video,Video,,Wideo
 info_barriers,Barriers,,,Bariery
@@ -38,7 +38,7 @@ info_controls,Controls,,,Sterowanie
 info_controls_desc,[b]Move paddle:[/b] {game_left}{game_right}\n[b]Release ball:[/b] {game_play}\n[b]Reset ball (-1 life):[/b] {game_reset}\n[b]Pause game:[/b] {game_pause},,,
 info_score_multiplier,Score multiplier,,,Mnożnik punktów
 info_score_multiplier_desc,"Increases by 1 for every {multiplier_combo_step} destroyed elements, up to {multiplier_max_combo}.\nGrabbing difficulty increasing pickups (small/fast ball, smaller paddle) also increases multiplier independent of combo.\nMax score multiplier: x{multiplier_max}.",,,
-message_advance_to_next_map,Press {game_play} to continue...,,,
+message_advance_to_next_map,Press {game_play} to continue...,,,Wciśnij {game_play} aby kontynuować…
 message_loading,Loading...,Lädt…,,Ładowanie…
 message_return_to_menu,Return to menu?,,メニューに戻る?,Wróć do menu?
 option_background_brightness,Background brightness,,,Jasność tła
@@ -51,10 +51,10 @@ option_language,Language,Sprache,,Język
 option_master_volume,Master volume,Gesamtlautstärke,全体 音量,Głośność ogólna
 option_mouse_speed,Mouse speed,,マウス速度,Prędkość myszy
 option_music_volume,Music volume,Musiklautstärke,BGM 音量,Głośność muzyki
-option_pickup,Pickup visibility,,,
-option_pickup_order_bottom,Below all,,,
-option_pickup_order_middle,Above ball,,,
-option_pickup_order_top,Above all,,,
+option_pickup,Pickup visibility,,,Widoczność znajdziek
+option_pickup_order_bottom,Below all,,,Pod wszystkim
+option_pickup_order_middle,Above ball,,,Nad piłką
+option_pickup_order_top,Above all,,,Nad wszystkim
 option_resolution,Window size,Videoauflösung,画面サイズ,Rozmiar okna
 option_screen_shake,Enable screen shake,,,Wstrząs ekranu
 score_difficulty_disclaimer,Custom difficulty,,,Własny poziom trudności
