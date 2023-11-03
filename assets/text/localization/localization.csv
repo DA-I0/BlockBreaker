@@ -2,17 +2,17 @@ keys,en,de,ja,pl
 button_cancel,Cancel,Abbrechen,キャンセル,Anuluj
 button_changelog,Changelog,Änderungsprotokoll,,Lista zmian
 button_confirm,Confirm,,,Potwierdź
-button_default,Default,,初期値,Domyślne
+button_default,Default,Standardeinstellungen,初期値,Domyślne
 button_exit,Exit,Verlassen,ゲーム終了,Wyjdź
 button_info,Info,Informationen,,Info
 button_options,Options,Einstellungen,オプション,Opcje
 button_play,Play,Spielen,,Graj
-button_return,Back,,,Wróć
+button_return,Back,Zurück,,Wróć
 diff_angle_speed,Angle selection speed,,,Prędkość wyboru kąta
 diff_ball_speed,Ball speed,,,Prędkość piłki
 diff_lives_max,Max lives,,,Maksimum żyć
 diff_lives_start,Starting lives,,,
-diff_name,Name,,,Nazwa
+diff_name,Name,Name,,Nazwa
 diff_paddle_size_max,Max paddle size,,,Maksymalna wielkość paletki
 diff_paddle_size_min,Min paddle size,,,Minimalna wielkość paletki
 diff_paddle_size_start,Starting paddle size,,,Startowy rozmiar paletki
@@ -20,16 +20,16 @@ diff_placeholder_name,New difficulty,,,Nowy poziom trudności
 game_over,Game over,,,Koniec gry
 game_score,Score,Punkte,,Punkty
 game_win,Victory!,,,Zwycięstwo!
-header_audio,Audio,,,Dźwięk
-header_changelog,Changelog,,,Lista zmian
+header_audio,Audio,Audio,,Dźwięk
+header_changelog,Changelog,Änderungsprotokoll,,Lista zmian
 header_controls,Controls,,,
 header_difficulty,Select difficulty,,,Wybierz poziom trudności
 header_general,General,,,Ogólne
 header_info,Game info,,,
-header_leaderboard,Leaderboard,,,Lista wyników
-header_options,Options,,,
+header_leaderboard,Leaderboard,Rangliste,,Lista wyników
+header_options,Options,Einstellungen,,
 header_paddle,Select paddle,,,Wybierz paletkę
-header_video,Video,,,Wideo
+header_video,Video,Video,,Wideo
 info_barriers,Barriers,,,Bariery
 info_barriers_desc,"Exist in two variants - basic and sturdy.\nBasic one can't be broken, sturdy breaks after {barrier_sturdy_health} hits.\n\nBarriers don't count towards level completion.",,,
 info_blocks,Blocks,,,Bloki
@@ -39,18 +39,18 @@ info_controls_desc,[b]Move paddle:[/b] {game_left}{game_right}\n[b]Release ball:
 info_score_multiplier,Score multiplier,,,Mnożnik punktów
 info_score_multiplier_desc,"Increases by 1 for every {multiplier_combo_step} destroyed elements, up to {multiplier_max_combo}.\nGrabbing difficulty increasing pickups (small/fast ball, smaller paddle) also increases multiplier independent of combo.\nMax score multiplier: x{multiplier_max}.",,,
 message_advance_to_next_map,Press {game_play} to continue...,,,
-message_loading,Loading...,,,Ładowanie…
+message_loading,Loading...,Lädt…,,Ładowanie…
 message_return_to_menu,Return to menu?,,メニューに戻る?,Wróć do menu?
 option_background_brightness,Background brightness,,,Jasność tła
-option_effects_volume,Effects volume,,SE 音量,Głośność efektów
+option_effects_volume,Effects volume,Effektlautstärke,SE 音量,Głośność efektów
 option_font,Font,,,Czcionka
 option_fullscreen,Fullscreen,,,Pełen ekran
 option_helper_transparency,Helper transparency,,,
 option_keyboard_speed,Keyboard speed,,キーボード速度,Prędkość klawiatury
 option_language,Language,Sprache,,Język
-option_master_volume,Master volume,,全体 音量,Głośność ogólna
+option_master_volume,Master volume,Gesamtlautstärke,全体 音量,Głośność ogólna
 option_mouse_speed,Mouse speed,,マウス速度,Prędkość myszy
-option_music_volume,Music volume,,BGM 音量,Głośność muzyki
+option_music_volume,Music volume,Musiklautstärke,BGM 音量,Głośność muzyki
 option_pickup,Pickup visibility,,,
 option_pickup_order_bottom,Below all,,,
 option_pickup_order_middle,Above ball,,,
@@ -58,5 +58,5 @@ option_pickup_order_top,Above all,,,
 option_resolution,Window size,Videoauflösung,画面サイズ,Rozmiar okna
 option_screen_shake,Enable screen shake,,,Wstrząs ekranu
 score_difficulty_disclaimer,Custom difficulty,,,Własny poziom trudności
-score_placeholder_player_name,Player,,,Gracz
+score_placeholder_player_name,Player,Spieler,,Gracz
 tooltip_screen_shake,Screen shake effect used during gameplay.,,,
