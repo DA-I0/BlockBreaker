@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4y3jhgwpubns"]
+
+[ext_resource type="Texture2D" uid="uid://bgy4nsj1i1atm" path="res://assets/sprites/props/wardrobe_horizontal_open.png" id="1_gkrdq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_47th3"]
+size = Vector2(18, 6)
+
+[node name="WardrobeHorizontalOpen" type="StaticBody2D"]
+z_index = 2
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(-9, -25)
+texture = ExtResource("1_gkrdq")
+centered = false
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_47th3")
