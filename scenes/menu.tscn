@@ -1,6 +1,7 @@
-[gd_scene load_steps=43 format=3 uid="uid://2bhhrfvm7kux"]
+[gd_scene load_steps=44 format=3 uid="uid://2bhhrfvm7kux"]
 
 [ext_resource type="Script" path="res://code/ui/UIController.cs" id="1_5ctlo"]
+[ext_resource type="PackedScene" uid="uid://gn5283p37bke" path="res://prefabs/ui/first_language_selection.tscn" id="2_8j3rs"]
 [ext_resource type="PackedScene" uid="uid://brvyqbw1p1q8q" path="res://prefabs/ui/level_button.tscn" id="2_idrcj"]
 [ext_resource type="Texture2D" uid="uid://dkyo1knm2xxhn" path="res://assets/sprites/ui_elements/ui_frame.png" id="3_nmycr"]
 [ext_resource type="Theme" uid="uid://dj60ywofwk371" path="res://theme/ui.theme" id="3_sjckc"]
@@ -1504,6 +1505,10 @@ layout_mode = 2
 shortcut_context = NodePath("../..")
 shortcut = ExtResource("17_c27yp")
 text = "button_return"
+
+[node name="LangSelection" parent="." instance=ExtResource("2_8j3rs")]
+visible = false
+layout_mode = 2
 
 [connection signal="pressed" from="Control/MenuButtons/Play" to="." method="TogglePanel" binds= ["PaddlePanel"]]
 [connection signal="pressed" from="Control/MenuButtons/Info" to="." method="TogglePanel" binds= ["InfoPanel"]]

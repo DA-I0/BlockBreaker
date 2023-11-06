@@ -41,7 +41,7 @@ public partial class UIOptionsPanel : UIPanel
 		_mouseSpeed.Value = refs.settings.SpeedMouse;
 		_keyboardSpeed.Value = refs.settings.SpeedKeyboard;
 		_fullscreen.ButtonPressed = (refs.settings.ScreenMode > 0);
-		_resolution.Selected = FindOptionIndex(_resolution, $"{refs.settings.ScreenWidth}x{refs.settings.ScreenHeight}");
+		// _resolution.Selected = FindOptionIndex(_resolution, $"{refs.settings.ScreenWidth}x{refs.settings.ScreenHeight}");
 		_screenShake.ButtonPressed = refs.settings.ScreenShake;
 		_backgroundBrightness.Value = refs.settings.BackgroundBrightness;
 		_pickupOrder.Selected = refs.settings.PickupOrder;
@@ -57,9 +57,9 @@ public partial class UIOptionsPanel : UIPanel
 		refs.settings.SpeedMouse = (float)_mouseSpeed.Value;
 		refs.settings.SpeedKeyboard = (float)_keyboardSpeed.Value;
 		refs.settings.ScreenMode = _fullscreen.ButtonPressed ? 3 : 0;
-		string resolutionString = _resolution.GetItemText(_resolution.Selected);
-		refs.settings.ScreenWidth = int.Parse(resolutionString.Split("x")[0]);
-		refs.settings.ScreenHeight = int.Parse(resolutionString.Split("x")[1]);
+		// string resolutionString = _resolution.GetItemText(_resolution.Selected);
+		// refs.settings.ScreenWidth = int.Parse(resolutionString.Split("x")[0]);
+		// refs.settings.ScreenHeight = int.Parse(resolutionString.Split("x")[1]);
 		refs.settings.ScreenShake = _screenShake.ButtonPressed;
 		refs.settings.BackgroundBrightness = (float)_backgroundBrightness.Value;
 		refs.settings.PickupOrder = _pickupOrder.Selected;

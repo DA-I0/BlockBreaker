@@ -20,6 +20,7 @@ public partial class UIController : Node
 		FindPanels();
 		HideAllPanels();
 		TogglePanel("LeaderboardPanel");
+		DisplayFirstLanguageSelection();
 		_gameTitle.Text = ProjectSettings.GetSetting("application/config/name").ToString();
 	}
 
@@ -77,6 +78,11 @@ public partial class UIController : Node
 		{
 			panel.Value.Visible = false;
 		}
+	}
+
+	private void DisplayFirstLanguageSelection()
+	{
+		(GetChild(1) as Control).Visible = refs.settings.firstLaunch;
 	}
 
 	private void ExitGame()

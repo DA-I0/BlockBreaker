@@ -4,6 +4,8 @@ public enum InputType { gamepad, keyboard, mouse };
 
 public class Settings
 {
+	public bool firstLaunch = false;
+
 	private const string DefaultLanguage = "en";
 	private const int DefaultInputType = 1;
 	private const int DefaultScreenMode = 3;
@@ -128,8 +130,8 @@ public class Settings
 	public void SetDefaultVideoValues()
 	{
 		ScreenMode = DefaultScreenMode;
-		ScreenWidth = DefaultScreenWidth;
-		ScreenHeight = DefaultScreenHeight;
+		ScreenWidth = DisplayServer.ScreenGetSize().X;//DefaultScreenWidth;
+		ScreenHeight = DisplayServer.ScreenGetSize().Y;//DefaultScreenHeight;
 		ScreenShake = DefaultScreenShake;
 		BackgroundBrightness = DefaultBackgroundBrightness;
 		PickupOrder = DefaultPickupOrder;
@@ -163,6 +165,7 @@ public class Settings
 		if (error != Error.Ok)
 		{
 			SetDefaultValues();
+			firstLaunch = true;
 		}
 
 		ApplySettings();

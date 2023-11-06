@@ -1,0 +1,45 @@
+[gd_scene load_steps=2 format=3 uid="uid://gn5283p37bke"]
+
+[ext_resource type="Script" path="res://code/ui/UIFirstLanguageSelection.cs" id="1_gbrao"]
+
+[node name="LangSelection" type="ColorRect"]
+z_index = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(220, 110)
+offset_left = 18.0
+offset_top = 55.0
+offset_right = 238.0
+offset_bottom = 165.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_gbrao")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 16.0
+grow_horizontal = 2
+text = "lang_selection"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="ItemList" type="GridContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 20.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 4
