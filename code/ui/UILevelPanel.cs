@@ -2,8 +2,6 @@ using Godot;
 
 public partial class UILevelPanel : UIPanel
 {
-	[Export] private PackedScene _buttonPrefab;
-
 	public override void _Ready()
 	{
 		SetupReferences();
@@ -14,8 +12,12 @@ public partial class UILevelPanel : UIPanel
 	{
 		for (int index = 0; index < refs.gameData.Levels.Count; index++)
 		{
-			UILevelButton newButton = (UILevelButton)_buttonPrefab.Instantiate();
-			newButton.ButtonSetup(index, refs.gameData.Levels[index]);
+			Button newButton = new Button();
+			newButton.Text = refs.gameData.Levels[index].Replace(".tscn", "");
+
+			int levelIndex = index;
+			newButton.Pressed += () => refs.SelectLevel(levelIndex);
+
 			GetChild(1).AddChild(newButton);
 		}
 	}
