@@ -29,8 +29,13 @@ public partial class UIFirstLanguageSelection : Control
 		{
 			Button nextLanguage = new Button();
 			nextLanguage.Text = languageNames[index];
+
 			int languageIndex = index;
 			nextLanguage.Pressed += () => SetInitialLanguage(languageIndex);
+
+			nextLanguage.SizeFlagsHorizontal = SizeFlags.ShrinkCenter | SizeFlags.Expand;
+			nextLanguage.SizeFlagsVertical = SizeFlags.ShrinkCenter;
+
 			GetChild(1).AddChild(nextLanguage);
 		}
 	}

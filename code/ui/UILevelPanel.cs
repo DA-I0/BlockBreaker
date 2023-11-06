@@ -18,6 +18,9 @@ public partial class UILevelPanel : UIPanel
 			int levelIndex = index;
 			newButton.Pressed += () => refs.SelectLevel(levelIndex);
 
+			newButton.SizeFlagsHorizontal = SizeFlags.ShrinkCenter | SizeFlags.Expand;
+			newButton.SizeFlagsVertical = SizeFlags.ShrinkCenter;
+
 			GetChild(1).AddChild(newButton);
 		}
 	}
