@@ -84,7 +84,7 @@ public partial class LocalizationController
 		return modifiedString;
 	}
 
-	private string GetInputValues(string inputs)
+	private string GetInputValues(string inputs) // make use of GetInputValue
 	{
 		var inputEvents = InputMap.ActionGetEvents(inputs);
 		string inputValue = string.Empty;
@@ -115,6 +115,27 @@ public partial class LocalizationController
 		return inputValue;
 	}
 
+	public string[] GetInputSymbol(string inputEvent, string device)
+	{
+		var inputEvents = device.Contains("Keyboard") ? InputMap.ActionGetEvents(inputEvent).Where(a => !a.AsText().Contains("Joypad") && !a.AsText().Contains("Mouse")) : InputMap.ActionGetEvents(inputEvent).Where(a => a.AsText().Contains(device));
+		List<string> inputSymbols = new List<string>();
+
+		for (int index = 0; index < inputEvents.Count(); index++)
+		{
+			string targetAction = inputEvents.ElementAt(index).AsText();
+
+			if (targetAction.Find(" (") != -1)
+			{
+				targetAction = targetAction.Substring(0, targetAction.Find(" ("));
+				targetAction = SetJoypadType(targetAction);
+			}
+
+			inputSymbols.Add(GetCustomValue(targetAction));
+		}
+
+		return inputSymbols.ToArray<string>();
+	}
+
 	private string GetCustomValue(string key)
 	{
 		try
@@ -123,9 +144,40 @@ public partial class LocalizationController
 		}
 		catch
 		{
-			GD.PrintErr("Replacement value not found");
+			// GD.PrintErr("Replacement value not found");
 		}
 
-		return "<value not found>";
+		return key;
+	}
+
+	public string GetInputKey(string targetValue)
+	{
+		foreach (var entry in _customValues)
+		{
+			if (entry.Value == targetValue)
+			{
+				return entry.Key;
+			}
+		}
+
+		return targetValue;
+	}
+
+	private string SetJoypadType(string targetAction)
+	{
+		switch (refs.settings.ControlerPrompts)
+		{
+			case "nintendo":
+				return $"ni_{targetAction}";
+
+			case "playstation":
+				return $"ps_{targetAction}";
+
+			case "xbox":
+				return $"xb_{targetAction}";
+
+			default:
+				return targetAction;
+		}
 	}
 }

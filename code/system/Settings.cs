@@ -1,3 +1,5 @@
+using System;
+using System.Linq;
 using Godot;
 
 public enum InputType { gamepad, keyboard, mouse };
@@ -7,6 +9,7 @@ public class Settings
 	public bool firstLaunch = false;
 
 	private const string DefaultLanguage = "en";
+	private const string DefaultControlerPrompts = "generic";
 	private const int DefaultInputType = 1;
 	private const int DefaultScreenMode = 3;
 	private const int DefaultScreenWidth = 1280;
@@ -29,6 +32,12 @@ public class Settings
 	{
 		get { return (string)_config.GetValue("general", "language", DefaultLanguage); }
 		set { _config.SetValue("general", "language", value); }
+	}
+
+	public string ControlerPrompts
+	{
+		get { return (string)_config.GetValue("general", "controlerPrompts", DefaultControlerPrompts); }
+		set { _config.SetValue("general", "controlerPrompts", value); }
 	}
 
 	public int ScreenMode
@@ -125,6 +134,7 @@ public class Settings
 	{
 		Language = DefaultLanguage;
 		ActiveController = (InputType)DefaultInputType;
+		ControlerPrompts = DefaultControlerPrompts;
 	}
 
 	public void SetDefaultVideoValues()
@@ -175,6 +185,62 @@ public class Settings
 	{
 		_config.Save(refs.gameData.ConfigFilePath);
 		ApplySettings();
+	}
+
+	public void ChangeKeybinding(string actionToChange, string inputValueToChange, InputEvent newInputValue)
+	{
+		if (inputValueToChange != string.Empty)
+		{
+			string oldInputValue = refs.localization.GetInputKey(inputValueToChange);
+			GD.Print("Changing: " + oldInputValue + "(" + inputValueToChange + ") to " + newInputValue.AsText());
+
+			var inputEvents = InputMap.ActionGetEvents(actionToChange).Where(a => a.AsText().Contains(oldInputValue));
+
+			foreach (var temp in inputEvents) // TODO: remove
+			{
+				GD.Print("> " + temp.AsText());
+			}
+
+			InputMap.ActionEraseEvent(actionToChange, inputEvents.ElementAt(0));
+		}
+
+		InputMap.ActionAddEvent(actionToChange, newInputValue);
+		// _config.SetValue("controls", actionToChange, newInputValue);
+		SaveKeybindings();
+	}
+
+	private void SaveKeybindings()
+	{
+		var gameplayInputActions = InputMap.GetActions().Where(a => !a.ToString().StartsWith("ui_"));
+
+		foreach (var action in gameplayInputActions)
+		{
+			var inputEvents = InputMap.ActionGetEvents(action);
+			_config.SetValue("controls", action, inputEvents);
+
+			// for (int i = 0; i < inputEvents.Count; i++)
+			// {
+			// 	string inputEntry = $"{action}_{i}";
+			// 	_config.SetValue("controls", inputEntry, inputEvents[i]);
+			// }
+		}
+	}
+
+	private void LoadKeybindings()
+	{
+		// var gameplayInputActions = InputMap.GetActions().Where(a => !a.ToString().StartsWith("ui_"));
+
+		// foreach (var action in gameplayInputActions)
+		// {
+		// 	var inputEvents = InputMap.ActionGetEvents(action);
+		// 	InputEvent[] customKeybinds = (Godot.Collections.Array<InputEvent>)_config.GetValue("controls", action, new InputEventAction());
+
+		// 	for (int i = 0; i < customKeybinds.; i++)
+		// 	{
+		// 		InputMap.ActionEraseEvent(action, inputEvents.ElementAt(0));
+
+		// 	}
+		// }
 	}
 
 	private void ApplySettings()

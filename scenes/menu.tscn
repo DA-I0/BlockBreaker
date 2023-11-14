@@ -1,9 +1,10 @@
-[gd_scene load_steps=43 format=3 uid="uid://2bhhrfvm7kux"]
+[gd_scene load_steps=45 format=3 uid="uid://2bhhrfvm7kux"]
 
 [ext_resource type="Script" path="res://code/ui/UIController.cs" id="1_5ctlo"]
 [ext_resource type="PackedScene" uid="uid://gn5283p37bke" path="res://prefabs/ui/first_language_selection.tscn" id="2_8j3rs"]
 [ext_resource type="Texture2D" uid="uid://dkyo1knm2xxhn" path="res://assets/sprites/ui_elements/ui_frame.png" id="3_nmycr"]
 [ext_resource type="Theme" uid="uid://dj60ywofwk371" path="res://theme/ui.theme" id="3_sjckc"]
+[ext_resource type="StyleBox" uid="uid://bxlfb6t2obups" path="res://theme/panel_thin.tres" id="3_v54h8"]
 [ext_resource type="Script" path="res://code/ui/UIPaddlePanel.cs" id="5_yyr40"]
 [ext_resource type="Script" path="res://code/ui/UILeaderboard.cs" id="6_3powx"]
 [ext_resource type="Shortcut" uid="uid://b0g14u724bnvg" path="res://shortcuts/previous.tres" id="6_dwepl"]
@@ -42,6 +43,7 @@
 [ext_resource type="Script" path="res://code/ui/UIChangelogPanel.cs" id="36_xfcm0"]
 [ext_resource type="Script" path="res://code/ui/UIOptionsPanel.cs" id="37_7pgst"]
 [ext_resource type="StyleBox" uid="uid://bnbwbb74r5uj6" path="res://theme/panel_header.tres" id="42_rspqf"]
+[ext_resource type="PackedScene" uid="uid://bjvyfeorydh7s" path="res://prefabs/ui/keybind_change_panel.tscn" id="43_k0jm2"]
 
 [node name="Menu" type="AspectRatioContainer" node_paths=PackedStringArray("_gameTitle", "_menuButtons")]
 anchors_preset = 15
@@ -100,7 +102,7 @@ anchor_bottom = 1.0
 offset_left = 5.0
 offset_top = 5.0
 offset_right = -5.0
-offset_bottom = -5.0
+offset_bottom = -6.0
 alignment = 2
 
 [node name="Play" type="Button" parent="Control/MenuButtons"]
@@ -150,29 +152,17 @@ offset_left = 1.0
 offset_top = 5.0
 offset_right = -5.0
 offset_bottom = -5.0
-theme = ExtResource("3_sjckc")
+theme_override_styles/panel = ExtResource("3_v54h8")
 script = ExtResource("6_3powx")
 _playerNames = NodePath("PlayerNames")
 _playerScore = NodePath("PlayerScore")
 
-[node name="Header" type="Control" parent="Control/LeaderboardPanel"]
-layout_mode = 1
-anchor_right = 1.0
-anchor_bottom = 0.12
-grow_horizontal = 2
-
-[node name="Background" type="NinePatchRect" parent="Control/LeaderboardPanel/Header"]
+[node name="Header" type="Panel" parent="Control/LeaderboardPanel"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_bottom = 0.12
 grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("3_nmycr")
-patch_margin_left = 4
-patch_margin_top = 5
-patch_margin_right = 4
-patch_margin_bottom = 4
 
 [node name="HeaderLabel" type="Label" parent="Control/LeaderboardPanel/Header"]
 layout_mode = 1
@@ -217,10 +207,6 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 5.0
-offset_top = 5.0
-offset_right = -5.0
-offset_bottom = -5.0
 script = ExtResource("5_yyr40")
 _paddleSprite = NodePath("PaddleSprite")
 _focusTarget = NodePath("ConfirmPaddle")
@@ -230,7 +216,6 @@ custom_minimum_size = Vector2(0, 20)
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
-offset_bottom = 20.0
 
 [node name="PaddleHeaderLabel" type="Label" parent="Control/PaddlePanel/PaddleHeader"]
 layout_mode = 1
@@ -300,7 +285,7 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_bottom = -5.0
+offset_bottom = -6.0
 grow_horizontal = 2
 grow_vertical = 0
 shortcut_context = NodePath("..")
@@ -313,7 +298,7 @@ anchors_preset = -1
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 5.0
-offset_bottom = -5.0
+offset_bottom = -6.0
 grow_vertical = 0
 focus_mode = 0
 shortcut_context = NodePath("..")
@@ -326,10 +311,6 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 5.0
-offset_top = 5.0
-offset_right = -5.0
-offset_bottom = -5.0
 script = ExtResource("15_swngl")
 _name = NodePath("DifficultyOptions/Name/NameLabel")
 _newName = NodePath("DifficultyOptions/Name/DifficultyNewName/LineEdit")
@@ -359,7 +340,6 @@ custom_minimum_size = Vector2(0, 20)
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
-offset_bottom = 20.0
 
 [node name="DifficultyHeaderLabel" type="Label" parent="Control/DifficultyPanel/DifficultyHeader"]
 layout_mode = 1
@@ -578,7 +558,7 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_bottom = -5.0
+offset_bottom = -6.0
 grow_horizontal = 2
 grow_vertical = 0
 alignment = 1
@@ -638,7 +618,7 @@ anchors_preset = -1
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 5.0
-offset_bottom = -5.0
+offset_bottom = -6.0
 grow_vertical = 0
 focus_mode = 0
 shortcut_context = NodePath("..")
@@ -651,10 +631,6 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 5.0
-offset_top = 5.0
-offset_right = -5.0
-offset_bottom = -5.0
 script = ExtResource("28_5o2bk")
 
 [node name="LevelHeader" type="Panel" parent="Control/LevelPanel"]
@@ -662,7 +638,6 @@ custom_minimum_size = Vector2(0, 20)
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
-offset_bottom = 20.0
 
 [node name="LevelHeaderLabel" type="Label" parent="Control/LevelPanel/LevelHeader"]
 layout_mode = 1
@@ -694,7 +669,7 @@ anchors_preset = -1
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 5.0
-offset_bottom = -5.0
+offset_bottom = -6.0
 grow_vertical = 0
 focus_mode = 0
 shortcut_context = NodePath("..")
@@ -707,10 +682,6 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 5.0
-offset_top = 5.0
-offset_right = -5.0
-offset_bottom = -5.0
 focus_mode = 2
 script = ExtResource("30_g7tuq")
 _focusTarget = NodePath("ScrollContainer")
@@ -738,7 +709,7 @@ anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 5.0
-offset_top = 22.0
+offset_top = 19.0
 offset_right = -4.0
 offset_bottom = -4.0
 focus_mode = 2
@@ -850,7 +821,7 @@ anchors_preset = -1
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 5.0
-offset_bottom = -5.0
+offset_bottom = -6.0
 grow_vertical = 0
 shortcut_context = NodePath("..")
 shortcut = ExtResource("17_c27yp")
@@ -862,10 +833,6 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 5.0
-offset_top = 5.0
-offset_right = -5.0
-offset_bottom = -5.0
 script = ExtResource("36_xfcm0")
 _content = NodePath("ChangelogScrollContainer/ChangelogContent")
 _focusTarget = NodePath("ChangelogScrollContainer")
@@ -894,7 +861,7 @@ anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 5.0
-offset_top = 20.0
+offset_top = 19.0
 offset_right = -4.0
 offset_bottom = -4.0
 grow_horizontal = 2
@@ -917,23 +884,26 @@ anchors_preset = -1
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 5.0
-offset_bottom = -5.0
+offset_bottom = -6.0
 grow_vertical = 0
 shortcut_context = NodePath("..")
 shortcut = ExtResource("17_c27yp")
 text = "button_return"
 
-[node name="OptionsPanel" type="Panel" parent="Control" node_paths=PackedStringArray("_header", "_language", "_mouseSpeed", "_keyboardSpeed", "_fullscreen", "_resolution", "_screenShake", "_backgroundBrightness", "_pickupOrder", "_helperTransparency", "_masterVolume", "_musicVolume", "_effectsVolume", "_focusTarget")]
+[node name="OptionsPanel" type="Panel" parent="Control" node_paths=PackedStringArray("_header", "_language", "_controllerType", "_mouseSpeed", "_keyboardSpeed", "_controlDevices", "_fullscreen", "_resolution", "_screenShake", "_backgroundBrightness", "_pickupOrder", "_helperTransparency", "_masterVolume", "_musicVolume", "_effectsVolume", "_keybindChangePanel", "_focusTarget")]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme_override_styles/panel = ExtResource("42_rspqf")
 script = ExtResource("37_7pgst")
-_header = NodePath("GeneralHeader2/HeaderLabel")
+_header = NodePath("HeaderPanel/HeaderLabel")
 _language = NodePath("GeneralOptions/Options/LanguageSetting/LanguageOptions")
-_mouseSpeed = NodePath("ControlOptions/Options/MouseSpeedSetting/MouseSpeedSlider")
-_keyboardSpeed = NodePath("ControlOptions/Options/KeyboardSpeedSetting/KeyboardSpeedSlider")
+_controllerType = NodePath("GeneralOptions/Options/UIControlsSetting/UIControlsOptions")
+_mouseSpeed = NodePath("ControlOptions/Options/MouseSettings/Mouse/MouseSpeedSetting/MouseSpeedSlider")
+_keyboardSpeed = NodePath("ControlOptions/Options/KeyboardSettings/Keyboard/KeyboardSpeedSetting/KeyboardSpeedSlider")
+_controlDevices = NodePath("ControlOptions/Options")
 _fullscreen = NodePath("VideoOptions/Options/FullscreenSetting/FullscreenToggle")
 _resolution = NodePath("VideoOptions/Options/ResolutionSetting/ResolutionOptions")
 _screenShake = NodePath("VideoOptions/Options/ScreenShakeSetting/ScreenShakeToggle")
@@ -943,16 +913,16 @@ _helperTransparency = NodePath("VideoOptions/Options/HelperTransparencySetting/H
 _masterVolume = NodePath("AudioOptions/Options/MasterVolumeSetting/MasterVolumeSlider")
 _musicVolume = NodePath("AudioOptions/Options/MusicVolumeSetting/MusicVolumeSlider")
 _effectsVolume = NodePath("AudioOptions/Options/EffectsVolumeSetting/EffectsVolumeSlider")
+_keybindChangePanel = NodePath("../../KeybindChangePanel")
 _focusTarget = NodePath("GeneralOptions/Options/LanguageSetting/LanguageOptions")
 
-[node name="GeneralHeader2" type="Panel" parent="Control/OptionsPanel"]
+[node name="HeaderPanel" type="Panel" parent="Control/OptionsPanel"]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
-theme_override_styles/panel = ExtResource("42_rspqf")
 
-[node name="HeaderLabel" type="Label" parent="Control/OptionsPanel/GeneralHeader2"]
+[node name="HeaderLabel" type="Label" parent="Control/OptionsPanel/HeaderPanel"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -964,13 +934,14 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="GeneralOptions" type="ScrollContainer" parent="Control/OptionsPanel"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.18
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 21.0
-offset_bottom = -26.0
+offset_bottom = -20.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("3_sjckc")
@@ -1030,17 +1001,15 @@ offset_right = -4.0
 focus_neighbor_top = NodePath(".")
 focus_neighbor_right = NodePath("../../../../OptionsButtons/Confirm")
 focus_previous = NodePath("../../../../OptionsButtons/Confirm")
-item_count = 5
-popup/item_0/text = "Mouse & Keyboard"
-popup/item_0/id = 0
-popup/item_1/text = "Generic gamepad"
-popup/item_1/id = 1
-popup/item_2/text = "Nintendo"
-popup/item_2/id = 2
-popup/item_3/text = "Steam Deck"
-popup/item_3/id = 3
-popup/item_4/text = "XBox"
-popup/item_4/id = 4
+item_count = 4
+popup/item_0/text = "Generic"
+popup/item_0/id = 1
+popup/item_1/text = "Nintendo"
+popup/item_1/id = 2
+popup/item_2/text = "Playstation"
+popup/item_2/id = 3
+popup/item_3/text = "XBox"
+popup/item_3/id = 4
 
 [node name="VideoOptions" type="ScrollContainer" parent="Control/OptionsPanel"]
 visible = false
@@ -1050,7 +1019,7 @@ anchor_left = 0.18
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 21.0
-offset_bottom = -26.0
+offset_bottom = -20.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("3_sjckc")
@@ -1244,7 +1213,7 @@ anchor_left = 0.18
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 21.0
-offset_bottom = -26.0
+offset_bottom = -20.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("3_sjckc")
@@ -1341,14 +1310,14 @@ min_value = -60.0
 max_value = 6.0
 
 [node name="ControlOptions" type="ScrollContainer" parent="Control/OptionsPanel"]
-visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.18
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 21.0
-offset_bottom = -26.0
+offset_right = -4.0
+offset_bottom = -20.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("3_sjckc")
@@ -1359,11 +1328,24 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="MouseSpeedSetting" type="Control" parent="Control/OptionsPanel/ControlOptions/Options"]
+[node name="MouseSettings" type="VBoxContainer" parent="Control/OptionsPanel/ControlOptions/Options"]
+layout_mode = 2
+
+[node name="ToggleButton" type="Button" parent="Control/OptionsPanel/ControlOptions/Options/MouseSettings"]
+layout_mode = 2
+text = "button_mouse_settings"
+icon = ExtResource("11_27sep")
+flat = true
+alignment = 0
+
+[node name="Mouse" type="VBoxContainer" parent="Control/OptionsPanel/ControlOptions/Options/MouseSettings"]
+layout_mode = 2
+
+[node name="MouseSpeedSetting" type="Control" parent="Control/OptionsPanel/ControlOptions/Options/MouseSettings/Mouse"]
 custom_minimum_size = Vector2(0, 19)
 layout_mode = 2
 
-[node name="MouseSpeedLabel" type="Label" parent="Control/OptionsPanel/ControlOptions/Options/MouseSpeedSetting"]
+[node name="MouseSpeedLabel" type="Label" parent="Control/OptionsPanel/ControlOptions/Options/MouseSettings/Mouse/MouseSpeedSetting"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.4
@@ -1372,7 +1354,7 @@ offset_left = 4.0
 text = "option_mouse_speed"
 vertical_alignment = 1
 
-[node name="MouseSpeedSlider" type="HSlider" parent="Control/OptionsPanel/ControlOptions/Options/MouseSpeedSetting"]
+[node name="MouseSpeedSlider" type="HSlider" parent="Control/OptionsPanel/ControlOptions/Options/MouseSettings/Mouse/MouseSpeedSetting"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.4
@@ -1380,19 +1362,33 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 4.0
 offset_right = -4.0
-focus_neighbor_right = NodePath("../../../../OptionsButtons/Confirm")
-focus_neighbor_bottom = NodePath("../../KeyboardSpeedSetting/KeyboardSpeedSlider")
-focus_next = NodePath("../../KeyboardSpeedSetting/KeyboardSpeedSlider")
+focus_neighbor_right = NodePath("../../../../../../OptionsButtons/Confirm")
+focus_neighbor_bottom = NodePath("../../../../KeyboardSettings/Keyboard/KeyboardSpeedSetting/KeyboardSpeedSlider")
+focus_next = NodePath("../../../../KeyboardSettings/Keyboard/KeyboardSpeedSetting/KeyboardSpeedSlider")
 min_value = 0.1
 max_value = 2.0
 step = 0.1
 value = 1.0
 
-[node name="KeyboardSpeedSetting" type="Control" parent="Control/OptionsPanel/ControlOptions/Options"]
+[node name="KeyboardSettings" type="VBoxContainer" parent="Control/OptionsPanel/ControlOptions/Options"]
 custom_minimum_size = Vector2(0, 19)
 layout_mode = 2
 
-[node name="KeyboardSpeedLabel" type="Label" parent="Control/OptionsPanel/ControlOptions/Options/KeyboardSpeedSetting"]
+[node name="ToggleButton" type="Button" parent="Control/OptionsPanel/ControlOptions/Options/KeyboardSettings"]
+layout_mode = 2
+text = "button_keyboard_settings"
+icon = ExtResource("11_27sep")
+flat = true
+alignment = 0
+
+[node name="Keyboard" type="VBoxContainer" parent="Control/OptionsPanel/ControlOptions/Options/KeyboardSettings"]
+layout_mode = 2
+
+[node name="KeyboardSpeedSetting" type="Control" parent="Control/OptionsPanel/ControlOptions/Options/KeyboardSettings/Keyboard"]
+custom_minimum_size = Vector2(0, 19)
+layout_mode = 2
+
+[node name="KeyboardSpeedLabel" type="Label" parent="Control/OptionsPanel/ControlOptions/Options/KeyboardSettings/Keyboard/KeyboardSpeedSetting"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.4
@@ -1401,7 +1397,7 @@ offset_left = 4.0
 text = "option_keyboard_speed"
 vertical_alignment = 1
 
-[node name="KeyboardSpeedSlider" type="HSlider" parent="Control/OptionsPanel/ControlOptions/Options/KeyboardSpeedSetting"]
+[node name="KeyboardSpeedSlider" type="HSlider" parent="Control/OptionsPanel/ControlOptions/Options/KeyboardSettings/Keyboard/KeyboardSpeedSetting"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.4
@@ -1409,13 +1405,27 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 4.0
 offset_right = -4.0
-focus_neighbor_top = NodePath("../../MouseSpeedSetting/MouseSpeedSlider")
-focus_neighbor_right = NodePath("../../../../OptionsButtons/Confirm")
-focus_previous = NodePath("../../MouseSpeedSetting/MouseSpeedSlider")
+focus_neighbor_top = NodePath("../../../../MouseSettings/Mouse/MouseSpeedSetting/MouseSpeedSlider")
+focus_neighbor_right = NodePath("../../../../../../OptionsButtons/Confirm")
+focus_previous = NodePath("../../../../MouseSettings/Mouse/MouseSpeedSetting/MouseSpeedSlider")
 min_value = 0.5
 max_value = 2.0
 step = 0.1
 value = 1.0
+
+[node name="JoypadSettings" type="VBoxContainer" parent="Control/OptionsPanel/ControlOptions/Options"]
+custom_minimum_size = Vector2(0, 19)
+layout_mode = 2
+
+[node name="ToggleButton" type="Button" parent="Control/OptionsPanel/ControlOptions/Options/JoypadSettings"]
+layout_mode = 2
+text = "button_gamepad_settings"
+icon = ExtResource("11_27sep")
+flat = true
+alignment = 0
+
+[node name="Joypad" type="VBoxContainer" parent="Control/OptionsPanel/ControlOptions/Options/JoypadSettings"]
+layout_mode = 2
 
 [node name="OptionsButtons" type="HBoxContainer" parent="Control/OptionsPanel"]
 layout_mode = 1
@@ -1425,7 +1435,7 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = -4.0
-offset_bottom = -5.0
+offset_bottom = -6.0
 grow_horizontal = 2
 grow_vertical = 0
 alignment = 2
@@ -1469,7 +1479,7 @@ anchor_bottom = 1.0
 offset_left = 5.0
 offset_top = 5.75
 offset_right = -5.0
-offset_bottom = -4.25
+offset_bottom = -5.0
 alignment = 2
 
 [node name="General" type="Button" parent="Control/OptionsPanel/CategoryButtons"]
@@ -1505,6 +1515,10 @@ shortcut = ExtResource("17_c27yp")
 text = "button_return"
 
 [node name="LangSelection" parent="." instance=ExtResource("2_8j3rs")]
+visible = false
+layout_mode = 2
+
+[node name="KeybindChangePanel" parent="." instance=ExtResource("43_k0jm2")]
 visible = false
 layout_mode = 2
 
