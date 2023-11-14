@@ -16,23 +16,18 @@ Prototype 2:
 			✔ Struct @done(23-09-21 22:35)
 			✔ Store results between sessions @done(23-09-21 22:35)
 			✔ Let player input their name when joining top 10 @done(23-10-05 17:38)
-		☐ New functionality for dynamic elements
-			☐ Add repeating timed toggle for teleport door?
-			☐ Add on-map buttons that toggle connected element when hit with the ball?
 		☐ New interactive elements
 			☐ River (slightly changes ball direction)
 			✔ TNT (explodes when hit, blasts breakable elements nearby: blocks, barricades, cracked walls) @done(23-10-03 18:12)
 				✔ Explosion animation @done(23-10-02 18:02)
 				✔ Damage breakables in range @done(23-10-02 18:02)
 				✔ Sound effect @done(23-10-03 18:12)
-			☐ New block type (2HP one)?
 		☐ New pickups
 			✔ Ice (freeze the paddle for 2-3 seconds) @done(23-10-03 17:04)
 			✔ Reverse controls (reverse paddle controls) @done(23-10-02 22:39)
 			✔ Sticky paddle (catch ball on touch, release like new) @done(23-10-02 18:28)
 			✔ Bouncy paddle (add temp speed boost on bounce) @done(23-10-02 18:28)
 			✔ Slow ball @done(23-10-16 09:49)
-			☐ Bouncy ball? (similar to bouncy paddle but boost added on every ball bounce)
 			☐ Magnet (pull pickups near the paddle towards it, not exclusive unlike sticky/bouncy paddle?)
 			☐ Random (randomize on spawn, ? as icon?)
 		☐ New paddles
@@ -57,13 +52,8 @@ Prototype 2:
 			✔ Sound effects @done(23-10-03 18:58)
 				✔ Use @done(23-10-03 18:58)
 				✔ Ready @done(23-10-03 18:58)
-		☐ Multi-room levels (ball can travel to another room/screen, can be side-to-side or up-down)
 		☐ Replace music randomization with shuffle
 	Map elements:
-		☐ Stairs + railing
-			☐ Ball can move over stairs
-			☐ Ball can move **down** through broken railing
-			☐ Ball can't move up through wall at the bottom of the stairs or railing
 		☐ Tunnels (allow to move through walls)
 		☐ Cracked walls (can be destroyed with TNT)
 		☐ More map decorations (up the visual variety)
@@ -85,6 +75,11 @@ Prototype 2:
 			✔ Candle stand @done(23-10-16 11:30)
 				✔ Sprite @done(23-10-16 11:30)
 				✔ Colliders @done(23-10-16 15:18)
+			☐ "Halloween" set
+				✔ Pumpkin (breakable) @done(23-11-03 14:52)
+				✔ Spider webs (wall decorations) @done(23-11-03 15:00)
+				☐ Ghosts with witch hats?
+				☐ Bats
 		☐ New tileset
 			☐ Floor tiles
 				✔ Grass @done(23-10-24 15:20)
@@ -119,14 +114,16 @@ Prototype 2:
 		☐ Options
 			☐ Language selection @done(23-09-26 20:15)
 			✔ Pickup display ordering (under ball, above ball, above all) @done(23-11-01 16:05)
-			☐ Controller icon style (generic, nintendo, playstation, xbox)?
+			✔ Controller icon style (generic, nintendo, playstation, xbox)? @done(23-11-09 17:22)
 			✔ Map background brightness (in case player needs gameplay elements to pop out more) @done(23-10-09 18:54)
 		☐ Improve main menu layout and theming
 		☐ Setup non-mouse controlls for all the panels and elements
+		✔ Language selection on first launch @done(23-11-06 16:52)
 	Other:
 		☐ Add 1-2 translations (besides english)
 		☐ Secure leaderboard file from outside modification @low
 		☐ Make a new logo @low
+		☐ Replace static game values in info panel (mainly block HP) with ones read straight from prefabs (put required prefabs out of sight in the main menu and read this way?) @low
 	Issues:
 		✔ UI displayed under game elements @done(23-10-17 15:34)
 		✔ Paddle movement unlocks during ball angle select @done(23-10-19 13:30)

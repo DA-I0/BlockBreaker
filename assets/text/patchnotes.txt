@@ -13,7 +13,7 @@ Added:
 - new tileset elements
 - game over screen
 - local leaderboard
-- localization support (including user made)
+- localization support (including user made), partial German, Japanese and Polish translations
 - more user settings
 
 Changed:
