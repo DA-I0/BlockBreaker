@@ -1,6 +1,6 @@
 using Godot;
 
-public partial class LevelExit : Node
+public partial class LevelExit : VariantController
 {
 	private bool _isActive = false;
 
@@ -11,6 +11,8 @@ public partial class LevelExit : Node
 
 	public override void _Ready()
 	{
+		ApplyVariant();
+
 		_blockParent = GetNode("../Blocks");
 		_blockParent.ChildExitingTree += CheckLevelProgress;
 		refs = GetNode("/root/GameController") as SessionController;

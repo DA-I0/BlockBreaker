@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c18dvbv5s0goy"
-path="res://.godot/imported/level_exit.png-dc9ed8aeb7b720d63b0bbae75b25f912.ctex"
+uid="uid://c64m2njsydqpo"
+path="res://.godot/imported/teleport_basic.png-d2339fdbc1e799f38f9346d5845e3425.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/interactables/level_exit.png"
-dest_files=["res://.godot/imported/level_exit.png-dc9ed8aeb7b720d63b0bbae75b25f912.ctex"]
+source_file="res://assets/sprites/interactables/teleport_basic.png"
+dest_files=["res://.godot/imported/teleport_basic.png-d2339fdbc1e799f38f9346d5845e3425.ctex"]
 
 [params]
 

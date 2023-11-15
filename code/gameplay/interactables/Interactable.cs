@@ -1,6 +1,6 @@
 using Godot;
 
-public partial class Interactable : Node2D
+public partial class Interactable : VariantController
 {
 	[Export] protected bool _isActived = true;
 	[Export] protected float _cooldown = 1f;
@@ -10,6 +10,7 @@ public partial class Interactable : Node2D
 
 	public override void _Ready()
 	{
+		ApplyVariant();
 		UpdateState();
 	}
 

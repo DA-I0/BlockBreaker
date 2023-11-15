@@ -1,31 +1,31 @@
 [gd_scene load_steps=8 format=3 uid="uid://cgpa7sf8jgxu8"]
 
 [ext_resource type="Script" path="res://code/gameplay/LevelExit.cs" id="1_p7dcc"]
-[ext_resource type="Texture2D" uid="uid://c18dvbv5s0goy" path="res://assets/sprites/interactables/level_exit.png" id="2_sjdks"]
-[ext_resource type="Texture2D" uid="uid://bu5hqfwynyeel" path="res://assets/sprites/interactables/level_exit_door.png" id="3_p1qsb"]
+[ext_resource type="Texture2D" uid="uid://c18dvbv5s0goy" path="res://assets/sprites/interactables/level_exit_basic.png" id="2_v3lwi"]
+[ext_resource type="Texture2D" uid="uid://bu5hqfwynyeel" path="res://assets/sprites/interactables/level_exit_door_basic.png" id="3_uiqh2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mi8te"]
 size = Vector2(20, 1)
 
-[sub_resource type="Animation" id="Animation_n6cmn"]
-resource_name = "idle_enabled"
+[sub_resource type="Animation" id="Animation_gdar0"]
+resource_name = "idle_disabled"
 step = 1.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("DoorSprite:texture")
+tracks/0/path = NodePath(".:monitoring")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [null]
+"values": [false]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".:monitoring")
+tracks/1/path = NodePath("DoorSprite:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -35,25 +35,25 @@ tracks/1/keys = {
 "values": [true]
 }
 
-[sub_resource type="Animation" id="Animation_gdar0"]
-resource_name = "idle_disabled"
+[sub_resource type="Animation" id="Animation_n6cmn"]
+resource_name = "idle_enabled"
 step = 1.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("DoorSprite:texture")
+tracks/0/path = NodePath(".:monitoring")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("3_p1qsb")]
+"values": [true]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".:monitoring")
+tracks/1/path = NodePath("DoorSprite:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -69,23 +69,26 @@ _data = {
 "idle_enabled": SubResource("Animation_n6cmn")
 }
 
-[node name="LevelExit" type="Area2D" node_paths=PackedStringArray("_animator")]
+[node name="LevelExit" type="Area2D" node_paths=PackedStringArray("_animator", "_sprites")]
 collision_mask = 2
+monitoring = false
 monitorable = false
 script = ExtResource("1_p7dcc")
 _animator = NodePath("Animator")
+_sprites = [NodePath("ExitSprite"), NodePath("DoorSprite")]
 
 [node name="ExitTrigger" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_mi8te")
 
 [node name="ExitSprite" type="Sprite2D" parent="."]
-position = Vector2(-14, -16)
-texture = ExtResource("2_sjdks")
+position = Vector2(-14, -22)
+texture = ExtResource("2_v3lwi")
 centered = false
 
 [node name="DoorSprite" type="Sprite2D" parent="."]
-position = Vector2(-9, -12)
+position = Vector2(-14, -22)
+texture = ExtResource("3_uiqh2")
 centered = false
 
 [node name="Animator" type="AnimationPlayer" parent="."]
