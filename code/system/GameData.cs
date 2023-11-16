@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using System.Linq;
+using Godot;
 
 public class GameData
 {
@@ -8,7 +10,7 @@ public class GameData
 	public readonly string CustomDifficultyFolder = "user://difficulties";
 	public readonly string ConfigFilePath = "user://settings.cfg";
 	public readonly string ChangelogFilePath = "res://assets/text/patchnotes.txt";
-	public readonly string DefaultLeaderboardFilePath = "res://assets/text/defaultLeaderboard.txt";
+	public readonly string DefaultLeaderboardFilePath = "res://assets/text/default_leaderboard.txt";
 	public readonly string CustomLeaderboardFilePath = "user://leaderboard.txt";
 
 	private List<string> _levels = new List<string>();
@@ -114,19 +116,7 @@ public class GameData
 
 	public void LoadLeaderboard()
 	{
-		string[] entries = refs.fileOperations.LoadLeaderboard().Split(";");
-
-		foreach (string entry in entries)
-		{
-			string[] values = entry.Split(":");
-
-			if (values.Length < 3)
-			{
-				continue;
-			}
-
-			InsertLeaderboardEntry(new HighScore(values[0].Trim(), values[1].Trim(), int.Parse(values[2])));
-		}
+		_leaderboard = refs.fileOperations.LoadLeaderboard().ToList();
 	}
 
 	public bool CanScoreJoinLeaderboard(int newScore)

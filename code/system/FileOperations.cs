@@ -64,29 +64,42 @@ public class FileOperations
 		}
 	}
 
-	public string LoadLeaderboard()
+	public HighScore[] LoadLeaderboard()
 	{
-		string content = LoadTextFile(_refs.gameData.CustomLeaderboardFilePath);
+		ConfigFile leaderboardFile = new ConfigFile();
+		Error loadingStatus = leaderboardFile.Load(_refs.gameData.CustomLeaderboardFilePath);
 
-		if (content == string.Empty)
+		if (loadingStatus != Error.Ok)
 		{
-			content = LoadTextFile(_refs.gameData.DefaultLeaderboardFilePath);
+			leaderboardFile.Load(_refs.gameData.DefaultLeaderboardFilePath);
 		}
 
-		return content;
+		HighScore[] leaderboard = new HighScore[leaderboardFile.GetSections().Length];
+		int index = 0;
+
+		foreach (string player in leaderboardFile.GetSections())
+		{
+			leaderboard[index].PlayerName = (string)leaderboardFile.GetValue(player, "name");
+			leaderboard[index].DifficultyName = (string)leaderboardFile.GetValue(player, "difficulty");
+			leaderboard[index].Score = (int)leaderboardFile.GetValue(player, "score");
+			index++;
+		}
+
+		return leaderboard;
 	}
 
 	public void SaveLeaderboard(HighScore[] leaderboard)
 	{
-		string content = string.Empty;
+		ConfigFile leaderboardFile = new ConfigFile();
 
-		foreach (HighScore entry in leaderboard)
+		for (int index = 0; index < leaderboard.Length; index++)
 		{
-			content += $"{entry}\n";
+			leaderboardFile.SetValue($"Player_{index}", "name", leaderboard[index].PlayerName);
+			leaderboardFile.SetValue($"Player_{index}", "difficulty", leaderboard[index].DifficultyName);
+			leaderboardFile.SetValue($"Player_{index}", "score", leaderboard[index].Score);
 		}
 
-		string filePath = $"{_refs.gameData.CustomLeaderboardFilePath}.txt";
-		SaveTextFile(filePath, content);
+		leaderboardFile.Save(_refs.gameData.CustomLeaderboardFilePath);
 	}
 
 	public string LoadTextFile(string filePath)
