@@ -67,7 +67,7 @@ public class FileOperations
 	public HighScore[] LoadLeaderboard()
 	{
 		ConfigFile leaderboardFile = new ConfigFile();
-		Error loadingStatus = leaderboardFile.Load(_refs.gameData.CustomLeaderboardFilePath);
+		Error loadingStatus = leaderboardFile.LoadEncryptedPass(_refs.gameData.CustomLeaderboardFilePath, _refs.gameData.EncryptionPassword);
 
 		if (loadingStatus != Error.Ok)
 		{
@@ -99,7 +99,7 @@ public class FileOperations
 			leaderboardFile.SetValue($"Player_{index}", "score", leaderboard[index].Score);
 		}
 
-		leaderboardFile.Save(_refs.gameData.CustomLeaderboardFilePath);
+		leaderboardFile.SaveEncryptedPass(_refs.gameData.CustomLeaderboardFilePath, _refs.gameData.EncryptionPassword);
 	}
 
 	public string LoadTextFile(string filePath)

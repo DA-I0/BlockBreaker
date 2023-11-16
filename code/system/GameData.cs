@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using System.Linq;
-using Godot;
 
 public class GameData
 {
+	public readonly string EncryptionPassword = "Gopher's are totally fake you guys!";
 	public readonly string GameFolderPath;
 	public readonly string LevelFolder = "res://scenes/levels";
 	public readonly string DefaultDifficultyFolder = "res://assets/text/difficulties";
