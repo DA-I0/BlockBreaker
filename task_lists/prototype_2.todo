@@ -80,7 +80,7 @@ Prototype 2:
 				✔ Spider webs (wall decorations) @done(23-11-03 15:00)
 				☐ Ghosts with witch hats?
 				☐ Bats
-		☐ New tileset
+		New tileset:
 			☐ Floor tiles
 				✔ Grass @done(23-10-24 15:20)
 				✔ Path @done(23-10-24 15:20)
@@ -96,9 +96,9 @@ Prototype 2:
 				✔ Wooden fence (brekable) @done(23-10-27 15:57)
 				☐ Fountain
 				✔ Wall fountain (2 types so far) @done(23-10-30 18:38)
-			☐ Interactables
-				☐ Level exit (big gate)
-				☐ Teleport (small gate)
+			✔ Interactables @done(23-11-15 17:17)
+				✔ Level exit (big gate) @done(23-11-15 17:17)
+				✔ Teleport (small gate) @done(23-11-15 17:17)
 	UI:
 		☐ Splash screen on map load (display map name/number)
 		✔ Loading screen @done(23-09-13 19:33)
@@ -111,8 +111,8 @@ Prototype 2:
 			✔ Customization panel @done(23-10-03 16:15)
 		✔ Paddle selection @done(23-10-03 12:49)
 			☐ Name and short description?
-		☐ Options
-			☐ Language selection @done(23-09-26 20:15)
+		Options:
+			✔ Language selection @done(23-09-26 20:15)
 			✔ Pickup display ordering (under ball, above ball, above all) @done(23-11-01 16:05)
 			✔ Controller icon style (generic, nintendo, playstation, xbox)? @done(23-11-09 17:22)
 			✔ Map background brightness (in case player needs gameplay elements to pop out more) @done(23-10-09 18:54)
@@ -121,7 +121,7 @@ Prototype 2:
 		✔ Language selection on first launch @done(23-11-06 16:52)
 	Other:
 		☐ Add 1-2 translations (besides english)
-		☐ Secure leaderboard file from outside modification @low
+		✔ Secure leaderboard file from outside modification @low @done(23-11-16 17:19)
 		☐ Make a new logo @low
 		☐ Replace static game values in info panel (mainly block HP) with ones read straight from prefabs (put required prefabs out of sight in the main menu and read this way?) @low
 	Issues:
