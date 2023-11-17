@@ -4,7 +4,10 @@ button_changelog,Changelog,Änderungsprotokoll,,Lista zmian
 button_confirm,Confirm,,,Potwierdź
 button_default,Default,Standardeinstellungen,初期値,Domyślne
 button_exit,Exit,Verlassen,ゲーム終了,Wyjdź
+button_gamepad_settings,Gamepad,,,
 button_info,Info,Informationen,,Info
+button_keyboard_settings,Keyboard,,,
+button_mouse_settings,Mouse,,,
 button_options,Options,Einstellungen,オプション,Opcje
 button_play,Play,Spielen,,Graj
 button_return,Back,Zurück,,Wróć
@@ -38,25 +41,43 @@ info_controls,Controls,,,Sterowanie
 info_controls_desc,[b]Move paddle:[/b] {game_left}{game_right}\n[b]Release ball:[/b] {game_play}\n[b]Reset ball (-1 life):[/b] {game_reset}\n[b]Pause game:[/b] {game_pause},,,
 info_score_multiplier,Score multiplier,,,Mnożnik punktów
 info_score_multiplier_desc,"Increases by 1 for every {multiplier_combo_step} destroyed elements, up to {multiplier_max_combo}.\nGrabbing difficulty increasing pickups (small/fast ball, smaller paddle) also increases multiplier independent of combo.\nMax score multiplier: x{multiplier_max}.",,,
+lang_selection,Select language,,,
 message_advance_to_next_map,Press {game_play} to continue...,,,Wciśnij {game_play} aby kontynuować…
 message_loading,Loading...,Lädt…,,Ładowanie…
+message_new_keybind,Press key to assign to action.,,,
 message_return_to_menu,Return to menu?,,メニューに戻る?,Wróć do menu?
 option_background_brightness,Background brightness,,,Jasność tła
 option_effects_volume,Effects volume,Effektlautstärke,SE 音量,Głośność efektów
 option_font,Font,,,Czcionka
 option_fullscreen,Fullscreen,,,Pełen ekran
-option_helper_transparency,Helper transparency,,,
+option_helper_transparency,Effect transparency,,,
 option_keyboard_speed,Keyboard speed,,キーボード速度,Prędkość klawiatury
 option_language,Language,Sprache,,Język
+option_left,Move left,,,
 option_master_volume,Master volume,Gesamtlautstärke,全体 音量,Głośność ogólna
 option_mouse_speed,Mouse speed,,マウス速度,Prędkość myszy
 option_music_volume,Music volume,Musiklautstärke,BGM 音量,Głośność muzyki
+option_pause,Pause,,,
 option_pickup,Pickup visibility,,,Widoczność znajdziek
 option_pickup_order_bottom,Below all,,,Pod wszystkim
 option_pickup_order_middle,Above ball,,,Nad piłką
 option_pickup_order_top,Above all,,,Nad wszystkim
+option_play,Release ball,,,
+option_reset,Reset,,,
 option_resolution,Window size,Videoauflösung,画面サイズ,Rozmiar okna
+option_right,Move right,,,
 option_screen_shake,Enable screen shake,,,Wstrząs ekranu
+option_skill,Use skill,,,
+paddle_1_desc,"Basic paddle. Easy to use, easy to master.",,,
+paddle_1_name,Basic,,,
+paddle_2_desc,Paddle with arms for additional bounce options.,,,
+paddle_2_name,Armed,,,
+paddle_3_desc,Curved paddle. Rounded edges allow for more varied and unpredictable bounces.,,,
+paddle_3_name,Curved,,,
+paddle_4_desc,"It’s roguelike! Well, almost…\nTime moves (normally) when paddle moves, otherwise it slows down to a crawl.",,,
+paddle_4_name,Roguelike,,,
+paddle_5_desc,"Perfect choice for anyone who craves complete control over the ball.\nBounce angle depends on which part of the paddle is hit, with center sending the ball straight up.",,,
+paddle_5_name,Bounce control,,,
 score_difficulty_disclaimer,Custom difficulty,,,Własny poziom trudności
 score_placeholder_player_name,Player,Spieler,,Gracz
 tooltip_screen_shake,Screen shake effect used during gameplay.,,,

@@ -4,6 +4,8 @@ using Godot;
 public partial class UIPaddlePanel : UIPanel
 {
 	[Export] private TextureRect _paddleSprite;
+	[Export] private Label _paddleName;
+	[Export] private Label _paddleDescription;
 	private int _currentPaddle = 1;
 	private int _paddleCount = 0;
 
@@ -17,6 +19,8 @@ public partial class UIPaddlePanel : UIPanel
 	private void UpdateDisplayedValues()
 	{
 		_paddleSprite.Texture = ResourceLoader.Load<Texture2D>($"res://assets/sprites/paddles/paddle_{_currentPaddle}.png");
+		_paddleName.Text = $"paddle_{_currentPaddle}_name";
+		_paddleDescription.Text = $"paddle_{_currentPaddle}_desc";
 	}
 
 	private void ChangePaddle(bool next)

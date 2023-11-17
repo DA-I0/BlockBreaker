@@ -201,14 +201,15 @@ offset_bottom = -4.0
 text = "<score>"
 horizontal_alignment = 2
 
-[node name="PaddlePanel" type="Panel" parent="Control" node_paths=PackedStringArray("_paddleSprite", "_focusTarget")]
-visible = false
+[node name="PaddlePanel" type="Panel" parent="Control" node_paths=PackedStringArray("_paddleSprite", "_paddleName", "_paddleDescription", "_focusTarget")]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource("5_yyr40")
 _paddleSprite = NodePath("PaddleSprite")
+_paddleName = NodePath("PaddleName")
+_paddleDescription = NodePath("PaddleDescription")
 _focusTarget = NodePath("ConfirmPaddle")
 
 [node name="PaddleHeader" type="Panel" parent="Control/PaddlePanel"]
@@ -264,19 +265,42 @@ texture_disabled = ExtResource("14_rbym7")
 texture_focused = ExtResource("13_5d0sh")
 stretch_mode = 5
 
+[node name="PaddleName" type="Label" parent="Control/PaddlePanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_right = 0.9
+offset_top = 21.0
+offset_bottom = 45.0
+theme_override_font_sizes/font_size = 24
+text = "paddle_name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="PaddleSprite" type="TextureRect" parent="Control/PaddlePanel"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.3
-anchor_top = 0.4
+anchor_top = 0.35
 anchor_right = 0.7
-anchor_bottom = 0.6
+anchor_bottom = 0.55
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(100, 100)
 texture = ExtResource("15_ppnoe")
 expand_mode = 5
 stretch_mode = 5
+
+[node name="PaddleDescription" type="Label" parent="Control/PaddlePanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.6
+anchor_right = 0.9
+anchor_bottom = 1.0
+offset_bottom = -21.0
+text = "paddle_desc"
+autowrap_mode = 2
 
 [node name="ConfirmPaddle" type="Button" parent="Control/PaddlePanel" node_paths=PackedStringArray("shortcut_context")]
 layout_mode = 1
