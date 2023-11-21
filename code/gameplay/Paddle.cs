@@ -92,7 +92,7 @@ public partial class Paddle : CharacterBody2D
 		switch (refs.settings.ActiveController)
 		{
 			case InputType.gamepad:
-				inputHorizontal = Input.GetJoyAxis(0, JoyAxis.LeftX);
+				inputHorizontal = (Input.GetActionStrength("game_right") - Input.GetActionStrength("game_left")) * refs.settings.SpeedJoypad;
 				break;
 
 			case InputType.keyboard:
