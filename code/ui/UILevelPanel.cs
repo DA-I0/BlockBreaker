@@ -13,7 +13,7 @@ public partial class UILevelPanel : UIPanel
 		for (int index = 0; index < refs.gameData.Levels.Count; index++)
 		{
 			Button newButton = new Button();
-			newButton.Text = refs.gameData.Levels[index].Replace(".tscn", "");
+			newButton.Text = refs.gameData.Levels[index].Replace(".tscn", "").Replace(".remap", "");
 
 			int levelIndex = index;
 			newButton.Pressed += () => refs.SelectLevel(levelIndex);

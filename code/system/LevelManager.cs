@@ -10,7 +10,7 @@ public partial class LevelManager : Node
 	public event Notification ResetSession;
 	public event Notification SceneChanged;
 
-	SessionController refs;
+	private SessionController refs;
 
 	public override void _Ready()
 	{
@@ -59,6 +59,8 @@ public partial class LevelManager : Node
 
 	private void SetupNewScene(string scenePath)
 	{
+		scenePath = scenePath.TrimSuffix(".remap");
+
 		ResourceLoader.LoadThreadedRequest(scenePath);
 		Node newScene = (ResourceLoader.LoadThreadedGet(scenePath) as PackedScene).Instantiate();
 
