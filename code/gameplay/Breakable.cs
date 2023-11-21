@@ -16,6 +16,11 @@ public partial class Breakable : StaticBody2D
 	[Export] protected Timer _timer;
 	protected SessionController refs;
 
+	public int MaxHealth
+	{
+		get { return _maxHealth; }
+	}
+
 	public override void _Ready()
 	{
 		_sprite = GetNode("Sprite") as Sprite2D;

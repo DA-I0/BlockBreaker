@@ -5,21 +5,14 @@ using Godot;
 public partial class LocalizationController
 {
 	Dictionary<string, string> _customValues = new Dictionary<string, string>();
-	// 	Joypad Button 0 -> PS x,      X a,    N b
-	// 	Joypad Button 1 -> PS o,      X b,    N a
-	// 	Joypad Button 2 -> PS [],     X x,    N y
-	// 	Joypad Button 3 -> PS ^,      X y,    N x
-	// 	Joypad Button 4 -> PS select, X back, N -
-	// 	Joypad Button 5 -> PS PS,     X home, N home?
-	// 	Joypad Button 6 -> PS start,  X start, N+
-	// 	Joypad Button 7 -> left stick click
-	// 	Joypad Button 8 -> right stick click
-	// 	Joypad Button 9 -> left shoulder
-	// 	Joypad Button 10 -> right shoulder
-	// 	Joypad Button 11 -> d-pad up
-	// 	Joypad Button 12 -> d-pad down
-	// 	Joypad Button 13 -> d-pad left
-	// 	Joypad Button 14 -> d-pad right
+
+	// NOTE: change to dynamic loading if I'll decide to include all breakables in the info panel
+	private Dictionary<string, Breakable> _breakables = new Dictionary<string, Breakable>
+	{
+		{"block_health", (Breakable)ResourceLoader.Load<PackedScene>("res://prefabs/blocks/block_basic.tscn").Instantiate()},
+		{"block_sturdy_health", (Breakable)ResourceLoader.Load<PackedScene>("res://prefabs/blocks/block_sturdy.tscn").Instantiate()},
+		{"barrier_sturdy_health", (Breakable)ResourceLoader.Load<PackedScene>("res://prefabs/blocks/barrier_sturdy.tscn").Instantiate()}
+	};
 
 	private readonly SessionController refs;
 
@@ -76,7 +69,16 @@ public partial class LocalizationController
 		while (placeholderStart > -1 && placeholderEnd > -1)
 		{
 			string placeholder = modifiedString.Substring(placeholderStart, placeholderEnd - placeholderStart);
-			modifiedString = placeholder.Contains("game_") ? modifiedString.Replace(placeholder, GetInputValues(placeholder.Replace("{", "").Replace("}", ""))) : modifiedString.Replace(placeholder, GetCustomValue(placeholder.Replace("{", "").Replace("}", "")));
+
+			if (placeholder.Contains("game_"))
+			{
+				modifiedString = modifiedString.Replace(placeholder, GetInputValues(placeholder.Replace("{", "").Replace("}", "")));
+			}
+			else
+			{
+				modifiedString = modifiedString.Replace(placeholder, GetDynamicValue(placeholder.Replace("{", "").Replace("}", "")));
+			}
+
 			placeholderStart = modifiedString.Find("{");
 			placeholderEnd = modifiedString.Find("}") + 1;
 		}
@@ -84,7 +86,7 @@ public partial class LocalizationController
 		return modifiedString;
 	}
 
-	private string GetInputValues(string inputs) // make use of GetInputValue
+	private string GetInputValues(string inputs) // make use of GetInputSymbol
 	{
 		var inputEvents = InputMap.ActionGetEvents(inputs);
 		string inputValue = string.Empty;
@@ -148,6 +150,24 @@ public partial class LocalizationController
 		}
 
 		return key;
+	}
+
+	private string GetDynamicValue(string key)
+	{
+		switch (key)
+		{
+			case "multiplier_combo_step":
+				return refs.gameScore.ComboMultiplierStep.ToString();
+
+			case "multiplier_max":
+				return refs.gameScore.MaxScoreMultiplier.ToString();
+
+			case "multiplier_max_combo":
+				return refs.gameScore.MaxComboMultiplier.ToString();
+
+			default:
+				return _breakables[key].MaxHealth.ToString();
+		}
 	}
 
 	public string GetInputKey(string targetValue)
