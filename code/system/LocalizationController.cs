@@ -149,7 +149,7 @@ public partial class LocalizationController
 			// GD.PrintErr("Replacement value not found");
 		}
 
-		return key;
+		return key.Contains("_") ? key[3..] : key;
 	}
 
 	private string GetDynamicValue(string key)
@@ -192,6 +192,9 @@ public partial class LocalizationController
 
 			case "playstation":
 				return $"ps_{targetAction}";
+
+			case "steam deck":
+				return $"sd_{targetAction}";
 
 			case "xbox":
 				return $"xb_{targetAction}";
