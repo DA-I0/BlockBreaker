@@ -157,6 +157,8 @@ public partial class Paddle : CharacterBody2D
 				targetBall.AddVelocity(Velocity);
 				break;
 		}
+
+		VibrateController(0.5f, 0, 0.1f);
 	}
 
 	private void SetupReferences()
@@ -197,7 +199,12 @@ public partial class Paddle : CharacterBody2D
 		}
 
 		CalculateMoveVelocity(_inputDirection, _baseMoveSpeed);
-		MoveAndCollide(Velocity * (float)delta);
+		KinematicCollision2D collision = MoveAndCollide(Velocity * (float)delta);
+
+		if (collision != null)
+		{
+			VibrateController(0.05f, 0, 0.01f);
+		}
 
 		Position = new Vector2(Position.X, _positionY);
 		_inputDirection = (refs.settings.ActiveController == InputType.mouse) ? Vector2.Zero : _inputDirection;
@@ -225,6 +232,11 @@ public partial class Paddle : CharacterBody2D
 		}
 
 		_sprite.Texture = _sprites[(int)_paddleMode];
+	}
+
+	private void VibrateController(float strengthWeak, float strengthStrong, float time)
+	{
+		Input.StartJoyVibration(refs.settings.ActiveJoypadID, strengthWeak, strengthStrong, time);
 	}
 
 	private void Destroy()
