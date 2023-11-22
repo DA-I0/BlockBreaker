@@ -1,4 +1,4 @@
-using System;
+using System.Collections.Generic;
 using System.Linq;
 using Godot;
 
@@ -23,8 +23,11 @@ public class Settings
 	private const float DefaultEffectsVolume = -20f;
 	private const float DefaultMouseSpeed = 1f;
 	private const float DefaultKeyboardSpeed = 1f;
+	private const float DefaultJoypadSpeed = 1f;
+	private Dictionary<string, Godot.Collections.Array<InputEvent>> DefaultKeybindings = new Dictionary<string, Godot.Collections.Array<InputEvent>>();
 
-	private InputType _activeController = InputType.keyboard;
+	private InputType _activeControllerType = InputType.keyboard;
+	private int _activeJoypadId = 0;
 	private ConfigFile _config;
 	private SessionController refs;
 
@@ -102,23 +105,63 @@ public class Settings
 
 	public float SpeedMouse
 	{
-		get { return (float)_config.GetValue("general", "mouse_speed", DefaultMouseSpeed); }
-		set { _config.SetValue("general", "mouse_speed", value); }
+		get { return (float)_config.GetValue("controls", "mouse_speed", DefaultMouseSpeed); }
+		set { _config.SetValue("controls", "mouse_speed", value); }
 	}
 
 	public float SpeedKeyboard
 	{
-		get { return (float)_config.GetValue("general", "keyboard_speed", DefaultKeyboardSpeed); }
-		set { _config.SetValue("general", "keyboard_speed", value); }
+		get { return (float)_config.GetValue("controls", "keyboard_speed", DefaultKeyboardSpeed); }
+		set { _config.SetValue("controls", "keyboard_speed", value); }
+	}
+
+	public float SpeedJoypad
+	{
+		get { return (float)_config.GetValue("controls", "joypad_speed", DefaultJoypadSpeed); }
+		set { _config.SetValue("controls", "joypad_speed", value); }
 	}
 
 	public InputType ActiveController
 	{
-		get { return _activeController; }
+		get { return _activeControllerType; }
 		set
 		{
-			_activeController = value;
+			_activeControllerType = value;
 			_config.SetValue("general", "inputType", (int)value);
+		}
+	}
+
+	public string ActiveJoypad
+	{
+		get { return (string)_config.GetValue("controls", "active_gamepad", string.Empty); }
+		set { _config.SetValue("controls", "active_gamepad", value); }
+	}
+
+	public int ActiveJoypadID
+	{
+		get { return _activeJoypadId; }
+		set { _activeJoypadId = value; }
+	}
+
+	public Settings(SessionController sessionController)
+	{
+		refs = sessionController;
+		PrepareDefaultKeybindings();
+		LoadSettings();
+	}
+
+	private void PrepareDefaultKeybindings()
+	{
+		var gameplayInputActions = InputMap.GetActions().Where(a => !a.ToString().StartsWith("ui_"));
+
+		foreach (string action in gameplayInputActions)
+		{
+			var inputEvents = InputMap.ActionGetEvents(action);
+
+			if (inputEvents.Count > 0)
+			{
+				DefaultKeybindings[action] = inputEvents;
+			}
 		}
 	}
 
@@ -159,12 +202,28 @@ public class Settings
 	{
 		SpeedMouse = DefaultMouseSpeed;
 		SpeedKeyboard = DefaultKeyboardSpeed;
+		SpeedJoypad = DefaultJoypadSpeed;
+		ActiveJoypad = string.Empty;
+		SetDefaultKeybindings();
 	}
 
-	public Settings(SessionController sessionController)
+	private void SetDefaultKeybindings()
 	{
-		refs = sessionController;
-		LoadSettings();
+		var gameplayInputActions = InputMap.GetActions().Where(a => !a.ToString().StartsWith("ui_"));
+
+		foreach (string action in DefaultKeybindings.Keys)
+		{
+			var inputEvents = InputMap.ActionGetEvents(action);
+
+			InputMap.ActionEraseEvents(action);
+
+			foreach (InputEvent inputEvent in DefaultKeybindings[action])
+			{
+				InputMap.ActionAddEvent(action, inputEvent);
+			}
+		}
+
+		SaveKeybindings();
 	}
 
 	public void LoadSettings()
@@ -183,6 +242,7 @@ public class Settings
 
 	public void SaveSettings()
 	{
+		// SaveKeybindings();
 		_config.Save(refs.gameData.ConfigFilePath);
 		ApplySettings();
 	}
@@ -192,20 +252,12 @@ public class Settings
 		if (inputValueToChange != string.Empty)
 		{
 			string oldInputValue = refs.localization.GetInputKey(inputValueToChange);
-			GD.Print("Changing: " + oldInputValue + "(" + inputValueToChange + ") to " + newInputValue.AsText());
-
 			var inputEvents = InputMap.ActionGetEvents(actionToChange).Where(a => a.AsText().Contains(oldInputValue));
-
-			foreach (var temp in inputEvents) // TODO: remove
-			{
-				GD.Print("> " + temp.AsText());
-			}
 
 			InputMap.ActionEraseEvent(actionToChange, inputEvents.ElementAt(0));
 		}
 
 		InputMap.ActionAddEvent(actionToChange, newInputValue);
-		// _config.SetValue("controls", actionToChange, newInputValue);
 		SaveKeybindings();
 	}
 
@@ -213,34 +265,27 @@ public class Settings
 	{
 		var gameplayInputActions = InputMap.GetActions().Where(a => !a.ToString().StartsWith("ui_"));
 
-		foreach (var action in gameplayInputActions)
+		foreach (string action in gameplayInputActions)
 		{
 			var inputEvents = InputMap.ActionGetEvents(action);
 			_config.SetValue("controls", action, inputEvents);
-
-			// for (int i = 0; i < inputEvents.Count; i++)
-			// {
-			// 	string inputEntry = $"{action}_{i}";
-			// 	_config.SetValue("controls", inputEntry, inputEvents[i]);
-			// }
 		}
 	}
 
-	private void LoadKeybindings()
+	private void ApplyKeybindings()
 	{
-		// var gameplayInputActions = InputMap.GetActions().Where(a => !a.ToString().StartsWith("ui_"));
+		var gameplayInputActions = InputMap.GetActions().Where(a => !a.ToString().StartsWith("ui_"));
 
-		// foreach (var action in gameplayInputActions)
-		// {
-		// 	var inputEvents = InputMap.ActionGetEvents(action);
-		// 	InputEvent[] customKeybinds = (Godot.Collections.Array<InputEvent>)_config.GetValue("controls", action, new InputEventAction());
+		foreach (string action in gameplayInputActions)
+		{
+			Godot.Collections.Array<InputEvent> customKeybinds = (Godot.Collections.Array<InputEvent>)_config.GetValue("controls", action);
+			InputMap.ActionEraseEvents(action);
 
-		// 	for (int i = 0; i < customKeybinds.; i++)
-		// 	{
-		// 		InputMap.ActionEraseEvent(action, inputEvents.ElementAt(0));
-
-		// 	}
-		// }
+			foreach (InputEvent inputEvent in customKeybinds)
+			{
+				InputMap.ActionAddEvent(action, inputEvent);
+			}
+		}
 	}
 
 	private void ApplySettings()
@@ -254,5 +299,7 @@ public class Settings
 		AudioServer.SetBusVolumeDb(AudioServer.GetBusIndex("Master"), MasterVolume);
 		AudioServer.SetBusVolumeDb(AudioServer.GetBusIndex("Music"), MusicVolume);
 		AudioServer.SetBusVolumeDb(AudioServer.GetBusIndex("Effects"), EffectsVolume);
+
+		ApplyKeybindings();
 	}
 }

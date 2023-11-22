@@ -7,8 +7,6 @@ public partial class UIOptionsPanel : UIPanel
 	[Export] private Label _header;
 	[Export] private OptionButton _language;
 	[Export] private OptionButton _controllerType;
-	[Export] private HSlider _mouseSpeed;
-	[Export] private HSlider _keyboardSpeed;
 	[Export] private Control _controlDevices;
 	[Export] private CheckButton _fullscreen;
 	[Export] private OptionButton _resolution;
@@ -20,6 +18,10 @@ public partial class UIOptionsPanel : UIPanel
 	[Export] private HSlider _musicVolume;
 	[Export] private HSlider _effectsVolume;
 	[Export] private Control _keybindChangePanel;
+	[Export] private HSlider _mouseSpeed;
+	[Export] private HSlider _keyboardSpeed;
+	[Export] private HSlider _joypadSpeed;
+	[Export] private OptionButton _activeJoypad;
 
 	private int _activePanel = 0;
 	private string _inputType = string.Empty;
@@ -30,6 +32,7 @@ public partial class UIOptionsPanel : UIPanel
 	{
 		SetupReferences();
 		SetupControlCategoryButtons();
+		SetupActiveJoypadOptions();
 		PopulateKeybindControls();
 		DisplayActivePanel();
 		PopulateLanguageList();
@@ -62,8 +65,6 @@ public partial class UIOptionsPanel : UIPanel
 	{
 		_language.Selected = FindOptionIndex(_language, TranslationServer.GetLanguageName(refs.settings.Language));
 		_controllerType.Selected = FindOptionIndex(_controllerType, refs.settings.ControlerPrompts);
-		_mouseSpeed.Value = refs.settings.SpeedMouse;
-		_keyboardSpeed.Value = refs.settings.SpeedKeyboard;
 		_fullscreen.ButtonPressed = (refs.settings.ScreenMode > 0);
 		// _resolution.Selected = FindOptionIndex(_resolution, $"{refs.settings.ScreenWidth}x{refs.settings.ScreenHeight}");
 		_screenShake.ButtonPressed = refs.settings.ScreenShake;
@@ -73,6 +74,10 @@ public partial class UIOptionsPanel : UIPanel
 		_masterVolume.Value = refs.settings.MasterVolume;
 		_musicVolume.Value = refs.settings.MusicVolume;
 		_effectsVolume.Value = refs.settings.EffectsVolume;
+		_mouseSpeed.Value = refs.settings.SpeedMouse;
+		_keyboardSpeed.Value = refs.settings.SpeedKeyboard;
+		_joypadSpeed.Value = refs.settings.SpeedJoypad;
+		_activeJoypad.Selected = FindOptionIndex(_activeJoypad, refs.settings.ActiveJoypad);
 
 		UpdateKeybindings();
 	}
@@ -81,8 +86,6 @@ public partial class UIOptionsPanel : UIPanel
 	{
 		refs.settings.Language = TranslationServer.GetLoadedLocales()[_language.Selected];
 		refs.settings.ControlerPrompts = _controllerType.GetItemText(_controllerType.Selected).ToLower();
-		refs.settings.SpeedMouse = (float)_mouseSpeed.Value;
-		refs.settings.SpeedKeyboard = (float)_keyboardSpeed.Value;
 		refs.settings.ScreenMode = _fullscreen.ButtonPressed ? 3 : 0;
 		// string resolutionString = _resolution.GetItemText(_resolution.Selected);
 		// refs.settings.ScreenWidth = int.Parse(resolutionString.Split("x")[0]);
@@ -95,6 +98,11 @@ public partial class UIOptionsPanel : UIPanel
 		refs.settings.MasterVolume = (float)_masterVolume.Value;
 		refs.settings.MusicVolume = (float)_musicVolume.Value;
 		refs.settings.EffectsVolume = (float)_effectsVolume.Value;
+		refs.settings.SpeedMouse = (float)_mouseSpeed.Value;
+		refs.settings.SpeedKeyboard = (float)_keyboardSpeed.Value;
+		refs.settings.SpeedJoypad = (float)_joypadSpeed.Value;
+		refs.settings.ActiveJoypad = (_activeJoypad.Selected >= 0) ? _activeJoypad.GetItemText(_activeJoypad.Selected) : string.Empty;
+		refs.settings.ActiveJoypadID = _activeJoypad.Selected;
 
 		refs.settings.SaveSettings();
 	}
@@ -209,6 +217,16 @@ public partial class UIOptionsPanel : UIPanel
 			default:
 				_header.Text = Tr("header_options");
 				break;
+		}
+	}
+
+	private void SetupActiveJoypadOptions()
+	{
+		_activeJoypad.Clear();
+
+		foreach (int index in Input.GetConnectedJoypads())
+		{
+			_activeJoypad.AddItem(Input.GetJoyName(index));
 		}
 	}
 
