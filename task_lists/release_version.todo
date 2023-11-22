@@ -14,9 +14,9 @@ Must have:
 	☐ Interactables (5-6)
 	☐ Player skills (5)
 	✔ Difficulty system @done
-	☐ Localization support
+	✔ Localization support @done
 	✔ High-score system @done
-	☐ Configurable settings
+	✔ Configurable settings @done
 	☐ Keep mode
 		☐ Multi-room levels
 		☐ Selectable map progression (either through map selection screen or by using specific level exit)
@@ -29,3 +29,4 @@ Must have:
 Optional:
 	☐ Level editor
 	☐ Semi-randomzied maps for keep mode (as an option)
+	☐ Custom localization support

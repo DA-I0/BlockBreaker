@@ -12,11 +12,17 @@ Prototype 3:
 		☐ New functionality for dynamic elements
 			☐ Add repeating timed toggle for teleport door?
 			☐ Add on-map buttons that toggle connected element when hit with the ball?
+		☐ New pickups
+			☐ Magnet (pull pickups near the paddle towards it, not exclusive unlike sticky/bouncy paddle?)
+			☐ Random (randomize on spawn, ? as icon?)
+		☐ New paddles
+			☐ Double (half-length, consists of two paddles, one under another, moving in opposit directions, might be a pickup instead?)
 	Map elements:
 		☐ Stairs + railing
 			☐ Ball can move over stairs
 			☐ Ball can move **down** through broken railing
 			☐ Ball can't move up through wall at the bottom of the stairs or railing
+		☐ Cracked walls (can be destroyed with TNT)
 		☐ More map decorations (up the visual variety)
 			☐ ?
 		☐ New tileset
@@ -32,9 +38,9 @@ Prototype 3:
 				☐ Level exit (big gate)
 				☐ Teleport (small gate)
 	UI:
-		?
+		☐ Splash screen on map load (display map name/number)
+		☐ Improve main menu layout and theming
 	Other:
-		☐ Add 1-2 translations (besides english)
-		☐ Secure leaderboard file from outside modification @low
+		☐ Improve translations
 		☐ Make a new logo @low
 	Issues:

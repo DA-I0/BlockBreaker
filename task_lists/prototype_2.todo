@@ -1,6 +1,6 @@
 Prototype 2:
 	Features:
-		☐ Configurable controls
+		✔ Configurable controls @done(23-11-22 16:23)
 		☐ Game localization
 			✔ Manual localization system for RichTextLabels @done(23-09-29 17:45)
 			☐ Dynamic translation loading
@@ -22,20 +22,17 @@ Prototype 2:
 				✔ Explosion animation @done(23-10-02 18:02)
 				✔ Damage breakables in range @done(23-10-02 18:02)
 				✔ Sound effect @done(23-10-03 18:12)
-		☐ New pickups
+		☐ New pickups @done(23-10-16 09:49)
 			✔ Ice (freeze the paddle for 2-3 seconds) @done(23-10-03 17:04)
 			✔ Reverse controls (reverse paddle controls) @done(23-10-02 22:39)
 			✔ Sticky paddle (catch ball on touch, release like new) @done(23-10-02 18:28)
 			✔ Bouncy paddle (add temp speed boost on bounce) @done(23-10-02 18:28)
 			✔ Slow ball @done(23-10-16 09:49)
-			☐ Magnet (pull pickups near the paddle towards it, not exclusive unlike sticky/bouncy paddle?)
-			☐ Random (randomize on spawn, ? as icon?)
-		☐ New paddles
+		☐ New paddles @done(23-10-31 16:05)
 			✔ Roguelike (time moves when paddle moves; ball slowdown when near paddle - visible "time zone") @done(23-10-30 14:22)
 			✔ Arced inward @done(23-10-02 21:22)
 			✔ Arced outward @done(23-10-02 21:22)
 			✔ Static bounce (front part of the paddle consists of 3 zones, each rotates ball to a specific angle on bounce) @done(23-10-31 16:05)
-			☐ Double (half-length, consists of two paddles, one under another, moving in opposit directions, might be a pickup instead?)
 		☐ New animations
 			✔ Ball @done(23-10-11 14:44)
 				✔ Kicking up dust particles (separate from fire trail used for fast ball) @done(23-10-11 14:44)
@@ -54,8 +51,7 @@ Prototype 2:
 				✔ Ready @done(23-10-03 18:58)
 		☐ Replace music randomization with shuffle
 	Map elements:
-		☐ Tunnels (allow to move through walls)
-		☐ Cracked walls (can be destroyed with TNT)
+		✘ Tunnels (allow to move through walls) @cancelled(23-11-17 14:41)
 		☐ More map decorations (up the visual variety)
 			✔ Barred window @done(23-10-19 15:05)
 			✔ Normal window? @done(23-10-19 15:05)
@@ -79,13 +75,11 @@ Prototype 2:
 				✔ Pumpkin (breakable) @done(23-11-03 14:52)
 				✔ Spider webs (wall decorations) @done(23-11-03 15:00)
 				☐ Ghosts with witch hats?
-				☐ Bats
 		New tileset:
-			☐ Floor tiles
+			☐ Floor tiles @done(23-10-25 17:26)
 				✔ Grass @done(23-10-24 15:20)
 				✔ Path @done(23-10-24 15:20)
 				✔ Pond @done(23-10-25 17:26)
-				☐ ?
 			☐ Wall tiles
 				✔ Straight @done(23-10-24 15:20)
 				☐ Corners
@@ -100,7 +94,6 @@ Prototype 2:
 				✔ Level exit (big gate) @done(23-11-15 17:17)
 				✔ Teleport (small gate) @done(23-11-15 17:17)
 	UI:
-		☐ Splash screen on map load (display map name/number)
 		✔ Loading screen @done(23-09-13 19:33)
 		✔ Game over screen @done(23-10-05 17:37)
 			✔ Display end score @done(23-10-05 17:37)
@@ -110,7 +103,7 @@ Prototype 2:
 			✔ Selection panel @done(23-10-03 16:15)
 			✔ Customization panel @done(23-10-03 16:15)
 		✔ Paddle selection @done(23-10-03 12:49)
-			☐ Name and short description?
+			✔ Name and short description @done(23-11-17 16:37)
 		Options:
 			✔ Language selection @done(23-09-26 20:15)
 			✔ Pickup display ordering (under ball, above ball, above all) @done(23-11-01 16:05)
@@ -122,8 +115,8 @@ Prototype 2:
 	Other:
 		☐ Add 1-2 translations (besides english)
 		✔ Secure leaderboard file from outside modification @low @done(23-11-16 17:19)
-		☐ Make a new logo @low
-		☐ Replace static game values in info panel (mainly block HP) with ones read straight from prefabs (put required prefabs out of sight in the main menu and read this way?) @low
+		☐ Replace static game values in info panel (mainly block HP) with ones read straight from prefabs (put required prefabs out of sight in the main menu and read this way?) @low @done(23-11-21 19:45)
+		☐ Update store page
 	Issues:
 		✔ UI displayed under game elements @done(23-10-17 15:34)
 		✔ Paddle movement unlocks during ball angle select @done(23-10-19 13:30)
