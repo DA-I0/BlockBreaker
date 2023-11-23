@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://bwbhskpc2w0te"]
+
+[ext_resource type="Texture2D" uid="uid://c04qsmn4iubf6" path="res://assets/sprites/props/fountains/fountain_03.png" id="1_wcuif"]
+
+[sub_resource type="Animation" id="Animation_rnb1i"]
+resource_name = "idle"
+length = 1.28573
+loop_mode = 1
+step = 0.142857
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.142857, 0.285714, 0.428571, 0.571429, 0.857143, 1.14286),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y55gb"]
+_data = {
+"idle": SubResource("Animation_rnb1i")
+}
+
+[node name="FountainWall01" type="StaticBody2D"]
+
+[node name="Collider" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-3, 0, -4, 1, -4, 3, -3, 4, 3, 4, 4, 3, 4, 1, 3, 0)
+
+[node name="Sprite" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(-4, -13)
+texture = ExtResource("1_wcuif")
+centered = false
+hframes = 6
+frame = 5
+
+[node name="Animator" type="AnimationPlayer" parent="."]
+autoplay = "idle"
+libraries = {
+"": SubResource("AnimationLibrary_y55gb")
+}
