@@ -1,6 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://fs6jq84iqldm"]
+[gd_scene load_steps=17 format=3 uid="uid://fs6jq84iqldm"]
 
 [ext_resource type="Texture2D" uid="uid://clfnabf8ysvwd" path="res://assets/sprites/tilesets/map_tiles_bricked.png" id="1_512im"]
+[ext_resource type="Texture2D" uid="uid://uadotagtweom" path="res://assets/sprites/tilesets/map_details_bricked.png" id="2_g3w61"]
 [ext_resource type="PackedScene" uid="uid://too80a13ex5u" path="res://prefabs/blocks/block_basic.tscn" id="2_nrxq6"]
 [ext_resource type="PackedScene" uid="uid://clchdmucxr4xn" path="res://prefabs/blocks/block_sturdy.tscn" id="3_2yqvw"]
 [ext_resource type="PackedScene" uid="uid://dlrofqirtncwr" path="res://prefabs/blocks/barrier_basic.tscn" id="4_n1bsr"]
@@ -136,9 +137,49 @@ texture = ExtResource("1_512im")
 4:7/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 4:7/0/physics_layer_0/angular_velocity = 0.0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_22gry"]
+texture = ExtResource("2_g3w61")
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0 = 0
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+3:0/0 = 0
+3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:0/0/physics_layer_0/angular_velocity = 0.0
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+1:1/0 = 0
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
+3:1/0 = 0
+3:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:1/0/physics_layer_0/angular_velocity = 0.0
+0:2/0 = 0
+0:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:2/0/physics_layer_0/angular_velocity = 0.0
+1:2/0 = 0
+1:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:2/0/physics_layer_0/angular_velocity = 0.0
+3:2/0 = 0
+3:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:2/0/physics_layer_0/angular_velocity = 0.0
+0:3/0 = 0
+0:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:3/0/physics_layer_0/angular_velocity = 0.0
+1:3/0 = 0
+1:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:3/0/physics_layer_0/angular_velocity = 0.0
+
 [sub_resource type="TileSet" id="TileSet_qov5v"]
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_y748h")
+sources/1 = SubResource("TileSetAtlasSource_22gry")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_p587y"]
 normal = Vector2(1, 0)
@@ -162,7 +203,14 @@ layer_1/modulate = Color(1, 1, 1, 1)
 layer_1/y_sort_enabled = false
 layer_1/y_sort_origin = 0
 layer_1/z_index = 0
-layer_1/tile_data = PackedInt32Array(-327681, 262144, 0, -262145, 262144, 1, 131071, 196608, 0, 196607, 196608, 1, 65535, 262144, 1, -1, 262144, 1, -65537, 262144, 1, -196609, 262144, 1, -131073, 262144, 1)
+layer_1/tile_data = PackedInt32Array(-327681, 262144, 0, -262145, 262144, 1, 131071, 196608, 0, 196607, 196608, 1, 65535, 262144, 1, -1, 262144, 1, -65537, 262144, 1, -196609, 262144, 1, -131073, 262144, 1, -327676, 65537, 3, -327679, 1, 3, -262150, 1, 1, -262146, 1, 1)
+layer_2/name = ""
+layer_2/enabled = true
+layer_2/modulate = Color(1, 1, 1, 1)
+layer_2/y_sort_enabled = false
+layer_2/y_sort_origin = 0
+layer_2/z_index = 0
+layer_2/tile_data = PackedInt32Array(196607, 65537, 1)
 
 [node name="MapColliders" type="StaticBody2D" parent="."]
 collision_mask = 6
@@ -373,25 +421,31 @@ position = Vector2(47, 15)
 
 [node name="Interactables" type="Node2D" parent="."]
 
-[node name="Whirlpool" parent="Interactables" instance=ExtResource("7_sp84k")]
+[node name="Whirlpool" parent="Interactables" node_paths=PackedStringArray("_sprites") instance=ExtResource("7_sp84k")]
 position = Vector2(-56, 27)
+_sprites = []
 
-[node name="Whirlpool2" parent="Interactables" instance=ExtResource("7_sp84k")]
+[node name="Whirlpool2" parent="Interactables" node_paths=PackedStringArray("_sprites") instance=ExtResource("7_sp84k")]
 position = Vector2(30, -34)
+_sprites = []
 
-[node name="Whirlpool3" parent="Interactables" instance=ExtResource("7_sp84k")]
+[node name="Whirlpool3" parent="Interactables" node_paths=PackedStringArray("_sprites") instance=ExtResource("7_sp84k")]
 position = Vector2(63, -34)
+_sprites = []
 
-[node name="Bollard" parent="Interactables" instance=ExtResource("8_pigvy")]
+[node name="Bollard" parent="Interactables" node_paths=PackedStringArray("_sprites") instance=ExtResource("8_pigvy")]
 position = Vector2(16, 48)
 _isActived = false
+_sprites = []
 
-[node name="Bollard2" parent="Interactables" instance=ExtResource("8_pigvy")]
+[node name="Bollard2" parent="Interactables" node_paths=PackedStringArray("_sprites") instance=ExtResource("8_pigvy")]
 position = Vector2(46, 48)
+_sprites = []
 
-[node name="Bollard3" parent="Interactables" instance=ExtResource("8_pigvy")]
+[node name="Bollard3" parent="Interactables" node_paths=PackedStringArray("_sprites") instance=ExtResource("8_pigvy")]
 position = Vector2(80, 48)
 _isActived = false
+_sprites = []
 
 [node name="LevelExit" parent="." instance=ExtResource("8_0fyb8")]
 position = Vector2(-56, -63)
