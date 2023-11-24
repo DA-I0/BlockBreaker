@@ -105,6 +105,7 @@ public partial class UIOptionsPanel : UIPanel
 		refs.settings.ActiveJoypadID = _activeJoypad.Selected;
 
 		refs.settings.SaveSettings();
+		UpdateHeaderText();
 	}
 
 	private void CancelSettings()
