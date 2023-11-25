@@ -179,7 +179,7 @@ offset_right = 51.0
 offset_bottom = 25.0
 grow_horizontal = 2
 
-[node name="message_advance_to_next_map" type="RichTextLabel" parent="ExitPrompt/PanelContainer" groups=["manual_translation"]]
+[node name="MSG_ADVANCE_TO_NEXT_MAP" type="RichTextLabel" parent="ExitPrompt/PanelContainer" groups=["manual_translation"]]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8

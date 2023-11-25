@@ -56,10 +56,10 @@ text = "<player_score>"
 
 [node name="PlayerName" type="LineEdit" parent="BackgroundPanel/VBoxContainer"]
 layout_mode = 2
-placeholder_text = "score_placeholder_player_name"
+placeholder_text = "PLACEHOLDER_PLAYER_NAME"
 
 [node name="ButtonConfirm" type="Button" parent="BackgroundPanel/VBoxContainer"]
 layout_mode = 2
-text = "button_confirm"
+text = "BUTTON_CONFIRM"
 
 [connection signal="pressed" from="BackgroundPanel/VBoxContainer/ButtonConfirm" to="." method="SubmitScore"]

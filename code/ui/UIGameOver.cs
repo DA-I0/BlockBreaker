@@ -29,7 +29,7 @@ public partial class UIGameOver : Control
 	{
 		if (refs.CurrentGameState == GameState.gameOver)
 		{
-			_header.Text = $"[b][u]{Tr("game_win")}[/u][/b]";
+			_header.Text = $"[b][u]{Tr("GAME_WIN")}[/u][/b]";
 			SetupScoreValues();
 		}
 	}
@@ -37,14 +37,14 @@ public partial class UIGameOver : Control
 	private void DisplayGameOverPrompt()
 	{
 		refs.ChangeGameState(GameState.gameOver);
-		_header.Text = $"[b][u]{Tr("game_over")}[/u][/b]";
+		_header.Text = $"[b][u]{Tr("GAME_OVER")}[/u][/b]";
 		SetupScoreValues();
 	}
 
 	private void SetupScoreValues()
 	{
 		canAddToLeaderboard = refs.gameData.CanScoreJoinLeaderboard(refs.gameScore.CurrentScore);
-		_score.Text = $"{Tr("game_score")}: {refs.gameScore.CurrentScore}";
+		_score.Text = $"{Tr("GAME_SCORE")}: {refs.gameScore.CurrentScore}";
 		_playerName.Visible = canAddToLeaderboard;
 
 		TogglePrompt();

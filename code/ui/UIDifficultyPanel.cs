@@ -92,25 +92,25 @@ public partial class UIDifficultyPanel : UIPanel
 
 	private void ApplyEditorValues() // might have to do manual rounding for ball and angle speed, sometimes returns a lot of decimals
 	{
-		_livesMax.Text = $"{Tr("diff_lives_max")}: {_livesMaxSlider.Value}";
-		_livesStart.Text = $"{Tr("diff_lives_start")}: {_livesStartSlider.Value}";
-		_ballSpeed.Text = $"{Tr("diff_ball_speed")}: {MathF.Round((float)_ballSpeedSlider.Value, 2)}";
-		_ballAngleSpeed.Text = $"{Tr("diff_angle_speed")}: {MathF.Round((float)_ballAngleSlider.Value, 2)}";
-		_paddleSizeMax.Text = $"{Tr("diff_paddle_size_max")}: {_paddleSizeMaxSlider.Value}";
-		_paddleSizeStart.Text = $"{Tr("diff_paddle_size_start")}: {_paddleSizeStartSlider.Value}";
-		_paddleSizeMin.Text = $"{Tr("diff_paddle_size_min")}: {_paddleSizeMinSlider.Value}";
+		_livesMax.Text = $"{Tr("DIFF_LIVES_MAX")}: {_livesMaxSlider.Value}";
+		_livesStart.Text = $"{Tr("DIFF_LIVES_START")}: {_livesStartSlider.Value}";
+		_ballSpeed.Text = $"{Tr("DIFF_BALL_SPEED")}: {MathF.Round((float)_ballSpeedSlider.Value, 2)}";
+		_ballAngleSpeed.Text = $"{Tr("DIFF_ANGLE_SPEED")}: {MathF.Round((float)_ballAngleSlider.Value, 2)}";
+		_paddleSizeMax.Text = $"{Tr("DIFF_PADDLE_SIZE_MAX")}: {_paddleSizeMaxSlider.Value}";
+		_paddleSizeStart.Text = $"{Tr("DIFF_PADDLE_SIZE_START")}: {_paddleSizeStartSlider.Value}";
+		_paddleSizeMin.Text = $"{Tr("DIFF_PADDLE_SIZE_MIN")}: {_paddleSizeMinSlider.Value}";
 	}
 
 	private void ApplyStaticValues()
 	{
 		_name.Text = refs.gameData.Difficulties[_currentDifficulty].DifficultyName;
-		_livesMax.Text = $"{Tr("diff_lives_max")}: {refs.gameData.Difficulties[_currentDifficulty].MaxLives}";
-		_livesStart.Text = $"{Tr("diff_lives_start")}: {refs.gameData.Difficulties[_currentDifficulty].StartingLives}";
-		_ballSpeed.Text = $"{Tr("diff_ball_speed")}: {refs.gameData.Difficulties[_currentDifficulty].BallSpeedMultiplier}";
-		_ballAngleSpeed.Text = $"{Tr("diff_angle_speed")}: {refs.gameData.Difficulties[_currentDifficulty].AngleSelectSpeed}";
-		_paddleSizeMax.Text = $"{Tr("diff_paddle_size_max")}: {refs.gameData.Difficulties[_currentDifficulty].MaxPaddleSize}";
-		_paddleSizeStart.Text = $"{Tr("diff_paddle_size_start")}: {refs.gameData.Difficulties[_currentDifficulty].StartPaddleSize}";
-		_paddleSizeMin.Text = $"{Tr("diff_paddle_size_min")}: {refs.gameData.Difficulties[_currentDifficulty].MinPaddleSize}";
+		_livesMax.Text = $"{Tr("DIFF_LIVES_MAX")}: {refs.gameData.Difficulties[_currentDifficulty].MaxLives}";
+		_livesStart.Text = $"{Tr("DIFF_LIVES_START")}: {refs.gameData.Difficulties[_currentDifficulty].StartingLives}";
+		_ballSpeed.Text = $"{Tr("DIFF_BALL_SPEED")}: {refs.gameData.Difficulties[_currentDifficulty].BallSpeedMultiplier}";
+		_ballAngleSpeed.Text = $"{Tr("DIFF_ANGLE_SPEED")}: {refs.gameData.Difficulties[_currentDifficulty].AngleSelectSpeed}";
+		_paddleSizeMax.Text = $"{Tr("DIFF_PADDLE_SIZE_MAX")}: {refs.gameData.Difficulties[_currentDifficulty].MaxPaddleSize}";
+		_paddleSizeStart.Text = $"{Tr("DIFF_PADDLE_SIZE_START")}: {refs.gameData.Difficulties[_currentDifficulty].StartPaddleSize}";
+		_paddleSizeMin.Text = $"{Tr("DIFF_PADDLE_SIZE_MIN")}: {refs.gameData.Difficulties[_currentDifficulty].MinPaddleSize}";
 	}
 
 	private void ApplyDifficultyToEditor(bool newDifficulty)
@@ -123,7 +123,7 @@ public partial class UIDifficultyPanel : UIPanel
 			helperIndex = 1;
 		}
 
-		_newName.Text = newDifficulty ? Tr("diff_placeholder_name") : refs.gameData.Difficulties[_currentDifficulty].DifficultyName;
+		_newName.Text = newDifficulty ? Tr("PLACEHOLDER_DIFF_NAME") : refs.gameData.Difficulties[_currentDifficulty].DifficultyName;
 		_livesMaxSlider.Value = refs.gameData.Difficulties[helperIndex].MaxLives;
 		_livesStartSlider.Value = refs.gameData.Difficulties[helperIndex].StartingLives;
 		_ballSpeedSlider.Value = refs.gameData.Difficulties[helperIndex].BallSpeedMultiplier;

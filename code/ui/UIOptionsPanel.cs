@@ -200,23 +200,23 @@ public partial class UIOptionsPanel : UIPanel
 		switch (_activePanel)
 		{
 			case 0:
-				_header.Text = $"{Tr("header_options")} - {Tr("header_general")}";
+				_header.Text = $"{Tr("HEADER_OPTIONS")} - {Tr("HEADER_GENERAL")}";
 				break;
 
 			case 1:
-				_header.Text = $"{Tr("header_options")} - {Tr("header_video")}";
+				_header.Text = $"{Tr("HEADER_OPTIONS")} - {Tr("HEADER_VIDEO")}";
 				break;
 
 			case 2:
-				_header.Text = $"{Tr("header_options")} - {Tr("header_audio")}";
+				_header.Text = $"{Tr("HEADER_OPTIONS")} - {Tr("HEADER_AUDIO")}";
 				break;
 
 			case 3:
-				_header.Text = $"{Tr("header_options")} - {Tr("header_controls")}";
+				_header.Text = $"{Tr("HEADER_OPTIONS")} - {Tr("HEADER_CONTROLS")}";
 				break;
 
 			default:
-				_header.Text = Tr("header_options");
+				_header.Text = Tr("HEADER_OPTIONS");
 				break;
 		}
 	}
@@ -263,7 +263,7 @@ public partial class UIOptionsPanel : UIPanel
 
 				Label inputHeader = new Label
 				{
-					Text = action.ToString().Replace("game_", "option_"),
+					Text = action.ToString().Replace("game_", "option_input_").ToUpper(),
 					SizeFlagsHorizontal = SizeFlags.Fill | SizeFlags.Expand
 				};
 				actionContainer.AddChild(inputHeader);

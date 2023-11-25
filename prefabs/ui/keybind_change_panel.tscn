@@ -24,6 +24,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "message_new_keybind"
+text = "MSG_NEW_KEYBINDIG"
 horizontal_alignment = 1
 vertical_alignment = 1
