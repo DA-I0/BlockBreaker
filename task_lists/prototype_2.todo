@@ -16,19 +16,18 @@ Prototype 2:
 			✔ Struct @done(23-09-21 22:35)
 			✔ Store results between sessions @done(23-09-21 22:35)
 			✔ Let player input their name when joining top 10 @done(23-10-05 17:38)
-		☐ New interactive elements
-			☐ River (slightly changes ball direction)
+		✔ New interactive elements @done(23-10-03 18:12)
 			✔ TNT (explodes when hit, blasts breakable elements nearby: blocks, barricades, cracked walls) @done(23-10-03 18:12)
 				✔ Explosion animation @done(23-10-02 18:02)
 				✔ Damage breakables in range @done(23-10-02 18:02)
 				✔ Sound effect @done(23-10-03 18:12)
-		☐ New pickups @done(23-10-16 09:49)
+		✔ New pickups @done(23-10-16 09:49)
 			✔ Ice (freeze the paddle for 2-3 seconds) @done(23-10-03 17:04)
 			✔ Reverse controls (reverse paddle controls) @done(23-10-02 22:39)
 			✔ Sticky paddle (catch ball on touch, release like new) @done(23-10-02 18:28)
 			✔ Bouncy paddle (add temp speed boost on bounce) @done(23-10-02 18:28)
 			✔ Slow ball @done(23-10-16 09:49)
-		☐ New paddles @done(23-10-31 16:05)
+		✔ New paddles @done(23-10-31 16:05)
 			✔ Roguelike (time moves when paddle moves; ball slowdown when near paddle - visible "time zone") @done(23-10-30 14:22)
 			✔ Arced inward @done(23-10-02 21:22)
 			✔ Arced outward @done(23-10-02 21:22)
@@ -49,7 +48,6 @@ Prototype 2:
 			✔ Sound effects @done(23-10-03 18:58)
 				✔ Use @done(23-10-03 18:58)
 				✔ Ready @done(23-10-03 18:58)
-		☐ Replace music randomization with shuffle
 	Map elements:
 		✘ Tunnels (allow to move through walls) @cancelled(23-11-17 14:41)
 		☐ More map decorations (up the visual variety)
@@ -76,13 +74,12 @@ Prototype 2:
 				✔ Spider webs (wall decorations) @done(23-11-03 15:00)
 				☐ Ghosts with witch hats?
 		New tileset:
-			☐ Floor tiles @done(23-10-25 17:26)
+			✔ Floor tiles @done(23-10-25 17:26)
 				✔ Grass @done(23-10-24 15:20)
 				✔ Path @done(23-10-24 15:20)
 				✔ Pond @done(23-10-25 17:26)
-			☐ Wall tiles
+			✔ Wall tiles @done(23-10-26 13:41)
 				✔ Straight @done(23-10-24 15:20)
-				☐ Corners
 				✔ Thin internal walls (hedge) @done(23-10-26 13:41)
 			☐ Props
 				✔ Grave (breakable) @done(23-10-23 15:47)
@@ -110,12 +107,12 @@ Prototype 2:
 			✔ Controller icon style (generic, nintendo, playstation, xbox)? @done(23-11-09 17:22)
 			✔ Map background brightness (in case player needs gameplay elements to pop out more) @done(23-10-09 18:54)
 		☐ Improve main menu layout and theming
-		☐ Setup non-mouse controlls for all the panels and elements
+		☐ Setup non-mouse controls for all the panels and elements
 		✔ Language selection on first launch @done(23-11-06 16:52)
 	Other:
-		☐ Add 1-2 translations (besides english)
+		✔ Add 1-2 translations (besides english) @done(23-11-25 19:41)
 		✔ Secure leaderboard file from outside modification @low @done(23-11-16 17:19)
-		☐ Replace static game values in info panel (mainly block HP) with ones read straight from prefabs (put required prefabs out of sight in the main menu and read this way?) @low @done(23-11-21 19:45)
+		✔ Replace static game values in info panel (mainly block HP) with ones read straight from prefabs (put required prefabs out of sight in the main menu and read this way?) @low @done(23-11-21 19:45)
 		☐ Update store page
 	Issues:
 		✔ UI displayed under game elements @done(23-10-17 15:34)

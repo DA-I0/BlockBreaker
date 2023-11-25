@@ -1,29 +1,39 @@
 [b][u]Prototype 2 - XX/XX/2023[/u][/b]
 ?
 
-Added:
-- 7 levels
+[b]Added:[/b]
+- 7 new levels
 - difficulty settings: 3 default presets + customization
-- new gameplay effects
-- new breakables: explosives, tables, chairs, benches, graves, fences
-- new paddles: arced in, arced out, roguelike
+- new paddles: armed, curved, roguelike, bounce control
 - new pickups: bouncy paddle, freeze paddle, sticky paddle, reverse controls, slow ball
+- new breakables: explosives, tables, chairs, benches, graves, fences
 - new decorations: bookcase, candle stand, paintings, windows
-- screen shake "skill" (press [Left Control]/[Right Mouse Button] during gameplay to shake the screen which randomly changes ball rotation and freezes paddle for a short time)
-- new tileset elements
+- new tileset (garden)
+- new visual effects
+- player skill: screen shake (press [Left Control]/[Right Mouse Button] during gameplay to shake the screen which randomly changes ball rotation and freezes paddle for a short time)
 - game over screen
 - local leaderboard
-- localization support (including user made), partial German, Japanese and Polish translations
-- more user settings
+- localization support, partial localization for German, Japanese and Polish languages
+- new user settings
 
-Changed:
+[b]Changed:[/b]
 - switched from Unity to Godot Engine
 - UI layout and theming
+- some level layouts
+- default tileset improvements
 
-Fixed:
+[b]Fixed:[/b]
 - fullscreen toggle doesn't update to loaded state
 - weird ball collisions
 
-Known issues:
+[b]Known issues:[/b]
 - stage music is fully randomized, might select the same song multiple times
 - lack of gophers
+- ball slides over paddle when colliding under very small angle
+
+[b]Important note:[/b]
+If you played the Unity version (Prototype 1), make sure to remove the "DA-I0" folder created by the game. You can find it at:
+- Linux: ~/.config/unity3d/unity3d/DA-I0
+- Windows: C:\Users\<user_name>\AppData\LocalLow\DA-I0
+
+

@@ -17,6 +17,9 @@ Prototype 3:
 			☐ Random (randomize on spawn, ? as icon?)
 		☐ New paddles
 			☐ Double (half-length, consists of two paddles, one under another, moving in opposit directions, might be a pickup instead?)
+		☐ New interactive elements
+			☐ River (slightly changes ball direction)
+		☐ Replace music randomization with shuffle
 	Map elements:
 		☐ Stairs + railing
 			☐ Ball can move over stairs
@@ -43,4 +46,5 @@ Prototype 3:
 	Other:
 		☐ Improve translations
 		☐ Make a new logo @low
+		☐ Add more music tracks
 	Issues:
