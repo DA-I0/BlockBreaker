@@ -1,84 +1,90 @@
 keys,en,de,ja,pl
-button_cancel,Cancel,Abbrechen,キャンセル,Anuluj
-button_changelog,Patch notes,Versionshinweise,リリースノート,Lista zmian
-button_confirm,Confirm,zustimmen,確定,Potwierdź
-button_default,Default,Standardeinstellungen,初期設定,Domyślne
-button_exit,Exit,Verlassen,ゲーム終了,Wyjdź
-button_gamepad_settings,Gamepad,Controller,ジョイスティック,Kontroler
-button_info,Info,Informationen,情報,Info
-button_keyboard_settings,Keyboard,Tastatur,キーボード,Klawiatura
-button_mouse_settings,Mouse,Maus,マウス,Mysz
-button_options,Options,Einstellungen,オプション,Opcje
-button_play,Play,Spielen,プレイ,Graj
-button_return,Back,Zurück,戻る,Wróć
-diff_angle_speed,Angle selection speed,,,Prędkość wyboru kąta
-diff_ball_speed,Ball speed,,ボールスピード,Prędkość piłki
-diff_lives_max,Max lives,,最大値<lives>,Maksimum żyć
-diff_lives_start,Starting lives,,初期<lives>,Początkowe życia
-diff_name,Name,Name,名,Nazwa
-diff_paddle_size_max,Max paddle size,Maximale Schlägergröße,最大値パドルサイズ,Maksymalna wielkość paletki
-diff_paddle_size_min,Min paddle size,Mindest Schlägergröße,,Minimalna wielkość paletki
-diff_paddle_size_start,Starting paddle size,Anfängliche Schlägergröße,初期パドルサイズ,Początkowy rozmiar paletki
-diff_placeholder_name,New difficulty,,,Nowy poziom trudności
-game_over,Game over,Spiel vorbei,ゲームオーバー,Koniec gry
-game_score,Score,Punkte,スコア,Punkty
-game_win,Victory!,Sieg!,勝利,Zwycięstwo!
-header_audio,Audio,Audio,オーディオ,Dźwięk
-header_changelog,Patch notes,Versionshinweise,リリースノート,Lista zmian
-header_controls,Controls,,,Sterowanie
-header_difficulty,Select difficulty,,,Wybierz poziom trudności
-header_general,General,Allgemein,全般,Ogólne
-header_info,Game info,,,Informacje o grze
-header_leaderboard,Leaderboard,Rangliste,,Lista wyników
-header_options,Options,Einstellungen,設定,Opcje
-header_paddle,Select paddle,,,Wybierz paletkę
-header_video,Video,Video,表示,Wideo
-info_barriers,Barriers,,,Bariery
-info_barriers_desc,"Exist in two variants - basic and sturdy.\nBasic one can't be broken, sturdy breaks after {barrier_sturdy_health} hits.\n\nBarriers don't count towards level completion.",,,
-info_blocks,Blocks,,,Bloki
-info_blocks_desc,"Exist in two variants - basic and sturdy.\nBasic blocks break after {block_health} hit, sturdy ones after {block_sturdy_health}.\n\nDestroy all to complete a level.",,,
-info_controls,Controls,,,Sterowanie
-info_controls_desc,[b]Move paddle:[/b] {game_left}{game_right}\n[b]Release ball:[/b] {game_play}\n[b]Reset ball (-1 life):[/b] {game_reset}\n[b]Pause game:[/b] {game_pause},,,
-info_score_multiplier,Score multiplier,,,Mnożnik punktów
-info_score_multiplier_desc,"Increases by 1 for every {multiplier_combo_step} destroyed elements, up to x{multiplier_max_combo}.\nGrabbing difficulty increasing pickups (small/fast ball, smaller paddle) also increases multiplier independent of combo.\nMax score multiplier: x{multiplier_max}.",,,
-lang_selection,Select language,,,Wybierz język
-message_advance_to_next_map,Press {game_play} to continue...,,,Wciśnij {game_play} aby kontynuować…
-message_loading,Loading...,Lädt…,,Ładowanie…
-message_new_keybind,Press key to assign to action.,,,Wciśnij przycisk do przypisania.
-message_return_to_menu,Return to menu,Zurück zum Menü,メニューに戻る,Wróć do menu
-option_background_transparency,Background brightness,,背景<transparency>,Jasność tła
-option_effects_volume,Effects volume,Effektlautstärke,SE 音量,Głośność efektów
-option_font,Font,,,Czcionka
-option_fullscreen,Fullscreen,Vollbild,フルスクリーン,Pełen ekran
-option_helper_transparency,Effect transparency,,,Przezroczystość efektów
-option_keyboard_speed,Keyboard speed,,キーボード速度,Prędkość klawiatury
-option_language,Language,Sprache,言語,Język
-option_left,Move left,,左<move>,Ruch w lewo
-option_master_volume,Master volume,Gesamtlautstärke,全体 音量,Głośność ogólna
-option_mouse_speed,Mouse speed,,マウス速度,Prędkość myszy
-option_music_volume,Music volume,Musiklautstärke,BGM 音量,Głośność muzyki
-option_pause,Pause,,,Pauza
-option_pickup,Pickup visibility,,,Widoczność znajdziek
-option_pickup_order_bottom,Bottom,Unten,下,Pod wszystkim
-option_pickup_order_middle,Above ball,,,Nad piłką
-option_pickup_order_top,Top,Oben,上,Nad wszystkim
-option_play,Release ball,,,Wypuść piłkę
-option_reset,Reset,Neu starten,セット,Reset
-option_resolution,Window size,Videoauflösung,画面サイズ,Rozmiar okna
-option_right,Move right,,右<move>,Ruch w prawo
-option_screen_shake,Enable screen shake,,,Wstrząs ekranu
-option_skill,Use skill,Benutzung Fertigkeit,使用スキル,Użyj umiejętności
-paddle_1_desc,"Basic paddle. Easy to use, easy to master.",,,
-paddle_1_name,Basic,,,
-paddle_2_desc,Paddle with arms for additional bounce options.,,,
-paddle_2_name,Armed,,,
-paddle_3_desc,Curved paddle. Rounded edges allow for more varied and unpredictable bounces.,,,
-paddle_3_name,Curved,,,
-paddle_4_desc,"It’s roguelike! Well, almost…\nTime moves (normally) when paddle moves, otherwise it slows down to a crawl.",,,
-paddle_4_name,Roguelike,,,
-paddle_5_desc,"Perfect choice for anyone who craves complete control over the ball.\nBounce angle depends on which part of the paddle is hit, with center sending the ball straight up.",,,
-paddle_5_name,Bounce control,,,
-score_difficulty_disclaimer,Custom difficulty,,,Własny poziom trudności
-score_placeholder_player_name,Player,Spieler,,Gracz
-tooltip_screen_shake,Screen shake effect used during gameplay.,,,
-option_gamepad_vibration,Vibration,,バイブレーション,Vibracje
+BUTTON_AUDIO,Audio,Audio,オーディオ,Dźwięk
+BUTTON_CANCEL,Cancel,Abbrechen,キャンセル,Anuluj
+BUTTON_CHANGELOG,Patch notes,Versionshinweise,リリースノート,Lista zmian
+BUTTON_CONFIRM,Confirm,zustimmen,確定,Potwierdź
+BUTTON_CONTROLS,Controls,,,Sterowanie
+BUTTON_DEFAULT,Default,Standardeinstellungen,初期設定,Domyślne
+BUTTON_EXIT,Exit,Verlassen,ゲーム終了,Wyjdź
+BUTTON_GAMEPAD,Gamepad,Controller,ゲームパッド,Kontroler
+BUTTON_GENERAL,General,Allgemein,全般,Ogólne
+BUTTON_INFO,Info,Informationen,情報,Info
+BUTTON_KEYBOARD,Keyboard,Tastatur,キーボード,Klawiatura
+BUTTON_LEADERBOARD,Leaderboard,Rangliste,ハイスコア,Lista wyników
+BUTTON_MOUSE,Mouse,Maus,マウス,Mysz
+BUTTON_OPTIONS,Options,Einstellungen,オプション,Opcje
+BUTTON_PLAY,Play,Spielen,プレイ,Graj
+BUTTON_RETURN,Back,Zurück,戻る,Wróć
+BUTTON_VIDEO,Video,Video,表示,Wideo
+DIFF_ANGLE_SPEED,Angle selection speed,,,Prędkość wyboru kąta
+DIFF_BALL_SPEED,Ball speed,,ボールスピード,Prędkość piłki
+DIFF_LIVES_MAX,Max lives,,最大値のライフ,Maksimum żyć
+DIFF_LIVES_START,Starting lives,,初期のライフ,Początkowe życia
+DIFF_NAME,Name,Name,名,Nazwa
+DIFF_PADDLE_SIZE_MAX,Max paddle size,Maximale Schlägergröße,最大値パドルサイズ,Maksymalna wielkość paletki
+DIFF_PADDLE_SIZE_MIN,Min paddle size,Mindest Schlägergröße,,Minimalna wielkość paletki
+DIFF_PADDLE_SIZE_START,Starting paddle size,Anfängliche Schlägergröße,初期パドルサイズ,Początkowy rozmiar paletki
+DISCLAIMER_CUSTOM_DIFF,Custom difficulty,,,Własny poziom trudności
+GAME_OVER,Game over,Spiel vorbei,ゲームオーバー,Koniec gry
+GAME_SCORE,Score,Punkte,スコア,Punkty
+GAME_WIN,Victory!,Sieg!,勝利,Zwycięstwo!
+HEADER_AUDIO,Audio,Audio,オーディオ,Dźwięk
+HEADER_CHANGELOG,Patch notes,Versionshinweise,リリースノート,Lista zmian
+HEADER_CONTROLS,Controls,,,Sterowanie
+HEADER_DIFFICULTY,Select difficulty,,,Wybierz poziom trudności
+HEADER_GENERAL,General,Allgemein,全般,Ogólne
+HEADER_INFO,Game info,,,Informacje o grze
+HEADER_LANGUAGE,Select language,,,Wybierz język
+HEADER_LEADERBOARD,Leaderboard,Rangliste,ハイスコア,Lista wyników
+HEADER_LEVEL,Select level,,,
+HEADER_OPTIONS,Options,Einstellungen,設定,Opcje
+HEADER_PADDLE,Select paddle,,,Wybierz paletkę
+HEADER_VIDEO,Video,Video,表示,Wideo
+INFO_BARRIERS,Barriers,,,Bariery
+INFO_BARRIERS_DESC,"Exist in two variants - basic and sturdy.\nBasic one can't be broken, sturdy breaks after {barrier_sturdy_health} hits.\n\nBarriers don't count towards level completion.",,,
+INFO_BLOCKS,Blocks,,,Bloki
+INFO_BLOCKS_DESC,"Exist in two variants - basic and sturdy.\nBasic blocks break after {block_health} hit, sturdy ones after {block_sturdy_health}.\n\nDestroy all to complete a level.",,,
+INFO_CONTROLS,Controls,,,Sterowanie
+INFO_CONTROLS_DESC,[b]Move paddle:[/b] {game_left}{game_right}\n[b]Release ball:[/b] {game_play}\n[b]Reset ball (-1 life):[/b] {game_reset}\n[b]Pause game:[/b] {game_pause},,,
+INFO_SCORE_MULTIPLIER,Score multiplier,,,Mnożnik punktów
+INFO_SCORE_MULTIPLIER_DESC,"Increases by 1 for every {multiplier_combo_step} destroyed elements, up to x{multiplier_max_combo}.\nGrabbing difficulty increasing pickups (small/fast ball, smaller paddle) also increases multiplier independent of combo.\nMax score multiplier: x{multiplier_max}.",,,
+MSG_ADVANCE_TO_NEXT_MAP,Press {game_play} to continue...,,,Wciśnij {game_play} aby kontynuować…
+MSG_LOADING,Loading...,Lädt…,,Ładowanie…
+MSG_NEW_KEYBINDIG,Press key to assign to action.,,,Wciśnij przycisk do przypisania.
+MSG_RETURN_TO_MENU,Return to menu?,Zurück zum Menü?,メニューに戻りは?,Wróć do menu?
+OPTION_GENERAL_LANGUAGE,Language,Sprache,言語,Język
+OPTION_GENERAL_UI_PROMPTS,Control prompts,,,
+OPTION_INPUT_GAMEPAD_SPEED,Gamepad speed,,ゲームパッド速度,Prędkość kontrolera
+OPTION_INPUT_GAMEPAD_VIBRATIONS,Vibration,Vibrationen,バイブレーション,Vibracje
+OPTION_INPUT_KEYBOARD_SPEED,Keyboard speed,,キーボード速度,Prędkość klawiatury
+OPTION_INPUT_LEFT,Left,Links,左,Lewo
+OPTION_INPUT_MOUSE_SPEED,Mouse speed,,マウス速度,Prędkość myszy
+OPTION_INPUT_PAUSE,Pause,Pause,,Pauza
+OPTION_INPUT_PLAY,Release ball,,,Wypuść piłkę
+OPTION_INPUT_RESET,Reset,Neustart,セット,Reset
+OPTION_INPUT_RIGHT,Right,Rechts,右,Prawo
+OPTION_INPUT_SKILL,Use skill,Benutzung Fertigkeit,使用スキル,Użyj umiejętności
+OPTION_VIDEO_BACKGROUND_TRANSPARENCY,Background brightness,Hintergrundtransparenz,背景の透明性,Jasność tła
+OPTION_VIDEO_EFFECT_TRANSPARENCY,Effect transparency,,,Przezroczystość efektów
+OPTION_VIDEO_FULLSCREEN,Fullscreen,Vollbild,フルスクリーン,Pełen ekran
+OPTION_VIDEO_PICKUP_ORDER,Pickup visibility,,,Widoczność znajdziek
+OPTION_VIDEO_PICKUP_ORDER_BOTTOM,Bottom,Unten,下,Pod wszystkim
+OPTION_VIDEO_PICKUP_ORDER_MIDDLE,Above ball,,,Nad piłką
+OPTION_VIDEO_PICKUP_ORDER_TOP,Top,Oben,上,Nad wszystkim
+OPTION_VIDEO_RESOLUTION,Window size,Videoauflösung,画面サイズ,Rozmiar okna
+OPTION_VIDEO_SCREEN_SHAKE,Enable screen shake,,,Wstrząs ekranu
+OPTION_VOLUME_EFFECTS,Effects volume,Effektlautstärke,SE 音量,Głośność efektów
+OPTION_VOLUME_MASTER,Master volume,Gesamtlautstärke,全体 音量,Głośność ogólna
+OPTION_VOLUME_MUSIC,Music volume,Musiklautstärke,BGM 音量,Głośność muzyki
+PADDLE_1_DESC,"Basic paddle. Easy to use, easy to master.",,,
+PADDLE_1_NAME,Basic,,,
+PADDLE_2_DESC,Paddle with arms for additional bounce options.,,,
+PADDLE_2_NAME,Armed,,,
+PADDLE_3_DESC,Curved paddle. Rounded edges allow for more varied and unpredictable bounces.,,,
+PADDLE_3_NAME,Curved,,,
+PADDLE_4_DESC,"It’s roguelike! Well, almost…\nTime moves (normally) when paddle moves, otherwise it slows down to a crawl.",,,
+PADDLE_4_NAME,Roguelike,,,
+PADDLE_5_DESC,"Perfect choice for anyone who craves complete control over the ball.\nBounce angle depends on which part of the paddle is hit, with center sending the ball straight up.",,,
+PADDLE_5_NAME,Bounce control,,,
+PLACEHOLDER_DIFF_NAME,New difficulty,,,Nowy poziom trudności
+PLACEHOLDER_PLAYER_NAME,Player,Spieler,,Gracz
