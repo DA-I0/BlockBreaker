@@ -1,0 +1,8 @@
+name="Easy"
+maxLives=10
+startingLives=5
+ballSpeedMultiplier=0.85
+angleSelectSpeed=1
+maxPaddleSize=8
+startPaddleSize=4
+minPaddleSize=3

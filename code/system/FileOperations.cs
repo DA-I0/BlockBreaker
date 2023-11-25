@@ -19,27 +19,28 @@ public class FileOperations
 		return DirAccess.GetFilesAt(path);
 	}
 
-	public string LoadTextResource(string resourcePath)
-	{
-		return LoadTextFile($"res://assets/text/{resourcePath}");
-	}
-
-	public string[] LoadDifficulties(string path)
+	public Difficulty[] LoadDifficulties(string path)
 	{
 		if (!DirAccess.DirExistsAbsolute(path))
 		{
-			return new string[0];
+			return System.Array.Empty<Difficulty>();
 		}
 
-		string[] difficulties = DirAccess.GetFilesAt(path);
-		string[] difficultyStrings = new string[difficulties.Length];
+		string[] difficultyFiles = DirAccess.GetFilesAt(path);
+		System.Collections.Generic.List<Difficulty> difficulties = new System.Collections.Generic.List<Difficulty>();
 
-		for (int i = 0; i < difficulties.Length; i++)
+		foreach (string filePath in difficultyFiles)
 		{
-			difficultyStrings[i] = LoadTextFile($"{path}/{difficulties[i]}");
+			ConfigFile nextDifficulty = new ConfigFile();
+			Error error = nextDifficulty.Load($"{path}/{filePath}");
+
+			if (error == Error.Ok)
+			{
+				difficulties.Add(HelperMethods.DifficultyFromConfig(nextDifficulty));
+			}
 		}
 
-		return difficultyStrings;
+		return difficulties.ToArray();
 	}
 
 	public void SaveDifficulty(string oldDifficultyName, Difficulty newDifficulty)
@@ -50,8 +51,8 @@ public class FileOperations
 		}
 
 		string fileName = $"diff_{newDifficulty.DifficultyName}";
-
-		SaveTextFile(_refs.gameData.CustomDifficultyFolder, fileName, newDifficulty.ToString());
+		ConfigFile parsedDifficulty = HelperMethods.DifficultyToConfig(newDifficulty);
+		parsedDifficulty.Save($"{_refs.gameData.CustomDifficultyFolder}/{fileName}.diff");
 	}
 
 	public void DeleteDifficulty(string difficultyName)
@@ -113,20 +114,6 @@ public class FileOperations
 		}
 
 		return fileContent;
-	}
-
-	private void SaveTextFile(string filePath, string content)
-	{
-		FindOrCreateDirectory(filePath.Substring(0, filePath.LastIndexOf("/")));
-
-		using var file = FileAccess.Open(filePath, FileAccess.ModeFlags.Write);
-		file.StoreString(content);
-	}
-
-	private void SaveTextFile(string path, string fileName, string content)
-	{
-		string filePath = $"{path}/{fileName}.txt";
-		SaveTextFile(filePath, content);
 	}
 
 	private void FindOrCreateDirectory(string path)

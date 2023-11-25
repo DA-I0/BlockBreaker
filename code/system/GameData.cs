@@ -68,12 +68,6 @@ public class GameData
 		_difficulties.Add(newDifficulty);
 	}
 
-	public void AddDifficulty(string difficultyString)
-	{
-		Difficulty newDifficulty = ParseDifficulty(difficultyString);
-		AddDifficulty(newDifficulty);
-	}
-
 	public void UpdateDifficulty(int index, Difficulty newDifficulty)
 	{
 		_difficulties[index] = newDifficulty;
@@ -96,14 +90,14 @@ public class GameData
 
 	private void LoadDifficulties()
 	{
-		foreach (string resourceDifficulty in refs.fileOperations.LoadDifficulties(DefaultDifficultyFolder))
+		foreach (Difficulty resourceDifficulty in refs.fileOperations.LoadDifficulties(DefaultDifficultyFolder))
 		{
 			AddDifficulty(resourceDifficulty);
 		}
 
 		_defaultDifficultyCount = _difficulties.Count;
 
-		foreach (string resourceDifficulty in refs.fileOperations.LoadDifficulties(CustomDifficultyFolder))
+		foreach (Difficulty resourceDifficulty in refs.fileOperations.LoadDifficulties(CustomDifficultyFolder))
 		{
 			AddDifficulty(resourceDifficulty);
 		}
@@ -136,24 +130,6 @@ public class GameData
 	{
 		InsertLeaderboardEntry(newEntry);
 		refs.fileOperations.SaveLeaderboard(_leaderboard.ToArray());
-	}
-
-	private Difficulty ParseDifficulty(string difficultyString)
-	{
-		string[] difficultySettings = difficultyString.Split(";");
-
-		Difficulty parsedDifficulty = new Difficulty(
-			difficultySettings[0].Split(":")[1],
-			int.Parse(difficultySettings[1].Split(":")[1]),
-			int.Parse(difficultySettings[2].Split(":")[1]),
-			float.Parse(difficultySettings[3].Split(":")[1]),
-			float.Parse(difficultySettings[4].Split(":")[1]),
-			int.Parse(difficultySettings[5].Split(":")[1]),
-			int.Parse(difficultySettings[6].Split(":")[1]),
-			int.Parse(difficultySettings[7].Split(":")[1])
-			);
-
-		return parsedDifficulty;
 	}
 
 	private void InsertLeaderboardEntry(HighScore newEntry)

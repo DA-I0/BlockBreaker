@@ -1,8 +1,0 @@
-name:Hard;
-maxLives:3;
-startingLives:2;
-ballSpeedMultiplier:1.5;
-angleSelectSpeed:2;
-maxPaddleSize:2;
-startPaddleSize:2;
-minPaddleSize:1;
