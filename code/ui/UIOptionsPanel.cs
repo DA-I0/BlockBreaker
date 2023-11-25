@@ -261,6 +261,12 @@ public partial class UIOptionsPanel : UIPanel
 					Name = action
 				};
 
+				Control spacer = new Control
+				{
+					CustomMinimumSize = new Vector2(15, 0)
+				};
+				actionContainer.AddChild(spacer);
+
 				Label inputHeader = new Label
 				{
 					Text = action.ToString().Replace("game_", "option_input_").ToUpper(),
@@ -270,6 +276,12 @@ public partial class UIOptionsPanel : UIPanel
 
 				actionContainer.AddChild(CreateKeybindButton(inputType.Name.ToString(), action));
 				actionContainer.AddChild(CreateKeybindButton(inputType.Name.ToString(), action));
+
+				spacer = new Control
+				{
+					CustomMinimumSize = new Vector2(1, 0)
+				};
+				actionContainer.AddChild(spacer);
 
 				inputType.GetChild(1).AddChild(actionContainer);
 			}
@@ -305,8 +317,8 @@ public partial class UIOptionsPanel : UIPanel
 				}
 
 				string[] inputEvents = refs.localization.GetInputSymbol(inputAction.Name, inputAction.GetParent().Name);
-				(inputAction.GetChild(1) as Button).Text = (inputEvents.Length > 0) ? inputEvents[0] : string.Empty;
-				(inputAction.GetChild(2) as Button).Text = (inputEvents.Length > 1) ? inputEvents[1] : string.Empty;
+				(inputAction.GetChild(2) as Button).Text = (inputEvents.Length > 0) ? inputEvents[0] : string.Empty;
+				(inputAction.GetChild(3) as Button).Text = (inputEvents.Length > 1) ? inputEvents[1] : string.Empty;
 			}
 		}
 

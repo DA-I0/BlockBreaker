@@ -12,7 +12,7 @@ public partial class UIPanel : Panel
 		SetupReferences();
 	}
 
-	protected void SetupReferences()
+	protected virtual void SetupReferences()
 	{
 		refs = GetNode("/root/GameController") as SessionController;
 		uiController = (UIController)GetNode("../..");

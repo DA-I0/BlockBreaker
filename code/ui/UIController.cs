@@ -4,10 +4,10 @@ using System.Collections.Generic;
 public partial class UIController : Node
 {
 	[Export] private Label _gameTitle;
-	[Export] private Node _menuButtons;
+	[Export] private Control _menuButtons;
 	private Dictionary<string, CanvasItem> _panels = new Dictionary<string, CanvasItem>();
 
-	private string _activePanel;
+	private string _activePanel = string.Empty;
 
 	private SessionController refs;
 
@@ -19,7 +19,7 @@ public partial class UIController : Node
 
 		FindPanels();
 		HideAllPanels();
-		TogglePanel("LeaderboardPanel");
+		FocusOnButtons();
 		DisplayFirstLanguageSelection();
 		_gameTitle.Text = ProjectSettings.GetSetting("application/config/name").ToString();
 	}
@@ -39,29 +39,21 @@ public partial class UIController : Node
 	{
 		HideAllPanels();
 
-		if (_activePanel != panelName)
+		if (panelName != string.Empty && _activePanel != panelName)
 		{
 			_panels[panelName].Visible = true;
-			_activePanel = panelName;
-		}
-		else
-		{
-			TogglePanel("LeaderboardPanel");
 		}
 
-		ToggleMenuButtons();
+		_activePanel = panelName;
+
+		FocusOnButtons();
 		RefreshUI?.Invoke();
 		refs.localization.UpdateUILocalization();
 	}
 
-	private void ToggleMenuButtons()
+	private void FocusOnButtons()
 	{
-		foreach (CanvasItem button in _menuButtons.GetChildren())
-		{
-			button.Visible = (_activePanel == "LeaderboardPanel");
-		}
-
-		if (((CanvasItem)_menuButtons.GetChild(0)).Visible)
+		if (_activePanel == string.Empty)
 		{
 			((Button)_menuButtons.GetChild(0)).GrabFocus();
 		}

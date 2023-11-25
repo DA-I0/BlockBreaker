@@ -1,17 +1,16 @@
 using Godot;
 
-public partial class UILeaderboard : Panel
+public partial class UILeaderboard : UIPanel
 {
 	[Export] private Label _playerNames;
 	[Export] private Label _playerScore;
 
-	private SessionController refs;
-
-
-	public override void _Ready()
+	protected override void SetupReferences()
 	{
 		refs = GetNode("/root/GameController") as SessionController;
-		((UIController)GetNode("../..")).RefreshUI += ApplyLeaderboardValues;
+		uiController = (UIController)GetNode("../..");
+		uiController.RefreshUI += Focus;
+		uiController.RefreshUI += ApplyLeaderboardValues;
 	}
 
 	private void ApplyLeaderboardValues()
