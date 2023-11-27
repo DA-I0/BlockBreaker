@@ -60,7 +60,7 @@ public partial class LocalizationController
 		label.Text = InsertCustomValues(rawLocalization);
 	}
 
-	private string InsertCustomValues(string sourceString)
+	public string InsertCustomValues(string sourceString)
 	{
 		string modifiedString = sourceString;
 		int placeholderStart = modifiedString.Find("{");
@@ -72,7 +72,7 @@ public partial class LocalizationController
 
 			if (placeholder.Contains("game_"))
 			{
-				modifiedString = modifiedString.Replace(placeholder, GetInputValues(placeholder.Replace("{", "").Replace("}", "")));
+				modifiedString = modifiedString.Replace(placeholder, GetInputSymbol(placeholder.Replace("{", "").Replace("}", ""), refs.settings.ActiveInputType.ToString())[0]);//GetInputValues(placeholder.Replace("{", "").Replace("}", "")));
 			}
 			else
 			{
@@ -86,41 +86,15 @@ public partial class LocalizationController
 		return modifiedString;
 	}
 
-	private string GetInputValues(string inputs) // make use of GetInputSymbol
-	{
-		var inputEvents = InputMap.ActionGetEvents(inputs);
-		string inputValue = string.Empty;
-
-		foreach (InputEvent inputEvent in inputEvents)
-		{
-			if (refs.settings.ActiveInputType != InputType.gamepad && !inputEvent.AsText().Contains("Joypad"))
-			{
-				inputValue += inputValue.Contains(_customValues[inputEvent.AsText()]) ? string.Empty : $"{_customValues[inputEvent.AsText()]} ";
-				continue;
-			}
-
-			if (refs.settings.ActiveInputType == InputType.gamepad && inputEvent.AsText().Contains("Joypad"))
-			{
-				string joystickInput = inputEvent.AsText().Substring(0, inputEvent.AsText().Find(" ("));
-				inputValue += inputValue.Contains(_customValues[joystickInput]) ? string.Empty : $"{_customValues[joystickInput]} ";
-				continue;
-			}
-		}
-
-		inputValue.Trim();
-
-		if (inputs == "game_right")
-		{
-			inputValue += (refs.settings.ActiveInputType == InputType.keyboard) ? $"/ {_customValues["Mouse"]}" : $"/ {_customValues["Joypad Motion on Axis 0"]}";
-		}
-
-		return inputValue;
-	}
-
 	public string[] GetInputSymbol(string inputEvent, string device)
 	{
 		var inputEvents = device.Contains("Keyboard") ? InputMap.ActionGetEvents(inputEvent).Where(a => !a.AsText().Contains("Joypad") && !a.AsText().Contains("Mouse")) : InputMap.ActionGetEvents(inputEvent).Where(a => a.AsText().Contains(device));
 		List<string> inputSymbols = new List<string>();
+
+		if (device.Contains("Mouse") && (inputEvent == "game_left" || inputEvent == "game_right"))
+		{
+			inputSymbols.Add(GetCustomValue("Mouse"));
+		}
 
 		for (int index = 0; index < inputEvents.Count(); index++)
 		{
@@ -135,7 +109,7 @@ public partial class LocalizationController
 			inputSymbols.Add(GetCustomValue(targetAction));
 		}
 
-		return inputSymbols.ToArray<string>();
+		return (inputSymbols.Count < 1 && device.Contains("Mouse")) ? GetInputSymbol(inputEvent, "Keyboard") : inputSymbols.ToArray<string>();// : new string[] { string.Empty };
 	}
 
 	private string GetCustomValue(string key)
