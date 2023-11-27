@@ -22,6 +22,7 @@ public partial class UIOptionsPanel : UIPanel
 	[Export] private HSlider _keyboardSpeed;
 	[Export] private HSlider _joypadSpeed;
 	[Export] private OptionButton _activeJoypad;
+	[Export] private CheckButton _vibrations;
 
 	private int _activePanel = 0;
 	private string _inputType = string.Empty;
@@ -76,8 +77,9 @@ public partial class UIOptionsPanel : UIPanel
 		_effectsVolume.Value = refs.settings.EffectsVolume;
 		_mouseSpeed.Value = refs.settings.SpeedMouse;
 		_keyboardSpeed.Value = refs.settings.SpeedKeyboard;
-		_joypadSpeed.Value = refs.settings.SpeedJoypad;
-		_activeJoypad.Selected = FindOptionIndex(_activeJoypad, refs.settings.ActiveJoypad);
+		_joypadSpeed.Value = refs.settings.SpeedController;
+		_activeJoypad.Selected = FindOptionIndex(_activeJoypad, refs.settings.ActiveController);
+		_vibrations.ButtonPressed = refs.settings.ControllerVibrations;
 
 		UpdateKeybindings();
 	}
@@ -100,9 +102,10 @@ public partial class UIOptionsPanel : UIPanel
 		refs.settings.EffectsVolume = (float)_effectsVolume.Value;
 		refs.settings.SpeedMouse = (float)_mouseSpeed.Value;
 		refs.settings.SpeedKeyboard = (float)_keyboardSpeed.Value;
-		refs.settings.SpeedJoypad = (float)_joypadSpeed.Value;
-		refs.settings.ActiveJoypad = (_activeJoypad.Selected >= 0) ? _activeJoypad.GetItemText(_activeJoypad.Selected) : string.Empty;
-		refs.settings.ActiveJoypadID = _activeJoypad.Selected;
+		refs.settings.SpeedController = (float)_joypadSpeed.Value;
+		refs.settings.ActiveController = (_activeJoypad.Selected >= 0) ? _activeJoypad.GetItemText(_activeJoypad.Selected) : string.Empty;
+		refs.settings.ActiveControllerID = _activeJoypad.Selected;
+		refs.settings.ControllerVibrations = _vibrations.ButtonPressed;
 
 		refs.settings.SaveSettings();
 		UpdateHeaderText();

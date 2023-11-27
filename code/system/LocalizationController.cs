@@ -93,13 +93,13 @@ public partial class LocalizationController
 
 		foreach (InputEvent inputEvent in inputEvents)
 		{
-			if (refs.settings.ActiveController != InputType.gamepad && !inputEvent.AsText().Contains("Joypad"))
+			if (refs.settings.ActiveInputType != InputType.gamepad && !inputEvent.AsText().Contains("Joypad"))
 			{
 				inputValue += inputValue.Contains(_customValues[inputEvent.AsText()]) ? string.Empty : $"{_customValues[inputEvent.AsText()]} ";
 				continue;
 			}
 
-			if (refs.settings.ActiveController == InputType.gamepad && inputEvent.AsText().Contains("Joypad"))
+			if (refs.settings.ActiveInputType == InputType.gamepad && inputEvent.AsText().Contains("Joypad"))
 			{
 				string joystickInput = inputEvent.AsText().Substring(0, inputEvent.AsText().Find(" ("));
 				inputValue += inputValue.Contains(_customValues[joystickInput]) ? string.Empty : $"{_customValues[joystickInput]} ";
@@ -111,7 +111,7 @@ public partial class LocalizationController
 
 		if (inputs == "game_right")
 		{
-			inputValue += (refs.settings.ActiveController == InputType.keyboard) ? $"/ {_customValues["Mouse"]}" : $"/ {_customValues["Joypad Motion on Axis 0"]}";
+			inputValue += (refs.settings.ActiveInputType == InputType.keyboard) ? $"/ {_customValues["Mouse"]}" : $"/ {_customValues["Joypad Motion on Axis 0"]}";
 		}
 
 		return inputValue;

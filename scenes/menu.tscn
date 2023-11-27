@@ -977,8 +977,8 @@ _effectsVolume = NodePath("AudioOptions/Options/EffectsVolumeSetting/EffectsVolu
 _keybindChangePanel = NodePath("../../KeybindChangePanel")
 _mouseSpeed = NodePath("ControlOptions/Options/MouseSettings/Mouse/MouseSpeedSetting/MouseSpeedSlider")
 _keyboardSpeed = NodePath("ControlOptions/Options/KeyboardSettings/Keyboard/KeyboardSpeedSetting/KeyboardSpeedSlider")
-_joypadSpeed = NodePath("ControlOptions/Options/JoypadSettings/Joypad/GamepadSpeedSetting/GamepadSpeedSlider")
-_activeJoypad = NodePath("ControlOptions/Options/JoypadSettings/Joypad/ActiveGamepad/ActiveGamepadOptions")
+_joypadSpeed = NodePath("ControlOptions/Options/JoypadSettings/Joypad/ControllerSpeedSetting/ControllerSpeedSlider")
+_activeJoypad = NodePath("ControlOptions/Options/JoypadSettings/Joypad/ActiveController/ActiveGamepadOptions")
 _vibrations = NodePath("ControlOptions/Options/JoypadSettings/Joypad/VibrationSetting/VibrationToggle")
 _focusTarget = NodePath("GeneralOptions/Options/LanguageSetting/LanguageOptions")
 
@@ -1490,7 +1490,7 @@ layout_mode = 2
 
 [node name="ToggleButton" type="Button" parent="Control/OptionsPanel/ControlOptions/Options/JoypadSettings"]
 layout_mode = 2
-text = "BUTTON_GAMEPAD"
+text = "BUTTON_CONTROLLER"
 icon = ExtResource("11_27sep")
 flat = true
 alignment = 0
@@ -1498,12 +1498,12 @@ alignment = 0
 [node name="Joypad" type="VBoxContainer" parent="Control/OptionsPanel/ControlOptions/Options/JoypadSettings"]
 layout_mode = 2
 
-[node name="ActiveGamepad" type="Control" parent="Control/OptionsPanel/ControlOptions/Options/JoypadSettings/Joypad"]
+[node name="ActiveController" type="Control" parent="Control/OptionsPanel/ControlOptions/Options/JoypadSettings/Joypad"]
 visible = false
 custom_minimum_size = Vector2(0, 19)
 layout_mode = 2
 
-[node name="UIActiveGamepadLabel" type="Label" parent="Control/OptionsPanel/ControlOptions/Options/JoypadSettings/Joypad/ActiveGamepad"]
+[node name="UIActiveGamepadLabel" type="Label" parent="Control/OptionsPanel/ControlOptions/Options/JoypadSettings/Joypad/ActiveController"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.4
@@ -1512,7 +1512,7 @@ offset_left = 18.0
 text = "OPTION_INPUT_ACTIVE_GAMEPAD"
 vertical_alignment = 1
 
-[node name="ActiveGamepadOptions" type="OptionButton" parent="Control/OptionsPanel/ControlOptions/Options/JoypadSettings/Joypad/ActiveGamepad"]
+[node name="ActiveGamepadOptions" type="OptionButton" parent="Control/OptionsPanel/ControlOptions/Options/JoypadSettings/Joypad/ActiveController"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.4
@@ -1521,20 +1521,20 @@ anchor_bottom = 1.0
 offset_left = 4.0
 offset_right = -4.0
 
-[node name="GamepadSpeedSetting" type="Control" parent="Control/OptionsPanel/ControlOptions/Options/JoypadSettings/Joypad"]
+[node name="ControllerSpeedSetting" type="Control" parent="Control/OptionsPanel/ControlOptions/Options/JoypadSettings/Joypad"]
 custom_minimum_size = Vector2(0, 19)
 layout_mode = 2
 
-[node name="GamepadSpeedLabel" type="Label" parent="Control/OptionsPanel/ControlOptions/Options/JoypadSettings/Joypad/GamepadSpeedSetting"]
+[node name="ControllerSpeedLabel" type="Label" parent="Control/OptionsPanel/ControlOptions/Options/JoypadSettings/Joypad/ControllerSpeedSetting"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.4
 anchor_bottom = 1.0
 offset_left = 18.0
-text = "OPTION_INPUT_GAMEPAD_SPEED"
+text = "OPTION_INPUT_CONTROLLER_SPEED"
 vertical_alignment = 1
 
-[node name="GamepadSpeedSlider" type="HSlider" parent="Control/OptionsPanel/ControlOptions/Options/JoypadSettings/Joypad/GamepadSpeedSetting"]
+[node name="ControllerSpeedSlider" type="HSlider" parent="Control/OptionsPanel/ControlOptions/Options/JoypadSettings/Joypad/ControllerSpeedSetting"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.4

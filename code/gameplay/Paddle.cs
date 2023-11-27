@@ -89,10 +89,10 @@ public partial class Paddle : CharacterBody2D
 
 		float inputHorizontal;
 
-		switch (refs.settings.ActiveController)
+		switch (refs.settings.ActiveInputType)
 		{
 			case InputType.gamepad:
-				inputHorizontal = (Input.GetActionStrength("game_right") - Input.GetActionStrength("game_left")) * refs.settings.SpeedJoypad;
+				inputHorizontal = (Input.GetActionStrength("game_right") - Input.GetActionStrength("game_left")) * refs.settings.SpeedController;
 				break;
 
 			case InputType.keyboard:
@@ -207,7 +207,7 @@ public partial class Paddle : CharacterBody2D
 		}
 
 		Position = new Vector2(Position.X, _positionY);
-		_inputDirection = (refs.settings.ActiveController == InputType.mouse) ? Vector2.Zero : _inputDirection;
+		_inputDirection = (refs.settings.ActiveInputType == InputType.mouse) ? Vector2.Zero : _inputDirection;
 	}
 
 	private void CalculateMoveVelocity(Vector2 direction, int speed)
@@ -238,7 +238,7 @@ public partial class Paddle : CharacterBody2D
 	{
 		if (refs.settings.ControllerVibrations)
 		{
-			Input.StartJoyVibration(refs.settings.ActiveJoypadID, strengthWeak, strengthStrong, time);
+			Input.StartJoyVibration(refs.settings.ActiveControllerID, strengthWeak, strengthStrong, time);
 		}
 	}
 

@@ -23,11 +23,12 @@ public class Settings
 	private const float DefaultEffectsVolume = -20f;
 	private const float DefaultMouseSpeed = 1f;
 	private const float DefaultKeyboardSpeed = 1f;
-	private const float DefaultJoypadSpeed = 1f;
+	private const float DefaultControllerSpeed = 1f;
+	private const bool DefaultControllerVibrations = true;
 	private Dictionary<string, Godot.Collections.Array<InputEvent>> DefaultKeybindings = new Dictionary<string, Godot.Collections.Array<InputEvent>>();
 
-	private InputType _activeControllerType = InputType.keyboard;
-	private int _activeJoypadId = 0;
+	private InputType _activeInputType = InputType.keyboard;
+	private int _activeControllerId = 0;
 	private ConfigFile _config;
 	private SessionController refs;
 
@@ -115,32 +116,38 @@ public class Settings
 		set { _config.SetValue("controls", "keyboard_speed", value); }
 	}
 
-	public float SpeedJoypad
+	public float SpeedController
 	{
-		get { return (float)_config.GetValue("controls", "joypad_speed", DefaultJoypadSpeed); }
-		set { _config.SetValue("controls", "joypad_speed", value); }
+		get { return (float)_config.GetValue("controls", "controller_speed", DefaultControllerSpeed); }
+		set { _config.SetValue("controls", "controller_speed", value); }
 	}
 
-	public InputType ActiveController
+	public bool ControllerVibrations
 	{
-		get { return _activeControllerType; }
+		get { return (bool)_config.GetValue("controls", "controller_vibrations", DefaultControllerVibrations); }
+		set { _config.SetValue("controls", "controller_vibrations", value); }
+	}
+
+	public InputType ActiveInputType
+	{
+		get { return _activeInputType; }
 		set
 		{
-			_activeControllerType = value;
+			_activeInputType = value;
 			_config.SetValue("general", "inputType", (int)value);
 		}
 	}
 
-	public string ActiveJoypad
+	public string ActiveController
 	{
-		get { return (string)_config.GetValue("controls", "active_gamepad", string.Empty); }
-		set { _config.SetValue("controls", "active_gamepad", value); }
+		get { return (string)_config.GetValue("controls", "active_controller", string.Empty); }
+		set { _config.SetValue("controls", "active_controller", value); }
 	}
 
-	public int ActiveJoypadID
+	public int ActiveControllerID
 	{
-		get { return _activeJoypadId; }
-		set { _activeJoypadId = value; }
+		get { return _activeControllerId; }
+		set { _activeControllerId = value; }
 	}
 
 	public Settings(SessionController sessionController)
@@ -176,7 +183,7 @@ public class Settings
 	public void SetDefaultGeneralValues()
 	{
 		Language = DefaultLanguage;
-		ActiveController = (InputType)DefaultInputType;
+		ActiveInputType = (InputType)DefaultInputType;
 		ControlerPrompts = DefaultControlerPrompts;
 	}
 
@@ -202,8 +209,8 @@ public class Settings
 	{
 		SpeedMouse = DefaultMouseSpeed;
 		SpeedKeyboard = DefaultKeyboardSpeed;
-		SpeedJoypad = DefaultJoypadSpeed;
-		ActiveJoypad = string.Empty;
+		SpeedController = DefaultControllerSpeed;
+		ActiveController = string.Empty;
 		SetDefaultKeybindings();
 	}
 
