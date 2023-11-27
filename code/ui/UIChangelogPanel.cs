@@ -12,7 +12,7 @@ public partial class UIChangelogPanel : UIPanel
 
 	public void LoadChangelog()
 	{
-		_content.Text = refs.gameData.Changelog;
+		_content.Text = refs.gameData.PatchNotes;
 	}
 
 	public override void _Input(InputEvent @event)

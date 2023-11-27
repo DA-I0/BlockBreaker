@@ -10,7 +10,7 @@
 - new decorations: bookcase, candle stand, paintings, windows
 - new tileset (garden)
 - new visual effects
-- player skill: screen shake (press [Left Control]/[Right Mouse Button] during gameplay to shake the screen which randomly changes ball rotation and freezes paddle for a short time)
+- player skill: screen shake (press {game_skill} during gameplay to shake the screen which randomly changes ball rotation and freezes paddle for a short time)
 - game over screen
 - local leaderboard
 - localization support, partial localization for German, Japanese and Polish languages

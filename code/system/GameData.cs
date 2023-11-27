@@ -18,7 +18,7 @@ public class GameData
 	private List<Difficulty> _difficulties = new List<Difficulty>();
 	private int _defaultDifficultyCount = 0;
 
-	private string _changelog;
+	private string _patchNotes;
 
 	private List<HighScore> _leaderboard = new List<HighScore>();
 	private static int MaxLeaderboardEntries = 10;
@@ -40,9 +40,9 @@ public class GameData
 		get { return _defaultDifficultyCount; }
 	}
 
-	public string Changelog
+	public string PatchNotes
 	{
-		get { return _changelog; }
+		get { return _patchNotes; }
 	}
 
 	public List<HighScore> Leaderboard
@@ -105,7 +105,8 @@ public class GameData
 
 	private void LoadChangelog()
 	{
-		_changelog = refs.fileOperations.LoadTextFile(ChangelogFilePath);
+		string rawPatchNotes = refs.fileOperations.LoadTextFile(ChangelogFilePath);
+		_patchNotes = refs.localization.InsertCustomValues(rawPatchNotes);
 	}
 
 	public void LoadLeaderboard()
