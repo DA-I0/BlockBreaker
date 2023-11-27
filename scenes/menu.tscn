@@ -183,7 +183,7 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.7
 anchor_bottom = 1.0
-offset_left = 4.0
+offset_left = 5.0
 offset_top = 21.0
 offset_right = -4.0
 offset_bottom = -4.0
@@ -201,6 +201,20 @@ offset_right = -4.0
 offset_bottom = -4.0
 text = "<score>"
 horizontal_alignment = 2
+
+[node name="CustomDifficultyDisclaimer" type="Label" parent="Control/LeaderboardPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_right = -5.0
+offset_bottom = -4.0
+grow_vertical = 0
+text = "DISCLAIMER_CUSTOM_DIFF"
+horizontal_alignment = 2
+vertical_alignment = 2
 
 [node name="Return" type="Button" parent="Control/LeaderboardPanel" node_paths=PackedStringArray("shortcut_context")]
 layout_mode = 1
@@ -344,6 +358,7 @@ shortcut = ExtResource("17_c27yp")
 text = "BUTTON_RETURN"
 
 [node name="DifficultyPanel" type="Panel" parent="Control" node_paths=PackedStringArray("_name", "_newName", "_livesMax", "_livesMaxSlider", "_livesStart", "_livesStartSlider", "_ballSpeed", "_ballSpeedSlider", "_ballAngleSpeed", "_ballAngleSlider", "_paddleSizeMax", "_paddleSizeMaxSlider", "_paddleSizeStart", "_paddleSizeStartSlider", "_paddleSizeMin", "_paddleSizeMinSlider", "_nameEditControls", "_deleteDifficulty", "_editDifficulty", "_addDifficulty", "_cancelEdit", "_focusTarget")]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -938,6 +953,7 @@ shortcut = ExtResource("17_c27yp")
 text = "BUTTON_RETURN"
 
 [node name="OptionsPanel" type="Panel" parent="Control" node_paths=PackedStringArray("_header", "_language", "_controllerType", "_controlDevices", "_fullscreen", "_resolution", "_screenShake", "_backgroundBrightness", "_pickupOrder", "_helperTransparency", "_masterVolume", "_musicVolume", "_effectsVolume", "_keybindChangePanel", "_mouseSpeed", "_keyboardSpeed", "_joypadSpeed", "_activeJoypad", "_focusTarget")]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
