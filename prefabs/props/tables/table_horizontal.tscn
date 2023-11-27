@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bbn2xxwftj53k"]
+[gd_scene load_steps=11 format=3 uid="uid://bbn2xxwftj53k"]
 
 [ext_resource type="Script" path="res://code/gameplay/Breakable.cs" id="1_mx3g1"]
 [ext_resource type="Texture2D" uid="uid://b83mgeh66q164" path="res://assets/sprites/props/tables/table_hor_01.png" id="2_gbi8u"]
@@ -6,12 +6,17 @@
 [ext_resource type="Texture2D" uid="uid://htshsua30ery" path="res://assets/sprites/props/tables/table_hor_03.png" id="4_q2qe0"]
 [ext_resource type="Texture2D" uid="uid://buy38jtyctcen" path="res://assets/sprites/props/tables/table_hor_04.png" id="5_ha0gv"]
 [ext_resource type="Texture2D" uid="uid://17kbxoh0mp8x" path="res://assets/sprites/props/tables/table_hor_05.png" id="6_rt5ke"]
+[ext_resource type="PackedScene" uid="uid://r3x55smb3e0x" path="res://prefabs/pickups/pickup_ball_slow.tscn" id="7_t1xqw"]
+[ext_resource type="PackedScene" uid="uid://dwa3x1brydi56" path="res://prefabs/pickups/pickup_extra_life.tscn" id="8_x8ura"]
+[ext_resource type="PackedScene" uid="uid://crgjb8hqapmxf" path="res://prefabs/pickups/pickup_paddle_freeze.tscn" id="9_dwkbx"]
+[ext_resource type="PackedScene" uid="uid://iq10idmsyirx" path="res://prefabs/pickups/pickup_safety_net.tscn" id="10_3xwij"]
 
 [node name="TableHorizontal" type="StaticBody2D" node_paths=PackedStringArray("_timer")]
 script = ExtResource("1_mx3g1")
 _pointValue = 2
 _maxHealth = 5
 _sprites = Array[Texture2D]([ExtResource("2_gbi8u"), ExtResource("3_ml1nb"), ExtResource("4_q2qe0"), ExtResource("5_ha0gv"), ExtResource("6_rt5ke")])
+_pickups = Array[PackedScene]([ExtResource("7_t1xqw"), ExtResource("8_x8ura"), ExtResource("9_dwkbx"), ExtResource("10_3xwij")])
 _timer = NodePath("Timer")
 
 [node name="Sprite" type="Sprite2D" parent="."]

@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://dq77tbjk27cpl"]
+[gd_scene load_steps=6 format=3 uid="uid://dq77tbjk27cpl"]
 
 [ext_resource type="Script" path="res://code/gameplay/Breakable.cs" id="1_qib44"]
 [ext_resource type="Texture2D" uid="uid://cclj0iwo67n8u" path="res://assets/sprites/props/plants/pumpkin_01.png" id="2_xnses"]
 [ext_resource type="Texture2D" uid="uid://csv1vwggsdqo7" path="res://assets/sprites/props/plants/pumpkin_02.png" id="3_y8n05"]
+[ext_resource type="PackedScene" uid="uid://dwa3x1brydi56" path="res://prefabs/pickups/pickup_extra_life.tscn" id="4_rms64"]
+[ext_resource type="PackedScene" uid="uid://iq10idmsyirx" path="res://prefabs/pickups/pickup_safety_net.tscn" id="5_ioinn"]
 
 [node name="Pumpkin" type="StaticBody2D" node_paths=PackedStringArray("_timer")]
 z_index = 2
@@ -10,6 +12,8 @@ script = ExtResource("1_qib44")
 _pointValue = 2
 _maxHealth = 2
 _sprites = Array[Texture2D]([ExtResource("2_xnses"), ExtResource("3_y8n05")])
+_pickupSpawnChance = 0.05
+_pickups = Array[PackedScene]([ExtResource("4_rms64"), ExtResource("5_ioinn")])
 _timer = NodePath("Timer")
 
 [node name="Sprite" type="Sprite2D" parent="."]

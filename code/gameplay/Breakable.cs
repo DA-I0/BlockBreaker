@@ -6,6 +6,9 @@ public partial class Breakable : StaticBody2D
 	[Export] protected int _maxHealth = 1;
 	[Export] protected Texture2D[] _sprites;
 
+	[Export] private double _pickupSpawnChance = 0.1f;
+	[Export] private PackedScene[] _pickups;
+
 	[Export] protected float _maxPositionOffset = 0.5f;
 	[Export] protected double _shakeDuration = 0.25f;
 
@@ -78,8 +81,27 @@ public partial class Breakable : StaticBody2D
 		}
 	}
 
+	private void SpawnPickup()
+	{
+		if (_pickups.Length < 1)
+		{
+			return;
+		}
+
+		double dropRandomization = GD.RandRange(0.0, 1.0);
+
+		if (dropRandomization <= _pickupSpawnChance)
+		{
+			int pickupType = GD.RandRange(0, _pickups.Length - 1);
+			Area2D pickup = _pickups[pickupType].Instantiate() as Area2D;
+			GetNode("../../..").CallDeferred("add_child", pickup);
+			pickup.Position = Position;
+		}
+	}
+
 	protected virtual void Destroy()
 	{
+		SpawnPickup();
 		refs.gameScore.ChangeScore(_pointValue);
 		QueueFree();
 	}

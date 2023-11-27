@@ -11,6 +11,7 @@ z_index = 2
 script = ExtResource("1_2dkvy")
 _pointValue = 0
 _sprites = Array[Texture2D]([ExtResource("7_87k1n")])
+_pickupSpawnChance = 0.0
 
 [node name="Collider" type="CollisionShape2D" parent="."]
 position = Vector2(0, 0.5)

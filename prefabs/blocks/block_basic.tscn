@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://too80a13ex5u"]
 
-[ext_resource type="Script" path="res://code/gameplay/Block.cs" id="1_asc8o"]
+[ext_resource type="Script" path="res://code/gameplay/Breakable.cs" id="1_r62tl"]
 [ext_resource type="Texture2D" uid="uid://f7a58ge3hksa" path="res://assets/sprites/blocks/block_basic.png" id="2_8xto2"]
 [ext_resource type="PackedScene" uid="uid://cnvdvox3cga5v" path="res://prefabs/pickups/pickup_ball_fast.tscn" id="2_wjvy7"]
 [ext_resource type="PackedScene" uid="uid://c6jkva33lu2x0" path="res://prefabs/pickups/pickup_ball_small.tscn" id="3_ytct7"]
@@ -12,9 +12,9 @@ size = Vector2(16, 6)
 
 [node name="BlockBasic" type="StaticBody2D"]
 z_index = 2
-script = ExtResource("1_asc8o")
-_pickups = Array[PackedScene]([ExtResource("2_wjvy7"), ExtResource("3_ytct7"), ExtResource("4_pbid4"), ExtResource("5_t50ft")])
+script = ExtResource("1_r62tl")
 _sprites = Array[Texture2D]([ExtResource("2_8xto2")])
+_pickups = Array[PackedScene]([ExtResource("2_wjvy7"), ExtResource("3_ytct7"), ExtResource("4_pbid4"), ExtResource("5_t50ft")])
 
 [node name="Collider" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_jer7o")
