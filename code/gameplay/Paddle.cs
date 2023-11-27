@@ -236,7 +236,10 @@ public partial class Paddle : CharacterBody2D
 
 	private void VibrateController(float strengthWeak, float strengthStrong, float time)
 	{
-		Input.StartJoyVibration(refs.settings.ActiveJoypadID, strengthWeak, strengthStrong, time);
+		if (refs.settings.ControllerVibrations)
+		{
+			Input.StartJoyVibration(refs.settings.ActiveJoypadID, strengthWeak, strengthStrong, time);
+		}
 	}
 
 	private void Destroy()

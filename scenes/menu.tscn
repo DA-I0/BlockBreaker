@@ -953,7 +953,8 @@ shortcut_context = NodePath("..")
 shortcut = ExtResource("17_c27yp")
 text = "BUTTON_RETURN"
 
-[node name="OptionsPanel" type="Panel" parent="Control" node_paths=PackedStringArray("_header", "_language", "_controllerType", "_controlDevices", "_fullscreen", "_resolution", "_screenShake", "_backgroundBrightness", "_pickupOrder", "_helperTransparency", "_masterVolume", "_musicVolume", "_effectsVolume", "_keybindChangePanel", "_mouseSpeed", "_keyboardSpeed", "_joypadSpeed", "_activeJoypad", "_focusTarget")]
+[node name="OptionsPanel" type="Panel" parent="Control" node_paths=PackedStringArray("_header", "_language", "_controllerType", "_controlDevices", "_fullscreen", "_resolution", "_screenShake", "_backgroundBrightness", "_pickupOrder", "_helperTransparency", "_masterVolume", "_musicVolume", "_effectsVolume", "_keybindChangePanel", "_mouseSpeed", "_keyboardSpeed", "_joypadSpeed", "_activeJoypad", "_vibrations", "_focusTarget")]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -978,6 +979,7 @@ _mouseSpeed = NodePath("ControlOptions/Options/MouseSettings/Mouse/MouseSpeedSet
 _keyboardSpeed = NodePath("ControlOptions/Options/KeyboardSettings/Keyboard/KeyboardSpeedSetting/KeyboardSpeedSlider")
 _joypadSpeed = NodePath("ControlOptions/Options/JoypadSettings/Joypad/GamepadSpeedSetting/GamepadSpeedSlider")
 _activeJoypad = NodePath("ControlOptions/Options/JoypadSettings/Joypad/ActiveGamepad/ActiveGamepadOptions")
+_vibrations = NodePath("ControlOptions/Options/JoypadSettings/Joypad/VibrationSetting/VibrationToggle")
 _focusTarget = NodePath("GeneralOptions/Options/LanguageSetting/LanguageOptions")
 
 [node name="HeaderPanel" type="Panel" parent="Control/OptionsPanel"]
@@ -998,6 +1000,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="GeneralOptions" type="ScrollContainer" parent="Control/OptionsPanel"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.18
@@ -1376,7 +1379,6 @@ min_value = -60.0
 max_value = 6.0
 
 [node name="ControlOptions" type="ScrollContainer" parent="Control/OptionsPanel"]
-visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.18
@@ -1547,6 +1549,32 @@ min_value = 0.5
 max_value = 2.0
 step = 0.1
 value = 1.0
+
+[node name="VibrationSetting" type="Control" parent="Control/OptionsPanel/ControlOptions/Options/JoypadSettings/Joypad"]
+custom_minimum_size = Vector2(0, 19)
+layout_mode = 2
+
+[node name="VibrationLabel" type="Label" parent="Control/OptionsPanel/ControlOptions/Options/JoypadSettings/Joypad/VibrationSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.4
+anchor_bottom = 1.0
+offset_left = 18.0
+text = "OPTION_INPUT_CONTROLLER_VIBRATIONS"
+vertical_alignment = 1
+
+[node name="VibrationToggle" type="CheckButton" parent="Control/OptionsPanel/ControlOptions/Options/JoypadSettings/Joypad/VibrationSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_right = -4.0
+focus_neighbor_right = NodePath("../../../../../../OptionsButtons/Confirm")
+focus_neighbor_bottom = NodePath("../../../../../../VideoOptions/Options/ResolutionSetting/ResolutionOptions")
+focus_next = NodePath("../../../../../../VideoOptions/Options/ResolutionSetting/ResolutionOptions")
+flat = true
 
 [node name="OptionsButtons" type="HBoxContainer" parent="Control/OptionsPanel"]
 layout_mode = 1
