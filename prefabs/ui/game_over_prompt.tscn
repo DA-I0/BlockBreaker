@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://code/ui/UIGameOver.cs" id="1_vpg1k"]
 
-[node name="GameOverPrompt" type="Control" node_paths=PackedStringArray("_header", "_score", "_playerName")]
+[node name="GameOverPrompt" type="Control" node_paths=PackedStringArray("_header", "_score", "_name")]
 process_mode = 3
 z_index = 10
 layout_mode = 3
@@ -14,7 +14,7 @@ offset_bottom = 112.0
 script = ExtResource("1_vpg1k")
 _header = NodePath("BackgroundPanel/VBoxContainer/HeaderLabel")
 _score = NodePath("BackgroundPanel/VBoxContainer/ScoreLabel")
-_playerName = NodePath("BackgroundPanel/VBoxContainer/PlayerName")
+_name = NodePath("BackgroundPanel/VBoxContainer/PlayerName")
 
 [node name="BackgroundPanel" type="PanelContainer" parent="."]
 layout_mode = 1

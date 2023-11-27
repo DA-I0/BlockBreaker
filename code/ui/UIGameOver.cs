@@ -4,7 +4,7 @@ public partial class UIGameOver : Control
 {
 	[Export] private RichTextLabel _header;
 	[Export] private Label _score;
-	[Export] private LineEdit _playerName;
+	[Export] private LineEdit _name;
 
 	private bool canAddToLeaderboard = false;
 
@@ -45,7 +45,7 @@ public partial class UIGameOver : Control
 	{
 		canAddToLeaderboard = refs.gameData.CanScoreJoinLeaderboard(refs.gameScore.CurrentScore);
 		_score.Text = $"{Tr("GAME_SCORE")}: {refs.gameScore.CurrentScore}";
-		_playerName.Visible = canAddToLeaderboard;
+		_name.Visible = canAddToLeaderboard;
 
 		TogglePrompt();
 	}
@@ -59,10 +59,12 @@ public partial class UIGameOver : Control
 	{
 		if (canAddToLeaderboard)
 		{
+			string playerName = (_name.Text == string.Empty) ? Tr(_name.PlaceholderText) : _name.Text;
+
 			string difficultyName = refs.SelectedDifficulty.DifficultyName;
 			difficultyName += refs.IsCustomDifficultySelected ? "*" : string.Empty;
 
-			HighScore playerScore = new HighScore(_playerName.Text, difficultyName, refs.gameScore.CurrentScore);
+			HighScore playerScore = new HighScore(playerName, difficultyName, refs.gameScore.CurrentScore);
 			refs.gameData.AddScoreToLeaderboard(playerScore);
 		}
 
