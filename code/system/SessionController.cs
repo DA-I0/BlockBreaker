@@ -145,17 +145,17 @@ public partial class SessionController : Node
 
 		if (@event.AsText().Contains("Joypad"))
 		{
-			settings.ActiveInputType = InputType.gamepad;
+			settings.ActiveInputType = InputType.Joypad;
 			return;
 		}
 
 		if (@event.AsText().Contains("Mouse"))
 		{
-			settings.ActiveInputType = InputType.mouse;
+			settings.ActiveInputType = InputType.Mouse;
 			return;
 		}
 
-		settings.ActiveInputType = InputType.keyboard;
+		settings.ActiveInputType = InputType.Keyboard;
 	}
 
 	public void SetPaddle(int number)

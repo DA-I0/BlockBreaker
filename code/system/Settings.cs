@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Godot;
 
-public enum InputType { gamepad, keyboard, mouse };
+public enum InputType { Joypad, Keyboard, Mouse };
 
 public class Settings
 {
@@ -27,7 +27,7 @@ public class Settings
 	private const bool DefaultControllerVibrations = true;
 	private Dictionary<string, Godot.Collections.Array<InputEvent>> DefaultKeybindings = new Dictionary<string, Godot.Collections.Array<InputEvent>>();
 
-	private InputType _activeInputType = InputType.keyboard;
+	private InputType _activeInputType = InputType.Keyboard;
 	private int _activeControllerId = 0;
 	private ConfigFile _config;
 	private SessionController refs;
