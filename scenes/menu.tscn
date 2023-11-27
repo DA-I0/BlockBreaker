@@ -150,6 +150,7 @@ focus_previous = NodePath("../Options")
 text = "BUTTON_EXIT"
 
 [node name="LeaderboardPanel" type="Panel" parent="Control" node_paths=PackedStringArray("_playerNames", "_playerScore", "_focusTarget")]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -953,7 +954,6 @@ shortcut = ExtResource("17_c27yp")
 text = "BUTTON_RETURN"
 
 [node name="OptionsPanel" type="Panel" parent="Control" node_paths=PackedStringArray("_header", "_language", "_controllerType", "_controlDevices", "_fullscreen", "_resolution", "_screenShake", "_backgroundBrightness", "_pickupOrder", "_helperTransparency", "_masterVolume", "_musicVolume", "_effectsVolume", "_keybindChangePanel", "_mouseSpeed", "_keyboardSpeed", "_joypadSpeed", "_activeJoypad", "_focusTarget")]
-visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -998,7 +998,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="GeneralOptions" type="ScrollContainer" parent="Control/OptionsPanel"]
-visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.18
@@ -1123,6 +1122,7 @@ focus_next = NodePath("../../ResolutionSetting/ResolutionOptions")
 flat = true
 
 [node name="ResolutionSetting" type="Control" parent="Control/OptionsPanel/VideoOptions/Options"]
+visible = false
 custom_minimum_size = Vector2(0, 19)
 layout_mode = 2
 
@@ -1376,6 +1376,7 @@ min_value = -60.0
 max_value = 6.0
 
 [node name="ControlOptions" type="ScrollContainer" parent="Control/OptionsPanel"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.18
@@ -1496,6 +1497,7 @@ alignment = 0
 layout_mode = 2
 
 [node name="ActiveGamepad" type="Control" parent="Control/OptionsPanel/ControlOptions/Options/JoypadSettings/Joypad"]
+visible = false
 custom_minimum_size = Vector2(0, 19)
 layout_mode = 2
 
