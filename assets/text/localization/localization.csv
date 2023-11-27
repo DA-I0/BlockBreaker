@@ -6,7 +6,7 @@ BUTTON_CONFIRM,Confirm,zustimmen,確定,Potwierdź
 BUTTON_CONTROLS,Controls,,,Sterowanie
 BUTTON_DEFAULT,Default,Standardeinstellungen,初期設定,Domyślne
 BUTTON_EXIT,Exit,Verlassen,ゲーム終了,Wyjdź
-BUTTON_GAMEPAD,Gamepad,Controller,ゲームパッド,Kontroler
+BUTTON_CONTROLLER,Controller,Controller,ゲームパッド,Kontroler
 BUTTON_GENERAL,General,Allgemein,全般,Ogólne
 BUTTON_INFO,Info,Informationen,情報,Info
 BUTTON_KEYBOARD,Keyboard,Tastatur,キーボード,Klawiatura
@@ -24,7 +24,7 @@ DIFF_NAME,Name,Name,名,Nazwa
 DIFF_PADDLE_SIZE_MAX,Max paddle size,Maximale Schlägergröße,最大値パドルサイズ,Maksymalna wielkość paletki
 DIFF_PADDLE_SIZE_MIN,Min paddle size,Mindest Schlägergröße,,Minimalna wielkość paletki
 DIFF_PADDLE_SIZE_START,Starting paddle size,Anfängliche Schlägergröße,初期パドルサイズ,Początkowy rozmiar paletki
-DISCLAIMER_CUSTOM_DIFF,Custom difficulty,,,Własny poziom trudności
+DISCLAIMER_CUSTOM_DIFF,* Custom difficulty,,,* Własny poziom trudności
 GAME_OVER,Game over,Spiel vorbei,ゲームオーバー,Koniec gry
 GAME_SCORE,Score,Punkte,スコア,Punkty
 GAME_WIN,Victory!,Sieg!,勝利,Zwycięstwo!
@@ -45,7 +45,7 @@ INFO_BARRIERS_DESC,"Exist in two variants - basic and sturdy.\nBasic one can't b
 INFO_BLOCKS,Blocks,,,Bloki
 INFO_BLOCKS_DESC,"Exist in two variants - basic and sturdy.\nBasic blocks break after {block_health} hit, sturdy ones after {block_sturdy_health}.\n\nDestroy all to complete a level.",,,
 INFO_CONTROLS,Controls,,,Sterowanie
-INFO_CONTROLS_DESC,[b]Move paddle:[/b] {game_left}{game_right}\n[b]Release ball:[/b] {game_play}\n[b]Reset ball (-1 life):[/b] {game_reset}\n[b]Pause game:[/b] {game_pause},,,
+INFO_CONTROLS_DESC,[b]Move paddle:[/b] {game_left}{game_right}\n[b]Release ball:[/b] {game_play}\n[b]Use skill:[/b] {game_skill}\n[b]Reset ball (-1 life):[/b] {game_reset}\n[b]Pause game:[/b] {game_pause},,,
 INFO_SCORE_MULTIPLIER,Score multiplier,,,Mnożnik punktów
 INFO_SCORE_MULTIPLIER_DESC,"Increases by 1 for every {multiplier_combo_step} destroyed elements, up to x{multiplier_max_combo}.\nGrabbing difficulty increasing pickups (small/fast ball, smaller paddle) also increases multiplier independent of combo.\nMax score multiplier: x{multiplier_max}.",,,
 MSG_ADVANCE_TO_NEXT_MAP,Press {game_play} to continue...,,,Wciśnij {game_play} aby kontynuować…
@@ -54,8 +54,8 @@ MSG_NEW_KEYBINDIG,Press key to assign to action.,,,Wciśnij przycisk do przypisa
 MSG_RETURN_TO_MENU,Return to menu?,Zurück zum Menü?,メニューに戻りは?,Wróć do menu?
 OPTION_GENERAL_LANGUAGE,Language,Sprache,言語,Język
 OPTION_GENERAL_UI_PROMPTS,Control prompts,,,
-OPTION_INPUT_GAMEPAD_SPEED,Gamepad speed,,ゲームパッド速度,Prędkość kontrolera
-OPTION_INPUT_GAMEPAD_VIBRATIONS,Vibration,Vibrationen,バイブレーション,Vibracje
+OPTION_INPUT_CONTROLLER_SPEED,Controller speed,,ゲームパッド速度,Prędkość kontrolera
+OPTION_INPUT_CONTROLLER_VIBRATIONS,Vibrations,Vibrationen,バイブレーション,Vibracje
 OPTION_INPUT_KEYBOARD_SPEED,Keyboard speed,,キーボード速度,Prędkość klawiatury
 OPTION_INPUT_LEFT,Left,Links,左,Lewo
 OPTION_INPUT_MOUSE_SPEED,Mouse speed,,マウス速度,Prędkość myszy
