@@ -1,3 +1,4 @@
+using System.IO;
 using System.Linq;
 using Godot;
 
@@ -18,7 +19,14 @@ public partial class UIPaddlePanel : UIPanel
 
 	private void UpdateDisplayedValues()
 	{
-		_paddleSprite.Texture = ResourceLoader.Load<Texture2D>($"res://assets/sprites/paddles/paddle_{_currentPaddle}.png");
+		if (ResourceLoader.Exists($"res://assets/sprites/paddles/paddle_{_currentPaddle}_icon.png"))
+		{
+			_paddleSprite.Texture = ResourceLoader.Load<Texture2D>($"res://assets/sprites/paddles/paddle_{_currentPaddle}_icon.png");
+		}
+		else
+		{
+			_paddleSprite.Texture = ResourceLoader.Load<Texture2D>($"res://assets/sprites/paddles/paddle_{_currentPaddle}.png");
+		}
 		_paddleName.Text = $"PADDLE_{_currentPaddle}_NAME";
 		_paddleDescription.Text = $"PADDLE_{_currentPaddle}_DESC";
 	}
