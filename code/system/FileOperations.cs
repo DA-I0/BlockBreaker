@@ -52,12 +52,12 @@ public class FileOperations
 
 		string fileName = $"diff_{newDifficulty.DifficultyName}";
 		ConfigFile parsedDifficulty = HelperMethods.DifficultyToConfig(newDifficulty);
-		parsedDifficulty.Save($"{_refs.gameData.CustomDifficultyFolder}/{fileName}.diff");
+		parsedDifficulty.Save($"{ProjectSettings.GetSetting("global/CustomDifficultyFolder")}/{fileName}.diff");
 	}
 
 	public void DeleteDifficulty(string difficultyName)
 	{
-		string filePath = $"{_refs.gameData.CustomDifficultyFolder}/diff_{difficultyName}.txt";
+		string filePath = $"{ProjectSettings.GetSetting("global/CustomDifficultyFolder")}/diff_{difficultyName}.txt";
 
 		if (FileAccess.FileExists(filePath))
 		{
@@ -68,11 +68,11 @@ public class FileOperations
 	public HighScore[] LoadLeaderboard()
 	{
 		ConfigFile leaderboardFile = new ConfigFile();
-		Error loadingStatus = leaderboardFile.LoadEncryptedPass(_refs.gameData.CustomLeaderboardFilePath, _refs.gameData.EncryptionPassword);
+		Error loadingStatus = leaderboardFile.LoadEncryptedPass(ProjectSettings.GetSetting("global/CustomLeaderboardFilePath").ToString(), ProjectSettings.GetSetting("global/EncryptionPassword").ToString());
 
 		if (loadingStatus != Error.Ok)
 		{
-			leaderboardFile.Load(_refs.gameData.DefaultLeaderboardFilePath);
+			leaderboardFile.Load(ProjectSettings.GetSetting("global/DefaultLeaderboardFilePath").ToString());
 		}
 
 		HighScore[] leaderboard = new HighScore[leaderboardFile.GetSections().Length];
@@ -100,7 +100,7 @@ public class FileOperations
 			leaderboardFile.SetValue($"Player_{index}", "score", leaderboard[index].Score);
 		}
 
-		leaderboardFile.SaveEncryptedPass(_refs.gameData.CustomLeaderboardFilePath, _refs.gameData.EncryptionPassword);
+		leaderboardFile.SaveEncryptedPass(ProjectSettings.GetSetting("global/CustomLeaderboardFilePath").ToString(), ProjectSettings.GetSetting("global/EncryptionPassword").ToString());
 	}
 
 	public string LoadTextFile(string filePath)

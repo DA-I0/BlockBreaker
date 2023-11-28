@@ -3,16 +3,6 @@ using System.Linq;
 
 public class GameData
 {
-	public readonly string EncryptionPassword = "Gopher's are totally fake you guys!";
-	public readonly string GameFolderPath;
-	public readonly string LevelFolder = "res://scenes/levels";
-	public readonly string DefaultDifficultyFolder = "res://assets/text/difficulties";
-	public readonly string CustomDifficultyFolder = "user://difficulties";
-	public readonly string ConfigFilePath = "user://settings.cfg";
-	public readonly string PatchNotesFilePath = "res://assets/text/patchnotes.txt";
-	public readonly string DefaultLeaderboardFilePath = "res://assets/text/default_leaderboard.txt";
-	public readonly string CustomLeaderboardFilePath = "user://leaderboard.txt";
-
 	private List<string> _levels = new List<string>();
 
 	private List<Difficulty> _difficulties = new List<Difficulty>();
@@ -82,7 +72,7 @@ public class GameData
 	{
 		_levels.Clear();
 
-		foreach (string levelFile in refs.fileOperations.GetFileList(LevelFolder))
+		foreach (string levelFile in refs.fileOperations.GetFileList(Godot.ProjectSettings.GetSetting("global/DefaultLevelFolder").ToString()))
 		{
 			_levels.Add(levelFile);
 		}
@@ -90,14 +80,14 @@ public class GameData
 
 	private void LoadDifficulties()
 	{
-		foreach (Difficulty resourceDifficulty in refs.fileOperations.LoadDifficulties(DefaultDifficultyFolder))
+		foreach (Difficulty resourceDifficulty in refs.fileOperations.LoadDifficulties(Godot.ProjectSettings.GetSetting("global/DefaultDifficultyFolder").ToString()))
 		{
 			AddDifficulty(resourceDifficulty);
 		}
 
 		_defaultDifficultyCount = _difficulties.Count;
 
-		foreach (Difficulty resourceDifficulty in refs.fileOperations.LoadDifficulties(CustomDifficultyFolder))
+		foreach (Difficulty resourceDifficulty in refs.fileOperations.LoadDifficulties(Godot.ProjectSettings.GetSetting("global/CustomDifficultyFolder").ToString()))
 		{
 			AddDifficulty(resourceDifficulty);
 		}
@@ -105,7 +95,7 @@ public class GameData
 
 	private void LoadPatchNotes()
 	{
-		string rawPatchNotes = refs.fileOperations.LoadTextFile(PatchNotesFilePath);
+		string rawPatchNotes = refs.fileOperations.LoadTextFile(Godot.ProjectSettings.GetSetting("global/PatchNotesFilePath").ToString());
 		_patchNotes = refs.localization.InsertCustomValues(rawPatchNotes);
 	}
 

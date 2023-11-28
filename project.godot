@@ -34,6 +34,14 @@ naming/default_signal_callback_to_self_name="On{SignalName}"
 [global]
 
 Version="Prototype 2"
+EncryptionPassword="Gopher's are totally fake you guys!"
+DefaultLevelFolder="res://scenes/levels"
+DefaultDifficultyFolder="res://assets/text/difficulties"
+CustomDifficultyFolder="user://difficulties"
+ConfigFilePath="user://settings.cfg"
+PatchNotesFilePath="res://assets/text/patchnotes.txt"
+DefaultLeaderboardFilePath="res://assets/text/default_leaderboard.txt"
+CustomLeaderboardFilePath="user://leaderboard.txt"
 
 [gui]
 

@@ -236,7 +236,7 @@ public class Settings
 	public void LoadSettings()
 	{
 		_config = new ConfigFile();
-		Error error = _config.Load(refs.gameData.ConfigFilePath);
+		Error error = _config.Load(ProjectSettings.GetSetting("global/ConfigFilePath").ToString());
 
 		if (error != Error.Ok)
 		{
@@ -249,8 +249,7 @@ public class Settings
 
 	public void SaveSettings()
 	{
-		// SaveKeybindings();
-		_config.Save(refs.gameData.ConfigFilePath);
+		_config.Save(ProjectSettings.GetSetting("global/ConfigFilePath").ToString());
 		ApplySettings();
 	}
 
