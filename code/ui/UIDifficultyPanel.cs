@@ -29,12 +29,10 @@ public partial class UIDifficultyPanel : UIPanel
 	private int _currentDifficulty = 1;
 	private bool _inEditMode = false;
 
-
 	public override void _Ready()
 	{
 		SetupReferences();
 		ToggleEditorControls(false);
-		UpdateDisplayedValues();
 		UpdateEditorButtons();
 	}
 
@@ -116,6 +114,7 @@ public partial class UIDifficultyPanel : UIPanel
 	private void ApplyDifficultyToEditor(bool newDifficulty)
 	{
 		int helperIndex = _currentDifficulty;
+		_inEditMode = true;
 
 		if (newDifficulty)
 		{
@@ -211,7 +210,6 @@ public partial class UIDifficultyPanel : UIPanel
 			(int)_paddleSizeStartSlider.Value,
 			(int)_paddleSizeMinSlider.Value
 		);
-
 
 		if (_currentDifficulty < 0)
 		{

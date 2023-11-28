@@ -50,6 +50,8 @@ public class FileOperations
 			DeleteDifficulty(oldDifficultyName);
 		}
 
+		FindOrCreateDirectory(ProjectSettings.GetSetting("global/CustomDifficultyFolder").ToString());
+
 		string fileName = $"diff_{newDifficulty.DifficultyName}";
 		ConfigFile parsedDifficulty = HelperMethods.DifficultyToConfig(newDifficulty);
 		parsedDifficulty.Save($"{ProjectSettings.GetSetting("global/CustomDifficultyFolder")}/{fileName}.diff");
@@ -57,7 +59,7 @@ public class FileOperations
 
 	public void DeleteDifficulty(string difficultyName)
 	{
-		string filePath = $"{ProjectSettings.GetSetting("global/CustomDifficultyFolder")}/diff_{difficultyName}.txt";
+		string filePath = $"{ProjectSettings.GetSetting("global/CustomDifficultyFolder")}/diff_{difficultyName}.diff";
 
 		if (FileAccess.FileExists(filePath))
 		{
