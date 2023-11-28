@@ -7,6 +7,8 @@ public enum PaddleState { idle, frozen, confused, locked, collisionLocked };
 
 public partial class Paddle : CharacterBody2D
 {
+	private const float SizeTransitionTime = 0.25f;
+
 	[Export] private int _baseMoveSpeed = 100;
 	[Export] protected float _bouncyBoost = 1.5f;
 	[Export] private int _positionY = 90;
@@ -220,7 +222,7 @@ public partial class Paddle : CharacterBody2D
 
 	private void Resize()
 	{
-		_animator.Play($"size_{_size}");
+		_animator.Play($"size_{_size}", SizeTransitionTime);
 		PaddleChanged?.Invoke(_size, _movementDirection);
 	}
 
