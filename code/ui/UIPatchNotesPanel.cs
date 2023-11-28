@@ -1,16 +1,16 @@
 using Godot;
 
-public partial class UIChangelogPanel : UIPanel
+public partial class UIPatchNotesPanel : UIPanel
 {
 	[Export] private RichTextLabel _content;
 
 	public override void _Ready()
 	{
 		SetupReferences();
-		LoadChangelog();
+		LoadPatchNotes();
 	}
 
-	public void LoadChangelog()
+	public void LoadPatchNotes()
 	{
 		_content.Text = refs.gameData.PatchNotes;
 	}

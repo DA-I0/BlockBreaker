@@ -4,6 +4,7 @@ using System.Collections.Generic;
 public partial class UIController : Node
 {
 	[Export] private Label _gameTitle;
+	[Export] private Label _gameVersion;
 	[Export] private Control _menuButtons;
 	private Dictionary<string, CanvasItem> _panels = new Dictionary<string, CanvasItem>();
 
@@ -22,6 +23,7 @@ public partial class UIController : Node
 		FocusOnButtons();
 		DisplayFirstLanguageSelection();
 		_gameTitle.Text = ProjectSettings.GetSetting("application/config/name").ToString();
+		_gameVersion.Text = ProjectSettings.GetSetting("global/Version").ToString();
 	}
 
 	private void FindPanels()

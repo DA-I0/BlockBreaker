@@ -1,18 +1,18 @@
 keys,en,de,ja,pl
 BUTTON_AUDIO,Audio,Audio,オーディオ,Dźwięk
 BUTTON_CANCEL,Cancel,Abbrechen,キャンセル,Anuluj
-BUTTON_CHANGELOG,Patch notes,Versionshinweise,リリースノート,Lista zmian
 BUTTON_CONFIRM,Confirm,zustimmen,確定,Potwierdź
+BUTTON_CONTROLLER,Controller,Controller,ゲームパッド,Kontroler
 BUTTON_CONTROLS,Controls,,,Sterowanie
 BUTTON_DEFAULT,Default,Standardeinstellungen,初期設定,Domyślne
 BUTTON_EXIT,Exit,Verlassen,ゲーム終了,Wyjdź
-BUTTON_CONTROLLER,Controller,Controller,ゲームパッド,Kontroler
 BUTTON_GENERAL,General,Allgemein,全般,Ogólne
 BUTTON_INFO,Info,Informationen,情報,Info
 BUTTON_KEYBOARD,Keyboard,Tastatur,キーボード,Klawiatura
 BUTTON_LEADERBOARD,Leaderboard,Rangliste,ハイスコア,Lista wyników
 BUTTON_MOUSE,Mouse,Maus,マウス,Mysz
 BUTTON_OPTIONS,Options,Einstellungen,オプション,Opcje
+BUTTON_PATCH_NOTES,Patch notes,Versionshinweise,リリースノート,Lista zmian
 BUTTON_PLAY,Play,Spielen,プレイ,Graj
 BUTTON_RETURN,Back,Zurück,戻る,Wróć
 BUTTON_VIDEO,Video,Video,表示,Wideo
@@ -29,7 +29,7 @@ GAME_OVER,Game over,Spiel vorbei,ゲームオーバー,Koniec gry
 GAME_SCORE,Score,Punkte,スコア,Punkty
 GAME_WIN,Victory!,Sieg!,勝利,Zwycięstwo!
 HEADER_AUDIO,Audio,Audio,オーディオ,Dźwięk
-HEADER_CHANGELOG,Patch notes,Versionshinweise,リリースノート,Lista zmian
+HEADER_PATCH_NOTES,Patch notes,Versionshinweise,リリースノート,Lista zmian
 HEADER_CONTROLS,Controls,,,Sterowanie
 HEADER_DIFFICULTY,Select difficulty,,,Wybierz poziom trudności
 HEADER_GENERAL,General,Allgemein,全般,Ogólne
@@ -40,14 +40,10 @@ HEADER_LEVEL,Select level,,,
 HEADER_OPTIONS,Options,Einstellungen,設定,Opcje
 HEADER_PADDLE,Select paddle,,,Wybierz paletkę
 HEADER_VIDEO,Video,Video,表示,Wideo
-INFO_BARRIERS,Barriers,,,Bariery
-INFO_BARRIERS_DESC,"Exist in two variants - basic and sturdy.\nBasic one can't be broken, sturdy breaks after {barrier_sturdy_health} hits.\n\nBarriers don't count towards level completion.",,,
-INFO_BLOCKS,Blocks,,,Bloki
-INFO_BLOCKS_DESC,"Exist in two variants - basic and sturdy.\nBasic blocks break after {block_health} hit, sturdy ones after {block_sturdy_health}.\n\nDestroy all to complete a level.",,,
-INFO_CONTROLS,Controls,,,Sterowanie
-INFO_CONTROLS_DESC,[b]Move paddle:[/b] {game_left}{game_right}\n[b]Release ball:[/b] {game_play}\n[b]Use skill:[/b] {game_skill}\n[b]Reset ball (-1 life):[/b] {game_reset}\n[b]Pause game:[/b] {game_pause},,,
-INFO_SCORE_MULTIPLIER,Score multiplier,,,Mnożnik punktów
-INFO_SCORE_MULTIPLIER_DESC,"Increases by 1 for every {multiplier_combo_step} destroyed elements, up to x{multiplier_max_combo}.\nGrabbing difficulty increasing pickups (small/fast ball, smaller paddle) also increases multiplier independent of combo.\nMax score multiplier: x{multiplier_max}.",,,
+INFO_BARRIERS_DESC,"[b][u]Barriers:[/u][/b]\nExist in two variants - basic and sturdy.\nBasic one can't be broken, sturdy breaks after {barrier_sturdy_health} hits.\n\nBarriers don't count towards level completion.",,,
+INFO_BLOCKS_DESC,"[b][u]Blocks:[/u][/b]\nExist in two variants - basic and sturdy.\nBasic blocks break after {block_health} hit, sturdy ones after {block_sturdy_health}.\n\nDestroy all to complete a level.",,,
+INFO_CONTROLS_DESC,[b][u]Controls:[/u][/b]\n[b]Move paddle:[/b] {game_left}{game_right}\n[b]Release ball:[/b] {game_play}\n[b]Use skill:[/b] {game_skill}\n[b]Reset ball (-1 life):[/b] {game_reset}\n[b]Pause game:[/b] {game_pause},,,
+INFO_SCORE_MULTIPLIER_DESC,"[b][u]Score:[/u][/b]\nIncreases by 1 for every {multiplier_combo_step} destroyed elements, up to x{multiplier_max_combo}.\nGrabbing difficulty increasing pickups (small/fast ball, smaller paddle) also increases multiplier independent of combo.\nMax score multiplier: x{multiplier_max}.",,,
 MSG_ADVANCE_TO_NEXT_MAP,Press {game_play} to continue...,,,Wciśnij {game_play} aby kontynuować…
 MSG_LOADING,Loading...,Lädt…,,Ładowanie…
 MSG_NEW_KEYBINDIG,Press key to assign to action.,,,Wciśnij przycisk do przypisania.

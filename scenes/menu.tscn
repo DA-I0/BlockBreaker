@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://2bhhrfvm7kux"]
+[gd_scene load_steps=44 format=3 uid="uid://2bhhrfvm7kux"]
 
 [ext_resource type="Script" path="res://code/ui/UIController.cs" id="1_5ctlo"]
 [ext_resource type="PackedScene" uid="uid://gn5283p37bke" path="res://prefabs/ui/first_language_selection.tscn" id="2_8j3rs"]
@@ -21,7 +21,6 @@
 [ext_resource type="Texture2D" uid="uid://1ucmb2n300ts" path="res://assets/sprites/ui_elements/icons/ui_icon_arrow_right_pressed.png" id="12_ovde2"]
 [ext_resource type="Texture2D" uid="uid://bkkudkcwwl8ml" path="res://assets/sprites/ui_elements/icons/ui_icon_arrow_right_hover.png" id="13_5d0sh"]
 [ext_resource type="Texture2D" uid="uid://bbd31fqk7ctsp" path="res://assets/sprites/ui_elements/icons/ui_icon_arrow_right_disabled.png" id="14_rbym7"]
-[ext_resource type="Texture2D" uid="uid://bdnrfv0eveohj" path="res://assets/sprites/paddles/paddle_1.png" id="15_4m24n"]
 [ext_resource type="Texture2D" uid="uid://c6d4r5rvlnwnj" path="res://assets/sprites/game_area.png" id="15_ppnoe"]
 [ext_resource type="Script" path="res://code/ui/UIDifficultyPanel.cs" id="15_swngl"]
 [ext_resource type="Shortcut" uid="uid://b5ydjlfn0ps7g" path="res://shortcuts/confirm.tres" id="16_dq4b3"]
@@ -40,12 +39,12 @@
 [ext_resource type="Script" path="res://code/ui/UILevelPanel.cs" id="28_5o2bk"]
 [ext_resource type="Texture2D" uid="uid://bn53u7bjick3w" path="res://assets/sprites/ui_elements/icons/ui_icon_add_disabled.png" id="28_jvlsi"]
 [ext_resource type="Script" path="res://code/ui/UIInfoPanel.cs" id="30_g7tuq"]
-[ext_resource type="Script" path="res://code/ui/UIChangelogPanel.cs" id="36_xfcm0"]
 [ext_resource type="Script" path="res://code/ui/UIOptionsPanel.cs" id="37_7pgst"]
+[ext_resource type="Script" path="res://code/ui/UIPatchNotesPanel.cs" id="38_0jdd4"]
 [ext_resource type="StyleBox" uid="uid://bnbwbb74r5uj6" path="res://theme/panel_header.tres" id="42_rspqf"]
 [ext_resource type="PackedScene" uid="uid://bjvyfeorydh7s" path="res://prefabs/ui/keybind_change_panel.tscn" id="43_k0jm2"]
 
-[node name="Menu" type="AspectRatioContainer" node_paths=PackedStringArray("_gameTitle", "_menuButtons")]
+[node name="Menu" type="AspectRatioContainer" node_paths=PackedStringArray("_gameTitle", "_gameVersion", "_menuButtons")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -58,13 +57,15 @@ grow_vertical = 2
 ratio = 1.1429
 script = ExtResource("1_5ctlo")
 _gameTitle = NodePath("Control/GameTitle")
+_gameVersion = NodePath("Control/GameVersion")
 _menuButtons = NodePath("Control/MenuButtons")
 
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Panel" parent="."]
 z_index = 1
 layout_mode = 2
 
 [node name="NinePatchRect" type="NinePatchRect" parent="Control"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -80,18 +81,36 @@ patch_margin_bottom = 4
 [node name="GameTitle" type="Label" parent="Control"]
 layout_mode = 1
 anchors_preset = -1
+anchor_top = 0.05
 anchor_right = 1.0
-anchor_bottom = 0.15
+anchor_bottom = 0.2
 offset_left = 5.0
 offset_top = 5.0
 offset_right = -5.0
 grow_horizontal = 2
 grow_vertical = 2
 auto_translate = false
-theme_override_font_sizes/font_size = 22
+theme_override_font_sizes/font_size = 32
 text = "<game_title>"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="GameVersion" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 6.0
+offset_right = -5.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 0
+auto_translate = false
+text = "<game_version>"
+horizontal_alignment = 2
+vertical_alignment = 2
 
 [node name="MenuButtons" type="VBoxContainer" parent="Control"]
 layout_mode = 1
@@ -124,18 +143,18 @@ text = "BUTTON_LEADERBOARD"
 [node name="Info" type="Button" parent="Control/MenuButtons"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../Leaderboard")
-focus_neighbor_bottom = NodePath("../Changelog")
-focus_next = NodePath("../Changelog")
+focus_neighbor_bottom = NodePath("../PatchNotes")
+focus_next = NodePath("../PatchNotes")
 focus_previous = NodePath("../Leaderboard")
 text = "BUTTON_INFO"
 
-[node name="Changelog" type="Button" parent="Control/MenuButtons"]
+[node name="PatchNotes" type="Button" parent="Control/MenuButtons"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../Info")
 focus_neighbor_bottom = NodePath("../Options")
 focus_next = NodePath("../Options")
 focus_previous = NodePath("../Info")
-text = "BUTTON_CHANGELOG"
+text = "BUTTON_PATCH_NOTES"
 
 [node name="Options" type="Button" parent="Control/MenuButtons"]
 layout_mode = 2
@@ -776,16 +795,17 @@ size_flags_vertical = 3
 [node name="InfoMovement" type="HBoxContainer" parent="Control/InfoPanel/ScrollContainer/InfoContent"]
 layout_mode = 2
 
-[node name="Icon" type="TextureRect" parent="Control/InfoPanel/ScrollContainer/InfoContent/InfoMovement"]
-custom_minimum_size = Vector2(30, 0)
+[node name="ControlsIcon" type="Label" parent="Control/InfoPanel/ScrollContainer/InfoContent/InfoMovement"]
+custom_minimum_size = Vector2(30, 20)
 layout_mode = 2
-texture = ExtResource("15_4m24n")
-stretch_mode = 4
+theme_override_font_sizes/font_size = 24
+text = "🎮"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="INFO_CONTROLS_DESC" type="RichTextLabel" parent="Control/InfoPanel/ScrollContainer/InfoContent/InfoMovement" groups=["manual_translation"]]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("3_sjckc")
 bbcode_enabled = true
 text = "<info_controls_desc>"
 fit_content = true
@@ -817,7 +837,6 @@ stretch_mode = 4
 [node name="INFO_BLOCKS_DESC" type="RichTextLabel" parent="Control/InfoPanel/ScrollContainer/InfoContent/InfoBlocks" groups=["manual_translation"]]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("3_sjckc")
 bbcode_enabled = true
 text = "<info_blocks_desc>"
 fit_content = true
@@ -849,7 +868,6 @@ stretch_mode = 4
 [node name="INFO_BARRIERS_DESC" type="RichTextLabel" parent="Control/InfoPanel/ScrollContainer/InfoContent/InfoBarriers" groups=["manual_translation"]]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("3_sjckc")
 bbcode_enabled = true
 text = "<info_barriers_desc>"
 fit_content = true
@@ -862,16 +880,17 @@ layout_mode = 2
 [node name="InfoScore" type="HBoxContainer" parent="Control/InfoPanel/ScrollContainer/InfoContent"]
 layout_mode = 2
 
-[node name="Icon" type="TextureRect" parent="Control/InfoPanel/ScrollContainer/InfoContent/InfoScore"]
-custom_minimum_size = Vector2(30, 0)
+[node name="ScoreIcon" type="Label" parent="Control/InfoPanel/ScrollContainer/InfoContent/InfoScore"]
+custom_minimum_size = Vector2(30, 20)
 layout_mode = 2
-texture = ExtResource("15_4m24n")
-stretch_mode = 4
+theme_override_font_sizes/font_size = 24
+text = "(x9)"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="INFO_SCORE_MULTIPLIER_DESC" type="RichTextLabel" parent="Control/InfoPanel/ScrollContainer/InfoContent/InfoScore" groups=["manual_translation"]]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("3_sjckc")
 bbcode_enabled = true
 text = "<info_score_multiplier_desc>"
 fit_content = true
@@ -890,40 +909,40 @@ shortcut_context = NodePath("..")
 shortcut = ExtResource("17_c27yp")
 text = "BUTTON_RETURN"
 
-[node name="ChangelogPanel" type="Panel" parent="Control" node_paths=PackedStringArray("_content", "_focusTarget")]
+[node name="PatchNotesPanel" type="Panel" parent="Control" node_paths=PackedStringArray("_content", "_focusTarget")]
 visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource("36_xfcm0")
-_content = NodePath("ChangelogScrollContainer/ChangelogContent")
-_focusTarget = NodePath("ChangelogScrollContainer")
+script = ExtResource("38_0jdd4")
+_content = NodePath("PatchNotesScrollContainer/PatchNotesContent")
+_focusTarget = NodePath("PatchNotesScrollContainer")
 
-[node name="ChangelogHeader" type="Panel" parent="Control/ChangelogPanel"]
+[node name="PatchNotesHeader" type="Panel" parent="Control/PatchNotesPanel"]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 offset_bottom = 20.0
 
-[node name="ChangelogHeaderLabel" type="Label" parent="Control/ChangelogPanel/ChangelogHeader"]
+[node name="PatchNotesHeaderLabel" type="Label" parent="Control/PatchNotesPanel/PatchNotesHeader"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "HEADER_CHANGELOG"
+text = "HEADER_PATCH_NOTES"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ChangelogScrollContainer" type="ScrollContainer" parent="Control/ChangelogPanel"]
+[node name="PatchNotesScrollContainer" type="ScrollContainer" parent="Control/PatchNotesPanel"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 5.0
+offset_left = 6.0
 offset_top = 19.0
 offset_right = -4.0
 offset_bottom = -4.0
@@ -931,17 +950,17 @@ grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 2
 
-[node name="ChangelogContent" type="RichTextLabel" parent="Control/ChangelogPanel/ChangelogScrollContainer"]
+[node name="PatchNotesContent" type="RichTextLabel" parent="Control/PatchNotesPanel/PatchNotesScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("3_sjckc")
 bbcode_enabled = true
-text = "<changelog>"
+text = "<patch_notes>"
 fit_content = true
 scroll_active = false
 shortcut_keys_enabled = false
 
-[node name="Return" type="Button" parent="Control/ChangelogPanel" node_paths=PackedStringArray("shortcut_context")]
+[node name="Return" type="Button" parent="Control/PatchNotesPanel" node_paths=PackedStringArray("shortcut_context")]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 1.0
@@ -1674,7 +1693,7 @@ layout_mode = 2
 [connection signal="pressed" from="Control/MenuButtons/Play" to="." method="TogglePanel" binds= ["PaddlePanel"]]
 [connection signal="pressed" from="Control/MenuButtons/Leaderboard" to="." method="TogglePanel" binds= ["LeaderboardPanel"]]
 [connection signal="pressed" from="Control/MenuButtons/Info" to="." method="TogglePanel" binds= ["InfoPanel"]]
-[connection signal="pressed" from="Control/MenuButtons/Changelog" to="." method="TogglePanel" binds= ["ChangelogPanel"]]
+[connection signal="pressed" from="Control/MenuButtons/PatchNotes" to="." method="TogglePanel" binds= ["PatchNotesPanel"]]
 [connection signal="pressed" from="Control/MenuButtons/Options" to="." method="TogglePanel" binds= ["OptionsPanel"]]
 [connection signal="pressed" from="Control/MenuButtons/Exit" to="." method="ExitGame"]
 [connection signal="pressed" from="Control/LeaderboardPanel/Return" to="." method="TogglePanel" binds= [""]]
@@ -1698,7 +1717,7 @@ layout_mode = 2
 [connection signal="pressed" from="Control/DifficultyPanel/Return" to="." method="TogglePanel" binds= ["PaddlePanel"]]
 [connection signal="pressed" from="Control/LevelPanel/Return" to="." method="TogglePanel" binds= ["DifficultyPanel"]]
 [connection signal="pressed" from="Control/InfoPanel/Return" to="." method="TogglePanel" binds= [""]]
-[connection signal="pressed" from="Control/ChangelogPanel/Return" to="." method="TogglePanel" binds= [""]]
+[connection signal="pressed" from="Control/PatchNotesPanel/Return" to="." method="TogglePanel" binds= [""]]
 [connection signal="pressed" from="Control/OptionsPanel/OptionsButtons/Confirm" to="Control/OptionsPanel" method="SaveSettings"]
 [connection signal="pressed" from="Control/OptionsPanel/OptionsButtons/Cancel" to="Control/OptionsPanel" method="CancelSettings"]
 [connection signal="pressed" from="Control/OptionsPanel/OptionsButtons/Default" to="Control/OptionsPanel" method="RestoreDefaultSettings"]

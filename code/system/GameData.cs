@@ -9,7 +9,7 @@ public class GameData
 	public readonly string DefaultDifficultyFolder = "res://assets/text/difficulties";
 	public readonly string CustomDifficultyFolder = "user://difficulties";
 	public readonly string ConfigFilePath = "user://settings.cfg";
-	public readonly string ChangelogFilePath = "res://assets/text/patchnotes.txt";
+	public readonly string PatchNotesFilePath = "res://assets/text/patchnotes.txt";
 	public readonly string DefaultLeaderboardFilePath = "res://assets/text/default_leaderboard.txt";
 	public readonly string CustomLeaderboardFilePath = "user://leaderboard.txt";
 
@@ -59,7 +59,7 @@ public class GameData
 	{
 		LoadLevels();
 		LoadDifficulties();
-		LoadChangelog();
+		LoadPatchNotes();
 		LoadLeaderboard();
 	}
 
@@ -103,9 +103,9 @@ public class GameData
 		}
 	}
 
-	private void LoadChangelog()
+	private void LoadPatchNotes()
 	{
-		string rawPatchNotes = refs.fileOperations.LoadTextFile(ChangelogFilePath);
+		string rawPatchNotes = refs.fileOperations.LoadTextFile(PatchNotesFilePath);
 		_patchNotes = refs.localization.InsertCustomValues(rawPatchNotes);
 	}
 
