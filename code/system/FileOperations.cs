@@ -85,6 +85,7 @@ public class FileOperations
 			leaderboard[index].PlayerName = (string)leaderboardFile.GetValue(player, "name");
 			leaderboard[index].DifficultyName = (string)leaderboardFile.GetValue(player, "difficulty");
 			leaderboard[index].Score = (int)leaderboardFile.GetValue(player, "score");
+			leaderboard[index].UsedCustomDifficulty = (bool)leaderboardFile.GetValue(player, "usedCustomDifficulty");
 			index++;
 		}
 
@@ -100,6 +101,7 @@ public class FileOperations
 			leaderboardFile.SetValue($"Player_{index}", "name", leaderboard[index].PlayerName);
 			leaderboardFile.SetValue($"Player_{index}", "difficulty", leaderboard[index].DifficultyName);
 			leaderboardFile.SetValue($"Player_{index}", "score", leaderboard[index].Score);
+			leaderboardFile.SetValue($"Player_{index}", "usedCustomDifficulty", leaderboard[index].UsedCustomDifficulty);
 		}
 
 		leaderboardFile.SaveEncryptedPass(ProjectSettings.GetSetting("global/CustomLeaderboardFilePath").ToString(), ProjectSettings.GetSetting("global/EncryptionPassword").ToString());

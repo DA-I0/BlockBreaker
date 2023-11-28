@@ -22,7 +22,8 @@ public partial class UILeaderboard : UIPanel
 
 		foreach (HighScore entry in refs.gameData.Leaderboard)
 		{
-			_playerNames.Text += $"{position}. {entry.PlayerName} ({entry.DifficultyName})\n";
+			string difficulty = entry.UsedCustomDifficulty ? $"{entry.DifficultyName}*" : entry.DifficultyName;
+			_playerNames.Text += $"{position}. {entry.PlayerName} ({difficulty})\n";
 			_playerScore.Text += $"{entry.Score}\n";
 
 			position++;

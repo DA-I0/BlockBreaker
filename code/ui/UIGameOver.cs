@@ -60,11 +60,9 @@ public partial class UIGameOver : Control
 		if (canAddToLeaderboard)
 		{
 			string playerName = (_name.Text == string.Empty) ? Tr(_name.PlaceholderText) : _name.Text;
-
 			string difficultyName = refs.SelectedDifficulty.DifficultyName;
-			difficultyName += refs.IsCustomDifficultySelected ? "*" : string.Empty;
 
-			HighScore playerScore = new HighScore(playerName, difficultyName, refs.gameScore.CurrentScore);
+			HighScore playerScore = new HighScore(playerName, difficultyName, refs.gameScore.CurrentScore, refs.IsCustomDifficultySelected);
 			refs.gameData.AddScoreToLeaderboard(playerScore);
 		}
 
