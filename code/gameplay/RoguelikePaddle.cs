@@ -2,6 +2,9 @@ using Godot;
 
 public partial class RoguelikePaddle : Paddle
 {
+	[Export] double _minTimeScale = 0.1;
+	[Export] double _slowdown = 0.05;
+
 	public override void _Process(double delta)
 	{
 		UpdateTimeScale();
@@ -11,7 +14,8 @@ public partial class RoguelikePaddle : Paddle
 	{
 		if (_state == PaddleState.idle && Velocity == Vector2.Zero)
 		{
-			Engine.TimeScale = 0.1f;
+			float newTimeScale = (float)Mathf.Lerp(Engine.TimeScale, _minTimeScale, _slowdown);
+			Engine.TimeScale = newTimeScale;
 		}
 		else
 		{
