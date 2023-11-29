@@ -98,12 +98,13 @@ _data = {
 "idle_enabled": SubResource("Animation_q6de1")
 }
 
-[node name="Whirlpool" type="Area2D" node_paths=PackedStringArray("_animator", "_timer")]
+[node name="Whirlpool" type="Area2D" node_paths=PackedStringArray("_animator", "_timer", "_sprites")]
 collision_mask = 2
 script = ExtResource("1_iacfm")
 _cooldown = 10.0
 _animator = NodePath("Animator")
 _timer = NodePath("Timer")
+_sprites = []
 
 [node name="Trigger" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_28lk8")

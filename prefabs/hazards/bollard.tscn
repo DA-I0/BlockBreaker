@@ -207,11 +207,12 @@ _data = {
 "idle_enabled": SubResource("Animation_gxprl")
 }
 
-[node name="Bollard" type="StaticBody2D" node_paths=PackedStringArray("_animator", "_timer")]
+[node name="Bollard" type="StaticBody2D" node_paths=PackedStringArray("_animator", "_timer", "_sprites")]
 script = ExtResource("1_f3s8j")
 _cooldown = 2.0
 _animator = NodePath("Animator")
 _timer = NodePath("Timer")
+_sprites = []
 
 [node name="Collider" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_xjr6v")

@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://iq10idmsyirx" path="res://prefabs/pickups/pickup_safety_net.tscn" id="9_dycon"]
 
 [node name="FenceDownLeftOut" type="StaticBody2D" node_paths=PackedStringArray("_timer")]
-z_index = 2
+z_index = 3
 script = ExtResource("1_my1jy")
 _pointValue = 2
 _maxHealth = 4
@@ -20,14 +20,14 @@ _pickups = Array[PackedScene]([ExtResource("6_xwhdl"), ExtResource("7_py340"), E
 _timer = NodePath("Timer")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-position = Vector2(-8, -16)
+position = Vector2(-8, -18)
 texture = ExtResource("2_bxn5b")
 centered = false
 
 [node name="Collider" type="CollisionPolygon2D" parent="."]
 position = Vector2(-11, -1)
 scale = Vector2(1.4375, 1)
-polygon = PackedVector2Array(4.17391, -6, 4.86957, -6, 4.86957, -1, 13.2174, -1, 13.2174, 0, 4.17391, 0)
+polygon = PackedVector2Array(4.17391, -8, 4.86957, -8, 4.86957, -1, 13.2174, -1, 13.2174, 0, 4.17391, 0)
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
