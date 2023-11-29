@@ -23,7 +23,12 @@ public partial class UIGameSession : Control
 
 	public override void _Input(InputEvent @event)
 	{
-		if (@event.IsActionReleased("game_play") && ((CanvasItem)_exitPrompt).Visible)
+		if (!_exitPrompt.Visible || refs.CurrentGameState != GameState.gameplay)
+		{
+			return;
+		}
+
+		if (@event.IsActionReleased("game_play"))
 		{
 			refs.AdvanceCurrentLevel();
 		}
