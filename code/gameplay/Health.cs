@@ -18,6 +18,14 @@ public partial class Health : Node
 		refs.GameSetup += SetupInitialValues;
 	}
 
+	public override void _Input(InputEvent @event)
+	{
+		if (@event.IsActionPressed("game_reset"))
+		{
+			ChangeLives(-1);
+		}
+	}
+
 	public void ChangeLives(int amount)
 	{
 		_lives += amount;

@@ -107,6 +107,7 @@ public partial class Ball : CharacterBody2D
 		refs = sessionController;
 		refs.levelManager.ResetSession += Destroy;
 		refs.levelManager.SceneChanged += SceneChangeCleanup;
+		refs.health.ResetElements += Reset;
 	}
 
 	public void SetInitialValues(SessionController sessionController, Ball sourceBall = null, float angleChange = 0)
@@ -311,7 +312,7 @@ public partial class Ball : CharacterBody2D
 			if (!levelChange)
 			{
 				refs.health.ChangeLives(-1);
-				Reset();
+				// Reset();
 			}
 			else
 			{
