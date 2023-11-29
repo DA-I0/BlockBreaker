@@ -217,190 +217,190 @@ shape = SubResource("WorldBoundaryShape2D_7jrrh")
 [node name="Blocks" type="Node2D" parent="."]
 
 [node name="BlockBasic" parent="Blocks" instance=ExtResource("2_q7bub")]
-position = Vector2(-79, 4)
+position = Vector2(-81, -37)
 
 [node name="BlockBasic2" parent="Blocks" instance=ExtResource("2_q7bub")]
-position = Vector2(-62, -13)
+position = Vector2(-81, -29)
 
 [node name="BlockBasic3" parent="Blocks" instance=ExtResource("2_q7bub")]
-position = Vector2(-62, -21)
+position = Vector2(-81, -21)
 
 [node name="BlockBasic4" parent="Blocks" instance=ExtResource("2_q7bub")]
-position = Vector2(-27, -29)
+position = Vector2(-81, -13)
 
 [node name="BlockBasic5" parent="Blocks" instance=ExtResource("2_q7bub")]
-position = Vector2(-9, -29)
+position = Vector2(-81, -5)
 
 [node name="BlockBasic6" parent="Blocks" instance=ExtResource("2_q7bub")]
-position = Vector2(9, -29)
+position = Vector2(-81, 3)
 
 [node name="BlockBasic7" parent="Blocks" instance=ExtResource("2_q7bub")]
-position = Vector2(27, -29)
+position = Vector2(-63, -37)
 
 [node name="BlockBasic8" parent="Blocks" instance=ExtResource("2_q7bub")]
-position = Vector2(-44, -21)
+position = Vector2(-63, -29)
 
 [node name="BlockBasic9" parent="Blocks" instance=ExtResource("2_q7bub")]
-position = Vector2(80, -21)
+position = Vector2(-63, -21)
 
 [node name="BlockBasic10" parent="Blocks" instance=ExtResource("2_q7bub")]
-position = Vector2(62, -13)
+position = Vector2(-63, -13)
 
 [node name="BlockBasic11" parent="Blocks" instance=ExtResource("2_q7bub")]
-position = Vector2(80, -5)
+position = Vector2(-63, -5)
 
 [node name="BlockBasic12" parent="Blocks" instance=ExtResource("2_q7bub")]
-position = Vector2(-79, -5)
+position = Vector2(-45, -37)
 
 [node name="BlockBasic13" parent="Blocks" instance=ExtResource("2_q7bub")]
-position = Vector2(-62, -5)
+position = Vector2(-45, -29)
 
 [node name="BlockBasic14" parent="Blocks" instance=ExtResource("2_q7bub")]
-position = Vector2(-44, -13)
+position = Vector2(-45, -21)
 
 [node name="BlockBasic15" parent="Blocks" instance=ExtResource("2_q7bub")]
-position = Vector2(-9, -21)
+position = Vector2(-45, -13)
 
 [node name="BlockBasic16" parent="Blocks" instance=ExtResource("2_q7bub")]
-position = Vector2(9, -21)
-
-[node name="BlockBasic17" parent="Blocks" instance=ExtResource("2_q7bub")]
-position = Vector2(27, -21)
-
-[node name="BlockBasic18" parent="Blocks" instance=ExtResource("2_q7bub")]
-position = Vector2(62, -21)
-
-[node name="BlockBasic19" parent="Blocks" instance=ExtResource("2_q7bub")]
-position = Vector2(44, -21)
-
-[node name="BlockBasic20" parent="Blocks" instance=ExtResource("2_q7bub")]
-position = Vector2(44, -13)
-
-[node name="BlockBasic21" parent="Blocks" instance=ExtResource("2_q7bub")]
-position = Vector2(62, -5)
-
-[node name="BlockBasic22" parent="Blocks" instance=ExtResource("2_q7bub")]
-position = Vector2(80, 4)
-
-[node name="BlockBasic23" parent="Blocks" instance=ExtResource("2_q7bub")]
-position = Vector2(-79, -13)
-
-[node name="BlockBasic24" parent="Blocks" instance=ExtResource("2_q7bub")]
-position = Vector2(-27, -21)
-
-[node name="BlockBasic25" parent="Blocks" instance=ExtResource("2_q7bub")]
-position = Vector2(-79, -21)
-
-[node name="BlockBasic26" parent="Blocks" instance=ExtResource("2_q7bub")]
-position = Vector2(-44, -29)
-
-[node name="BlockBasic27" parent="Blocks" instance=ExtResource("2_q7bub")]
-position = Vector2(-62, -29)
-
-[node name="BlockBasic28" parent="Blocks" instance=ExtResource("2_q7bub")]
-position = Vector2(-79, -29)
-
-[node name="BlockBasic30" parent="Blocks" instance=ExtResource("2_q7bub")]
-position = Vector2(80, -29)
-
-[node name="BlockBasic31" parent="Blocks" instance=ExtResource("2_q7bub")]
-position = Vector2(44, -29)
-
-[node name="BlockBasic32" parent="Blocks" instance=ExtResource("2_q7bub")]
-position = Vector2(62, -29)
-
-[node name="BlockBasic34" parent="Blocks" instance=ExtResource("2_q7bub")]
 position = Vector2(-27, -37)
 
-[node name="BlockBasic35" parent="Blocks" instance=ExtResource("2_q7bub")]
+[node name="BlockBasic17" parent="Blocks" instance=ExtResource("2_q7bub")]
+position = Vector2(-27, -29)
+
+[node name="BlockBasic18" parent="Blocks" instance=ExtResource("2_q7bub")]
+position = Vector2(-27, -21)
+
+[node name="BlockBasic19" parent="Blocks" instance=ExtResource("2_q7bub")]
 position = Vector2(-9, -37)
 
-[node name="BlockBasic36" parent="Blocks" instance=ExtResource("2_q7bub")]
+[node name="BlockBasic20" parent="Blocks" instance=ExtResource("2_q7bub")]
+position = Vector2(-9, -29)
+
+[node name="BlockBasic21" parent="Blocks" instance=ExtResource("2_q7bub")]
+position = Vector2(-9, -21)
+
+[node name="BlockBasic22" parent="Blocks" instance=ExtResource("2_q7bub")]
 position = Vector2(9, -37)
 
-[node name="BlockBasic37" parent="Blocks" instance=ExtResource("2_q7bub")]
+[node name="BlockBasic23" parent="Blocks" instance=ExtResource("2_q7bub")]
+position = Vector2(9, -29)
+
+[node name="BlockBasic24" parent="Blocks" instance=ExtResource("2_q7bub")]
+position = Vector2(9, -21)
+
+[node name="BlockBasic25" parent="Blocks" instance=ExtResource("2_q7bub")]
 position = Vector2(27, -37)
 
-[node name="BlockBasic38" parent="Blocks" instance=ExtResource("2_q7bub")]
-position = Vector2(-44, -37)
+[node name="BlockBasic26" parent="Blocks" instance=ExtResource("2_q7bub")]
+position = Vector2(27, -29)
 
-[node name="BlockBasic39" parent="Blocks" instance=ExtResource("2_q7bub")]
-position = Vector2(-62, -37)
+[node name="BlockBasic27" parent="Blocks" instance=ExtResource("2_q7bub")]
+position = Vector2(27, -21)
 
-[node name="BlockBasic40" parent="Blocks" instance=ExtResource("2_q7bub")]
-position = Vector2(-79, -37)
+[node name="BlockBasic28" parent="Blocks" instance=ExtResource("2_q7bub")]
+position = Vector2(45, -37)
 
-[node name="BlockBasic41" parent="Blocks" instance=ExtResource("2_q7bub")]
-position = Vector2(80, -37)
+[node name="BlockBasic29" parent="Blocks" instance=ExtResource("2_q7bub")]
+position = Vector2(45, -29)
 
-[node name="BlockBasic42" parent="Blocks" instance=ExtResource("2_q7bub")]
-position = Vector2(44, -37)
+[node name="BlockBasic30" parent="Blocks" instance=ExtResource("2_q7bub")]
+position = Vector2(45, -21)
 
-[node name="BlockBasic43" parent="Blocks" instance=ExtResource("2_q7bub")]
-position = Vector2(62, -37)
+[node name="BlockBasic31" parent="Blocks" instance=ExtResource("2_q7bub")]
+position = Vector2(45, -13)
+
+[node name="BlockBasic32" parent="Blocks" instance=ExtResource("2_q7bub")]
+position = Vector2(63, -37)
 
 [node name="BlockBasic33" parent="Blocks" instance=ExtResource("2_q7bub")]
-position = Vector2(80, -13)
+position = Vector2(63, -29)
+
+[node name="BlockBasic34" parent="Blocks" instance=ExtResource("2_q7bub")]
+position = Vector2(63, -21)
+
+[node name="BlockBasic35" parent="Blocks" instance=ExtResource("2_q7bub")]
+position = Vector2(63, -13)
+
+[node name="BlockBasic36" parent="Blocks" instance=ExtResource("2_q7bub")]
+position = Vector2(63, -5)
+
+[node name="BlockBasic37" parent="Blocks" instance=ExtResource("2_q7bub")]
+position = Vector2(81, -37)
+
+[node name="BlockBasic38" parent="Blocks" instance=ExtResource("2_q7bub")]
+position = Vector2(81, -29)
+
+[node name="BlockBasic39" parent="Blocks" instance=ExtResource("2_q7bub")]
+position = Vector2(81, -21)
+
+[node name="BlockBasic40" parent="Blocks" instance=ExtResource("2_q7bub")]
+position = Vector2(81, -13)
+
+[node name="BlockBasic41" parent="Blocks" instance=ExtResource("2_q7bub")]
+position = Vector2(81, -5)
+
+[node name="BlockBasic42" parent="Blocks" instance=ExtResource("2_q7bub")]
+position = Vector2(81, 3)
 
 [node name="BlockSturdy" parent="Blocks" instance=ExtResource("3_wlf78")]
-position = Vector2(-79, -45)
+position = Vector2(-81, -45)
 
 [node name="BlockSturdy2" parent="Blocks" instance=ExtResource("3_wlf78")]
-position = Vector2(-79, 12)
+position = Vector2(-63, -45)
 
 [node name="BlockSturdy3" parent="Blocks" instance=ExtResource("3_wlf78")]
-position = Vector2(-62, 4)
+position = Vector2(-45, -45)
 
 [node name="BlockSturdy4" parent="Blocks" instance=ExtResource("3_wlf78")]
-position = Vector2(-44, -5)
-
-[node name="BlockSturdy12" parent="Blocks" instance=ExtResource("3_wlf78")]
-position = Vector2(44, -5)
-
-[node name="BlockSturdy5" parent="Blocks" instance=ExtResource("3_wlf78")]
-position = Vector2(-27, -13)
-
-[node name="BlockSturdy6" parent="Blocks" instance=ExtResource("3_wlf78")]
-position = Vector2(-9, -13)
-
-[node name="BlockSturdy7" parent="Blocks" instance=ExtResource("3_wlf78")]
-position = Vector2(9, -13)
-
-[node name="BlockSturdy8" parent="Blocks" instance=ExtResource("3_wlf78")]
-position = Vector2(27, -13)
-
-[node name="BlockSturdy9" parent="Blocks" instance=ExtResource("3_wlf78")]
-position = Vector2(62, 4)
-
-[node name="BlockSturdy10" parent="Blocks" instance=ExtResource("3_wlf78")]
-position = Vector2(80, 12)
-
-[node name="BlockSturdy11" parent="Blocks" instance=ExtResource("3_wlf78")]
-position = Vector2(80, -45)
-
-[node name="BlockSturdy13" parent="Blocks" instance=ExtResource("3_wlf78")]
-position = Vector2(62, -45)
-
-[node name="BlockSturdy14" parent="Blocks" instance=ExtResource("3_wlf78")]
-position = Vector2(44, -45)
-
-[node name="BlockSturdy15" parent="Blocks" instance=ExtResource("3_wlf78")]
-position = Vector2(27, -45)
-
-[node name="BlockSturdy16" parent="Blocks" instance=ExtResource("3_wlf78")]
-position = Vector2(9, -45)
-
-[node name="BlockSturdy17" parent="Blocks" instance=ExtResource("3_wlf78")]
-position = Vector2(-9, -45)
-
-[node name="BlockSturdy18" parent="Blocks" instance=ExtResource("3_wlf78")]
 position = Vector2(-27, -45)
 
+[node name="BlockSturdy5" parent="Blocks" instance=ExtResource("3_wlf78")]
+position = Vector2(-9, -45)
+
+[node name="BlockSturdy6" parent="Blocks" instance=ExtResource("3_wlf78")]
+position = Vector2(9, -45)
+
+[node name="BlockSturdy7" parent="Blocks" instance=ExtResource("3_wlf78")]
+position = Vector2(27, -45)
+
+[node name="BlockSturdy8" parent="Blocks" instance=ExtResource("3_wlf78")]
+position = Vector2(45, -45)
+
+[node name="BlockSturdy9" parent="Blocks" instance=ExtResource("3_wlf78")]
+position = Vector2(63, -45)
+
+[node name="BlockSturdy10" parent="Blocks" instance=ExtResource("3_wlf78")]
+position = Vector2(81, -45)
+
+[node name="BlockSturdy11" parent="Blocks" instance=ExtResource("3_wlf78")]
+position = Vector2(-81, 11)
+
+[node name="BlockSturdy12" parent="Blocks" instance=ExtResource("3_wlf78")]
+position = Vector2(-63, 3)
+
+[node name="BlockSturdy13" parent="Blocks" instance=ExtResource("3_wlf78")]
+position = Vector2(-45, -5)
+
+[node name="BlockSturdy14" parent="Blocks" instance=ExtResource("3_wlf78")]
+position = Vector2(-27, -13)
+
+[node name="BlockSturdy15" parent="Blocks" instance=ExtResource("3_wlf78")]
+position = Vector2(-9, -13)
+
+[node name="BlockSturdy16" parent="Blocks" instance=ExtResource("3_wlf78")]
+position = Vector2(9, -13)
+
+[node name="BlockSturdy17" parent="Blocks" instance=ExtResource("3_wlf78")]
+position = Vector2(27, -13)
+
+[node name="BlockSturdy18" parent="Blocks" instance=ExtResource("3_wlf78")]
+position = Vector2(45, -5)
+
 [node name="BlockSturdy19" parent="Blocks" instance=ExtResource("3_wlf78")]
-position = Vector2(-44, -45)
+position = Vector2(63, 3)
 
 [node name="BlockSturdy20" parent="Blocks" instance=ExtResource("3_wlf78")]
-position = Vector2(-62, -45)
+position = Vector2(81, 11)
 
 [node name="Props" type="Node2D" parent="."]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bu5ya82taokd3"]
+[gd_scene load_steps=16 format=3 uid="uid://bu5ya82taokd3"]
 
 [ext_resource type="Texture2D" uid="uid://clfnabf8ysvwd" path="res://assets/sprites/tilesets/map_tiles_bricked.png" id="1_5c5mi"]
 [ext_resource type="Texture2D" uid="uid://uadotagtweom" path="res://assets/sprites/tilesets/map_details_bricked.png" id="2_g58qi"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://dlrofqirtncwr" path="res://prefabs/blocks/barrier_basic.tscn" id="6_wa5h7"]
 [ext_resource type="PackedScene" uid="uid://bg5r3twijp0e" path="res://prefabs/blocks/barrier_sturdy.tscn" id="7_ckx3k"]
 [ext_resource type="PackedScene" uid="uid://clchdmucxr4xn" path="res://prefabs/blocks/block_sturdy.tscn" id="8_0gt82"]
-[ext_resource type="PackedScene" uid="uid://b2bctq01a4fwu" path="res://prefabs/pickups/pickup_paddle_sticky.tscn" id="18_4ydtb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y748h"]
 texture = ExtResource("1_5c5mi")
@@ -388,6 +387,4 @@ position = Vector2(-66, -20)
 
 [node name="LevelExit" parent="." instance=ExtResource("3_cc6sw")]
 position = Vector2(0, -63)
-
-[node name="PickupPaddleSticky" parent="." instance=ExtResource("18_4ydtb")]
-position = Vector2(-17, 22)
+_variant = 2

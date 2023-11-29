@@ -405,248 +405,247 @@ shape = SubResource("WorldBoundaryShape2D_7jrrh")
 [node name="Blocks" type="Node2D" parent="."]
 
 [node name="BlockBasic" parent="Blocks" instance=ExtResource("2_y1kij")]
-position = Vector2(-32, -47)
+position = Vector2(-80, -53)
 
 [node name="BlockBasic2" parent="Blocks" instance=ExtResource("2_y1kij")]
-position = Vector2(-77, 33)
+position = Vector2(-80, -41)
 
 [node name="BlockBasic3" parent="Blocks" instance=ExtResource("2_y1kij")]
-position = Vector2(-16, -53)
-
-[node name="BlockBasic4" parent="Blocks" instance=ExtResource("2_y1kij")]
-position = Vector2(-61, 21)
-
-[node name="BlockBasic8" parent="Blocks" instance=ExtResource("2_y1kij")]
-position = Vector2(-61, 43)
-
-[node name="BlockBasic28" parent="Blocks" instance=ExtResource("2_y1kij")]
-position = Vector2(-77, 55)
-
-[node name="BlockBasic67" parent="Blocks" instance=ExtResource("2_y1kij")]
-position = Vector2(-61, 55)
-
-[node name="BlockBasic9" parent="Blocks" instance=ExtResource("2_y1kij")]
-position = Vector2(28, -50)
-
-[node name="BlockBasic10" parent="Blocks" instance=ExtResource("2_y1kij")]
-position = Vector2(-16, 52)
-
-[node name="BlockBasic11" parent="Blocks" instance=ExtResource("2_y1kij")]
-position = Vector2(76, -38)
-
-[node name="BlockBasic12" parent="Blocks" instance=ExtResource("2_y1kij")]
-position = Vector2(-48, -41)
-
-[node name="BlockBasic5" parent="Blocks" instance=ExtResource("2_y1kij")]
 position = Vector2(-80, -29)
 
-[node name="BlockBasic15" parent="Blocks" instance=ExtResource("2_y1kij")]
-position = Vector2(-48, -29)
+[node name="BlockBasic4" parent="Blocks" instance=ExtResource("2_y1kij")]
+position = Vector2(-64, -47)
+
+[node name="BlockBasic5" parent="Blocks" instance=ExtResource("2_y1kij")]
+position = Vector2(-64, -35)
 
 [node name="BlockBasic6" parent="Blocks" instance=ExtResource("2_y1kij")]
-position = Vector2(76, -44)
+position = Vector2(-64, -23)
 
-[node name="BlockBasic19" parent="Blocks" instance=ExtResource("2_y1kij")]
-position = Vector2(44, -50)
-
-[node name="BlockBasic36" parent="Blocks" instance=ExtResource("2_y1kij")]
+[node name="BlockBasic7" parent="Blocks" instance=ExtResource("2_y1kij")]
 position = Vector2(-48, -53)
 
+[node name="BlockBasic8" parent="Blocks" instance=ExtResource("2_y1kij")]
+position = Vector2(-48, -41)
+
+[node name="BlockBasic9" parent="Blocks" instance=ExtResource("2_y1kij")]
+position = Vector2(-48, -29)
+
+[node name="BlockBasic10" parent="Blocks" instance=ExtResource("2_y1kij")]
+position = Vector2(-32, -47)
+
+[node name="BlockBasic11" parent="Blocks" instance=ExtResource("2_y1kij")]
+position = Vector2(-32, -35)
+
+[node name="BlockBasic12" parent="Blocks" instance=ExtResource("2_y1kij")]
+position = Vector2(-32, -23)
+
 [node name="BlockBasic13" parent="Blocks" instance=ExtResource("2_y1kij")]
-position = Vector2(-32, 70)
+position = Vector2(-16, -53)
 
 [node name="BlockBasic14" parent="Blocks" instance=ExtResource("2_y1kij")]
-position = Vector2(0, 70)
+position = Vector2(-16, -41)
+
+[node name="BlockBasic15" parent="Blocks" instance=ExtResource("2_y1kij")]
+position = Vector2(-16, -29)
 
 [node name="BlockBasic16" parent="Blocks" instance=ExtResource("2_y1kij")]
-position = Vector2(28, -32)
-
-[node name="BlockBasic26" parent="Blocks" instance=ExtResource("2_y1kij")]
-position = Vector2(28, -20)
-
-[node name="BlockBasic27" parent="Blocks" instance=ExtResource("2_y1kij")]
-position = Vector2(76, -50)
-
-[node name="BlockBasic35" parent="Blocks" instance=ExtResource("2_y1kij")]
 position = Vector2(28, -56)
 
 [node name="BlockBasic17" parent="Blocks" instance=ExtResource("2_y1kij")]
-position = Vector2(32, 58)
+position = Vector2(28, -50)
 
 [node name="BlockBasic18" parent="Blocks" instance=ExtResource("2_y1kij")]
-position = Vector2(-32, -35)
+position = Vector2(28, -44)
+
+[node name="BlockBasic19" parent="Blocks" instance=ExtResource("2_y1kij")]
+position = Vector2(28, -38)
 
 [node name="BlockBasic20" parent="Blocks" instance=ExtResource("2_y1kij")]
-position = Vector2(16, 76)
+position = Vector2(28, -32)
 
 [node name="BlockBasic21" parent="Blocks" instance=ExtResource("2_y1kij")]
-position = Vector2(-64, -23)
-
-[node name="BlockBasic22" parent="Blocks" instance=ExtResource("2_y1kij")]
 position = Vector2(28, -26)
 
+[node name="BlockBasic22" parent="Blocks" instance=ExtResource("2_y1kij")]
+position = Vector2(28, -20)
+
 [node name="BlockBasic23" parent="Blocks" instance=ExtResource("2_y1kij")]
-position = Vector2(-64, -35)
+position = Vector2(44, -50)
 
 [node name="BlockBasic24" parent="Blocks" instance=ExtResource("2_y1kij")]
-position = Vector2(16, 27)
-
-[node name="BlockBasic25" parent="Blocks" instance=ExtResource("2_y1kij")]
-position = Vector2(0, 46)
-
-[node name="BlockBasic29" parent="Blocks" instance=ExtResource("2_y1kij")]
-position = Vector2(-69, 61)
-
-[node name="BlockBasic30" parent="Blocks" instance=ExtResource("2_y1kij")]
-position = Vector2(64, 61)
-
-[node name="BlockBasic31" parent="Blocks" instance=ExtResource("2_y1kij")]
-position = Vector2(80, 55)
-
-[node name="BlockBasic34" parent="Blocks" instance=ExtResource("2_y1kij")]
-position = Vector2(80, 61)
-
-[node name="BlockBasic60" parent="Blocks" instance=ExtResource("2_y1kij")]
-position = Vector2(64, 67)
-
-[node name="BlockBasic63" parent="Blocks" instance=ExtResource("2_y1kij")]
-position = Vector2(-32, 27)
-
-[node name="BlockBasic65" parent="Blocks" instance=ExtResource("2_y1kij")]
-position = Vector2(64, 55)
-
-[node name="BlockBasic66" parent="Blocks" instance=ExtResource("2_y1kij")]
-position = Vector2(80, 67)
-
-[node name="BlockBasic32" parent="Blocks" instance=ExtResource("2_y1kij")]
-position = Vector2(32, 70)
-
-[node name="BlockBasic33" parent="Blocks" instance=ExtResource("2_y1kij")]
-position = Vector2(-16, 76)
-
-[node name="BlockBasic37" parent="Blocks" instance=ExtResource("2_y1kij")]
-position = Vector2(-80, -41)
-
-[node name="BlockBasic38" parent="Blocks" instance=ExtResource("2_y1kij")]
-position = Vector2(-16, -29)
-
-[node name="BlockBasic39" parent="Blocks" instance=ExtResource("2_y1kij")]
-position = Vector2(-32, -23)
-
-[node name="BlockBasic40" parent="Blocks" instance=ExtResource("2_y1kij")]
-position = Vector2(-80, -53)
-
-[node name="BlockBasic41" parent="Blocks" instance=ExtResource("2_y1kij")]
-position = Vector2(32, 27)
-
-[node name="BlockBasic42" parent="Blocks" instance=ExtResource("2_y1kij")]
-position = Vector2(0, 27)
-
-[node name="BlockBasic43" parent="Blocks" instance=ExtResource("2_y1kij")]
-position = Vector2(-61, 33)
-
-[node name="BlockBasic44" parent="Blocks" instance=ExtResource("2_y1kij")]
-position = Vector2(-16, 64)
-
-[node name="BlockBasic45" parent="Blocks" instance=ExtResource("2_y1kij")]
-position = Vector2(-16, -41)
-
-[node name="BlockBasic46" parent="Blocks" instance=ExtResource("2_y1kij")]
-position = Vector2(76, -32)
-
-[node name="BlockBasic47" parent="Blocks" instance=ExtResource("2_y1kij")]
 position = Vector2(60, -50)
 
+[node name="BlockBasic25" parent="Blocks" instance=ExtResource("2_y1kij")]
+position = Vector2(44, -20)
+
+[node name="BlockBasic26" parent="Blocks" instance=ExtResource("2_y1kij")]
+position = Vector2(60, -20)
+
+[node name="BlockBasic27" parent="Blocks" instance=ExtResource("2_y1kij")]
+position = Vector2(76, -56)
+
+[node name="BlockBasic28" parent="Blocks" instance=ExtResource("2_y1kij")]
+position = Vector2(76, -50)
+
+[node name="BlockBasic29" parent="Blocks" instance=ExtResource("2_y1kij")]
+position = Vector2(76, -44)
+
+[node name="BlockBasic30" parent="Blocks" instance=ExtResource("2_y1kij")]
+position = Vector2(76, -38)
+
+[node name="BlockBasic31" parent="Blocks" instance=ExtResource("2_y1kij")]
+position = Vector2(76, -32)
+
+[node name="BlockBasic32" parent="Blocks" instance=ExtResource("2_y1kij")]
+position = Vector2(76, -26)
+
+[node name="BlockBasic33" parent="Blocks" instance=ExtResource("2_y1kij")]
+position = Vector2(76, -20)
+
+[node name="BlockBasic34" parent="Blocks" instance=ExtResource("2_y1kij")]
+position = Vector2(-77, 21)
+
+[node name="BlockBasic35" parent="Blocks" instance=ExtResource("2_y1kij")]
+position = Vector2(-61, 21)
+
+[node name="BlockBasic36" parent="Blocks" instance=ExtResource("2_y1kij")]
+position = Vector2(-77, 33)
+
+[node name="BlockBasic37" parent="Blocks" instance=ExtResource("2_y1kij")]
+position = Vector2(-61, 33)
+
+[node name="BlockBasic38" parent="Blocks" instance=ExtResource("2_y1kij")]
+position = Vector2(-77, 43)
+
+[node name="BlockBasic39" parent="Blocks" instance=ExtResource("2_y1kij")]
+position = Vector2(-61, 43)
+
+[node name="BlockBasic40" parent="Blocks" instance=ExtResource("2_y1kij")]
+position = Vector2(-77, 55)
+
+[node name="BlockBasic41" parent="Blocks" instance=ExtResource("2_y1kij")]
+position = Vector2(-61, 55)
+
+[node name="BlockBasic42" parent="Blocks" instance=ExtResource("2_y1kij")]
+position = Vector2(-69, 61)
+
+[node name="BlockBasic43" parent="Blocks" instance=ExtResource("2_y1kij")]
+position = Vector2(-32, 27)
+
+[node name="BlockBasic44" parent="Blocks" instance=ExtResource("2_y1kij")]
+position = Vector2(-16, 27)
+
+[node name="BlockBasic45" parent="Blocks" instance=ExtResource("2_y1kij")]
+position = Vector2(0, 27)
+
+[node name="BlockBasic46" parent="Blocks" instance=ExtResource("2_y1kij")]
+position = Vector2(16, 27)
+
+[node name="BlockBasic47" parent="Blocks" instance=ExtResource("2_y1kij")]
+position = Vector2(32, 27)
+
+[node name="BlockBasic48" parent="Blocks" instance=ExtResource("2_y1kij")]
+position = Vector2(64, 55)
+
+[node name="BlockBasic49" parent="Blocks" instance=ExtResource("2_y1kij")]
+position = Vector2(64, 61)
+
+[node name="BlockBasic50" parent="Blocks" instance=ExtResource("2_y1kij")]
+position = Vector2(64, 67)
+
+[node name="BlockBasic51" parent="Blocks" instance=ExtResource("2_y1kij")]
+position = Vector2(80, 55)
+
+[node name="BlockBasic52" parent="Blocks" instance=ExtResource("2_y1kij")]
+position = Vector2(80, 61)
+
+[node name="BlockBasic53" parent="Blocks" instance=ExtResource("2_y1kij")]
+position = Vector2(80, 67)
+
+[node name="BlockBasic54" parent="Blocks" instance=ExtResource("2_y1kij")]
+position = Vector2(-32, 58)
+
+[node name="BlockBasic55" parent="Blocks" instance=ExtResource("2_y1kij")]
+position = Vector2(-16, 52)
+
+[node name="BlockBasic56" parent="Blocks" instance=ExtResource("2_y1kij")]
+position = Vector2(0, 46)
+
+[node name="BlockBasic57" parent="Blocks" instance=ExtResource("2_y1kij")]
+position = Vector2(16, 52)
+
+[node name="BlockBasic58" parent="Blocks" instance=ExtResource("2_y1kij")]
+position = Vector2(32, 58)
+
+[node name="BlockBasic59" parent="Blocks" instance=ExtResource("2_y1kij")]
+position = Vector2(0, 58)
+
+[node name="BlockBasic60" parent="Blocks" instance=ExtResource("2_y1kij")]
+position = Vector2(-16, 64)
+
+[node name="BlockBasic61" parent="Blocks" instance=ExtResource("2_y1kij")]
+position = Vector2(16, 64)
+
+[node name="BlockBasic62" parent="Blocks" instance=ExtResource("2_y1kij")]
+position = Vector2(-32, 70)
+
+[node name="BlockBasic63" parent="Blocks" instance=ExtResource("2_y1kij")]
+position = Vector2(0, 70)
+
+[node name="BlockBasic64" parent="Blocks" instance=ExtResource("2_y1kij")]
+position = Vector2(32, 70)
+
+[node name="BlockBasic65" parent="Blocks" instance=ExtResource("2_y1kij")]
+position = Vector2(-16, 76)
+
+[node name="BlockBasic66" parent="Blocks" instance=ExtResource("2_y1kij")]
+position = Vector2(16, 76)
+
+[node name="BlockBasic67" parent="Blocks" instance=ExtResource("2_y1kij")]
+position = Vector2(0, 82)
+
 [node name="BlockSturdy" parent="Blocks" instance=ExtResource("3_u82lu")]
-position = Vector2(-61, 49)
+position = Vector2(-16, 58)
 
 [node name="BlockSturdy2" parent="Blocks" instance=ExtResource("3_u82lu")]
 position = Vector2(-16, 70)
 
-[node name="BlockSturdy3" parent="Blocks" node_paths=PackedStringArray("_timer") instance=ExtResource("3_u82lu")]
-position = Vector2(-16, 58)
-_timer = NodePath("../BlockSturdy2/Timer")
+[node name="BlockSturdy3" parent="Blocks" instance=ExtResource("3_u82lu")]
+position = Vector2(0, 52)
+
+[node name="BlockSturdy4" parent="Blocks" instance=ExtResource("3_u82lu")]
+position = Vector2(0, 64)
+
+[node name="BlockSturdy5" parent="Blocks" instance=ExtResource("3_u82lu")]
+position = Vector2(0, 76)
 
 [node name="BlockSturdy6" parent="Blocks" instance=ExtResource("3_u82lu")]
-position = Vector2(44, -44)
-
-[node name="BlockSturdy8" parent="Blocks" instance=ExtResource("3_u82lu")]
-position = Vector2(60, -44)
-
-[node name="BlockBasic48" parent="Blocks" instance=ExtResource("2_y1kij")]
-position = Vector2(-77, 43)
-
-[node name="BlockBasic49" parent="Blocks" instance=ExtResource("2_y1kij")]
-position = Vector2(0, 58)
-
-[node name="BlockBasic7" parent="Blocks" instance=ExtResource("2_y1kij")]
-position = Vector2(76, -26)
-
-[node name="BlockBasic50" parent="Blocks" instance=ExtResource("2_y1kij")]
-position = Vector2(0, 82)
-
-[node name="BlockBasic51" parent="Blocks" instance=ExtResource("2_y1kij")]
-position = Vector2(-64, -47)
-
-[node name="BlockBasic52" parent="Blocks" instance=ExtResource("2_y1kij")]
-position = Vector2(28, -44)
-
-[node name="BlockBasic59" parent="Blocks" instance=ExtResource("2_y1kij")]
-position = Vector2(16, 64)
-
-[node name="BlockBasic61" parent="Blocks" instance=ExtResource("2_y1kij")]
-position = Vector2(16, 52)
-
-[node name="BlockBasic62" parent="Blocks" instance=ExtResource("2_y1kij")]
-position = Vector2(-16, 27)
-
-[node name="BlockBasic64" parent="Blocks" instance=ExtResource("2_y1kij")]
-position = Vector2(-77, 21)
-
-[node name="BlockBasic53" parent="Blocks" instance=ExtResource("2_y1kij")]
-position = Vector2(76, -56)
-
-[node name="BlockBasic54" parent="Blocks" instance=ExtResource("2_y1kij")]
-position = Vector2(60, -20)
-
-[node name="BlockBasic55" parent="Blocks" instance=ExtResource("2_y1kij")]
-position = Vector2(76, -20)
-
-[node name="BlockBasic56" parent="Blocks" instance=ExtResource("2_y1kij")]
-position = Vector2(-32, 58)
-
-[node name="BlockBasic57" parent="Blocks" instance=ExtResource("2_y1kij")]
-position = Vector2(28, -38)
-
-[node name="BlockBasic58" parent="Blocks" instance=ExtResource("2_y1kij")]
-position = Vector2(44, -20)
-
-[node name="BlockSturdy9" parent="Blocks" instance=ExtResource("3_u82lu")]
-position = Vector2(60, -26)
-
-[node name="BlockSturdy13" parent="Blocks" instance=ExtResource("3_u82lu")]
-position = Vector2(44, -26)
-
-[node name="BlockSturdy10" parent="Blocks" instance=ExtResource("3_u82lu")]
 position = Vector2(16, 58)
 
 [node name="BlockSturdy7" parent="Blocks" instance=ExtResource("3_u82lu")]
 position = Vector2(16, 70)
 
-[node name="BlockSturdy12" parent="Blocks" instance=ExtResource("3_u82lu")]
+[node name="BlockSturdy8" parent="Blocks" instance=ExtResource("3_u82lu")]
 position = Vector2(-69, 27)
 
-[node name="BlockSturdy15" parent="Blocks" instance=ExtResource("3_u82lu")]
-position = Vector2(0, 64)
+[node name="BlockSturdy9" parent="Blocks" instance=ExtResource("3_u82lu")]
+position = Vector2(-77, 49)
 
-[node name="BlockSturdy14" parent="Blocks" instance=ExtResource("3_u82lu")]
-position = Vector2(0, 76)
-
-[node name="BlockSturdy16" parent="Blocks" instance=ExtResource("3_u82lu")]
-position = Vector2(0, 52)
+[node name="BlockSturdy10" parent="Blocks" instance=ExtResource("3_u82lu")]
+position = Vector2(-61, 49)
 
 [node name="BlockSturdy11" parent="Blocks" instance=ExtResource("3_u82lu")]
-position = Vector2(-77, 49)
+position = Vector2(44, -44)
+
+[node name="BlockSturdy12" parent="Blocks" instance=ExtResource("3_u82lu")]
+position = Vector2(60, -44)
+
+[node name="BlockSturdy13" parent="Blocks" instance=ExtResource("3_u82lu")]
+position = Vector2(44, -26)
+
+[node name="BlockSturdy14" parent="Blocks" instance=ExtResource("3_u82lu")]
+position = Vector2(60, -26)
 
 [node name="OtherBreakables" type="Node2D" parent="."]
 
@@ -654,10 +653,10 @@ position = Vector2(-77, 49)
 position = Vector2(-31, 65)
 
 [node name="Coffin2" parent="OtherBreakables" instance=ExtResource("6_a385b")]
-position = Vector2(53, -31)
+position = Vector2(32, 65)
 
 [node name="Coffin3" parent="OtherBreakables" instance=ExtResource("6_a385b")]
-position = Vector2(32, 65)
+position = Vector2(53, -31)
 
 [node name="Interactables" type="Node2D" parent="."]
 
