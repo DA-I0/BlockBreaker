@@ -1,6 +1,6 @@
 using Godot;
 
-public enum GameState { gameplay, menu, pause, gameOver }
+public enum GameState { gameplay, menu, pause, gameOver, gameWin }
 
 public partial class SessionController : Node
 {
@@ -74,6 +74,7 @@ public partial class SessionController : Node
 
 		levelManager.ResetSession += ResetSession;
 		levelManager.SceneChanged += SetupGameElements;
+		health.GameOver += GameOver;
 	}
 
 	private void SetupInitialValues()
@@ -118,7 +119,7 @@ public partial class SessionController : Node
 		else
 		{
 			_currentLevel = -1;
-			ChangeGameState(GameState.gameOver);
+			ChangeGameState(GameState.gameWin);
 		}
 	}
 
@@ -194,5 +195,10 @@ public partial class SessionController : Node
 	{
 		audioController.PlayAudio(4);
 		SkillReady?.Invoke();
+	}
+
+	private void GameOver()
+	{
+		ChangeGameState(GameState.gameOver);
 	}
 }

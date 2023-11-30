@@ -27,16 +27,12 @@ public partial class UIGameOver : Control
 
 	private void DisplayVictoryPrompt()
 	{
-		if (refs.CurrentGameState == GameState.gameOver)
-		{
-			_header.Text = $"[b][u]{Tr("GAME_WIN")}[/u][/b]";
-			SetupScoreValues();
-		}
+		_header.Text = $"[b][u]{Tr("GAME_WIN")}[/u][/b]";
+		SetupScoreValues();
 	}
 
 	private void DisplayGameOverPrompt()
 	{
-		refs.ChangeGameState(GameState.gameOver);
 		_header.Text = $"[b][u]{Tr("GAME_OVER")}[/u][/b]";
 		SetupScoreValues();
 	}
@@ -52,7 +48,7 @@ public partial class UIGameOver : Control
 
 	private void TogglePrompt()
 	{
-		Visible = (refs.CurrentGameState == GameState.gameOver);
+		Visible = (refs.CurrentGameState == GameState.gameOver || refs.CurrentGameState == GameState.gameWin);
 	}
 
 	private void SubmitScore()

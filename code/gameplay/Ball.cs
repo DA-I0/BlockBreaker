@@ -312,7 +312,6 @@ public partial class Ball : CharacterBody2D
 			if (!levelChange)
 			{
 				refs.health.ChangeLives(-1);
-				// Reset();
 			}
 			else
 			{
@@ -330,6 +329,7 @@ public partial class Ball : CharacterBody2D
 	{
 		refs.levelManager.ResetSession -= Destroy;
 		refs.levelManager.SceneChanged -= SceneChangeCleanup;
+		refs.health.ResetElements -= Reset;
 		QueueFree();
 	}
 }
