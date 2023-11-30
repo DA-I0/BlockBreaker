@@ -83,7 +83,7 @@ public partial class Breakable : StaticBody2D
 
 	private void SpawnPickup()
 	{
-		if (_pickups.Length < 1)
+		if (_pickups == null)
 		{
 			return;
 		}
