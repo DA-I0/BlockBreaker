@@ -405,7 +405,6 @@ position = Vector2(-40, 62)
 position = Vector2(0, -34)
 
 [node name="OtherBreakables" type="Node2D" parent="."]
-modulate = Color(1, 1, 1, 0.415686)
 
 [node name="Coffin" parent="OtherBreakables" instance=ExtResource("5_ca6f6")]
 position = Vector2(-15, 6)
