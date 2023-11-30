@@ -5,6 +5,7 @@ public partial class UIGameOver : Control
 	[Export] private RichTextLabel _header;
 	[Export] private Label _score;
 	[Export] private LineEdit _name;
+	[Export] protected Control _focusTarget;
 
 	private bool canAddToLeaderboard = false;
 
@@ -21,19 +22,34 @@ public partial class UIGameOver : Control
 		refs = GetNode("/root/GameController") as SessionController;
 		refs.GameSetup += TogglePrompt;
 		refs.levelManager.ResetSession += TogglePrompt;
-		refs.GameStateChanged += DisplayVictoryPrompt;
-		refs.health.GameOver += DisplayGameOverPrompt;
+		refs.GameStateChanged += Display;
 	}
 
-	private void DisplayVictoryPrompt()
+	private void Focus()
 	{
-		_header.Text = $"[b][u]{Tr("GAME_WIN")}[/u][/b]";
-		SetupScoreValues();
+		if (Visible)
+		{
+			if (canAddToLeaderboard)
+			{
+				_name.GrabFocus();
+			}
+			else
+			{
+				_focusTarget.GrabFocus();
+			}
+		}
 	}
 
-	private void DisplayGameOverPrompt()
+	private void Display()
 	{
-		_header.Text = $"[b][u]{Tr("GAME_OVER")}[/u][/b]";
+		if (refs.CurrentGameState == GameState.gameOver)
+		{
+			_header.Text = $"[b][u]{Tr("GAME_OVER")}[/u][/b]";
+		}
+		else
+		{
+			_header.Text = $"[b][u]{Tr("GAME_WIN")}[/u][/b]";
+		}
 		SetupScoreValues();
 	}
 
@@ -49,6 +65,7 @@ public partial class UIGameOver : Control
 	private void TogglePrompt()
 	{
 		Visible = (refs.CurrentGameState == GameState.gameOver || refs.CurrentGameState == GameState.gameWin);
+		Focus();
 	}
 
 	private void SubmitScore()
