@@ -44,6 +44,6 @@ public partial class UIFirstLanguageSelection : Control
 	{
 		refs.settings.Language = TranslationServer.GetLoadedLocales()[index];
 		refs.settings.SaveSettings();
-		(GetParent() as Control).Visible = false;//QueueFree();
+		(GetParent() as Control).Visible = false;
 	}
 }

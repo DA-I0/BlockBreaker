@@ -307,5 +307,6 @@ public class Settings
 		AudioServer.SetBusVolumeDb(AudioServer.GetBusIndex("Effects"), EffectsVolume);
 
 		ApplyKeybindings();
+		firstLaunch = false;
 	}
 }
