@@ -36,7 +36,6 @@ position = Vector2(-4, -13)
 texture = ExtResource("1_wcuif")
 centered = false
 hframes = 6
-frame = 5
 
 [node name="Animator" type="AnimationPlayer" parent="."]
 autoplay = "idle"
