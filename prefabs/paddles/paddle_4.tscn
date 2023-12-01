@@ -574,13 +574,14 @@ safe_margin = 0.1
 script = ExtResource("1_xi3cw")
 _minTimeScale = 0.02
 _slowdown = 0.025
+_positionY = 100
 _sprites = Array[Texture2D]([ExtResource("2_vuuw1"), ExtResource("3_us10y"), ExtResource("4_rd27f")])
 
 [node name="TopCollider" type="CollisionPolygon2D" parent="."]
 position = Vector2(-2, -0.28125)
 scale = Vector2(0.3125, 1.0625)
 build_mode = 1
-polygon = PackedVector2Array(-51.2, -1.61765, 64, -1.61765, 64, 0.264706, -51.2, 0.264706)
+polygon = PackedVector2Array(-19.2, -1.61765, 32, -1.61765, 32, 0.264706, -19.2, 0.264706)
 one_way_collision = true
 one_way_collision_margin = 5.0
 
@@ -589,7 +590,7 @@ position = Vector2(-2, -0.28125)
 rotation = 3.14159
 scale = Vector2(0.3125, 1.0625)
 build_mode = 1
-polygon = PackedVector2Array(-64, -3.08828, 51.2, -3.0882, 51.2, -0.264707, -64, -0.264704)
+polygon = PackedVector2Array(-32, -3.08826, 19.2, -3.08822, 19.2, -0.264706, -32, -0.264705)
 one_way_collision = true
 one_way_collision_margin = 5.0
 
@@ -601,7 +602,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -8.0
 offset_top = -2.0
-offset_right = 28.0
+offset_right = 8.0
 offset_bottom = 3.0
 grow_horizontal = 2
 grow_vertical = 2
