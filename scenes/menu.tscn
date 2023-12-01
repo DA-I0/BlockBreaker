@@ -231,6 +231,7 @@ offset_bottom = -6.0
 grow_vertical = 0
 shortcut_context = NodePath("..")
 shortcut = ExtResource("17_c27yp")
+shortcut_in_tooltip = false
 text = "BUTTON_RETURN"
 
 [node name="PaddlePanel" type="Panel" parent="Control" node_paths=PackedStringArray("_paddleSprite", "_paddleName", "_paddleDescription", "_focusTarget")]
@@ -272,6 +273,7 @@ pivot_offset = Vector2(0, 50)
 focus_mode = 0
 shortcut_context = NodePath("..")
 shortcut = ExtResource("6_dwepl")
+shortcut_in_tooltip = false
 texture_normal = ExtResource("7_jq31p")
 texture_pressed = ExtResource("8_j01t3")
 texture_hover = ExtResource("9_2ddjg")
@@ -291,6 +293,7 @@ pivot_offset = Vector2(100, 50)
 focus_mode = 0
 shortcut_context = NodePath("..")
 shortcut = ExtResource("11_tce16")
+shortcut_in_tooltip = false
 texture_normal = ExtResource("11_27sep")
 texture_pressed = ExtResource("12_ovde2")
 texture_hover = ExtResource("13_5d0sh")
@@ -347,6 +350,7 @@ grow_horizontal = 2
 grow_vertical = 0
 shortcut_context = NodePath("..")
 shortcut = ExtResource("16_dq4b3")
+shortcut_in_tooltip = false
 text = "BUTTON_CONFIRM"
 
 [node name="Return" type="Button" parent="Control/PaddlePanel" node_paths=PackedStringArray("shortcut_context")]
@@ -360,6 +364,7 @@ grow_vertical = 0
 focus_mode = 0
 shortcut_context = NodePath("..")
 shortcut = ExtResource("17_c27yp")
+shortcut_in_tooltip = false
 text = "BUTTON_RETURN"
 
 [node name="DifficultyPanel" type="Panel" parent="Control" node_paths=PackedStringArray("_name", "_newName", "_livesMax", "_livesMaxSlider", "_livesStart", "_livesStartSlider", "_ballSpeed", "_ballSpeedSlider", "_ballAngleSpeed", "_ballAngleSlider", "_paddleSizeMax", "_paddleSizeMaxSlider", "_paddleSizeStart", "_paddleSizeStartSlider", "_paddleSizeMin", "_paddleSizeMinSlider", "_nameEditControls", "_deleteDifficulty", "_editDifficulty", "_addDifficulty", "_cancelEdit", "_focusTarget")]
@@ -419,6 +424,7 @@ pivot_offset = Vector2(0, 50)
 focus_mode = 0
 shortcut_context = NodePath("..")
 shortcut = ExtResource("6_dwepl")
+shortcut_in_tooltip = false
 texture_normal = ExtResource("7_jq31p")
 texture_pressed = ExtResource("8_j01t3")
 texture_hover = ExtResource("9_2ddjg")
@@ -438,6 +444,7 @@ pivot_offset = Vector2(100, 50)
 focus_mode = 0
 shortcut_context = NodePath("..")
 shortcut = ExtResource("11_tce16")
+shortcut_in_tooltip = false
 texture_normal = ExtResource("11_27sep")
 texture_pressed = ExtResource("12_ovde2")
 texture_hover = ExtResource("13_5d0sh")
@@ -625,12 +632,14 @@ alignment = 1
 layout_mode = 2
 shortcut_context = NodePath("../..")
 shortcut = ExtResource("16_dq4b3")
+shortcut_in_tooltip = false
 text = "BUTTON_CONFIRM"
 
 [node name="CancelEditor" type="Button" parent="Control/DifficultyPanel/ConfirmationButtons" node_paths=PackedStringArray("shortcut_context")]
 layout_mode = 2
 shortcut_context = NodePath("../..")
 shortcut = ExtResource("17_c27yp")
+shortcut_in_tooltip = false
 text = "BUTTON_CANCEL"
 
 [node name="CustomDifficultyButtons" type="HBoxContainer" parent="Control/DifficultyPanel"]
@@ -681,6 +690,7 @@ grow_vertical = 0
 focus_mode = 0
 shortcut_context = NodePath("..")
 shortcut = ExtResource("17_c27yp")
+shortcut_in_tooltip = false
 text = "BUTTON_RETURN"
 
 [node name="LevelPanel" type="Panel" parent="Control"]
@@ -732,6 +742,7 @@ grow_vertical = 0
 focus_mode = 0
 shortcut_context = NodePath("..")
 shortcut = ExtResource("17_c27yp")
+shortcut_in_tooltip = false
 text = "BUTTON_RETURN"
 
 [node name="InfoPanel" type="Panel" parent="Control" node_paths=PackedStringArray("_focusTarget")]
@@ -892,6 +903,7 @@ offset_bottom = -6.0
 grow_vertical = 0
 shortcut_context = NodePath("..")
 shortcut = ExtResource("17_c27yp")
+shortcut_in_tooltip = false
 text = "BUTTON_RETURN"
 
 [node name="PatchNotesPanel" type="Panel" parent="Control" node_paths=PackedStringArray("_content", "_focusTarget")]
@@ -955,6 +967,7 @@ offset_bottom = -6.0
 grow_vertical = 0
 shortcut_context = NodePath("..")
 shortcut = ExtResource("17_c27yp")
+shortcut_in_tooltip = false
 text = "BUTTON_RETURN"
 
 [node name="OptionsPanel" type="Panel" parent="Control" node_paths=PackedStringArray("_header", "_language", "_controllerType", "_controlDevices", "_fullscreen", "_resolution", "_screenShake", "_backgroundBrightness", "_pickupOrder", "_helperTransparency", "_masterVolume", "_musicVolume", "_effectsVolume", "_keybindChangePanel", "_mouseSpeed", "_keyboardSpeed", "_joypadSpeed", "_activeJoypad", "_vibrations", "_focusTarget")]
@@ -1666,6 +1679,7 @@ text = "BUTTON_CONTROLS"
 layout_mode = 2
 shortcut_context = NodePath("../..")
 shortcut = ExtResource("17_c27yp")
+shortcut_in_tooltip = false
 text = "BUTTON_RETURN"
 
 [node name="LangSelection" parent="." instance=ExtResource("2_8j3rs")]
