@@ -9,6 +9,7 @@ Prototype 3:
 			☐ Ball angle selection in flight?
 			☐ Power ball
 			☐ Temporary safety net?
+		☐ Update "shake" skill (add debrie falling from the celling that can damage breakables when hit)
 		☐ New functionality for dynamic elements
 			☐ Add repeating timed toggle for teleport door?
 			☐ Add on-map buttons that toggle connected element when hit with the ball?
@@ -20,6 +21,9 @@ Prototype 3:
 		☐ New interactive elements
 			☐ River (slightly changes ball direction)
 		☐ Replace music randomization with shuffle
+		☐ Dynamic translation loading
+		☐ Add active input type (auto, just mouse, just keyboard, just gamepad)
+		☐ Add active controller (all, <list of connected devices>)
 	Map elements:
 		☐ Stairs + railing
 			☐ Ball can move over stairs
@@ -27,7 +31,7 @@ Prototype 3:
 			☐ Ball can't move up through wall at the bottom of the stairs or railing
 		☐ Cracked walls (can be destroyed with TNT)
 		☐ More map decorations (up the visual variety)
-			☐ ?
+			☐ Fountain
 		☐ New tileset
 			☐ Floor tiles
 				☐ ?
@@ -43,8 +47,12 @@ Prototype 3:
 	UI:
 		☐ Splash screen on map load (display map name/number)
 		☐ Improve main menu layout and theming
+		☐ Add access to options and info panels in-game
+		☐ Implement full keyboard/gamepad navigation
 	Other:
 		☐ Improve translations
 		☐ Make a new logo @low
 		☐ Add more music tracks
 	Issues:
+		☐ Ball sometimes slides along the paddle instead of bouncing @high
+		☐ Game launches zoomed in, only half of the window is visible on screen @SteamDeck @high
