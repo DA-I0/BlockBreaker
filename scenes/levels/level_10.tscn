@@ -373,17 +373,14 @@ position = Vector2(27, 27)
 
 [node name="Interactables" type="Node2D" parent="."]
 
-[node name="Whirlpool" parent="Interactables" node_paths=PackedStringArray("_sprites") instance=ExtResource("6_16b5f")]
+[node name="Whirlpool" parent="Interactables" instance=ExtResource("6_16b5f")]
 position = Vector2(0, -5)
-_sprites = []
 
-[node name="Whirlpool2" parent="Interactables" node_paths=PackedStringArray("_sprites") instance=ExtResource("6_16b5f")]
-position = Vector2(-20, 40)
-_sprites = []
+[node name="Whirlpool2" parent="Interactables" instance=ExtResource("6_16b5f")]
+position = Vector2(-48, 39)
 
-[node name="Whirlpool3" parent="Interactables" node_paths=PackedStringArray("_sprites") instance=ExtResource("6_16b5f")]
-position = Vector2(20, 40)
-_sprites = []
+[node name="Whirlpool3" parent="Interactables" instance=ExtResource("6_16b5f")]
+position = Vector2(48, 39)
 
 [node name="Props" type="Node2D" parent="."]
 
@@ -414,3 +411,27 @@ position = Vector2(-91, -57)
 
 [node name="LevelExit" parent="." instance=ExtResource("7_31887")]
 position = Vector2(0, -63)
+
+[node name="BlockSturdy" parent="." instance=ExtResource("3_eapoe")]
+position = Vector2(16, 39)
+
+[node name="BlockSturdy2" parent="." instance=ExtResource("3_eapoe")]
+position = Vector2(32, 39)
+
+[node name="BlockSturdy3" parent="." instance=ExtResource("3_eapoe")]
+position = Vector2(-16, 39)
+
+[node name="BlockSturdy4" parent="." instance=ExtResource("3_eapoe")]
+position = Vector2(-32, 39)
+
+[node name="BlockBasic" parent="." instance=ExtResource("2_tk1oc")]
+position = Vector2(-32, 48)
+
+[node name="BlockBasic2" parent="." instance=ExtResource("2_tk1oc")]
+position = Vector2(32, 48)
+
+[node name="BlockBasic3" parent="." instance=ExtResource("2_tk1oc")]
+position = Vector2(-32, 30)
+
+[node name="BlockBasic4" parent="." instance=ExtResource("2_tk1oc")]
+position = Vector2(32, 30)

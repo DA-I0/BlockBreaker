@@ -463,10 +463,10 @@ position = Vector2(61, -27)
 position = Vector2(61, -35)
 
 [node name="BlockBasic" parent="Blocks" instance=ExtResource("4_uiwt7")]
-position = Vector2(24, 35)
+position = Vector2(64, 37)
 
 [node name="BlockBasic2" parent="Blocks" instance=ExtResource("4_uiwt7")]
-position = Vector2(40, 35)
+position = Vector2(64, 45)
 
 [node name="BlockBasic3" parent="Blocks" instance=ExtResource("4_uiwt7")]
 position = Vector2(-40, 24)
@@ -523,7 +523,7 @@ position = Vector2(8, 3)
 position = Vector2(0, -5)
 
 [node name="BlockBasic21" parent="Blocks" instance=ExtResource("4_uiwt7")]
-position = Vector2(-40, -13)
+position = Vector2(-64, 37)
 
 [node name="BlockBasic22" parent="Blocks" instance=ExtResource("4_uiwt7")]
 position = Vector2(0, -13)
@@ -577,7 +577,7 @@ position = Vector2(0, 53)
 position = Vector2(0, 61)
 
 [node name="BlockBasic39" parent="Blocks" instance=ExtResource("4_uiwt7")]
-position = Vector2(24, 61)
+position = Vector2(64, 53)
 
 [node name="BlockBasic40" parent="Blocks" instance=ExtResource("4_uiwt7")]
 position = Vector2(32, -6)
@@ -598,16 +598,16 @@ position = Vector2(-61, -35)
 position = Vector2(-61, -27)
 
 [node name="BlockBasic44" parent="Blocks" instance=ExtResource("4_uiwt7")]
-position = Vector2(40, 61)
+position = Vector2(64, 61)
 
 [node name="BlockBasic45" parent="Blocks" instance=ExtResource("4_uiwt7")]
-position = Vector2(-40, 13)
+position = Vector2(-64, 45)
 
 [node name="BlockBasic46" parent="Blocks" instance=ExtResource("4_uiwt7")]
-position = Vector2(-24, 13)
+position = Vector2(-64, 61)
 
 [node name="BlockBasic47" parent="Blocks" instance=ExtResource("4_uiwt7")]
-position = Vector2(-24, -13)
+position = Vector2(-64, 53)
 
 [node name="Barriers" type="Node2D" parent="."]
 
