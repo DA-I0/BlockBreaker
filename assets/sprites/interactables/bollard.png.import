@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://07ywpul68v63"
-path="res://.godot/imported/bollard_03.png-fbb655fb354e6c65c675705b8a57d334.ctex"
+uid="uid://dhew86m1ys0l6"
+path="res://.godot/imported/bollard.png-f0b19190a61f969534f4a44d60d6df23.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/blocks/bollard_03.png"
-dest_files=["res://.godot/imported/bollard_03.png-fbb655fb354e6c65c675705b8a57d334.ctex"]
+source_file="res://assets/sprites/interactables/bollard.png"
+dest_files=["res://.godot/imported/bollard.png-f0b19190a61f969534f4a44d60d6df23.ctex"]
 
 [params]
 
