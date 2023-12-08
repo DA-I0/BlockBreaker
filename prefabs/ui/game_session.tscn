@@ -6,7 +6,7 @@
 [ext_resource type="StyleBox" uid="uid://bxlfb6t2obups" path="res://theme/panel_thin.tres" id="4_0yyln"]
 [ext_resource type="Texture2D" uid="uid://csp7417ptlu6y" path="res://assets/sprites/ui_elements/ui_shake.png" id="4_5cocx"]
 
-[node name="UIGameSession" type="Control" node_paths=PackedStringArray("_score", "_skill", "_lives", "_exitTimer", "_exitPrompt")]
+[node name="UIGameSession" type="Control" node_paths=PackedStringArray("_score", "_skill", "_lives", "_livesText", "_exitTimer", "_exitPrompt")]
 z_index = 10
 layout_mode = 3
 anchors_preset = 0
@@ -14,6 +14,7 @@ script = ExtResource("1_wdiid")
 _score = NodePath("TopBar/SessionElements/Score")
 _skill = NodePath("SkillPrompt")
 _lives = NodePath("TopBar/SessionElements/Lives")
+_livesText = NodePath("TopBar/SessionElements/LivesText")
 _exitTimer = NodePath("ExitTimer")
 _exitPrompt = NodePath("ExitPrompt")
 
@@ -52,6 +53,13 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 3
 text = "<score>"
+vertical_alignment = 1
+
+[node name="LivesText" type="Label" parent="TopBar/SessionElements"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "<lives>"
+horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="Lives" type="HBoxContainer" parent="TopBar/SessionElements"]

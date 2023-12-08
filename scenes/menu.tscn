@@ -970,8 +970,7 @@ shortcut = ExtResource("17_c27yp")
 shortcut_in_tooltip = false
 text = "BUTTON_RETURN"
 
-[node name="OptionsPanel" type="Panel" parent="Control" node_paths=PackedStringArray("_header", "_language", "_controllerType", "_controlDevices", "_fullscreen", "_resolution", "_screenShake", "_backgroundBrightness", "_pickupOrder", "_helperTransparency", "_masterVolume", "_musicVolume", "_effectsVolume", "_keybindChangePanel", "_mouseSpeed", "_keyboardSpeed", "_joypadSpeed", "_activeJoypad", "_vibrations", "_focusTarget")]
-visible = false
+[node name="OptionsPanel" type="Panel" parent="Control" node_paths=PackedStringArray("_header", "_language", "_controllerType", "_livesDisplay", "_controlDevices", "_fullscreen", "_resolution", "_screenShake", "_backgroundBrightness", "_pickupOrder", "_helperTransparency", "_masterVolume", "_musicVolume", "_effectsVolume", "_keybindChangePanel", "_mouseSpeed", "_keyboardSpeed", "_joypadSpeed", "_activeJoypad", "_vibrations", "_focusTarget")]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -981,6 +980,7 @@ script = ExtResource("37_7pgst")
 _header = NodePath("HeaderPanel/HeaderLabel")
 _language = NodePath("GeneralOptions/Options/LanguageSetting/LanguageOptions")
 _controllerType = NodePath("GeneralOptions/Options/UIControlsSetting/UIControlsOptions")
+_livesDisplay = NodePath("GeneralOptions/Options/LivesDisplaySetting/LivesDisplayToggle")
 _controlDevices = NodePath("ControlOptions/Options")
 _fullscreen = NodePath("VideoOptions/Options/FullscreenSetting/FullscreenToggle")
 _resolution = NodePath("VideoOptions/Options/ResolutionSetting/ResolutionOptions")
@@ -1017,7 +1017,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="GeneralOptions" type="ScrollContainer" parent="Control/OptionsPanel"]
-visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.18
@@ -1095,6 +1094,32 @@ popup/item_3/text = "Steam Deck"
 popup/item_3/id = 4
 popup/item_4/text = "XBox"
 popup/item_4/id = 5
+
+[node name="LivesDisplaySetting" type="Control" parent="Control/OptionsPanel/GeneralOptions/Options"]
+custom_minimum_size = Vector2(0, 19)
+layout_mode = 2
+
+[node name="LivesDisplayLabel" type="Label" parent="Control/OptionsPanel/GeneralOptions/Options/LivesDisplaySetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.4
+anchor_bottom = 1.0
+offset_left = 4.0
+text = "OPTION_UI_LIVE_DISPLAY"
+vertical_alignment = 1
+
+[node name="LivesDisplayToggle" type="CheckButton" parent="Control/OptionsPanel/GeneralOptions/Options/LivesDisplaySetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_right = -4.0
+focus_neighbor_right = NodePath("../../../../OptionsButtons/Confirm")
+focus_neighbor_bottom = NodePath("../../../../VideoOptions/Options/ResolutionSetting/ResolutionOptions")
+focus_next = NodePath("../../../../VideoOptions/Options/ResolutionSetting/ResolutionOptions")
+flat = true
 
 [node name="VideoOptions" type="ScrollContainer" parent="Control/OptionsPanel"]
 visible = false
@@ -1396,6 +1421,7 @@ min_value = -60.0
 max_value = 6.0
 
 [node name="ControlOptions" type="ScrollContainer" parent="Control/OptionsPanel"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.18

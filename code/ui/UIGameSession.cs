@@ -5,6 +5,7 @@ public partial class UIGameSession : Control
 	[Export] private Label _score;
 	[Export] private Control _skill;
 	[Export] private Control _lives;
+	[Export] private Label _livesText;
 	[Export] private Control _exitTimer;
 	[Export] private Control _exitPrompt;
 
@@ -66,6 +67,8 @@ public partial class UIGameSession : Control
 		{
 			((CanvasItem)_lives.GetChild(i)).Visible = i < (lives - 1);
 		}
+
+		_livesText.Text = $"{Tr("GAME_LIVES")}: {lives}";
 	}
 
 	private void HideGameStateUI()
@@ -84,6 +87,8 @@ public partial class UIGameSession : Control
 	private void DisplayGameStateUI()
 	{
 		HideExitElements();
+		_lives.Visible = !refs.settings.LivesAsText;
+		_livesText.Visible = refs.settings.LivesAsText;
 		Visible = true;
 	}
 

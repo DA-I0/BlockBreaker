@@ -11,6 +11,7 @@ public class Settings
 	private const string DefaultLanguage = "en";
 	private const string DefaultControlerPrompts = "generic";
 	private const int DefaultInputType = 1;
+	private const bool DefaultLivesAsText = false;
 	private const int DefaultScreenMode = 3;
 	private const int DefaultScreenWidth = 1280;
 	private const int DefaultScreenHeight = 1120;
@@ -42,6 +43,12 @@ public class Settings
 	{
 		get { return (string)_config.GetValue("general", "controlerPrompts", DefaultControlerPrompts); }
 		set { _config.SetValue("general", "controlerPrompts", value); }
+	}
+
+	public bool LivesAsText // move to a separate UI category?
+	{
+		get { return (bool)_config.GetValue("general", "lives_as_text", DefaultLivesAsText); }
+		set { _config.SetValue("general", "lives_as_text", value); }
 	}
 
 	public int ScreenMode
