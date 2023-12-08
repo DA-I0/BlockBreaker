@@ -4,7 +4,6 @@ public partial class Breakable : StaticBody2D
 {
 	[Export] protected int _pointValue = 1;
 	[Export] protected int _maxHealth = 1;
-	[Export] protected Texture2D[] _sprites;
 
 	[Export] private double _pickupSpawnChance = 0.1f;
 	[Export] private PackedScene[] _pickups;
@@ -74,11 +73,7 @@ public partial class Breakable : StaticBody2D
 
 	protected virtual void AdjustSprite()
 	{
-		if (_sprite != null && _sprites.Length > 0)
-		{
-			int spriteIndex = (_health <= 0) ? 0 : _maxHealth - _health;
-			_sprite.Texture = _sprites[spriteIndex];
-		}
+		_sprite.Frame = (_health <= 0) ? 0 : _maxHealth - _health;
 	}
 
 	private void SpawnPickup()

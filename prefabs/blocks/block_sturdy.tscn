@@ -1,14 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://clchdmucxr4xn"]
+[gd_scene load_steps=9 format=3 uid="uid://clchdmucxr4xn"]
 
 [ext_resource type="Script" path="res://code/gameplay/Breakable.cs" id="1_ibg4v"]
 [ext_resource type="PackedScene" uid="uid://cnvdvox3cga5v" path="res://prefabs/pickups/pickup_ball_fast.tscn" id="2_685qm"]
-[ext_resource type="Texture2D" uid="uid://d0cnr320o626e" path="res://assets/sprites/blocks/block_sturdy_01.png" id="2_jpovs"]
-[ext_resource type="Texture2D" uid="uid://db71nvusk7eot" path="res://assets/sprites/blocks/block_sturdy_02.png" id="3_0a3ch"]
 [ext_resource type="PackedScene" uid="uid://c6jkva33lu2x0" path="res://prefabs/pickups/pickup_ball_small.tscn" id="3_p0kf1"]
-[ext_resource type="Texture2D" uid="uid://cw0f1lvjr54n5" path="res://assets/sprites/blocks/block_sturdy_03.png" id="4_k8bhm"]
 [ext_resource type="PackedScene" uid="uid://tt41n2fom0vc" path="res://prefabs/pickups/pickup_paddle_thin.tscn" id="4_ugw4u"]
 [ext_resource type="PackedScene" uid="uid://cav5klqn0n3k6" path="res://prefabs/pickups/pickup_paddle_wide.tscn" id="5_cym8p"]
 [ext_resource type="PackedScene" uid="uid://ccwj4m630w7qu" path="res://prefabs/pickups/pickup_paddle_reverse.tscn" id="6_ucqdu"]
+[ext_resource type="Texture2D" uid="uid://cs2c1un0rn273" path="res://assets/sprites/blocks/block_sturdy.png" id="10_48dvt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jer7o"]
 size = Vector2(16, 6)
@@ -18,7 +16,6 @@ z_index = 2
 script = ExtResource("1_ibg4v")
 _pointValue = 3
 _maxHealth = 3
-_sprites = Array[Texture2D]([ExtResource("2_jpovs"), ExtResource("3_0a3ch"), ExtResource("4_k8bhm")])
 _pickups = Array[PackedScene]([ExtResource("2_685qm"), ExtResource("3_p0kf1"), ExtResource("6_ucqdu"), ExtResource("4_ugw4u"), ExtResource("5_cym8p")])
 _timer = NodePath("Timer")
 
@@ -26,7 +23,8 @@ _timer = NodePath("Timer")
 shape = SubResource("RectangleShape2D_jer7o")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-texture = ExtResource("2_jpovs")
+texture = ExtResource("10_48dvt")
+hframes = 3
 region_rect = Rect2(4, 4, 44, 33)
 
 [node name="Timer" type="Timer" parent="."]

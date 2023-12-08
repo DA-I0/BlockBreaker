@@ -1,28 +1,25 @@
-[gd_scene load_steps=10 format=3 uid="uid://sfvyvisufeuw"]
+[gd_scene load_steps=7 format=3 uid="uid://sfvyvisufeuw"]
 
 [ext_resource type="Script" path="res://code/gameplay/Breakable.cs" id="1_o70lx"]
-[ext_resource type="Texture2D" uid="uid://ypoj04up8qft" path="res://assets/sprites/props/fences/fence_down_01.png" id="2_l2r1h"]
-[ext_resource type="Texture2D" uid="uid://duu6e7h88ddei" path="res://assets/sprites/props/fences/fence_down_02.png" id="3_uisk6"]
-[ext_resource type="Texture2D" uid="uid://bl08uojs6bsb" path="res://assets/sprites/props/fences/fence_down_03.png" id="4_h7egl"]
-[ext_resource type="Texture2D" uid="uid://b0iorbip3om85" path="res://assets/sprites/props/fences/fence_down_04.png" id="5_p2vhr"]
 [ext_resource type="PackedScene" uid="uid://r3x55smb3e0x" path="res://prefabs/pickups/pickup_ball_slow.tscn" id="6_jxsjg"]
 [ext_resource type="PackedScene" uid="uid://dwa3x1brydi56" path="res://prefabs/pickups/pickup_extra_life.tscn" id="7_kedn8"]
 [ext_resource type="PackedScene" uid="uid://crgjb8hqapmxf" path="res://prefabs/pickups/pickup_paddle_freeze.tscn" id="8_rfhif"]
 [ext_resource type="PackedScene" uid="uid://iq10idmsyirx" path="res://prefabs/pickups/pickup_safety_net.tscn" id="9_ej5r5"]
+[ext_resource type="Texture2D" uid="uid://dueosmjyw7we" path="res://assets/sprites/props/fences/fence_down.png" id="10_pfhto"]
 
 [node name="FenceDown" type="StaticBody2D" node_paths=PackedStringArray("_timer")]
 z_index = 3
 script = ExtResource("1_o70lx")
 _pointValue = 2
 _maxHealth = 4
-_sprites = Array[Texture2D]([ExtResource("2_l2r1h"), ExtResource("3_uisk6"), ExtResource("4_h7egl"), ExtResource("5_p2vhr")])
 _pickups = Array[PackedScene]([ExtResource("6_jxsjg"), ExtResource("7_kedn8"), ExtResource("8_rfhif"), ExtResource("9_ej5r5")])
 _timer = NodePath("Timer")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 position = Vector2(-8, -16)
-texture = ExtResource("2_l2r1h")
+texture = ExtResource("10_pfhto")
 centered = false
+hframes = 4
 
 [node name="Collider" type="CollisionPolygon2D" parent="."]
 position = Vector2(-11, -1)

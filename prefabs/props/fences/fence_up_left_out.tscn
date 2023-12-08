@@ -1,28 +1,25 @@
-[gd_scene load_steps=10 format=3 uid="uid://btjaldiyf3b7c"]
+[gd_scene load_steps=7 format=3 uid="uid://btjaldiyf3b7c"]
 
 [ext_resource type="Script" path="res://code/gameplay/Breakable.cs" id="1_bonx0"]
-[ext_resource type="Texture2D" uid="uid://dmr83sgwd7whn" path="res://assets/sprites/props/fences/fence_up_left_out_01.png" id="2_qivfm"]
-[ext_resource type="Texture2D" uid="uid://wbq14av4q7oj" path="res://assets/sprites/props/fences/fence_up_left_out_02.png" id="3_h43qg"]
-[ext_resource type="Texture2D" uid="uid://b2ldw063a2ib3" path="res://assets/sprites/props/fences/fence_up_left_out_03.png" id="4_bhqxw"]
-[ext_resource type="Texture2D" uid="uid://bdlytyg30vgc8" path="res://assets/sprites/props/fences/fence_up_left_out_04.png" id="5_60jg6"]
 [ext_resource type="PackedScene" uid="uid://r3x55smb3e0x" path="res://prefabs/pickups/pickup_ball_slow.tscn" id="6_mr23m"]
 [ext_resource type="PackedScene" uid="uid://dwa3x1brydi56" path="res://prefabs/pickups/pickup_extra_life.tscn" id="7_3ecrw"]
 [ext_resource type="PackedScene" uid="uid://crgjb8hqapmxf" path="res://prefabs/pickups/pickup_paddle_freeze.tscn" id="8_h1f0l"]
 [ext_resource type="PackedScene" uid="uid://iq10idmsyirx" path="res://prefabs/pickups/pickup_safety_net.tscn" id="9_v5p46"]
+[ext_resource type="Texture2D" uid="uid://d2078v4hlp8gw" path="res://assets/sprites/props/fences/fence_up_left_out.png" id="10_2ewe0"]
 
 [node name="FenceUpLeftOut" type="StaticBody2D" node_paths=PackedStringArray("_timer")]
 z_index = 3
 script = ExtResource("1_bonx0")
 _pointValue = 2
 _maxHealth = 4
-_sprites = Array[Texture2D]([ExtResource("2_qivfm"), ExtResource("3_h43qg"), ExtResource("4_bhqxw"), ExtResource("5_60jg6")])
 _pickups = Array[PackedScene]([ExtResource("6_mr23m"), ExtResource("7_3ecrw"), ExtResource("8_h1f0l"), ExtResource("9_v5p46")])
 _timer = NodePath("Timer")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 position = Vector2(-8, -15)
-texture = ExtResource("2_qivfm")
+texture = ExtResource("10_2ewe0")
 centered = false
+hframes = 4
 
 [node name="Collider" type="CollisionPolygon2D" parent="."]
 position = Vector2(1, 1)
