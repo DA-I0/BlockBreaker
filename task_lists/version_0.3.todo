@@ -1,38 +1,42 @@
-Prototype 3:
+Version 0.3:
 	Features:
-		☐ Keep mode
-			☐ "Tree" level progression (think Outrun, Shadow the Hedgehog)
+		Keep mode:
+			☐ "Tree" level progression (think Outrun, Shadow the Hedgehog)?
 			☐ Boss fights
 			☐ Store with items to buy (lives, pickups, paddles etc? available after each 5 levels or after boss fights)
 			☐ Multi-room levels (ball can travel to another room/screen, can be side-to-side or up-down)
-		☐ New skills
+			☐ Ability to rebuild parts of the keep for coins to get bonuses
+			☐ Chest items (drops coins and other keep mode limited items?)
+		Skills:
+			☐ Proper skill system @high
 			☐ Ball angle selection in flight?
-			☐ Power ball
-			☐ Temporary safety net?
-		☐ Update "shake" skill (add debrie falling from the celling that can damage breakables when hit)
-		☐ New functionality for dynamic elements
+			☐ Power ball @low
+			☐ Temporary safety net? @low
+			☐ Update "shake" skill (add debrie falling from the celling that can damage breakables when hit) @high
+		Dynamic elements:
 			☐ Add repeating timed toggle for teleport door?
 			☐ Add on-map buttons that toggle connected element when hit with the ball?
-		☐ New pickups
-			☐ Magnet (pull pickups near the paddle towards it, not exclusive unlike sticky/bouncy paddle?)
-			☐ Random (randomize on spawn, ? as icon?)
-		☐ New paddles
-			☐ Double (half-length, consists of two paddles, one under another, moving in opposit directions, might be a pickup instead?)
-		☐ New interactive elements
+		Pickups:
+			☐ Add magnet (pull pickups near the paddle towards it, not exclusive unlike sticky/bouncy paddle?)
+			☐ Add random (randomize on spawn, ? as icon?)
+		Paddles:
+			☐ Add double paddle (half-length, consists of two paddles, one under another, moving in opposit directions, might be a pickup instead?) @low
+		Interactive elements:
 			☐ River (slightly changes ball direction)
 		☐ Replace music randomization with shuffle
 		☐ Dynamic translation loading
 		☐ Add active input type (auto, just mouse, just keyboard, just gamepad)
 		☐ Add active controller (all, <list of connected devices>)
+		☐ Add optional difficulty modifier: advancing speed (ball becomes faster the longer you play without losing a life)
 	Map elements:
-		☐ Stairs + railing
+		☐ Stairs + railing @low
 			☐ Ball can move over stairs
 			☐ Ball can move **down** through broken railing
 			☐ Ball can't move up through wall at the bottom of the stairs or railing
 		☐ Cracked walls (can be destroyed with TNT)
-		☐ More map decorations (up the visual variety)
+		☐ More map decorations (up the visual variety) @low
 			☐ Fountain
-		☐ New tileset
+		☐ New tileset @low
 			☐ Floor tiles
 				☐ ?
 			☐ Wall tiles
@@ -44,15 +48,22 @@ Prototype 3:
 			☐ Interactables
 				☐ Level exit (big gate)
 				☐ Teleport (small gate)
+		☐ Unify tilesets organization @high
 	UI:
 		☐ Splash screen on map load (display map name/number)
 		☐ Improve main menu layout and theming
 		☐ Add access to options and info panels in-game
-		☐ Implement full keyboard/gamepad navigation
+		✔ Option to display lives as text (ex. LIVES x8) @done(23-12-08 16:38)
 	Other:
 		☐ Improve translations
 		☐ Make a new logo @low
 		☐ Add more music tracks
+		☐ Restore resolution selection and make gameplay resize accordingly?
+	Accessibility:
+		☐ Color customization for gameplay elements (breakables, ball, paddles)
+		☐ Recheck all sprites and adjust if necessary
+		☐ Add alternative font choice
+		☐ Implement full keyboard/gamepad navigation
 	Issues:
 		☐ Ball sometimes slides along the paddle instead of bouncing @high
 		☐ Game launches zoomed in, only half of the window is visible on screen @SteamDeck @high
