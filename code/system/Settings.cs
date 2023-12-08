@@ -41,8 +41,8 @@ public class Settings
 
 	public string ControlerPrompts
 	{
-		get { return (string)_config.GetValue("general", "controlerPrompts", DefaultControlerPrompts); }
-		set { _config.SetValue("general", "controlerPrompts", value); }
+		get { return (string)_config.GetValue("general", "controler_prompts", DefaultControlerPrompts); }
+		set { _config.SetValue("general", "controler_prompts", value); }
 	}
 
 	public bool LivesAsText // move to a separate UI category?
