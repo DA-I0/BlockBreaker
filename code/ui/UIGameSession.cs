@@ -63,11 +63,20 @@ public partial class UIGameSession : Control
 
 	private void UpdateLives(int lives)
 	{
+		UpdatedLifeIcons(lives);
+		UpdateLifeText(lives);
+	}
+
+	private void UpdatedLifeIcons(int lives)
+	{
 		for (int i = 0; i < _lives.GetChildCount(); i++)
 		{
-			((CanvasItem)_lives.GetChild(i)).Visible = i < (lives - 1);
+			((CanvasItem)_lives.GetChild(i)).Visible = i < lives;
 		}
+	}
 
+	private void UpdateLifeText(int lives)
+	{
 		_livesText.Text = $"{Tr("GAME_LIVES")}: {lives}";
 	}
 
@@ -87,9 +96,14 @@ public partial class UIGameSession : Control
 	private void DisplayGameStateUI()
 	{
 		HideExitElements();
+		DisplayLifeElements();
+		Visible = true;
+	}
+
+	private void DisplayLifeElements()
+	{
 		_lives.Visible = !refs.settings.LivesAsText;
 		_livesText.Visible = refs.settings.LivesAsText;
-		Visible = true;
 	}
 
 	private void DisplayExitTimer()
