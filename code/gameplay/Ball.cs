@@ -69,7 +69,6 @@ public partial class Ball : CharacterBody2D
 			{
 				case BallMode.idle:
 					BallMode = BallMode.angleSelection;
-					_arrowTimer.Start(0.001f);
 					break;
 
 				case BallMode.angleSelection:
@@ -261,7 +260,7 @@ public partial class Ball : CharacterBody2D
 		}
 
 		_startingRotation += _increasingRotation ? refs.SelectedDifficulty.AngleSelectSpeed : -refs.SelectedDifficulty.AngleSelectSpeed;
-		_arrow.RotationDegrees = _startingRotation;
+		_arrow.RotationDegrees = _startingRotation + _sprite.RotationDegrees;
 	}
 
 	private void AdjustSpriteRotation()
@@ -280,6 +279,7 @@ public partial class Ball : CharacterBody2D
 				_startingRotation = 0;
 				_arrow.Visible = true;
 				_increasingRotation = true;
+				_arrowTimer.Start(0.001f);
 				refs.paddle.SetPaddleState(PaddleState.locked);
 				break;
 

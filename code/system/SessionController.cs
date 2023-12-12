@@ -4,7 +4,7 @@ public enum GameState { gameplay, menu, pause, gameOver, gameWin }
 
 public partial class SessionController : Node
 {
-	private readonly ISkill[] _availableSkills = { new ScreenShake() };
+	private readonly Skill[] _availableSkills = { new ScreenShake(), new BallTurner() };
 
 	private GameState _gameState = GameState.menu;
 	private int _currentPaddle = -1;
@@ -24,7 +24,6 @@ public partial class SessionController : Node
 
 	public Paddle paddle;
 	private int _selectedSkillIndex = 0;
-	[Export] private Timer _skillTimer;
 
 	public event Notification LastBallLost; // can't be here, gotta move it to a single place
 	public event Notification GameStateChanged;
@@ -57,7 +56,7 @@ public partial class SessionController : Node
 		get { return gameElements.GetChild(0).GetChildren(); }
 	}
 
-	public ISkill SelectedSkill
+	public Skill SelectedSkill
 	{
 		get { return _availableSkills[_selectedSkillIndex]; }
 	}

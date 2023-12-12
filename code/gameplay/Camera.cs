@@ -12,7 +12,7 @@ public partial class Camera : Camera2D
 
 	public void Shake()
 	{
-		if (refs.settings.ScreenShake)
+		if (refs.SelectedSkill.GetType() == typeof(ScreenShake) && refs.settings.ScreenShake)
 		{
 			_timer.Start(_shakeDuration);
 		}

@@ -1,30 +1,18 @@
 using Godot;
 
-public partial class ScreenShake : ISkill
+public partial class ScreenShake : Skill
 {
-	private int _activationPointsCost = 10;
-	private int _debrisCount = 5;
-	private string _prefabPath = "res://prefabs/skills/screenshake_debris.tscn";
-	private int _maxOffesetHor = 95;
-	private int _maxOffesetVer = 60;
+	private const string PrefabPath = "res://prefabs/skills/screenshake_debris.tscn";
+	private const int DebrisCount = 5;
+	private const int MaxOffesetHor = 95;
+	private const int MaxOffesetVer = 60;
 
-	private int _activationPoints;
-	private int _lastUpdateCombo;
-
-	private SessionController refs;
-
-	public event Notification SkillReady;
-	public event Notification SkillUsed;
-
-	public void Setup(SessionController sessionController)
+	public ScreenShake()
 	{
-		refs = sessionController;
-		refs.gameScore.ScoreChanged += UpdateActivationPoints;
-		refs.levelManager.ResetSession += Cleanup;
-		Reset();
+		_activationPointsCost = 10;
 	}
 
-	public void Activate()
+	public override void Activate()
 	{
 		if (refs.paddle.PaddleState != PaddleState.locked && _activationPoints >= _activationPointsCost)
 		{
@@ -39,43 +27,15 @@ public partial class ScreenShake : ISkill
 
 			Node level = refs.GetNode("CurrentScene").GetChild(0);
 
-			for (int index = 0; index < _debrisCount; index++)
+			for (int index = 0; index < DebrisCount; index++)
 			{
-				Node2D debris = (Node2D)ResourceLoader.Load<PackedScene>(_prefabPath).Instantiate();
-				debris.Position = new Vector2(GD.RandRange(-_maxOffesetHor, _maxOffesetHor), GD.RandRange(-_maxOffesetVer, _maxOffesetVer));
+				Node2D debris = (Node2D)ResourceLoader.Load<PackedScene>(PrefabPath).Instantiate();
+				debris.Position = new Vector2(GD.RandRange(-MaxOffesetHor, MaxOffesetHor), GD.RandRange(-MaxOffesetVer, MaxOffesetVer));
 				level.AddChild(debris);
 			}
 
 			refs.audioController.PlayAudio(3);
-			SkillUsed?.Invoke();
-			Reset();
+			OnActivation();
 		}
-	}
-
-	private void Reset()
-	{
-		_activationPoints = 0;
-		_lastUpdateCombo = 0;
-	}
-
-	private void UpdateActivationPoints(int score, int scoreMultiplier, int combo)
-	{
-		if (_lastUpdateCombo < combo)
-		{
-			_lastUpdateCombo = combo;
-			_activationPoints++;
-		}
-
-		if (_activationPoints >= _activationPointsCost)
-		{
-			SkillReady?.Invoke();
-		}
-	}
-
-	private void Cleanup()
-	{
-		Reset();
-		refs.gameScore.ScoreChanged -= UpdateActivationPoints;
-		refs.levelManager.ResetSession -= Cleanup;
 	}
 }
