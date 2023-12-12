@@ -1,6 +1,6 @@
 using Godot;
 
-public delegate void ScoreNotification(int score, int scoreMultiplier);
+public delegate void ScoreNotification(int score, int scoreMultiplier, int combo);
 
 public partial class Score : Node
 {
@@ -51,7 +51,7 @@ public partial class Score : Node
 
 		UpdateMultiplier();
 		_currentScore += pointValue * _currentScoreMultiplier;
-		ScoreChanged?.Invoke(_currentScore, _currentScoreMultiplier);
+		ScoreChanged?.Invoke(_currentScore, _currentScoreMultiplier, _comboChain);
 		refs.audioController.PlayAudio(1);
 	}
 
@@ -59,7 +59,7 @@ public partial class Score : Node
 	{
 		_comboChain = 0;
 		_currentScoreMultiplier = 1;
-		ScoreChanged?.Invoke(_currentScore, _currentScoreMultiplier);
+		ScoreChanged?.Invoke(_currentScore, _currentScoreMultiplier, _comboChain);
 	}
 
 	public void InvokeExitTimer()

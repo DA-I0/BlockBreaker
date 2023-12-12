@@ -4,6 +4,8 @@ public enum GameState { gameplay, menu, pause, gameOver, gameWin }
 
 public partial class SessionController : Node
 {
+	private readonly ISkill[] _availableSkills = { new ScreenShake() };
+
 	private GameState _gameState = GameState.menu;
 	private int _currentPaddle = -1;
 	private int _currentDifficulty = -1;
@@ -21,6 +23,7 @@ public partial class SessionController : Node
 	[Export] public Node gameElements;
 
 	public Paddle paddle;
+	private int _selectedSkillIndex = 0;
 	[Export] private Timer _skillTimer;
 
 	public event Notification LastBallLost; // can't be here, gotta move it to a single place
@@ -52,6 +55,11 @@ public partial class SessionController : Node
 	public Godot.Collections.Array<Node> Balls
 	{
 		get { return gameElements.GetChild(0).GetChildren(); }
+	}
+
+	public ISkill SelectedSkill
+	{
+		get { return _availableSkills[_selectedSkillIndex]; }
 	}
 
 	public override void _Ready()
@@ -98,7 +106,10 @@ public partial class SessionController : Node
 		ball.SetInitialValues(this);
 		gameElements.GetChild(0).AddChild(ball);
 
-		_skillTimer.Start();
+		SelectedSkill.Setup(this);
+		SelectedSkill.SkillReady += EnableSkill;
+		SelectedSkill.SkillUsed += UseSkillNotification;
+
 		GameSetup?.Invoke();
 	}
 
@@ -125,10 +136,14 @@ public partial class SessionController : Node
 
 	private void ResetSession()
 	{
+		SelectedSkill.SkillReady -= EnableSkill;
+		SelectedSkill.SkillUsed -= UseSkillNotification;
+
 		_currentPaddle = -1;
 		_currentDifficulty = -1;
 		_currentLevel = -1;
-		_skillTimer.Stop();
+		_selectedSkillIndex = 0;
+
 		ChangeGameState(GameState.menu);
 	}
 
@@ -142,7 +157,7 @@ public partial class SessionController : Node
 
 	public override void _Input(InputEvent @event)
 	{
-		Shake(@event);
+		UseSkill(@event);
 
 		if (@event.AsText().Contains("Joypad"))
 		{
@@ -169,26 +184,17 @@ public partial class SessionController : Node
 		_currentDifficulty = index;
 	}
 
-	private void Shake(InputEvent @event)
+	private void UseSkill(InputEvent @event)
 	{
 		if (_gameState == GameState.gameplay && @event.IsActionReleased("game_skill"))
 		{
-			if (paddle.PaddleState != PaddleState.locked && _skillTimer.TimeLeft <= 0)
-			{
-				paddle.SetPaddleState(PaddleState.confused, 3f);
-
-				for (int i = 0; i < Balls.Count; i++)
-				{
-					float angleChange = GD.RandRange(5, 15);
-					int direction = GD.RandRange(-1, 1) < 0 ? -1 : 1;
-					((Ball)Balls[i]).ChangeRotation(angleChange * direction);
-				}
-
-				audioController.PlayAudio(3);
-				_skillTimer.Start();
-				SkillUsed?.Invoke();
-			}
+			SelectedSkill.Activate();
 		}
+	}
+
+	private void UseSkillNotification()
+	{
+		SkillUsed?.Invoke();
 	}
 
 	private void EnableSkill()

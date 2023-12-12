@@ -22,7 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://dseel27vbf765" path="res://prefabs/ui/pause_prompt.tscn" id="17_ewsqo"]
 [ext_resource type="PackedScene" uid="uid://bhik7pnvh1ghu" path="res://prefabs/ui/game_over_prompt.tscn" id="19_qhvfq"]
 
-[node name="GameController" type="Node" node_paths=PackedStringArray("musicController", "audioController", "gameScore", "health", "levelManager", "gameElements", "_skillTimer")]
+[node name="GameController" type="Node" node_paths=PackedStringArray("musicController", "audioController", "gameScore", "health", "levelManager", "gameElements")]
 script = ExtResource("1_uqmtw")
 musicController = NodePath("MusicController")
 audioController = NodePath("AudioController")
@@ -30,7 +30,6 @@ gameScore = NodePath("Score")
 health = NodePath("Health")
 levelManager = NodePath("LevelManager")
 gameElements = NodePath("GameElements")
-_skillTimer = NodePath("SkillTimer")
 
 [node name="SessionController" type="Node" parent="."]
 process_mode = 3
@@ -82,11 +81,6 @@ script = ExtResource("4_jrwof")
 [node name="Timer" type="Timer" parent="Camera2D"]
 one_shot = true
 
-[node name="SkillTimer" type="Timer" parent="."]
-wait_time = 10.0
-one_shot = true
-
 [connection signal="timeout" from="Score/Timer" to="Score" method="AddBonusScore"]
 [connection signal="child_entered_tree" from="CurrentScene" to="LevelManager" method="OnCurrentSceneChildEnteredTree"]
 [connection signal="child_entered_tree" from="UI" to="LevelManager" method="OnCurrentSceneChildEnteredTree"]
-[connection signal="timeout" from="SkillTimer" to="." method="EnableSkill"]

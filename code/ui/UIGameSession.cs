@@ -52,10 +52,10 @@ public partial class UIGameSession : Control
 	{
 		HideExitElements();
 		HideSkillIcon();
-		UpdateScore(0, 1);
+		UpdateScore(0, 1, 0);
 	}
 
-	private void UpdateScore(int score, int scoreMultiplier)
+	private void UpdateScore(int score, int scoreMultiplier, int combo)
 	{
 		string multiplier = scoreMultiplier > 1 ? $"(x{scoreMultiplier})" : string.Empty;
 		_score.Text = $"{Tr("GAME_SCORE")}: {score} {multiplier}";
