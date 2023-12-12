@@ -461,7 +461,7 @@ _sprites = Array[Texture2D]([ExtResource("5_8u02p"), ExtResource("3_3dsqa"), Ext
 position = Vector2(-2, -0.28125)
 scale = Vector2(0.3125, 1.0625)
 build_mode = 1
-polygon = PackedVector2Array(-51.2, -1.61765, 64, -1.61765, 64, 0.264706, -51.2, 0.264706)
+polygon = PackedVector2Array(-19.2, -1.61765, 32, -1.61765, 32, 0.264706, -19.2, 0.264706)
 one_way_collision = true
 one_way_collision_margin = 5.0
 
@@ -470,7 +470,7 @@ position = Vector2(-2, -0.28125)
 rotation = 3.14159
 scale = Vector2(0.3125, 1.0625)
 build_mode = 1
-polygon = PackedVector2Array(41.6, -3.0882, 51.2, -0.264707, -64, -0.264704, -54.4, -3.08828)
+polygon = PackedVector2Array(9.60003, -3.08823, 19.2, -0.264706, -32, -0.264705, -22.4, -3.08825)
 one_way_collision = true
 one_way_collision_margin = 5.0
 
@@ -482,7 +482,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -8.0
 offset_top = -2.0
-offset_right = 28.0
+offset_right = 8.0
 offset_bottom = 3.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -497,7 +497,7 @@ patch_margin_bottom = 2
 libraries = {
 "": SubResource("AnimationLibrary_6a3eu")
 }
-blend_times = [&"RESET", &"size_7", 1.0, &"RESET", &"size_8", 1.0, &"RESET", &"size_3", 1.0, &"RESET", &"size_2", 1.0, &"RESET", &"size_4", 1.0, &"RESET", &"size_5", 1.0, &"RESET", &"size_6", 1.0, &"RESET", &"size_1", 1.0]
+blend_times = [&"RESET", &"size_5", 1.0, &"RESET", &"size_3", 1.0, &"RESET", &"size_2", 1.0, &"RESET", &"size_1", 1.0, &"RESET", &"size_8", 1.0, &"RESET", &"size_6", 1.0, &"RESET", &"size_7", 1.0, &"RESET", &"size_4", 1.0]
 
 [node name="Timer" type="Timer" parent="."]
 

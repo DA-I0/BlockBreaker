@@ -460,7 +460,7 @@ _sprites = Array[Texture2D]([ExtResource("2_qjynj"), ExtResource("3_1nd2x"), Ext
 position = Vector2(-2, -0.28125)
 scale = Vector2(0.3125, 1.0625)
 build_mode = 1
-polygon = PackedVector2Array(-48, -1.61765, 60.8, -1.61765, 64, -0.676471, 64, 0.264706, -51.2, 0.264706, -51.2, -0.676471)
+polygon = PackedVector2Array(-16, -1.61765, 28.8, -1.61765, 32, -0.676471, 32, 0.264706, -19.2, 0.264706, -19.2, -0.676471)
 one_way_collision = true
 one_way_collision_margin = 5.0
 
@@ -469,7 +469,7 @@ position = Vector2(-2, -0.28125)
 rotation = 3.14159
 scale = Vector2(0.3125, 1.0625)
 build_mode = 1
-polygon = PackedVector2Array(-60.8, -3.08823, 48, -3.08824, 51.2, -2.14706, 51.2, -0.264707, -64, -0.264704, -64, -2.14706)
+polygon = PackedVector2Array(-28.8, -3.08823, 16, -3.08824, 19.2, -2.14706, 19.2, -0.264706, -32, -0.264705, -32, -2.14706)
 one_way_collision = true
 one_way_collision_margin = 5.0
 
@@ -481,7 +481,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -8.0
 offset_top = -2.0
-offset_right = 28.0
+offset_right = 8.0
 offset_bottom = 3.0
 grow_horizontal = 2
 grow_vertical = 2
