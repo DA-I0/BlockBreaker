@@ -6,10 +6,10 @@ public partial class UIGameSetupPanel : UIPanel
 	[Export] private Button _paddleButton;
 	[Export] private Button _difficultyButton;
 	[Export] private Button _skillButton;
-	[Export] private Button _returnButton;
 
 	public override void _Ready()
 	{
+		SetupBaseReferences();
 		SetupReferences();
 		PopulateLevels();
 	}
@@ -33,22 +33,18 @@ public partial class UIGameSetupPanel : UIPanel
 		}
 	}
 
-	protected override void SetupReferences()
+	protected void SetupReferences()
 	{
-		refs = GetNode("/root/GameController") as SessionController;
-		uiController = (UIController)GetNode("../..");
-		uiController.RefreshUI += Focus;
 		_paddleButton.Pressed += () => ((UIController)GetNode("../..")).TogglePanel("PaddlePanel");
 		_difficultyButton.Pressed += () => ((UIController)GetNode("../..")).TogglePanel("DifficultyPanel");
 		_skillButton.Pressed += () => ((UIController)GetNode("../..")).TogglePanel("SkillPanel");
-		_returnButton.Pressed += () => ((UIController)GetNode("../..")).TogglePanel("");
 	}
 
 	protected override void Focus()
 	{
 		if (Visible)
 		{
-			((Button)(_levelGrid.GetChild(0))).GrabFocus();
+			((Button)_levelGrid.GetChild(0)).GrabFocus();
 			UpdateSelectedPaddle();
 			UpdateSelectedDifficulty();
 			UpdateSelectedSkill();

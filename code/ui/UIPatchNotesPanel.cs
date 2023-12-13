@@ -6,7 +6,7 @@ public partial class UIPatchNotesPanel : UIPanel
 
 	public override void _Ready()
 	{
-		SetupReferences();
+		SetupBaseReferences();
 		LoadPatchNotes();
 	}
 

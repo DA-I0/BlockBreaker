@@ -14,7 +14,7 @@
 [ext_resource type="Shortcut" uid="uid://b5ydjlfn0ps7g" path="res://shortcuts/confirm.tres" id="12_kmxn2"]
 [ext_resource type="Shortcut" uid="uid://bhk5vranx2qfl" path="res://shortcuts/cancel.tres" id="13_wmlfo"]
 
-[node name="SkillPanel" type="Panel" node_paths=PackedStringArray("_name", "_description", "_returnButton", "_focusTarget")]
+[node name="SkillPanel" type="Panel" node_paths=PackedStringArray("_name", "_description", "_focusTarget", "_returnButton")]
 custom_minimum_size = Vector2(256, 224)
 anchors_preset = 15
 anchor_right = 1.0
@@ -22,8 +22,9 @@ anchor_bottom = 1.0
 script = ExtResource("1_da0x5")
 _name = NodePath("SkillOptions/NameLabel")
 _description = NodePath("SkillOptions/DifficultyLabel")
-_returnButton = NodePath("Return")
 _focusTarget = NodePath("Confirm")
+_returnButton = NodePath("Return")
+_returnTarget = "GameSetupPanel"
 
 [node name="SkillHeader" type="Panel" parent="."]
 custom_minimum_size = Vector2(0, 20)

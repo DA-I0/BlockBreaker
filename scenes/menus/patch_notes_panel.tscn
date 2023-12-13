@@ -1,0 +1,68 @@
+[gd_scene load_steps=4 format=3 uid="uid://d1ubicvpl60sr"]
+
+[ext_resource type="Script" path="res://code/ui/UIPatchNotesPanel.cs" id="1_8a3nl"]
+[ext_resource type="Theme" uid="uid://dj60ywofwk371" path="res://theme/ui.theme" id="2_mckbp"]
+[ext_resource type="Shortcut" uid="uid://bhk5vranx2qfl" path="res://shortcuts/cancel.tres" id="3_hhshb"]
+
+[node name="PatchNotesPanel" type="Panel" node_paths=PackedStringArray("_content", "_focusTarget", "_returnButton")]
+custom_minimum_size = Vector2(256, 224)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1_8a3nl")
+_content = NodePath("PatchNotesScrollContainer/PatchNotesContent")
+_focusTarget = NodePath("PatchNotesScrollContainer")
+_returnButton = NodePath("Return")
+
+[node name="PatchNotesHeader" type="Panel" parent="."]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+offset_bottom = 20.0
+
+[node name="PatchNotesHeaderLabel" type="Label" parent="PatchNotesHeader"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "HEADER_PATCH_NOTES"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PatchNotesScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = 19.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 2
+
+[node name="PatchNotesContent" type="RichTextLabel" parent="PatchNotesScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_mckbp")
+bbcode_enabled = true
+text = "<patch_notes>"
+fit_content = true
+scroll_active = false
+shortcut_keys_enabled = false
+
+[node name="Return" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_bottom = -6.0
+grow_vertical = 0
+shortcut = ExtResource("3_hhshb")
+shortcut_in_tooltip = false
+text = "BUTTON_RETURN"

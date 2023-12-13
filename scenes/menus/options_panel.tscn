@@ -1,0 +1,750 @@
+[gd_scene load_steps=7 format=3 uid="uid://ier2relg61ni"]
+
+[ext_resource type="StyleBox" uid="uid://bnbwbb74r5uj6" path="res://theme/panel_header.tres" id="1_wbet2"]
+[ext_resource type="Script" path="res://code/ui/UIOptionsPanel.cs" id="2_o2q3s"]
+[ext_resource type="Theme" uid="uid://dj60ywofwk371" path="res://theme/ui.theme" id="3_ogls6"]
+[ext_resource type="Texture2D" uid="uid://chk6oivvrr8nn" path="res://assets/sprites/ui_elements/icons/ui_icon_arrow_right.png" id="4_7mlu3"]
+[ext_resource type="Shortcut" uid="uid://b5ydjlfn0ps7g" path="res://shortcuts/confirm.tres" id="5_7lapn"]
+[ext_resource type="Shortcut" uid="uid://bhk5vranx2qfl" path="res://shortcuts/cancel.tres" id="6_vgxtx"]
+
+[node name="OptionsPanel" type="Panel" node_paths=PackedStringArray("_header", "_language", "_controllerType", "_livesDisplay", "_controlDevices", "_fullscreen", "_resolution", "_screenShake", "_backgroundBrightness", "_pickupOrder", "_helperTransparency", "_masterVolume", "_musicVolume", "_effectsVolume", "_mouseSpeed", "_keyboardSpeed", "_joypadSpeed", "_activeJoypad", "_vibrations", "_focusTarget", "_returnButton")]
+custom_minimum_size = Vector2(256, 224)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_styles/panel = ExtResource("1_wbet2")
+script = ExtResource("2_o2q3s")
+_header = NodePath("HeaderPanel/HeaderLabel")
+_language = NodePath("GeneralOptions/Options/LanguageSetting/LanguageOptions")
+_controllerType = NodePath("GeneralOptions/Options/UIControlsSetting/UIControlsOptions")
+_livesDisplay = NodePath("GeneralOptions/Options/LivesDisplaySetting/LivesDisplayToggle")
+_controlDevices = NodePath("ControlOptions/Options")
+_fullscreen = NodePath("VideoOptions/Options/FullscreenSetting/FullscreenToggle")
+_resolution = NodePath("VideoOptions/Options/ResolutionSetting/ResolutionOptions")
+_screenShake = NodePath("VideoOptions/Options/ScreenShakeSetting/ScreenShakeToggle")
+_backgroundBrightness = NodePath("VideoOptions/Options/BackgroundSetting/BackgroundSlider")
+_pickupOrder = NodePath("VideoOptions/Options/PickupSetting/PickupOptions")
+_helperTransparency = NodePath("VideoOptions/Options/EffectsTransparencySetting/EffectsTransparencySlider")
+_masterVolume = NodePath("AudioOptions/Options/MasterVolumeSetting/MasterVolumeSlider")
+_musicVolume = NodePath("AudioOptions/Options/MusicVolumeSetting/MusicVolumeSlider")
+_effectsVolume = NodePath("AudioOptions/Options/EffectsVolumeSetting/EffectsVolumeSlider")
+_mouseSpeed = NodePath("ControlOptions/Options/MouseSettings/Mouse/MouseSpeedSetting/MouseSpeedSlider")
+_keyboardSpeed = NodePath("ControlOptions/Options/KeyboardSettings/Keyboard/KeyboardSpeedSetting/KeyboardSpeedSlider")
+_joypadSpeed = NodePath("ControlOptions/Options/JoypadSettings/Joypad/ControllerSpeedSetting/ControllerSpeedSlider")
+_activeJoypad = NodePath("ControlOptions/Options/JoypadSettings/Joypad/ActiveController/ActiveGamepadOptions")
+_vibrations = NodePath("ControlOptions/Options/JoypadSettings/Joypad/VibrationSetting/VibrationToggle")
+_focusTarget = NodePath("GeneralOptions/Options/LanguageSetting/LanguageOptions")
+_returnButton = NodePath("CategoryButtons/Return")
+
+[node name="HeaderPanel" type="Panel" parent="."]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+
+[node name="HeaderLabel" type="Label" parent="HeaderPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "header_options"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GeneralOptions" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.18
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 21.0
+offset_bottom = -20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("3_ogls6")
+follow_focus = true
+
+[node name="Options" type="VBoxContainer" parent="GeneralOptions"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="LanguageSetting" type="Control" parent="GeneralOptions/Options"]
+custom_minimum_size = Vector2(0, 19)
+layout_mode = 2
+
+[node name="LanguageLabel" type="Label" parent="GeneralOptions/Options/LanguageSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.4
+anchor_bottom = 1.0
+offset_left = 4.0
+text = "OPTION_GENERAL_LANGUAGE"
+vertical_alignment = 1
+
+[node name="LanguageOptions" type="OptionButton" parent="GeneralOptions/Options/LanguageSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_right = -4.0
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath("../../../../OptionsButtons/Confirm")
+focus_previous = NodePath("../../../../OptionsButtons/Confirm")
+
+[node name="UIControlsSetting" type="Control" parent="GeneralOptions/Options"]
+custom_minimum_size = Vector2(0, 19)
+layout_mode = 2
+
+[node name="UIControlsLabel" type="Label" parent="GeneralOptions/Options/UIControlsSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.4
+anchor_bottom = 1.0
+offset_left = 4.0
+text = "OPTION_GENERAL_UI_PROMPTS"
+vertical_alignment = 1
+
+[node name="UIControlsOptions" type="OptionButton" parent="GeneralOptions/Options/UIControlsSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_right = -4.0
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath("../../../../OptionsButtons/Confirm")
+focus_previous = NodePath("../../../../OptionsButtons/Confirm")
+item_count = 5
+popup/item_0/text = "Generic"
+popup/item_0/id = 1
+popup/item_1/text = "Nintendo"
+popup/item_1/id = 2
+popup/item_2/text = "Playstation"
+popup/item_2/id = 3
+popup/item_3/text = "Steam Deck"
+popup/item_3/id = 4
+popup/item_4/text = "XBox"
+popup/item_4/id = 5
+
+[node name="LivesDisplaySetting" type="Control" parent="GeneralOptions/Options"]
+custom_minimum_size = Vector2(0, 19)
+layout_mode = 2
+
+[node name="LivesDisplayLabel" type="Label" parent="GeneralOptions/Options/LivesDisplaySetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.4
+anchor_bottom = 1.0
+offset_left = 4.0
+text = "OPTION_UI_LIVE_DISPLAY"
+vertical_alignment = 1
+
+[node name="LivesDisplayToggle" type="CheckButton" parent="GeneralOptions/Options/LivesDisplaySetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_right = -4.0
+focus_neighbor_right = NodePath("../../../../OptionsButtons/Confirm")
+focus_neighbor_bottom = NodePath("../../../../VideoOptions/Options/ResolutionSetting/ResolutionOptions")
+focus_next = NodePath("../../../../VideoOptions/Options/ResolutionSetting/ResolutionOptions")
+flat = true
+
+[node name="VideoOptions" type="ScrollContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.18
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 21.0
+offset_bottom = -20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("3_ogls6")
+follow_focus = true
+
+[node name="Options" type="VBoxContainer" parent="VideoOptions"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="FullscreenSetting" type="Control" parent="VideoOptions/Options"]
+custom_minimum_size = Vector2(0, 19)
+layout_mode = 2
+
+[node name="FullscreenLabel" type="Label" parent="VideoOptions/Options/FullscreenSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.4
+anchor_bottom = 1.0
+offset_left = 4.0
+text = "OPTION_VIDEO_FULLSCREEN"
+vertical_alignment = 1
+
+[node name="FullscreenToggle" type="CheckButton" parent="VideoOptions/Options/FullscreenSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_right = -4.0
+focus_neighbor_right = NodePath("../../../../OptionsButtons/Confirm")
+focus_neighbor_bottom = NodePath("../../ResolutionSetting/ResolutionOptions")
+focus_next = NodePath("../../ResolutionSetting/ResolutionOptions")
+flat = true
+
+[node name="ResolutionSetting" type="Control" parent="VideoOptions/Options"]
+visible = false
+custom_minimum_size = Vector2(0, 19)
+layout_mode = 2
+
+[node name="ResolutionLabel" type="Label" parent="VideoOptions/Options/ResolutionSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.4
+anchor_bottom = 1.0
+offset_left = 4.0
+text = "OPTION_VIDEO_RESOLUTION"
+vertical_alignment = 1
+
+[node name="ResolutionOptions" type="OptionButton" parent="VideoOptions/Options/ResolutionSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_right = -4.0
+focus_neighbor_top = NodePath("../../FullscreenSetting/FullscreenToggle")
+focus_neighbor_right = NodePath("../../../../OptionsButtons/Confirm")
+focus_neighbor_bottom = NodePath("../../ScreenShakeSetting/ScreenShakeToggle")
+focus_next = NodePath("../../ScreenShakeSetting/ScreenShakeToggle")
+focus_previous = NodePath("../../FullscreenSetting/FullscreenToggle")
+item_count = 3
+popup/item_0/text = "256x224"
+popup/item_0/id = 0
+popup/item_1/text = "640x480"
+popup/item_1/id = 1
+popup/item_2/text = "1280x720"
+popup/item_2/id = 2
+
+[node name="ScreenShakeSetting" type="Control" parent="VideoOptions/Options"]
+custom_minimum_size = Vector2(0, 19)
+layout_mode = 2
+tooltip_text = "tooltip_screen_shake"
+
+[node name="ShakeScreenLabel" type="Label" parent="VideoOptions/Options/ScreenShakeSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.4
+anchor_bottom = 1.0
+offset_left = 4.0
+text = "OPTION_VIDEO_SCREEN_SHAKE"
+vertical_alignment = 1
+
+[node name="ScreenShakeToggle" type="CheckButton" parent="VideoOptions/Options/ScreenShakeSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_right = -4.0
+focus_neighbor_top = NodePath("../../ResolutionSetting/ResolutionOptions")
+focus_neighbor_right = NodePath("../../../../OptionsButtons/Confirm")
+focus_previous = NodePath("../../ResolutionSetting/ResolutionOptions")
+flat = true
+
+[node name="BackgroundSetting" type="Control" parent="VideoOptions/Options"]
+custom_minimum_size = Vector2(0, 19)
+layout_mode = 2
+
+[node name="BackgroundLabel" type="Label" parent="VideoOptions/Options/BackgroundSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.4
+anchor_bottom = 1.0
+offset_left = 4.0
+text = "OPTION_VIDEO_BACKGROUND_TRANSPARENCY"
+vertical_alignment = 1
+
+[node name="BackgroundSlider" type="HSlider" parent="VideoOptions/Options/BackgroundSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_right = -4.0
+focus_neighbor_right = NodePath("../../../../OptionsButtons/Confirm")
+focus_neighbor_bottom = NodePath("../../../../OptionsButtons/Confirm")
+focus_next = NodePath("../../../../OptionsButtons/Confirm")
+min_value = 0.4
+max_value = 1.0
+step = 0.1
+value = 1.0
+
+[node name="PickupSetting" type="Control" parent="VideoOptions/Options"]
+custom_minimum_size = Vector2(0, 19)
+layout_mode = 2
+
+[node name="PickupLabel" type="Label" parent="VideoOptions/Options/PickupSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.4
+anchor_bottom = 1.0
+offset_left = 4.0
+text = "OPTION_VIDEO_PICKUP_ORDER"
+vertical_alignment = 1
+
+[node name="PickupOptions" type="OptionButton" parent="VideoOptions/Options/PickupSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_right = -4.0
+focus_neighbor_top = NodePath("../../FullscreenSetting/FullscreenToggle")
+focus_neighbor_right = NodePath("../../../../OptionsButtons/Confirm")
+focus_neighbor_bottom = NodePath("../../ScreenShakeSetting/ScreenShakeToggle")
+focus_next = NodePath("../../ScreenShakeSetting/ScreenShakeToggle")
+focus_previous = NodePath("../../FullscreenSetting/FullscreenToggle")
+item_count = 3
+popup/item_0/text = "OPTION_VIDEO_PICKUP_ORDER_BOTTOM"
+popup/item_0/id = 0
+popup/item_1/text = "OPTION_VIDEO_PICKUP_ORDER_MIDDLE"
+popup/item_1/id = 1
+popup/item_2/text = "OPTION_VIDEO_PICKUP_ORDER_TOP"
+popup/item_2/id = 2
+
+[node name="EffectsTransparencySetting" type="Control" parent="VideoOptions/Options"]
+custom_minimum_size = Vector2(0, 19)
+layout_mode = 2
+
+[node name="EffectsTransparencyLabel" type="Label" parent="VideoOptions/Options/EffectsTransparencySetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.4
+anchor_bottom = 1.0
+offset_left = 4.0
+text = "OPTION_VIDEO_EFFECT_TRANSPARENCY"
+vertical_alignment = 1
+
+[node name="EffectsTransparencySlider" type="HSlider" parent="VideoOptions/Options/EffectsTransparencySetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_right = -4.0
+max_value = 1.0
+step = 0.1
+value = 0.1
+
+[node name="AudioOptions" type="ScrollContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.18
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 21.0
+offset_bottom = -20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("3_ogls6")
+follow_focus = true
+
+[node name="Options" type="VBoxContainer" parent="AudioOptions"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MasterVolumeSetting" type="Control" parent="AudioOptions/Options"]
+custom_minimum_size = Vector2(0, 19)
+layout_mode = 2
+
+[node name="MasterVolumeLabel" type="Label" parent="AudioOptions/Options/MasterVolumeSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.4
+anchor_bottom = 1.0
+offset_left = 4.0
+text = "OPTION_VOLUME_MASTER"
+vertical_alignment = 1
+
+[node name="MasterVolumeSlider" type="HSlider" parent="AudioOptions/Options/MasterVolumeSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_right = -4.0
+focus_neighbor_right = NodePath("../../../../OptionsButtons/Confirm")
+focus_neighbor_bottom = NodePath("../../MusicVolumeSetting/MusicVolumeSlider")
+focus_next = NodePath("../../MusicVolumeSetting/MusicVolumeSlider")
+min_value = -60.0
+max_value = 6.0
+
+[node name="MusicVolumeSetting" type="Control" parent="AudioOptions/Options"]
+custom_minimum_size = Vector2(0, 19)
+layout_mode = 2
+
+[node name="MusicVolumeLabel" type="Label" parent="AudioOptions/Options/MusicVolumeSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.4
+anchor_bottom = 1.0
+offset_left = 4.0
+text = "OPTION_VOLUME_MUSIC"
+vertical_alignment = 1
+
+[node name="MusicVolumeSlider" type="HSlider" parent="AudioOptions/Options/MusicVolumeSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_right = -4.0
+focus_neighbor_top = NodePath("../../MasterVolumeSetting/MasterVolumeSlider")
+focus_neighbor_right = NodePath("../../../../OptionsButtons/Confirm")
+focus_neighbor_bottom = NodePath("../../EffectsVolumeSetting/EffectsVolumeSlider")
+focus_next = NodePath("../../EffectsVolumeSetting/EffectsVolumeSlider")
+focus_previous = NodePath("../../MasterVolumeSetting/MasterVolumeSlider")
+min_value = -60.0
+max_value = 6.0
+
+[node name="EffectsVolumeSetting" type="Control" parent="AudioOptions/Options"]
+custom_minimum_size = Vector2(0, 19)
+layout_mode = 2
+
+[node name="EffectsVolumeLabel" type="Label" parent="AudioOptions/Options/EffectsVolumeSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.4
+anchor_bottom = 1.0
+offset_left = 4.0
+text = "OPTION_VOLUME_EFFECTS"
+vertical_alignment = 1
+
+[node name="EffectsVolumeSlider" type="HSlider" parent="AudioOptions/Options/EffectsVolumeSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_right = -4.0
+focus_neighbor_top = NodePath("../../MusicVolumeSetting/MusicVolumeSlider")
+focus_neighbor_right = NodePath("../../../../OptionsButtons/Confirm")
+focus_neighbor_bottom = NodePath("../../../../OptionsButtons/Confirm")
+focus_next = NodePath("../../../../OptionsButtons/Confirm")
+focus_previous = NodePath("../../MusicVolumeSetting/MusicVolumeSlider")
+min_value = -60.0
+max_value = 6.0
+
+[node name="ControlOptions" type="ScrollContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.18
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -10.0
+offset_top = 21.0
+offset_right = -4.0
+offset_bottom = -20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("3_ogls6")
+follow_focus = true
+
+[node name="Options" type="VBoxContainer" parent="ControlOptions"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MouseSettings" type="VBoxContainer" parent="ControlOptions/Options"]
+custom_minimum_size = Vector2(0, 19)
+layout_mode = 2
+
+[node name="ToggleButton" type="Button" parent="ControlOptions/Options/MouseSettings"]
+layout_mode = 2
+text = "BUTTON_MOUSE"
+icon = ExtResource("4_7mlu3")
+flat = true
+alignment = 0
+
+[node name="Mouse" type="VBoxContainer" parent="ControlOptions/Options/MouseSettings"]
+layout_mode = 2
+
+[node name="MouseSpeedSetting" type="Control" parent="ControlOptions/Options/MouseSettings/Mouse"]
+custom_minimum_size = Vector2(0, 19)
+layout_mode = 2
+
+[node name="MouseSpeedLabel" type="Label" parent="ControlOptions/Options/MouseSettings/Mouse/MouseSpeedSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.4
+anchor_bottom = 1.0
+offset_left = 18.0
+text = "OPTION_INPUT_MOUSE_SPEED"
+vertical_alignment = 1
+
+[node name="MouseSpeedSlider" type="HSlider" parent="ControlOptions/Options/MouseSettings/Mouse/MouseSpeedSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_right = -4.0
+focus_neighbor_right = NodePath("../../../../../../OptionsButtons/Confirm")
+focus_neighbor_bottom = NodePath("../../../../KeyboardSettings/Keyboard/KeyboardSpeedSetting/KeyboardSpeedSlider")
+focus_next = NodePath("../../../../KeyboardSettings/Keyboard/KeyboardSpeedSetting/KeyboardSpeedSlider")
+min_value = 0.1
+max_value = 2.0
+step = 0.1
+value = 1.0
+
+[node name="KeyboardSettings" type="VBoxContainer" parent="ControlOptions/Options"]
+custom_minimum_size = Vector2(0, 19)
+layout_mode = 2
+
+[node name="ToggleButton" type="Button" parent="ControlOptions/Options/KeyboardSettings"]
+layout_mode = 2
+text = "BUTTON_KEYBOARD"
+icon = ExtResource("4_7mlu3")
+flat = true
+alignment = 0
+
+[node name="Keyboard" type="VBoxContainer" parent="ControlOptions/Options/KeyboardSettings"]
+layout_mode = 2
+
+[node name="KeyboardSpeedSetting" type="Control" parent="ControlOptions/Options/KeyboardSettings/Keyboard"]
+custom_minimum_size = Vector2(0, 19)
+layout_mode = 2
+
+[node name="KeyboardSpeedLabel" type="Label" parent="ControlOptions/Options/KeyboardSettings/Keyboard/KeyboardSpeedSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.4
+anchor_bottom = 1.0
+offset_left = 18.0
+text = "OPTION_INPUT_KEYBOARD_SPEED"
+vertical_alignment = 1
+
+[node name="KeyboardSpeedSlider" type="HSlider" parent="ControlOptions/Options/KeyboardSettings/Keyboard/KeyboardSpeedSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_right = -4.0
+focus_neighbor_top = NodePath("../../../../MouseSettings/Mouse/MouseSpeedSetting/MouseSpeedSlider")
+focus_neighbor_right = NodePath("../../../../../../OptionsButtons/Confirm")
+focus_previous = NodePath("../../../../MouseSettings/Mouse/MouseSpeedSetting/MouseSpeedSlider")
+min_value = 0.5
+max_value = 2.0
+step = 0.1
+value = 1.0
+
+[node name="JoypadSettings" type="VBoxContainer" parent="ControlOptions/Options"]
+custom_minimum_size = Vector2(0, 19)
+layout_mode = 2
+
+[node name="ToggleButton" type="Button" parent="ControlOptions/Options/JoypadSettings"]
+layout_mode = 2
+text = "BUTTON_CONTROLLER"
+icon = ExtResource("4_7mlu3")
+flat = true
+alignment = 0
+
+[node name="Joypad" type="VBoxContainer" parent="ControlOptions/Options/JoypadSettings"]
+layout_mode = 2
+
+[node name="ActiveController" type="Control" parent="ControlOptions/Options/JoypadSettings/Joypad"]
+visible = false
+custom_minimum_size = Vector2(0, 19)
+layout_mode = 2
+
+[node name="UIActiveGamepadLabel" type="Label" parent="ControlOptions/Options/JoypadSettings/Joypad/ActiveController"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.4
+anchor_bottom = 1.0
+offset_left = 18.0
+text = "OPTION_INPUT_ACTIVE_GAMEPAD"
+vertical_alignment = 1
+
+[node name="ActiveGamepadOptions" type="OptionButton" parent="ControlOptions/Options/JoypadSettings/Joypad/ActiveController"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_right = -4.0
+
+[node name="ControllerSpeedSetting" type="Control" parent="ControlOptions/Options/JoypadSettings/Joypad"]
+custom_minimum_size = Vector2(0, 19)
+layout_mode = 2
+
+[node name="ControllerSpeedLabel" type="Label" parent="ControlOptions/Options/JoypadSettings/Joypad/ControllerSpeedSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.4
+anchor_bottom = 1.0
+offset_left = 18.0
+text = "OPTION_INPUT_CONTROLLER_SPEED"
+vertical_alignment = 1
+
+[node name="ControllerSpeedSlider" type="HSlider" parent="ControlOptions/Options/JoypadSettings/Joypad/ControllerSpeedSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_right = -4.0
+focus_neighbor_top = NodePath("../../../../MouseSettings/Mouse/MouseSpeedSetting/MouseSpeedSlider")
+focus_neighbor_right = NodePath("../../../../../../OptionsButtons/Confirm")
+focus_previous = NodePath("../../../../MouseSettings/Mouse/MouseSpeedSetting/MouseSpeedSlider")
+min_value = 0.5
+max_value = 2.0
+step = 0.1
+value = 1.0
+
+[node name="VibrationSetting" type="Control" parent="ControlOptions/Options/JoypadSettings/Joypad"]
+custom_minimum_size = Vector2(0, 19)
+layout_mode = 2
+
+[node name="VibrationLabel" type="Label" parent="ControlOptions/Options/JoypadSettings/Joypad/VibrationSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.4
+anchor_bottom = 1.0
+offset_left = 18.0
+text = "OPTION_INPUT_CONTROLLER_VIBRATIONS"
+vertical_alignment = 1
+
+[node name="VibrationToggle" type="CheckButton" parent="ControlOptions/Options/JoypadSettings/Joypad/VibrationSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_right = -4.0
+focus_neighbor_right = NodePath("../../../../../../OptionsButtons/Confirm")
+focus_neighbor_bottom = NodePath("../../../../../../VideoOptions/Options/ResolutionSetting/ResolutionOptions")
+focus_next = NodePath("../../../../../../VideoOptions/Options/ResolutionSetting/ResolutionOptions")
+flat = true
+
+[node name="OptionsButtons" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.18
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -4.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 2
+
+[node name="Confirm" type="Button" parent="OptionsButtons"]
+layout_mode = 2
+focus_neighbor_right = NodePath("../Cancel")
+focus_neighbor_bottom = NodePath("../../GeneralOptions/Options/LanguageSetting/LanguageOptions")
+focus_next = NodePath("../Cancel")
+focus_previous = NodePath("../../GeneralOptions/Options/LanguageSetting/LanguageOptions")
+shortcut = ExtResource("5_7lapn")
+text = "BUTTON_CONFIRM"
+
+[node name="Cancel" type="Button" parent="OptionsButtons"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../Confirm")
+focus_neighbor_bottom = NodePath("../../GeneralOptions/Options/LanguageSetting/LanguageOptions")
+focus_next = NodePath("../../GeneralOptions/Options/LanguageSetting/LanguageOptions")
+focus_previous = NodePath("../Confirm")
+shortcut = ExtResource("6_vgxtx")
+text = "BUTTON_CANCEL"
+
+[node name="Default" type="Button" parent="OptionsButtons"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../Confirm")
+focus_neighbor_bottom = NodePath("../../GeneralOptions/Options/LanguageSetting/LanguageOptions")
+focus_next = NodePath("../../GeneralOptions/Options/LanguageSetting/LanguageOptions")
+focus_previous = NodePath("../Confirm")
+shortcut = ExtResource("6_vgxtx")
+text = "BUTTON_DEFAULT"
+
+[node name="CategoryButtons" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 0.18
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 5.75
+offset_right = -5.0
+offset_bottom = -6.0
+grow_vertical = 0
+alignment = 2
+
+[node name="General" type="Button" parent="CategoryButtons"]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../Video")
+focus_next = NodePath("../Video")
+text = "BUTTON_GENERAL"
+
+[node name="Video" type="Button" parent="CategoryButtons"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../General")
+focus_neighbor_bottom = NodePath("../Audio")
+focus_next = NodePath("../Audio")
+focus_previous = NodePath("../General")
+text = "BUTTON_VIDEO"
+
+[node name="Audio" type="Button" parent="CategoryButtons"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Video")
+focus_neighbor_bottom = NodePath("../Controls")
+focus_next = NodePath("../Controls")
+focus_previous = NodePath("../Video")
+text = "BUTTON_AUDIO"
+
+[node name="Controls" type="Button" parent="CategoryButtons"]
+layout_mode = 2
+text = "BUTTON_CONTROLS"
+
+[node name="Return" type="Button" parent="CategoryButtons"]
+layout_mode = 2
+shortcut = ExtResource("6_vgxtx")
+shortcut_in_tooltip = false
+text = "BUTTON_RETURN"
+
+[connection signal="pressed" from="OptionsButtons/Confirm" to="." method="SaveSettings"]
+[connection signal="pressed" from="OptionsButtons/Cancel" to="." method="CancelSettings"]
+[connection signal="pressed" from="OptionsButtons/Default" to="." method="RestoreDefaultSettings"]
+[connection signal="pressed" from="CategoryButtons/General" to="." method="ChangeActivePanel" binds= [0]]
+[connection signal="pressed" from="CategoryButtons/Video" to="." method="ChangeActivePanel" binds= [1]]
+[connection signal="pressed" from="CategoryButtons/Audio" to="." method="ChangeActivePanel" binds= [2]]
+[connection signal="pressed" from="CategoryButtons/Controls" to="." method="ChangeActivePanel" binds= [3]]

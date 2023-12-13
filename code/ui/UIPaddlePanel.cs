@@ -1,4 +1,3 @@
-using System.IO;
 using System.Linq;
 using Godot;
 
@@ -7,12 +6,13 @@ public partial class UIPaddlePanel : UIPanel
 	[Export] private TextureRect _paddleSprite;
 	[Export] private Label _paddleName;
 	[Export] private Label _paddleDescription;
+
 	private int _currentPaddle = 1;
 	private int _paddleCount = 0;
 
 	public override void _Ready()
 	{
-		SetupReferences();
+		SetupBaseReferences();
 		_paddleCount = DirAccess.GetFilesAt("res://prefabs/paddles/").Count();
 		UpdateDisplayedValues();
 	}

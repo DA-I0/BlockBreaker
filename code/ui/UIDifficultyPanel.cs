@@ -31,7 +31,7 @@ public partial class UIDifficultyPanel : UIPanel
 
 	public override void _Ready()
 	{
-		SetupReferences();
+		SetupBaseReferences();
 		ToggleEditorControls(false);
 		UpdateEditorButtons();
 	}

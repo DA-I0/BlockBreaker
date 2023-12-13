@@ -4,22 +4,13 @@ public partial class UISkillPanel : UIPanel
 {
 	[Export] private Label _name;
 	[Export] private Label _description;
-	[Export] private Button _returnButton;
 
 	private int _currentSkill = 0;
 
 	public override void _Ready()
 	{
-		SetupReferences();
+		SetupBaseReferences();
 		UpdateDisplayedValues();
-	}
-
-	protected override void SetupReferences()
-	{
-		refs = GetNode("/root/GameController") as SessionController;
-		uiController = (UIController)GetNode("../..");
-		uiController.RefreshUI += Focus;
-		_returnButton.Pressed += () => ((UIController)GetNode("../..")).TogglePanel("GameSetupPanel");
 	}
 
 	private void UpdateDisplayedValues()

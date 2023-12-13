@@ -5,11 +5,14 @@ public partial class UILeaderboard : UIPanel
 	[Export] private Label _playerNames;
 	[Export] private Label _playerScore;
 
-	protected override void SetupReferences()
+	public override void _Ready()
 	{
-		refs = GetNode("/root/GameController") as SessionController;
-		uiController = (UIController)GetNode("../..");
-		uiController.RefreshUI += Focus;
+		SetupBaseReferences();
+		SetupReferences();
+	}
+
+	protected void SetupReferences()
+	{
 		uiController.RefreshUI += ApplyLeaderboardValues;
 	}
 

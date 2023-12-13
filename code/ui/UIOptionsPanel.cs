@@ -32,7 +32,7 @@ public partial class UIOptionsPanel : UIPanel
 
 	public override void _Ready()
 	{
-		SetupReferences();
+		SetupBaseReferences();
 		SetupControlCategoryButtons();
 		SetupActiveJoypadOptions();
 		PopulateKeybindControls();
