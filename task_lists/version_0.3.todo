@@ -8,11 +8,12 @@ Version 0.3:
 			☐ Ability to rebuild parts of the keep for coins to get bonuses
 			☐ Chest items (drops coins and other keep mode limited items?)
 		Skills:
-			☐ Proper skill system @high
-			☐ Ball angle selection in flight?
+			✔ Proper skill system @high @done(23-12-12 16:33)
+			✔ Ball angle selection in flight @done(23-12-12 19:43)
 			☐ Power ball @low
 			☐ Temporary safety net? @low
-			☐ Update "shake" skill (add debrie falling from the celling that can damage breakables when hit) @high
+			✔ Update "shake" skill (add debrie falling from the celling that can damage breakables when hit) @high @done(23-12-12 16:48)
+			✔ Switch from time to breakable destruction based skill charging @done(23-12-12 16:33)
 		Dynamic elements:
 			☐ Add repeating timed toggle for teleport door?
 			☐ Add on-map buttons that toggle connected element when hit with the ball?
@@ -25,8 +26,6 @@ Version 0.3:
 			☐ River (slightly changes ball direction)
 		☐ Replace music randomization with shuffle
 		☐ Dynamic translation loading
-		☐ Add active input type (auto, just mouse, just keyboard, just gamepad)
-		☐ Add active controller (all, <list of connected devices>)
 		☐ Add optional difficulty modifier: advancing speed (ball becomes faster the longer you play without losing a life)
 	Map elements:
 		☐ Stairs + railing @low
@@ -54,6 +53,10 @@ Version 0.3:
 		☐ Improve main menu layout and theming
 		☐ Add access to options and info panels in-game
 		✔ Option to display lives as text (ex. LIVES x8) @done(23-12-08 16:38)
+		✔ Add skill selection @done(23-12-13 19:03)
+		☐ Change "skill active" icon depending on selected skill
+		☐ Add active input type selection (auto, just mouse, just keyboard, just gamepad)
+		☐ Add active controller selection (all, <list of connected devices>)
 	Other:
 		☐ Improve translations
 		☐ Make a new logo @low
@@ -67,3 +70,4 @@ Version 0.3:
 	Issues:
 		☐ Ball sometimes slides along the paddle instead of bouncing @high
 		☐ Game launches zoomed in, only half of the window is visible on screen @SteamDeck @high
+		☐ Paddle collider doesn't resize with smooth transition enabled @high
