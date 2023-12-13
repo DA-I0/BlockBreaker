@@ -1,6 +1,5 @@
 using Godot;
 
-public delegate void PaddleNotification(int size, int movementDirection);
 public delegate void PaddleStateNotification(PaddleState state);
 public enum PaddleMode { basic, bouncy, sticky };
 public enum PaddleState { idle, frozen, confused, locked, collisionLocked };
@@ -28,7 +27,6 @@ public partial class Paddle : CharacterBody2D
 	private Timer _timer;
 	private SessionController refs;
 
-	public event PaddleNotification PaddleChanged;
 	public event PaddleStateNotification StateChanged;
 
 	public PaddleState PaddleState
@@ -51,7 +49,6 @@ public partial class Paddle : CharacterBody2D
 	{
 		SetupReferences();
 		SetupInitialValues();
-		Resize();
 	}
 
 	public override void _PhysicsProcess(double delta)
@@ -222,8 +219,7 @@ public partial class Paddle : CharacterBody2D
 
 	private void Resize()
 	{
-		_animator.Play($"size_{_size}", SizeTransitionTime);
-		PaddleChanged?.Invoke(_size, _movementDirection);
+		_animator.Play($"size_{_size}");//, SizeTransitionTime);
 	}
 
 	private void AdjustSprite()
