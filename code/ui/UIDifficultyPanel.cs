@@ -190,7 +190,7 @@ public partial class UIDifficultyPanel : UIPanel
 	private void SelectDifficulty()
 	{
 		refs.SetDifficulty(_currentDifficulty);
-		uiController.TogglePanel("LevelPanel");
+		uiController.TogglePanel("GameSetupPanel");
 	}
 
 	public void SaveDifficulty()

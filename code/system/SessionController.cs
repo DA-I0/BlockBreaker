@@ -4,12 +4,12 @@ public enum GameState { gameplay, menu, pause, gameOver, gameWin }
 
 public partial class SessionController : Node
 {
-	private readonly Skill[] _availableSkills = { new ScreenShake(), new BallTurner() };
+	private readonly Skill[] _availableSkills = { new ScreenShake(), new BallControl() };
 
 	private GameState _gameState = GameState.menu;
-	private int _currentPaddle = -1;
-	private int _currentDifficulty = -1;
-	private int _currentLevel = -1;
+	private int _currentPaddle;
+	private int _currentDifficulty;
+	private int _currentLevel;
 
 	public GameData gameData;
 	public FileOperations fileOperations;
@@ -51,9 +51,19 @@ public partial class SessionController : Node
 		get { return $"res://prefabs/paddles/paddle_{_currentPaddle}.tscn"; }
 	}
 
+	public int SelectedPaddleIndex
+	{
+		get { return _currentPaddle; }
+	}
+
 	public Godot.Collections.Array<Node> Balls
 	{
 		get { return gameElements.GetChild(0).GetChildren(); }
+	}
+
+	public Skill[] Skills
+	{
+		get { return _availableSkills; }
 	}
 
 	public Skill SelectedSkill
@@ -138,8 +148,8 @@ public partial class SessionController : Node
 		SelectedSkill.SkillReady -= EnableSkill;
 		SelectedSkill.SkillUsed -= UseSkillNotification;
 
-		_currentPaddle = -1;
-		_currentDifficulty = -1;
+		_currentPaddle = 1;
+		_currentDifficulty = 1;
 		_currentLevel = -1;
 		_selectedSkillIndex = 0;
 
@@ -181,6 +191,11 @@ public partial class SessionController : Node
 	public void SetDifficulty(int index)
 	{
 		_currentDifficulty = index;
+	}
+
+	public void SetSkill(int index)
+	{
+		_selectedSkillIndex = index;
 	}
 
 	private void UseSkill(InputEvent @event)

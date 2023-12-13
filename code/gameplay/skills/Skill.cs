@@ -9,6 +9,11 @@ public class Skill
 	public event Notification SkillReady;
 	public event Notification SkillUsed;
 
+	public int ActivationCost
+	{
+		get { return _activationPointsCost; }
+	}
+
 	public void Setup(SessionController sessionController)
 	{
 		refs = sessionController;

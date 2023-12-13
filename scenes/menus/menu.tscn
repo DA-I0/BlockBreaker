@@ -1,47 +1,48 @@
-[gd_scene load_steps=43 format=3 uid="uid://2bhhrfvm7kux"]
+[gd_scene load_steps=44 format=3 uid="uid://2bhhrfvm7kux"]
 
-[ext_resource type="Script" path="res://code/ui/UIController.cs" id="1_5ctlo"]
-[ext_resource type="PackedScene" uid="uid://gn5283p37bke" path="res://prefabs/ui/first_language_selection.tscn" id="2_8j3rs"]
-[ext_resource type="Theme" uid="uid://dj60ywofwk371" path="res://theme/ui.theme" id="3_sjckc"]
-[ext_resource type="StyleBox" uid="uid://bxlfb6t2obups" path="res://theme/panel_thin.tres" id="3_v54h8"]
-[ext_resource type="Script" path="res://code/ui/UIPaddlePanel.cs" id="5_yyr40"]
-[ext_resource type="Script" path="res://code/ui/UILeaderboard.cs" id="6_3powx"]
-[ext_resource type="Shortcut" uid="uid://b0g14u724bnvg" path="res://shortcuts/previous.tres" id="6_dwepl"]
-[ext_resource type="Texture2D" uid="uid://f7a58ge3hksa" path="res://assets/sprites/blocks/block_basic.png" id="7_26x0h"]
-[ext_resource type="Texture2D" uid="uid://bkkbuv1lumwpe" path="res://assets/sprites/ui_elements/icons/ui_icon_arrow_left.png" id="7_jq31p"]
-[ext_resource type="Texture2D" uid="uid://d0cnr320o626e" path="res://assets/sprites/blocks/block_sturdy_01.png" id="8_a12sc"]
-[ext_resource type="Texture2D" uid="uid://cy50s2cbk4uju" path="res://assets/sprites/ui_elements/icons/ui_icon_arrow_left_pressed.png" id="8_j01t3"]
-[ext_resource type="Texture2D" uid="uid://d2igfcna5mbgv" path="res://assets/sprites/ui_elements/icons/ui_icon_arrow_left_hover.png" id="9_2ddjg"]
-[ext_resource type="Texture2D" uid="uid://7d4eyxkvyukd" path="res://assets/sprites/blocks/barrier_basic.png" id="9_ps03f"]
-[ext_resource type="Texture2D" uid="uid://bnni5cj6uglbh" path="res://assets/sprites/blocks/barrier_sturdy_01.png" id="10_b3uxo"]
-[ext_resource type="Texture2D" uid="uid://bmqn8ykrxswu5" path="res://assets/sprites/ui_elements/icons/ui_icon_arrow_left_disabled.png" id="10_enfqf"]
-[ext_resource type="Texture2D" uid="uid://chk6oivvrr8nn" path="res://assets/sprites/ui_elements/icons/ui_icon_arrow_right.png" id="11_27sep"]
-[ext_resource type="Shortcut" uid="uid://dbejlkyilhqj6" path="res://shortcuts/next.tres" id="11_tce16"]
-[ext_resource type="Texture2D" uid="uid://1ucmb2n300ts" path="res://assets/sprites/ui_elements/icons/ui_icon_arrow_right_pressed.png" id="12_ovde2"]
-[ext_resource type="Texture2D" uid="uid://bkkudkcwwl8ml" path="res://assets/sprites/ui_elements/icons/ui_icon_arrow_right_hover.png" id="13_5d0sh"]
-[ext_resource type="Texture2D" uid="uid://bbd31fqk7ctsp" path="res://assets/sprites/ui_elements/icons/ui_icon_arrow_right_disabled.png" id="14_rbym7"]
-[ext_resource type="Texture2D" uid="uid://c6d4r5rvlnwnj" path="res://assets/sprites/game_area.png" id="15_ppnoe"]
-[ext_resource type="Script" path="res://code/ui/UIDifficultyPanel.cs" id="15_swngl"]
-[ext_resource type="Shortcut" uid="uid://b5ydjlfn0ps7g" path="res://shortcuts/confirm.tres" id="16_dq4b3"]
-[ext_resource type="Shortcut" uid="uid://bhk5vranx2qfl" path="res://shortcuts/cancel.tres" id="17_c27yp"]
-[ext_resource type="Texture2D" uid="uid://cp27aowbjgp2l" path="res://assets/sprites/ui_elements/icons/ui_icon_remove.png" id="17_is4ul"]
-[ext_resource type="Texture2D" uid="uid://cf0h3lftyyhft" path="res://assets/sprites/ui_elements/icons/ui_icon_remove_pressed.png" id="18_p68cf"]
-[ext_resource type="Texture2D" uid="uid://bdp7f07yfa3ey" path="res://assets/sprites/ui_elements/icons/ui_icon_remove_hover.png" id="19_b1nm1"]
-[ext_resource type="Texture2D" uid="uid://bpgcu5lna27rb" path="res://assets/sprites/ui_elements/icons/ui_icon_remove_disabled.png" id="20_3frvn"]
-[ext_resource type="Texture2D" uid="uid://lmc6m32k03bw" path="res://assets/sprites/ui_elements/icons/ui_icon_edit.png" id="21_seue2"]
-[ext_resource type="Texture2D" uid="uid://c6pcnoxwm5sas" path="res://assets/sprites/ui_elements/icons/ui_icon_edit_pressed.png" id="22_d5box"]
-[ext_resource type="Texture2D" uid="uid://dx7ipshg4pe3u" path="res://assets/sprites/ui_elements/icons/ui_icon_edit_hover.png" id="23_awklh"]
-[ext_resource type="Texture2D" uid="uid://bc1ny1ht3iahj" path="res://assets/sprites/ui_elements/icons/ui_icon_edit_disabled.png" id="24_n2lwv"]
-[ext_resource type="Texture2D" uid="uid://83kany0im6u1" path="res://assets/sprites/ui_elements/icons/ui_icon_add.png" id="25_q7ksc"]
-[ext_resource type="Texture2D" uid="uid://n2wtamb35ikq" path="res://assets/sprites/ui_elements/icons/ui_icon_add_pressed.png" id="26_y7c7v"]
-[ext_resource type="Texture2D" uid="uid://b32gq7r2tvcf3" path="res://assets/sprites/ui_elements/icons/ui_icon_add_hover.png" id="27_ld2id"]
-[ext_resource type="Script" path="res://code/ui/UILevelPanel.cs" id="28_5o2bk"]
-[ext_resource type="Texture2D" uid="uid://bn53u7bjick3w" path="res://assets/sprites/ui_elements/icons/ui_icon_add_disabled.png" id="28_jvlsi"]
-[ext_resource type="Script" path="res://code/ui/UIInfoPanel.cs" id="30_g7tuq"]
-[ext_resource type="Script" path="res://code/ui/UIOptionsPanel.cs" id="37_7pgst"]
-[ext_resource type="Script" path="res://code/ui/UIPatchNotesPanel.cs" id="38_0jdd4"]
-[ext_resource type="StyleBox" uid="uid://bnbwbb74r5uj6" path="res://theme/panel_header.tres" id="42_rspqf"]
-[ext_resource type="PackedScene" uid="uid://bjvyfeorydh7s" path="res://prefabs/ui/keybind_change_panel.tscn" id="43_k0jm2"]
+[ext_resource type="Script" path="res://code/ui/UIController.cs" id="1_5bop1"]
+[ext_resource type="StyleBox" uid="uid://bxlfb6t2obups" path="res://theme/panel_thin.tres" id="2_e2jta"]
+[ext_resource type="Script" path="res://code/ui/UILeaderboard.cs" id="3_nk3pn"]
+[ext_resource type="Shortcut" uid="uid://bhk5vranx2qfl" path="res://shortcuts/cancel.tres" id="4_84ns3"]
+[ext_resource type="Script" path="res://code/ui/UIPaddlePanel.cs" id="5_o1dvu"]
+[ext_resource type="Shortcut" uid="uid://b0g14u724bnvg" path="res://shortcuts/previous.tres" id="6_xocma"]
+[ext_resource type="Texture2D" uid="uid://bkkbuv1lumwpe" path="res://assets/sprites/ui_elements/icons/ui_icon_arrow_left.png" id="7_gf1y0"]
+[ext_resource type="Texture2D" uid="uid://cy50s2cbk4uju" path="res://assets/sprites/ui_elements/icons/ui_icon_arrow_left_pressed.png" id="8_ksnvh"]
+[ext_resource type="Texture2D" uid="uid://d2igfcna5mbgv" path="res://assets/sprites/ui_elements/icons/ui_icon_arrow_left_hover.png" id="9_13yic"]
+[ext_resource type="Texture2D" uid="uid://bmqn8ykrxswu5" path="res://assets/sprites/ui_elements/icons/ui_icon_arrow_left_disabled.png" id="10_gmwnx"]
+[ext_resource type="Shortcut" uid="uid://dbejlkyilhqj6" path="res://shortcuts/next.tres" id="11_o0k25"]
+[ext_resource type="Texture2D" uid="uid://chk6oivvrr8nn" path="res://assets/sprites/ui_elements/icons/ui_icon_arrow_right.png" id="12_b5ejd"]
+[ext_resource type="Texture2D" uid="uid://1ucmb2n300ts" path="res://assets/sprites/ui_elements/icons/ui_icon_arrow_right_pressed.png" id="13_4jaob"]
+[ext_resource type="Texture2D" uid="uid://bkkudkcwwl8ml" path="res://assets/sprites/ui_elements/icons/ui_icon_arrow_right_hover.png" id="14_8cddm"]
+[ext_resource type="Texture2D" uid="uid://bbd31fqk7ctsp" path="res://assets/sprites/ui_elements/icons/ui_icon_arrow_right_disabled.png" id="15_ldrkl"]
+[ext_resource type="Texture2D" uid="uid://c6d4r5rvlnwnj" path="res://assets/sprites/game_area.png" id="16_sejok"]
+[ext_resource type="Shortcut" uid="uid://b5ydjlfn0ps7g" path="res://shortcuts/confirm.tres" id="17_sbyb5"]
+[ext_resource type="Script" path="res://code/ui/UIDifficultyPanel.cs" id="18_naxtv"]
+[ext_resource type="Texture2D" uid="uid://cp27aowbjgp2l" path="res://assets/sprites/ui_elements/icons/ui_icon_remove.png" id="19_fyud7"]
+[ext_resource type="Texture2D" uid="uid://cf0h3lftyyhft" path="res://assets/sprites/ui_elements/icons/ui_icon_remove_pressed.png" id="20_wvrsm"]
+[ext_resource type="Texture2D" uid="uid://bdp7f07yfa3ey" path="res://assets/sprites/ui_elements/icons/ui_icon_remove_hover.png" id="21_2om1p"]
+[ext_resource type="Texture2D" uid="uid://bpgcu5lna27rb" path="res://assets/sprites/ui_elements/icons/ui_icon_remove_disabled.png" id="22_at6dg"]
+[ext_resource type="Texture2D" uid="uid://lmc6m32k03bw" path="res://assets/sprites/ui_elements/icons/ui_icon_edit.png" id="23_ruuql"]
+[ext_resource type="Texture2D" uid="uid://c6pcnoxwm5sas" path="res://assets/sprites/ui_elements/icons/ui_icon_edit_pressed.png" id="24_byvxh"]
+[ext_resource type="Texture2D" uid="uid://dx7ipshg4pe3u" path="res://assets/sprites/ui_elements/icons/ui_icon_edit_hover.png" id="25_7gf34"]
+[ext_resource type="Texture2D" uid="uid://bc1ny1ht3iahj" path="res://assets/sprites/ui_elements/icons/ui_icon_edit_disabled.png" id="26_uoj21"]
+[ext_resource type="Texture2D" uid="uid://83kany0im6u1" path="res://assets/sprites/ui_elements/icons/ui_icon_add.png" id="27_tg2ca"]
+[ext_resource type="Texture2D" uid="uid://n2wtamb35ikq" path="res://assets/sprites/ui_elements/icons/ui_icon_add_pressed.png" id="28_cpp56"]
+[ext_resource type="Texture2D" uid="uid://b32gq7r2tvcf3" path="res://assets/sprites/ui_elements/icons/ui_icon_add_hover.png" id="29_ls262"]
+[ext_resource type="Texture2D" uid="uid://bn53u7bjick3w" path="res://assets/sprites/ui_elements/icons/ui_icon_add_disabled.png" id="30_kgvcp"]
+[ext_resource type="PackedScene" uid="uid://mg42nmp0k676" path="res://scenes/menus/skill_panel.tscn" id="31_ust1r"]
+[ext_resource type="PackedScene" uid="uid://b3h1pgyhdyfg6" path="res://scenes/menus/game_setup.tscn" id="31_xmcps"]
+[ext_resource type="Script" path="res://code/ui/UIInfoPanel.cs" id="32_rptbe"]
+[ext_resource type="Texture2D" uid="uid://f7a58ge3hksa" path="res://assets/sprites/blocks/block_basic.png" id="33_f0u6r"]
+[ext_resource type="Texture2D" uid="uid://d0cnr320o626e" path="res://assets/sprites/blocks/block_sturdy_01.png" id="34_grxae"]
+[ext_resource type="Texture2D" uid="uid://7d4eyxkvyukd" path="res://assets/sprites/blocks/barrier_basic.png" id="35_7qv18"]
+[ext_resource type="Texture2D" uid="uid://bnni5cj6uglbh" path="res://assets/sprites/blocks/barrier_sturdy_01.png" id="36_ej4up"]
+[ext_resource type="Script" path="res://code/ui/UIPatchNotesPanel.cs" id="37_traa7"]
+[ext_resource type="Theme" uid="uid://dj60ywofwk371" path="res://theme/ui.theme" id="38_wbhm5"]
+[ext_resource type="StyleBox" uid="uid://bnbwbb74r5uj6" path="res://theme/panel_header.tres" id="39_dov42"]
+[ext_resource type="Script" path="res://code/ui/UIOptionsPanel.cs" id="40_ef1wr"]
+[ext_resource type="PackedScene" uid="uid://gn5283p37bke" path="res://prefabs/ui/first_language_selection.tscn" id="41_j8o0y"]
+[ext_resource type="PackedScene" uid="uid://bjvyfeorydh7s" path="res://prefabs/ui/keybind_change_panel.tscn" id="42_x70i1"]
 
 [node name="Menu" type="AspectRatioContainer" node_paths=PackedStringArray("_gameTitle", "_gameVersion", "_menuButtons")]
 anchors_preset = 15
@@ -54,7 +55,7 @@ offset_bottom = -112.0
 grow_horizontal = 2
 grow_vertical = 2
 ratio = 1.1429
-script = ExtResource("1_5ctlo")
+script = ExtResource("1_5bop1")
 _gameTitle = NodePath("Control/GameTitle")
 _gameVersion = NodePath("Control/GameVersion")
 _menuButtons = NodePath("Control/MenuButtons")
@@ -159,8 +160,8 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme_override_styles/panel = ExtResource("3_v54h8")
-script = ExtResource("6_3powx")
+theme_override_styles/panel = ExtResource("2_e2jta")
+script = ExtResource("3_nk3pn")
 _playerNames = NodePath("PlayerNames")
 _playerScore = NodePath("PlayerScore")
 _focusTarget = NodePath("Return")
@@ -230,7 +231,7 @@ offset_left = 5.0
 offset_bottom = -6.0
 grow_vertical = 0
 shortcut_context = NodePath("..")
-shortcut = ExtResource("17_c27yp")
+shortcut = ExtResource("4_84ns3")
 shortcut_in_tooltip = false
 text = "BUTTON_RETURN"
 
@@ -240,7 +241,7 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource("5_yyr40")
+script = ExtResource("5_o1dvu")
 _paddleSprite = NodePath("PaddleSprite")
 _paddleName = NodePath("PaddleName")
 _paddleDescription = NodePath("PaddleDescription")
@@ -272,13 +273,13 @@ grow_vertical = 2
 pivot_offset = Vector2(0, 50)
 focus_mode = 0
 shortcut_context = NodePath("..")
-shortcut = ExtResource("6_dwepl")
+shortcut = ExtResource("6_xocma")
 shortcut_in_tooltip = false
-texture_normal = ExtResource("7_jq31p")
-texture_pressed = ExtResource("8_j01t3")
-texture_hover = ExtResource("9_2ddjg")
-texture_disabled = ExtResource("10_enfqf")
-texture_focused = ExtResource("9_2ddjg")
+texture_normal = ExtResource("7_gf1y0")
+texture_pressed = ExtResource("8_ksnvh")
+texture_hover = ExtResource("9_13yic")
+texture_disabled = ExtResource("10_gmwnx")
+texture_focused = ExtResource("9_13yic")
 stretch_mode = 5
 
 [node name="NextPaddle" type="TextureButton" parent="Control/PaddlePanel" node_paths=PackedStringArray("shortcut_context")]
@@ -292,13 +293,13 @@ grow_vertical = 2
 pivot_offset = Vector2(100, 50)
 focus_mode = 0
 shortcut_context = NodePath("..")
-shortcut = ExtResource("11_tce16")
+shortcut = ExtResource("11_o0k25")
 shortcut_in_tooltip = false
-texture_normal = ExtResource("11_27sep")
-texture_pressed = ExtResource("12_ovde2")
-texture_hover = ExtResource("13_5d0sh")
-texture_disabled = ExtResource("14_rbym7")
-texture_focused = ExtResource("13_5d0sh")
+texture_normal = ExtResource("12_b5ejd")
+texture_pressed = ExtResource("13_4jaob")
+texture_hover = ExtResource("14_8cddm")
+texture_disabled = ExtResource("15_ldrkl")
+texture_focused = ExtResource("14_8cddm")
 stretch_mode = 5
 
 [node name="PaddleName" type="Label" parent="Control/PaddlePanel"]
@@ -323,7 +324,7 @@ anchor_bottom = 0.55
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(100, 100)
-texture = ExtResource("15_ppnoe")
+texture = ExtResource("16_sejok")
 expand_mode = 5
 stretch_mode = 5
 
@@ -349,7 +350,7 @@ offset_bottom = -6.0
 grow_horizontal = 2
 grow_vertical = 0
 shortcut_context = NodePath("..")
-shortcut = ExtResource("16_dq4b3")
+shortcut = ExtResource("17_sbyb5")
 shortcut_in_tooltip = false
 text = "BUTTON_CONFIRM"
 
@@ -363,7 +364,7 @@ offset_bottom = -6.0
 grow_vertical = 0
 focus_mode = 0
 shortcut_context = NodePath("..")
-shortcut = ExtResource("17_c27yp")
+shortcut = ExtResource("4_84ns3")
 shortcut_in_tooltip = false
 text = "BUTTON_RETURN"
 
@@ -373,7 +374,7 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource("15_swngl")
+script = ExtResource("18_naxtv")
 _name = NodePath("DifficultyOptions/Name/NameLabel")
 _newName = NodePath("DifficultyOptions/Name/DifficultyNewName/LineEdit")
 _livesMax = NodePath("DifficultyOptions/MaxLives/LivesMaxLabel")
@@ -423,13 +424,13 @@ grow_vertical = 2
 pivot_offset = Vector2(0, 50)
 focus_mode = 0
 shortcut_context = NodePath("..")
-shortcut = ExtResource("6_dwepl")
+shortcut = ExtResource("6_xocma")
 shortcut_in_tooltip = false
-texture_normal = ExtResource("7_jq31p")
-texture_pressed = ExtResource("8_j01t3")
-texture_hover = ExtResource("9_2ddjg")
-texture_disabled = ExtResource("10_enfqf")
-texture_focused = ExtResource("9_2ddjg")
+texture_normal = ExtResource("7_gf1y0")
+texture_pressed = ExtResource("8_ksnvh")
+texture_hover = ExtResource("9_13yic")
+texture_disabled = ExtResource("10_gmwnx")
+texture_focused = ExtResource("9_13yic")
 stretch_mode = 5
 
 [node name="NextDifficulty" type="TextureButton" parent="Control/DifficultyPanel" node_paths=PackedStringArray("shortcut_context")]
@@ -443,13 +444,13 @@ grow_vertical = 2
 pivot_offset = Vector2(100, 50)
 focus_mode = 0
 shortcut_context = NodePath("..")
-shortcut = ExtResource("11_tce16")
+shortcut = ExtResource("11_o0k25")
 shortcut_in_tooltip = false
-texture_normal = ExtResource("11_27sep")
-texture_pressed = ExtResource("12_ovde2")
-texture_hover = ExtResource("13_5d0sh")
-texture_disabled = ExtResource("14_rbym7")
-texture_focused = ExtResource("13_5d0sh")
+texture_normal = ExtResource("12_b5ejd")
+texture_pressed = ExtResource("13_4jaob")
+texture_hover = ExtResource("14_8cddm")
+texture_disabled = ExtResource("15_ldrkl")
+texture_focused = ExtResource("14_8cddm")
 stretch_mode = 5
 
 [node name="DifficultyOptions" type="VBoxContainer" parent="Control/DifficultyPanel"]
@@ -631,14 +632,14 @@ alignment = 1
 [node name="ConfirmDifficulty" type="Button" parent="Control/DifficultyPanel/ConfirmationButtons" node_paths=PackedStringArray("shortcut_context")]
 layout_mode = 2
 shortcut_context = NodePath("../..")
-shortcut = ExtResource("16_dq4b3")
+shortcut = ExtResource("17_sbyb5")
 shortcut_in_tooltip = false
 text = "BUTTON_CONFIRM"
 
 [node name="CancelEditor" type="Button" parent="Control/DifficultyPanel/ConfirmationButtons" node_paths=PackedStringArray("shortcut_context")]
 layout_mode = 2
 shortcut_context = NodePath("../..")
-shortcut = ExtResource("17_c27yp")
+shortcut = ExtResource("4_84ns3")
 shortcut_in_tooltip = false
 text = "BUTTON_CANCEL"
 
@@ -657,27 +658,27 @@ alignment = 2
 
 [node name="DeleteDifficulty" type="TextureButton" parent="Control/DifficultyPanel/CustomDifficultyButtons"]
 layout_mode = 2
-texture_normal = ExtResource("17_is4ul")
-texture_pressed = ExtResource("18_p68cf")
-texture_hover = ExtResource("19_b1nm1")
-texture_disabled = ExtResource("20_3frvn")
-texture_focused = ExtResource("19_b1nm1")
+texture_normal = ExtResource("19_fyud7")
+texture_pressed = ExtResource("20_wvrsm")
+texture_hover = ExtResource("21_2om1p")
+texture_disabled = ExtResource("22_at6dg")
+texture_focused = ExtResource("21_2om1p")
 
 [node name="EditDifficulty" type="TextureButton" parent="Control/DifficultyPanel/CustomDifficultyButtons"]
 layout_mode = 2
-texture_normal = ExtResource("21_seue2")
-texture_pressed = ExtResource("22_d5box")
-texture_hover = ExtResource("23_awklh")
-texture_disabled = ExtResource("24_n2lwv")
-texture_focused = ExtResource("23_awklh")
+texture_normal = ExtResource("23_ruuql")
+texture_pressed = ExtResource("24_byvxh")
+texture_hover = ExtResource("25_7gf34")
+texture_disabled = ExtResource("26_uoj21")
+texture_focused = ExtResource("25_7gf34")
 
 [node name="AddDifficulty" type="TextureButton" parent="Control/DifficultyPanel/CustomDifficultyButtons"]
 layout_mode = 2
-texture_normal = ExtResource("25_q7ksc")
-texture_pressed = ExtResource("26_y7c7v")
-texture_hover = ExtResource("27_ld2id")
-texture_disabled = ExtResource("28_jvlsi")
-texture_focused = ExtResource("27_ld2id")
+texture_normal = ExtResource("27_tg2ca")
+texture_pressed = ExtResource("28_cpp56")
+texture_hover = ExtResource("29_ls262")
+texture_disabled = ExtResource("30_kgvcp")
+texture_focused = ExtResource("29_ls262")
 
 [node name="Return" type="Button" parent="Control/DifficultyPanel" node_paths=PackedStringArray("shortcut_context")]
 layout_mode = 1
@@ -689,61 +690,23 @@ offset_bottom = -6.0
 grow_vertical = 0
 focus_mode = 0
 shortcut_context = NodePath("..")
-shortcut = ExtResource("17_c27yp")
+shortcut = ExtResource("4_84ns3")
 shortcut_in_tooltip = false
 text = "BUTTON_RETURN"
 
-[node name="LevelPanel" type="Panel" parent="Control"]
-visible = false
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-script = ExtResource("28_5o2bk")
+[node name="SkillPanel" parent="Control" instance=ExtResource("31_ust1r")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
 
-[node name="LevelHeader" type="Panel" parent="Control/LevelPanel"]
-custom_minimum_size = Vector2(0, 20)
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-
-[node name="LevelHeaderLabel" type="Label" parent="Control/LevelPanel/LevelHeader"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "HEADER_LEVEL"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Levels" type="GridContainer" parent="Control/LevelPanel"]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 4.0
-offset_top = 22.0
-offset_right = -4.0
-offset_bottom = -4.0
-grow_horizontal = 2
-grow_vertical = 2
-columns = 5
-
-[node name="Return" type="Button" parent="Control/LevelPanel" node_paths=PackedStringArray("shortcut_context")]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 5.0
-offset_bottom = -6.0
-grow_vertical = 0
-focus_mode = 0
-shortcut_context = NodePath("..")
-shortcut = ExtResource("17_c27yp")
-shortcut_in_tooltip = false
-text = "BUTTON_RETURN"
+[node name="GameSetupPanel" parent="Control" instance=ExtResource("31_xmcps")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 256.0
+offset_bottom = 224.0
 
 [node name="InfoPanel" type="Panel" parent="Control" node_paths=PackedStringArray("_focusTarget")]
 visible = false
@@ -752,7 +715,7 @@ anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
 focus_mode = 2
-script = ExtResource("30_g7tuq")
+script = ExtResource("32_rptbe")
 _focusTarget = NodePath("ScrollContainer")
 
 [node name="InfoHeader" type="Panel" parent="Control/InfoPanel"]
@@ -820,13 +783,13 @@ layout_mode = 2
 
 [node name="Icon1" type="TextureRect" parent="Control/InfoPanel/ScrollContainer/InfoContent/InfoBlocks/Icons"]
 layout_mode = 2
-texture = ExtResource("7_26x0h")
+texture = ExtResource("33_f0u6r")
 expand_mode = 5
 stretch_mode = 4
 
 [node name="Icon2" type="TextureRect" parent="Control/InfoPanel/ScrollContainer/InfoContent/InfoBlocks/Icons"]
 layout_mode = 2
-texture = ExtResource("8_a12sc")
+texture = ExtResource("34_grxae")
 expand_mode = 5
 stretch_mode = 4
 
@@ -851,13 +814,13 @@ layout_mode = 2
 
 [node name="Icon1" type="TextureRect" parent="Control/InfoPanel/ScrollContainer/InfoContent/InfoBarriers/Icons"]
 layout_mode = 2
-texture = ExtResource("9_ps03f")
+texture = ExtResource("35_7qv18")
 expand_mode = 5
 stretch_mode = 4
 
 [node name="Icon2" type="TextureRect" parent="Control/InfoPanel/ScrollContainer/InfoContent/InfoBarriers/Icons"]
 layout_mode = 2
-texture = ExtResource("10_b3uxo")
+texture = ExtResource("36_ej4up")
 expand_mode = 5
 stretch_mode = 4
 
@@ -902,7 +865,7 @@ offset_left = 5.0
 offset_bottom = -6.0
 grow_vertical = 0
 shortcut_context = NodePath("..")
-shortcut = ExtResource("17_c27yp")
+shortcut = ExtResource("4_84ns3")
 shortcut_in_tooltip = false
 text = "BUTTON_RETURN"
 
@@ -912,7 +875,7 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource("38_0jdd4")
+script = ExtResource("37_traa7")
 _content = NodePath("PatchNotesScrollContainer/PatchNotesContent")
 _focusTarget = NodePath("PatchNotesScrollContainer")
 
@@ -950,7 +913,7 @@ focus_mode = 2
 [node name="PatchNotesContent" type="RichTextLabel" parent="Control/PatchNotesPanel/PatchNotesScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("3_sjckc")
+theme = ExtResource("38_wbhm5")
 bbcode_enabled = true
 text = "<patch_notes>"
 fit_content = true
@@ -966,7 +929,7 @@ offset_left = 5.0
 offset_bottom = -6.0
 grow_vertical = 0
 shortcut_context = NodePath("..")
-shortcut = ExtResource("17_c27yp")
+shortcut = ExtResource("4_84ns3")
 shortcut_in_tooltip = false
 text = "BUTTON_RETURN"
 
@@ -975,8 +938,8 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme_override_styles/panel = ExtResource("42_rspqf")
-script = ExtResource("37_7pgst")
+theme_override_styles/panel = ExtResource("39_dov42")
+script = ExtResource("40_ef1wr")
 _header = NodePath("HeaderPanel/HeaderLabel")
 _language = NodePath("GeneralOptions/Options/LanguageSetting/LanguageOptions")
 _controllerType = NodePath("GeneralOptions/Options/UIControlsSetting/UIControlsOptions")
@@ -1026,7 +989,7 @@ offset_top = 21.0
 offset_bottom = -20.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource("3_sjckc")
+theme = ExtResource("38_wbhm5")
 follow_focus = true
 
 [node name="Options" type="VBoxContainer" parent="Control/OptionsPanel/GeneralOptions"]
@@ -1132,7 +1095,7 @@ offset_top = 21.0
 offset_bottom = -20.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource("3_sjckc")
+theme = ExtResource("38_wbhm5")
 follow_focus = true
 
 [node name="Options" type="VBoxContainer" parent="Control/OptionsPanel/VideoOptions"]
@@ -1327,7 +1290,7 @@ offset_top = 21.0
 offset_bottom = -20.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource("3_sjckc")
+theme = ExtResource("38_wbhm5")
 follow_focus = true
 
 [node name="Options" type="VBoxContainer" parent="Control/OptionsPanel/AudioOptions"]
@@ -1433,7 +1396,7 @@ offset_right = -4.0
 offset_bottom = -20.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource("3_sjckc")
+theme = ExtResource("38_wbhm5")
 follow_focus = true
 
 [node name="Options" type="VBoxContainer" parent="Control/OptionsPanel/ControlOptions"]
@@ -1448,7 +1411,7 @@ layout_mode = 2
 [node name="ToggleButton" type="Button" parent="Control/OptionsPanel/ControlOptions/Options/MouseSettings"]
 layout_mode = 2
 text = "BUTTON_MOUSE"
-icon = ExtResource("11_27sep")
+icon = ExtResource("12_b5ejd")
 flat = true
 alignment = 0
 
@@ -1491,7 +1454,7 @@ layout_mode = 2
 [node name="ToggleButton" type="Button" parent="Control/OptionsPanel/ControlOptions/Options/KeyboardSettings"]
 layout_mode = 2
 text = "BUTTON_KEYBOARD"
-icon = ExtResource("11_27sep")
+icon = ExtResource("12_b5ejd")
 flat = true
 alignment = 0
 
@@ -1534,7 +1497,7 @@ layout_mode = 2
 [node name="ToggleButton" type="Button" parent="Control/OptionsPanel/ControlOptions/Options/JoypadSettings"]
 layout_mode = 2
 text = "BUTTON_CONTROLLER"
-icon = ExtResource("11_27sep")
+icon = ExtResource("12_b5ejd")
 flat = true
 alignment = 0
 
@@ -1639,7 +1602,7 @@ focus_neighbor_bottom = NodePath("../../GeneralOptions/Options/LanguageSetting/L
 focus_next = NodePath("../Cancel")
 focus_previous = NodePath("../../GeneralOptions/Options/LanguageSetting/LanguageOptions")
 shortcut_context = NodePath("../..")
-shortcut = ExtResource("16_dq4b3")
+shortcut = ExtResource("17_sbyb5")
 text = "BUTTON_CONFIRM"
 
 [node name="Cancel" type="Button" parent="Control/OptionsPanel/OptionsButtons" node_paths=PackedStringArray("shortcut_context")]
@@ -1649,7 +1612,7 @@ focus_neighbor_bottom = NodePath("../../GeneralOptions/Options/LanguageSetting/L
 focus_next = NodePath("../../GeneralOptions/Options/LanguageSetting/LanguageOptions")
 focus_previous = NodePath("../Confirm")
 shortcut_context = NodePath("../..")
-shortcut = ExtResource("17_c27yp")
+shortcut = ExtResource("4_84ns3")
 text = "BUTTON_CANCEL"
 
 [node name="Default" type="Button" parent="Control/OptionsPanel/OptionsButtons" node_paths=PackedStringArray("shortcut_context")]
@@ -1659,7 +1622,7 @@ focus_neighbor_bottom = NodePath("../../GeneralOptions/Options/LanguageSetting/L
 focus_next = NodePath("../../GeneralOptions/Options/LanguageSetting/LanguageOptions")
 focus_previous = NodePath("../Confirm")
 shortcut_context = NodePath("../..")
-shortcut = ExtResource("17_c27yp")
+shortcut = ExtResource("4_84ns3")
 text = "BUTTON_DEFAULT"
 
 [node name="CategoryButtons" type="VBoxContainer" parent="Control/OptionsPanel"]
@@ -1704,19 +1667,19 @@ text = "BUTTON_CONTROLS"
 [node name="Return" type="Button" parent="Control/OptionsPanel/CategoryButtons" node_paths=PackedStringArray("shortcut_context")]
 layout_mode = 2
 shortcut_context = NodePath("../..")
-shortcut = ExtResource("17_c27yp")
+shortcut = ExtResource("4_84ns3")
 shortcut_in_tooltip = false
 text = "BUTTON_RETURN"
 
-[node name="LangSelection" parent="." instance=ExtResource("2_8j3rs")]
+[node name="LangSelection" parent="." instance=ExtResource("41_j8o0y")]
 visible = false
 layout_mode = 2
 
-[node name="KeybindChangePanel" parent="." instance=ExtResource("43_k0jm2")]
+[node name="KeybindChangePanel" parent="." instance=ExtResource("42_x70i1")]
 visible = false
 layout_mode = 2
 
-[connection signal="pressed" from="Control/MenuButtons/Play" to="." method="TogglePanel" binds= ["PaddlePanel"]]
+[connection signal="pressed" from="Control/MenuButtons/Play" to="." method="TogglePanel" binds= ["GameSetupPanel"]]
 [connection signal="pressed" from="Control/MenuButtons/Leaderboard" to="." method="TogglePanel" binds= ["LeaderboardPanel"]]
 [connection signal="pressed" from="Control/MenuButtons/Info" to="." method="TogglePanel" binds= ["InfoPanel"]]
 [connection signal="pressed" from="Control/MenuButtons/PatchNotes" to="." method="TogglePanel" binds= ["PatchNotesPanel"]]
@@ -1726,7 +1689,7 @@ layout_mode = 2
 [connection signal="pressed" from="Control/PaddlePanel/PreviousPaddle" to="Control/PaddlePanel" method="ChangePaddle" binds= [false]]
 [connection signal="pressed" from="Control/PaddlePanel/NextPaddle" to="Control/PaddlePanel" method="ChangePaddle" binds= [true]]
 [connection signal="pressed" from="Control/PaddlePanel/ConfirmPaddle" to="Control/PaddlePanel" method="SelectPaddle"]
-[connection signal="pressed" from="Control/PaddlePanel/Return" to="." method="TogglePanel" binds= [""]]
+[connection signal="pressed" from="Control/PaddlePanel/Return" to="." method="TogglePanel" binds= ["LevelPanel"]]
 [connection signal="pressed" from="Control/DifficultyPanel/PreviousDifficulty" to="Control/DifficultyPanel" method="ChangeDifficulty" binds= [false]]
 [connection signal="pressed" from="Control/DifficultyPanel/NextDifficulty" to="Control/DifficultyPanel" method="ChangeDifficulty" binds= [true]]
 [connection signal="value_changed" from="Control/DifficultyPanel/DifficultyOptions/MaxLives/LivesMaxSlider" to="Control/DifficultyPanel" method="UpdateEditorValues"]
@@ -1740,8 +1703,7 @@ layout_mode = 2
 [connection signal="pressed" from="Control/DifficultyPanel/ConfirmationButtons/CancelEditor" to="Control/DifficultyPanel" method="ToggleEditorControls" binds= [false]]
 [connection signal="pressed" from="Control/DifficultyPanel/CustomDifficultyButtons/EditDifficulty" to="Control/DifficultyPanel" method="EnableEditor" binds= [false]]
 [connection signal="pressed" from="Control/DifficultyPanel/CustomDifficultyButtons/AddDifficulty" to="Control/DifficultyPanel" method="EnableEditor" binds= [true]]
-[connection signal="pressed" from="Control/DifficultyPanel/Return" to="." method="TogglePanel" binds= ["PaddlePanel"]]
-[connection signal="pressed" from="Control/LevelPanel/Return" to="." method="TogglePanel" binds= ["DifficultyPanel"]]
+[connection signal="pressed" from="Control/DifficultyPanel/Return" to="." method="TogglePanel" binds= ["LevelPanel"]]
 [connection signal="pressed" from="Control/InfoPanel/Return" to="." method="TogglePanel" binds= [""]]
 [connection signal="pressed" from="Control/PatchNotesPanel/Return" to="." method="TogglePanel" binds= [""]]
 [connection signal="pressed" from="Control/OptionsPanel/OptionsButtons/Confirm" to="Control/OptionsPanel" method="SaveSettings"]

@@ -1,0 +1,121 @@
+[gd_scene load_steps=6 format=3 uid="uid://b3h1pgyhdyfg6"]
+
+[ext_resource type="Script" path="res://code/ui/UIGameSetupPanel.cs" id="1_qrg3h"]
+[ext_resource type="Shortcut" uid="uid://bhk5vranx2qfl" path="res://shortcuts/cancel.tres" id="2_c0qja"]
+[ext_resource type="Texture2D" uid="uid://dkyo1knm2xxhn" path="res://assets/sprites/ui_elements/ui_frame.png" id="3_xghkx"]
+[ext_resource type="Texture2D" uid="uid://bdnrfv0eveohj" path="res://assets/sprites/paddles/paddle_1.png" id="4_f1u0x"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_35ikn"]
+texture = ExtResource("3_xghkx")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 5.0
+region_rect = Rect2(4, 4, 12, 8)
+
+[node name="GameSetupPanel" type="Panel" node_paths=PackedStringArray("_levelGrid", "_paddleButton", "_difficultyButton", "_skillButton", "_returnButton")]
+custom_minimum_size = Vector2(256, 224)
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1024.0
+offset_bottom = -896.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_qrg3h")
+_levelGrid = NodePath("HBoxContainer/Control/Levels")
+_paddleButton = NodePath("HBoxContainer/Panel/VBoxContainer/PaddleButton")
+_difficultyButton = NodePath("HBoxContainer/Panel/VBoxContainer/DifficultyButton")
+_skillButton = NodePath("HBoxContainer/Panel/VBoxContainer/SkillButton")
+_returnButton = NodePath("Return")
+
+[node name="GameSetupHeader" type="Panel" parent="."]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+
+[node name="LevelHeaderLabel" type="Label" parent="GameSetupHeader"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "HEADER_GAME_SETUP"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 20.0
+offset_right = -4.0
+offset_bottom = -4.0
+
+[node name="Panel" type="PanelContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+theme_override_styles/panel = SubResource("StyleBoxTexture_35ikn")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Panel"]
+layout_mode = 2
+
+[node name="PaddleLabel" type="Label" parent="HBoxContainer/Panel/VBoxContainer"]
+layout_mode = 2
+text = "label_paddle"
+
+[node name="PaddleButton" type="Button" parent="HBoxContainer/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+icon = ExtResource("4_f1u0x")
+icon_alignment = 1
+
+[node name="DifficultyLabel" type="Label" parent="HBoxContainer/Panel/VBoxContainer"]
+layout_mode = 2
+text = "label_difficulty"
+
+[node name="DifficultyButton" type="Button" parent="HBoxContainer/Panel/VBoxContainer"]
+layout_mode = 2
+text = "selected_diff"
+
+[node name="SkillLabel" type="Label" parent="HBoxContainer/Panel/VBoxContainer"]
+layout_mode = 2
+text = "label_skill"
+
+[node name="SkillButton" type="Button" parent="HBoxContainer/Panel/VBoxContainer"]
+layout_mode = 2
+text = "selected_diff"
+
+[node name="Control" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.9
+
+[node name="Levels" type="GridContainer" parent="HBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 3.0
+offset_right = -3.0
+offset_bottom = -3.0
+columns = 4
+
+[node name="Return" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = -19.0
+offset_right = 54.0
+offset_bottom = -6.0
+grow_vertical = 0
+focus_mode = 0
+shortcut = ExtResource("2_c0qja")
+shortcut_in_tooltip = false
+text = "BUTTON_RETURN"

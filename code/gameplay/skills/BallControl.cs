@@ -1,6 +1,6 @@
-public class BallTurner : Skill
+public class BallControl : Skill
 {
-	public BallTurner()
+	public BallControl()
 	{
 		_activationPointsCost = 10;
 	}

@@ -20,7 +20,7 @@ public partial class LevelManager : Node
 
 	public void LoadMenuScene()
 	{
-		string scenePath = $"res://scenes/menu.tscn";
+		string scenePath = $"res://scenes/menus/menu.tscn";
 		AddChild(loadingScreen);
 		ClearCurrentScene(uiNode);
 		ClearCurrentScene(currentScene);
