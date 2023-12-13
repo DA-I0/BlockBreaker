@@ -3,6 +3,8 @@ using System.Linq;
 
 public class GameData
 {
+	private readonly Skill[] _skills = { new ScreenShake(), new BallControl() };
+
 	private List<string> _levels = new List<string>();
 
 	private List<Difficulty> _difficulties = new List<Difficulty>();
@@ -14,6 +16,11 @@ public class GameData
 	private static int MaxLeaderboardEntries = 10;
 
 	private SessionController refs;
+
+	public Skill[] Skills
+	{
+		get { return _skills; }
+	}
 
 	public List<string> Levels
 	{

@@ -4,8 +4,6 @@ public enum GameState { gameplay, menu, pause, gameOver, gameWin }
 
 public partial class SessionController : Node
 {
-	private readonly Skill[] _availableSkills = { new ScreenShake(), new BallControl() };
-
 	private GameState _gameState = GameState.menu;
 	private int _currentPaddle;
 	private int _currentDifficulty;
@@ -61,14 +59,9 @@ public partial class SessionController : Node
 		get { return gameElements.GetChild(0).GetChildren(); }
 	}
 
-	public Skill[] Skills
-	{
-		get { return _availableSkills; }
-	}
-
 	public Skill SelectedSkill
 	{
-		get { return _availableSkills[_selectedSkillIndex]; }
+		get { return gameData.Skills[_selectedSkillIndex]; }
 	}
 
 	public override void _Ready()

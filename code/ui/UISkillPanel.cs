@@ -15,8 +15,9 @@ public partial class UISkillPanel : UIPanel
 
 	private void UpdateDisplayedValues()
 	{
-		_name.Text = $"SKILL_{refs.Skills[_currentSkill].ToString().ToUpper()}_NAME";
-		_description.Text = $"{Tr("SKILL_ACTIVATION_COST")}: {refs.Skills[_currentSkill].ActivationCost}\n{Tr($"SKILL_{refs.Skills[_currentSkill].ToString().ToUpper()}_DESC")}";
+		Skill currentSkill = refs.gameData.Skills[_currentSkill];
+		_name.Text = $"SKILL_{currentSkill.ToString().ToUpper()}_NAME";
+		_description.Text = $"{Tr("SKILL_ACTIVATION_COST")}: {currentSkill.ActivationCost}\n{Tr($"SKILL_{currentSkill.ToString().ToUpper()}_DESC")}";
 	}
 
 	private void ChangeSkill(bool next)
@@ -28,14 +29,14 @@ public partial class UISkillPanel : UIPanel
 
 	private void CheckSkillRange()
 	{
-		if (_currentSkill > refs.Skills.Length - 1)
+		if (_currentSkill > refs.gameData.Skills.Length - 1)
 		{
 			_currentSkill = 0;
 		}
 
 		if (_currentSkill < 0)
 		{
-			_currentSkill = refs.Skills.Length - 1;
+			_currentSkill = refs.gameData.Skills.Length - 1;
 		}
 	}
 
