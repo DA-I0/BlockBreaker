@@ -194,7 +194,7 @@ public partial class Ball : CharacterBody2D
 	private void Move(double delta)
 	{
 		float _moveSpeed = (float)delta * _combinedSpeedMultiplier;
-		KinematicCollision2D collision = MoveAndCollide(Velocity * _moveSpeed);
+		KinematicCollision2D collision = MoveAndCollide(Velocity * _moveSpeed, false, 0.01f);
 		Bounce(collision);
 		AdjustSpriteRotation();
 	}
