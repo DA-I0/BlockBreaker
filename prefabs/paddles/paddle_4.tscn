@@ -30,14 +30,14 @@ step = 0.0833333
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("TopCollider:polygon")
+tracks/0/path = NodePath("Collider:polygon")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [PackedVector2Array(-6.4, -1.61765, 19.2, -1.61765, 19.2, 0.264706, -6.4, 0.264706)]
+"values": [PackedVector2Array(-6.4, -1.61765, 19.2, -1.61765, 19.2, 3.08824, -6.4, 3.08824)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -66,22 +66,10 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("BottomCollider:polygon")
+tracks/3/path = NodePath("DetailSprite:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [PackedVector2Array(6.40003, -3.08823, 6.4, -0.264706, -19.2, -0.264705, -19.2, -3.08825)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("DetailSprite:frame")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5, 0.583333, 0.666667, 0.75, 0.833333, 0.916667, 1),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
@@ -96,14 +84,14 @@ step = 0.0833333
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("TopCollider:polygon")
+tracks/0/path = NodePath("Collider:polygon")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [PackedVector2Array(-12.8, -1.61765, 25.6, -1.61765, 25.6, 0.264706, -12.8, 0.264706)]
+"values": [PackedVector2Array(-12.8, -1.61765, 25.6, -1.61765, 25.6, 3.08824, -12.8, 3.08824)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -132,22 +120,10 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("BottomCollider:polygon")
+tracks/3/path = NodePath("DetailSprite:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [PackedVector2Array(-25.6, -3.08825, 12.8, -3.08823, 12.8, -0.264706, -25.6, -0.264705)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("DetailSprite:frame")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5, 0.583333, 0.666667, 0.75, 0.833333, 0.916667, 1),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
@@ -162,14 +138,14 @@ step = 0.0833333
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("TopCollider:polygon")
+tracks/0/path = NodePath("Collider:polygon")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [PackedVector2Array(-19.2, -1.61765, 32, -1.61765, 32, 0.264706, -19.2, 0.264706)]
+"values": [PackedVector2Array(-19.2, -1.61765, 32, -1.61765, 32, 3.08824, -19.2, 3.08824)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -198,22 +174,10 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("BottomCollider:polygon")
+tracks/3/path = NodePath("DetailSprite:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [PackedVector2Array(-32, -3.08826, 19.2, -3.08822, 19.2, -0.264706, -32, -0.264705)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("DetailSprite:frame")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5, 0.583333, 0.666667, 0.75, 0.833333, 0.916667, 1),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
@@ -228,14 +192,14 @@ step = 0.0833333
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("TopCollider:polygon")
+tracks/0/path = NodePath("Collider:polygon")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [PackedVector2Array(-25.6, -1.61765, 38.4, -1.61765, 38.4, 0.264706, -25.6, 0.264706)]
+"values": [PackedVector2Array(-25.6, -1.61765, 38.4, -1.61765, 38.4, 3.08824, -25.6, 3.08824)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -264,22 +228,10 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("BottomCollider:polygon")
+tracks/3/path = NodePath("DetailSprite:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [PackedVector2Array(-38.4, -3.08826, 25.6, -3.08822, 25.6, -0.264707, -38.4, -0.264705)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("DetailSprite:frame")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5, 0.583333, 0.666667, 0.75, 0.833333, 0.916667, 1),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
@@ -294,14 +246,14 @@ step = 0.0833333
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("TopCollider:polygon")
+tracks/0/path = NodePath("Collider:polygon")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [PackedVector2Array(-32, -1.61765, 44.8, -1.61765, 44.8, 0.264706, -32, 0.264706)]
+"values": [PackedVector2Array(-32, -1.61765, 44.8, -1.61765, 44.8, 3.08824, -32, 3.08824)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -330,22 +282,10 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("BottomCollider:polygon")
+tracks/3/path = NodePath("DetailSprite:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [PackedVector2Array(-44.8, -3.08827, 32, -3.08821, 32, -0.264707, -44.8, -0.264705)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("DetailSprite:frame")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5, 0.583333, 0.666667, 0.75, 0.833333, 0.916667, 1),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
@@ -360,14 +300,14 @@ step = 0.0833333
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("TopCollider:polygon")
+tracks/0/path = NodePath("Collider:polygon")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [PackedVector2Array(51.2, -1.61765, 51.2, 0.264706, -38.4, 0.264706, -38.4, -1.61765)]
+"values": [PackedVector2Array(51.2, -1.61765, 51.2, 3.08824, -38.4, 3.08824, -38.4, -1.61765)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -396,22 +336,10 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("BottomCollider:polygon")
+tracks/3/path = NodePath("DetailSprite:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [PackedVector2Array(38.4, -3.08821, 38.4, -0.264707, -51.2, -0.264705, -51.2, -3.08827)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("DetailSprite:frame")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5, 0.583333, 0.666667, 0.75, 0.833333, 0.916667, 1),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
@@ -426,14 +354,14 @@ step = 0.0833333
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("TopCollider:polygon")
+tracks/0/path = NodePath("Collider:polygon")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [PackedVector2Array(-44.8, -1.61765, 57.6, -1.61765, 57.6, 0.264706, -44.8, 0.264706)]
+"values": [PackedVector2Array(-44.8, -1.61765, 57.6, -1.61765, 57.6, 3.08824, -44.8, 3.08824)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -462,22 +390,10 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("BottomCollider:polygon")
+tracks/3/path = NodePath("DetailSprite:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [PackedVector2Array(-57.6, -3.08828, 44.8, -3.0882, 44.8, -0.264707, -57.6, -0.264704)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("DetailSprite:frame")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5, 0.583333, 0.666667, 0.75, 0.833333, 0.916667, 1),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
@@ -492,14 +408,14 @@ step = 0.0833333
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("TopCollider:polygon")
+tracks/0/path = NodePath("Collider:polygon")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [PackedVector2Array(-51.2, -1.61765, 64, -1.61765, 64, 0.264706, -51.2, 0.264706)]
+"values": [PackedVector2Array(-51.2, -1.61765, 64, -1.61765, 64, 3.08824, -51.2, 3.08824)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -528,22 +444,10 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("BottomCollider:polygon")
+tracks/3/path = NodePath("DetailSprite:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [PackedVector2Array(-64, -3.08828, 51.2, -3.0882, 51.2, -0.264707, -64, -0.264704)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("DetailSprite:frame")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5, 0.583333, 0.666667, 0.75, 0.833333, 0.916667, 1),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
@@ -577,20 +481,10 @@ _slowdown = 0.025
 _positionY = 100
 _sprites = Array[Texture2D]([ExtResource("2_vuuw1"), ExtResource("3_us10y"), ExtResource("4_rd27f")])
 
-[node name="TopCollider" type="CollisionPolygon2D" parent="."]
+[node name="Collider" type="CollisionPolygon2D" parent="."]
 position = Vector2(-2, -0.28125)
 scale = Vector2(0.3125, 1.0625)
-build_mode = 1
-polygon = PackedVector2Array(-19.2, -1.61765, 32, -1.61765, 32, 0.264706, -19.2, 0.264706)
-one_way_collision = true
-one_way_collision_margin = 5.0
-
-[node name="BottomCollider" type="CollisionPolygon2D" parent="."]
-position = Vector2(-2, -0.28125)
-rotation = 3.14159
-scale = Vector2(0.3125, 1.0625)
-build_mode = 1
-polygon = PackedVector2Array(-32, -3.08826, 19.2, -3.08822, 19.2, -0.264706, -32, -0.264705)
+polygon = PackedVector2Array(-19.2, -1.61765, 32, -1.61765, 32, 3.08824, -19.2, 3.08824)
 one_way_collision = true
 one_way_collision_margin = 5.0
 
