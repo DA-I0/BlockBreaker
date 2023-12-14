@@ -112,8 +112,6 @@ public partial class Ball : CharacterBody2D
 	public void SetInitialValues(SessionController sessionController, Ball sourceBall = null, float angleChange = 0)
 	{
 		SetupReferences(sessionController);
-		_animator.AnimationSetNext("bounce", "roll");
-
 
 		if (sourceBall == null)
 		{
