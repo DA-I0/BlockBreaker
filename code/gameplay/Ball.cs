@@ -16,6 +16,8 @@ public partial class Ball : CharacterBody2D
 
 	private float _speedMultiplier = 1f;
 	private float _boostMultiplier = 1f;
+	private float _advancingSpeedMultiplier = 1f;
+	private int _lastSpeedUpdateComboValue = 0;
 
 	private bool _increasingRotation = true;
 	private float _startingRotation = 0;
@@ -107,6 +109,11 @@ public partial class Ball : CharacterBody2D
 		refs.levelManager.ResetSession += Destroy;
 		refs.levelManager.SceneChanged += SceneChangeCleanup;
 		refs.health.ResetElements += Reset;
+
+		if (refs.SelectedDifficulty.AdvancingSpeed)
+		{
+			refs.gameScore.ScoreChanged += AdvancingSpeed;
+		}
 	}
 
 	public void SetInitialValues(SessionController sessionController, Ball sourceBall = null, float angleChange = 0)
@@ -131,6 +138,7 @@ public partial class Ball : CharacterBody2D
 
 	public void Reset()
 	{
+		_advancingSpeedMultiplier = 1f;
 		SpeedMultiplier = 1f;
 		ChangeSize(1f);
 		StateReset();
@@ -231,9 +239,22 @@ public partial class Ball : CharacterBody2D
 		}
 	}
 
+	private void CheckAdvancingSpeedMultiplierLimits()
+	{
+		if (_advancingSpeedMultiplier > MaxBallSpeedMultiplier)
+		{
+			_advancingSpeedMultiplier = MaxBallSpeedMultiplier;
+		}
+
+		if (_advancingSpeedMultiplier < MinBallSpeedMultiplier)
+		{
+			_advancingSpeedMultiplier = MinBallSpeedMultiplier;
+		}
+	}
+
 	private void UpdateSpeed()
 	{
-		_combinedSpeedMultiplier = _baseSpeed * refs.SelectedDifficulty.BallSpeedMultiplier * _speedMultiplier * _boostMultiplier;
+		_combinedSpeedMultiplier = _baseSpeed * refs.SelectedDifficulty.BallSpeedMultiplier * _speedMultiplier * _boostMultiplier * _advancingSpeedMultiplier;
 		_animator.Play("roll", 0, _combinedSpeedMultiplier);
 	}
 
@@ -247,6 +268,17 @@ public partial class Ball : CharacterBody2D
 		else
 		{
 			_boostMultiplier = 1;
+		}
+	}
+
+	private void AdvancingSpeed(int score, int scoreMultiplier, int combo)
+	{
+		if (_lastSpeedUpdateComboValue < combo)
+		{
+			_advancingSpeedMultiplier += 0.02f;
+			_lastSpeedUpdateComboValue = combo;
+			CheckAdvancingSpeedMultiplierLimits();
+			UpdateSpeed();
 		}
 	}
 

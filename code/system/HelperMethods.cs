@@ -12,7 +12,8 @@ public static class HelperMethods
 			(float)difficultyConfig.GetValue("", "angleSelectSpeed", 1),
 			(int)difficultyConfig.GetValue("", "maxPaddleSize", 1),
 			(int)difficultyConfig.GetValue("", "startPaddleSize", 1),
-			(int)difficultyConfig.GetValue("", "minPaddleSize", 1)
+			(int)difficultyConfig.GetValue("", "minPaddleSize", 1),
+			(bool)difficultyConfig.GetValue("", "advancingSpeed", false)
 			);
 
 		return parsedDifficulty;
@@ -30,6 +31,7 @@ public static class HelperMethods
 		parsedConfig.SetValue("", "maxPaddleSize", difficulty.MaxPaddleSize);
 		parsedConfig.SetValue("", "startPaddleSize", difficulty.StartPaddleSize);
 		parsedConfig.SetValue("", "minPaddleSize", difficulty.MinPaddleSize);
+		parsedConfig.SetValue("", "advancingSpeed", difficulty.AdvancingSpeed);
 
 		return parsedConfig;
 	}

@@ -8,8 +8,9 @@ public struct Difficulty
 	public int MaxPaddleSize;
 	public int StartPaddleSize;
 	public int MinPaddleSize;
+	public bool AdvancingSpeed;
 
-	public Difficulty(string name, int maxLives, int startingLives, float ballSpeedMultiplier, float angleSelectSpeed, int maxPaddleSize, int startPaddleSize, int minPaddleSize)
+	public Difficulty(string name, int maxLives, int startingLives, float ballSpeedMultiplier, float angleSelectSpeed, int maxPaddleSize, int startPaddleSize, int minPaddleSize, bool advancingSpeed)
 	{
 		DifficultyName = name;
 		MaxLives = maxLives;
@@ -19,7 +20,8 @@ public struct Difficulty
 		MaxPaddleSize = maxPaddleSize;
 		StartPaddleSize = startPaddleSize;
 		MinPaddleSize = minPaddleSize;
+		AdvancingSpeed = advancingSpeed;
 	}
 
-	public override string ToString() => $"name:{DifficultyName};\nmaxLives:{MaxLives};\nstartingLives:{StartingLives};\nballSpeedMultiplier:{BallSpeedMultiplier};\nangleSelectSpeed:{AngleSelectSpeed};\nmaxPaddleSize:{MaxPaddleSize};\nstartPaddleSize:{StartPaddleSize};\nminPaddleSize:{MinPaddleSize};";
+	public override string ToString() => $"name:{DifficultyName};\nmaxLives:{MaxLives};\nstartingLives:{StartingLives};\nballSpeedMultiplier:{BallSpeedMultiplier};\nangleSelectSpeed:{AngleSelectSpeed};\nmaxPaddleSize:{MaxPaddleSize};\nstartPaddleSize:{StartPaddleSize};\nminPaddleSize:{MinPaddleSize};\nadvancingSpeed{AdvancingSpeed}";
 }

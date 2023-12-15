@@ -26,7 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://b32gq7r2tvcf3" path="res://assets/sprites/ui_elements/icons/ui_icon_add_hover.png" id="24_dlfm4"]
 [ext_resource type="Texture2D" uid="uid://bn53u7bjick3w" path="res://assets/sprites/ui_elements/icons/ui_icon_add_disabled.png" id="25_cqq4c"]
 
-[node name="DifficultyPanel" type="Panel" node_paths=PackedStringArray("_name", "_newName", "_livesMax", "_livesMaxSlider", "_livesStart", "_livesStartSlider", "_ballSpeed", "_ballSpeedSlider", "_ballAngleSpeed", "_ballAngleSlider", "_paddleSizeMax", "_paddleSizeMaxSlider", "_paddleSizeStart", "_paddleSizeStartSlider", "_paddleSizeMin", "_paddleSizeMinSlider", "_nameEditControls", "_deleteDifficulty", "_editDifficulty", "_addDifficulty", "_cancelEdit", "_focusTarget", "_returnButton")]
+[node name="DifficultyPanel" type="Panel" node_paths=PackedStringArray("_name", "_newName", "_livesMax", "_livesMaxSlider", "_livesStart", "_livesStartSlider", "_ballSpeed", "_ballSpeedSlider", "_ballAngleSpeed", "_ballAngleSlider", "_paddleSizeMax", "_paddleSizeMaxSlider", "_paddleSizeStart", "_paddleSizeStartSlider", "_paddleSizeMin", "_paddleSizeMinSlider", "_advancingSpeed", "_advancingSpeedCheckButton", "_nameEditControls", "_deleteDifficulty", "_editDifficulty", "_addDifficulty", "_cancelEdit", "_focusTarget", "_returnButton")]
 custom_minimum_size = Vector2(256, 224)
 anchors_preset = 15
 anchor_right = 1.0
@@ -48,6 +48,8 @@ _paddleSizeStart = NodePath("DifficultyOptions/StartPaddleSize/PaddleSizeStartLa
 _paddleSizeStartSlider = NodePath("DifficultyOptions/StartPaddleSize/PaddleSizeStartSlider")
 _paddleSizeMin = NodePath("DifficultyOptions/MinPaddleSize/PaddleSizeMinLabel")
 _paddleSizeMinSlider = NodePath("DifficultyOptions/MinPaddleSize/PaddleSizeMinSlider")
+_advancingSpeed = NodePath("DifficultyOptions/AdvancingSpeed/AdvancingSpeedLabel")
+_advancingSpeedCheckButton = NodePath("DifficultyOptions/AdvancingSpeed/CheckButton")
 _nameEditControls = NodePath("DifficultyOptions/Name/DifficultyNewName")
 _deleteDifficulty = NodePath("CustomDifficultyButtons/DeleteDifficulty")
 _editDifficulty = NodePath("CustomDifficultyButtons/EditDifficulty")
@@ -273,6 +275,18 @@ min_value = 1.0
 max_value = 8.0
 value = 1.0
 rounded = true
+
+[node name="AdvancingSpeed" type="HBoxContainer" parent="DifficultyOptions"]
+layout_mode = 2
+
+[node name="AdvancingSpeedLabel" type="Label" parent="DifficultyOptions/AdvancingSpeed"]
+layout_mode = 2
+size_flags_horizontal = 3
+auto_translate = false
+text = "DIFF_ADVANCING_SPEED"
+
+[node name="CheckButton" type="CheckButton" parent="DifficultyOptions/AdvancingSpeed"]
+layout_mode = 2
 
 [node name="ConfirmationButtons" type="HBoxContainer" parent="."]
 layout_mode = 1

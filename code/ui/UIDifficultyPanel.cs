@@ -19,6 +19,8 @@ public partial class UIDifficultyPanel : UIPanel
 	[Export] private HSlider _paddleSizeStartSlider;
 	[Export] private Label _paddleSizeMin;
 	[Export] private HSlider _paddleSizeMinSlider;
+	[Export] private Label _advancingSpeed;
+	[Export] private CheckButton _advancingSpeedCheckButton;
 
 	[Export] private Control _nameEditControls;
 	[Export] private TextureButton _deleteDifficulty;
@@ -83,6 +85,7 @@ public partial class UIDifficultyPanel : UIPanel
 		_paddleSizeMaxSlider.Visible = _inEditMode;
 		_paddleSizeStartSlider.Visible = _inEditMode;
 		_paddleSizeMinSlider.Visible = _inEditMode;
+		_advancingSpeedCheckButton.Visible = _inEditMode;
 
 		UpdateEditorButtons();
 		UpdateDisplayedValues();
@@ -97,6 +100,7 @@ public partial class UIDifficultyPanel : UIPanel
 		_paddleSizeMax.Text = $"{Tr("DIFF_PADDLE_SIZE_MAX")}: {_paddleSizeMaxSlider.Value}";
 		_paddleSizeStart.Text = $"{Tr("DIFF_PADDLE_SIZE_START")}: {_paddleSizeStartSlider.Value}";
 		_paddleSizeMin.Text = $"{Tr("DIFF_PADDLE_SIZE_MIN")}: {_paddleSizeMinSlider.Value}";
+		_advancingSpeed.Text = $"{Tr("DIFF_ADVANCING_SPEED")}:";
 	}
 
 	private void ApplyStaticValues()
@@ -109,6 +113,7 @@ public partial class UIDifficultyPanel : UIPanel
 		_paddleSizeMax.Text = $"{Tr("DIFF_PADDLE_SIZE_MAX")}: {refs.gameData.Difficulties[_currentDifficulty].MaxPaddleSize}";
 		_paddleSizeStart.Text = $"{Tr("DIFF_PADDLE_SIZE_START")}: {refs.gameData.Difficulties[_currentDifficulty].StartPaddleSize}";
 		_paddleSizeMin.Text = $"{Tr("DIFF_PADDLE_SIZE_MIN")}: {refs.gameData.Difficulties[_currentDifficulty].MinPaddleSize}";
+		_advancingSpeed.Text = $"{Tr("DIFF_ADVANCING_SPEED")}: {refs.gameData.Difficulties[_currentDifficulty].AdvancingSpeed}";
 	}
 
 	private void ApplyDifficultyToEditor(bool newDifficulty)
@@ -130,6 +135,7 @@ public partial class UIDifficultyPanel : UIPanel
 		_paddleSizeMaxSlider.Value = refs.gameData.Difficulties[helperIndex].MaxPaddleSize;
 		_paddleSizeStartSlider.Value = refs.gameData.Difficulties[helperIndex].StartPaddleSize;
 		_paddleSizeMinSlider.Value = refs.gameData.Difficulties[helperIndex].MinPaddleSize;
+		_advancingSpeedCheckButton.ButtonPressed = refs.gameData.Difficulties[_currentDifficulty].AdvancingSpeed;
 	}
 
 	private void UpdateEditorValues(float value)
@@ -208,7 +214,8 @@ public partial class UIDifficultyPanel : UIPanel
 			MathF.Round((float)_ballAngleSlider.Value, 2),
 			(int)_paddleSizeMaxSlider.Value,
 			(int)_paddleSizeStartSlider.Value,
-			(int)_paddleSizeMinSlider.Value
+			(int)_paddleSizeMinSlider.Value,
+			(bool)_advancingSpeedCheckButton.ButtonPressed
 		);
 
 		if (_currentDifficulty < 0)
