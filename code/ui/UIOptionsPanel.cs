@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Godot;
@@ -33,11 +34,17 @@ public partial class UIOptionsPanel : UIPanel
 	public override void _Ready()
 	{
 		SetupBaseReferences();
+		SetupReferences();
 		SetupControlCategoryButtons();
 		SetupActiveJoypadOptions();
 		PopulateKeybindControls();
 		DisplayActivePanel();
 		PopulateLanguageList();
+	}
+
+	private void SetupReferences()
+	{
+		Input.JoyConnectionChanged += SetupActiveJoypadOptions;
 	}
 
 	public override void _Input(InputEvent @event)
@@ -228,7 +235,7 @@ public partial class UIOptionsPanel : UIPanel
 		}
 	}
 
-	private void SetupActiveJoypadOptions()
+	private void SetupActiveJoypadOptions(long device = 0, bool connected = false)
 	{
 		_activeJoypad.Clear();
 		_activeJoypad.AddItem(Tr("LABEL_ALL"), -1);
