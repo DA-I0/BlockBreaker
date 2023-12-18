@@ -23,6 +23,7 @@ boot_splash/minimum_display_time=120
 
 window/size/viewport_width=1280
 window/size/viewport_height=1120
+window/size/mode=3
 window/stretch/mode="canvas_items"
 window/stretch/scale=5.0
 window/vsync/vsync_mode=2
@@ -43,7 +44,7 @@ import/fbx/enabled=false
 
 [global]
 
-Version="Prototype 2"
+Version="v0.3"
 EncryptionPassword="Gopher's are totally fake you guys!"
 DefaultLevelFolder="res://scenes/levels"
 DefaultDifficultyFolder="res://assets/text/difficulties"
