@@ -65,7 +65,7 @@ public partial class Ball : CharacterBody2D
 			return;
 		}
 
-		if (@event.IsActionPressed("game_play"))
+		if (HelperMethods.IsActiveInputDevice(refs, @event) && @event.IsActionPressed("game_play"))
 		{
 			switch (_ballMode)
 			{

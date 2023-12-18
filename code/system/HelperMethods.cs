@@ -35,4 +35,14 @@ public static class HelperMethods
 
 		return parsedConfig;
 	}
+
+	public static bool IsActiveInputDevice(SessionController refs, InputEvent @event)
+	{
+		if (refs.settings.ActiveControllerID > -1 && @event.AsText().Contains("Joypad"))
+		{
+			return @event.Device == refs.settings.ActiveControllerID;
+		}
+
+		return true;
+	}
 }

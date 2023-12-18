@@ -19,6 +19,7 @@ public partial class Paddle : CharacterBody2D
 	private int _size = 1;
 
 	private int _movementDirection = 1;
+	private float inputHorizontal;
 
 	Vector2 _inputDirection = Vector2.Zero;
 
@@ -69,14 +70,34 @@ public partial class Paddle : CharacterBody2D
 			return;
 		}
 
-		float inputHorizontal = 0;
-
 		if (@event is InputEventMouseMotion eventMouseMotion)
 		{
 			inputHorizontal = eventMouseMotion.Relative.X * refs.settings.SpeedMouse;
 		}
+		else
+		{
+			switch (refs.settings.ActiveInputType)
+			{
+				case InputType.Joypad:
+					if (HelperMethods.IsActiveInputDevice(refs, @event))
+					{
+						inputHorizontal = (Input.GetActionStrength("game_right") - Input.GetActionStrength("game_left")) * refs.settings.SpeedController;
+					}
+					else
+					{
+						inputHorizontal = 0;
+					}
+					break;
 
-		_inputDirection = new Vector2(inputHorizontal, 0);
+				case InputType.Keyboard:
+					inputHorizontal = (Input.GetActionStrength("game_right") - Input.GetActionStrength("game_left")) * refs.settings.SpeedKeyboard;
+					break;
+
+				default:
+					inputHorizontal = 0;
+					return;
+			}
+		}
 	}
 
 	private void GetMovement()
@@ -86,23 +107,12 @@ public partial class Paddle : CharacterBody2D
 			return;
 		}
 
-		float inputHorizontal;
-
-		switch (refs.settings.ActiveInputType)
-		{
-			case InputType.Joypad:
-				inputHorizontal = (Input.GetActionStrength("game_right") - Input.GetActionStrength("game_left")) * refs.settings.SpeedController;
-				break;
-
-			case InputType.Keyboard:
-				inputHorizontal = (Input.GetActionStrength("game_right") - Input.GetActionStrength("game_left")) * refs.settings.SpeedKeyboard;
-				break;
-
-			default:
-				return;
-		}
-
 		_inputDirection = new Vector2(inputHorizontal, 0);
+
+		if (refs.settings.ActiveInputType == InputType.Mouse)
+		{
+			inputHorizontal = 0;
+		}
 	}
 
 	public void ChangeSize(int value)
@@ -236,7 +246,14 @@ public partial class Paddle : CharacterBody2D
 	{
 		if (refs.settings.ControllerVibrations)
 		{
-			Input.StartJoyVibration(refs.settings.ActiveControllerID, strengthWeak, strengthStrong, time);
+			if (refs.settings.ActiveControllerID < 0)
+			{
+				Input.StartJoyVibration(0, strengthWeak, strengthStrong, time);
+			}
+			else
+			{
+				Input.StartJoyVibration(refs.settings.ActiveControllerID, strengthWeak, strengthStrong, time);
+			}
 		}
 	}
 

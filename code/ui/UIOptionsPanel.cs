@@ -80,7 +80,8 @@ public partial class UIOptionsPanel : UIPanel
 		_mouseSpeed.Value = refs.settings.SpeedMouse;
 		_keyboardSpeed.Value = refs.settings.SpeedKeyboard;
 		_joypadSpeed.Value = refs.settings.SpeedController;
-		_activeJoypad.Selected = FindOptionIndex(_activeJoypad, refs.settings.ActiveController);
+		int activeJoypadIndexHelper = FindOptionIndex(_activeJoypad, refs.settings.ActiveController);
+		_activeJoypad.Selected = (activeJoypadIndexHelper < 0) ? 0 : activeJoypadIndexHelper;
 		_vibrations.ButtonPressed = refs.settings.ControllerVibrations;
 
 		UpdateKeybindings();
@@ -107,7 +108,7 @@ public partial class UIOptionsPanel : UIPanel
 		refs.settings.SpeedKeyboard = (float)_keyboardSpeed.Value;
 		refs.settings.SpeedController = (float)_joypadSpeed.Value;
 		refs.settings.ActiveController = (_activeJoypad.Selected >= 0) ? _activeJoypad.GetItemText(_activeJoypad.Selected) : string.Empty;
-		refs.settings.ActiveControllerID = _activeJoypad.Selected;
+		refs.settings.ActiveControllerID = _activeJoypad.Selected - 1;
 		refs.settings.ControllerVibrations = _vibrations.ButtonPressed;
 
 		refs.settings.SaveSettings();
@@ -230,6 +231,7 @@ public partial class UIOptionsPanel : UIPanel
 	private void SetupActiveJoypadOptions()
 	{
 		_activeJoypad.Clear();
+		_activeJoypad.AddItem(Tr("LABEL_ALL"), -1);
 
 		foreach (int index in Input.GetConnectedJoypads())
 		{
@@ -358,6 +360,6 @@ public partial class UIOptionsPanel : UIPanel
 		}
 
 		refs.settings.ChangeKeybinding(_inputActionToChange, _keybindToChange, @event);
-		UpdateKeybindings(); // TODO: replace after adding proper saving
+		UpdateKeybindings();
 	}
 }

@@ -20,7 +20,7 @@ public partial class Health : Node
 
 	public override void _Input(InputEvent @event)
 	{
-		if (@event.IsActionPressed("game_reset"))
+		if (HelperMethods.IsActiveInputDevice(refs, @event) && @event.IsActionPressed("game_reset"))
 		{
 			ChangeLives(-1);
 		}

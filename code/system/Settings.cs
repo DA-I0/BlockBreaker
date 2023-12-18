@@ -29,7 +29,7 @@ public class Settings
 	private Dictionary<string, Godot.Collections.Array<InputEvent>> DefaultKeybindings = new Dictionary<string, Godot.Collections.Array<InputEvent>>();
 
 	private InputType _activeInputType = InputType.Keyboard;
-	private int _activeControllerId = 0;
+	private int _activeControllerId = -1;
 	private ConfigFile _config;
 	private SessionController refs;
 
@@ -313,7 +313,20 @@ public class Settings
 		AudioServer.SetBusVolumeDb(AudioServer.GetBusIndex("Music"), MusicVolume);
 		AudioServer.SetBusVolumeDb(AudioServer.GetBusIndex("Effects"), EffectsVolume);
 
+		ActiveControllerID = (ActiveController != string.Empty) ? FindConnectedController() : -1;
 		ApplyKeybindings();
-		firstLaunch = false;
+	}
+
+	private int FindConnectedController()
+	{
+		foreach (int index in Input.GetConnectedJoypads())
+		{
+			if (Input.GetJoyName(index) == ActiveController)
+			{
+				return index;
+			}
+		}
+
+		return -1;
 	}
 }
