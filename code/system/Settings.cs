@@ -9,6 +9,7 @@ public class Settings
 	public bool firstLaunch = false;
 
 	private const string DefaultLanguage = "en";
+	private const int DefaultFont = 0;
 	private const string DefaultControlerPrompts = "generic";
 	private const int DefaultInputType = 1;
 	private const bool DefaultLivesAsText = false;
@@ -37,6 +38,12 @@ public class Settings
 	{
 		get { return (string)_config.GetValue("general", "language", DefaultLanguage); }
 		set { _config.SetValue("general", "language", value); }
+	}
+
+	public int Font
+	{
+		get { return (int)_config.GetValue("general", "font", DefaultFont); }
+		set { _config.SetValue("general", "font", value); }
 	}
 
 	public string ControlerPrompts
@@ -304,6 +311,7 @@ public class Settings
 	private void ApplySettings()
 	{
 		TranslationServer.SetLocale(Language);
+		ApplyFont();
 
 		DisplayServer.WindowSetMode((DisplayServer.WindowMode)ScreenMode, 0);
 		Vector2I newResolution = new Vector2I(ScreenWidth, ScreenHeight);
@@ -328,5 +336,15 @@ public class Settings
 		}
 
 		return -1;
+	}
+
+	private void ApplyFont()
+	{
+		ProjectSettings.SetSetting("gui/theme/custom_font", $"res://assets/fonts/{refs.gameData.Fonts[Font].FontName}"); // needed?
+
+		Theme currentTheme = ThemeDB.GetDefaultTheme();
+		currentTheme.DefaultFont = ResourceLoader.Load<Font>(ProjectSettings.GetSetting("gui/theme/custom_font").ToString());
+		currentTheme.DefaultFontSize = refs.gameData.Fonts[Font].DefaultSize;
+		GD.Print("setting default font: " + currentTheme.DefaultFont + " of size: " + currentTheme.DefaultFontSize);
 	}
 }

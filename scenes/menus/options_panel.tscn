@@ -7,7 +7,7 @@
 [ext_resource type="Shortcut" uid="uid://b5ydjlfn0ps7g" path="res://shortcuts/confirm.tres" id="5_7lapn"]
 [ext_resource type="Shortcut" uid="uid://bhk5vranx2qfl" path="res://shortcuts/cancel.tres" id="6_vgxtx"]
 
-[node name="OptionsPanel" type="Panel" node_paths=PackedStringArray("_header", "_language", "_controllerType", "_livesDisplay", "_controlDevices", "_fullscreen", "_resolution", "_screenShake", "_backgroundBrightness", "_pickupOrder", "_helperTransparency", "_masterVolume", "_musicVolume", "_effectsVolume", "_mouseSpeed", "_keyboardSpeed", "_joypadSpeed", "_activeJoypad", "_vibrations", "_focusTarget", "_returnButton")]
+[node name="OptionsPanel" type="Panel" node_paths=PackedStringArray("_header", "_language", "_font", "_controllerType", "_livesDisplay", "_controlDevices", "_fullscreen", "_resolution", "_screenShake", "_backgroundBrightness", "_pickupOrder", "_helperTransparency", "_masterVolume", "_musicVolume", "_effectsVolume", "_mouseSpeed", "_keyboardSpeed", "_joypadSpeed", "_activeJoypad", "_vibrations", "_focusTarget", "_returnButton")]
 custom_minimum_size = Vector2(256, 224)
 anchors_preset = 15
 anchor_right = 1.0
@@ -16,6 +16,7 @@ theme_override_styles/panel = ExtResource("1_wbet2")
 script = ExtResource("2_o2q3s")
 _header = NodePath("HeaderPanel/HeaderLabel")
 _language = NodePath("GeneralOptions/Options/LanguageSetting/LanguageOptions")
+_font = NodePath("GeneralOptions/Options/FontSetting/FontOptions")
 _controllerType = NodePath("GeneralOptions/Options/UIControlsSetting/UIControlsOptions")
 _livesDisplay = NodePath("GeneralOptions/Options/LivesDisplaySetting/LivesDisplayToggle")
 _controlDevices = NodePath("ControlOptions/Options")
@@ -54,7 +55,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="GeneralOptions" type="ScrollContainer" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.18
@@ -96,6 +96,37 @@ offset_right = -4.0
 focus_neighbor_top = NodePath(".")
 focus_neighbor_right = NodePath("../../../../OptionsButtons/Confirm")
 focus_previous = NodePath("../../../../OptionsButtons/Confirm")
+
+[node name="FontSetting" type="Control" parent="GeneralOptions/Options"]
+custom_minimum_size = Vector2(0, 19)
+layout_mode = 2
+
+[node name="FontLabel" type="Label" parent="GeneralOptions/Options/FontSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.4
+anchor_bottom = 1.0
+offset_left = 4.0
+text = "OPTION_GENERAL_FONT"
+vertical_alignment = 1
+
+[node name="FontOptions" type="OptionButton" parent="GeneralOptions/Options/FontSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_right = -4.0
+auto_translate = false
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath("../../../../OptionsButtons/Confirm")
+focus_previous = NodePath("../../../../OptionsButtons/Confirm")
+item_count = 2
+popup/item_0/text = "Silver"
+popup/item_0/id = 0
+popup/item_1/text = "OpenDyslexic"
+popup/item_1/id = 1
 
 [node name="UIControlsSetting" type="Control" parent="GeneralOptions/Options"]
 custom_minimum_size = Vector2(0, 19)
@@ -459,6 +490,7 @@ min_value = -60.0
 max_value = 6.0
 
 [node name="ControlOptions" type="ScrollContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.18

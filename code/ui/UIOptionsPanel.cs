@@ -7,6 +7,7 @@ public partial class UIOptionsPanel : UIPanel
 {
 	[Export] private Label _header;
 	[Export] private OptionButton _language;
+	[Export] private OptionButton _font;
 	[Export] private OptionButton _controllerType;
 	[Export] private CheckButton _livesDisplay;
 	[Export] private Control _controlDevices;
@@ -73,6 +74,7 @@ public partial class UIOptionsPanel : UIPanel
 	private void UpdateSettings()
 	{
 		_language.Selected = FindOptionIndex(_language, TranslationServer.GetLanguageName(refs.settings.Language));
+		_font.Selected = refs.settings.Font;
 		_controllerType.Selected = FindOptionIndex(_controllerType, refs.settings.ControlerPrompts);
 		_livesDisplay.ButtonPressed = refs.settings.LivesAsText;
 		_fullscreen.ButtonPressed = (refs.settings.ScreenMode > 0);
@@ -97,6 +99,7 @@ public partial class UIOptionsPanel : UIPanel
 	private void SaveSettings() // TODO: break into per-category methods
 	{
 		refs.settings.Language = TranslationServer.GetLoadedLocales()[_language.Selected];
+		refs.settings.Font = _font.Selected;
 		refs.settings.ControlerPrompts = _controllerType.GetItemText(_controllerType.Selected).ToLower();
 		refs.settings.LivesAsText = _livesDisplay.ButtonPressed;
 		refs.settings.ScreenMode = _fullscreen.ButtonPressed ? 3 : 0;
