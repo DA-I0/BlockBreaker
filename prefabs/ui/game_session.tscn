@@ -8,8 +8,17 @@
 
 [node name="UIGameSession" type="Control" node_paths=PackedStringArray("_score", "_skill", "_lives", "_livesText", "_exitTimer", "_exitPrompt")]
 z_index = 10
+custom_minimum_size = Vector2(256, 224)
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -128.0
+offset_top = -112.0
+offset_right = -128.0
+offset_bottom = -112.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_wdiid")
 _score = NodePath("TopBar/SessionElements/Score")
 _skill = NodePath("SkillPrompt")
@@ -19,12 +28,12 @@ _exitTimer = NodePath("ExitTimer")
 _exitPrompt = NodePath("ExitPrompt")
 
 [node name="TopBar" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_left = -128.0
-offset_top = -112.0
-offset_right = 128.0
-offset_bottom = -96.0
+custom_minimum_size = Vector2(256, 16)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 16.0
+grow_horizontal = 2
 
 [node name="Background" type="NinePatchRect" parent="TopBar"]
 layout_mode = 1
@@ -123,11 +132,10 @@ texture = ExtResource("3_npm6i")
 stretch_mode = 5
 
 [node name="SkillPrompt" type="Panel" parent="."]
-layout_mode = 0
-offset_left = -128.0
-offset_top = -97.0
-offset_right = -108.0
-offset_bottom = -77.0
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 1
+anchors_preset = -1
+offset_top = 15.0
 theme_override_styles/panel = ExtResource("4_0yyln")
 
 [node name="SkillIcon" type="TextureRect" parent="SkillPrompt"]
@@ -144,36 +152,40 @@ texture = ExtResource("4_5cocx")
 expand_mode = 2
 stretch_mode = 3
 
-[node name="ExitTimer" type="Panel" parent="."]
-layout_mode = 0
+[node name="ExitTimer" type="PanelContainer" parent="."]
+clip_contents = true
+custom_minimum_size = Vector2(30, 28)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
 offset_left = -15.0
-offset_top = -112.0
 offset_right = 15.0
-offset_bottom = -84.0
+grow_horizontal = 2
 size_flags_vertical = 0
 
 [node name="Label" type="Label" parent="ExitTimer"]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-grow_horizontal = 2
-grow_vertical = 2
+clip_contents = true
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
 auto_translate = false
 theme_override_font_sizes/font_size = 22
 text = "60"
 horizontal_alignment = 1
-vertical_alignment = 2
+vertical_alignment = 3
 justification_flags = 1
 
 [node name="ExitPrompt" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
+visible = false
+custom_minimum_size = Vector2(256, 25)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
 offset_left = -128.0
-offset_top = -112.0
 offset_right = 128.0
-offset_bottom = -87.0
+offset_bottom = 25.0
+grow_horizontal = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
 
