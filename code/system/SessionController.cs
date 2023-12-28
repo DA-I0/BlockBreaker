@@ -160,20 +160,7 @@ public partial class SessionController : Node
 	public override void _Input(InputEvent @event)
 	{
 		UseSkill(@event);
-
-		if (@event.AsText().Contains("Joypad"))
-		{
-			settings.ActiveInputType = InputType.Joypad;
-			return;
-		}
-
-		if (@event.AsText().Contains("Mouse"))
-		{
-			settings.ActiveInputType = InputType.Mouse;
-			return;
-		}
-
-		settings.ActiveInputType = InputType.Keyboard;
+		SetActiveInputType(@event);
 	}
 
 	public void SetPaddle(int number)
@@ -197,6 +184,23 @@ public partial class SessionController : Node
 		{
 			SelectedSkill.Activate();
 		}
+	}
+
+	private void SetActiveInputType(InputEvent @event)
+	{
+		if (@event.AsText().Contains("Joypad"))
+		{
+			settings.ActiveInputType = InputType.Joypad;
+			return;
+		}
+
+		if (@event.AsText().Contains("Mouse"))
+		{
+			settings.ActiveInputType = InputType.Mouse;
+			return;
+		}
+
+		settings.ActiveInputType = InputType.Keyboard;
 	}
 
 	private void UseSkillNotification()
