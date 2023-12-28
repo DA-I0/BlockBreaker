@@ -57,7 +57,7 @@ CustomLeaderboardFilePath="user://leaderboard.txt"
 [gui]
 
 theme/custom="res://theme/ui.theme"
-theme/custom_font="res://assets/Silver_adjusted.tres"
+theme/custom_font="res://assets/fonts/Silver_adjusted.tres"
 theme/default_font_antialiasing=0
 
 [input]
