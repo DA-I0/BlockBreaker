@@ -4,7 +4,6 @@ public delegate void Notification();
 
 public partial class LevelManager : Node
 {
-	private Node uiNode;
 	private Node currentScene;
 	private Node loadingScreen;
 	public event Notification ResetSession;
@@ -22,7 +21,6 @@ public partial class LevelManager : Node
 	{
 		string scenePath = $"res://scenes/menus/menu.tscn";
 		AddChild(loadingScreen);
-		ClearCurrentScene(uiNode);
 		ClearCurrentScene(currentScene);
 		SetupNewScene(scenePath);
 		ResetSession?.Invoke();
@@ -32,7 +30,6 @@ public partial class LevelManager : Node
 	{
 		string scenePath = $"res://scenes/levels/{sceneName}";
 		AddChild(loadingScreen);
-		ClearCurrentScene(uiNode);
 		ClearCurrentScene(currentScene);
 		SetupNewScene(scenePath);
 		SceneChanged?.Invoke();
@@ -40,7 +37,6 @@ public partial class LevelManager : Node
 
 	private void SetupReferences()
 	{
-		uiNode = GetNode("../UI");
 		currentScene = GetNode("../CurrentScene");
 
 		refs = (SessionController)GetParent();

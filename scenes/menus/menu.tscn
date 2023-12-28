@@ -36,31 +36,34 @@ layout_mode = 2
 [node name="GameTitle" type="Label" parent="Control"]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.05
 anchor_right = 1.0
 anchor_bottom = 0.25
 offset_left = 5.0
 offset_top = 5.0
 offset_right = -5.0
 grow_horizontal = 2
-grow_vertical = 2
 auto_translate = false
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 30
 text = "<game_title>"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/GameTitle"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="GameVersion" type="Label" parent="Control"]
 layout_mode = 1
 anchors_preset = -1
+anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 5.0
-offset_top = 6.0
-offset_right = -5.0
+offset_right = -7.0
 offset_bottom = -3.0
-grow_horizontal = 2
+grow_horizontal = 0
 grow_vertical = 0
 auto_translate = false
 text = "<game_version>"
@@ -76,7 +79,7 @@ anchor_bottom = 1.0
 offset_left = 5.0
 offset_top = 5.0
 offset_right = -5.0
-offset_bottom = -6.0
+offset_bottom = -5.0
 alignment = 2
 
 [node name="Play" type="Button" parent="Control/MenuButtons"]
@@ -124,61 +127,51 @@ focus_previous = NodePath("../Options")
 text = "BUTTON_EXIT"
 
 [node name="LeaderboardPanel" parent="Control" node_paths=PackedStringArray("uiController") instance=ExtResource("2_faxfe")]
-layout_mode = 0
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
+layout_mode = 1
+grow_horizontal = 2
+grow_vertical = 2
 uiController = NodePath("../..")
 
 [node name="PaddlePanel" parent="Control" node_paths=PackedStringArray("uiController") instance=ExtResource("3_nju35")]
-layout_mode = 0
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
+layout_mode = 1
+grow_horizontal = 2
+grow_vertical = 2
 uiController = NodePath("../..")
 
 [node name="DifficultyPanel" parent="Control" node_paths=PackedStringArray("uiController") instance=ExtResource("4_4tq2l")]
-layout_mode = 0
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
+layout_mode = 1
+grow_horizontal = 2
+grow_vertical = 2
 uiController = NodePath("../..")
 
 [node name="SkillPanel" parent="Control" node_paths=PackedStringArray("uiController") instance=ExtResource("31_ust1r")]
-layout_mode = 0
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
+layout_mode = 1
+grow_horizontal = 2
+grow_vertical = 2
 uiController = NodePath("../..")
 
 [node name="GameSetupPanel" parent="Control" node_paths=PackedStringArray("uiController") instance=ExtResource("31_xmcps")]
-layout_mode = 0
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_right = 256.0
-offset_bottom = 224.0
+layout_mode = 1
+offset_right = 0.0
+offset_bottom = 0.0
 uiController = NodePath("../..")
 
 [node name="InfoPanel" parent="Control" node_paths=PackedStringArray("uiController") instance=ExtResource("7_1to6h")]
-layout_mode = 0
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
+layout_mode = 1
+grow_horizontal = 2
+grow_vertical = 2
 uiController = NodePath("../..")
 
 [node name="PatchNotesPanel" parent="Control" node_paths=PackedStringArray("uiController") instance=ExtResource("8_e7mht")]
-layout_mode = 0
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
+layout_mode = 1
+grow_horizontal = 2
+grow_vertical = 2
 uiController = NodePath("../..")
 
 [node name="OptionsPanel" parent="Control" node_paths=PackedStringArray("_keybindChangePanel", "uiController") instance=ExtResource("9_v0j1q")]
-layout_mode = 0
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
+layout_mode = 1
+grow_horizontal = 2
+grow_vertical = 2
 _keybindChangePanel = NodePath("../../KeybindChangePanel")
 uiController = NodePath("../..")
 
