@@ -8,11 +8,14 @@ public partial class Score : Node
 	public readonly int ComboMultiplierStep = 10;
 	public readonly int MaxComboMultiplier = 5;
 	public readonly int PaddleSizeForMultiplier = 3;
+	[Export] public int PerfectClearBonus = 50;
 
 	private int _currentScore = 0;
 
 	private int _currentScoreMultiplier = 1;
 	private int _comboChain = 0;
+
+	private bool _isPerfect = true;
 
 	private Timer _exitTimer;
 	private SessionController refs;
@@ -57,6 +60,7 @@ public partial class Score : Node
 
 	public void ResetMultiplier()
 	{
+		_isPerfect = false;
 		_comboChain = 0;
 		_currentScoreMultiplier = 1;
 		ScoreChanged?.Invoke(_currentScore, _currentScoreMultiplier, _comboChain);
@@ -73,6 +77,11 @@ public partial class Score : Node
 		ChangeScore((int)_exitTimer.TimeLeft, false);
 		_exitTimer.Stop();
 		TimerEnd?.Invoke();
+
+		if (_isPerfect)
+		{
+			ChangeScore(PerfectClearBonus, false);
+		}
 	}
 
 	public override void _Ready()
@@ -80,12 +89,18 @@ public partial class Score : Node
 		_exitTimer = (Timer)GetChild(0);
 		refs = GetParent() as SessionController;
 		refs.levelManager.ResetSession += SessionSetup;
+		refs.levelManager.SceneChanged += EnablePerfectState;
 		refs.health.ResetElements += ResetMultiplier;
 	}
 
 	private void SessionSetup()
 	{
 		Cleanup();
+	}
+
+	private void EnablePerfectState()
+	{
+		_isPerfect = true;
 	}
 
 	private void UpdateMultiplier()
