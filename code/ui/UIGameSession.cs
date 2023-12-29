@@ -97,6 +97,7 @@ public partial class UIGameSession : Control
 	{
 		HideExitElements();
 		DisplayLifeElements();
+		UpdateSkillIcon();
 		Visible = true;
 	}
 
@@ -120,6 +121,12 @@ public partial class UIGameSession : Control
 	private void UpdateTimer()
 	{
 		((Label)_exitTimer.GetChild(0)).Text = refs.gameScore.TimeLeft.ToString();
+	}
+
+	private void UpdateSkillIcon()
+	{
+		string activeSkillIconPath = $"{ProjectSettings.GetSetting("global/SkillIconsFilePath")}/skill_{refs.SelectedSkill.GetType()}.png";
+		((TextureRect)_skill.GetChild(0)).Texture = ResourceLoader.Load<Texture2D>(activeSkillIconPath);
 	}
 
 	private void HideSkillIcon()

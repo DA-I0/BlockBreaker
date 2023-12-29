@@ -53,6 +53,7 @@ ConfigFilePath="user://settings.cfg"
 PatchNotesFilePath="res://assets/text/patchnotes.txt"
 DefaultLeaderboardFilePath="res://assets/text/default_leaderboard.txt"
 CustomLeaderboardFilePath="user://leaderboard.txt"
+SkillIconsFilePath="res://assets/sprites/ui_elements/skill_icons"
 
 [gui]
 
