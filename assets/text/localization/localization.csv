@@ -95,3 +95,7 @@ LABEL_ALL,All,Alle,すべて,Wszystkie
 LABEL_PADDLE,Paddle,,,
 LABEL_DIFFICULTY,Difficulty,Schwierigkeitsgrad,難易度,Poziom trudności
 LABEL_SKILL,Skill,Fähigkeiten,スキル,Umiejętność
+LABEL_TIME_LEFT,Time left,,,
+LABEL_PERFECT_CLEAR,Perfect clear,,,
+LABEL_SCORE_MULTIPLIER,Score multiplier,,,
+MSG_NO_BONUSES,No bonuses,,,
