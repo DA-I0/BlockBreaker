@@ -2,7 +2,12 @@ Version 0.3:
 	Features:
 		Keep mode:
 			☐ "Tree" level progression (think Outrun, Shadow the Hedgehog)?
+				☐ Each branch node consists of multiple levels
+				☐ Each branch uses different tileset type?
+				☐ Can't change a branch or use the store until all stages in the branch are completed
 			☐ Boss fights
+				☐ Appear at the end of each branch node
+				☐ Bosses can attack player (paddle) - attack can cause damage (life loss) or negative effects
 			☐ Store with items to buy (lives, pickups, paddles etc? available after each 5 levels or after boss fights)
 			☐ Multi-room levels (ball can travel to another room/screen, can be side-to-side or up-down)
 			☐ Ability to rebuild parts of the keep for coins to get bonuses
@@ -17,16 +22,22 @@ Version 0.3:
 		Dynamic elements:
 			☐ Add repeating timed toggle for teleport door?
 			☐ Add on-map buttons that toggle connected element when hit with the ball?
+			☐ Enemies
+				☐ Peaceful (act as moving obstacles rather than danger)
+				☐ Aggresive (can attack the player but only with debuffs?)
+			☐ River (slightly changes ball direction)
+			☐ Indestructible "breakables" (break to open and get a prize, in the form chests etc)
+			☐ Speed pads (ball gains a temporary boost when going over one)
 		Pickups:
 			☐ Add magnet (pull pickups near the paddle towards it, not exclusive unlike sticky/bouncy paddle?)
 			☐ Add random (randomize on spawn, ? as icon?)
 		Paddles:
 			☐ Add double paddle (half-length, consists of two paddles, one under another, moving in opposit directions, might be a pickup instead?) @low
-		Interactive elements:
-			☐ River (slightly changes ball direction)
-		☐ Replace music randomization with shuffle
-		☐ Dynamic translation loading
-		☐ Add optional difficulty modifier: advancing speed (ball becomes faster the longer you play without losing a life)
+		System:
+			☐ Replace music randomization with shuffle @low
+			☐ Dynamic translation loading (custom localization support) @low
+			✔ Add optional difficulty modifier: advancing speed (ball becomes faster the longer you play without losing a life) @done(23-12-15 16:52)
+			✔ Bonus points for a perfect (no death) stage completion @done(23-12-29 17:06)
 	Map elements:
 		☐ Stairs + railing @low
 			☐ Ball can move over stairs
@@ -48,26 +59,32 @@ Version 0.3:
 				☐ Level exit (big gate)
 				☐ Teleport (small gate)
 		☐ Unify tilesets organization @high
+		☐ Use a different color palette for each tileset @low
 	UI:
-		☐ Splash screen on map load (display map name/number)
+		☐ Splash screen on map load (display map name/number) @low
+		✔ Stage clear screen (with info about any bonus points - exit time, perfect clear) @low @done(24-01-01 18:09)
 		☐ Improve main menu layout and theming
-		☐ Add access to options and info panels in-game
+			☐ Fix readability & layout with different localizations
+			✔ Simplify game setup @done(13-12-27 19:02)
+			✘ Explore (and implement, if possible) independent UI resolution @cancelled(23-12-28 18:33)
+		☐ Add access to options and info panels in-game (from pause menu)
 		✔ Option to display lives as text (ex. LIVES x8) @done(23-12-08 16:38)
 		✔ Add skill selection @done(23-12-13 19:03)
-		☐ Change "skill active" icon depending on selected skill
+		✔ Change "skill active" icon depending on selected skill @done(23-12-29 15:21)
 		☐ Add active input type selection (auto, just mouse, just keyboard, just gamepad)
-		☐ Add active controller selection (all, <list of connected devices>)
+		✔ Add active controller selection (all, <list of connected devices>) @done(23-12-18 18:33)
 	Other:
 		☐ Improve translations
 		☐ Make a new logo @low
-		☐ Add more music tracks
-		☐ Restore resolution selection and make gameplay resize accordingly?
+		☐ Add more music tracks @low
+		✘ Restore resolution selection and make gameplay resize accordingly? @cancelled(23-12-19 15:37)
 	Accessibility:
 		☐ Color customization for gameplay elements (breakables, ball, paddles)
 		☐ Recheck all sprites and adjust if necessary
-		☐ Add alternative font choice
+		✔ Add alternative font choice @done(23-12-19 18:35)
 		☐ Implement full keyboard/gamepad navigation
 	Issues:
-		☐ Ball sometimes slides along the paddle instead of bouncing @high
-		☐ Game launches zoomed in, only half of the window is visible on screen @SteamDeck @high
+		✔ Ball sometimes slides along the paddle instead of bouncing @high @done(23-12-14 18:01)
+		✔ Game launches zoomed in, only half of the window is visible on screen @SteamDeck @high @done(18-12-27 17:46)
 		☐ Paddle collider doesn't resize with smooth transition enabled @high
+		✔ Language selection doesn't appear on first launch @done(23-12-18 17:27)
