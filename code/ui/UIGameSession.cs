@@ -8,6 +8,7 @@ public partial class UIGameSession : Control
 	[Export] private Label _livesText;
 	[Export] private Control _exitTimer;
 	[Export] private Control _exitPrompt;
+	[Export] private Control _stageClearPrompt;
 
 	private SessionController refs;
 
@@ -20,19 +21,6 @@ public partial class UIGameSession : Control
 	public override void _Process(double delta)
 	{
 		UpdateTimer();
-	}
-
-	public override void _Input(InputEvent @event)
-	{
-		if (!_exitPrompt.Visible || refs.CurrentGameState != GameState.gameplay)
-		{
-			return;
-		}
-
-		if (@event.IsActionReleased("game_play"))
-		{
-			refs.AdvanceCurrentLevel();
-		}
 	}
 
 	private void SetupReferences()
@@ -91,6 +79,7 @@ public partial class UIGameSession : Control
 	{
 		_exitTimer.Visible = false;
 		_exitPrompt.Visible = false;
+		_stageClearPrompt.Visible = false;
 	}
 
 	private void DisplayGameStateUI()

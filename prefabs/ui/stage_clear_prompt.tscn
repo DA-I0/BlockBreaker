@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://cf1rht26jg8pb"]
+
+[ext_resource type="Script" path="res://code/ui/UIStageClearedPanel.cs" id="1_3y8xg"]
+[ext_resource type="Texture2D" uid="uid://chk6oivvrr8nn" path="res://assets/sprites/ui_elements/icons/ui_icon_arrow_right.png" id="2_1adyu"]
+[ext_resource type="Texture2D" uid="uid://1ucmb2n300ts" path="res://assets/sprites/ui_elements/icons/ui_icon_arrow_right_pressed.png" id="3_l4qhh"]
+[ext_resource type="Texture2D" uid="uid://bkkudkcwwl8ml" path="res://assets/sprites/ui_elements/icons/ui_icon_arrow_right_hover.png" id="4_go5pj"]
+
+[node name="StageClearPrompt" type="PanelContainer" node_paths=PackedStringArray("_text")]
+z_index = 10
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -33.0
+offset_top = -27.0
+offset_right = 33.0
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3y8xg")
+_text = NodePath("Elements/ScoreSummary")
+
+[node name="Elements" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="ScoreSummary" type="Label" parent="Elements"]
+layout_mode = 2
+text = "+ <time_left>
++ <perfect>
+-----------------
+<score>"
+horizontal_alignment = 2
+
+[node name="Continue" type="TextureButton" parent="Elements"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("2_1adyu")
+texture_pressed = ExtResource("3_l4qhh")
+texture_hover = ExtResource("4_go5pj")
+texture_focused = ExtResource("4_go5pj")
+
+[node name="Spacer" type="Control" parent="Elements"]
+layout_mode = 2

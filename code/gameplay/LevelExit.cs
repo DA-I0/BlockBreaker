@@ -25,7 +25,6 @@ public partial class LevelExit : VariantController
 		if ((Ball)body != null)
 		{
 			refs.gameScore.AddBonusScore();
-			refs.AdvanceCurrentLevel();
 		}
 	}
 

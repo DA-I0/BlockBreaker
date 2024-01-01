@@ -1,6 +1,6 @@
 using Godot;
 
-public enum GameState { gameplay, menu, pause, gameOver, gameWin }
+public enum GameState { gameplay, menu, pause, gameOver, gameWin, stageClear }
 
 public partial class SessionController : Node
 {
@@ -127,7 +127,7 @@ public partial class SessionController : Node
 		_currentLevel++;
 		if (gameData.Levels.Count > _currentLevel)
 		{
-			levelManager.LoadGameScene(gameData.Levels[_currentLevel]);
+			SelectLevel(_currentLevel);
 		}
 		else
 		{

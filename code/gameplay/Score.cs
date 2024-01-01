@@ -1,6 +1,7 @@
 using Godot;
 
 public delegate void ScoreNotification(int score, int scoreMultiplier, int combo);
+public delegate void StageClearScoreNotification(int score, int scoreMultiplier, int timeLeft, int perfectClearBonus);
 
 public partial class Score : Node
 {
@@ -21,6 +22,7 @@ public partial class Score : Node
 	private SessionController refs;
 
 	public event ScoreNotification ScoreChanged;
+	public event StageClearScoreNotification StageCleared;
 	public event Notification TimerStart;
 	public event Notification TimerEnd;
 
@@ -74,13 +76,19 @@ public partial class Score : Node
 
 	public void AddBonusScore()
 	{
-		ChangeScore((int)_exitTimer.TimeLeft, false);
+		int timeLeft = TimeLeft;
+		ChangeScore(TimeLeft, false);
 		_exitTimer.Stop();
 		TimerEnd?.Invoke();
 
 		if (_isPerfect)
 		{
 			ChangeScore(PerfectClearBonus, false);
+			StageCleared?.Invoke(_currentScore, _currentScoreMultiplier, timeLeft, PerfectClearBonus);
+		}
+		else
+		{
+			StageCleared?.Invoke(_currentScore, _currentScoreMultiplier, timeLeft, 0);
 		}
 	}
 
