@@ -2,7 +2,7 @@ public class BallControl : Skill
 {
 	public BallControl()
 	{
-		_activationPointsCost = 10;
+		_activationPointsCost = 5;
 	}
 
 	public override void Activate()
