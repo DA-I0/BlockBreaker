@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://e75vrnnsyvkt"]
+
+[ext_resource type="Script" path="res://code/gameplay/Breakable.cs" id="1_mkrom"]
+[ext_resource type="Texture2D" uid="uid://bl4uxnonu40gh" path="res://assets/sprites/blocks/emergency_net.png" id="2_ye5nr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jer7o"]
+size = Vector2(192, 7)
+
+[node name="SafetyNet" type="StaticBody2D"]
+z_index = 2
+position = Vector2(0, 108)
+script = ExtResource("1_mkrom")
+_pointValue = 0
+_pickupSpawnChance = 0.0
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_jer7o")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_ye5nr")
+region_rect = Rect2(0, 0, 48, 7)
