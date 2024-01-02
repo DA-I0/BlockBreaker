@@ -1,31 +1,34 @@
 using Godot;
 
-public partial class UIPanel : Panel
+namespace BoGK.UI
 {
-	[Export] protected UIController uiController;
-	[Export] protected Control _focusTarget;
-	[Export] private Button _returnButton;
-	[Export] private string _returnTarget = string.Empty;
-
-	protected SessionController refs;
-
-	public override void _Ready()
+	public partial class UIPanel : Panel
 	{
-		SetupBaseReferences();
-	}
+		[Export] protected UIController uiController;
+		[Export] protected Control _focusTarget;
+		[Export] private Button _returnButton;
+		[Export] private string _returnTarget = string.Empty;
 
-	protected virtual void SetupBaseReferences()
-	{
-		refs = GetNode("/root/GameController") as SessionController;
-		uiController.RefreshUI += Focus;
-		_returnButton.Pressed += () => uiController.TogglePanel(_returnTarget);
-	}
+		protected SessionController refs;
 
-	protected virtual void Focus()
-	{
-		if (Visible)
+		public override void _Ready()
 		{
-			_focusTarget.GrabFocus();
+			SetupBaseReferences();
+		}
+
+		protected virtual void SetupBaseReferences()
+		{
+			refs = GetNode("/root/GameController") as SessionController;
+			uiController.RefreshUI += Focus;
+			_returnButton.Pressed += () => uiController.TogglePanel(_returnTarget);
+		}
+
+		protected virtual void Focus()
+		{
+			if (Visible)
+			{
+				_focusTarget.GrabFocus();
+			}
 		}
 	}
 }

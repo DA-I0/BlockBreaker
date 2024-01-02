@@ -1,51 +1,53 @@
-using System.Linq;
 using Godot;
 
-public partial class UISkillPanel : UIPagePanel
+namespace BoGK.UI
 {
-	[Export] private Label _name;
-	[Export] private Label _description;
-
-	private int _currentSkill = 0;
-
-	public override void _Ready()
+	public partial class UISkillPanel : UIPaginatorPanel
 	{
-		SetupBaseReferences();
-		CreateItemIndicators(refs.gameData.Skills.Length);
-		UpdateDisplayedValues();
-	}
+		[Export] private Label _name;
+		[Export] private Label _description;
 
-	private void UpdateDisplayedValues()
-	{
-		Skill currentSkill = refs.gameData.Skills[_currentSkill];
-		_name.Text = $"SKILL_{currentSkill.ToString().ToUpper()}_NAME";
-		_description.Text = $"{Tr("SKILL_ACTIVATION_COST")}: {currentSkill.ActivationCost}\n{Tr($"SKILL_{currentSkill.ToString().ToUpper()}_DESC")}";
-		UpdatePaginatorStatus(_currentSkill);
-	}
+		private int _currentSkill = 0;
 
-	private void ChangeSkill(bool next)
-	{
-		_currentSkill += next ? 1 : -1;
-		CheckSkillRange();
-		UpdateDisplayedValues();
-	}
-
-	private void CheckSkillRange()
-	{
-		if (_currentSkill > refs.gameData.Skills.Length - 1)
+		public override void _Ready()
 		{
-			_currentSkill = 0;
+			SetupBaseReferences();
+			CreateItemIndicators(refs.gameData.Skills.Length);
+			UpdateDisplayedValues();
 		}
 
-		if (_currentSkill < 0)
+		private void UpdateDisplayedValues()
 		{
-			_currentSkill = refs.gameData.Skills.Length - 1;
+			Skill currentSkill = refs.gameData.Skills[_currentSkill];
+			_name.Text = $"SKILL_{currentSkill.ToString().ToUpper()}_NAME";
+			_description.Text = $"{Tr("SKILL_ACTIVATION_COST")}: {currentSkill.ActivationCost}\n{Tr($"SKILL_{currentSkill.ToString().ToUpper()}_DESC")}";
+			UpdatePaginatorStatus(_currentSkill);
 		}
-	}
 
-	private void SelectSkill()
-	{
-		refs.SetSkill(_currentSkill);
-		uiController.TogglePanel("GameSetupPanel");
+		private void ChangeSkill(bool next)
+		{
+			_currentSkill += next ? 1 : -1;
+			CheckSkillRange();
+			UpdateDisplayedValues();
+		}
+
+		private void CheckSkillRange()
+		{
+			if (_currentSkill > refs.gameData.Skills.Length - 1)
+			{
+				_currentSkill = 0;
+			}
+
+			if (_currentSkill < 0)
+			{
+				_currentSkill = refs.gameData.Skills.Length - 1;
+			}
+		}
+
+		private void SelectSkill()
+		{
+			refs.SetSkill(_currentSkill);
+			uiController.TogglePanel("GameSetupPanel");
+		}
 	}
 }

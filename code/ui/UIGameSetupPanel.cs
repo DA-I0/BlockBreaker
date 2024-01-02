@@ -1,75 +1,78 @@
 using Godot;
 
-public partial class UIGameSetupPanel : UIPanel
+namespace BoGK.UI
 {
-	[Export] private Node _levelGrid;
-	[Export] private Button _paddleButton;
-	[Export] private Button _difficultyButton;
-	[Export] private Button _skillButton;
-
-	public override void _Ready()
+	public partial class UIGameSetupPanel : UIPanel
 	{
-		SetupBaseReferences();
-		SetupReferences();
-		PopulateLevels();
-	}
+		[Export] private Node _levelGrid;
+		[Export] private Button _paddleButton;
+		[Export] private Button _difficultyButton;
+		[Export] private Button _skillButton;
 
-	private void PopulateLevels()
-	{
-		for (int index = 0; index < refs.gameData.Levels.Count; index++)
+		public override void _Ready()
 		{
-			Button newButton = new Button
+			SetupBaseReferences();
+			SetupReferences();
+			PopulateLevels();
+		}
+
+		private void PopulateLevels()
+		{
+			for (int index = 0; index < refs.gameData.Levels.Count; index++)
 			{
-				Text = refs.gameData.Levels[index].Replace(".tscn", "").Replace(".remap", "")
-			};
+				Button newButton = new Button
+				{
+					Text = refs.gameData.Levels[index].Replace(".tscn", "").Replace(".remap", "")
+				};
 
-			int levelIndex = index;
-			newButton.Pressed += () => refs.SelectLevel(levelIndex);
+				int levelIndex = index;
+				newButton.Pressed += () => refs.SelectLevel(levelIndex);
 
-			newButton.SizeFlagsHorizontal = SizeFlags.ShrinkCenter | SizeFlags.Expand;
-			newButton.SizeFlagsVertical = SizeFlags.ShrinkCenter;
+				newButton.SizeFlagsHorizontal = SizeFlags.ShrinkCenter | SizeFlags.Expand;
+				newButton.SizeFlagsVertical = SizeFlags.ShrinkCenter;
 
-			_levelGrid.AddChild(newButton);
+				_levelGrid.AddChild(newButton);
+			}
 		}
-	}
 
-	protected void SetupReferences()
-	{
-		_paddleButton.Pressed += () => ((UIController)GetNode("../..")).TogglePanel("PaddlePanel");
-		_difficultyButton.Pressed += () => ((UIController)GetNode("../..")).TogglePanel("DifficultyPanel");
-		_skillButton.Pressed += () => ((UIController)GetNode("../..")).TogglePanel("SkillPanel");
-	}
-
-	protected override void Focus()
-	{
-		if (Visible)
+		protected void SetupReferences()
 		{
-			((Button)_levelGrid.GetChild(0)).GrabFocus();
-			UpdateSelectedPaddle();
-			UpdateSelectedDifficulty();
-			UpdateSelectedSkill();
+			_paddleButton.Pressed += () => ((UIController)GetNode("../..")).TogglePanel("PaddlePanel");
+			_difficultyButton.Pressed += () => ((UIController)GetNode("../..")).TogglePanel("DifficultyPanel");
+			_skillButton.Pressed += () => ((UIController)GetNode("../..")).TogglePanel("SkillPanel");
 		}
-	}
 
-	private void UpdateSelectedPaddle()
-	{
-		if (ResourceLoader.Exists($"res://assets/sprites/paddles/paddle_{refs.SelectedPaddleIndex}_icon.png"))
+		protected override void Focus()
 		{
-			_paddleButton.Icon = ResourceLoader.Load<Texture2D>($"res://assets/sprites/paddles/paddle_{refs.SelectedPaddleIndex}_icon.png");
+			if (Visible)
+			{
+				((Button)_levelGrid.GetChild(0)).GrabFocus();
+				UpdateSelectedPaddle();
+				UpdateSelectedDifficulty();
+				UpdateSelectedSkill();
+			}
 		}
-		else
+
+		private void UpdateSelectedPaddle()
 		{
-			_paddleButton.Icon = ResourceLoader.Load<Texture2D>($"res://assets/sprites/paddles/paddle_{refs.SelectedPaddleIndex}.png");
+			if (ResourceLoader.Exists($"res://assets/sprites/paddles/paddle_{refs.SelectedPaddleIndex}_icon.png"))
+			{
+				_paddleButton.Icon = ResourceLoader.Load<Texture2D>($"res://assets/sprites/paddles/paddle_{refs.SelectedPaddleIndex}_icon.png");
+			}
+			else
+			{
+				_paddleButton.Icon = ResourceLoader.Load<Texture2D>($"res://assets/sprites/paddles/paddle_{refs.SelectedPaddleIndex}.png");
+			}
 		}
-	}
 
-	private void UpdateSelectedDifficulty()
-	{
-		_difficultyButton.Text = refs.SelectedDifficulty.DifficultyName;
-	}
+		private void UpdateSelectedDifficulty()
+		{
+			_difficultyButton.Text = refs.SelectedDifficulty.DifficultyName;
+		}
 
-	private void UpdateSelectedSkill()
-	{
-		_skillButton.Text = Tr($"SKILL_{refs.SelectedSkill.ToString().ToUpper()}_NAME");
+		private void UpdateSelectedSkill()
+		{
+			_skillButton.Text = Tr($"SKILL_{refs.SelectedSkill.ToString().ToUpper()}_NAME");
+		}
 	}
 }

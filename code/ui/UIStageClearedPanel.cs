@@ -1,34 +1,37 @@
 using Godot;
 
-public partial class UIStageClearedPanel : PanelContainer
+namespace BoGK.UI
 {
-	[Export] private Label _text;
-
-	private SessionController refs;
-
-	public override void _Ready()
+	public partial class UIStageClearedPanel : PanelContainer
 	{
-		refs = GetNode("/root/GameController") as SessionController;
-		refs.gameScore.StageCleared += DisplayStageSummary;
-	}
+		[Export] private Label _text;
 
-	public override void _Input(InputEvent @event)
-	{
-		if (Visible && @event.IsActionReleased("game_play"))
+		private SessionController refs;
+
+		public override void _Ready()
 		{
-			refs.AdvanceCurrentLevel();
+			refs = GetNode("/root/GameController") as SessionController;
+			refs.gameScore.StageCleared += DisplayStageSummary;
 		}
-	}
 
-	private void DisplayStageSummary(int score, int scoreMultiplier, int timeLeft, int perfectClearBonus)
-	{
-		_text.Text = (timeLeft > 0) ? $"{Tr("LABEL_TIME_LEFT")}: +{timeLeft}\n" : string.Empty;
-		_text.Text += (perfectClearBonus > 0) ? $"{Tr("LABEL_PERFECT_CLEAR")}: +{perfectClearBonus}\n" : string.Empty;
+		public override void _Input(InputEvent @event)
+		{
+			if (Visible && @event.IsActionReleased("game_play"))
+			{
+				refs.AdvanceCurrentLevel();
+			}
+		}
 
-		_text.Text += (_text.Text != string.Empty && scoreMultiplier > 1) ? $"{Tr("LABEL_SCORE_MULTIPLIER")}: x{scoreMultiplier}\n" : string.Empty;
-		_text.Text += (_text.Text == string.Empty) ? $"{Tr("MSG_NO_BONUSES")}\n{Tr("GAME_SCORE")}: {score}" : $"----------------\n{Tr("GAME_SCORE")}: {score}";
+		private void DisplayStageSummary(int score, int scoreMultiplier, int timeLeft, int perfectClearBonus)
+		{
+			_text.Text = (timeLeft > 0) ? $"{Tr("LABEL_TIME_LEFT")}: +{timeLeft}\n" : string.Empty;
+			_text.Text += (perfectClearBonus > 0) ? $"{Tr("LABEL_PERFECT_CLEAR")}: +{perfectClearBonus}\n" : string.Empty;
 
-		Visible = true;
-		refs.ChangeGameState(GameState.stageClear);
+			_text.Text += (_text.Text != string.Empty && scoreMultiplier > 1) ? $"{Tr("LABEL_SCORE_MULTIPLIER")}: x{scoreMultiplier}\n" : string.Empty;
+			_text.Text += (_text.Text == string.Empty) ? $"{Tr("MSG_NO_BONUSES")}\n{Tr("GAME_SCORE")}: {score}" : $"----------------\n{Tr("GAME_SCORE")}: {score}";
+
+			Visible = true;
+			refs.ChangeGameState(GameState.stageClear);
+		}
 	}
 }

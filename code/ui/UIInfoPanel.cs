@@ -1,19 +1,22 @@
 using Godot;
 
-public partial class UIInfoPanel : UIPanel
+namespace BoGK.UI
 {
-	public override void _Input(InputEvent @event)
+	public partial class UIInfoPanel : UIPanel
 	{
-		if (Visible)
+		public override void _Input(InputEvent @event)
 		{
-			if (@event.IsActionPressed("ui_down"))
+			if (Visible)
 			{
-				((ScrollContainer)_focusTarget).ScrollVertical += 10;
-			}
+				if (@event.IsActionPressed("ui_down"))
+				{
+					((ScrollContainer)_focusTarget).ScrollVertical += 10;
+				}
 
-			if (@event.IsActionPressed("ui_up"))
-			{
-				((ScrollContainer)_focusTarget).ScrollVertical -= 10;
+				if (@event.IsActionPressed("ui_up"))
+				{
+					((ScrollContainer)_focusTarget).ScrollVertical -= 10;
+				}
 			}
 		}
 	}

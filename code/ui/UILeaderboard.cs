@@ -1,35 +1,38 @@
 using Godot;
 
-public partial class UILeaderboard : UIPanel
+namespace BoGK.UI
 {
-	[Export] private Label _playerNames;
-	[Export] private Label _playerScore;
-
-	public override void _Ready()
+	public partial class UILeaderboard : UIPanel
 	{
-		SetupBaseReferences();
-		SetupReferences();
-	}
+		[Export] private Label _playerNames;
+		[Export] private Label _playerScore;
 
-	protected void SetupReferences()
-	{
-		uiController.RefreshUI += ApplyLeaderboardValues;
-	}
-
-	private void ApplyLeaderboardValues()
-	{
-		_playerNames.Text = string.Empty;
-		_playerScore.Text = string.Empty;
-
-		int position = 1;
-
-		foreach (HighScore entry in refs.gameData.Leaderboard)
+		public override void _Ready()
 		{
-			string difficulty = entry.UsedCustomDifficulty ? $"{entry.DifficultyName}*" : entry.DifficultyName;
-			_playerNames.Text += $"{position}. {entry.PlayerName} ({difficulty})\n";
-			_playerScore.Text += $"{entry.Score}\n";
+			SetupBaseReferences();
+			SetupReferences();
+		}
 
-			position++;
+		protected void SetupReferences()
+		{
+			uiController.RefreshUI += ApplyLeaderboardValues;
+		}
+
+		private void ApplyLeaderboardValues()
+		{
+			_playerNames.Text = string.Empty;
+			_playerScore.Text = string.Empty;
+
+			int position = 1;
+
+			foreach (HighScore entry in refs.gameData.Leaderboard)
+			{
+				string difficulty = entry.UsedCustomDifficulty ? $"{entry.DifficultyName}*" : entry.DifficultyName;
+				_playerNames.Text += $"{position}. {entry.PlayerName} ({difficulty})\n";
+				_playerScore.Text += $"{entry.Score}\n";
+
+				position++;
+			}
 		}
 	}
 }

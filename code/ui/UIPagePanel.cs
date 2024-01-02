@@ -1,51 +1,54 @@
 using Godot;
 
-public partial class UIPagePanel : UIPanel
+namespace BoGK.UI
 {
-	[Export] private Node _paginatorParent;
-	[Export] private Texture2D _inactiveItemSprite;
-	[Export] private Texture2D _activeItemSprite;
-
-	protected void CreateItemIndicators(int itemCount)
+	public partial class UIPaginatorPanel : UIPanel
 	{
-		ClearItemIndicators();
+		[Export] private Node _paginatorParent;
+		[Export] private Texture2D _inactiveItemSprite;
+		[Export] private Texture2D _activeItemSprite;
 
-		for (int i = 0; i < itemCount; i++)
+		protected void CreateItemIndicators(int itemCount)
 		{
-			TextureRect itemIndicator = new TextureRect();
-			itemIndicator.Texture = _inactiveItemSprite;
-			itemIndicator.StretchMode = TextureRect.StretchModeEnum.KeepAspect;
-			_paginatorParent.AddChild(itemIndicator);
-		}
-	}
+			ClearItemIndicators();
 
-	protected void UpdatePaginatorStatus(int activeIndex)
-	{
-		for (int index = 0; index < _paginatorParent.GetChildCount(); index++)
-		{
-			if (index == activeIndex)
+			for (int i = 0; i < itemCount; i++)
 			{
-				((TextureRect)_paginatorParent.GetChild(index)).Texture = _activeItemSprite;
-			}
-			else
-			{
-				((TextureRect)_paginatorParent.GetChild(index)).Texture = _inactiveItemSprite;
+				TextureRect itemIndicator = new TextureRect();
+				itemIndicator.Texture = _inactiveItemSprite;
+				itemIndicator.StretchMode = TextureRect.StretchModeEnum.KeepAspect;
+				_paginatorParent.AddChild(itemIndicator);
 			}
 		}
-	}
 
-	private void ClearItemIndicators()
-	{
-		if (_paginatorParent.GetChildCount() < 1)
+		protected void UpdatePaginatorStatus(int activeIndex)
 		{
-			return;
+			for (int index = 0; index < _paginatorParent.GetChildCount(); index++)
+			{
+				if (index == activeIndex)
+				{
+					((TextureRect)_paginatorParent.GetChild(index)).Texture = _activeItemSprite;
+				}
+				else
+				{
+					((TextureRect)_paginatorParent.GetChild(index)).Texture = _inactiveItemSprite;
+				}
+			}
 		}
 
-		for (int index = _paginatorParent.GetChildCount() - 1; index >= 0; index--)
+		private void ClearItemIndicators()
 		{
-			Node child = _paginatorParent.GetChild(index);
-			_paginatorParent.RemoveChild(child);
-			child.QueueFree();
+			if (_paginatorParent.GetChildCount() < 1)
+			{
+				return;
+			}
+
+			for (int index = _paginatorParent.GetChildCount() - 1; index >= 0; index--)
+			{
+				Node child = _paginatorParent.GetChild(index);
+				_paginatorParent.RemoveChild(child);
+				child.QueueFree();
+			}
 		}
 	}
 }
