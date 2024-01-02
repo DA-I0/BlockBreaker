@@ -6,3 +6,4 @@ angleSelectSpeed=2
 maxPaddleSize=2
 startPaddleSize=2
 minPaddleSize=1
+advancingSpeed=false
