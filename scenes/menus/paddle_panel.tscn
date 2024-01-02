@@ -1,7 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://b2pir58gb6mba"]
+[gd_scene load_steps=17 format=3 uid="uid://b2pir58gb6mba"]
 
 [ext_resource type="Script" path="res://code/ui/UIPaddlePanel.cs" id="1_0dbns"]
+[ext_resource type="Texture2D" uid="uid://dnhfga4qcm0xk" path="res://assets/sprites/ui_elements/icons/ui_icon_status_disabled.png" id="2_rk5kc"]
 [ext_resource type="Shortcut" uid="uid://b0g14u724bnvg" path="res://shortcuts/previous.tres" id="2_suvvh"]
+[ext_resource type="Texture2D" uid="uid://cbeh40qu6hwk0" path="res://assets/sprites/ui_elements/icons/ui_icon_status_enabled.png" id="3_m8cgv"]
 [ext_resource type="Texture2D" uid="uid://bkkbuv1lumwpe" path="res://assets/sprites/ui_elements/icons/ui_icon_arrow_left.png" id="3_xsgim"]
 [ext_resource type="Texture2D" uid="uid://cy50s2cbk4uju" path="res://assets/sprites/ui_elements/icons/ui_icon_arrow_left_pressed.png" id="4_wpxwm"]
 [ext_resource type="Texture2D" uid="uid://d2igfcna5mbgv" path="res://assets/sprites/ui_elements/icons/ui_icon_arrow_left_hover.png" id="5_xcs5x"]
@@ -15,7 +17,7 @@
 [ext_resource type="Shortcut" uid="uid://b5ydjlfn0ps7g" path="res://shortcuts/confirm.tres" id="13_llndj"]
 [ext_resource type="Shortcut" uid="uid://bhk5vranx2qfl" path="res://shortcuts/cancel.tres" id="14_12fea"]
 
-[node name="PaddlePanel" type="Panel" node_paths=PackedStringArray("_paddleSprite", "_paddleName", "_paddleDescription", "_focusTarget", "_returnButton")]
+[node name="PaddlePanel" type="Panel" node_paths=PackedStringArray("_paddleSprite", "_paddleName", "_paddleDescription", "_paginatorParent", "_focusTarget", "_returnButton")]
 custom_minimum_size = Vector2(256, 224)
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,6 +26,9 @@ script = ExtResource("1_0dbns")
 _paddleSprite = NodePath("PaddleSprite")
 _paddleName = NodePath("PaddleName")
 _paddleDescription = NodePath("PaddleDescription")
+_paginatorParent = NodePath("ItemPaginator")
+_inactiveItemSprite = ExtResource("2_rk5kc")
+_activeItemSprite = ExtResource("3_m8cgv")
 _focusTarget = NodePath("ConfirmPaddle")
 _returnButton = NodePath("Return")
 _returnTarget = "GameSetupPanel"
@@ -117,6 +122,19 @@ anchor_bottom = 1.0
 offset_bottom = -21.0
 text = "paddle_desc"
 autowrap_mode = 2
+
+[node name="ItemPaginator" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
 
 [node name="ConfirmPaddle" type="Button" parent="."]
 layout_mode = 1

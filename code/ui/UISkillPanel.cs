@@ -1,6 +1,7 @@
+using System.Linq;
 using Godot;
 
-public partial class UISkillPanel : UIPanel
+public partial class UISkillPanel : UIPagePanel
 {
 	[Export] private Label _name;
 	[Export] private Label _description;
@@ -10,6 +11,7 @@ public partial class UISkillPanel : UIPanel
 	public override void _Ready()
 	{
 		SetupBaseReferences();
+		CreateItemIndicators(refs.gameData.Skills.Length);
 		UpdateDisplayedValues();
 	}
 
@@ -18,6 +20,7 @@ public partial class UISkillPanel : UIPanel
 		Skill currentSkill = refs.gameData.Skills[_currentSkill];
 		_name.Text = $"SKILL_{currentSkill.ToString().ToUpper()}_NAME";
 		_description.Text = $"{Tr("SKILL_ACTIVATION_COST")}: {currentSkill.ActivationCost}\n{Tr($"SKILL_{currentSkill.ToString().ToUpper()}_DESC")}";
+		UpdatePaginatorStatus(_currentSkill);
 	}
 
 	private void ChangeSkill(bool next)

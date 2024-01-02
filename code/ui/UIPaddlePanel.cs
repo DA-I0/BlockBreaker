@@ -1,7 +1,7 @@
 using System.Linq;
 using Godot;
 
-public partial class UIPaddlePanel : UIPanel
+public partial class UIPaddlePanel : UIPagePanel
 {
 	[Export] private TextureRect _paddleSprite;
 	[Export] private Label _paddleName;
@@ -14,6 +14,7 @@ public partial class UIPaddlePanel : UIPanel
 	{
 		SetupBaseReferences();
 		_paddleCount = DirAccess.GetFilesAt("res://prefabs/paddles/").Count();
+		CreateItemIndicators(_paddleCount);
 		UpdateDisplayedValues();
 	}
 
@@ -29,6 +30,7 @@ public partial class UIPaddlePanel : UIPanel
 		}
 		_paddleName.Text = $"PADDLE_{_currentPaddle}_NAME";
 		_paddleDescription.Text = $"PADDLE_{_currentPaddle}_DESC";
+		UpdatePaginatorStatus(_currentPaddle - 1);
 	}
 
 	private void ChangePaddle(bool next)

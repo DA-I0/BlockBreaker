@@ -1,7 +1,7 @@
 using System;
 using Godot;
 
-public partial class UIDifficultyPanel : UIPanel
+public partial class UIDifficultyPanel : UIPagePanel
 {
 	[Export] private Label _name;
 	[Export] private LineEdit _newName;
@@ -34,6 +34,7 @@ public partial class UIDifficultyPanel : UIPanel
 	public override void _Ready()
 	{
 		SetupBaseReferences();
+		CreateItemIndicators(refs.gameData.Difficulties.Count);
 		ToggleEditorControls(false);
 		UpdateEditorButtons();
 	}
@@ -64,6 +65,7 @@ public partial class UIDifficultyPanel : UIPanel
 			_currentDifficulty = (_currentDifficulty < 0) ? 1 : _currentDifficulty;
 			ApplyStaticValues();
 		}
+		UpdatePaginatorStatus(_currentDifficulty);
 	}
 
 	private void EnableEditor(bool newDifficulty)
@@ -135,7 +137,7 @@ public partial class UIDifficultyPanel : UIPanel
 		_paddleSizeMaxSlider.Value = refs.gameData.Difficulties[helperIndex].MaxPaddleSize;
 		_paddleSizeStartSlider.Value = refs.gameData.Difficulties[helperIndex].StartPaddleSize;
 		_paddleSizeMinSlider.Value = refs.gameData.Difficulties[helperIndex].MinPaddleSize;
-		_advancingSpeedCheckButton.ButtonPressed = refs.gameData.Difficulties[_currentDifficulty].AdvancingSpeed;
+		_advancingSpeedCheckButton.ButtonPressed = refs.gameData.Difficulties[helperIndex].AdvancingSpeed;
 	}
 
 	private void UpdateEditorValues(float value)
@@ -230,6 +232,7 @@ public partial class UIDifficultyPanel : UIPanel
 			refs.gameData.UpdateDifficulty(_currentDifficulty, newDifficulty);
 		}
 
+		CreateItemIndicators(refs.gameData.Difficulties.Count);
 		ToggleEditorControls(false);
 	}
 
@@ -237,6 +240,7 @@ public partial class UIDifficultyPanel : UIPanel
 	{
 		refs.fileOperations.DeleteDifficulty(refs.gameData.Difficulties[_currentDifficulty].DifficultyName);
 		refs.gameData.RemoveDifficulty(_currentDifficulty);
+		CreateItemIndicators(refs.gameData.Difficulties.Count);
 		ChangeDifficulty(false);
 	}
 }

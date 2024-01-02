@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bxrvi55amlhny"]
+[gd_scene load_steps=28 format=3 uid="uid://bxrvi55amlhny"]
 
 [ext_resource type="Script" path="res://code/ui/UIDifficultyPanel.cs" id="1_hl0tc"]
 [ext_resource type="Shortcut" uid="uid://b0g14u724bnvg" path="res://shortcuts/previous.tres" id="2_jhden"]
@@ -11,7 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://1ucmb2n300ts" path="res://assets/sprites/ui_elements/icons/ui_icon_arrow_right_pressed.png" id="9_blqh6"]
 [ext_resource type="Texture2D" uid="uid://bkkudkcwwl8ml" path="res://assets/sprites/ui_elements/icons/ui_icon_arrow_right_hover.png" id="10_t0iuh"]
 [ext_resource type="Texture2D" uid="uid://bbd31fqk7ctsp" path="res://assets/sprites/ui_elements/icons/ui_icon_arrow_right_disabled.png" id="11_mdyw8"]
+[ext_resource type="Texture2D" uid="uid://dnhfga4qcm0xk" path="res://assets/sprites/ui_elements/icons/ui_icon_status_disabled.png" id="12_jovjc"]
 [ext_resource type="Shortcut" uid="uid://b5ydjlfn0ps7g" path="res://shortcuts/confirm.tres" id="12_lorva"]
+[ext_resource type="Texture2D" uid="uid://cbeh40qu6hwk0" path="res://assets/sprites/ui_elements/icons/ui_icon_status_enabled.png" id="13_mxby1"]
 [ext_resource type="Shortcut" uid="uid://bhk5vranx2qfl" path="res://shortcuts/cancel.tres" id="13_yt11b"]
 [ext_resource type="Texture2D" uid="uid://cp27aowbjgp2l" path="res://assets/sprites/ui_elements/icons/ui_icon_remove.png" id="14_uudvo"]
 [ext_resource type="Texture2D" uid="uid://cf0h3lftyyhft" path="res://assets/sprites/ui_elements/icons/ui_icon_remove_pressed.png" id="15_gtx8j"]
@@ -26,7 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://b32gq7r2tvcf3" path="res://assets/sprites/ui_elements/icons/ui_icon_add_hover.png" id="24_dlfm4"]
 [ext_resource type="Texture2D" uid="uid://bn53u7bjick3w" path="res://assets/sprites/ui_elements/icons/ui_icon_add_disabled.png" id="25_cqq4c"]
 
-[node name="DifficultyPanel" type="Panel" node_paths=PackedStringArray("_name", "_newName", "_livesMax", "_livesMaxSlider", "_livesStart", "_livesStartSlider", "_ballSpeed", "_ballSpeedSlider", "_ballAngleSpeed", "_ballAngleSlider", "_paddleSizeMax", "_paddleSizeMaxSlider", "_paddleSizeStart", "_paddleSizeStartSlider", "_paddleSizeMin", "_paddleSizeMinSlider", "_advancingSpeed", "_advancingSpeedCheckButton", "_nameEditControls", "_deleteDifficulty", "_editDifficulty", "_addDifficulty", "_cancelEdit", "_focusTarget", "_returnButton")]
+[node name="DifficultyPanel" type="Panel" node_paths=PackedStringArray("_name", "_newName", "_livesMax", "_livesMaxSlider", "_livesStart", "_livesStartSlider", "_ballSpeed", "_ballSpeedSlider", "_ballAngleSpeed", "_ballAngleSlider", "_paddleSizeMax", "_paddleSizeMaxSlider", "_paddleSizeStart", "_paddleSizeStartSlider", "_paddleSizeMin", "_paddleSizeMinSlider", "_advancingSpeed", "_advancingSpeedCheckButton", "_nameEditControls", "_deleteDifficulty", "_editDifficulty", "_addDifficulty", "_cancelEdit", "_paginatorParent", "_focusTarget", "_returnButton")]
 custom_minimum_size = Vector2(256, 224)
 anchors_preset = 15
 anchor_right = 1.0
@@ -55,6 +57,9 @@ _deleteDifficulty = NodePath("CustomDifficultyButtons/DeleteDifficulty")
 _editDifficulty = NodePath("CustomDifficultyButtons/EditDifficulty")
 _addDifficulty = NodePath("CustomDifficultyButtons/AddDifficulty")
 _cancelEdit = NodePath("ConfirmationButtons/CancelEditor")
+_paginatorParent = NodePath("ItemPaginator")
+_inactiveItemSprite = ExtResource("12_jovjc")
+_activeItemSprite = ExtResource("13_mxby1")
 _focusTarget = NodePath("ConfirmationButtons/ConfirmDifficulty")
 _returnButton = NodePath("Return")
 _returnTarget = "GameSetupPanel"
@@ -288,6 +293,19 @@ text = "DIFF_ADVANCING_SPEED"
 [node name="CheckButton" type="CheckButton" parent="DifficultyOptions/AdvancingSpeed"]
 layout_mode = 2
 
+[node name="ItemPaginator" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
 [node name="ConfirmationButtons" type="HBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
@@ -373,5 +391,6 @@ text = "BUTTON_RETURN"
 [connection signal="value_changed" from="DifficultyOptions/MinPaddleSize/PaddleSizeMinSlider" to="." method="UpdateEditorValues"]
 [connection signal="pressed" from="ConfirmationButtons/ConfirmDifficulty" to="." method="Confirm"]
 [connection signal="pressed" from="ConfirmationButtons/CancelEditor" to="." method="ToggleEditorControls" binds= [false]]
+[connection signal="pressed" from="CustomDifficultyButtons/DeleteDifficulty" to="." method="DeleteDifficulty"]
 [connection signal="pressed" from="CustomDifficultyButtons/EditDifficulty" to="." method="EnableEditor" binds= [false]]
 [connection signal="pressed" from="CustomDifficultyButtons/AddDifficulty" to="." method="EnableEditor" binds= [true]]
