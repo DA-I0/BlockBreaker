@@ -1,11 +1,14 @@
-public struct FontVariant
+namespace BoGK.Models
 {
-	public string FontName;
-	public int DefaultSize;
-
-	public FontVariant(string name, int size)
+	public struct FontVariant
 	{
-		FontName = name;
-		DefaultSize = size;
+		public string FontName;
+		public int DefaultSize;
+
+		public FontVariant(string name, int size)
+		{
+			FontName = name;
+			DefaultSize = size;
+		}
 	}
 }

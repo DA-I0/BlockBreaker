@@ -10,7 +10,6 @@ public partial class SessionController : Node
 	private int _currentLevel;
 
 	public GameData gameData;
-	public FileOperations fileOperations;
 	public Settings settings;
 	public LocalizationController localization;
 	[Export] public AudioController musicController;
@@ -34,7 +33,7 @@ public partial class SessionController : Node
 		get { return _gameState; }
 	}
 
-	public Difficulty SelectedDifficulty
+	public BoGK.Models.Difficulty SelectedDifficulty
 	{
 		get { return gameData.Difficulties[_currentDifficulty]; }
 	}
@@ -78,7 +77,6 @@ public partial class SessionController : Node
 	private void SetupReferences()
 	{
 		gameData = new GameData(this);
-		fileOperations = new FileOperations(this);
 		settings = new Settings(this);
 		localization = new LocalizationController(this);
 

@@ -1,3 +1,4 @@
+using BoGK.Models;
 using Godot;
 
 public static class HelperMethods

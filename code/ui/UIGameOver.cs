@@ -77,7 +77,7 @@ namespace BoGK.UI
 				string playerName = (_name.Text == string.Empty) ? Tr(_name.PlaceholderText) : _name.Text;
 				string difficultyName = refs.SelectedDifficulty.DifficultyName;
 
-				HighScore playerScore = new HighScore(playerName, difficultyName, refs.gameScore.CurrentScore, refs.IsCustomDifficultySelected);
+				Models.HighScore playerScore = new Models.HighScore(playerName, difficultyName, refs.gameScore.CurrentScore, refs.IsCustomDifficultySelected);
 				refs.gameData.AddScoreToLeaderboard(playerScore);
 			}
 

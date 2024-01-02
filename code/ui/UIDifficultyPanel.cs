@@ -210,7 +210,7 @@ namespace BoGK.UI
 				return;
 			}
 
-			Difficulty newDifficulty = new Difficulty(
+			Models.Difficulty newDifficulty = new Models.Difficulty(
 				_newName.Text.Trim(),
 				(int)_livesMaxSlider.Value,
 				(int)_livesStartSlider.Value,
@@ -224,13 +224,13 @@ namespace BoGK.UI
 
 			if (_currentDifficulty < 0)
 			{
-				refs.fileOperations.SaveDifficulty(string.Empty, newDifficulty);
+				FileOperations.SaveDifficulty(string.Empty, newDifficulty);
 				refs.gameData.AddDifficulty(newDifficulty);
 				_currentDifficulty = refs.gameData.Difficulties.Count - 1;
 			}
 			else
 			{
-				refs.fileOperations.SaveDifficulty(refs.gameData.Difficulties[_currentDifficulty].DifficultyName, newDifficulty);
+				FileOperations.SaveDifficulty(refs.gameData.Difficulties[_currentDifficulty].DifficultyName, newDifficulty);
 				refs.gameData.UpdateDifficulty(_currentDifficulty, newDifficulty);
 			}
 
@@ -240,7 +240,7 @@ namespace BoGK.UI
 
 		public void DeleteDifficulty()
 		{
-			refs.fileOperations.DeleteDifficulty(refs.gameData.Difficulties[_currentDifficulty].DifficultyName);
+			FileOperations.DeleteDifficulty(refs.gameData.Difficulties[_currentDifficulty].DifficultyName);
 			refs.gameData.RemoveDifficulty(_currentDifficulty);
 			CreateItemIndicators(refs.gameData.Difficulties.Count);
 			ChangeDifficulty(false);

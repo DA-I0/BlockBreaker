@@ -14,9 +14,11 @@ namespace BoGK.UI
 
 			for (int i = 0; i < itemCount; i++)
 			{
-				TextureRect itemIndicator = new TextureRect();
-				itemIndicator.Texture = _inactiveItemSprite;
-				itemIndicator.StretchMode = TextureRect.StretchModeEnum.KeepAspect;
+				TextureRect itemIndicator = new TextureRect
+				{
+					Texture = _inactiveItemSprite,
+					StretchMode = TextureRect.StretchModeEnum.KeepAspect
+				};
 				_paginatorParent.AddChild(itemIndicator);
 			}
 		}

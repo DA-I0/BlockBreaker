@@ -35,7 +35,7 @@ public partial class LocalizationController
 	private void LoadCustomValues()
 	{
 		_customValues.Clear();
-		string content = refs.fileOperations.LoadTextFile("res://assets/text/custom_text_values.txt");
+		string content = FileOperations.LoadTextFile("res://assets/text/custom_text_values.txt");
 		ParseCustomValues(content);
 	}
 

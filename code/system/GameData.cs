@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using BoGK.Models;
 
 public class GameData
 {
@@ -80,7 +81,7 @@ public class GameData
 	{
 		_levels.Clear();
 
-		foreach (string levelFile in refs.fileOperations.GetFileList(Godot.ProjectSettings.GetSetting("global/DefaultLevelFolder").ToString()))
+		foreach (string levelFile in FileOperations.GetFileList(Godot.ProjectSettings.GetSetting("global/DefaultLevelFolder").ToString()))
 		{
 			_levels.Add(levelFile);
 		}
@@ -88,14 +89,14 @@ public class GameData
 
 	private void LoadDifficulties()
 	{
-		foreach (Difficulty resourceDifficulty in refs.fileOperations.LoadDifficulties(Godot.ProjectSettings.GetSetting("global/DefaultDifficultyFolder").ToString()))
+		foreach (Difficulty resourceDifficulty in FileOperations.LoadDifficulties(Godot.ProjectSettings.GetSetting("global/DefaultDifficultyFolder").ToString()))
 		{
 			AddDifficulty(resourceDifficulty);
 		}
 
 		_defaultDifficultyCount = _difficulties.Count;
 
-		foreach (Difficulty resourceDifficulty in refs.fileOperations.LoadDifficulties(Godot.ProjectSettings.GetSetting("global/CustomDifficultyFolder").ToString()))
+		foreach (Difficulty resourceDifficulty in FileOperations.LoadDifficulties(Godot.ProjectSettings.GetSetting("global/CustomDifficultyFolder").ToString()))
 		{
 			AddDifficulty(resourceDifficulty);
 		}
@@ -103,13 +104,13 @@ public class GameData
 
 	private void LoadPatchNotes()
 	{
-		string rawPatchNotes = refs.fileOperations.LoadTextFile(Godot.ProjectSettings.GetSetting("global/PatchNotesFilePath").ToString());
+		string rawPatchNotes = FileOperations.LoadTextFile(Godot.ProjectSettings.GetSetting("global/PatchNotesFilePath").ToString());
 		_patchNotes = refs.localization.InsertCustomValues(rawPatchNotes);
 	}
 
 	public void LoadLeaderboard()
 	{
-		_leaderboard = refs.fileOperations.LoadLeaderboard().ToList();
+		_leaderboard = FileOperations.LoadLeaderboard().ToList();
 	}
 
 	public bool CanScoreJoinLeaderboard(int newScore)
@@ -128,7 +129,7 @@ public class GameData
 	public void AddScoreToLeaderboard(HighScore newEntry)
 	{
 		InsertLeaderboardEntry(newEntry);
-		refs.fileOperations.SaveLeaderboard(_leaderboard.ToArray());
+		FileOperations.SaveLeaderboard(_leaderboard.ToArray());
 	}
 
 	private void InsertLeaderboardEntry(HighScore newEntry)

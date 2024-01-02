@@ -1,15 +1,9 @@
+using BoGK.Models;
 using Godot;
 
-public class FileOperations
+public static class FileOperations
 {
-	SessionController _refs;
-
-	public FileOperations(SessionController refs)
-	{
-		_refs = refs;
-	}
-
-	public string[] GetFileList(string path)
+	public static string[] GetFileList(string path)
 	{
 		if (!DirAccess.DirExistsAbsolute(path))
 		{
@@ -19,7 +13,7 @@ public class FileOperations
 		return DirAccess.GetFilesAt(path);
 	}
 
-	public Difficulty[] LoadDifficulties(string path)
+	public static Difficulty[] LoadDifficulties(string path)
 	{
 		if (!DirAccess.DirExistsAbsolute(path))
 		{
@@ -43,7 +37,7 @@ public class FileOperations
 		return difficulties.ToArray();
 	}
 
-	public void SaveDifficulty(string oldDifficultyName, Difficulty newDifficulty)
+	public static void SaveDifficulty(string oldDifficultyName, Difficulty newDifficulty)
 	{
 		if (oldDifficultyName != string.Empty && oldDifficultyName != newDifficulty.DifficultyName)
 		{
@@ -57,7 +51,7 @@ public class FileOperations
 		parsedDifficulty.Save($"{ProjectSettings.GetSetting("global/CustomDifficultyFolder")}/{fileName}.diff");
 	}
 
-	public void DeleteDifficulty(string difficultyName)
+	public static void DeleteDifficulty(string difficultyName)
 	{
 		string filePath = $"{ProjectSettings.GetSetting("global/CustomDifficultyFolder")}/diff_{difficultyName}.diff";
 
@@ -67,7 +61,7 @@ public class FileOperations
 		}
 	}
 
-	public HighScore[] LoadLeaderboard()
+	public static HighScore[] LoadLeaderboard()
 	{
 		ConfigFile leaderboardFile = new ConfigFile();
 		Error loadingStatus = leaderboardFile.LoadEncryptedPass(ProjectSettings.GetSetting("global/CustomLeaderboardFilePath").ToString(), ProjectSettings.GetSetting("global/EncryptionPassword").ToString());
@@ -92,7 +86,7 @@ public class FileOperations
 		return leaderboard;
 	}
 
-	public void SaveLeaderboard(HighScore[] leaderboard)
+	public static void SaveLeaderboard(HighScore[] leaderboard)
 	{
 		ConfigFile leaderboardFile = new ConfigFile();
 
@@ -107,7 +101,7 @@ public class FileOperations
 		leaderboardFile.SaveEncryptedPass(ProjectSettings.GetSetting("global/CustomLeaderboardFilePath").ToString(), ProjectSettings.GetSetting("global/EncryptionPassword").ToString());
 	}
 
-	public string LoadTextFile(string filePath)
+	public static string LoadTextFile(string filePath)
 	{
 		string fileContent = string.Empty;
 
@@ -120,7 +114,7 @@ public class FileOperations
 		return fileContent;
 	}
 
-	private void FindOrCreateDirectory(string path)
+	private static void FindOrCreateDirectory(string path)
 	{
 		if (DirAccess.DirExistsAbsolute(path))
 		{
