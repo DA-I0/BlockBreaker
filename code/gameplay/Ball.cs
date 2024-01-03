@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using Godot;
 
 public enum BallMode { idle, angleSelection, moving, frozen, spinning };
@@ -6,6 +7,7 @@ public partial class Ball : CharacterBody2D
 {
 	private const float MaxBallSpeedMultiplier = 1.5f;
 	private const float MinBallSpeedMultiplier = 0.5f;
+	private const int MaxTrailCurvePoints = 10;
 
 	private BallMode _ballMode = BallMode.idle;
 
@@ -22,13 +24,16 @@ public partial class Ball : CharacterBody2D
 	private bool _increasingRotation = true;
 	private float _startingRotation = 0;
 
-	private float _combinedSpeedMultiplier;
+	private float _combinedSpeed;
+	private Curve2D _speedTrailCurve = new Curve2D();
+
 
 	[Export] private Sprite2D _sprite;
 	[Export] private Sprite2D _arrow;
 	[Export] private Timer _arrowTimer;
 	[Export] private AnimationPlayer _animator;
 	[Export] private CpuParticles2D _particles;
+	[Export] private Line2D _speedTrail;
 
 	private SessionController refs;
 
@@ -134,6 +139,7 @@ public partial class Ball : CharacterBody2D
 			Release();
 			ChangeRotation(sourceBall.RotationDegrees + angleChange);
 		}
+
 	}
 
 	public void Reset()
@@ -149,11 +155,6 @@ public partial class Ball : CharacterBody2D
 		Ball newBall = (Ball)ResourceLoader.Load<PackedScene>("res://prefabs/ball.tscn").Instantiate();
 		newBall.CallDeferred("SetInitialValues", refs, this, angleChange);
 		GetParent().CallDeferred(Node.MethodName.AddChild, newBall);
-	}
-
-	public void AddVelocity(Vector2 velocity)
-	{
-		// Velocity += velocity * 0.1f;
 	}
 
 	public void ChangeSpeedMultiplier(float value)
@@ -199,10 +200,11 @@ public partial class Ball : CharacterBody2D
 
 	private void Move(double delta)
 	{
-		float _moveSpeed = (float)delta * _combinedSpeedMultiplier;
+		float _moveSpeed = (float)delta * _combinedSpeed;
 		KinematicCollision2D collision = MoveAndCollide(Velocity * _moveSpeed, false, 0.01f);
 		Bounce(collision);
 		AdjustSpriteRotation();
+		UpdateSpeedTrail();
 	}
 
 	private void Bounce(KinematicCollision2D collision)
@@ -254,8 +256,9 @@ public partial class Ball : CharacterBody2D
 
 	private void UpdateSpeed()
 	{
-		_combinedSpeedMultiplier = _baseSpeed * refs.SelectedDifficulty.BallSpeedMultiplier * _speedMultiplier * _boostMultiplier * _advancingSpeedMultiplier;
-		_animator.Play("roll", 0, _combinedSpeedMultiplier);
+		_combinedSpeed = _baseSpeed * refs.SelectedDifficulty.BallSpeedMultiplier * _speedMultiplier * _boostMultiplier * _advancingSpeedMultiplier;
+		_animator.Play("roll", 0, _combinedSpeed);
+		_speedTrail.Visible = (_speedMultiplier * _boostMultiplier * _advancingSpeedMultiplier > 1);
 	}
 
 	private void ReduceTempSpeedMultiplier()
@@ -329,6 +332,18 @@ public partial class Ball : CharacterBody2D
 				_animator.Play("idle");
 				break;
 		}
+	}
+
+	private void UpdateSpeedTrail()
+	{
+		_speedTrailCurve.AddPoint(Position);
+
+		if (_speedTrailCurve.GetBakedPoints().Length > MaxTrailCurvePoints)
+		{
+			_speedTrailCurve.RemovePoint(0);
+		}
+
+		_speedTrail.Points = _speedTrailCurve.GetBakedPoints();
 	}
 
 	private void OnScreenExited(bool levelChange = false)

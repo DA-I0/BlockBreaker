@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cpxycxfqmwant"]
+[gd_scene load_steps=12 format=3 uid="uid://cpxycxfqmwant"]
 
 [ext_resource type="Script" path="res://code/gameplay/Ball.cs" id="1_474hh"]
 [ext_resource type="Texture2D" uid="uid://bn7hvqyy8kyln" path="res://assets/sprites/ball.png" id="1_thobj"]
@@ -22,6 +22,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [8, 9, 10, 11]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpeedTrail:width")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2004, 0.2171),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [8.0, 8.0, 6.0]
 }
 
 [sub_resource type="Animation" id="Animation_5uva4"]
@@ -51,6 +63,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpeedTrail:width")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_0l7ba"]
 resource_name = "roll"
@@ -67,6 +91,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpeedTrail:width")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [8.0]
 }
 
 [sub_resource type="Animation" id="Animation_kqgmf"]
@@ -98,6 +134,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [0.0, 0.785398, 1.5708, 2.35619, 3.14159, 3.92699, 4.71239, 5.49779, 6.26573]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpeedTrail:width")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_y7qwh"]
 _data = {
@@ -107,7 +155,15 @@ _data = {
 "spin": SubResource("Animation_kqgmf")
 }
 
-[node name="Ball" type="CharacterBody2D" node_paths=PackedStringArray("_sprite", "_arrow", "_arrowTimer", "_animator", "_particles")]
+[sub_resource type="Curve" id="Curve_cy1tt"]
+_data = [Vector2(0, 0.137957), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_4yhjv"]
+offsets = PackedFloat32Array(0, 0.465217, 1)
+colors = PackedColorArray(0.694118, 0.243137, 0.32549, 0, 0.937255, 0.490196, 0.341176, 0.313726, 1, 0.803922, 0.458824, 0.784314)
+
+[node name="Ball" type="CharacterBody2D" node_paths=PackedStringArray("_sprite", "_arrow", "_arrowTimer", "_animator", "_particles", "_speedTrail")]
 collision_layer = 2
 collision_mask = 5
 platform_on_leave = 2
@@ -119,6 +175,7 @@ _arrow = NodePath("ArrowSprite")
 _arrowTimer = NodePath("ArrowSprite/Timer")
 _animator = NodePath("Animator")
 _particles = NodePath("SpeedParticles")
+_speedTrail = NodePath("SpeedTrail")
 
 [node name="Collider" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_j0lxo")
@@ -147,6 +204,14 @@ next/bounce = &"roll"
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 position = Vector2(1.19209e-07, -1.19209e-07)
 scale = Vector2(0.7, 0.7)
+
+[node name="SpeedTrail" type="Line2D" parent="."]
+top_level = true
+points = PackedVector2Array(0, 0, 0, 16)
+width = 8.0
+width_curve = SubResource("Curve_cy1tt")
+gradient = SubResource("Gradient_4yhjv")
+joint_mode = 1
 
 [node name="SpeedParticles" type="CPUParticles2D" parent="."]
 amount = 4
