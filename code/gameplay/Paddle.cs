@@ -163,7 +163,6 @@ public partial class Paddle : CharacterBody2D
 				break;
 
 			default:
-				targetBall.AddVelocity(Velocity);
 				break;
 		}
 

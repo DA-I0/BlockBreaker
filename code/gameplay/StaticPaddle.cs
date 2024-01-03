@@ -20,7 +20,6 @@ public partial class StaticPaddle : Paddle
 				break;
 
 			default:
-				targetBall.AddVelocity(Velocity);
 				break;
 		}
 	}
