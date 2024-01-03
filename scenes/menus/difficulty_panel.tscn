@@ -51,7 +51,7 @@ _paddleSizeStartSlider = NodePath("DifficultyOptions/StartPaddleSize/PaddleSizeS
 _paddleSizeMin = NodePath("DifficultyOptions/MinPaddleSize/PaddleSizeMinLabel")
 _paddleSizeMinSlider = NodePath("DifficultyOptions/MinPaddleSize/PaddleSizeMinSlider")
 _advancingSpeed = NodePath("DifficultyOptions/AdvancingSpeed/AdvancingSpeedLabel")
-_advancingSpeedCheckButton = NodePath("DifficultyOptions/AdvancingSpeed/CheckButton")
+_advancingSpeedCheckButton = NodePath("DifficultyOptions/AdvancingSpeed/AdvancingSpeedToggle")
 _nameEditControls = NodePath("DifficultyOptions/Name/DifficultyNewName")
 _deleteDifficulty = NodePath("CustomDifficultyButtons/DeleteDifficulty")
 _editDifficulty = NodePath("CustomDifficultyButtons/EditDifficulty")
@@ -290,8 +290,9 @@ size_flags_horizontal = 3
 auto_translate = false
 text = "DIFF_ADVANCING_SPEED"
 
-[node name="CheckButton" type="CheckButton" parent="DifficultyOptions/AdvancingSpeed"]
+[node name="AdvancingSpeedToggle" type="CheckButton" parent="DifficultyOptions/AdvancingSpeed"]
 layout_mode = 2
+flat = true
 
 [node name="ItemPaginator" type="HBoxContainer" parent="."]
 custom_minimum_size = Vector2(0, 10)
