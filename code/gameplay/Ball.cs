@@ -257,8 +257,13 @@ public partial class Ball : CharacterBody2D
 	private void UpdateSpeed()
 	{
 		_combinedSpeed = _baseSpeed * refs.SelectedDifficulty.BallSpeedMultiplier * _speedMultiplier * _boostMultiplier * _advancingSpeedMultiplier;
-		_animator.Play("roll", 0, _combinedSpeed);
-		_speedTrail.Visible = (_speedMultiplier * _boostMultiplier * _advancingSpeedMultiplier > 1);
+
+		if (_ballMode == BallMode.moving)
+		{
+			_animator.Play("roll", 0, _combinedSpeed);
+		}
+
+		ToggleSpeedTrail();
 	}
 
 	private void ReduceTempSpeedMultiplier()
@@ -318,8 +323,9 @@ public partial class Ball : CharacterBody2D
 
 			case BallMode.moving:
 				refs.paddle.SetPaddleState(PaddleState.idle);
-				_animator.Play("roll");
+				_animator.Play("roll", 0, _combinedSpeed);
 				_particles.Emitting = true;
+				ToggleSpeedTrail();
 				break;
 
 			case BallMode.spinning:
@@ -344,6 +350,11 @@ public partial class Ball : CharacterBody2D
 		}
 
 		_speedTrail.Points = _speedTrailCurve.GetBakedPoints();
+	}
+
+	private void ToggleSpeedTrail()
+	{
+		_speedTrail.Visible = (_speedMultiplier * _boostMultiplier * _advancingSpeedMultiplier > 1) && _ballMode == BallMode.moving;
 	}
 
 	private void OnScreenExited(bool levelChange = false)
