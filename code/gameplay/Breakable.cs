@@ -1,3 +1,4 @@
+using BoGK.Models;
 using Godot;
 
 public partial class Breakable : StaticBody2D
@@ -13,6 +14,8 @@ public partial class Breakable : StaticBody2D
 
 	private Vector2 _defaultPosition;
 	protected int _health;
+
+	protected string _defaultSpritePath;
 
 	protected Sprite2D _sprite;
 	[Export] protected Timer _timer;
@@ -69,11 +72,31 @@ public partial class Breakable : StaticBody2D
 	{
 		_defaultPosition = _sprite.Position;
 		_health = _maxHealth;
+		_defaultSpritePath = _sprite.Texture.ResourcePath;
+		ApplySpriteVariant();
 	}
 
 	protected virtual void AdjustSprite()
 	{
 		_sprite.Frame = (_health <= 0) ? 0 : _maxHealth - _health;
+	}
+
+	private void ApplySpriteVariant()
+	{
+
+		string breakableName = _defaultSpritePath.Split('/')[^1].Replace(".png", "");
+		BreakableVariant variant = refs.settings.FindVariant(breakableName);
+
+		if (variant.UseDefaultSprite)
+		{
+			_sprite.Texture = ResourceLoader.Load<Texture2D>(_defaultSpritePath);
+			_sprite.Modulate = new Color(1, 1, 1, 1);
+		}
+		else
+		{
+			_sprite.Texture = ResourceLoader.Load<Texture2D>(_defaultSpritePath.Replace(".png", "_alt.png"));
+			_sprite.Modulate = variant.CustomColor;
+		}
 	}
 
 	private void SpawnPickup()

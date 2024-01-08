@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using BoGK.Models;
 using Godot;
 
 public enum InputType { Joypad, Keyboard, Mouse };
@@ -28,7 +29,16 @@ public class Settings
 	private const float DefaultControllerSpeed = 1f;
 	private const bool DefaultControllerVibrations = true;
 	private Dictionary<string, Godot.Collections.Array<InputEvent>> DefaultKeybindings = new Dictionary<string, Godot.Collections.Array<InputEvent>>();
+	private Dictionary<string, BreakableVariant> DefaultBreakableVariants = new Dictionary<string, BreakableVariant>{
+		{"barrier_sturdy", new BreakableVariant("barrier_sturdy", true, new Color(1,1,1,1))},
+		{"block_basic", new BreakableVariant("block_basic", true, new Color(1,1,1,1))},
+		{"block_sturdy", new BreakableVariant("block_sturdy", true, new Color(1,1,1,1))},
+		{"coffin", new BreakableVariant("coffin", true, new Color(1,1,1,1))},
+		{"explosives", new BreakableVariant("explosives", true, new Color(1,1,1,1))},
+		{"safety_net", new BreakableVariant("safety_net", true, new Color(1,1,1,1))}
+	};
 
+	private Dictionary<string, BreakableVariant> _breakableVariants = new Dictionary<string, BreakableVariant>();
 	private InputType _activeInputType = InputType.Keyboard;
 	private int _activeControllerId = -1;
 	private ConfigFile _config;
@@ -98,6 +108,12 @@ public class Settings
 	{
 		get { return (float)_config.GetValue("display", "helper_transparency", DefaultHelperTransparency); }
 		set { _config.SetValue("display", "helper_transparency", value); }
+	}
+
+	public Dictionary<string, BreakableVariant> BreakableVariants
+	{
+		get { return _breakableVariants; }
+		set { _breakableVariants = value; }
 	}
 
 	public float MasterVolume
@@ -210,6 +226,7 @@ public class Settings
 		BackgroundBrightness = DefaultBackgroundBrightness;
 		PickupOrder = DefaultPickupOrder;
 		HelperTransparency = DefaultHelperTransparency;
+		BreakableVariants = DefaultBreakableVariants;
 	}
 
 	public void SetDefaultAudioValues()
@@ -263,6 +280,7 @@ public class Settings
 
 	public void SaveSettings()
 	{
+		ParseVariantsToConfig();
 		_config.Save(ProjectSettings.GetSetting("global/ConfigFilePath").ToString());
 		ApplySettings();
 	}
@@ -316,6 +334,7 @@ public class Settings
 		DisplayServer.WindowSetMode((DisplayServer.WindowMode)ScreenMode, 0);
 		Vector2I newResolution = new Vector2I(ScreenWidth, ScreenHeight);
 		DisplayServer.WindowSetSize(newResolution, 0);
+		ParseVariantsFromConfig();
 
 		AudioServer.SetBusVolumeDb(AudioServer.GetBusIndex("Master"), MasterVolume);
 		AudioServer.SetBusVolumeDb(AudioServer.GetBusIndex("Music"), MusicVolume);
@@ -346,5 +365,38 @@ public class Settings
 		currentTheme.DefaultFont = ResourceLoader.Load<Font>(ProjectSettings.GetSetting("gui/theme/custom_font").ToString());
 		currentTheme.DefaultFontSize = refs.gameData.Fonts[Font].DefaultSize;
 		GD.Print("setting default font: " + currentTheme.DefaultFont + " of size: " + currentTheme.DefaultFontSize);
+	}
+
+	private void ParseVariantsToConfig()
+	{
+		HelperMethods.VariantsToConfig(_config, BreakableVariants);
+	}
+
+	private void ParseVariantsFromConfig()
+	{
+		string[] variantSections = _config.GetSections();
+
+		foreach (string section in variantSections)
+		{
+			if (section.StartsWith("Variant - "))
+			{
+				BreakableVariant newVariant = HelperMethods.VariantFromConfig(_config, section);
+				BreakableVariants[section.Split(" - ")[^1]] = newVariant;
+			}
+		}
+	}
+
+	public BreakableVariant FindVariant(string brekableName)
+	{
+		GD.Print("looking for: " + brekableName);
+		try
+		{
+			return BreakableVariants[brekableName];
+		}
+		catch { }
+
+		GD.Print("> couldn't find: " + brekableName);
+
+		return new BreakableVariant(string.Empty, true, new Color(1, 1, 1, 1));
 	}
 }

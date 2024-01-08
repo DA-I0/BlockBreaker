@@ -3,6 +3,29 @@ using Godot;
 
 public static class HelperMethods
 {
+	public static BreakableVariant VariantFromConfig(ConfigFile config, string section)
+	{
+		return new BreakableVariant(
+			(string)config.GetValue(section, "typeName"),
+			(bool)config.GetValue(section, "useDefaultSprite", true),
+			(Color)config.GetValue(section, "customColor", new Color(1, 1, 1, 1))
+			);
+	}
+
+	public static ConfigFile VariantsToConfig(ConfigFile config, System.Collections.Generic.Dictionary<string, BreakableVariant> variants)
+	{
+		ConfigFile updatedConfig = config;
+
+		foreach (BreakableVariant variant in variants.Values)
+		{
+			updatedConfig.SetValue($"Variant - {variant.TypeName}", "typeName", variant.TypeName);
+			updatedConfig.SetValue($"Variant - {variant.TypeName}", "useDefaultSprite", variant.UseDefaultSprite);
+			updatedConfig.SetValue($"Variant - {variant.TypeName}", "customColor", variant.CustomColor);
+		}
+
+		return updatedConfig;
+	}
+
 	public static Difficulty DifficultyFromConfig(ConfigFile difficultyConfig)
 	{
 		Difficulty parsedDifficulty = new Difficulty(

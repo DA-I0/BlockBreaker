@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using BoGK.Models;
 using Godot;
 
 namespace BoGK.UI
@@ -18,6 +19,8 @@ namespace BoGK.UI
 		[Export] private HSlider _backgroundBrightness;
 		[Export] private OptionButton _pickupOrder;
 		[Export] private HSlider _helperTransparency;
+		[Export] private Control _brekableVariantContainer;
+		[Export] private UIColorPicker _colorPickerPanel;
 		[Export] private HSlider _masterVolume;
 		[Export] private HSlider _musicVolume;
 		[Export] private HSlider _effectsVolume;
@@ -38,6 +41,7 @@ namespace BoGK.UI
 			SetupBaseReferences();
 			SetupReferences();
 			SetupControlCategoryButtons();
+			PopulateBreakableVariants();
 			SetupActiveJoypadOptions();
 			PopulateKeybindControls();
 			DisplayActivePanel();
@@ -122,6 +126,7 @@ namespace BoGK.UI
 			refs.settings.ActiveControllerID = _activeJoypad.Selected - 1;
 			refs.settings.ControllerVibrations = _vibrations.ButtonPressed;
 
+			SaveBreakableVariants();
 			refs.settings.SaveSettings();
 			UpdateHeaderText();
 		}
@@ -372,6 +377,75 @@ namespace BoGK.UI
 
 			refs.settings.ChangeKeybinding(_inputActionToChange, _keybindToChange, @event);
 			UpdateKeybindings();
+		}
+
+		private void PopulateBreakableVariants()
+		{
+			foreach (BreakableVariant variant in refs.settings.BreakableVariants.Values)
+			{
+				Label breakableName = new Label
+				{
+					Text = Tr(variant.TypeName),
+					AnchorBottom = 1,
+					AnchorRight = 0.4f
+				};
+
+				Button pickerButton = new Button
+				{
+					Icon = ResourceLoader.Load<Texture2D>($"res://assets/sprites/blocks/{variant.TypeName}_alt.png"),
+					Modulate = (variant.UseDefaultSprite) ? new Color(1, 1, 1, 1) : variant.CustomColor,
+					AnchorBottom = 1,
+					AnchorLeft = 0.4f,
+					AnchorRight = 0.4f,
+					Flat = true,
+					Disabled = variant.UseDefaultSprite
+				};
+
+				pickerButton.Pressed += () => _colorPickerPanel.Activate(pickerButton);
+
+				OptionButton variantSelector = new OptionButton
+				{
+					AnchorBottom = 1,
+					AnchorLeft = 0.4f,
+					AnchorRight = 1,
+					OffsetLeft = 32,
+					OffsetRight = -4
+				};
+
+				variantSelector.AddItem("BUTTON_DEFAULT");
+				variantSelector.AddItem("BUTTON_CUSTOM_COLOR");
+				variantSelector.Selected = (variant.UseDefaultSprite) ? 0 : 1;
+
+				Control container = new Control
+				{
+					Name = variant.TypeName,
+					CustomMinimumSize = new Vector2(0, 19)
+				};
+
+				variantSelector.ItemSelected += (index) => UpdateVariantControls(container);
+
+				container.AddChild(breakableName);
+				container.AddChild(pickerButton);
+				container.AddChild(variantSelector);
+
+				_brekableVariantContainer.AddChild(container);
+			}
+		}
+
+		private void SaveBreakableVariants()
+		{
+			foreach (Control variant in _brekableVariantContainer.GetChildren())
+			{
+				BreakableVariant targetVariant = refs.settings.BreakableVariants[variant.Name];
+				targetVariant.UseDefaultSprite = (variant.GetChild<OptionButton>(2).Selected == 0);
+				targetVariant.CustomColor = variant.GetChild<Control>(1).Modulate;
+				refs.settings.BreakableVariants[variant.Name] = targetVariant;
+			}
+		}
+
+		private void UpdateVariantControls(Control parent)
+		{
+			parent.GetChild<Button>(1).Disabled = (parent.GetChild<OptionButton>(2).Selected == 0);
 		}
 	}
 }
