@@ -3,7 +3,7 @@ using System.Linq;
 using BoGK.Models;
 using Godot;
 
-namespace BoGK.UI
+namespace BoGK.UI // TODO: break each category into a separate scene
 {
 	public partial class UIOptionsPanel : UIPanel
 	{
@@ -98,6 +98,7 @@ namespace BoGK.UI
 			_activeJoypad.Selected = (activeJoypadIndexHelper < 0) ? 0 : activeJoypadIndexHelper;
 			_vibrations.ButtonPressed = refs.settings.ControllerVibrations;
 
+			UpdateVariants();
 			UpdateKeybindings();
 		}
 
@@ -173,7 +174,7 @@ namespace BoGK.UI
 
 		private void DisplayActivePanel()
 		{
-			for (int index = 1; index < GetChildCount() - 2; index++)
+			for (int index = 1; index < GetChildCount() - 3; index++)
 			{
 				((Control)GetChild(index)).Visible = ((index - 1) == _activePanel);
 			}
@@ -198,11 +199,6 @@ namespace BoGK.UI
 			{
 				_language.AddItem(languageName);
 			}
-		}
-
-		private void PopulateResolutionList() // TODO: use or remove
-		{
-			// DisplayServer.get
 		}
 
 		private int FindOptionIndex(OptionButton targetList, string optionToFind)
@@ -379,6 +375,11 @@ namespace BoGK.UI
 			UpdateKeybindings();
 		}
 
+		private void ToggleBreakableVariantsDisplay()
+		{
+			_brekableVariantContainer.Visible = !_brekableVariantContainer.Visible;
+		}
+
 		private void PopulateBreakableVariants()
 		{
 			foreach (BreakableVariant variant in refs.settings.BreakableVariants.Values)
@@ -392,13 +393,10 @@ namespace BoGK.UI
 
 				Button pickerButton = new Button
 				{
-					Icon = ResourceLoader.Load<Texture2D>($"res://assets/sprites/blocks/{variant.TypeName}_alt.png"),
-					Modulate = (variant.UseDefaultSprite) ? new Color(1, 1, 1, 1) : variant.CustomColor,
 					AnchorBottom = 1,
 					AnchorLeft = 0.4f,
 					AnchorRight = 0.4f,
 					Flat = true,
-					Disabled = variant.UseDefaultSprite
 				};
 
 				pickerButton.Pressed += () => _colorPickerPanel.Activate(pickerButton);
@@ -413,8 +411,7 @@ namespace BoGK.UI
 				};
 
 				variantSelector.AddItem("BUTTON_DEFAULT");
-				variantSelector.AddItem("BUTTON_CUSTOM_COLOR");
-				variantSelector.Selected = (variant.UseDefaultSprite) ? 0 : 1;
+				variantSelector.AddItem("BUTTON_CUSTOM");
 
 				Control container = new Control
 				{
@@ -430,6 +427,8 @@ namespace BoGK.UI
 
 				_brekableVariantContainer.AddChild(container);
 			}
+
+			_brekableVariantContainer.Visible = false;
 		}
 
 		private void SaveBreakableVariants()
@@ -440,6 +439,21 @@ namespace BoGK.UI
 				targetVariant.UseDefaultSprite = (variant.GetChild<OptionButton>(2).Selected == 0);
 				targetVariant.CustomColor = variant.GetChild<Control>(1).Modulate;
 				refs.settings.BreakableVariants[variant.Name] = targetVariant;
+			}
+		}
+
+		private void UpdateVariants()
+		{
+			foreach (Control variantContainer in _brekableVariantContainer.GetChildren())
+			{
+				BreakableVariant variant = refs.settings.BreakableVariants[variantContainer.Name];
+				variantContainer.GetChild<OptionButton>(2).Selected = (variant.UseDefaultSprite) ? 0 : 1;
+
+				string breakableIcon = $"res://assets/sprites/ui_elements/object_icons/{variant.TypeName}_alt.png";
+				variantContainer.GetChild<Button>(1).Icon = ResourceLoader.Load<Texture2D>(breakableIcon);
+				variantContainer.GetChild<Button>(1).Modulate = (variant.UseDefaultSprite) ? new Color(1, 1, 1, 1) : variant.CustomColor;
+				variantContainer.GetChild<Button>(1).Disabled = variant.UseDefaultSprite;
+
 			}
 		}
 

@@ -3,7 +3,7 @@
 [ext_resource type="StyleBox" uid="uid://bnbwbb74r5uj6" path="res://theme/panel_header.tres" id="1_wbet2"]
 [ext_resource type="Script" path="res://code/ui/UIOptionsPanel.cs" id="2_o2q3s"]
 [ext_resource type="Theme" uid="uid://dj60ywofwk371" path="res://theme/ui.theme" id="3_ogls6"]
-[ext_resource type="Texture2D" uid="uid://chk6oivvrr8nn" path="res://assets/sprites/ui_elements/icons/ui_icon_arrow_right.png" id="4_7mlu3"]
+[ext_resource type="Texture2D" uid="uid://chk6oivvrr8nn" path="res://assets/sprites/ui_elements/buttons/ui_icon_arrow_right.png" id="4_7mlu3"]
 [ext_resource type="Shortcut" uid="uid://b5ydjlfn0ps7g" path="res://shortcuts/confirm.tres" id="5_7lapn"]
 [ext_resource type="Script" path="res://code/ui/UIColorPicker.cs" id="6_svy1v"]
 [ext_resource type="Shortcut" uid="uid://bhk5vranx2qfl" path="res://shortcuts/cancel.tres" id="6_vgxtx"]
@@ -388,6 +388,13 @@ max_value = 1.0
 step = 0.1
 value = 0.1
 
+[node name="CustomCollorsToggleButton" type="Button" parent="VideoOptions/Options"]
+layout_mode = 2
+text = "BUTTON_CUSTOM_COLORS"
+icon = ExtResource("4_7mlu3")
+flat = true
+alignment = 0
+
 [node name="BreakableVariantSetting" type="VBoxContainer" parent="VideoOptions/Options"]
 custom_minimum_size = Vector2(0, 19)
 layout_mode = 2
@@ -694,41 +701,6 @@ focus_neighbor_bottom = NodePath("../../../../../../VideoOptions/Options/Resolut
 focus_next = NodePath("../../../../../../VideoOptions/Options/ResolutionSetting/ResolutionOptions")
 flat = true
 
-[node name="ColorPickerPanel" type="Control" parent="." node_paths=PackedStringArray("_colorPicker", "_targetSprite")]
-layout_mode = 1
-anchor_left = 0.2
-anchor_top = 0.1
-anchor_right = 0.2
-anchor_bottom = 0.1
-offset_right = 84.0
-offset_bottom = 197.0
-script = ExtResource("6_svy1v")
-_colorPicker = NodePath("MainPanel/ColorPicker")
-_targetSprite = NodePath("PanelContainer/TextureRect")
-
-[node name="MainPanel" type="PanelContainer" parent="ColorPickerPanel"]
-layout_mode = 2
-offset_left = 4.0
-offset_top = 5.0
-offset_right = 88.0
-offset_bottom = 202.0
-
-[node name="ColorPicker" type="ColorPicker" parent="ColorPickerPanel/MainPanel"]
-layout_mode = 2
-edit_alpha = false
-color_modes_visible = false
-
-[node name="PanelContainer" type="PanelContainer" parent="ColorPickerPanel"]
-layout_mode = 0
-offset_left = 87.0
-offset_top = 5.0
-offset_right = 117.0
-offset_bottom = 35.0
-
-[node name="TextureRect" type="TextureRect" parent="ColorPickerPanel/PanelContainer"]
-layout_mode = 2
-stretch_mode = 4
-
 [node name="OptionsButtons" type="HBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
@@ -814,7 +786,62 @@ shortcut = ExtResource("6_vgxtx")
 shortcut_in_tooltip = false
 text = "BUTTON_RETURN"
 
-[connection signal="color_changed" from="ColorPickerPanel/MainPanel/ColorPicker" to="ColorPickerPanel" method="UpdateColor"]
+[node name="ColorPickerPanel" type="ColorRect" parent="." node_paths=PackedStringArray("_colorPicker", "_targetSprite")]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
+color = Color(0, 0, 0, 0.705882)
+script = ExtResource("6_svy1v")
+_colorPicker = NodePath("MainPanel/ColorPicker")
+_targetSprite = NodePath("IconPanel/TextureRect")
+
+[node name="MainPanel" type="PanelContainer" parent="ColorPickerPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.4
+anchor_bottom = 1.0
+mouse_force_pass_scroll_events = false
+
+[node name="ColorPicker" type="ColorPicker" parent="ColorPickerPanel/MainPanel"]
+layout_mode = 2
+focus_mode = 2
+edit_alpha = false
+sampler_visible = false
+color_modes_visible = false
+
+[node name="IconPanel" type="PanelContainer" parent="ColorPickerPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_right = 1.0
+anchor_bottom = 0.5
+
+[node name="TextureRect" type="TextureRect" parent="ColorPickerPanel/IconPanel"]
+layout_mode = 2
+stretch_mode = 5
+
+[node name="Buttons" type="HBoxContainer" parent="ColorPickerPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 2.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="ConfirmColor" type="Button" parent="ColorPickerPanel/Buttons"]
+layout_mode = 2
+text = "BUTTON_CONFIRM"
+
+[node name="CancelColor" type="Button" parent="ColorPickerPanel/Buttons"]
+layout_mode = 2
+text = "BUTTON_CANCEL"
+
+[connection signal="pressed" from="VideoOptions/Options/CustomCollorsToggleButton" to="." method="ToggleBreakableVariantsDisplay"]
 [connection signal="pressed" from="OptionsButtons/Confirm" to="." method="SaveSettings"]
 [connection signal="pressed" from="OptionsButtons/Cancel" to="." method="CancelSettings"]
 [connection signal="pressed" from="OptionsButtons/Default" to="." method="RestoreDefaultSettings"]
@@ -822,3 +849,6 @@ text = "BUTTON_RETURN"
 [connection signal="pressed" from="CategoryButtons/Video" to="." method="ChangeActivePanel" binds= [1]]
 [connection signal="pressed" from="CategoryButtons/Audio" to="." method="ChangeActivePanel" binds= [2]]
 [connection signal="pressed" from="CategoryButtons/Controls" to="." method="ChangeActivePanel" binds= [3]]
+[connection signal="color_changed" from="ColorPickerPanel/MainPanel/ColorPicker" to="ColorPickerPanel" method="UpdateColor"]
+[connection signal="pressed" from="ColorPickerPanel/Buttons/ConfirmColor" to="ColorPickerPanel" method="Confirm"]
+[connection signal="pressed" from="ColorPickerPanel/Buttons/CancelColor" to="ColorPickerPanel" method="Deactivate"]

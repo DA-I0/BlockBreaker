@@ -9,6 +9,11 @@ namespace BoGK.UI
 
 		private Control _target;
 
+		public override void _Ready()
+		{
+			Deactivate();
+		}
+
 		public void Activate(Control target)
 		{
 			_target = target;
@@ -25,8 +30,13 @@ namespace BoGK.UI
 
 		private void UpdateColor(Color newColor)
 		{
-			_target.Modulate = newColor;
 			_targetSprite.Modulate = newColor;
+		}
+
+		private void Confirm()
+		{
+			_target.Modulate = _targetSprite.Modulate;
+			Deactivate();
 		}
 	}
 }
