@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://cf1rht26jg8pb"]
 
 [ext_resource type="Script" path="res://code/ui/UIStageClearedPanel.cs" id="1_3y8xg"]
-[ext_resource type="Texture2D" uid="uid://chk6oivvrr8nn" path="res://assets/sprites/ui_elements/icons/ui_icon_arrow_right.png" id="2_1adyu"]
-[ext_resource type="Texture2D" uid="uid://1ucmb2n300ts" path="res://assets/sprites/ui_elements/icons/ui_icon_arrow_right_pressed.png" id="3_l4qhh"]
-[ext_resource type="Texture2D" uid="uid://bkkudkcwwl8ml" path="res://assets/sprites/ui_elements/icons/ui_icon_arrow_right_hover.png" id="4_go5pj"]
+[ext_resource type="Texture2D" uid="uid://chk6oivvrr8nn" path="res://assets/sprites/ui_elements/buttons/ui_icon_arrow_right.png" id="2_1adyu"]
+[ext_resource type="Texture2D" uid="uid://1ucmb2n300ts" path="res://assets/sprites/ui_elements/buttons/ui_icon_arrow_right_pressed.png" id="3_l4qhh"]
+[ext_resource type="Texture2D" uid="uid://bkkudkcwwl8ml" path="res://assets/sprites/ui_elements/buttons/ui_icon_arrow_right_hover.png" id="4_go5pj"]
 
 [node name="StageClearPrompt" type="PanelContainer" node_paths=PackedStringArray("_text")]
 z_index = 10

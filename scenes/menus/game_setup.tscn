@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://code/ui/UIGameSetupPanel.cs" id="1_qrg3h"]
 [ext_resource type="Shortcut" uid="uid://bhk5vranx2qfl" path="res://shortcuts/cancel.tres" id="2_c0qja"]
-[ext_resource type="Texture2D" uid="uid://dkyo1knm2xxhn" path="res://assets/sprites/ui_elements/ui_frame.png" id="3_xghkx"]
+[ext_resource type="Texture2D" uid="uid://dkyo1knm2xxhn" path="res://assets/sprites/ui_elements/backgrounds/ui_frame.png" id="3_xghkx"]
 [ext_resource type="Texture2D" uid="uid://bdnrfv0eveohj" path="res://assets/sprites/paddles/paddle_1.png" id="4_f1u0x"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_35ikn"]

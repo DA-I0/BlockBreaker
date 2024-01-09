@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://code/gameplay/Ball.cs" id="1_474hh"]
 [ext_resource type="Texture2D" uid="uid://bn7hvqyy8kyln" path="res://assets/sprites/ball.png" id="1_thobj"]
-[ext_resource type="Texture2D" uid="uid://dgv6rt4mplbwy" path="res://assets/sprites/ui_elements/ui_ball_arrow.png" id="3_ehaev"]
+[ext_resource type="Texture2D" uid="uid://dgv6rt4mplbwy" path="res://assets/sprites/ui_elements/gameplay/ui_ball_arrow.png" id="3_ehaev"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_j0lxo"]
 radius = 4.0
