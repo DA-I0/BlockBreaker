@@ -1,0 +1,53 @@
+Version 0.3:
+	Features:
+		Keep mode:
+			☐ "Tree" level progression (think Outrun, Shadow the Hedgehog)?
+				☐ Each branch node consists of multiple levels
+				☐ Each branch uses different tileset type?
+				☐ Can't change a branch or use the store until all stages in the branch are completed
+			☐ Boss fights
+				☐ Appear at the end of each branch node
+				☐ Bosses can attack player (paddle) - attack can cause damage (life loss) or negative effects
+			☐ Store with items to buy (lives, pickups, paddles etc? available after each 5 levels or after boss fights)
+			☐ Multi-room levels (ball can travel to another room/screen, can be side-to-side or up-down)
+			☐ Ability to rebuild parts of the keep for coins to get bonuses
+			☐ Chest items (drops coins and other keep mode limited items?)
+		Dynamic elements:
+			☐ Add repeating timed toggle for teleport door?
+			☐ Add on-map buttons that toggle connected element when hit with the ball?
+			☐ Enemies
+				☐ Peaceful (act as moving obstacles rather than danger)
+				☐ Aggresive (can attack the player but only with debuffs?)
+			☐ River (slightly changes ball direction)
+			☐ Indestructible "breakables" (break to open and get a prize, in the form chests etc)
+			☐ Speed pads (ball gains a temporary boost when going over one)
+		Paddles:
+			☐ Add double paddle (half-length, consists of two paddles, one under another, moving in opposit directions, might be a pickup instead?) @low
+		System:
+			☐ Replace music randomization with shuffle @low
+			☐ Dynamic translation loading (custom localization support) @low
+	Map elements:
+		☐ Stairs + railing @low
+			☐ Ball can move over stairs
+			☐ Ball can move **down** through broken railing
+			☐ Ball can't move up through wall at the bottom of the stairs or railing
+		☐ Cracked walls (can be destroyed with TNT)
+		☐ New tileset @low
+			☐ Floor tiles
+				☐ ?
+			☐ Wall tiles
+				☐ Straight
+				☐ Corners
+				☐ Thin internal walls
+			☐ Props
+				☐ ?
+			☐ Interactables
+				☐ Level exit (big gate)
+				☐ Teleport (small gate)
+		☐ Unify tilesets organization @high
+		☐ Use a different color palette for each tileset @low
+	Other:
+		☐ Improve translations
+		☐ Make a new logo @low
+		☐ Add more music tracks @low
+	Issues:
