@@ -7,7 +7,7 @@ public static class HelperMethods
 	{
 		return new BreakableVariant(
 			(string)config.GetValue(section, "typeName"),
-			(bool)config.GetValue(section, "useDefaultSprite", true),
+			(int)config.GetValue(section, "spriteVariant", 0),
 			(Color)config.GetValue(section, "customColor", new Color(1, 1, 1, 1))
 			);
 	}
@@ -19,7 +19,7 @@ public static class HelperMethods
 		foreach (BreakableVariant variant in variants.Values)
 		{
 			updatedConfig.SetValue($"Variant - {variant.TypeName}", "typeName", variant.TypeName);
-			updatedConfig.SetValue($"Variant - {variant.TypeName}", "useDefaultSprite", variant.UseDefaultSprite);
+			updatedConfig.SetValue($"Variant - {variant.TypeName}", "spriteVariant", variant.SpriteVariant);
 			updatedConfig.SetValue($"Variant - {variant.TypeName}", "customColor", variant.CustomColor);
 		}
 

@@ -411,7 +411,9 @@ namespace BoGK.UI // TODO: break each category into a separate scene
 				};
 
 				variantSelector.AddItem("BUTTON_DEFAULT");
+				variantSelector.AddItem("BUTTON_DEFAULT_RIM");
 				variantSelector.AddItem("BUTTON_CUSTOM");
+				variantSelector.Select(variant.SpriteVariant);
 
 				Control container = new Control
 				{
@@ -436,7 +438,7 @@ namespace BoGK.UI // TODO: break each category into a separate scene
 			foreach (Control variant in _brekableVariantContainer.GetChildren())
 			{
 				BreakableVariant targetVariant = refs.settings.BreakableVariants[variant.Name];
-				targetVariant.UseDefaultSprite = (variant.GetChild<OptionButton>(2).Selected == 0);
+				targetVariant.SpriteVariant = variant.GetChild<OptionButton>(2).Selected;
 				targetVariant.CustomColor = variant.GetChild<Control>(1).Modulate;
 				refs.settings.BreakableVariants[variant.Name] = targetVariant;
 			}
@@ -446,20 +448,34 @@ namespace BoGK.UI // TODO: break each category into a separate scene
 		{
 			foreach (Control variantContainer in _brekableVariantContainer.GetChildren())
 			{
-				BreakableVariant variant = refs.settings.BreakableVariants[variantContainer.Name];
-				variantContainer.GetChild<OptionButton>(2).Selected = (variant.UseDefaultSprite) ? 0 : 1;
-
-				string breakableIcon = $"res://assets/sprites/ui_elements/object_icons/{variant.TypeName}_alt.png";
-				variantContainer.GetChild<Button>(1).Icon = ResourceLoader.Load<Texture2D>(breakableIcon);
-				variantContainer.GetChild<Button>(1).Modulate = (variant.UseDefaultSprite) ? new Color(1, 1, 1, 1) : variant.CustomColor;
-				variantContainer.GetChild<Button>(1).Disabled = variant.UseDefaultSprite;
-
+				UpdateVariantControls(variantContainer);
 			}
 		}
 
-		private void UpdateVariantControls(Control parent)
+		private void UpdateVariantControls(Control variantContainer)
 		{
-			parent.GetChild<Button>(1).Disabled = (parent.GetChild<OptionButton>(2).Selected == 0);
+			BreakableVariant variant = refs.settings.BreakableVariants[variantContainer.Name];
+
+			string breakableIcon = $"res://assets/sprites/ui_elements/object_icons/{variant.TypeName}";
+
+			switch (variantContainer.GetChild<OptionButton>(2).Selected)
+			{
+				case 1:
+					breakableIcon += "_rim.png";
+					break;
+
+				case 2:
+					breakableIcon += "_alt.png";
+					break;
+
+				default:
+					breakableIcon += ".png";
+					break;
+			}
+
+			variantContainer.GetChild<Button>(1).Icon = ResourceLoader.Load<Texture2D>(breakableIcon);
+			variantContainer.GetChild<Button>(1).Modulate = (variant.SpriteVariant > 1) ? variant.CustomColor : new Color(1, 1, 1, 1);
+			variantContainer.GetChild<Button>(1).Disabled = (variantContainer.GetChild<OptionButton>(2).Selected < 2);
 		}
 	}
 }

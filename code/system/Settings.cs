@@ -30,12 +30,12 @@ public class Settings
 	private const bool DefaultControllerVibrations = true;
 	private Dictionary<string, Godot.Collections.Array<InputEvent>> DefaultKeybindings = new Dictionary<string, Godot.Collections.Array<InputEvent>>();
 	private Dictionary<string, BreakableVariant> DefaultBreakableVariants = new Dictionary<string, BreakableVariant>{
-		{"barrier_sturdy", new BreakableVariant("barrier_sturdy", true, new Color(1,1,1,1))},
-		{"block_basic", new BreakableVariant("block_basic", true, new Color(1,1,1,1))},
-		{"block_sturdy", new BreakableVariant("block_sturdy", true, new Color(1,1,1,1))},
-		{"coffin", new BreakableVariant("coffin", true, new Color(1,1,1,1))},
-		{"explosives", new BreakableVariant("explosives", true, new Color(1,1,1,1))},
-		{"safety_net", new BreakableVariant("safety_net", true, new Color(1,1,1,1))}
+		{"barrier_sturdy", new BreakableVariant("barrier_sturdy", 0, new Color(1,1,1,1))},
+		{"block_basic", new BreakableVariant("block_basic", 0, new Color(1,1,1,1))},
+		{"block_sturdy", new BreakableVariant("block_sturdy", 0, new Color(1,1,1,1))},
+		{"coffin", new BreakableVariant("coffin", 0, new Color(1,1,1,1))},
+		{"explosives", new BreakableVariant("explosives", 0, new Color(1,1,1,1))},
+		{"safety_net", new BreakableVariant("safety_net", 0, new Color(1,1,1,1))}
 	};
 
 	private Dictionary<string, BreakableVariant> _breakableVariants = new Dictionary<string, BreakableVariant>();
@@ -397,6 +397,6 @@ public class Settings
 
 		GD.Print("> couldn't find: " + brekableName);
 
-		return new BreakableVariant(string.Empty, true, new Color(1, 1, 1, 1));
+		return new BreakableVariant(string.Empty, 0, new Color(1, 1, 1, 1));
 	}
 }

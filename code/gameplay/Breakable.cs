@@ -87,15 +87,22 @@ public partial class Breakable : StaticBody2D
 		string breakableName = _defaultSpritePath.Split('/')[^1].Replace(".png", "");
 		BreakableVariant variant = refs.settings.FindVariant(breakableName);
 
-		if (variant.UseDefaultSprite)
+		switch (variant.SpriteVariant)
 		{
-			_sprite.Texture = ResourceLoader.Load<Texture2D>(_defaultSpritePath);
-			_sprite.Modulate = new Color(1, 1, 1, 1);
-		}
-		else
-		{
-			_sprite.Texture = ResourceLoader.Load<Texture2D>(_defaultSpritePath.Replace(".png", "_alt.png"));
-			_sprite.Modulate = variant.CustomColor;
+			case 1:
+				_sprite.Texture = ResourceLoader.Load<Texture2D>(_defaultSpritePath.Replace(".png", "_rim.png"));
+				_sprite.Modulate = new Color(1, 1, 1, 1);
+				break;
+
+			case 2:
+				_sprite.Texture = ResourceLoader.Load<Texture2D>(_defaultSpritePath.Replace(".png", "_alt.png"));
+				_sprite.Modulate = variant.CustomColor;
+				break;
+
+			default:
+				_sprite.Texture = ResourceLoader.Load<Texture2D>(_defaultSpritePath);
+				_sprite.Modulate = new Color(1, 1, 1, 1);
+				break;
 		}
 	}
 

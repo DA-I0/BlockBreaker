@@ -3,13 +3,13 @@ namespace BoGK.Models
 	public struct BreakableVariant
 	{
 		public string TypeName;
-		public bool UseDefaultSprite;
+		public int SpriteVariant;
 		public Godot.Color CustomColor;
 
-		public BreakableVariant(string typeName, bool defaultSprite, Godot.Color color)
+		public BreakableVariant(string typeName, int variantId, Godot.Color color)
 		{
 			TypeName = typeName;
-			UseDefaultSprite = defaultSprite;
+			SpriteVariant = variantId;
 			CustomColor = color;
 		}
 	}
