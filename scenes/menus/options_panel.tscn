@@ -721,6 +721,7 @@ focus_neighbor_bottom = NodePath("../../GeneralOptions/Options/LanguageSetting/L
 focus_next = NodePath("../Cancel")
 focus_previous = NodePath("../../GeneralOptions/Options/LanguageSetting/LanguageOptions")
 shortcut = ExtResource("5_7lapn")
+shortcut_in_tooltip = false
 text = "BUTTON_CONFIRM"
 
 [node name="Cancel" type="Button" parent="OptionsButtons"]
@@ -730,6 +731,7 @@ focus_neighbor_bottom = NodePath("../../GeneralOptions/Options/LanguageSetting/L
 focus_next = NodePath("../../GeneralOptions/Options/LanguageSetting/LanguageOptions")
 focus_previous = NodePath("../Confirm")
 shortcut = ExtResource("6_vgxtx")
+shortcut_in_tooltip = false
 text = "BUTTON_CANCEL"
 
 [node name="Default" type="Button" parent="OptionsButtons"]
@@ -739,6 +741,7 @@ focus_neighbor_bottom = NodePath("../../GeneralOptions/Options/LanguageSetting/L
 focus_next = NodePath("../../GeneralOptions/Options/LanguageSetting/LanguageOptions")
 focus_previous = NodePath("../Confirm")
 shortcut = ExtResource("6_vgxtx")
+shortcut_in_tooltip = false
 text = "BUTTON_DEFAULT"
 
 [node name="CategoryButtons" type="VBoxContainer" parent="."]
