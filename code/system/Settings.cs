@@ -359,12 +359,9 @@ public class Settings
 
 	private void ApplyFont()
 	{
-		ProjectSettings.SetSetting("gui/theme/custom_font", $"res://assets/fonts/{refs.gameData.Fonts[Font].FontName}"); // needed?
-
-		Theme currentTheme = ThemeDB.GetDefaultTheme();
-		currentTheme.DefaultFont = ResourceLoader.Load<Font>(ProjectSettings.GetSetting("gui/theme/custom_font").ToString());
+		Theme currentTheme = ThemeDB.GetProjectTheme();
+		currentTheme.DefaultFont = ResourceLoader.Load<Font>($"res://assets/fonts/{refs.gameData.Fonts[Font].FontName}");
 		currentTheme.DefaultFontSize = refs.gameData.Fonts[Font].DefaultSize;
-		GD.Print("setting default font: " + currentTheme.DefaultFont + " of size: " + currentTheme.DefaultFontSize);
 	}
 
 	private void ParseVariantsToConfig()
@@ -388,14 +385,11 @@ public class Settings
 
 	public BreakableVariant FindVariant(string brekableName)
 	{
-		GD.Print("looking for: " + brekableName);
 		try
 		{
 			return BreakableVariants[brekableName];
 		}
 		catch { }
-
-		GD.Print("> couldn't find: " + brekableName);
 
 		return new BreakableVariant(string.Empty, 0, new Color(1, 1, 1, 1));
 	}
