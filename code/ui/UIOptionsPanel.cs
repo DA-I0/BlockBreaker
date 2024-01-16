@@ -7,6 +7,7 @@ namespace BoGK.UI // TODO: break each category into a separate scene
 {
 	public partial class UIOptionsPanel : UIPanel
 	{
+		private const int StaticItems = 4;
 		[Export] private Label _header;
 		[Export] private OptionButton _language;
 		[Export] private OptionButton _font;
@@ -174,7 +175,7 @@ namespace BoGK.UI // TODO: break each category into a separate scene
 
 		private void DisplayActivePanel()
 		{
-			for (int index = 1; index < GetChildCount() - 3; index++)
+			for (int index = 1; index < GetChildCount() - StaticItems; index++)
 			{
 				((Control)GetChild(index)).Visible = ((index - 1) == _activePanel);
 			}
@@ -283,7 +284,7 @@ namespace BoGK.UI // TODO: break each category into a separate scene
 
 					Control spacer = new Control
 					{
-						CustomMinimumSize = new Vector2(15, 0)
+						CustomMinimumSize = new Vector2(12, 0)
 					};
 					actionContainer.AddChild(spacer);
 
@@ -388,7 +389,8 @@ namespace BoGK.UI // TODO: break each category into a separate scene
 				{
 					Text = Tr(variant.TypeName),
 					AnchorBottom = 1,
-					AnchorRight = 0.4f
+					AnchorRight = 0.4f,
+					OffsetLeft = 12
 				};
 
 				Button pickerButton = new Button
@@ -396,7 +398,7 @@ namespace BoGK.UI // TODO: break each category into a separate scene
 					AnchorBottom = 1,
 					AnchorLeft = 0.4f,
 					AnchorRight = 0.4f,
-					Flat = true,
+					Flat = true
 				};
 
 				pickerButton.Pressed += () => _colorPickerPanel.Activate(pickerButton);

@@ -38,9 +38,10 @@ _joypadSpeed = NodePath("ControlOptions/Options/JoypadSettings/Joypad/Controller
 _activeJoypad = NodePath("ControlOptions/Options/JoypadSettings/Joypad/ActiveController/ActiveGamepadOptions")
 _vibrations = NodePath("ControlOptions/Options/JoypadSettings/Joypad/VibrationSetting/VibrationToggle")
 _focusTarget = NodePath("GeneralOptions/Options/LanguageSetting/LanguageOptions")
-_returnButton = NodePath("CategoryButtons/Return")
+_returnButton = NodePath("Return")
 
 [node name="HeaderPanel" type="Panel" parent="."]
+z_index = 1
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 1
 anchors_preset = -1
@@ -61,10 +62,10 @@ vertical_alignment = 1
 visible = false
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.18
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 21.0
+offset_left = 4.0
+offset_top = 35.0
 offset_bottom = -20.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -197,10 +198,10 @@ flat = true
 [node name="VideoOptions" type="ScrollContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.18
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 21.0
+offset_left = 4.0
+offset_top = 35.0
 offset_bottom = -20.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -403,10 +404,10 @@ layout_mode = 2
 visible = false
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.18
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 21.0
+offset_left = 4.0
+offset_top = 35.0
 offset_bottom = -20.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -507,11 +508,10 @@ max_value = 6.0
 visible = false
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.18
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -10.0
-offset_top = 21.0
+offset_left = 4.0
+offset_top = 35.0
 offset_right = -4.0
 offset_bottom = -20.0
 size_flags_horizontal = 3
@@ -744,18 +744,16 @@ shortcut = ExtResource("6_vgxtx")
 shortcut_in_tooltip = false
 text = "BUTTON_DEFAULT"
 
-[node name="CategoryButtons" type="VBoxContainer" parent="."]
+[node name="CategoryButtons" type="HBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 1.0
-anchor_right = 0.18
-anchor_bottom = 1.0
+anchor_right = 1.0
 offset_left = 5.0
-offset_top = 5.75
+offset_top = 18.0
 offset_right = -5.0
 offset_bottom = -6.0
-grow_vertical = 0
-alignment = 2
+grow_horizontal = 2
+alignment = 1
 
 [node name="General" type="Button" parent="CategoryButtons"]
 layout_mode = 2
@@ -783,13 +781,20 @@ text = "BUTTON_AUDIO"
 layout_mode = 2
 text = "BUTTON_CONTROLS"
 
-[node name="Return" type="Button" parent="CategoryButtons"]
-layout_mode = 2
+[node name="Return" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_bottom = -6.0
+grow_vertical = 0
 shortcut = ExtResource("6_vgxtx")
 shortcut_in_tooltip = false
 text = "BUTTON_RETURN"
 
 [node name="ColorPickerPanel" type="ColorRect" parent="." node_paths=PackedStringArray("_colorPicker", "_targetSprite")]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
