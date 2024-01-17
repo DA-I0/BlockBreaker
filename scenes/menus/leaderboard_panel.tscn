@@ -13,8 +13,9 @@ theme_override_styles/panel = ExtResource("1_t3en8")
 script = ExtResource("2_0qndn")
 _playerNames = NodePath("PlayerNames")
 _playerScore = NodePath("PlayerScore")
-_focusTarget = NodePath("Return")
+_focusTarget = []
 _returnButton = NodePath("Return")
+_returnTarget = null
 
 [node name="Header" type="Panel" parent="."]
 layout_mode = 1
@@ -80,6 +81,7 @@ anchor_bottom = 1.0
 offset_left = 5.0
 offset_bottom = -6.0
 grow_vertical = 0
+focus_mode = 0
 shortcut = ExtResource("3_fpvx0")
 shortcut_in_tooltip = false
 text = "BUTTON_RETURN"

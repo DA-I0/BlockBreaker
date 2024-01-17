@@ -31,6 +31,9 @@ namespace BoGK.UI // TODO: break each category into a separate scene
 		[Export] private HSlider _joypadSpeed;
 		[Export] private OptionButton _activeJoypad;
 		[Export] private CheckButton _vibrations;
+		[Export] private Label _previousCategoryShortuct;
+		[Export] private Label _nextCategoryShortuct;
+		[Export] private Control[] _categoryFocusTargets;
 
 		private int _activePanel = 0;
 		private string _inputType = string.Empty;
@@ -56,6 +59,26 @@ namespace BoGK.UI // TODO: break each category into a separate scene
 
 		public override void _Input(InputEvent @event)
 		{
+			if (!Visible)
+			{
+				return;
+			}
+
+			if (@event.IsActionPressed("ui_toggle_focus"))
+			{
+				ToggleFocus();
+			}
+
+			if (@event.IsActionPressed("ui_category_prev"))
+			{
+				SwitchActivePanel(false);
+			}
+
+			if (@event.IsActionPressed("ui_category_next"))
+			{
+				SwitchActivePanel(true);
+			}
+
 			if (_inputActionToChange == string.Empty)
 			{
 				return;
@@ -72,9 +95,28 @@ namespace BoGK.UI // TODO: break each category into a separate scene
 		{
 			if (Visible)
 			{
-				_focusTarget.GrabFocus();
+				_focusTarget[0].GrabFocus();
 				ChangeActivePanel(0);
 			}
+		}
+
+		protected override void ToggleFocus()
+		{
+			_focusIndex = (_focusIndex < _focusTarget.Length - 1) ? _focusIndex + 1 : 0;
+
+			if (_focusIndex == 0)
+			{
+				CategoryFocus();
+			}
+			else
+			{
+				_focusTarget[_focusIndex].GrabFocus();
+			}
+		}
+
+		private void CategoryFocus()
+		{
+			_categoryFocusTargets[_activePanel].GrabFocus();
 		}
 
 		private void UpdateSettings()
@@ -182,6 +224,8 @@ namespace BoGK.UI // TODO: break each category into a separate scene
 
 			UpdateSettings();
 			UpdateHeaderText();
+			UpdateShortcutPrompts();
+			CategoryFocus();
 		}
 
 		private void PopulateLanguageList()
@@ -478,6 +522,30 @@ namespace BoGK.UI // TODO: break each category into a separate scene
 			variantContainer.GetChild<Button>(1).Icon = ResourceLoader.Load<Texture2D>(breakableIcon);
 			variantContainer.GetChild<Button>(1).Modulate = (variant.SpriteVariant > 1) ? variant.CustomColor : new Color(1, 1, 1, 1);
 			variantContainer.GetChild<Button>(1).Disabled = (variantContainer.GetChild<OptionButton>(2).Selected < 2);
+		}
+
+		private void UpdateShortcutPrompts()
+		{
+			_previousCategoryShortuct.Text = refs.localization.GetInputSymbol("ui_category_prev", refs.settings.ActiveInputType.ToString())[0];
+			_nextCategoryShortuct.Text = refs.localization.GetInputSymbol("ui_category_next", refs.settings.ActiveInputType.ToString())[0];
+		}
+
+		private void SwitchActivePanel(bool next)
+		{
+			_focusIndex = 0;
+			int newPanelIndex = next ? ++_activePanel : --_activePanel;
+
+			if (newPanelIndex < 0)
+			{
+				newPanelIndex = GetChildCount() - StaticItems - 2;
+			}
+
+			if (newPanelIndex >= GetChildCount() - StaticItems - 1)
+			{
+				newPanelIndex = 0;
+			}
+
+			ChangeActivePanel(newPanelIndex);
 		}
 	}
 }

@@ -1,3 +1,4 @@
+using System.Linq;
 using Godot;
 
 namespace BoGK.UI
@@ -32,7 +33,18 @@ namespace BoGK.UI
 				newButton.SizeFlagsVertical = SizeFlags.ShrinkCenter;
 
 				_levelGrid.AddChild(newButton);
+
+				if (index > 0)
+				{
+					Button previousNode = _levelGrid.GetChild<Button>(_levelGrid.GetChildCount() - 2);
+					newButton.FocusNeighborLeft = previousNode.GetPath();
+					previousNode.FocusNeighborRight = newButton.GetPath();
+				}
 			}
+
+			_levelGrid.GetChild<Button>(0).FocusNeighborLeft = _levelGrid.GetChild(_levelGrid.GetChildCount() - 1).GetPath();
+			_levelGrid.GetChild<Button>(_levelGrid.GetChildCount() - 1).FocusNeighborRight = _levelGrid.GetChild(0).GetPath();
+			_focusTarget = _focusTarget.Append(_levelGrid.GetChild<Control>(0)).ToArray();
 		}
 
 		protected void SetupReferences()
@@ -47,6 +59,7 @@ namespace BoGK.UI
 			if (Visible)
 			{
 				((Button)_levelGrid.GetChild(0)).GrabFocus();
+				_focusIndex = 1;
 				UpdateSelectedPaddle();
 				UpdateSelectedDifficulty();
 				UpdateSelectedSkill();

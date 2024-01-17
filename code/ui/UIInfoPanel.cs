@@ -10,12 +10,12 @@ namespace BoGK.UI
 			{
 				if (@event.IsActionPressed("ui_down"))
 				{
-					((ScrollContainer)_focusTarget).ScrollVertical += 10;
+					((ScrollContainer)_focusTarget[0]).ScrollVertical += 10;
 				}
 
 				if (@event.IsActionPressed("ui_up"))
 				{
-					((ScrollContainer)_focusTarget).ScrollVertical -= 10;
+					((ScrollContainer)_focusTarget[0]).ScrollVertical -= 10;
 				}
 			}
 		}

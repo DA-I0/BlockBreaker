@@ -11,8 +11,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource("1_8a3nl")
 _content = NodePath("PatchNotesScrollContainer/PatchNotesContent")
-_focusTarget = NodePath("PatchNotesScrollContainer")
+_focusTarget = [NodePath("PatchNotesScrollContainer")]
 _returnButton = NodePath("Return")
+_returnTarget = null
 
 [node name="PatchNotesHeader" type="Panel" parent="."]
 custom_minimum_size = Vector2(0, 20)
@@ -63,6 +64,7 @@ anchor_bottom = 1.0
 offset_left = 5.0
 offset_bottom = -6.0
 grow_vertical = 0
+focus_mode = 0
 shortcut = ExtResource("3_hhshb")
 shortcut_in_tooltip = false
 text = "BUTTON_RETURN"

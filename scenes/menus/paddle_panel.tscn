@@ -29,7 +29,7 @@ _paddleDescription = NodePath("PaddleDescription")
 _paginatorParent = NodePath("ItemPaginator")
 _inactiveItemSprite = ExtResource("2_rk5kc")
 _activeItemSprite = ExtResource("3_m8cgv")
-_focusTarget = NodePath("ConfirmPaddle")
+_focusTarget = [NodePath("ConfirmPaddle")]
 _returnButton = NodePath("Return")
 _returnTarget = "GameSetupPanel"
 

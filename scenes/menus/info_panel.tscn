@@ -14,8 +14,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 focus_mode = 2
 script = ExtResource("1_jo6ym")
-_focusTarget = NodePath("ScrollContainer")
+_focusTarget = [NodePath("ScrollContainer")]
 _returnButton = NodePath("Return")
+_returnTarget = null
 
 [node name="InfoHeader" type="Panel" parent="."]
 custom_minimum_size = Vector2(0, 20)

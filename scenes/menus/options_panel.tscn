@@ -1,14 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://ier2relg61ni"]
+[gd_scene load_steps=7 format=3 uid="uid://ier2relg61ni"]
 
 [ext_resource type="StyleBox" uid="uid://bnbwbb74r5uj6" path="res://theme/panel_header.tres" id="1_wbet2"]
 [ext_resource type="Script" path="res://code/ui/UIOptionsPanel.cs" id="2_o2q3s"]
 [ext_resource type="Theme" uid="uid://dj60ywofwk371" path="res://theme/ui.theme" id="3_ogls6"]
 [ext_resource type="Texture2D" uid="uid://chk6oivvrr8nn" path="res://assets/sprites/ui_elements/buttons/ui_icon_arrow_right.png" id="4_7mlu3"]
-[ext_resource type="Shortcut" uid="uid://b5ydjlfn0ps7g" path="res://shortcuts/confirm.tres" id="5_7lapn"]
 [ext_resource type="Script" path="res://code/ui/UIColorPicker.cs" id="6_svy1v"]
 [ext_resource type="Shortcut" uid="uid://bhk5vranx2qfl" path="res://shortcuts/cancel.tres" id="6_vgxtx"]
 
-[node name="OptionsPanel" type="Panel" node_paths=PackedStringArray("_header", "_language", "_font", "_controllerType", "_livesDisplay", "_controlDevices", "_fullscreen", "_resolution", "_screenShake", "_backgroundBrightness", "_pickupOrder", "_helperTransparency", "_brekableVariantContainer", "_colorPickerPanel", "_masterVolume", "_musicVolume", "_effectsVolume", "_mouseSpeed", "_keyboardSpeed", "_joypadSpeed", "_activeJoypad", "_vibrations", "_focusTarget", "_returnButton")]
+[node name="OptionsPanel" type="Panel" node_paths=PackedStringArray("_header", "_language", "_font", "_controllerType", "_livesDisplay", "_controlDevices", "_fullscreen", "_resolution", "_screenShake", "_backgroundBrightness", "_pickupOrder", "_helperTransparency", "_brekableVariantContainer", "_colorPickerPanel", "_masterVolume", "_musicVolume", "_effectsVolume", "_mouseSpeed", "_keyboardSpeed", "_joypadSpeed", "_activeJoypad", "_vibrations", "_previousCategoryShortuct", "_nextCategoryShortuct", "_categoryFocusTargets", "_focusTarget", "_returnButton")]
 custom_minimum_size = Vector2(256, 224)
 anchors_preset = 15
 anchor_right = 1.0
@@ -37,8 +36,12 @@ _keyboardSpeed = NodePath("ControlOptions/Options/KeyboardSettings/Keyboard/Keyb
 _joypadSpeed = NodePath("ControlOptions/Options/JoypadSettings/Joypad/ControllerSpeedSetting/ControllerSpeedSlider")
 _activeJoypad = NodePath("ControlOptions/Options/JoypadSettings/Joypad/ActiveController/ActiveGamepadOptions")
 _vibrations = NodePath("ControlOptions/Options/JoypadSettings/Joypad/VibrationSetting/VibrationToggle")
-_focusTarget = NodePath("GeneralOptions/Options/LanguageSetting/LanguageOptions")
+_previousCategoryShortuct = NodePath("CategoryButtons/PreviousShortcut")
+_nextCategoryShortuct = NodePath("CategoryButtons/NextShortcut")
+_categoryFocusTargets = [NodePath("GeneralOptions/Options/LanguageSetting/LanguageOptions"), NodePath("VideoOptions/Options/FullscreenSetting/FullscreenToggle"), NodePath("AudioOptions/Options/MasterVolumeSetting/MasterVolumeSlider"), NodePath("ControlOptions/Options/MouseSettings/ToggleButton")]
+_focusTarget = [NodePath("GeneralOptions/Options/LanguageSetting/LanguageOptions"), NodePath("OptionsButtons/Confirm")]
 _returnButton = NodePath("Return")
+_returnTarget = null
 
 [node name="HeaderPanel" type="Panel" parent="."]
 z_index = 1
@@ -98,9 +101,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 4.0
 offset_right = -4.0
-focus_neighbor_top = NodePath(".")
-focus_neighbor_right = NodePath("../../../../OptionsButtons/Confirm")
-focus_previous = NodePath("../../../../OptionsButtons/Confirm")
+focus_neighbor_left = NodePath("../../LivesDisplaySetting/LivesDisplayToggle")
+focus_neighbor_top = NodePath("../../LivesDisplaySetting/LivesDisplayToggle")
+focus_neighbor_right = NodePath("../../FontSetting/FontOptions")
+focus_neighbor_bottom = NodePath("../../FontSetting/FontOptions")
+focus_next = NodePath("../../FontSetting/FontOptions")
+focus_previous = NodePath("../../LivesDisplaySetting/LivesDisplayToggle")
 
 [node name="FontSetting" type="Control" parent="GeneralOptions/Options"]
 custom_minimum_size = Vector2(0, 19)
@@ -124,9 +130,8 @@ anchor_bottom = 1.0
 offset_left = 4.0
 offset_right = -4.0
 auto_translate = false
-focus_neighbor_top = NodePath(".")
-focus_neighbor_right = NodePath("../../../../OptionsButtons/Confirm")
-focus_previous = NodePath("../../../../OptionsButtons/Confirm")
+focus_neighbor_top = NodePath("../../LanguageSetting/LanguageOptions")
+focus_neighbor_bottom = NodePath("../../UIControlsSetting/UIControlsOptions")
 item_count = 2
 popup/item_0/text = "Silver"
 popup/item_0/id = 0
@@ -154,9 +159,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 4.0
 offset_right = -4.0
-focus_neighbor_top = NodePath(".")
-focus_neighbor_right = NodePath("../../../../OptionsButtons/Confirm")
-focus_previous = NodePath("../../../../OptionsButtons/Confirm")
+focus_neighbor_top = NodePath("../../FontSetting/FontOptions")
+focus_neighbor_bottom = NodePath("../../LivesDisplaySetting/LivesDisplayToggle")
 item_count = 5
 popup/item_0/text = "Generic"
 popup/item_0/id = 1
@@ -190,9 +194,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 4.0
 offset_right = -4.0
-focus_neighbor_right = NodePath("../../../../OptionsButtons/Confirm")
-focus_neighbor_bottom = NodePath("../../../../VideoOptions/Options/ResolutionSetting/ResolutionOptions")
-focus_next = NodePath("../../../../VideoOptions/Options/ResolutionSetting/ResolutionOptions")
+focus_neighbor_top = NodePath("../../UIControlsSetting/UIControlsOptions")
+focus_neighbor_bottom = NodePath("../../LanguageSetting/LanguageOptions")
 flat = true
 
 [node name="VideoOptions" type="ScrollContainer" parent="."]
@@ -234,9 +237,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 4.0
 offset_right = -4.0
-focus_neighbor_right = NodePath("../../../../OptionsButtons/Confirm")
+focus_neighbor_top = NodePath("../../CustomCollorsToggleButton")
 focus_neighbor_bottom = NodePath("../../ResolutionSetting/ResolutionOptions")
 focus_next = NodePath("../../ResolutionSetting/ResolutionOptions")
+focus_previous = NodePath("../../CustomCollorsToggleButton")
 flat = true
 
 [node name="ResolutionSetting" type="Control" parent="VideoOptions/Options"]
@@ -262,7 +266,6 @@ anchor_bottom = 1.0
 offset_left = 4.0
 offset_right = -4.0
 focus_neighbor_top = NodePath("../../FullscreenSetting/FullscreenToggle")
-focus_neighbor_right = NodePath("../../../../OptionsButtons/Confirm")
 focus_neighbor_bottom = NodePath("../../ScreenShakeSetting/ScreenShakeToggle")
 focus_next = NodePath("../../ScreenShakeSetting/ScreenShakeToggle")
 focus_previous = NodePath("../../FullscreenSetting/FullscreenToggle")
@@ -297,7 +300,8 @@ anchor_bottom = 1.0
 offset_left = 4.0
 offset_right = -4.0
 focus_neighbor_top = NodePath("../../ResolutionSetting/ResolutionOptions")
-focus_neighbor_right = NodePath("../../../../OptionsButtons/Confirm")
+focus_neighbor_bottom = NodePath("../../BackgroundSetting/BackgroundSlider")
+focus_next = NodePath("../../BackgroundSetting/BackgroundSlider")
 focus_previous = NodePath("../../ResolutionSetting/ResolutionOptions")
 flat = true
 
@@ -322,9 +326,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 4.0
 offset_right = -4.0
-focus_neighbor_right = NodePath("../../../../OptionsButtons/Confirm")
-focus_neighbor_bottom = NodePath("../../../../OptionsButtons/Confirm")
-focus_next = NodePath("../../../../OptionsButtons/Confirm")
+focus_neighbor_top = NodePath("../../ScreenShakeSetting/ScreenShakeToggle")
+focus_neighbor_bottom = NodePath("../../PickupSetting/PickupOptions")
+focus_next = NodePath("../../PickupSetting/PickupOptions")
+focus_previous = NodePath("../../ScreenShakeSetting/ScreenShakeToggle")
 min_value = 0.4
 max_value = 1.0
 step = 0.1
@@ -351,11 +356,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 4.0
 offset_right = -4.0
-focus_neighbor_top = NodePath("../../FullscreenSetting/FullscreenToggle")
-focus_neighbor_right = NodePath("../../../../OptionsButtons/Confirm")
-focus_neighbor_bottom = NodePath("../../ScreenShakeSetting/ScreenShakeToggle")
-focus_next = NodePath("../../ScreenShakeSetting/ScreenShakeToggle")
-focus_previous = NodePath("../../FullscreenSetting/FullscreenToggle")
+focus_neighbor_top = NodePath("../../BackgroundSetting/BackgroundSlider")
+focus_neighbor_bottom = NodePath("../../EffectsTransparencySetting/EffectsTransparencySlider")
+focus_next = NodePath("../../EffectsTransparencySetting/EffectsTransparencySlider")
+focus_previous = NodePath("../../BackgroundSetting/BackgroundLabel")
 item_count = 3
 popup/item_0/text = "OPTION_VIDEO_PICKUP_ORDER_BOTTOM"
 popup/item_0/id = 0
@@ -385,12 +389,20 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 4.0
 offset_right = -4.0
+focus_neighbor_top = NodePath("../../PickupSetting/PickupOptions")
+focus_neighbor_bottom = NodePath("../../CustomCollorsToggleButton")
+focus_next = NodePath("../../CustomCollorsToggleButton")
+focus_previous = NodePath("../../PickupSetting/PickupOptions")
 max_value = 1.0
 step = 0.1
 value = 0.1
 
 [node name="CustomCollorsToggleButton" type="Button" parent="VideoOptions/Options"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../EffectsTransparencySetting/EffectsTransparencySlider")
+focus_neighbor_bottom = NodePath("../FullscreenSetting/FullscreenToggle")
+focus_next = NodePath("../FullscreenSetting/FullscreenToggle")
+focus_previous = NodePath("../EffectsTransparencySetting/EffectsTransparencySlider")
 text = "BUTTON_CUSTOM_COLORS"
 icon = ExtResource("4_7mlu3")
 flat = true
@@ -440,9 +452,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 4.0
 offset_right = -4.0
-focus_neighbor_right = NodePath("../../../../OptionsButtons/Confirm")
+focus_neighbor_top = NodePath("../../EffectsVolumeSetting/EffectsVolumeSlider")
 focus_neighbor_bottom = NodePath("../../MusicVolumeSetting/MusicVolumeSlider")
 focus_next = NodePath("../../MusicVolumeSetting/MusicVolumeSlider")
+focus_previous = NodePath("../../EffectsVolumeSetting/EffectsVolumeSlider")
 min_value = -60.0
 max_value = 6.0
 
@@ -468,7 +481,6 @@ anchor_bottom = 1.0
 offset_left = 4.0
 offset_right = -4.0
 focus_neighbor_top = NodePath("../../MasterVolumeSetting/MasterVolumeSlider")
-focus_neighbor_right = NodePath("../../../../OptionsButtons/Confirm")
 focus_neighbor_bottom = NodePath("../../EffectsVolumeSetting/EffectsVolumeSlider")
 focus_next = NodePath("../../EffectsVolumeSetting/EffectsVolumeSlider")
 focus_previous = NodePath("../../MasterVolumeSetting/MasterVolumeSlider")
@@ -497,9 +509,8 @@ anchor_bottom = 1.0
 offset_left = 4.0
 offset_right = -4.0
 focus_neighbor_top = NodePath("../../MusicVolumeSetting/MusicVolumeSlider")
-focus_neighbor_right = NodePath("../../../../OptionsButtons/Confirm")
-focus_neighbor_bottom = NodePath("../../../../OptionsButtons/Confirm")
-focus_next = NodePath("../../../../OptionsButtons/Confirm")
+focus_neighbor_bottom = NodePath("../../MasterVolumeSetting/MasterVolumeSlider")
+focus_next = NodePath("../../MasterVolumeSetting/MasterVolumeSlider")
 focus_previous = NodePath("../../MusicVolumeSetting/MusicVolumeSlider")
 min_value = -60.0
 max_value = 6.0
@@ -530,6 +541,10 @@ layout_mode = 2
 
 [node name="ToggleButton" type="Button" parent="ControlOptions/Options/MouseSettings"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../../JoypadSettings/ToggleButton")
+focus_neighbor_bottom = NodePath("../../KeyboardSettings/ToggleButton")
+focus_next = NodePath(".")
+focus_previous = NodePath("../../JoypadSettings/ToggleButton")
 text = "BUTTON_MOUSE"
 icon = ExtResource("4_7mlu3")
 flat = true
@@ -573,6 +588,10 @@ layout_mode = 2
 
 [node name="ToggleButton" type="Button" parent="ControlOptions/Options/KeyboardSettings"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../../MouseSettings/ToggleButton")
+focus_neighbor_bottom = NodePath("../../JoypadSettings/ToggleButton")
+focus_next = NodePath("../../JoypadSettings/ToggleButton")
+focus_previous = NodePath("../../MouseSettings/ToggleButton")
 text = "BUTTON_KEYBOARD"
 icon = ExtResource("4_7mlu3")
 flat = true
@@ -616,6 +635,10 @@ layout_mode = 2
 
 [node name="ToggleButton" type="Button" parent="ControlOptions/Options/JoypadSettings"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../../KeyboardSettings/ToggleButton")
+focus_neighbor_bottom = NodePath("../../MouseSettings/ToggleButton")
+focus_next = NodePath("../../MouseSettings/ToggleButton")
+focus_previous = NodePath("../../KeyboardSettings/ToggleButton")
 text = "BUTTON_CONTROLLER"
 icon = ExtResource("4_7mlu3")
 flat = true
@@ -716,19 +739,22 @@ alignment = 2
 
 [node name="Confirm" type="Button" parent="OptionsButtons"]
 layout_mode = 2
+focus_neighbor_left = NodePath("../Default")
+focus_neighbor_top = NodePath("../Default")
 focus_neighbor_right = NodePath("../Cancel")
-focus_neighbor_bottom = NodePath("../../GeneralOptions/Options/LanguageSetting/LanguageOptions")
+focus_neighbor_bottom = NodePath("../Cancel")
 focus_next = NodePath("../Cancel")
-focus_previous = NodePath("../../GeneralOptions/Options/LanguageSetting/LanguageOptions")
-shortcut = ExtResource("5_7lapn")
+focus_previous = NodePath("../Default")
 shortcut_in_tooltip = false
 text = "BUTTON_CONFIRM"
 
 [node name="Cancel" type="Button" parent="OptionsButtons"]
 layout_mode = 2
 focus_neighbor_left = NodePath("../Confirm")
-focus_neighbor_bottom = NodePath("../../GeneralOptions/Options/LanguageSetting/LanguageOptions")
-focus_next = NodePath("../../GeneralOptions/Options/LanguageSetting/LanguageOptions")
+focus_neighbor_top = NodePath("../Confirm")
+focus_neighbor_right = NodePath("../Default")
+focus_neighbor_bottom = NodePath("../Default")
+focus_next = NodePath("../Default")
 focus_previous = NodePath("../Confirm")
 shortcut = ExtResource("6_vgxtx")
 shortcut_in_tooltip = false
@@ -736,11 +762,12 @@ text = "BUTTON_CANCEL"
 
 [node name="Default" type="Button" parent="OptionsButtons"]
 layout_mode = 2
-focus_neighbor_left = NodePath("../Confirm")
-focus_neighbor_bottom = NodePath("../../GeneralOptions/Options/LanguageSetting/LanguageOptions")
-focus_next = NodePath("../../GeneralOptions/Options/LanguageSetting/LanguageOptions")
-focus_previous = NodePath("../Confirm")
-shortcut = ExtResource("6_vgxtx")
+focus_neighbor_left = NodePath("../Cancel")
+focus_neighbor_top = NodePath("../Cancel")
+focus_neighbor_right = NodePath("../Confirm")
+focus_neighbor_bottom = NodePath("../Confirm")
+focus_next = NodePath("../Cancel")
+focus_previous = NodePath("../Cancel")
 shortcut_in_tooltip = false
 text = "BUTTON_DEFAULT"
 
@@ -755,31 +782,37 @@ offset_bottom = -6.0
 grow_horizontal = 2
 alignment = 1
 
+[node name="PreviousShortcut" type="Label" parent="CategoryButtons"]
+layout_mode = 2
+text = "<previous_shortcut>"
+
 [node name="General" type="Button" parent="CategoryButtons"]
 layout_mode = 2
-focus_neighbor_bottom = NodePath("../Video")
-focus_next = NodePath("../Video")
+focus_mode = 0
 text = "BUTTON_GENERAL"
 
 [node name="Video" type="Button" parent="CategoryButtons"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../General")
-focus_neighbor_bottom = NodePath("../Audio")
-focus_next = NodePath("../Audio")
 focus_previous = NodePath("../General")
+focus_mode = 0
 text = "BUTTON_VIDEO"
 
 [node name="Audio" type="Button" parent="CategoryButtons"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../Video")
-focus_neighbor_bottom = NodePath("../Controls")
-focus_next = NodePath("../Controls")
 focus_previous = NodePath("../Video")
+focus_mode = 0
 text = "BUTTON_AUDIO"
 
 [node name="Controls" type="Button" parent="CategoryButtons"]
 layout_mode = 2
+focus_mode = 0
 text = "BUTTON_CONTROLS"
+
+[node name="NextShortcut" type="Label" parent="CategoryButtons"]
+layout_mode = 2
+text = "<next_shortcut>"
 
 [node name="Return" type="Button" parent="."]
 layout_mode = 1
@@ -789,6 +822,7 @@ anchor_bottom = 1.0
 offset_left = 5.0
 offset_bottom = -6.0
 grow_vertical = 0
+focus_mode = 0
 shortcut = ExtResource("6_vgxtx")
 shortcut_in_tooltip = false
 text = "BUTTON_RETURN"

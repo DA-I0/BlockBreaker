@@ -12,7 +12,7 @@ texture_margin_top = 1.0
 texture_margin_right = 5.0
 region_rect = Rect2(4, 4, 12, 8)
 
-[node name="GameSetupPanel" type="Panel" node_paths=PackedStringArray("_levelGrid", "_paddleButton", "_difficultyButton", "_skillButton", "_returnButton")]
+[node name="GameSetupPanel" type="Panel" node_paths=PackedStringArray("_levelGrid", "_paddleButton", "_difficultyButton", "_skillButton", "_focusTarget", "_returnButton")]
 custom_minimum_size = Vector2(256, 224)
 anchors_preset = 15
 anchor_right = 1.0
@@ -28,7 +28,9 @@ _levelGrid = NodePath("HBoxContainer/Control/Levels")
 _paddleButton = NodePath("HBoxContainer/Panel/VBoxContainer/PaddleButton")
 _difficultyButton = NodePath("HBoxContainer/Panel/VBoxContainer/DifficultyButton")
 _skillButton = NodePath("HBoxContainer/Panel/VBoxContainer/SkillButton")
+_focusTarget = [NodePath("HBoxContainer/Panel/VBoxContainer/PaddleButton")]
 _returnButton = NodePath("HBoxContainer/Panel/VBoxContainer/Return")
+_returnTarget = null
 
 [node name="GameSetupHeader" type="Panel" parent="."]
 custom_minimum_size = Vector2(0, 20)
@@ -73,6 +75,12 @@ text = "LABEL_PADDLE"
 [node name="PaddleButton" type="Button" parent="HBoxContainer/Panel/VBoxContainer"]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
+focus_neighbor_left = NodePath("../SkillButton")
+focus_neighbor_top = NodePath("../SkillButton")
+focus_neighbor_right = NodePath("../DifficultyButton")
+focus_neighbor_bottom = NodePath("../DifficultyButton")
+focus_next = NodePath("../DifficultyButton")
+focus_previous = NodePath("../SkillButton")
 icon = ExtResource("4_f1u0x")
 icon_alignment = 1
 
@@ -88,6 +96,12 @@ text = "LABEL_DIFFICULTY"
 
 [node name="DifficultyButton" type="Button" parent="HBoxContainer/Panel/VBoxContainer"]
 layout_mode = 2
+focus_neighbor_left = NodePath("../PaddleButton")
+focus_neighbor_top = NodePath("../PaddleButton")
+focus_neighbor_right = NodePath("../SkillButton")
+focus_neighbor_bottom = NodePath("../SkillButton")
+focus_next = NodePath("../SkillButton")
+focus_previous = NodePath("../PaddleButton")
 text = "selected_diff"
 
 [node name="Spacer2" type="Control" parent="HBoxContainer/Panel/VBoxContainer"]
@@ -102,6 +116,12 @@ text = "LABEL_SKILL"
 
 [node name="SkillButton" type="Button" parent="HBoxContainer/Panel/VBoxContainer"]
 layout_mode = 2
+focus_neighbor_left = NodePath("../DifficultyButton")
+focus_neighbor_top = NodePath("../DifficultyButton")
+focus_neighbor_right = NodePath("../PaddleButton")
+focus_neighbor_bottom = NodePath("../PaddleButton")
+focus_next = NodePath("../PaddleButton")
+focus_previous = NodePath("../DifficultyButton")
 text = "selected_diff"
 
 [node name="Spacer3" type="Control" parent="HBoxContainer/Panel/VBoxContainer"]

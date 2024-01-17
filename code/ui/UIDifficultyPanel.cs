@@ -51,7 +51,7 @@ namespace BoGK.UI
 				}
 				else
 				{
-					_focusTarget.GrabFocus();
+					_focusTarget[0].GrabFocus();
 				}
 			}
 		}

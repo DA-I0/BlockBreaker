@@ -60,7 +60,7 @@ _cancelEdit = NodePath("ConfirmationButtons/CancelEditor")
 _paginatorParent = NodePath("ItemPaginator")
 _inactiveItemSprite = ExtResource("12_jovjc")
 _activeItemSprite = ExtResource("13_mxby1")
-_focusTarget = NodePath("ConfirmationButtons/ConfirmDifficulty")
+_focusTarget = [NodePath("ConfirmationButtons/ConfirmDifficulty"), NodePath("CustomDifficultyButtons/AddDifficulty")]
 _returnButton = NodePath("Return")
 _returnTarget = "GameSetupPanel"
 
