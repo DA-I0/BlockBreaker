@@ -442,6 +442,7 @@ namespace BoGK.UI // TODO: break each category into a separate scene
 					AnchorBottom = 1,
 					AnchorLeft = 0.4f,
 					AnchorRight = 0.4f,
+					IconAlignment = HorizontalAlignment.Center,
 					Flat = true
 				};
 
@@ -476,25 +477,40 @@ namespace BoGK.UI // TODO: break each category into a separate scene
 				_brekableVariantContainer.AddChild(container);
 			}
 
+			Control spacer = new Control
+			{
+				Name = "spacer",
+				CustomMinimumSize = new Vector2(0, 50)
+			};
+
+			_brekableVariantContainer.AddChild(spacer);
+
 			_brekableVariantContainer.Visible = false;
 		}
 
 		private void SaveBreakableVariants()
 		{
-			foreach (Control variant in _brekableVariantContainer.GetChildren())
+			foreach (Control variantContainer in _brekableVariantContainer.GetChildren())
 			{
-				BreakableVariant targetVariant = refs.settings.BreakableVariants[variant.Name];
-				targetVariant.SpriteVariant = variant.GetChild<OptionButton>(2).Selected;
-				targetVariant.CustomColor = variant.GetChild<Control>(1).Modulate;
-				refs.settings.BreakableVariants[variant.Name] = targetVariant;
+				if (variantContainer.Name != "spacer")
+				{
+					BreakableVariant targetVariant = refs.settings.BreakableVariants[variantContainer.Name];
+					targetVariant.SpriteVariant = variantContainer.GetChild<OptionButton>(2).Selected;
+					targetVariant.CustomColor = variantContainer.GetChild<Control>(1).Modulate;
+					refs.settings.BreakableVariants[variantContainer.Name] = targetVariant;
+				}
 			}
 		}
 
 		private void UpdateVariants()
 		{
-			foreach (Control variantContainer in _brekableVariantContainer.GetChildren())
+			foreach (Control variantContainer in _brekableVariantContainer.GetChildren().Cast<Control>())
 			{
-				UpdateVariantControls(variantContainer);
+				if (variantContainer.Name != "spacer")
+				{
+					variantContainer.GetChild<OptionButton>(2).Selected = refs.settings.BreakableVariants[variantContainer.Name].SpriteVariant;
+					UpdateVariantControls(variantContainer);
+				}
 			}
 		}
 

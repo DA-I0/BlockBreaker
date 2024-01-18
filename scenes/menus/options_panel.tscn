@@ -41,7 +41,6 @@ _nextCategoryShortuct = NodePath("CategoryButtons/NextShortcut")
 _categoryFocusTargets = [NodePath("GeneralOptions/Options/LanguageSetting/LanguageOptions"), NodePath("VideoOptions/Options/FullscreenSetting/FullscreenToggle"), NodePath("AudioOptions/Options/MasterVolumeSetting/MasterVolumeSlider"), NodePath("ControlOptions/Options/MouseSettings/ToggleButton")]
 _focusTarget = [NodePath("GeneralOptions/Options/LanguageSetting/LanguageOptions"), NodePath("OptionsButtons/Confirm")]
 _returnButton = NodePath("Return")
-_returnTarget = null
 
 [node name="HeaderPanel" type="Panel" parent="."]
 z_index = 1
@@ -829,6 +828,7 @@ text = "BUTTON_RETURN"
 
 [node name="ColorPickerPanel" type="ColorRect" parent="." node_paths=PackedStringArray("_colorPicker", "_targetSprite")]
 visible = false
+z_index = 1
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
