@@ -68,6 +68,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 4.0
 offset_top = 35.0
+offset_right = -4.0
 offset_bottom = -20.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -86,7 +87,7 @@ layout_mode = 2
 [node name="LanguageLabel" type="Label" parent="GeneralOptions/Options/LanguageSetting"]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.4
+anchor_right = 0.45
 anchor_bottom = 1.0
 offset_left = 4.0
 text = "OPTION_GENERAL_LANGUAGE"
@@ -95,10 +96,10 @@ vertical_alignment = 1
 [node name="LanguageOptions" type="OptionButton" parent="GeneralOptions/Options/LanguageSetting"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.4
+anchor_left = 0.5
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 4.0
+offset_left = -3.0
 offset_right = -4.0
 focus_neighbor_left = NodePath("../../LivesDisplaySetting/LivesDisplayToggle")
 focus_neighbor_top = NodePath("../../LivesDisplaySetting/LivesDisplayToggle")
@@ -114,7 +115,7 @@ layout_mode = 2
 [node name="FontLabel" type="Label" parent="GeneralOptions/Options/FontSetting"]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.4
+anchor_right = 0.45
 anchor_bottom = 1.0
 offset_left = 4.0
 text = "OPTION_GENERAL_FONT"
@@ -123,10 +124,10 @@ vertical_alignment = 1
 [node name="FontOptions" type="OptionButton" parent="GeneralOptions/Options/FontSetting"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.4
+anchor_left = 0.5
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 4.0
+offset_left = -3.0
 offset_right = -4.0
 auto_translate = false
 focus_neighbor_top = NodePath("../../LanguageSetting/LanguageOptions")
@@ -144,7 +145,7 @@ layout_mode = 2
 [node name="UIControlsLabel" type="Label" parent="GeneralOptions/Options/UIControlsSetting"]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.4
+anchor_right = 0.45
 anchor_bottom = 1.0
 offset_left = 4.0
 text = "OPTION_GENERAL_UI_PROMPTS"
@@ -153,10 +154,10 @@ vertical_alignment = 1
 [node name="UIControlsOptions" type="OptionButton" parent="GeneralOptions/Options/UIControlsSetting"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.4
+anchor_left = 0.5
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 4.0
+offset_left = -3.0
 offset_right = -4.0
 focus_neighbor_top = NodePath("../../FontSetting/FontOptions")
 focus_neighbor_bottom = NodePath("../../LivesDisplaySetting/LivesDisplayToggle")
@@ -179,7 +180,7 @@ layout_mode = 2
 [node name="LivesDisplayLabel" type="Label" parent="GeneralOptions/Options/LivesDisplaySetting"]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.4
+anchor_right = 0.45
 anchor_bottom = 1.0
 offset_left = 4.0
 text = "OPTION_UI_LIVE_DISPLAY"
@@ -188,11 +189,10 @@ vertical_alignment = 1
 [node name="LivesDisplayToggle" type="CheckButton" parent="GeneralOptions/Options/LivesDisplaySetting"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.4
+anchor_left = 0.5
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 4.0
-offset_right = -4.0
+offset_left = -3.0
 focus_neighbor_top = NodePath("../../UIControlsSetting/UIControlsOptions")
 focus_neighbor_bottom = NodePath("../../LanguageSetting/LanguageOptions")
 flat = true
@@ -204,6 +204,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 4.0
 offset_top = 35.0
+offset_right = -4.0
 offset_bottom = -20.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -222,7 +223,7 @@ layout_mode = 2
 [node name="FullscreenLabel" type="Label" parent="VideoOptions/Options/FullscreenSetting"]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.4
+anchor_right = 0.45
 anchor_bottom = 1.0
 offset_left = 4.0
 text = "OPTION_VIDEO_FULLSCREEN"
@@ -231,11 +232,10 @@ vertical_alignment = 1
 [node name="FullscreenToggle" type="CheckButton" parent="VideoOptions/Options/FullscreenSetting"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.4
+anchor_left = 0.5
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 4.0
-offset_right = -4.0
+offset_left = -3.0
 focus_neighbor_top = NodePath("../../CustomCollorsToggleButton")
 focus_neighbor_bottom = NodePath("../../ResolutionSetting/ResolutionOptions")
 focus_next = NodePath("../../ResolutionSetting/ResolutionOptions")
@@ -250,7 +250,7 @@ layout_mode = 2
 [node name="ResolutionLabel" type="Label" parent="VideoOptions/Options/ResolutionSetting"]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.4
+anchor_right = 0.45
 anchor_bottom = 1.0
 offset_left = 4.0
 text = "OPTION_VIDEO_RESOLUTION"
@@ -259,10 +259,10 @@ vertical_alignment = 1
 [node name="ResolutionOptions" type="OptionButton" parent="VideoOptions/Options/ResolutionSetting"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.4
+anchor_left = 0.5
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 4.0
+offset_left = -3.0
 offset_right = -4.0
 focus_neighbor_top = NodePath("../../FullscreenSetting/FullscreenToggle")
 focus_neighbor_bottom = NodePath("../../ScreenShakeSetting/ScreenShakeToggle")
@@ -284,7 +284,7 @@ tooltip_text = "tooltip_screen_shake"
 [node name="ShakeScreenLabel" type="Label" parent="VideoOptions/Options/ScreenShakeSetting"]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.4
+anchor_right = 0.45
 anchor_bottom = 1.0
 offset_left = 4.0
 text = "OPTION_VIDEO_SCREEN_SHAKE"
@@ -293,11 +293,10 @@ vertical_alignment = 1
 [node name="ScreenShakeToggle" type="CheckButton" parent="VideoOptions/Options/ScreenShakeSetting"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.4
+anchor_left = 0.5
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 4.0
-offset_right = -4.0
+offset_left = -3.0
 focus_neighbor_top = NodePath("../../ResolutionSetting/ResolutionOptions")
 focus_neighbor_bottom = NodePath("../../BackgroundSetting/BackgroundSlider")
 focus_next = NodePath("../../BackgroundSetting/BackgroundSlider")
@@ -311,7 +310,7 @@ layout_mode = 2
 [node name="BackgroundLabel" type="Label" parent="VideoOptions/Options/BackgroundSetting"]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.4
+anchor_right = 0.45
 anchor_bottom = 1.0
 offset_left = 4.0
 text = "OPTION_VIDEO_BACKGROUND_TRANSPARENCY"
@@ -320,10 +319,10 @@ vertical_alignment = 1
 [node name="BackgroundSlider" type="HSlider" parent="VideoOptions/Options/BackgroundSetting"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.4
+anchor_left = 0.5
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 4.0
+offset_left = -3.0
 offset_right = -4.0
 focus_neighbor_top = NodePath("../../ScreenShakeSetting/ScreenShakeToggle")
 focus_neighbor_bottom = NodePath("../../PickupSetting/PickupOptions")
@@ -341,7 +340,7 @@ layout_mode = 2
 [node name="PickupLabel" type="Label" parent="VideoOptions/Options/PickupSetting"]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.4
+anchor_right = 0.45
 anchor_bottom = 1.0
 offset_left = 4.0
 text = "OPTION_VIDEO_PICKUP_ORDER"
@@ -350,10 +349,10 @@ vertical_alignment = 1
 [node name="PickupOptions" type="OptionButton" parent="VideoOptions/Options/PickupSetting"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.4
+anchor_left = 0.5
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 4.0
+offset_left = -3.0
 offset_right = -4.0
 focus_neighbor_top = NodePath("../../BackgroundSetting/BackgroundSlider")
 focus_neighbor_bottom = NodePath("../../EffectsTransparencySetting/EffectsTransparencySlider")
@@ -374,7 +373,7 @@ layout_mode = 2
 [node name="EffectsTransparencyLabel" type="Label" parent="VideoOptions/Options/EffectsTransparencySetting"]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.4
+anchor_right = 0.45
 anchor_bottom = 1.0
 offset_left = 4.0
 text = "OPTION_VIDEO_EFFECT_TRANSPARENCY"
@@ -383,10 +382,10 @@ vertical_alignment = 1
 [node name="EffectsTransparencySlider" type="HSlider" parent="VideoOptions/Options/EffectsTransparencySetting"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.4
+anchor_left = 0.5
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 4.0
+offset_left = -3.0
 offset_right = -4.0
 focus_neighbor_top = NodePath("../../PickupSetting/PickupOptions")
 focus_neighbor_bottom = NodePath("../../CustomCollorsToggleButton")
@@ -419,6 +418,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 4.0
 offset_top = 35.0
+offset_right = -4.0
 offset_bottom = -20.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -437,7 +437,7 @@ layout_mode = 2
 [node name="MasterVolumeLabel" type="Label" parent="AudioOptions/Options/MasterVolumeSetting"]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.4
+anchor_right = 0.45
 anchor_bottom = 1.0
 offset_left = 4.0
 text = "OPTION_VOLUME_MASTER"
@@ -446,10 +446,10 @@ vertical_alignment = 1
 [node name="MasterVolumeSlider" type="HSlider" parent="AudioOptions/Options/MasterVolumeSetting"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.4
+anchor_left = 0.5
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 4.0
+offset_left = -3.0
 offset_right = -4.0
 focus_neighbor_top = NodePath("../../EffectsVolumeSetting/EffectsVolumeSlider")
 focus_neighbor_bottom = NodePath("../../MusicVolumeSetting/MusicVolumeSlider")
@@ -465,7 +465,7 @@ layout_mode = 2
 [node name="MusicVolumeLabel" type="Label" parent="AudioOptions/Options/MusicVolumeSetting"]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.4
+anchor_right = 0.45
 anchor_bottom = 1.0
 offset_left = 4.0
 text = "OPTION_VOLUME_MUSIC"
@@ -474,10 +474,10 @@ vertical_alignment = 1
 [node name="MusicVolumeSlider" type="HSlider" parent="AudioOptions/Options/MusicVolumeSetting"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.4
+anchor_left = 0.5
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 4.0
+offset_left = -3.0
 offset_right = -4.0
 focus_neighbor_top = NodePath("../../MasterVolumeSetting/MasterVolumeSlider")
 focus_neighbor_bottom = NodePath("../../EffectsVolumeSetting/EffectsVolumeSlider")
@@ -493,7 +493,7 @@ layout_mode = 2
 [node name="EffectsVolumeLabel" type="Label" parent="AudioOptions/Options/EffectsVolumeSetting"]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.4
+anchor_right = 0.45
 anchor_bottom = 1.0
 offset_left = 4.0
 text = "OPTION_VOLUME_EFFECTS"
@@ -502,10 +502,10 @@ vertical_alignment = 1
 [node name="EffectsVolumeSlider" type="HSlider" parent="AudioOptions/Options/EffectsVolumeSetting"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.4
+anchor_left = 0.5
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 4.0
+offset_left = -3.0
 offset_right = -4.0
 focus_neighbor_top = NodePath("../../MusicVolumeSetting/MusicVolumeSlider")
 focus_neighbor_bottom = NodePath("../../MasterVolumeSetting/MasterVolumeSlider")
@@ -559,19 +559,19 @@ layout_mode = 2
 [node name="MouseSpeedLabel" type="Label" parent="ControlOptions/Options/MouseSettings/Mouse/MouseSpeedSetting"]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.4
+anchor_right = 0.45
 anchor_bottom = 1.0
-offset_left = 18.0
+offset_left = 11.0
 text = "OPTION_INPUT_MOUSE_SPEED"
 vertical_alignment = 1
 
 [node name="MouseSpeedSlider" type="HSlider" parent="ControlOptions/Options/MouseSettings/Mouse/MouseSpeedSetting"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.4
+anchor_left = 0.5
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 4.0
+offset_left = -3.0
 offset_right = -4.0
 focus_neighbor_right = NodePath("../../../../../../OptionsButtons/Confirm")
 focus_neighbor_bottom = NodePath("../../../../KeyboardSettings/Keyboard/KeyboardSpeedSetting/KeyboardSpeedSlider")
@@ -606,19 +606,19 @@ layout_mode = 2
 [node name="KeyboardSpeedLabel" type="Label" parent="ControlOptions/Options/KeyboardSettings/Keyboard/KeyboardSpeedSetting"]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.4
+anchor_right = 0.45
 anchor_bottom = 1.0
-offset_left = 18.0
+offset_left = 11.0
 text = "OPTION_INPUT_KEYBOARD_SPEED"
 vertical_alignment = 1
 
 [node name="KeyboardSpeedSlider" type="HSlider" parent="ControlOptions/Options/KeyboardSettings/Keyboard/KeyboardSpeedSetting"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.4
+anchor_left = 0.5
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 4.0
+offset_left = -3.0
 offset_right = -4.0
 focus_neighbor_top = NodePath("../../../../MouseSettings/Mouse/MouseSpeedSetting/MouseSpeedSlider")
 focus_neighbor_right = NodePath("../../../../../../OptionsButtons/Confirm")
@@ -653,19 +653,19 @@ layout_mode = 2
 [node name="UIActiveGamepadLabel" type="Label" parent="ControlOptions/Options/JoypadSettings/Joypad/ActiveController"]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.4
+anchor_right = 0.45
 anchor_bottom = 1.0
-offset_left = 18.0
+offset_left = 11.0
 text = "OPTION_INPUT_ACTIVE_GAMEPAD"
 vertical_alignment = 1
 
 [node name="ActiveGamepadOptions" type="OptionButton" parent="ControlOptions/Options/JoypadSettings/Joypad/ActiveController"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.4
+anchor_left = 0.5
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 4.0
+offset_left = -3.0
 offset_right = -4.0
 
 [node name="ControllerSpeedSetting" type="Control" parent="ControlOptions/Options/JoypadSettings/Joypad"]
@@ -675,19 +675,19 @@ layout_mode = 2
 [node name="ControllerSpeedLabel" type="Label" parent="ControlOptions/Options/JoypadSettings/Joypad/ControllerSpeedSetting"]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.4
+anchor_right = 0.45
 anchor_bottom = 1.0
-offset_left = 18.0
+offset_left = 11.0
 text = "OPTION_INPUT_CONTROLLER_SPEED"
 vertical_alignment = 1
 
 [node name="ControllerSpeedSlider" type="HSlider" parent="ControlOptions/Options/JoypadSettings/Joypad/ControllerSpeedSetting"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.4
+anchor_left = 0.5
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 4.0
+offset_left = -3.0
 offset_right = -4.0
 focus_neighbor_top = NodePath("../../../../MouseSettings/Mouse/MouseSpeedSetting/MouseSpeedSlider")
 focus_neighbor_right = NodePath("../../../../../../OptionsButtons/Confirm")
@@ -704,20 +704,19 @@ layout_mode = 2
 [node name="VibrationLabel" type="Label" parent="ControlOptions/Options/JoypadSettings/Joypad/VibrationSetting"]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.4
+anchor_right = 0.45
 anchor_bottom = 1.0
-offset_left = 18.0
+offset_left = 11.0
 text = "OPTION_INPUT_CONTROLLER_VIBRATIONS"
 vertical_alignment = 1
 
 [node name="VibrationToggle" type="CheckButton" parent="ControlOptions/Options/JoypadSettings/Joypad/VibrationSetting"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.4
+anchor_left = 0.5
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 4.0
-offset_right = -4.0
+offset_left = -3.0
 focus_neighbor_right = NodePath("../../../../../../OptionsButtons/Confirm")
 focus_neighbor_bottom = NodePath("../../../../../../VideoOptions/Options/ResolutionSetting/ResolutionOptions")
 focus_next = NodePath("../../../../../../VideoOptions/Options/ResolutionSetting/ResolutionOptions")

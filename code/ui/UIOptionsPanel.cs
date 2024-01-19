@@ -328,14 +328,15 @@ namespace BoGK.UI // TODO: break each category into a separate scene
 
 					Control spacer = new Control
 					{
-						CustomMinimumSize = new Vector2(12, 0)
+						CustomMinimumSize = new Vector2(8, 0)
 					};
 					actionContainer.AddChild(spacer);
 
 					Label inputHeader = new Label
 					{
 						Text = action.ToString().Replace("game_", "option_input_").ToUpper(),
-						SizeFlagsHorizontal = SizeFlags.Fill | SizeFlags.Expand
+						SizeFlagsHorizontal = SizeFlags.Fill | SizeFlags.Expand,
+						SizeFlagsStretchRatio = 0.45f
 					};
 					actionContainer.AddChild(inputHeader);
 
@@ -358,7 +359,8 @@ namespace BoGK.UI // TODO: break each category into a separate scene
 			Button newButton = new Button
 			{
 				CustomMinimumSize = new Vector2(0, 30),
-				SizeFlagsHorizontal = SizeFlags.Fill | SizeFlags.Expand
+				SizeFlagsHorizontal = SizeFlags.Fill | SizeFlags.Expand,
+				SizeFlagsStretchRatio = 0.25f
 			};
 
 			newButton.Pressed += () => ToggleKeybindChange(inputType, inputAction, newButton.Text);
@@ -433,15 +435,15 @@ namespace BoGK.UI // TODO: break each category into a separate scene
 				{
 					Text = Tr(variant.TypeName),
 					AnchorBottom = 1,
-					AnchorRight = 0.4f,
-					OffsetLeft = 12
+					AnchorRight = 0.3f,
+					OffsetLeft = 8
 				};
 
 				Button pickerButton = new Button
 				{
 					AnchorBottom = 1,
-					AnchorLeft = 0.4f,
-					AnchorRight = 0.4f,
+					AnchorLeft = 0.3f,
+					AnchorRight = 0.3f,
 					IconAlignment = HorizontalAlignment.Center,
 					Flat = true
 				};
@@ -451,7 +453,7 @@ namespace BoGK.UI // TODO: break each category into a separate scene
 				OptionButton variantSelector = new OptionButton
 				{
 					AnchorBottom = 1,
-					AnchorLeft = 0.4f,
+					AnchorLeft = 0.3f,
 					AnchorRight = 1,
 					OffsetLeft = 32,
 					OffsetRight = -4
