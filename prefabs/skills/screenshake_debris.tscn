@@ -75,13 +75,16 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_d2q81"]
 radius = 5.09902
 
-[node name="Debris" type="Node2D" node_paths=PackedStringArray("_animator")]
+[node name="Debris" type="Node2D" node_paths=PackedStringArray("_animator", "_timer")]
 script = ExtResource("1_fm3jw")
-_animator = NodePath("Animator")
 _strength = 2
+_delay = 1.5
+_randomizeDelay = true
+_animator = NodePath("Animator")
+_timer = NodePath("Timer")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0.784314)
+modulate = Color(1, 1, 1, 0)
 z_index = 4
 texture = ExtResource("2_0w81k")
 hframes = 4
@@ -92,7 +95,6 @@ frame = 12
 libraries = {
 "": SubResource("AnimationLibrary_hgpks")
 }
-autoplay = "idle"
 
 [node name="CollisionArea" type="Area2D" parent="."]
 collision_layer = 0
@@ -103,4 +105,8 @@ monitorable = false
 shape = SubResource("CircleShape2D_d2q81")
 disabled = true
 
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="body_entered" from="CollisionArea" to="." method="ApplyDamageToObject"]
+[connection signal="timeout" from="Timer" to="." method="Activate"]

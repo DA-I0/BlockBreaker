@@ -4,7 +4,7 @@ public partial class ScreenShake : Skill
 {
 	private const string PrefabPath = "res://prefabs/skills/screenshake_debris.tscn";
 	private const int DebrisCount = 5;
-	private const int MaxOffesetHor = 95;
+	private const int MaxOffesetHor = 90;
 	private const int MaxOffesetVer = 60;
 
 	public ScreenShake()
