@@ -33,6 +33,12 @@ public class Skill
 
 	protected void UpdateActivationPoints(int score, int scoreMultiplier, int combo)
 	{
+		if (combo == 0)
+		{
+			_lastUpdateCombo = 0;
+			return;
+		}
+
 		if (_lastUpdateCombo < combo)
 		{
 			_lastUpdateCombo = combo;
