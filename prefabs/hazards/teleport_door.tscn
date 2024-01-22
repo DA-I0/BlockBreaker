@@ -70,7 +70,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mi8te"]
-size = Vector2(11, 0.0908837)
+size = Vector2(10, 0.0908837)
 
 [node name="TeleportDoor" type="Area2D" node_paths=PackedStringArray("_animator", "_timer", "_sprites")]
 collision_mask = 2
@@ -102,7 +102,7 @@ wait_time = 60.0
 one_shot = true
 
 [node name="ExitTrigger" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, -0.954558)
+position = Vector2(0, -0.954558)
 shape = SubResource("RectangleShape2D_mi8te")
 
 [connection signal="body_entered" from="." to="." method="OnBodyEntered"]
