@@ -156,7 +156,7 @@ stretch_mode = 3
 
 [node name="ExitTimer" type="PanelContainer" parent="."]
 clip_contents = true
-custom_minimum_size = Vector2(30, 28)
+custom_minimum_size = Vector2(30, 24)
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -168,13 +168,11 @@ size_flags_vertical = 0
 
 [node name="Label" type="Label" parent="ExitTimer"]
 clip_contents = true
-custom_minimum_size = Vector2(24, 24)
 layout_mode = 2
+size_flags_horizontal = 4
 auto_translate = false
-theme_override_font_sizes/font_size = 22
 text = "60"
 horizontal_alignment = 1
-vertical_alignment = 3
 justification_flags = 1
 
 [node name="ExitPrompt" type="Control" parent="."]

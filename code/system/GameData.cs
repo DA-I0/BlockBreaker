@@ -5,6 +5,7 @@ using BoGK.Models;
 public class GameData
 {
 	public readonly FontVariant[] Fonts = { new FontVariant("Silver_adjusted.tres", 11), new FontVariant("OpenDyslexic-Regular_adjusted.tres", 9) };
+	public readonly FontVariant[] TimerFonts = { new FontVariant("Silver_timer.tres", 22), new FontVariant("OpenDyslexic-Regular_timer.tres", 16) };
 	private readonly Skill[] _skills = { new ScreenShake(), new BallControl(), new EmergencyNet() };
 
 	private List<string> _levels = new List<string>();
