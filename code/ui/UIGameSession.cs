@@ -25,6 +25,14 @@ namespace BoGK.UI
 			UpdateTimer();
 		}
 
+		public override void _Input(InputEvent @event)
+		{
+			if (_exitPrompt.Visible && @event.IsActionReleased("game_play"))
+			{
+				refs.AdvanceCurrentLevel();
+			}
+		}
+
 		private void SetupReferences()
 		{
 			refs = GetNode("/root/GameController") as SessionController;

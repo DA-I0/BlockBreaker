@@ -9,11 +9,15 @@ public class Settings
 {
 	public bool firstLaunch = false;
 
+	// General
 	private const string DefaultLanguage = "en";
 	private const int DefaultFont = 0;
 	private const string DefaultControlerPrompts = "generic";
 	private const int DefaultInputType = 1;
 	private const bool DefaultLivesAsText = false;
+	private const bool DefaultStageClearScreen = true;
+
+	// Video
 	private const int DefaultScreenMode = 3;
 	private const int DefaultScreenWidth = 1280;
 	private const int DefaultScreenHeight = 1120;
@@ -21,9 +25,13 @@ public class Settings
 	private const float DefaultBackgroundBrightness = 1f;
 	private const int DefaultPickupOrder = 0;
 	private const float DefaultHelperTransparency = 0.4f;
+
+	// Audio
 	private const float DefaultMasterVolume = 0f;
 	private const float DefaultMusicVolume = -10f;
 	private const float DefaultEffectsVolume = -20f;
+
+	// Controls
 	private const float DefaultMouseSpeed = 1f;
 	private const float DefaultKeyboardSpeed = 1f;
 	private const float DefaultControllerSpeed = 1f;
@@ -66,6 +74,12 @@ public class Settings
 	{
 		get { return (bool)_config.GetValue("general", "lives_as_text", DefaultLivesAsText); }
 		set { _config.SetValue("general", "lives_as_text", value); }
+	}
+
+	public bool StageClearScreen // move to a separate UI category?
+	{
+		get { return (bool)_config.GetValue("general", "stage_clear_screen", DefaultStageClearScreen); }
+		set { _config.SetValue("general", "stage_clear_screen", value); }
 	}
 
 	public int ScreenMode

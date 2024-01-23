@@ -13,6 +13,7 @@ namespace BoGK.UI // TODO: break each category into a separate scene
 		[Export] private OptionButton _font;
 		[Export] private OptionButton _controllerType;
 		[Export] private CheckButton _livesDisplay;
+		[Export] private CheckButton _stageClearDisplay;
 		[Export] private Control _controlDevices;
 		[Export] private CheckButton _fullscreen;
 		[Export] private OptionButton _resolution;
@@ -125,6 +126,7 @@ namespace BoGK.UI // TODO: break each category into a separate scene
 			_font.Selected = refs.settings.Font;
 			_controllerType.Selected = FindOptionIndex(_controllerType, refs.settings.ControlerPrompts);
 			_livesDisplay.ButtonPressed = refs.settings.LivesAsText;
+			_stageClearDisplay.ButtonPressed = refs.settings.StageClearScreen;
 			_fullscreen.ButtonPressed = (refs.settings.ScreenMode > 0);
 			// _resolution.Selected = FindOptionIndex(_resolution, $"{refs.settings.ScreenWidth}x{refs.settings.ScreenHeight}");
 			_screenShake.ButtonPressed = refs.settings.ScreenShake;
@@ -151,6 +153,7 @@ namespace BoGK.UI // TODO: break each category into a separate scene
 			refs.settings.Font = _font.Selected;
 			refs.settings.ControlerPrompts = _controllerType.GetItemText(_controllerType.Selected).ToLower();
 			refs.settings.LivesAsText = _livesDisplay.ButtonPressed;
+			refs.settings.StageClearScreen = _stageClearDisplay.ButtonPressed;
 			refs.settings.ScreenMode = _fullscreen.ButtonPressed ? 3 : 0;
 			// string resolutionString = _resolution.GetItemText(_resolution.Selected);
 			// refs.settings.ScreenWidth = int.Parse(resolutionString.Split("x")[0]);
