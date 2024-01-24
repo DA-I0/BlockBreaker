@@ -144,7 +144,7 @@ namespace BoGK.UI
 			Label timerText = _exitTimer.GetChild<Label>(0);
 			Font newTimerFont = ResourceLoader.Load<FontVariation>($"res://assets/fonts/{refs.gameData.TimerFonts[refs.settings.Font].FontName}");
 
-			timerText.AddThemeFontOverride("font", newTimerFont); GD.Print(timerText.HasThemeFontOverride("Label"));
+			timerText.AddThemeFontOverride("font", newTimerFont);
 			timerText.AddThemeFontSizeOverride("font_size", refs.gameData.TimerFonts[refs.settings.Font].DefaultSize);
 		}
 	}
