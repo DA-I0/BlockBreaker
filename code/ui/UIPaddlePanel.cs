@@ -20,6 +20,15 @@ namespace BoGK.UI
 			UpdateDisplayedValues();
 		}
 
+		protected override void Focus()
+		{
+			if (Visible && _focusTarget.Length > 0)
+			{
+				_focusTarget[0].GrabFocus();
+				UpdateTextSettings();
+			}
+		}
+
 		private void UpdateDisplayedValues()
 		{
 			if (ResourceLoader.Exists($"res://assets/sprites/paddles/paddle_{_currentPaddle}_icon.png"))
@@ -59,6 +68,14 @@ namespace BoGK.UI
 		{
 			refs.SetPaddle(_currentPaddle);
 			uiController.TogglePanel("GameSetupPanel");
+		}
+
+		private void UpdateTextSettings()
+		{
+			Font newTimerFont = ResourceLoader.Load<FontVariation>($"res://assets/fonts/{refs.gameData.TimerFonts[refs.settings.Font].FontName}");
+
+			_paddleName.AddThemeFontOverride("font", newTimerFont);
+			_paddleName.AddThemeFontSizeOverride("font_size", refs.gameData.TimerFonts[refs.settings.Font].DefaultSize);
 		}
 	}
 }
