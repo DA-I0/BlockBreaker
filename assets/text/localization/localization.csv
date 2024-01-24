@@ -1,4 +1,10 @@
 keys,en,de,ja,pl
+BREAKABLE_BARRIER_STURDY,Sturdy barrier,,,
+BREAKABLE_BLOCK_BASIC,Basic block,,,
+BREAKABLE_BLOCK_STURDY,Sturdy block,,,
+BREAKABLE_COFFIN,Coffin,,,
+BREAKABLE_EXPLOSIVES,Explosives,,,
+BREAKABLE_SAFETY_NET,Safety net,,,
 BUTTON_AUDIO,Audio,Audio,サウンド,Dźwięk
 BUTTON_CANCEL,Cancel,Abbrechen,キャンセル,Anuluj
 BUTTON_CONFIRM,Confirm,Bestätigen,決定,Potwierdź
@@ -7,6 +13,7 @@ BUTTON_CONTROLS,Controls,Tastenbelegung,操作方法,Sterowanie
 BUTTON_CUSTOM,Custom,,,
 BUTTON_CUSTOM_COLORS,Custom colors,,,
 BUTTON_DEFAULT,Default,Standardeinstellungen,初期設定,Domyślne
+BUTTON_DEFAULT_RIM,Dark outline,,,
 BUTTON_EXIT,Exit,Beenden,終了する,Wyjdź
 BUTTON_GENERAL,General,Allgemein,全般,Ogólne
 BUTTON_INFO,Info,Anleitung,説明,Info
@@ -55,14 +62,16 @@ LABEL_PADDLE,Paddle,,,
 LABEL_PERFECT_CLEAR,Perfect clear,,,
 LABEL_SCORE_MULTIPLIER,Score multiplier,,,
 LABEL_SKILL,Skill,Fähigkeiten,スキル,Umiejętność
-LABEL_TIME_LEFT,Time left,,,
+LABEL_TIME_LEFT,Time left,Zeit übrig,残り時間,Pozostały czas
 MSG_ADVANCE_TO_NEXT_MAP,Press {game_play} to continue...,Drücke {game_play} um fortzufahren,続けるには{game_play}ボタンを押す,Wciśnij {game_play} aby kontynuować…
 MSG_LOADING,Loading...,Lädt…,ローディング中…,Ładowanie…
 MSG_NEW_KEYBINDIG,Press key to assign to action.,,,Wciśnij przycisk do przypisania.
 MSG_NO_BONUSES,No bonuses,,,
 MSG_RETURN_TO_MENU,Return to menu?,Zum Hauptmenü zurückkehren?,メインメニューに戻りますか？,Wróć do menu?
+OPTION_GENERAL_FONT,Font,Schriftart,フォント,Czcionka
 OPTION_GENERAL_LANGUAGE,Language,Sprache,言語,Język
 OPTION_GENERAL_UI_PROMPTS,Control prompts,,,
+OPTION_INPUT_ACTIVE_GAMEPAD,Active controller,,,
 OPTION_INPUT_CONTROLLER_SPEED,Controller speed,Gamepadempfindlichkeit,ゲームパッド感度,Prędkość kontrolera
 OPTION_INPUT_CONTROLLER_VIBRATIONS,Vibrations,Vibrationen,バイブレーション,Vibracje
 OPTION_INPUT_KEYBOARD_SPEED,Keyboard speed,Tastaturempfindlichkeit,キーボード感度,Prędkość klawiatury
@@ -73,7 +82,8 @@ OPTION_INPUT_PLAY,Release ball,,,Wypuść piłkę
 OPTION_INPUT_RESET,Respawn,Wiederbelebung,復活,Reset
 OPTION_INPUT_RIGHT,Right,Rechts,右,Prawo
 OPTION_INPUT_SKILL,Use skill,Benutzung Fähigkeiten,使用スキル,Użyj umiejętności
-OPTION_UI_LIVE_DISPLAY,Display lives as text,,,
+OPTION_UI_DISPLAY_STAGE_COMPLETE_SCREEN,Display stage complete screen,,,
+OPTION_UI_LIFE_DISPLAY,Display lives as text,,,
 OPTION_VIDEO_BACKGROUND_TRANSPARENCY,Background brightness,Hintergrundtransparenz,背景の透明性,Jasność tła
 OPTION_VIDEO_EFFECT_TRANSPARENCY,Effect transparency,,,Przezroczystość efektów
 OPTION_VIDEO_FULLSCREEN,Fullscreen,Vollbild,フルスクリーン,Pełen ekran
@@ -97,7 +107,7 @@ PADDLE_4_NAME,Roguelike,,,
 PADDLE_5_DESC,"Perfect choice for anyone who craves complete control over the ball.\nBounce angle depends on which part of the paddle is hit, with center sending the ball straight up.",,,
 PADDLE_5_NAME,Bounce control,,,
 PLACEHOLDER_DIFF_NAME,New difficulty,Neues Schwierigkeiten,新しい難易度,Nowy poziom trudności
-PLACEHOLDER_PLAYER_NAME,Player,Spieler,,Gracz
+PLACEHOLDER_PLAYER_NAME,Player,Spieler,プレイヤー,Gracz
 SKILL_ACTIVATION_COST,Activation cost,,,
 SKILL_BALLCONTROL_NAME,Ball control,,,
 SKILL_EMERGENCYNET_NAME,Emergency net,,,

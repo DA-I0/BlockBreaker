@@ -436,7 +436,7 @@ namespace BoGK.UI // TODO: break each category into a separate scene
 			{
 				Label breakableName = new Label
 				{
-					Text = Tr(variant.TypeName),
+					Text = Tr($"BREAKABLE_{variant.TypeName.ToUpper()}"),
 					AnchorBottom = 1,
 					AnchorRight = 0.3f,
 					OffsetLeft = 8
