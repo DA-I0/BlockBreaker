@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://code/ui/UIColorPicker.cs" id="6_svy1v"]
 [ext_resource type="Shortcut" uid="uid://bhk5vranx2qfl" path="res://shortcuts/cancel.tres" id="6_vgxtx"]
 
-[node name="OptionsPanel" type="Panel" node_paths=PackedStringArray("_header", "_language", "_font", "_controllerType", "_livesDisplay", "_stageClearDisplay", "_controlDevices", "_fullscreen", "_resolution", "_screenShake", "_backgroundBrightness", "_pickupOrder", "_helperTransparency", "_brekableVariantContainer", "_colorPickerPanel", "_masterVolume", "_musicVolume", "_effectsVolume", "_mouseSpeed", "_keyboardSpeed", "_joypadSpeed", "_activeJoypad", "_vibrations", "_previousCategoryShortuct", "_nextCategoryShortuct", "_categoryFocusTargets", "_focusTarget", "_returnButton")]
+[node name="OptionsPanel" type="Panel" node_paths=PackedStringArray("_header", "_language", "_font", "_controllerType", "_livesDisplay", "_stageClearDisplay", "_controlDevices", "_fullscreen", "_screenShake", "_backgroundBrightness", "_pickupOrder", "_helperTransparency", "_brekableVariantContainer", "_colorPickerPanel", "_masterVolume", "_musicVolume", "_effectsVolume", "_mouseSpeed", "_keyboardSpeed", "_joypadSpeed", "_activeJoypad", "_vibrations", "_previousCategoryShortuct", "_nextCategoryShortuct", "_categoryFocusTargets", "_focusTarget", "_returnButton")]
 custom_minimum_size = Vector2(256, 224)
 anchors_preset = 15
 anchor_right = 1.0
@@ -22,7 +22,6 @@ _livesDisplay = NodePath("GeneralOptions/Options/LivesDisplaySetting/LivesDispla
 _stageClearDisplay = NodePath("GeneralOptions/Options/StageClearDisplaySetting/StageClearDisplayToggle")
 _controlDevices = NodePath("ControlOptions/Options")
 _fullscreen = NodePath("VideoOptions/Options/FullscreenSetting/FullscreenToggle")
-_resolution = NodePath("VideoOptions/Options/ResolutionSetting/ResolutionOptions")
 _screenShake = NodePath("VideoOptions/Options/ScreenShakeSetting/ScreenShakeToggle")
 _backgroundBrightness = NodePath("VideoOptions/Options/BackgroundSetting/BackgroundSlider")
 _pickupOrder = NodePath("VideoOptions/Options/PickupSetting/PickupOptions")
@@ -262,44 +261,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -3.0
 focus_neighbor_top = NodePath("../../CustomCollorsToggleButton")
-focus_neighbor_bottom = NodePath("../../ResolutionSetting/ResolutionOptions")
-focus_next = NodePath("../../ResolutionSetting/ResolutionOptions")
 focus_previous = NodePath("../../CustomCollorsToggleButton")
 flat = true
-
-[node name="ResolutionSetting" type="Control" parent="VideoOptions/Options"]
-visible = false
-custom_minimum_size = Vector2(0, 19)
-layout_mode = 2
-
-[node name="ResolutionLabel" type="Label" parent="VideoOptions/Options/ResolutionSetting"]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.45
-anchor_bottom = 1.0
-offset_left = 4.0
-text = "OPTION_VIDEO_RESOLUTION"
-vertical_alignment = 1
-
-[node name="ResolutionOptions" type="OptionButton" parent="VideoOptions/Options/ResolutionSetting"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -3.0
-offset_right = -4.0
-focus_neighbor_top = NodePath("../../FullscreenSetting/FullscreenToggle")
-focus_neighbor_bottom = NodePath("../../ScreenShakeSetting/ScreenShakeToggle")
-focus_next = NodePath("../../ScreenShakeSetting/ScreenShakeToggle")
-focus_previous = NodePath("../../FullscreenSetting/FullscreenToggle")
-item_count = 3
-popup/item_0/text = "256x224"
-popup/item_0/id = 0
-popup/item_1/text = "640x480"
-popup/item_1/id = 1
-popup/item_2/text = "1280x720"
-popup/item_2/id = 2
 
 [node name="ScreenShakeSetting" type="Control" parent="VideoOptions/Options"]
 custom_minimum_size = Vector2(0, 19)
@@ -322,10 +285,8 @@ anchor_left = 0.5
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -3.0
-focus_neighbor_top = NodePath("../../ResolutionSetting/ResolutionOptions")
 focus_neighbor_bottom = NodePath("../../BackgroundSetting/BackgroundSlider")
 focus_next = NodePath("../../BackgroundSetting/BackgroundSlider")
-focus_previous = NodePath("../../ResolutionSetting/ResolutionOptions")
 flat = true
 
 [node name="BackgroundSetting" type="Control" parent="VideoOptions/Options"]
@@ -743,8 +704,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -3.0
 focus_neighbor_right = NodePath("../../../../../../OptionsButtons/Confirm")
-focus_neighbor_bottom = NodePath("../../../../../../VideoOptions/Options/ResolutionSetting/ResolutionOptions")
-focus_next = NodePath("../../../../../../VideoOptions/Options/ResolutionSetting/ResolutionOptions")
 flat = true
 
 [node name="OptionsButtons" type="HBoxContainer" parent="."]

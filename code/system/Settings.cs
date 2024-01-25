@@ -19,8 +19,6 @@ public class Settings
 
 	// Video
 	private const int DefaultScreenMode = 3;
-	private const int DefaultScreenWidth = 1280;
-	private const int DefaultScreenHeight = 1120;
 	private const bool DefaultScreenShake = true;
 	private const float DefaultBackgroundBrightness = 1f;
 	private const int DefaultPickupOrder = 0;
@@ -88,18 +86,6 @@ public class Settings
 	{
 		get { return (int)_config.GetValue("display", "screen_mode", DefaultScreenMode); }
 		set { _config.SetValue("display", "screen_mode", value); }
-	}
-
-	public int ScreenWidth
-	{
-		get { return (int)_config.GetValue("display", "screen_width", DefaultScreenWidth); }
-		set { _config.SetValue("display", "screen_width", value); }
-	}
-
-	public int ScreenHeight
-	{
-		get { return (int)_config.GetValue("display", "screen_height", DefaultScreenHeight); }
-		set { _config.SetValue("display", "screen_height", value); }
 	}
 
 	public bool ScreenShake
@@ -236,8 +222,6 @@ public class Settings
 	public void SetDefaultVideoValues()
 	{
 		ScreenMode = DefaultScreenMode;
-		ScreenWidth = DisplayServer.ScreenGetSize().X;//DefaultScreenWidth;
-		ScreenHeight = DisplayServer.ScreenGetSize().Y;//DefaultScreenHeight;
 		ScreenShake = DefaultScreenShake;
 		BackgroundBrightness = DefaultBackgroundBrightness;
 		PickupOrder = DefaultPickupOrder;

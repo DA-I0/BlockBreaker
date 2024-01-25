@@ -16,7 +16,6 @@ namespace BoGK.UI // TODO: break each category into a separate scene
 		[Export] private CheckButton _stageClearDisplay;
 		[Export] private Control _controlDevices;
 		[Export] private CheckButton _fullscreen;
-		[Export] private OptionButton _resolution;
 		[Export] private CheckButton _screenShake;
 		[Export] private HSlider _backgroundBrightness;
 		[Export] private OptionButton _pickupOrder;
@@ -128,7 +127,6 @@ namespace BoGK.UI // TODO: break each category into a separate scene
 			_livesDisplay.ButtonPressed = refs.settings.LivesAsText;
 			_stageClearDisplay.ButtonPressed = refs.settings.StageClearScreen;
 			_fullscreen.ButtonPressed = (refs.settings.ScreenMode > 0);
-			// _resolution.Selected = FindOptionIndex(_resolution, $"{refs.settings.ScreenWidth}x{refs.settings.ScreenHeight}");
 			_screenShake.ButtonPressed = refs.settings.ScreenShake;
 			_backgroundBrightness.Value = refs.settings.BackgroundBrightness;
 			_pickupOrder.Selected = refs.settings.PickupOrder;
@@ -155,9 +153,6 @@ namespace BoGK.UI // TODO: break each category into a separate scene
 			refs.settings.LivesAsText = _livesDisplay.ButtonPressed;
 			refs.settings.StageClearScreen = _stageClearDisplay.ButtonPressed;
 			refs.settings.ScreenMode = _fullscreen.ButtonPressed ? 3 : 0;
-			// string resolutionString = _resolution.GetItemText(_resolution.Selected);
-			// refs.settings.ScreenWidth = int.Parse(resolutionString.Split("x")[0]);
-			// refs.settings.ScreenHeight = int.Parse(resolutionString.Split("x")[1]);
 			refs.settings.ScreenShake = _screenShake.ButtonPressed;
 			refs.settings.BackgroundBrightness = (float)_backgroundBrightness.Value;
 			refs.settings.PickupOrder = _pickupOrder.Selected;
