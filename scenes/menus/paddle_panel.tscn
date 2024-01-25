@@ -86,7 +86,7 @@ texture_disabled = ExtResource("11_utjoo")
 texture_focused = ExtResource("10_3hk83")
 stretch_mode = 5
 
-[node name="PaddleName" type="Label" parent="."]
+[node name="PaddleName" type="Label" parent="." groups=["font_timer_variant"]]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.1
