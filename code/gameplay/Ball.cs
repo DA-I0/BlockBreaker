@@ -336,6 +336,7 @@ public partial class Ball : CharacterBody2D
 				Velocity = Vector2.Zero;
 				ChangeTempSpeedMultiplier(1);
 				_animator.Play("idle");
+				_speedTrailCurve.ClearPoints();
 				break;
 		}
 	}
