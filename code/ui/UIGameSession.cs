@@ -97,7 +97,6 @@ namespace BoGK.UI
 			HideExitElements();
 			DisplayLifeElements();
 			UpdateSkillIcon();
-			UpdateTimerSettings();
 			Visible = true;
 		}
 
@@ -137,15 +136,6 @@ namespace BoGK.UI
 		private void DisplaySkillIcon()
 		{
 			_skill.Visible = true;
-		}
-
-		private void UpdateTimerSettings()
-		{
-			Label timerText = _exitTimer.GetChild<Label>(0);
-			Font newTimerFont = ResourceLoader.Load<FontVariation>($"res://assets/fonts/{refs.gameData.TimerFonts[refs.settings.Font].FontName}");
-
-			timerText.AddThemeFontOverride("font", newTimerFont);
-			timerText.AddThemeFontSizeOverride("font_size", refs.gameData.TimerFonts[refs.settings.Font].DefaultSize);
 		}
 	}
 }

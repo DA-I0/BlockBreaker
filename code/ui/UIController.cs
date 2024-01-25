@@ -19,11 +19,13 @@ namespace BoGK.UI
 		public override void _Ready()
 		{
 			refs = GetNode("/root/GameController") as SessionController;
+			refs.settings.SettingsUpdated += UpdateUIFonts;
 
 			FindPanels();
 			HideAllPanels();
 			FocusOnButtons();
 			DisplayFirstLanguageSelection();
+			UpdateUIFonts();
 			_gameTitle.Text = ProjectSettings.GetSetting("application/config/name").ToString();
 			_gameVersion.Text = ProjectSettings.GetSetting("global/Version").ToString();
 		}
@@ -79,6 +81,28 @@ namespace BoGK.UI
 		private void DisplayFirstLanguageSelection()
 		{
 			(GetChild(1) as Control).Visible = refs.settings.firstLaunch;
+		}
+
+		private void UpdateUIFonts()
+		{
+			ApplyFontSettings("font_timer_variant", true);
+			ApplyFontSettings("font_timer_variant_no_size", false);
+		}
+
+		private void ApplyFontSettings(string groupName, bool applySize)
+		{
+			Font newTimerFont = ResourceLoader.Load<FontVariation>($"res://assets/fonts/{refs.gameData.TimerFonts[refs.settings.Font].FontName}");
+			Godot.Collections.Array<Node> nodes = refs.GetTree().GetNodesInGroup(groupName);
+
+			foreach (Node node in nodes)
+			{
+				((Label)node).AddThemeFontOverride("font", newTimerFont);
+
+				if (applySize)
+				{
+					((Label)node).AddThemeFontSizeOverride("font_size", refs.gameData.TimerFonts[refs.settings.Font].DefaultSize);
+				}
+			}
 		}
 
 		private void ExitGame()

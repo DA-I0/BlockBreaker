@@ -52,6 +52,8 @@ public class Settings
 	private ConfigFile _config;
 	private SessionController refs;
 
+	public event Notification SettingsUpdated;
+
 	public string Language
 	{
 		get { return (string)_config.GetValue("general", "language", DefaultLanguage); }
@@ -356,6 +358,7 @@ public class Settings
 
 		ActiveControllerID = (ActiveController != string.Empty) ? FindConnectedController() : -1;
 		ApplyKeybindings();
+		SettingsUpdated?.Invoke();
 	}
 
 	private int FindConnectedController()
