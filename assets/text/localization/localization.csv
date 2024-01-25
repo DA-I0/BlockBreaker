@@ -109,6 +109,9 @@ PADDLE_5_NAME,Bounce control,,,
 PLACEHOLDER_DIFF_NAME,New difficulty,Neues Schwierigkeiten,新しい難易度,Nowy poziom trudności
 PLACEHOLDER_PLAYER_NAME,Player,Spieler,プレイヤー,Gracz
 SKILL_ACTIVATION_COST,Activation cost,,,
+SKILL_BALLCONTROL_DESC,Change direction of the ball(s) at will.,,,
 SKILL_BALLCONTROL_NAME,Ball control,,,
+SKILL_EMERGENCYNET_DESC,Temporary safety net consisting of a single block.,,,
 SKILL_EMERGENCYNET_NAME,Emergency net,,,
+SKILL_SCREENSHAKE_DESC,Shake the screen to slightly change the direction of the ball and drop a few chunks of the ceiling to help with block hunting.\nUsing it will lock the paddle for a few seconds.,,,
 SKILL_SCREENSHAKE_NAME,Shake,,,
