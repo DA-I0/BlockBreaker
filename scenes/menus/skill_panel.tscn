@@ -16,14 +16,15 @@
 [ext_resource type="Shortcut" uid="uid://b5ydjlfn0ps7g" path="res://shortcuts/confirm.tres" id="12_kmxn2"]
 [ext_resource type="Shortcut" uid="uid://bhk5vranx2qfl" path="res://shortcuts/cancel.tres" id="13_wmlfo"]
 
-[node name="SkillPanel" type="Panel" node_paths=PackedStringArray("_name", "_description", "_paginatorParent", "_focusTarget", "_returnButton")]
+[node name="SkillPanel" type="Panel" node_paths=PackedStringArray("_skillIcon", "_name", "_description", "_paginatorParent", "_focusTarget", "_returnButton")]
 custom_minimum_size = Vector2(256, 224)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource("1_da0x5")
+_skillIcon = NodePath("SkillOptions/SkillIcon")
 _name = NodePath("SkillOptions/NameLabel")
-_description = NodePath("SkillOptions/DifficultyLabel")
+_description = NodePath("SkillOptions/DescriptionLabel")
 _paginatorParent = NodePath("ItemPaginator")
 _inactiveItemSprite = ExtResource("2_1dhuf")
 _activeItemSprite = ExtResource("3_uwmy0")
@@ -94,17 +95,23 @@ offset_top = 24.0
 offset_bottom = -32.0
 focus_mode = 2
 
-[node name="NameLabel" type="Label" parent="SkillOptions"]
+[node name="NameLabel" type="Label" parent="SkillOptions" groups=["font_timer_variant"]]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "<diff_name>"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="DifficultyLabel" type="Label" parent="SkillOptions"]
+[node name="SkillIcon" type="TextureRect" parent="SkillOptions"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+stretch_mode = 5
+
+[node name="DescriptionLabel" type="Label" parent="SkillOptions"]
 layout_mode = 2
 text = "<diff_name>"
 vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="ItemPaginator" type="HBoxContainer" parent="."]
 custom_minimum_size = Vector2(0, 10)
