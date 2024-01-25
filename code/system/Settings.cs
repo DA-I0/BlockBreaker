@@ -348,8 +348,6 @@ public class Settings
 		ApplyFont();
 
 		DisplayServer.WindowSetMode((DisplayServer.WindowMode)ScreenMode, 0);
-		Vector2I newResolution = new Vector2I(ScreenWidth, ScreenHeight);
-		DisplayServer.WindowSetSize(newResolution, 0);
 		ParseVariantsFromConfig();
 
 		AudioServer.SetBusVolumeDb(AudioServer.GetBusIndex("Master"), MasterVolume);
