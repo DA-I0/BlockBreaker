@@ -536,7 +536,7 @@ namespace BoGK.UI // TODO: break each category into a separate scene
 			}
 
 			variantContainer.GetChild<Button>(1).Icon = ResourceLoader.Load<Texture2D>(breakableIcon);
-			variantContainer.GetChild<Button>(1).Modulate = (variant.SpriteVariant > 1) ? variant.CustomColor : new Color(1, 1, 1, 1);
+			variantContainer.GetChild<Button>(1).Modulate = (variantContainer.GetChild<OptionButton>(2).Selected > 1) ? variant.CustomColor : new Color(1, 1, 1, 1);
 			variantContainer.GetChild<Button>(1).Disabled = (variantContainer.GetChild<OptionButton>(2).Selected < 2);
 		}
 
