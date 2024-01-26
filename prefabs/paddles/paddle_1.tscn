@@ -364,7 +364,7 @@ platform_wall_layers = 1
 safe_margin = 0.1
 script = ExtResource("1_fg4cs")
 _bouncyBoost = 2.0
-_positionY = 100
+_positionY = 98
 _sprites = Array[Texture2D]([ExtResource("2_qjynj"), ExtResource("3_1nd2x"), ExtResource("4_4g85y")])
 
 [node name="Collider" type="CollisionPolygon2D" parent="."]

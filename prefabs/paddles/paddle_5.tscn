@@ -366,7 +366,7 @@ script = ExtResource("1_gcdim")
 _topCollider = NodePath("Collider")
 _maxBounceAngle = 90.0
 _bouncyBoost = 2.0
-_positionY = 100
+_positionY = 98
 _sprites = Array[Texture2D]([ExtResource("5_8u02p"), ExtResource("3_3dsqa"), ExtResource("4_cc7c7")])
 
 [node name="Collider" type="CollisionPolygon2D" parent="."]
@@ -399,7 +399,7 @@ patch_margin_bottom = 2
 libraries = {
 "": SubResource("AnimationLibrary_6a3eu")
 }
-blend_times = [&"RESET", &"size_2", 1.0, &"RESET", &"size_7", 1.0, &"RESET", &"size_5", 1.0, &"RESET", &"size_3", 1.0, &"RESET", &"size_1", 1.0, &"RESET", &"size_4", 1.0, &"RESET", &"size_6", 1.0, &"RESET", &"size_8", 1.0]
+blend_times = [&"RESET", &"size_1", 1.0, &"RESET", &"size_8", 1.0, &"RESET", &"size_6", 1.0, &"RESET", &"size_4", 1.0, &"RESET", &"size_5", 1.0, &"RESET", &"size_3", 1.0, &"RESET", &"size_7", 1.0, &"RESET", &"size_2", 1.0]
 
 [node name="Timer" type="Timer" parent="."]
 
