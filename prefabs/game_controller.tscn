@@ -41,7 +41,7 @@ _menuSong = ExtResource("6_n5ei6")
 _clips = Array[AudioStream]([ExtResource("3_we41i"), ExtResource("4_boptt"), ExtResource("5_dwmw2")])
 
 [node name="AudioController" type="AudioStreamPlayer" parent="."]
-max_polyphony = 10
+max_polyphony = 16
 bus = &"Effects"
 script = ExtResource("2_adfrp")
 _clips = Array[AudioStream]([ExtResource("3_5ds7p"), ExtResource("4_0r48c"), ExtResource("5_pxp6u"), ExtResource("7_arthc"), ExtResource("6_v8ycg"), ExtResource("13_7yk1x")])
