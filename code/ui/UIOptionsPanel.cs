@@ -517,10 +517,10 @@ namespace BoGK.UI // TODO: break each category into a separate scene
 		private void UpdateVariantControls(Control variantContainer)
 		{
 			BreakableVariant variant = refs.settings.BreakableVariants[variantContainer.Name];
-
 			string breakableIcon = $"res://assets/sprites/ui_elements/object_icons/{variant.TypeName}";
+			int variantIndex = variantContainer.GetChild<OptionButton>(2).Selected;
 
-			switch (variantContainer.GetChild<OptionButton>(2).Selected)
+			switch (variantIndex)
 			{
 				case 1:
 					breakableIcon += "_rim.png";
@@ -536,8 +536,8 @@ namespace BoGK.UI // TODO: break each category into a separate scene
 			}
 
 			variantContainer.GetChild<Button>(1).Icon = ResourceLoader.Load<Texture2D>(breakableIcon);
-			variantContainer.GetChild<Button>(1).Modulate = (variantContainer.GetChild<OptionButton>(2).Selected > 1) ? variant.CustomColor : new Color(1, 1, 1, 1);
-			variantContainer.GetChild<Button>(1).Disabled = (variantContainer.GetChild<OptionButton>(2).Selected < 2);
+			variantContainer.GetChild<Button>(1).Modulate = (variantIndex > 1) ? variant.CustomColor : new Color(1, 1, 1, 1);
+			variantContainer.GetChild<Button>(1).Disabled = (variantIndex < 2);
 		}
 
 		private void UpdateShortcutPrompts()
