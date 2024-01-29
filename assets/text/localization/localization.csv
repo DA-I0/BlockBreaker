@@ -12,7 +12,7 @@ BUTTON_CONTROLLER,Controller,Gamepad,ゲームパッド,Kontroler
 BUTTON_CONTROLS,Controls,Tastenbelegung,操作方法,Sterowanie
 BUTTON_CUSTOM,Custom,,,
 BUTTON_CUSTOM_COLORS,Custom colors,,,
-BUTTON_DEFAULT,Default,Standardeinstellungen,初期設定,Domyślne
+BUTTON_DEFAULT,Default,Standard,初期設定,Domyślne
 BUTTON_DEFAULT_RIM,Dark outline,,,
 BUTTON_EXIT,Exit,Beenden,終了する,Wyjdź
 BUTTON_GENERAL,General,Allgemein,全般,Ogólne
@@ -105,13 +105,15 @@ PADDLE_3_NAME,Curved,,,
 PADDLE_4_DESC,"It’s roguelike! Well, almost…\nTime moves (normally) when paddle moves, otherwise it slows down to a crawl.",,,
 PADDLE_4_NAME,Roguelike,,,
 PADDLE_5_DESC,"Perfect choice for anyone who craves complete control over the ball.\nBounce angle depends on which part of the paddle is hit, with center sending the ball straight up.",,,
-PADDLE_5_NAME,Bounce control,,,
+PADDLE_5_NAME,Bounce Control,,,
 PLACEHOLDER_DIFF_NAME,New difficulty,Neues Schwierigkeiten,新しい難易度,Nowy poziom trudności
 PLACEHOLDER_PLAYER_NAME,Player,Spieler,プレイヤー,Gracz
 SKILL_ACTIVATION_COST,Activation cost,,,
 SKILL_BALLCONTROL_DESC,Change direction of the ball(s) at will.,,,
-SKILL_BALLCONTROL_NAME,Ball control,,,
+SKILL_BALLCONTROL_NAME,Ball Control,,,
 SKILL_EMERGENCYNET_DESC,Temporary safety net consisting of a single block.,,,
-SKILL_EMERGENCYNET_NAME,Emergency net,,,
+SKILL_EMERGENCYNET_NAME,Emergency Net,,,
 SKILL_SCREENSHAKE_DESC,Shake the screen to slightly change the direction of the ball and drop a few chunks of the ceiling to help with block hunting.\nUsing it will lock the paddle for a few seconds.,,,
 SKILL_SCREENSHAKE_NAME,Shake,,,
+SKILL_POWERBALL_DESC,Temporarily power up the ball to destroy any breakables on its path.\n\nActivation points don’t restore until effect ends.,,,
+SKILL_POWERBALL_NAME,Power Ball,,,
