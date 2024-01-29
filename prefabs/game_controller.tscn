@@ -81,5 +81,8 @@ script = ExtResource("4_jrwof")
 [node name="Timer" type="Timer" parent="Camera2D"]
 one_shot = true
 
+[node name="SkillTimer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="timeout" from="Score/Timer" to="Score" method="AddBonusScore"]
 [connection signal="child_entered_tree" from="CurrentScene" to="LevelManager" method="OnCurrentSceneChildEnteredTree"]

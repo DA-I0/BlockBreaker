@@ -19,11 +19,13 @@ public class Skill
 		refs = sessionController;
 		refs.gameScore.ScoreChanged += UpdateActivationPoints;
 		refs.levelManager.ResetSession += Cleanup;
+		SecondarySetup();
 		Reset();
 	}
 
 	public virtual void Activate() { }
 
+	protected virtual void SecondarySetup() { }
 
 	protected void Reset()
 	{

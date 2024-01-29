@@ -1,4 +1,3 @@
-using System.ComponentModel;
 using Godot;
 
 public enum BallMode { idle, angleSelection, moving, frozen, spinning };
@@ -8,6 +7,8 @@ public partial class Ball : CharacterBody2D
 	private const float MaxBallSpeedMultiplier = 1.5f;
 	private const float MinBallSpeedMultiplier = 0.5f;
 	private const int MaxTrailCurvePoints = 10;
+	private const string DefaultSprite = "res://assets/sprites/animations/power_ball.png";
+	private const string PowerSprite = "res://assets/sprites/animations/ball.png";
 
 	private BallMode _ballMode = BallMode.idle;
 
@@ -20,6 +21,7 @@ public partial class Ball : CharacterBody2D
 	private float _boostMultiplier = 1f;
 	private float _advancingSpeedMultiplier = 1f;
 	private int _lastSpeedUpdateComboValue = 0;
+	private bool _isPowerBall = false;
 
 	private bool _increasingRotation = true;
 	private float _startingRotation = 0;
@@ -147,6 +149,7 @@ public partial class Ball : CharacterBody2D
 		_advancingSpeedMultiplier = 1f;
 		SpeedMultiplier = 1f;
 		ChangeSize(1f);
+		SetPowerBallState(false);
 		StateReset();
 	}
 
@@ -191,6 +194,12 @@ public partial class Ball : CharacterBody2D
 		BallMode = BallMode.idle;
 	}
 
+	public void SetPowerBallState(bool active)
+	{
+		_isPowerBall = active;
+		AdjustPowerVisuals();
+	}
+
 	private void Release()
 	{
 		Velocity = new Vector2(0, -_baseSpeed).Rotated(_arrow.Rotation);
@@ -217,14 +226,34 @@ public partial class Ball : CharacterBody2D
 		_animator.Play("bounce", 0, 1.5f);
 		refs.audioController.PlayAudio(0);
 
-		Velocity = Velocity.Bounce(collision.GetNormal());
-
 		Breakable breakable = collision.GetCollider() as Breakable;
-		breakable?.Damage(1);
+		DamageCollider(breakable);
+
+		if (!_isPowerBall || breakable == null)
+		{
+			Velocity = Velocity.Bounce(collision.GetNormal());
+		}
 
 		if (collision.GetCollider() == refs.paddle)
 		{
 			refs.paddle.ApplyPaddleEffect(this);
+		}
+	}
+
+	private void DamageCollider(Breakable breakable)
+	{
+		if (breakable == null)
+		{
+			return;
+		}
+
+		if (_isPowerBall)
+		{
+			breakable.Damage(999);
+		}
+		else
+		{
+			breakable?.Damage(1);
 		}
 	}
 
@@ -356,6 +385,18 @@ public partial class Ball : CharacterBody2D
 	private void ToggleSpeedTrail()
 	{
 		_speedTrail.Visible = (_speedMultiplier * _boostMultiplier * _advancingSpeedMultiplier > 1) && _ballMode == BallMode.moving;
+	}
+
+	private void AdjustPowerVisuals()
+	{
+		if (_isPowerBall)
+		{
+			_sprite.Texture = ResourceLoader.Load<Texture2D>(PowerSprite);
+		}
+		else
+		{
+			_sprite.Texture = ResourceLoader.Load<Texture2D>(DefaultSprite);
+		}
 	}
 
 	private void OnScreenExited(bool levelChange = false)
