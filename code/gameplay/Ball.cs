@@ -7,8 +7,8 @@ public partial class Ball : CharacterBody2D
 	private const float MaxBallSpeedMultiplier = 1.5f;
 	private const float MinBallSpeedMultiplier = 0.5f;
 	private const int MaxTrailCurvePoints = 10;
-	private const string DefaultSprite = "res://assets/sprites/animations/power_ball.png";
-	private const string PowerSprite = "res://assets/sprites/animations/ball.png";
+	private const string DefaultSprite = "res://assets/sprites/animations/ball.png";
+	private const string PowerSprite = "res://assets/sprites/animations/power_ball.png";
 
 	private BallMode _ballMode = BallMode.idle;
 
