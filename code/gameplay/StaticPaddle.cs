@@ -12,7 +12,7 @@ public partial class StaticPaddle : Paddle
 		switch (_paddleMode)
 		{
 			case PaddleMode.bouncy:
-				targetBall.ChangeTempSpeedMultiplier(_bouncyBoost);
+				targetBall.SetTempSpeedMultiplier(_bouncyBoost);
 				break;
 
 			case PaddleMode.sticky:

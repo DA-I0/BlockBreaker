@@ -155,7 +155,7 @@ public partial class Paddle : CharacterBody2D
 		switch (_paddleMode)
 		{
 			case PaddleMode.bouncy:
-				targetBall.ChangeTempSpeedMultiplier(_bouncyBoost);
+				targetBall.SetTempSpeedMultiplier(_bouncyBoost);
 				break;
 
 			case PaddleMode.sticky:

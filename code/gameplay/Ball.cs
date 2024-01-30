@@ -167,6 +167,12 @@ public partial class Ball : CharacterBody2D
 
 	public void ChangeTempSpeedMultiplier(float value)
 	{
+		_boostMultiplier += value;
+		UpdateSpeed();
+	}
+
+	public void SetTempSpeedMultiplier(float value)
+	{
 		_boostMultiplier = value;
 		UpdateSpeed();
 	}
@@ -363,7 +369,7 @@ public partial class Ball : CharacterBody2D
 
 			default:
 				Velocity = Vector2.Zero;
-				ChangeTempSpeedMultiplier(1);
+				SetTempSpeedMultiplier(1);
 				_animator.Play("idle");
 				_speedTrailCurve.ClearPoints();
 				break;
