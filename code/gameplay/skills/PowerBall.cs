@@ -1,7 +1,7 @@
 public class PowerBall : Skill
 {
 	private const int PowerPoints = 15;
-	private const int SkillLength = 5;
+	private const int SkillDuration = 5;
 
 	private Godot.Timer _skillTimer;
 
@@ -16,9 +16,9 @@ public class PowerBall : Skill
 		{
 			TogglePowerBallState(true);
 
-			_skillTimer.Start(SkillLength);
-			_activationPoints = -999;
+			_skillTimer.Start(SkillDuration);
 			OnActivation();
+			_activationPoints = -999;
 		}
 	}
 
@@ -39,5 +39,6 @@ public class PowerBall : Skill
 	private void SkillEnd()
 	{
 		TogglePowerBallState(false);
+		Reset();
 	}
 }
