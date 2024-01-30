@@ -223,7 +223,6 @@ public partial class Ball : CharacterBody2D
 			return;
 		}
 
-		_animator.Play("bounce", 0, 1.5f);
 		refs.audioController.PlayAudio(0);
 
 		Breakable breakable = collision.GetCollider() as Breakable;
@@ -232,6 +231,7 @@ public partial class Ball : CharacterBody2D
 		if (!_isPowerBall || breakable == null)
 		{
 			Velocity = Velocity.Bounce(collision.GetNormal());
+			_animator.Play("bounce", 0, 1.5f);
 		}
 
 		if (collision.GetCollider() == refs.paddle)
