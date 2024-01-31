@@ -182,6 +182,8 @@ public partial class Ball : CharacterBody2D
 		Scale = new Vector2(value, value);
 		float arrowScale = (value == 1) ? 1 : (1 / value);
 		_arrow.Scale = new Vector2(arrowScale, arrowScale);
+
+		_speedTrail.WidthCurve.SetPointValue(1, value);
 	}
 
 	public void ChangeRotation(float value)
