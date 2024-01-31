@@ -150,7 +150,7 @@ public partial class SessionController : Node
 	public void ChangeGameState(GameState state)
 	{
 		_gameState = state;
-		GetTree().Paused = (_gameState == GameState.pause);
+		GetTree().Paused = (_gameState == GameState.pause) || (_gameState == GameState.gameOver) || (_gameState == GameState.gameWin);
 		Input.MouseMode = (_gameState == GameState.gameplay) ? Input.MouseModeEnum.Captured : Input.MouseModeEnum.Visible;
 		GameStateChanged?.Invoke();
 	}
