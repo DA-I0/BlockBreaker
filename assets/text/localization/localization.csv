@@ -72,11 +72,9 @@ OPTION_GENERAL_FONT,Font,Schriftart,フォント,Czcionka
 OPTION_GENERAL_LANGUAGE,Language,Sprache,言語,Język
 OPTION_GENERAL_UI_PROMPTS,Control prompts,,,
 OPTION_INPUT_ACTIVE_GAMEPAD,Active controller,,,
-OPTION_INPUT_CONTROLLER_SPEED,Controller speed,Gamepadempfindlichkeit,ゲームパッド感度,Prędkość kontrolera
+OPTION_INPUT_SENSITIVITY,Sensitivity,Empfindlichkeit,感度,Czułość
 OPTION_INPUT_CONTROLLER_VIBRATIONS,Vibrations,Vibrationen,バイブレーション,Vibracje
-OPTION_INPUT_KEYBOARD_SPEED,Keyboard speed,Tastaturempfindlichkeit,キーボード感度,Prędkość klawiatury
 OPTION_INPUT_LEFT,Left,Links,左,Lewo
-OPTION_INPUT_MOUSE_SPEED,Mouse speed,Mausempfindlichkeit,マウス感度,Prędkość myszy
 OPTION_INPUT_PAUSE,Pause,Pause,ポーズ,Pauza
 OPTION_INPUT_PLAY,Release ball,,,Wypuść piłkę
 OPTION_INPUT_RESET,Respawn,Wiederbelebung,復活,Reset

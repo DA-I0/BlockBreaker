@@ -548,7 +548,7 @@ anchors_preset = -1
 anchor_right = 0.45
 anchor_bottom = 1.0
 offset_left = 11.0
-text = "OPTION_INPUT_MOUSE_SPEED"
+text = "OPTION_INPUT_SENSITIVITY"
 vertical_alignment = 1
 
 [node name="MouseSpeedSlider" type="HSlider" parent="ControlOptions/Options/MouseSettings/Mouse/MouseSpeedSetting"]
@@ -595,7 +595,7 @@ anchors_preset = -1
 anchor_right = 0.45
 anchor_bottom = 1.0
 offset_left = 11.0
-text = "OPTION_INPUT_KEYBOARD_SPEED"
+text = "OPTION_INPUT_SENSITIVITY"
 vertical_alignment = 1
 
 [node name="KeyboardSpeedSlider" type="HSlider" parent="ControlOptions/Options/KeyboardSettings/Keyboard/KeyboardSpeedSetting"]
@@ -664,7 +664,7 @@ anchors_preset = -1
 anchor_right = 0.45
 anchor_bottom = 1.0
 offset_left = 11.0
-text = "OPTION_INPUT_CONTROLLER_SPEED"
+text = "OPTION_INPUT_SENSITIVITY"
 vertical_alignment = 1
 
 [node name="ControllerSpeedSlider" type="HSlider" parent="ControlOptions/Options/JoypadSettings/Joypad/ControllerSpeedSetting"]
