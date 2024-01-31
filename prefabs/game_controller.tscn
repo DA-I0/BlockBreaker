@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://jpldd4vrbmum"]
+[gd_scene load_steps=24 format=3 uid="uid://jpldd4vrbmum"]
 
 [ext_resource type="Script" path="res://code/system/SessionController.cs" id="1_uqmtw"]
 [ext_resource type="Script" path="res://code/system/AudioController.cs" id="2_adfrp"]
@@ -16,11 +16,9 @@
 [ext_resource type="AudioStream" uid="uid://40kwjykf2muc" path="res://assets/audio/sfx/death.wav" id="5_pxp6u"]
 [ext_resource type="AudioStream" uid="uid://daguq1ydeal20" path="res://assets/audio/music/sinnesloschen-beam-117362.mp3" id="6_n5ei6"]
 [ext_resource type="AudioStream" uid="uid://bjfu5jvkqqjd1" path="res://assets/audio/sfx/shake_available.wav" id="6_v8ycg"]
-[ext_resource type="AudioStream" uid="uid://dhscni7gxefu8" path="res://assets/audio/music/chippy music 2.mp3" id="7_50d3p"]
 [ext_resource type="AudioStream" uid="uid://cpd3aml2jsiie" path="res://assets/audio/sfx/shake.wav" id="7_arthc"]
-[ext_resource type="AudioStream" uid="uid://j45mbbqbq0vs" path="res://assets/audio/music/Ancestral.wav" id="8_svc74"]
-[ext_resource type="AudioStream" uid="uid://cum8mpg7sculg" path="res://assets/audio/music/Bustling Beards.wav" id="9_8v5wb"]
-[ext_resource type="AudioStream" uid="uid://b5dhv4846smt0" path="res://assets/audio/music/Citadel of Stone.wav" id="10_yqqis"]
+[ext_resource type="AudioStream" uid="uid://otxfhtj6ryuf" path="res://assets/audio/music/Countersunk.mp3" id="8_4lc41"]
+[ext_resource type="AudioStream" uid="uid://bbjdaneaj1j84" path="res://assets/audio/music/Ancestral.mp3" id="9_to68m"]
 [ext_resource type="AudioStream" uid="uid://cig284vodgdhh" path="res://assets/audio/sfx/explosion.wav" id="13_7yk1x"]
 [ext_resource type="PackedScene" uid="uid://3o4xaawp25f5" path="res://prefabs/decorations/death_pit_marker_level.tscn" id="17_75vht"]
 [ext_resource type="PackedScene" uid="uid://dseel27vbf765" path="res://prefabs/ui/pause_prompt.tscn" id="17_ewsqo"]
@@ -42,7 +40,7 @@ process_mode = 3
 bus = &"Music"
 script = ExtResource("2_sxw6d")
 _menuSong = ExtResource("6_n5ei6")
-_clips = Array[AudioStream]([ExtResource("3_we41i"), ExtResource("4_boptt"), ExtResource("5_dwmw2"), ExtResource("7_50d3p"), ExtResource("8_svc74"), ExtResource("9_8v5wb"), ExtResource("10_yqqis")])
+_clips = Array[AudioStream]([ExtResource("3_we41i"), ExtResource("4_boptt"), ExtResource("5_dwmw2"), ExtResource("8_4lc41"), ExtResource("9_to68m")])
 
 [node name="AudioController" type="AudioStreamPlayer" parent="."]
 max_polyphony = 16
