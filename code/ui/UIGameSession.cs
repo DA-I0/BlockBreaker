@@ -114,7 +114,11 @@ namespace BoGK.UI
 		private void DisplayExitPrompt()
 		{
 			_exitTimer.Visible = false;
-			_exitPrompt.Visible = true;
+
+			if (!refs.IsLastLevel)
+			{
+				_exitPrompt.Visible = true;
+			}
 		}
 
 		private void UpdateTimer()

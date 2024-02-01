@@ -16,7 +16,7 @@ namespace BoGK.UI
 
 		private void DisplayStageSummary(int score, int scoreMultiplier, int timeLeft, int perfectClearBonus)
 		{
-			if (refs.settings.StageClearScreen)
+			if (refs.settings.StageClearScreen && !refs.IsLastLevel)
 			{
 				_text.Text = (timeLeft > 0) ? $"{Tr("LABEL_TIME_LEFT")}: +{timeLeft}\n" : string.Empty;
 				_text.Text += (perfectClearBonus > 0) ? $"{Tr("LABEL_PERFECT_CLEAR")}: +{perfectClearBonus}\n" : string.Empty;

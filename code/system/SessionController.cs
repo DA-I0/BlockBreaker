@@ -63,6 +63,11 @@ public partial class SessionController : Node
 		get { return gameData.Skills[_selectedSkillIndex]; }
 	}
 
+	public bool IsLastLevel
+	{
+		get { return (gameData.Levels.Count - 1) == _currentLevel; }
+	}
+
 	public override void _Ready()
 	{
 		SetupReferences();
