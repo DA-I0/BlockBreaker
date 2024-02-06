@@ -53,6 +53,8 @@ namespace BoGK.UI
 				{
 					_focusTarget[0].GrabFocus();
 				}
+
+				UpdateDisplayedValues();
 			}
 		}
 
@@ -109,7 +111,15 @@ namespace BoGK.UI
 
 		private void ApplyStaticValues()
 		{
-			_name.Text = refs.gameData.Difficulties[_currentDifficulty].DifficultyName;
+			if (refs.gameData.Difficulties[_currentDifficulty].DifficultyName.Contains("DIFF_DEFAULT_"))
+			{
+				_name.Text = Tr(refs.gameData.Difficulties[_currentDifficulty].DifficultyName);
+			}
+			else
+			{
+				_name.Text = refs.gameData.Difficulties[_currentDifficulty].DifficultyName;
+			}
+
 			_livesMax.Text = $"{Tr("DIFF_LIVES_MAX")}: {refs.gameData.Difficulties[_currentDifficulty].MaxLives}";
 			_livesStart.Text = $"{Tr("DIFF_LIVES_START")}: {refs.gameData.Difficulties[_currentDifficulty].StartingLives}";
 			_ballSpeed.Text = $"{Tr("DIFF_BALL_SPEED")}: {refs.gameData.Difficulties[_currentDifficulty].BallSpeedMultiplier}";

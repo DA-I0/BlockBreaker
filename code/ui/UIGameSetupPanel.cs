@@ -81,7 +81,14 @@ namespace BoGK.UI
 
 		private void UpdateSelectedDifficulty()
 		{
-			_difficultyButton.Text = refs.SelectedDifficulty.DifficultyName;
+			if (refs.SelectedDifficulty.DifficultyName.Contains("DIFF_DEFAULT_"))
+			{
+				_difficultyButton.Text = Tr(refs.SelectedDifficulty.DifficultyName);
+			}
+			else
+			{
+				_difficultyButton.Text = refs.SelectedDifficulty.DifficultyName;
+			}
 		}
 
 		private void UpdateSelectedSkill()
