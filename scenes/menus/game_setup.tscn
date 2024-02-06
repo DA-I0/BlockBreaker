@@ -30,7 +30,6 @@ _difficultyButton = NodePath("HBoxContainer/Panel/VBoxContainer/DifficultyButton
 _skillButton = NodePath("HBoxContainer/Panel/VBoxContainer/SkillButton")
 _focusTarget = [NodePath("HBoxContainer/Panel/VBoxContainer/PaddleButton")]
 _returnButton = NodePath("HBoxContainer/Panel/VBoxContainer/Return")
-_returnTarget = null
 
 [node name="GameSetupHeader" type="Panel" parent="."]
 custom_minimum_size = Vector2(0, 20)
@@ -153,4 +152,4 @@ anchor_bottom = 1.0
 offset_top = 3.0
 offset_right = -3.0
 offset_bottom = -3.0
-columns = 4
+columns = 5

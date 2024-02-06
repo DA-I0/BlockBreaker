@@ -23,7 +23,8 @@ namespace BoGK.UI
 			{
 				Button newButton = new Button
 				{
-					Text = refs.gameData.Levels[index].Replace(".tscn", "").Replace(".remap", "")
+					Text = refs.gameData.Levels[index].Replace("level_", "").Replace(".tscn", "").Replace(".remap", ""),
+					CustomMinimumSize = new Vector2(22, 16)
 				};
 
 				int levelIndex = index;
