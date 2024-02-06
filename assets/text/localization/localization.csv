@@ -28,6 +28,10 @@ BUTTON_VIDEO,Video,Video,ビデオクオリティ,Wideo
 DIFF_ADVANCING_SPEED,Advancing speed,,,
 DIFF_ANGLE_SPEED,Angle selection speed,,,Prędkość wyboru kąta
 DIFF_BALL_SPEED,Ball speed,Ball Geschwindigkeit,ボールスピード,Prędkość piłki
+DIFF_DEFAULT_EASY,Easy,Einfach,易しい,Łatwy
+DIFF_DEFAULT_HARD,Hard,Schwer,難しい,Trudny
+DIFF_DEFAULT_MEDIUM,Medium,Mittel,普通,Średni
+DIFF_DEFAULT_VERY_HARD,Very Hard,Sehr schwer,とても難しい,Bardzo trudny
 DIFF_LIVES_MAX,Max lives,Maximale Leben,最大値のライフ,Maksimum żyć
 DIFF_LIVES_START,Starting lives,Anfängliche Leben,初期のライフ,Początkowe życia
 DIFF_NAME,Name,Name,名前,Nazwa
@@ -72,13 +76,13 @@ OPTION_GENERAL_FONT,Font,Schriftart,フォント,Czcionka
 OPTION_GENERAL_LANGUAGE,Language,Sprache,言語,Język
 OPTION_GENERAL_UI_PROMPTS,Control prompts,,,
 OPTION_INPUT_ACTIVE_GAMEPAD,Active controller,,,
-OPTION_INPUT_SENSITIVITY,Sensitivity,Empfindlichkeit,感度,Czułość
 OPTION_INPUT_CONTROLLER_VIBRATIONS,Vibrations,Vibrationen,バイブレーション,Vibracje
 OPTION_INPUT_LEFT,Left,Links,左,Lewo
 OPTION_INPUT_PAUSE,Pause,Pause,ポーズ,Pauza
 OPTION_INPUT_PLAY,Release ball,,,Wypuść piłkę
 OPTION_INPUT_RESET,Respawn,Wiederbelebung,復活,Reset
 OPTION_INPUT_RIGHT,Right,Rechts,右,Prawo
+OPTION_INPUT_SENSITIVITY,Sensitivity,Empfindlichkeit,感度,Czułość
 OPTION_INPUT_SKILL,Use skill,Benutzung Fähigkeiten,使用スキル,Użyj umiejętności
 OPTION_UI_DISPLAY_STAGE_COMPLETE_SCREEN,Display stage complete screen,,,
 OPTION_UI_LIFE_DISPLAY,Display lives as text,,,
@@ -111,7 +115,7 @@ SKILL_BALLCONTROL_DESC,Change direction of the ball(s) at will.,,,
 SKILL_BALLCONTROL_NAME,Ball Control,,,
 SKILL_EMERGENCYNET_DESC,Temporary safety net consisting of a single block.,,,
 SKILL_EMERGENCYNET_NAME,Emergency Net,,,
-SKILL_SCREENSHAKE_DESC,Shake the screen to slightly change the direction of the ball and drop a few chunks of the ceiling to help with block hunting.\nUsing it will lock the paddle for a few seconds.,,,
-SKILL_SCREENSHAKE_NAME,Shake,,,
 SKILL_POWERBALL_DESC,Temporarily power up the ball to destroy any breakables on its path.\n\nActivation points don’t restore until effect ends.,,,
 SKILL_POWERBALL_NAME,Power Ball,,,
+SKILL_SCREENSHAKE_DESC,Shake the screen to slightly change the direction of the ball and drop a few chunks of the ceiling to help with block hunting.\nUsing it will lock the paddle for a few seconds.,,,
+SKILL_SCREENSHAKE_NAME,Shake,,,
