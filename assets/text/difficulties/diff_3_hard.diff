@@ -1,9 +1,9 @@
-name="Hard"
+name="DIFF_DEFAULT_HARD"
 maxLives=3
 startingLives=2
-ballSpeedMultiplier=1.3
-angleSelectSpeed=2
-maxPaddleSize=2
-startPaddleSize=2
+ballSpeedMultiplier=1.2
+angleSelectSpeed=1.5
+maxPaddleSize=4
+startPaddleSize=3
 minPaddleSize=1
 advancingSpeed=false
