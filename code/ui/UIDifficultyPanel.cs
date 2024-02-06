@@ -45,6 +45,9 @@ namespace BoGK.UI
 		{
 			if (Visible)
 			{
+				_currentDifficulty = refs.SelectedDifficultyIndex;
+				UpdateDisplayedValues();
+
 				if (_inEditMode)
 				{
 					_newName.GrabFocus();
@@ -53,8 +56,6 @@ namespace BoGK.UI
 				{
 					_focusTarget[0].GrabFocus();
 				}
-
-				UpdateDisplayedValues();
 			}
 		}
 

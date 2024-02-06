@@ -17,6 +17,16 @@ namespace BoGK.UI
 			UpdateDisplayedValues();
 		}
 
+		protected override void Focus()
+		{
+			if (Visible && _focusTarget.Length > 0)
+			{
+				_currentSkill = refs.SelectedSkillIndex;
+				UpdateDisplayedValues();
+				_focusTarget[0].GrabFocus();
+			}
+		}
+
 		private void UpdateDisplayedValues()
 		{
 			Skill currentSkill = refs.gameData.Skills[_currentSkill];

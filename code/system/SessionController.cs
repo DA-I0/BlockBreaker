@@ -8,6 +8,7 @@ public partial class SessionController : Node
 	private int _currentPaddle;
 	private int _currentDifficulty;
 	private int _currentLevel;
+	private int _currentSkill;
 
 	public GameData gameData;
 	public Settings settings;
@@ -20,7 +21,6 @@ public partial class SessionController : Node
 	[Export] public Node gameElements;
 
 	public Paddle paddle;
-	private int _selectedSkillIndex = 0;
 
 	public event Notification LastBallLost; // can't be here, gotta move it to a single place
 	public event Notification GameStateChanged;
@@ -33,6 +33,21 @@ public partial class SessionController : Node
 		get { return _gameState; }
 	}
 
+	public int SelectedPaddleIndex
+	{
+		get { return _currentPaddle; }
+	}
+
+	public string SelectedPaddle
+	{
+		get { return $"res://prefabs/paddles/paddle_{_currentPaddle}.tscn"; }
+	}
+
+	public int SelectedDifficultyIndex
+	{
+		get { return _currentDifficulty; }
+	}
+
 	public BoGK.Models.Difficulty SelectedDifficulty
 	{
 		get { return gameData.Difficulties[_currentDifficulty]; }
@@ -43,24 +58,19 @@ public partial class SessionController : Node
 		get { return _currentDifficulty > (gameData.DefaultDifficultyCount - 1); }
 	}
 
-	public string SelectedPaddle
+	public int SelectedSkillIndex
 	{
-		get { return $"res://prefabs/paddles/paddle_{_currentPaddle}.tscn"; }
+		get { return _currentSkill; }
 	}
 
-	public int SelectedPaddleIndex
+	public Skill SelectedSkill
 	{
-		get { return _currentPaddle; }
+		get { return gameData.Skills[_currentSkill]; }
 	}
 
 	public Godot.Collections.Array<Node> Balls
 	{
 		get { return gameElements.GetChild(0).GetChildren(); }
-	}
-
-	public Skill SelectedSkill
-	{
-		get { return gameData.Skills[_selectedSkillIndex]; }
 	}
 
 	public bool IsLastLevel
@@ -147,7 +157,7 @@ public partial class SessionController : Node
 		_currentPaddle = 1;
 		_currentDifficulty = 1;
 		_currentLevel = -1;
-		_selectedSkillIndex = 0;
+		_currentSkill = 0;
 
 		ChangeGameState(GameState.menu);
 	}
@@ -178,7 +188,7 @@ public partial class SessionController : Node
 
 	public void SetSkill(int index)
 	{
-		_selectedSkillIndex = index;
+		_currentSkill = index;
 	}
 
 	private void UseSkill(InputEvent @event)

@@ -24,6 +24,8 @@ namespace BoGK.UI
 		{
 			if (Visible && _focusTarget.Length > 0)
 			{
+				_currentPaddle = refs.SelectedPaddleIndex;
+				UpdateDisplayedValues();
 				_focusTarget[0].GrabFocus();
 			}
 		}
