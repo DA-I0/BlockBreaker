@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://code/ui/UIColorPicker.cs" id="6_svy1v"]
 [ext_resource type="Shortcut" uid="uid://bhk5vranx2qfl" path="res://shortcuts/cancel.tres" id="6_vgxtx"]
 
-[node name="OptionsPanel" type="Panel" node_paths=PackedStringArray("_header", "_language", "_font", "_controllerType", "_livesDisplay", "_stageClearDisplay", "_controlDevices", "_fullscreen", "_screenShake", "_backgroundBrightness", "_pickupOrder", "_helperTransparency", "_brekableVariantContainer", "_colorPickerPanel", "_masterVolume", "_musicVolume", "_effectsVolume", "_mouseSpeed", "_keyboardSpeed", "_joypadSpeed", "_activeJoypad", "_vibrations", "_previousCategoryShortuct", "_nextCategoryShortuct", "_categoryFocusTargets", "_focusTarget", "_returnButton")]
+[node name="OptionsPanel" type="Panel" node_paths=PackedStringArray("_header", "_language", "_font", "_controllerType", "_livesDisplay", "_stageClearDisplay", "_controlDevices", "_fullscreen", "_screenShake", "_pickupOrder", "_backgroundBrightnessText", "_backgroundBrightness", "_helperTransparencyText", "_helperTransparency", "_brekableVariantContainer", "_colorPickerPanel", "_masterVolumeText", "_masterVolume", "_musicVolumeText", "_musicVolume", "_effectsVolumeText", "_effectsVolume", "_mouseSpeedText", "_mouseSpeed", "_keyboardSpeedText", "_keyboardSpeed", "_joypadSpeedText", "_joypadSpeed", "_activeJoypad", "_vibrations", "_previousCategoryShortuct", "_nextCategoryShortuct", "_categoryFocusTargets", "_focusTarget", "_returnButton")]
 custom_minimum_size = Vector2(256, 224)
 anchors_preset = 15
 anchor_right = 1.0
@@ -23,16 +23,24 @@ _stageClearDisplay = NodePath("GeneralOptions/Options/StageClearDisplaySetting/S
 _controlDevices = NodePath("ControlOptions/Options")
 _fullscreen = NodePath("VideoOptions/Options/FullscreenSetting/FullscreenToggle")
 _screenShake = NodePath("VideoOptions/Options/ScreenShakeSetting/ScreenShakeToggle")
-_backgroundBrightness = NodePath("VideoOptions/Options/BackgroundSetting/BackgroundSlider")
 _pickupOrder = NodePath("VideoOptions/Options/PickupSetting/PickupOptions")
+_backgroundBrightnessText = NodePath("VideoOptions/Options/BackgroundSetting/HBoxContainer/BackgroundValue")
+_backgroundBrightness = NodePath("VideoOptions/Options/BackgroundSetting/BackgroundSlider")
+_helperTransparencyText = NodePath("VideoOptions/Options/EffectsTransparencySetting/EffectsTransparencyText/EffectsTransparencyValue")
 _helperTransparency = NodePath("VideoOptions/Options/EffectsTransparencySetting/EffectsTransparencySlider")
 _brekableVariantContainer = NodePath("VideoOptions/Options/BreakableVariantSetting")
 _colorPickerPanel = NodePath("ColorPickerPanel")
+_masterVolumeText = NodePath("AudioOptions/Options/MasterVolumeSetting/MasterVolumeText/MasterVolumeValue")
 _masterVolume = NodePath("AudioOptions/Options/MasterVolumeSetting/MasterVolumeSlider")
+_musicVolumeText = NodePath("AudioOptions/Options/MusicVolumeSetting/MusicVolumeText/MusicVolumeValue")
 _musicVolume = NodePath("AudioOptions/Options/MusicVolumeSetting/MusicVolumeSlider")
+_effectsVolumeText = NodePath("AudioOptions/Options/EffectsVolumeSetting/EffectsVolumeText/EffectsVolumeValue")
 _effectsVolume = NodePath("AudioOptions/Options/EffectsVolumeSetting/EffectsVolumeSlider")
+_mouseSpeedText = NodePath("ControlOptions/Options/MouseSettings/Mouse/MouseSpeedSetting/MouseSpeedText/MouseSpeedValue")
 _mouseSpeed = NodePath("ControlOptions/Options/MouseSettings/Mouse/MouseSpeedSetting/MouseSpeedSlider")
+_keyboardSpeedText = NodePath("ControlOptions/Options/KeyboardSettings/Keyboard/KeyboardSpeedSetting/KeyboardSpeedText/KeyboardSpeedValue")
 _keyboardSpeed = NodePath("ControlOptions/Options/KeyboardSettings/Keyboard/KeyboardSpeedSetting/KeyboardSpeedSlider")
+_joypadSpeedText = NodePath("ControlOptions/Options/JoypadSettings/Joypad/ControllerSpeedSetting/ControllerSpeedText/ControllerSpeedValue")
 _joypadSpeed = NodePath("ControlOptions/Options/JoypadSettings/Joypad/ControllerSpeedSetting/ControllerSpeedSlider")
 _activeJoypad = NodePath("ControlOptions/Options/JoypadSettings/Joypad/ActiveController/ActiveGamepadOptions")
 _vibrations = NodePath("ControlOptions/Options/JoypadSettings/Joypad/VibrationSetting/VibrationToggle")
@@ -289,36 +297,6 @@ focus_neighbor_bottom = NodePath("../../BackgroundSetting/BackgroundSlider")
 focus_next = NodePath("../../BackgroundSetting/BackgroundSlider")
 flat = true
 
-[node name="BackgroundSetting" type="Control" parent="VideoOptions/Options"]
-custom_minimum_size = Vector2(0, 19)
-layout_mode = 2
-
-[node name="BackgroundLabel" type="Label" parent="VideoOptions/Options/BackgroundSetting"]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.45
-anchor_bottom = 1.0
-offset_left = 4.0
-text = "OPTION_VIDEO_BACKGROUND_TRANSPARENCY"
-vertical_alignment = 1
-
-[node name="BackgroundSlider" type="HSlider" parent="VideoOptions/Options/BackgroundSetting"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -3.0
-offset_right = -4.0
-focus_neighbor_top = NodePath("../../ScreenShakeSetting/ScreenShakeToggle")
-focus_neighbor_bottom = NodePath("../../PickupSetting/PickupOptions")
-focus_next = NodePath("../../PickupSetting/PickupOptions")
-focus_previous = NodePath("../../ScreenShakeSetting/ScreenShakeToggle")
-min_value = 0.4
-max_value = 1.0
-step = 0.1
-value = 1.0
-
 [node name="PickupSetting" type="Control" parent="VideoOptions/Options"]
 custom_minimum_size = Vector2(0, 19)
 layout_mode = 2
@@ -343,7 +321,7 @@ offset_right = -4.0
 focus_neighbor_top = NodePath("../../BackgroundSetting/BackgroundSlider")
 focus_neighbor_bottom = NodePath("../../EffectsTransparencySetting/EffectsTransparencySlider")
 focus_next = NodePath("../../EffectsTransparencySetting/EffectsTransparencySlider")
-focus_previous = NodePath("../../BackgroundSetting/BackgroundLabel")
+focus_previous = NodePath("../../BackgroundSetting/HBoxContainer/BackgroundLabel")
 item_count = 3
 popup/item_0/text = "OPTION_VIDEO_PICKUP_ORDER_BOTTOM"
 popup/item_0/id = 0
@@ -352,17 +330,63 @@ popup/item_1/id = 1
 popup/item_2/text = "OPTION_VIDEO_PICKUP_ORDER_TOP"
 popup/item_2/id = 2
 
-[node name="EffectsTransparencySetting" type="Control" parent="VideoOptions/Options"]
+[node name="BackgroundSetting" type="Control" parent="VideoOptions/Options"]
 custom_minimum_size = Vector2(0, 19)
 layout_mode = 2
 
-[node name="EffectsTransparencyLabel" type="Label" parent="VideoOptions/Options/EffectsTransparencySetting"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VideoOptions/Options/BackgroundSetting"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.45
 anchor_bottom = 1.0
 offset_left = 4.0
+
+[node name="BackgroundLabel" type="Label" parent="VideoOptions/Options/BackgroundSetting/HBoxContainer"]
+layout_mode = 2
+text = "OPTION_VIDEO_BACKGROUND_TRANSPARENCY"
+vertical_alignment = 1
+
+[node name="BackgroundValue" type="Label" parent="VideoOptions/Options/BackgroundSetting/HBoxContainer"]
+layout_mode = 2
+text = "0"
+vertical_alignment = 1
+
+[node name="BackgroundSlider" type="HSlider" parent="VideoOptions/Options/BackgroundSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+offset_right = -4.0
+focus_neighbor_top = NodePath("../../ScreenShakeSetting/ScreenShakeToggle")
+focus_neighbor_bottom = NodePath("../../PickupSetting/PickupOptions")
+focus_next = NodePath("../../PickupSetting/PickupOptions")
+focus_previous = NodePath("../../ScreenShakeSetting/ScreenShakeToggle")
+min_value = 0.4
+max_value = 1.0
+step = 0.1
+value = 1.0
+
+[node name="EffectsTransparencySetting" type="Control" parent="VideoOptions/Options"]
+custom_minimum_size = Vector2(0, 19)
+layout_mode = 2
+
+[node name="EffectsTransparencyText" type="HBoxContainer" parent="VideoOptions/Options/EffectsTransparencySetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.45
+anchor_bottom = 1.0
+offset_left = 4.0
+
+[node name="EffectsTransparencyLabel" type="Label" parent="VideoOptions/Options/EffectsTransparencySetting/EffectsTransparencyText"]
+layout_mode = 2
 text = "OPTION_VIDEO_EFFECT_TRANSPARENCY"
+vertical_alignment = 1
+
+[node name="EffectsTransparencyValue" type="Label" parent="VideoOptions/Options/EffectsTransparencySetting/EffectsTransparencyText"]
+layout_mode = 2
+text = "0"
 vertical_alignment = 1
 
 [node name="EffectsTransparencySlider" type="HSlider" parent="VideoOptions/Options/EffectsTransparencySetting"]
@@ -420,13 +444,21 @@ size_flags_vertical = 3
 custom_minimum_size = Vector2(0, 19)
 layout_mode = 2
 
-[node name="MasterVolumeLabel" type="Label" parent="AudioOptions/Options/MasterVolumeSetting"]
+[node name="MasterVolumeText" type="HBoxContainer" parent="AudioOptions/Options/MasterVolumeSetting"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.45
 anchor_bottom = 1.0
 offset_left = 4.0
+
+[node name="MasterVolumeLabel" type="Label" parent="AudioOptions/Options/MasterVolumeSetting/MasterVolumeText"]
+layout_mode = 2
 text = "OPTION_VOLUME_MASTER"
+vertical_alignment = 1
+
+[node name="MasterVolumeValue" type="Label" parent="AudioOptions/Options/MasterVolumeSetting/MasterVolumeText"]
+layout_mode = 2
+text = "0"
 vertical_alignment = 1
 
 [node name="MasterVolumeSlider" type="HSlider" parent="AudioOptions/Options/MasterVolumeSetting"]
@@ -448,13 +480,21 @@ max_value = 6.0
 custom_minimum_size = Vector2(0, 19)
 layout_mode = 2
 
-[node name="MusicVolumeLabel" type="Label" parent="AudioOptions/Options/MusicVolumeSetting"]
+[node name="MusicVolumeText" type="HBoxContainer" parent="AudioOptions/Options/MusicVolumeSetting"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.45
 anchor_bottom = 1.0
 offset_left = 4.0
+
+[node name="MusicVolumeLabel" type="Label" parent="AudioOptions/Options/MusicVolumeSetting/MusicVolumeText"]
+layout_mode = 2
 text = "OPTION_VOLUME_MUSIC"
+vertical_alignment = 1
+
+[node name="MusicVolumeValue" type="Label" parent="AudioOptions/Options/MusicVolumeSetting/MusicVolumeText"]
+layout_mode = 2
+text = "0"
 vertical_alignment = 1
 
 [node name="MusicVolumeSlider" type="HSlider" parent="AudioOptions/Options/MusicVolumeSetting"]
@@ -476,13 +516,21 @@ max_value = 6.0
 custom_minimum_size = Vector2(0, 19)
 layout_mode = 2
 
-[node name="EffectsVolumeLabel" type="Label" parent="AudioOptions/Options/EffectsVolumeSetting"]
+[node name="EffectsVolumeText" type="HBoxContainer" parent="AudioOptions/Options/EffectsVolumeSetting"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.45
 anchor_bottom = 1.0
 offset_left = 4.0
+
+[node name="EffectsVolumeLabel" type="Label" parent="AudioOptions/Options/EffectsVolumeSetting/EffectsVolumeText"]
+layout_mode = 2
 text = "OPTION_VOLUME_EFFECTS"
+vertical_alignment = 1
+
+[node name="EffectsVolumeValue" type="Label" parent="AudioOptions/Options/EffectsVolumeSetting/EffectsVolumeText"]
+layout_mode = 2
+text = "0"
 vertical_alignment = 1
 
 [node name="EffectsVolumeSlider" type="HSlider" parent="AudioOptions/Options/EffectsVolumeSetting"]
@@ -542,13 +590,21 @@ layout_mode = 2
 custom_minimum_size = Vector2(0, 19)
 layout_mode = 2
 
-[node name="MouseSpeedLabel" type="Label" parent="ControlOptions/Options/MouseSettings/Mouse/MouseSpeedSetting"]
+[node name="MouseSpeedText" type="HBoxContainer" parent="ControlOptions/Options/MouseSettings/Mouse/MouseSpeedSetting"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.45
 anchor_bottom = 1.0
-offset_left = 11.0
+offset_left = 4.0
+
+[node name="MouseSpeedLabel" type="Label" parent="ControlOptions/Options/MouseSettings/Mouse/MouseSpeedSetting/MouseSpeedText"]
+layout_mode = 2
 text = "OPTION_INPUT_SENSITIVITY"
+vertical_alignment = 1
+
+[node name="MouseSpeedValue" type="Label" parent="ControlOptions/Options/MouseSettings/Mouse/MouseSpeedSetting/MouseSpeedText"]
+layout_mode = 2
+text = "0"
 vertical_alignment = 1
 
 [node name="MouseSpeedSlider" type="HSlider" parent="ControlOptions/Options/MouseSettings/Mouse/MouseSpeedSetting"]
@@ -589,13 +645,21 @@ layout_mode = 2
 custom_minimum_size = Vector2(0, 19)
 layout_mode = 2
 
-[node name="KeyboardSpeedLabel" type="Label" parent="ControlOptions/Options/KeyboardSettings/Keyboard/KeyboardSpeedSetting"]
+[node name="KeyboardSpeedText" type="HBoxContainer" parent="ControlOptions/Options/KeyboardSettings/Keyboard/KeyboardSpeedSetting"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.45
 anchor_bottom = 1.0
-offset_left = 11.0
+offset_left = 4.0
+
+[node name="KeyboardSpeedLabel" type="Label" parent="ControlOptions/Options/KeyboardSettings/Keyboard/KeyboardSpeedSetting/KeyboardSpeedText"]
+layout_mode = 2
 text = "OPTION_INPUT_SENSITIVITY"
+vertical_alignment = 1
+
+[node name="KeyboardSpeedValue" type="Label" parent="ControlOptions/Options/KeyboardSettings/Keyboard/KeyboardSpeedSetting/KeyboardSpeedText"]
+layout_mode = 2
+text = "0"
 vertical_alignment = 1
 
 [node name="KeyboardSpeedSlider" type="HSlider" parent="ControlOptions/Options/KeyboardSettings/Keyboard/KeyboardSpeedSetting"]
@@ -658,13 +722,21 @@ offset_right = -4.0
 custom_minimum_size = Vector2(0, 19)
 layout_mode = 2
 
-[node name="ControllerSpeedLabel" type="Label" parent="ControlOptions/Options/JoypadSettings/Joypad/ControllerSpeedSetting"]
+[node name="ControllerSpeedText" type="HBoxContainer" parent="ControlOptions/Options/JoypadSettings/Joypad/ControllerSpeedSetting"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.45
 anchor_bottom = 1.0
-offset_left = 11.0
+offset_left = 4.0
+
+[node name="ControllerSpeedLabel" type="Label" parent="ControlOptions/Options/JoypadSettings/Joypad/ControllerSpeedSetting/ControllerSpeedText"]
+layout_mode = 2
 text = "OPTION_INPUT_SENSITIVITY"
+vertical_alignment = 1
+
+[node name="ControllerSpeedValue" type="Label" parent="ControlOptions/Options/JoypadSettings/Joypad/ControllerSpeedSetting/ControllerSpeedText"]
+layout_mode = 2
+text = "0"
 vertical_alignment = 1
 
 [node name="ControllerSpeedSlider" type="HSlider" parent="ControlOptions/Options/JoypadSettings/Joypad/ControllerSpeedSetting"]
@@ -866,7 +938,15 @@ text = "BUTTON_CONFIRM"
 layout_mode = 2
 text = "BUTTON_CANCEL"
 
+[connection signal="value_changed" from="VideoOptions/Options/BackgroundSetting/BackgroundSlider" to="." method="UpdateVideoTextValues" unbinds=1]
+[connection signal="value_changed" from="VideoOptions/Options/EffectsTransparencySetting/EffectsTransparencySlider" to="." method="UpdateVideoTextValues" unbinds=1]
 [connection signal="pressed" from="VideoOptions/Options/CustomCollorsToggleButton" to="." method="ToggleBreakableVariantsDisplay"]
+[connection signal="value_changed" from="AudioOptions/Options/MasterVolumeSetting/MasterVolumeSlider" to="." method="UpdateAudioTextValues" unbinds=1]
+[connection signal="value_changed" from="AudioOptions/Options/MusicVolumeSetting/MusicVolumeSlider" to="." method="UpdateAudioTextValues" unbinds=1]
+[connection signal="value_changed" from="AudioOptions/Options/EffectsVolumeSetting/EffectsVolumeSlider" to="." method="UpdateAudioTextValues" unbinds=1]
+[connection signal="value_changed" from="ControlOptions/Options/MouseSettings/Mouse/MouseSpeedSetting/MouseSpeedSlider" to="." method="UpdateControlsTextValues" unbinds=1]
+[connection signal="value_changed" from="ControlOptions/Options/KeyboardSettings/Keyboard/KeyboardSpeedSetting/KeyboardSpeedSlider" to="." method="UpdateControlsTextValues" unbinds=1]
+[connection signal="value_changed" from="ControlOptions/Options/JoypadSettings/Joypad/ControllerSpeedSetting/ControllerSpeedSlider" to="." method="UpdateControlsTextValues" unbinds=1]
 [connection signal="pressed" from="OptionsButtons/Confirm" to="." method="SaveSettings"]
 [connection signal="pressed" from="OptionsButtons/Cancel" to="." method="CancelSettings"]
 [connection signal="pressed" from="OptionsButtons/Default" to="." method="RestoreDefaultSettings"]

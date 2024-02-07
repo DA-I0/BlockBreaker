@@ -17,17 +17,25 @@ namespace BoGK.UI // TODO: break each category into a separate scene
 		[Export] private Control _controlDevices;
 		[Export] private CheckButton _fullscreen;
 		[Export] private CheckButton _screenShake;
-		[Export] private HSlider _backgroundBrightness;
 		[Export] private OptionButton _pickupOrder;
+		[Export] private Label _backgroundBrightnessText;
+		[Export] private HSlider _backgroundBrightness;
+		[Export] private Label _helperTransparencyText;
 		[Export] private HSlider _helperTransparency;
 		[Export] private Control _brekableVariantContainer;
 		[Export] private UIColorPicker _colorPickerPanel;
+		[Export] private Label _masterVolumeText;
 		[Export] private HSlider _masterVolume;
+		[Export] private Label _musicVolumeText;
 		[Export] private HSlider _musicVolume;
+		[Export] private Label _effectsVolumeText;
 		[Export] private HSlider _effectsVolume;
 		[Export] private Control _keybindChangePanel;
+		[Export] private Label _mouseSpeedText;
 		[Export] private HSlider _mouseSpeed;
+		[Export] private Label _keyboardSpeedText;
 		[Export] private HSlider _keyboardSpeed;
+		[Export] private Label _joypadSpeedText;
 		[Export] private HSlider _joypadSpeed;
 		[Export] private OptionButton _activeJoypad;
 		[Export] private CheckButton _vibrations;
@@ -128,8 +136,8 @@ namespace BoGK.UI // TODO: break each category into a separate scene
 			_stageClearDisplay.ButtonPressed = refs.settings.StageClearScreen;
 			_fullscreen.ButtonPressed = (refs.settings.ScreenMode > 0);
 			_screenShake.ButtonPressed = refs.settings.ScreenShake;
-			_backgroundBrightness.Value = refs.settings.BackgroundBrightness;
 			_pickupOrder.Selected = refs.settings.PickupOrder;
+			_backgroundBrightness.Value = refs.settings.BackgroundBrightness;
 			_helperTransparency.Value = refs.settings.HelperTransparency;
 			_masterVolume.Value = refs.settings.MasterVolume;
 			_musicVolume.Value = refs.settings.MusicVolume;
@@ -281,6 +289,26 @@ namespace BoGK.UI // TODO: break each category into a separate scene
 					_header.Text = Tr("HEADER_OPTIONS");
 					break;
 			}
+		}
+
+		private void UpdateVideoTextValues()
+		{
+			_backgroundBrightnessText.Text = System.MathF.Round((float)_backgroundBrightness.Value, 2).ToString();
+			_helperTransparencyText.Text = System.MathF.Round((float)_helperTransparency.Value, 2).ToString();
+		}
+
+		private void UpdateAudioTextValues()
+		{
+			_masterVolumeText.Text = $"{System.MathF.Round((float)_masterVolume.Ratio * 100, 0)}%";
+			_musicVolumeText.Text = $"{System.MathF.Round((float)_musicVolume.Ratio * 100, 0)}%";
+			_effectsVolumeText.Text = $"{System.MathF.Round((float)_effectsVolume.Ratio * 100, 0)}%";
+		}
+
+		private void UpdateControlsTextValues()
+		{
+			_mouseSpeedText.Text = System.MathF.Round((float)_mouseSpeed.Value, 2).ToString();
+			_keyboardSpeedText.Text = System.MathF.Round((float)_keyboardSpeed.Value, 2).ToString();
+			_joypadSpeedText.Text = System.MathF.Round((float)_joypadSpeed.Value, 2).ToString();
 		}
 
 		private void SetupActiveJoypadOptions(long device = 0, bool connected = false)
