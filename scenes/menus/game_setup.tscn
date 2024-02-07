@@ -24,12 +24,12 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_qrg3h")
-_levelGrid = NodePath("HBoxContainer/Control/Levels")
-_paddleButton = NodePath("HBoxContainer/Panel/VBoxContainer/PaddleButton")
-_difficultyButton = NodePath("HBoxContainer/Panel/VBoxContainer/DifficultyButton")
-_skillButton = NodePath("HBoxContainer/Panel/VBoxContainer/SkillButton")
-_focusTarget = [NodePath("HBoxContainer/Panel/VBoxContainer/PaddleButton")]
-_returnButton = NodePath("HBoxContainer/Panel/VBoxContainer/Return")
+_levelGrid = NodePath("MainContent/LevelsContainer/Levels")
+_paddleButton = NodePath("MainContent/SidePanel/VBoxContainer/PaddleButton")
+_difficultyButton = NodePath("MainContent/SidePanel/VBoxContainer/DifficultyButton")
+_skillButton = NodePath("MainContent/SidePanel/VBoxContainer/SkillButton")
+_focusTarget = [NodePath("MainContent/SidePanel/VBoxContainer/PaddleButton")]
+_returnButton = NodePath("MainContent/SidePanel/VBoxContainer/Return")
 
 [node name="GameSetupHeader" type="Panel" parent="."]
 custom_minimum_size = Vector2(0, 20)
@@ -48,7 +48,7 @@ text = "HEADER_GAME_SETUP"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="MainContent" type="HBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -58,20 +58,20 @@ offset_top = 20.0
 offset_right = -4.0
 offset_bottom = -4.0
 
-[node name="Panel" type="PanelContainer" parent="HBoxContainer"]
+[node name="SidePanel" type="PanelContainer" parent="MainContent"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
 theme_override_styles/panel = SubResource("StyleBoxTexture_35ikn")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MainContent/SidePanel"]
 layout_mode = 2
 
-[node name="PaddleLabel" type="Label" parent="HBoxContainer/Panel/VBoxContainer"]
+[node name="PaddleLabel" type="Label" parent="MainContent/SidePanel/VBoxContainer"]
 layout_mode = 2
 text = "LABEL_PADDLE"
 
-[node name="PaddleButton" type="Button" parent="HBoxContainer/Panel/VBoxContainer"]
+[node name="PaddleButton" type="Button" parent="MainContent/SidePanel/VBoxContainer"]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 focus_neighbor_left = NodePath("../SkillButton")
@@ -83,37 +83,17 @@ focus_previous = NodePath("../SkillButton")
 icon = ExtResource("4_f1u0x")
 icon_alignment = 1
 
-[node name="Spacer" type="Control" parent="HBoxContainer/Panel/VBoxContainer"]
+[node name="Spacer" type="Control" parent="MainContent/SidePanel/VBoxContainer"]
 custom_minimum_size = Vector2(0, 3)
 layout_mode = 2
 size_flags_vertical = 2
 size_flags_stretch_ratio = 0.0
 
-[node name="DifficultyLabel" type="Label" parent="HBoxContainer/Panel/VBoxContainer"]
-layout_mode = 2
-text = "LABEL_DIFFICULTY"
-
-[node name="DifficultyButton" type="Button" parent="HBoxContainer/Panel/VBoxContainer"]
-layout_mode = 2
-focus_neighbor_left = NodePath("../PaddleButton")
-focus_neighbor_top = NodePath("../PaddleButton")
-focus_neighbor_right = NodePath("../SkillButton")
-focus_neighbor_bottom = NodePath("../SkillButton")
-focus_next = NodePath("../SkillButton")
-focus_previous = NodePath("../PaddleButton")
-text = "selected_diff"
-
-[node name="Spacer2" type="Control" parent="HBoxContainer/Panel/VBoxContainer"]
-custom_minimum_size = Vector2(0, 3)
-layout_mode = 2
-size_flags_vertical = 0
-size_flags_stretch_ratio = 0.0
-
-[node name="SkillLabel" type="Label" parent="HBoxContainer/Panel/VBoxContainer"]
+[node name="SkillLabel" type="Label" parent="MainContent/SidePanel/VBoxContainer"]
 layout_mode = 2
 text = "LABEL_SKILL"
 
-[node name="SkillButton" type="Button" parent="HBoxContainer/Panel/VBoxContainer"]
+[node name="SkillButton" type="Button" parent="MainContent/SidePanel/VBoxContainer"]
 layout_mode = 2
 focus_neighbor_left = NodePath("../DifficultyButton")
 focus_neighbor_top = NodePath("../DifficultyButton")
@@ -123,28 +103,48 @@ focus_next = NodePath("../PaddleButton")
 focus_previous = NodePath("../DifficultyButton")
 text = "selected_diff"
 
-[node name="Spacer3" type="Control" parent="HBoxContainer/Panel/VBoxContainer"]
+[node name="Spacer2" type="Control" parent="MainContent/SidePanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 2
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.0
+
+[node name="DifficultyLabel" type="Label" parent="MainContent/SidePanel/VBoxContainer"]
+layout_mode = 2
+text = "LABEL_DIFFICULTY"
+
+[node name="DifficultyButton" type="Button" parent="MainContent/SidePanel/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../PaddleButton")
+focus_neighbor_top = NodePath("../PaddleButton")
+focus_neighbor_right = NodePath("../SkillButton")
+focus_neighbor_bottom = NodePath("../SkillButton")
+focus_next = NodePath("../SkillButton")
+focus_previous = NodePath("../PaddleButton")
+text = "selected_diff"
+
+[node name="Spacer3" type="Control" parent="MainContent/SidePanel/VBoxContainer"]
 custom_minimum_size = Vector2(0, 3)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Return" type="Button" parent="HBoxContainer/Panel/VBoxContainer"]
+[node name="Return" type="Button" parent="MainContent/SidePanel/VBoxContainer"]
 layout_mode = 2
 focus_mode = 0
 shortcut = ExtResource("2_c0qja")
 shortcut_in_tooltip = false
 text = "BUTTON_RETURN"
 
-[node name="Spacer4" type="Control" parent="HBoxContainer/Panel/VBoxContainer"]
+[node name="Spacer4" type="Control" parent="MainContent/SidePanel/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 8
 
-[node name="Control" type="Control" parent="HBoxContainer"]
+[node name="LevelsContainer" type="Control" parent="MainContent"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.9
 
-[node name="Levels" type="GridContainer" parent="HBoxContainer/Control"]
+[node name="Levels" type="GridContainer" parent="MainContent/LevelsContainer"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
