@@ -298,6 +298,7 @@ public partial class Ball : CharacterBody2D
 		if (_ballMode == BallMode.moving)
 		{
 			_animator.Play("roll", 0, _combinedSpeed);
+			_particles.Emitting = true;
 		}
 
 		ToggleSpeedTrail();
@@ -360,9 +361,7 @@ public partial class Ball : CharacterBody2D
 
 			case BallMode.moving:
 				refs.paddle.SetPaddleState(PaddleState.idle);
-				_animator.Play("roll", 0, _combinedSpeed);
-				_particles.Emitting = true;
-				ToggleSpeedTrail();
+				UpdateSpeed();
 				break;
 
 			case BallMode.spinning:
