@@ -10,7 +10,7 @@ public partial class ObjectCleaner : Node2D
 		refs.levelManager.ResetSession += Destroy;
 	}
 
-	private void Destroy()
+	public void Destroy()
 	{
 		refs.levelManager.ResetSession -= Destroy;
 		QueueFree();
