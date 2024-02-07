@@ -1,7 +1,7 @@
 public class PowerBall : Skill
 {
 	private const int PowerPoints = 15;
-	private const int SkillDuration = 5;
+	private const int SkillDuration = 4;
 
 	private Godot.Timer _skillTimer;
 
