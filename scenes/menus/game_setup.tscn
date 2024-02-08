@@ -151,3 +151,19 @@ offset_top = 3.0
 offset_right = -3.0
 offset_bottom = -3.0
 columns = 5
+
+[node name="DISCLAIMER_SWITCH_PANEL_HINT" type="RichTextLabel" parent="MainContent/LevelsContainer" groups=["manual_translation"]]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+offset_top = -2.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "DISCLAIMER_SWITCH_PANEL_HINT"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0

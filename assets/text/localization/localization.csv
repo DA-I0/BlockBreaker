@@ -39,6 +39,7 @@ DIFF_PADDLE_SIZE_MAX,Max paddle size,Maximale Schlägergröße,最大値パド�
 DIFF_PADDLE_SIZE_MIN,Min paddle size,Mindest Schlägergröße,,Minimalna wielkość paletki
 DIFF_PADDLE_SIZE_START,Starting paddle size,Anfängliche Schlägergröße,初期パドルサイズ,Początkowy rozmiar paletki
 DISCLAIMER_CUSTOM_DIFF,* Custom difficulty,,,* Własny poziom trudności
+DISCLAIMER_SWITCH_PANEL_HINT,* Press {ui_toggle_focus} to switch between panels.,,,
 GAME_LIVES,Lives,Leben,ライフ,Życia
 GAME_OVER,Game over!,Spiel vorbei!,ゲームオーバー！,Koniec gry!
 GAME_SCORE,Score,Punktzahl,スコア,Punkty
