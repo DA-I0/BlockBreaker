@@ -74,12 +74,10 @@ text = "LABEL_PADDLE"
 [node name="PaddleButton" type="Button" parent="MainContent/SidePanel/VBoxContainer"]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
-focus_neighbor_left = NodePath("../SkillButton")
-focus_neighbor_top = NodePath("../SkillButton")
-focus_neighbor_right = NodePath("../DifficultyButton")
-focus_neighbor_bottom = NodePath("../DifficultyButton")
-focus_next = NodePath("../DifficultyButton")
-focus_previous = NodePath("../SkillButton")
+focus_neighbor_top = NodePath("../Return")
+focus_neighbor_bottom = NodePath("../SkillButton")
+focus_next = NodePath("../SkillButton")
+focus_previous = NodePath("../Return")
 icon = ExtResource("4_f1u0x")
 icon_alignment = 1
 
@@ -95,12 +93,10 @@ text = "LABEL_SKILL"
 
 [node name="SkillButton" type="Button" parent="MainContent/SidePanel/VBoxContainer"]
 layout_mode = 2
-focus_neighbor_left = NodePath("../DifficultyButton")
-focus_neighbor_top = NodePath("../DifficultyButton")
-focus_neighbor_right = NodePath("../PaddleButton")
-focus_neighbor_bottom = NodePath("../PaddleButton")
-focus_next = NodePath("../PaddleButton")
-focus_previous = NodePath("../DifficultyButton")
+focus_neighbor_top = NodePath("../PaddleButton")
+focus_neighbor_bottom = NodePath("../DifficultyButton")
+focus_next = NodePath("../DifficultyButton")
+focus_previous = NodePath("../PaddleButton")
 text = "selected_diff"
 
 [node name="Spacer2" type="Control" parent="MainContent/SidePanel/VBoxContainer"]
@@ -115,12 +111,10 @@ text = "LABEL_DIFFICULTY"
 
 [node name="DifficultyButton" type="Button" parent="MainContent/SidePanel/VBoxContainer"]
 layout_mode = 2
-focus_neighbor_left = NodePath("../PaddleButton")
-focus_neighbor_top = NodePath("../PaddleButton")
-focus_neighbor_right = NodePath("../SkillButton")
-focus_neighbor_bottom = NodePath("../SkillButton")
-focus_next = NodePath("../SkillButton")
-focus_previous = NodePath("../PaddleButton")
+focus_neighbor_top = NodePath("../SkillButton")
+focus_neighbor_bottom = NodePath("../Return")
+focus_next = NodePath("../Return")
+focus_previous = NodePath("../SkillButton")
 text = "selected_diff"
 
 [node name="Spacer3" type="Control" parent="MainContent/SidePanel/VBoxContainer"]
@@ -130,6 +124,10 @@ size_flags_vertical = 3
 
 [node name="Return" type="Button" parent="MainContent/SidePanel/VBoxContainer"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../DifficultyButton")
+focus_neighbor_bottom = NodePath("../PaddleButton")
+focus_next = NodePath("../PaddleButton")
+focus_previous = NodePath("../DifficultyButton")
 focus_mode = 0
 shortcut = ExtResource("2_c0qja")
 shortcut_in_tooltip = false
