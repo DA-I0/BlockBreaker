@@ -408,7 +408,7 @@ public partial class Ball : CharacterBody2D
 
 	private void OnScreenExited(bool levelChange = false)
 	{
-		if (refs.Balls.Count > 1)
+		if (refs.Balls.Count > 1 && refs.Balls[0] != this)
 		{
 			Destroy();
 		}
