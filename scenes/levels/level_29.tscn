@@ -273,8 +273,6 @@ position = Vector2(27, -49)
 [node name="Grave23" parent="OtherBreakables" instance=ExtResource("8_dxt35")]
 position = Vector2(77, -49)
 
-[node name="Interactables" type="Node2D" parent="."]
-
 [node name="Props" type="Node2D" parent="."]
 y_sort_enabled = true
 position = Vector2(0, 20)

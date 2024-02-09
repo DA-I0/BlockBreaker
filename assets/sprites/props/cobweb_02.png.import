@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cmsn2xa1o5svp"
-path="res://.godot/imported/cobweb_02.png-62a3a87188b6d3bd6ed3feb23fefee9f.ctex"
+path="res://.godot/imported/cobweb_02.png-4f21fb60c3c7921d30630316517190c6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/props/plants/cobweb_02.png"
-dest_files=["res://.godot/imported/cobweb_02.png-62a3a87188b6d3bd6ed3feb23fefee9f.ctex"]
+source_file="res://assets/sprites/props/cobweb_02.png"
+dest_files=["res://.godot/imported/cobweb_02.png-4f21fb60c3c7921d30630316517190c6.ctex"]
 
 [params]
 

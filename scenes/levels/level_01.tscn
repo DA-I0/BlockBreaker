@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://c5l15cwtikj2l"]
+[gd_scene load_steps=8 format=3 uid="uid://c5l15cwtikj2l"]
 
 [ext_resource type="TileSet" uid="uid://cq216ryrvltw" path="res://assets/tilesets/brick.tres" id="1_n0sa6"]
 [ext_resource type="PackedScene" uid="uid://too80a13ex5u" path="res://prefabs/blocks/block_basic.tscn" id="2_ph5yg"]
+[ext_resource type="Texture2D" uid="uid://0t2asg2jiqqd" path="res://assets/sprites/props/cobweb_01.png" id="3_5e1nh"]
 [ext_resource type="PackedScene" uid="uid://cgpa7sf8jgxu8" path="res://prefabs/level_exit.tscn" id="3_s2ab8"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_p587y"]
@@ -136,6 +137,13 @@ position = Vector2(64, -13)
 
 [node name="BlockBasic33" parent="Blocks" instance=ExtResource("2_ph5yg")]
 position = Vector2(80, -13)
+
+[node name="Props" type="Node2D" parent="."]
+
+[node name="Cobweb01" type="Sprite2D" parent="Props"]
+position = Vector2(-107, -75)
+texture = ExtResource("3_5e1nh")
+flip_h = true
 
 [node name="LevelExit" parent="." instance=ExtResource("3_s2ab8")]
 position = Vector2(0, -63)

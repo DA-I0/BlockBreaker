@@ -360,4 +360,4 @@ position = Vector2(-85, 67)
 position = Vector2(-91, 73)
 
 [node name="LevelExit" parent="." instance=ExtResource("10_fp613")]
-position = Vector2(0, 17)
+position = Vector2(1, 17)
