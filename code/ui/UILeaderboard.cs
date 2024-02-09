@@ -27,7 +27,7 @@ namespace BoGK.UI
 
 			foreach (Models.HighScore entry in refs.gameData.Leaderboard)
 			{
-				string difficulty = entry.UsedCustomDifficulty ? $"{entry.DifficultyName}*" : entry.DifficultyName;
+				string difficulty = entry.UsedCustomDifficulty ? $"{entry.DifficultyName}*" : Tr(entry.DifficultyName);
 				_playerNames.Text += $"{position}. {entry.PlayerName} ({difficulty})\n";
 				_playerScore.Text += $"{entry.Score}\n";
 
