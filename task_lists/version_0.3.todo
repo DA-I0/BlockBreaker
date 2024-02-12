@@ -3,52 +3,45 @@ Version 0.3:
 		Skills:
 			✔ Proper skill system @high @done(23-12-12 16:33)
 			✔ Ball angle selection in flight @done(23-12-12 19:43)
-			☐ Power ball @low
+			✔ Power ball @low @done(24-01-29 18:51)
 			✔ Temporary safety net? @low @done(24-01-02 14:09)
 			✔ Update "shake" skill (add debrie falling from the celling that can damage breakables when hit) @high @done(23-12-12 16:48)
 			✔ Switch from time to breakable destruction based skill charging @done(23-12-12 16:33)
 		Dynamic elements:
-			☐ Add repeating timed toggle for teleport door?
-			☐ Add on-map buttons that toggle connected element when hit with the ball?
-			☐ River (slightly changes ball direction)
-			☐ Speed pads (ball gains a temporary boost when going over one)
+			✔ Speed pads (ball gains a temporary boost when going over one) @done(24-01-30 16:16)
 		Pickups:
 			✘ Add magnet (pull pickups near the paddle towards it, not exclusive unlike sticky/bouncy paddle?) @cancelled(24-01-03 18:21)
 			☐ Add random (randomize on spawn, ? as icon?)
 		Paddles:
 			☐ Add double paddle (half-length, consists of two paddles, one under another, moving in opposit directions, might be a pickup instead?) @low
 		System:
-			☐ Replace music randomization with shuffle @low
+			✔ Replace music randomization with shuffle @low @done(24-01-30 19:32)
 			✔ Add optional difficulty modifier: advancing speed (ball becomes faster the longer you play without losing a life) @done(23-12-15 16:52)
 			✔ Bonus points for a perfect (no death) stage completion @done(23-12-29 17:06)
 	Map elements:
-		☐ Stairs + railing @low
-			☐ Ball can move over stairs
-			☐ Ball can move **down** through broken railing
-			☐ Ball can't move up through wall at the bottom of the stairs or railing
-		☐ Cracked walls (can be destroyed with TNT)
 		☐ More map decorations (up the visual variety) @low
 			☐ Fountain
 		✔ Unify tilesets organization @high @done(24-01-11 18:28)
 	UI:
-		☐ Splash screen on map load (display map name/number) @low
+		✔ Splash screen on map load (display map name/number) @low @done(24-02-12 16:17)
 		✔ Stage clear screen (with info about any bonus points - exit time, perfect clear) @low @done(24-01-01 18:09)
-		☐ Improve main menu layout and theming
-			☐ Fix readability & layout with different localizations
+		✔ Improve main menu layout and theming @done(24-01-19 17:44)
+			✔ Fix readability & layout with different localizations @done(24-01-18 16:57)
 			✔ Simplify game setup @done(13-12-27 19:02)
 			✘ Explore (and implement, if possible) independent UI resolution @cancelled(23-12-28 18:33)
-		☐ Add access to options and info panels in-game (from pause menu)
+		☐ Add access to options and info panels in-game (from pause menu) @low
 		✔ Option to display lives as text (ex. LIVES x8) @done(23-12-08 16:38)
 		✔ Add skill selection @done(23-12-13 19:03)
 		✔ Change "skill active" icon depending on selected skill @done(23-12-29 15:21)
-		☐ Add active input type selection (auto, just mouse, just keyboard, just gamepad)
+		✘ Add active input type selection (auto, just mouse, just keyboard, just gamepad)? @cancelled(24-02-08 17:46)
 		✔ Add active controller selection (all, <list of connected devices>) @done(23-12-18 18:33)
 		☐ Test stage display in options panel to show any graphics changes during setup (map transparency, breakable colors etc.) @low
 	Other:
 		☐ Improve translations
 		☐ Make a new logo @low
-		☐ Add more music tracks @low
+		✔ Add more music tracks @low @done(24-01-30 20:36)
 		✘ Restore resolution selection and make gameplay resize accordingly? @cancelled(23-12-19 15:37)
+		☐ Move default settings to a text file @low
 	Accessibility:
 		✔ Color customization for gameplay elements (breakables, ball, paddles) @done(24-01-09 15:54)
 		☐ Recheck all sprites and adjust if necessary
@@ -57,5 +50,9 @@ Version 0.3:
 	Issues:
 		✔ Ball sometimes slides along the paddle instead of bouncing @high @done(23-12-14 18:01)
 		✔ Game launches zoomed in, only half of the window is visible on screen @SteamDeck @high @done(18-12-27 17:46)
-		☐ Paddle collider doesn't resize with smooth transition enabled @low
+		✔ Paddle collider doesn't resize with smooth transition enabled @low @done(24-02-12 18:03)
 		✔ Language selection doesn't appear on first launch @done(23-12-18 17:27)
+		✔ Control settings partially obscured by category buttons when using German or Japanese language @done(24-01-18 16:57)
+		✔ Difficulty removal button not working @done(24-01-01 18:45)
+		✔ Ball's speed trail doesn't scale properly @done(24-01-31 16:10)
+		✔ Pickups don't collide with roguelike paddle @high @done(24-02-12 19:27)

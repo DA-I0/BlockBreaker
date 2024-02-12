@@ -1,4 +1,4 @@
-Version 0.3:
+Version 0.4:
 	Features:
 		Keep mode:
 			☐ "Tree" level progression (think Outrun, Shadow the Hedgehog)?
@@ -20,11 +20,9 @@ Version 0.3:
 				☐ Aggresive (can attack the player but only with debuffs?)
 			☐ River (slightly changes ball direction)
 			☐ Indestructible "breakables" (break to open and get a prize, in the form chests etc)
-			☐ Speed pads (ball gains a temporary boost when going over one)
 		Paddles:
 			☐ Add double paddle (half-length, consists of two paddles, one under another, moving in opposit directions, might be a pickup instead?) @low
 		System:
-			☐ Replace music randomization with shuffle @low
 			☐ Dynamic translation loading (custom localization support) @low
 	Map elements:
 		☐ Stairs + railing @low
@@ -44,10 +42,10 @@ Version 0.3:
 			☐ Interactables
 				☐ Level exit (big gate)
 				☐ Teleport (small gate)
-		☐ Unify tilesets organization @high
 		☐ Use a different color palette for each tileset @low
 	Other:
 		☐ Improve translations
 		☐ Make a new logo @low
 		☐ Add more music tracks @low
+		☐ Compile all plans & dev notes into a proper design doc
 	Issues:
