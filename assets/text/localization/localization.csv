@@ -83,22 +83,21 @@ OPTION_INPUT_PAUSE,Pause,Pause,ポーズ,Pauza
 OPTION_INPUT_PLAY,Release ball,,,Wypuść piłkę
 OPTION_INPUT_RESET,Respawn,Wiederbelebung,復活,Reset
 OPTION_INPUT_RIGHT,Right,Rechts,右,Prawo
-OPTION_INPUT_SENSITIVITY,Sensitivity,Empfindlichkeit,感度,Czułość
+OPTION_INPUT_SENSITIVITY,Sensitivity:,Empfindlichkeit:,感度:,Czułość:
 OPTION_INPUT_SKILL,Use skill,Benutzung Fähigkeiten,使用スキル,Użyj umiejętności
 OPTION_UI_DISPLAY_STAGE_COMPLETE_SCREEN,Display stage complete screen,,,
 OPTION_UI_LIFE_DISPLAY,Display lives as text,,,
-OPTION_VIDEO_BACKGROUND_TRANSPARENCY,Background brightness,Hintergrundtransparenz,背景の透明性,Jasność tła
-OPTION_VIDEO_EFFECT_TRANSPARENCY,Effect transparency,,,Przezroczystość efektów
+OPTION_VIDEO_BACKGROUND_TRANSPARENCY,Background brightness:,Hintergrundtransparenz:,背景の透明性:,Jasność tła:
+OPTION_VIDEO_EFFECT_TRANSPARENCY,Effect transparency:,,,Przezroczystość efektów:
 OPTION_VIDEO_FULLSCREEN,Fullscreen,Vollbild,フルスクリーン,Pełen ekran
 OPTION_VIDEO_PICKUP_ORDER,Pickup visibility,,,Widoczność znajdziek
 OPTION_VIDEO_PICKUP_ORDER_BOTTOM,Bottom,Unten,下,Pod wszystkim
 OPTION_VIDEO_PICKUP_ORDER_MIDDLE,Above ball,,,Nad piłką
 OPTION_VIDEO_PICKUP_ORDER_TOP,Top,Oben,上,Nad wszystkim
-OPTION_VIDEO_RESOLUTION,Window size,Videoauflösung,画面サイズ,Rozmiar okna
 OPTION_VIDEO_SCREEN_SHAKE,Enable screen shake,Bild Schütteln,クリーンシェイク,Wstrząs ekranu
-OPTION_VOLUME_EFFECTS,Effects volume,Soundeffektlautstärke,SE音量 ,Głośność efektów
-OPTION_VOLUME_MASTER,Master volume,Gesamtlautstärke,全体音量,Głośność ogólna
-OPTION_VOLUME_MUSIC,Music volume,Musiklautstärke,BGM音量 ,Głośność muzyki
+OPTION_VOLUME_EFFECTS,Effects volume:,Soundeffektlautstärke:,SE音量:,Głośność efektów:
+OPTION_VOLUME_MASTER,Master volume:,Gesamtlautstärke:,全体音量:,Głośność ogólna:
+OPTION_VOLUME_MUSIC,Music volume:,Musiklautstärke:,BGM音量:,Głośność muzyki:
 PADDLE_1_DESC,"Basic paddle. Easy to use, easy to master.",,,
 PADDLE_1_NAME,Basic,,,
 PADDLE_2_DESC,Paddle with arms for additional bounce options.,,,
@@ -120,3 +119,4 @@ SKILL_POWERBALL_DESC,Temporarily power up the ball to destroy any breakables on 
 SKILL_POWERBALL_NAME,Power Ball,,,
 SKILL_SCREENSHAKE_DESC,Shake the screen to slightly change the direction of the ball and drop a few chunks of the ceiling to help with block hunting.\nUsing it will lock the paddle for a few seconds.,,,
 SKILL_SCREENSHAKE_NAME,Shake,,,
+LEVEL,Level,Level,ステージ,Poziom
