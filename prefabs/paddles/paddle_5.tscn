@@ -33,7 +33,7 @@ tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
+"update": 0,
 "values": [PackedVector2Array(-9.6, -1.61765, 22.4, -1.61765, 22.4, 0.264706, 12.8, 3.08824, 0, 3.08824, -9.6, 0.264706)]
 }
 tracks/1/type = "value"
@@ -73,7 +73,7 @@ tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
+"update": 0,
 "values": [PackedVector2Array(-12.8, -1.61765, 25.6, -1.61765, 25.6, 0.264706, 16, 3.08824, -3.2, 3.08824, -12.8, 0.264706)]
 }
 tracks/1/type = "value"
@@ -113,7 +113,7 @@ tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
+"update": 0,
 "values": [PackedVector2Array(-19.2, -1.61765, 32, -1.61765, 32, 0.264706, 22.4, 3.08824, -9.6, 3.08824, -19.2, 0.264706)]
 }
 tracks/1/type = "value"
@@ -153,7 +153,7 @@ tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
+"update": 0,
 "values": [PackedVector2Array(-25.6, -1.61765, 38.4, -1.61765, 38.4, 0.264706, 28.8, 3.08824, -16, 3.08824, -25.6, 0.264706)]
 }
 tracks/1/type = "value"
@@ -193,7 +193,7 @@ tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
+"update": 0,
 "values": [PackedVector2Array(-32, -1.61765, 44.8, -1.61765, 44.8, 0.264706, 35.2, 3.08824, -22.4, 3.08824, -32, 0.264706)]
 }
 tracks/1/type = "value"
@@ -233,7 +233,7 @@ tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
+"update": 0,
 "values": [PackedVector2Array(-38.4, -1.61765, 51.2, -1.61765, 51.2, 0.264706, 41.6, 3.08824, -28.8, 3.08824, -38.4, 0.264706)]
 }
 tracks/1/type = "value"
@@ -273,7 +273,7 @@ tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
+"update": 0,
 "values": [PackedVector2Array(-44.8, -1.61765, 57.6, -1.61765, 57.6, 0.264706, 48, 3.08824, -35.2, 3.08824, -44.8, 0.264706)]
 }
 tracks/1/type = "value"
@@ -313,7 +313,7 @@ tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
+"update": 0,
 "values": [PackedVector2Array(-51.2, -1.61765, 64, -1.61765, 64, 0.264706, 54.4, 3.08824, -41.6, 3.08824, -51.2, 0.264706)]
 }
 tracks/1/type = "value"
@@ -399,7 +399,6 @@ patch_margin_bottom = 2
 libraries = {
 "": SubResource("AnimationLibrary_6a3eu")
 }
-blend_times = [&"RESET", &"size_1", 1.0, &"RESET", &"size_8", 1.0, &"RESET", &"size_6", 1.0, &"RESET", &"size_4", 1.0, &"RESET", &"size_5", 1.0, &"RESET", &"size_3", 1.0, &"RESET", &"size_7", 1.0, &"RESET", &"size_2", 1.0]
 
 [node name="Timer" type="Timer" parent="."]
 

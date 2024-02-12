@@ -33,7 +33,7 @@ tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
+"update": 0,
 "values": [PackedVector2Array(-6.4, -1.61765, 0, -1.61765, 6.4, 0.264706, 12.8, -1.61765, 19.2, -1.61765, 22.4, -0.676471, 22.4, 2.14706, 12.8, 4.97059, 0, 4.97059, -9.6, 2.14706, -9.6, -0.676471)]
 }
 tracks/1/type = "value"
@@ -73,7 +73,7 @@ tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
+"update": 0,
 "values": [PackedVector2Array(-9.6, -1.61765, -3.2, -1.61765, 3.2, 0.264706, 9.6, 0.264706, 16, -1.61765, 22.4, -1.61765, 25.6, -0.676471, 25.6, 2.14706, 16, 4.97059, -3.2, 4.97059, -12.8, 2.14706, -12.8, -0.676471)]
 }
 tracks/1/type = "value"
@@ -113,7 +113,7 @@ tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
+"update": 0,
 "values": [PackedVector2Array(-16, -1.61765, -9.6, -1.61765, -3.2, 0.264706, 16, 0.264706, 22.4, -1.61765, 28.8, -1.61765, 32, -0.676471, 32, 2.14706, 22.4, 4.97059, -9.6, 4.97059, -19.2, 2.14706, -19.2, -0.676471)]
 }
 tracks/1/type = "value"
@@ -153,7 +153,7 @@ tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
+"update": 0,
 "values": [PackedVector2Array(-22.4, -1.61765, -16, -1.61765, -9.6, 0.264706, 22.4, 0.264706, 28.8, -1.61765, 35.2, -1.61765, 38.4, -0.676471, 38.4, 2.14706, 28.8, 4.97059, -16, 4.97059, -25.6, 2.14706, -25.6, -0.676471)]
 }
 tracks/1/type = "value"
@@ -193,7 +193,7 @@ tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
+"update": 0,
 "values": [PackedVector2Array(-28.8, -1.61765, -22.4, -1.61765, -16, 0.264706, 28.8, 0.264706, 35.2, -1.61765, 41.6, -1.61765, 44.8, -0.676471, 44.8, 2.14706, 35.2, 4.97059, -22.4, 4.97059, -32, 2.14706, -32, -0.676471)]
 }
 tracks/1/type = "value"
@@ -233,7 +233,7 @@ tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
+"update": 0,
 "values": [PackedVector2Array(-35.2, -1.61765, -28.8, -1.61765, -22.4, 0.264706, 35.2, 0.264706, 41.6, -1.61765, 48, -1.61765, 51.2, -0.676471, 51.2, 2.14706, 41.6, 4.97059, -28.8, 4.97059, -38.4, 2.14706, -38.4, -0.676471)]
 }
 tracks/1/type = "value"
@@ -273,7 +273,7 @@ tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
+"update": 0,
 "values": [PackedVector2Array(-41.6, -1.61765, -35.2, -1.61765, -28.8, 0.264706, 41.6, 0.264706, 48, -1.61765, 54.4, -1.61765, 57.6, -0.676471, 57.6, 2.14706, 48, 4.97059, -35.2, 4.97059, -44.8, 2.14706, -44.8, -0.676471)]
 }
 tracks/1/type = "value"
@@ -313,7 +313,7 @@ tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
+"update": 0,
 "values": [PackedVector2Array(-48, -1.61765, -41.6, -1.61765, -35.2, 0.264706, 48, 0.264706, 54.4, -1.61765, 60.8, -1.61765, 64, -0.676471, 64, 2.14706, 54.4, 4.97059, -41.6, 4.97059, -51.2, 2.14706, -51.2, -0.676471)]
 }
 tracks/1/type = "value"

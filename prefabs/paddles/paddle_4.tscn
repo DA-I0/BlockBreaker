@@ -36,7 +36,7 @@ tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
+"update": 0,
 "values": [PackedVector2Array(-6.4, -1.61765, 19.2, -1.61765, 19.2, 3.08824, -6.4, 3.08824)]
 }
 tracks/1/type = "value"
@@ -90,7 +90,7 @@ tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
+"update": 0,
 "values": [PackedVector2Array(-12.8, -1.61765, 25.6, -1.61765, 25.6, 3.08824, -12.8, 3.08824)]
 }
 tracks/1/type = "value"
@@ -144,7 +144,7 @@ tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
+"update": 0,
 "values": [PackedVector2Array(-19.2, -1.61765, 32, -1.61765, 32, 3.08824, -19.2, 3.08824)]
 }
 tracks/1/type = "value"
@@ -198,7 +198,7 @@ tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
+"update": 0,
 "values": [PackedVector2Array(-25.6, -1.61765, 38.4, -1.61765, 38.4, 3.08824, -25.6, 3.08824)]
 }
 tracks/1/type = "value"
@@ -252,7 +252,7 @@ tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
+"update": 0,
 "values": [PackedVector2Array(-32, -1.61765, 44.8, -1.61765, 44.8, 3.08824, -32, 3.08824)]
 }
 tracks/1/type = "value"
@@ -306,7 +306,7 @@ tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
+"update": 0,
 "values": [PackedVector2Array(51.2, -1.61765, 51.2, 3.08824, -38.4, 3.08824, -38.4, -1.61765)]
 }
 tracks/1/type = "value"
@@ -360,7 +360,7 @@ tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
+"update": 0,
 "values": [PackedVector2Array(-44.8, -1.61765, 57.6, -1.61765, 57.6, 3.08824, -44.8, 3.08824)]
 }
 tracks/1/type = "value"
@@ -414,7 +414,7 @@ tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
+"update": 0,
 "values": [PackedVector2Array(-51.2, -1.61765, 64, -1.61765, 64, 3.08824, -51.2, 3.08824)]
 }
 tracks/1/type = "value"
@@ -478,6 +478,7 @@ safe_margin = 0.1
 script = ExtResource("1_xi3cw")
 _minTimeScale = 0.02
 _slowdown = 0.025
+_bouncyBoost = 2.0
 _positionY = 98
 _sprites = Array[Texture2D]([ExtResource("2_vuuw1"), ExtResource("3_us10y"), ExtResource("4_rd27f")])
 
