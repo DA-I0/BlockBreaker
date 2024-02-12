@@ -228,7 +228,7 @@ public partial class Paddle : CharacterBody2D
 
 	private void Resize()
 	{
-		_animator.Play($"size_{_size}");//, SizeTransitionTime);
+		_animator.Play($"size_{_size}", SizeTransitionTime);
 	}
 
 	private void AdjustSprite()
