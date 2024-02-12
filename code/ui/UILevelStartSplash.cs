@@ -17,7 +17,7 @@ namespace BoGK.UI
 
 		private void Display(string sceneName)
 		{
-			_levelName.Text = sceneName.Replace("level_", $"{Tr("LEVEL")} ").Replace(".tscn", "");
+			_levelName.Text = sceneName.Replace("level_", $"{Tr("LEVEL")} ").Replace(".tscn", "").Replace(".remap", "");
 			_animator.Play("activate");
 		}
 	}
