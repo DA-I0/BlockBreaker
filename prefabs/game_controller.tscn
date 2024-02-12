@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://jpldd4vrbmum"]
+[gd_scene load_steps=25 format=3 uid="uid://jpldd4vrbmum"]
 
 [ext_resource type="Script" path="res://code/system/SessionController.cs" id="1_uqmtw"]
 [ext_resource type="Script" path="res://code/system/AudioController.cs" id="2_adfrp"]
@@ -22,7 +22,8 @@
 [ext_resource type="AudioStream" uid="uid://cig284vodgdhh" path="res://assets/audio/sfx/explosion.wav" id="13_7yk1x"]
 [ext_resource type="PackedScene" uid="uid://3o4xaawp25f5" path="res://prefabs/decorations/death_pit_marker_level.tscn" id="17_75vht"]
 [ext_resource type="PackedScene" uid="uid://dseel27vbf765" path="res://prefabs/ui/pause_prompt.tscn" id="17_ewsqo"]
-[ext_resource type="PackedScene" uid="uid://bhik7pnvh1ghu" path="res://prefabs/ui/game_over_prompt.tscn" id="19_qhvfq"]
+[ext_resource type="PackedScene" uid="uid://bhik7pnvh1ghu" path="res://prefabs/ui/level_start_splash_prompt.tscn" id="19_qhvfq"]
+[ext_resource type="PackedScene" uid="uid://2rnuyiyxwfl8" path="res://prefabs/ui/game_over_prompt.tscn" id="23_58rjm"]
 
 [node name="GameController" type="Node" node_paths=PackedStringArray("musicController", "audioController", "gameScore", "health", "levelManager", "gameElements")]
 script = ExtResource("1_uqmtw")
@@ -72,10 +73,13 @@ script = ExtResource("2_fqfgb")
 
 [node name="UIGameSession" parent="." instance=ExtResource("4_l3xv6")]
 
+[node name="LevelStartSplashPrompt" parent="UIGameSession" instance=ExtResource("19_qhvfq")]
+layout_mode = 1
+
 [node name="PausePrompt" parent="UIGameSession" instance=ExtResource("17_ewsqo")]
 layout_mode = 1
 
-[node name="GameOverPrompt" parent="UIGameSession" instance=ExtResource("19_qhvfq")]
+[node name="GameOverPrompt" parent="UIGameSession" instance=ExtResource("23_58rjm")]
 layout_mode = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
