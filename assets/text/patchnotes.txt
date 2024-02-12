@@ -1,30 +1,42 @@
 [b][u]Version 0.3 - 01/03/2024[/u][/b]
+Work in progress...
 
 [b]Added:[/b]
+- 7 new levels
+- 3 new skills: ball control, emergency net, power ball
+- new interactable: speed pad
+- new difficulty and optional difficulty modifier: advancing speed (each destroyed breakable increases ball speed)
 - new UI & user settings
-- new tile variants for default tileset
-- new skill: "ball control"
-- new optional difficulty modifier: advancing speed (each destroyed breakable increases ball speed)
+- new accessibility settings
 - bonus points for clearing stages without losing a life
 - stage clear panel with score bonus summary
+- new map tile variants
+- new visual effects
+- new music tracks and playlist shuffle
 
 [b]Changed:[/b]
-- updated Godot Engine to version 4.2.1
-- remade the game setup screen
-- shake skill readiness from time delay to breakable destruction
+- updated Godot Engine to version 4.3
 - paddle collision improvements
+- skill readiness from time delay to breakable destruction
+- minor difficulty adjustments
+- various level changes
+- various UI improvements: new game setup screen, pagination status, layout changes and more
+- lives display style from extra lives (game over after dying on 0) to remaining lives (game over when reaching 0)
+- improved keyboard/gamepad menu navigation
 
 [b]Fixed:[/b]
 - ball slides over paddle when colliding under very small angle
 - [Steam Deck] game is zoomed in, with about half of the window visible on screen
 - language selection doesn't appear on first launch
+- difficulty removal button not working
+- control settings partially obscured by category buttons when using German or Japanese language
+- exit prompt displays mouse controls regardless of used control method
+- stage music is fully randomized, might select the same song multiple times
 
 [b]Known issues:[/b]
-- stage music is fully randomized, might select the same song multiple times
 - some UI elements require mouse to navigate
-- control settings partially obscured by category buttons when using German or Japanese language
+- some UI layout issues when using German language with OpenDyslexic font
 - ball bounce animation appears frozen when triggered too often
 - continuous lack of gophers
-
 
 
