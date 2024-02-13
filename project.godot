@@ -54,6 +54,7 @@ PatchNotesFilePath="res://assets/text/patchnotes.txt"
 DefaultLeaderboardFilePath="res://assets/text/default_leaderboard.txt"
 CustomLeaderboardFilePath="user://leaderboard.txt"
 SkillIconsFilePath="res://assets/sprites/ui_elements/skill_icons"
+DefaultConfigFilePath="res://assets/text/default_settings.cfg"
 
 [gui]
 

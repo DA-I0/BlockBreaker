@@ -6,9 +6,9 @@ public static class HelperMethods
 	public static BreakableVariant VariantFromConfig(ConfigFile config, string section)
 	{
 		return new BreakableVariant(
-			(string)config.GetValue(section, "typeName"),
-			(int)config.GetValue(section, "spriteVariant", 0),
-			(Color)config.GetValue(section, "customColor", new Color(1, 1, 1, 1))
+			(string)config.GetValue(section, "type_name", section.Replace("Variant - ", string.Empty)),
+			(int)config.GetValue(section, "sprite_variant", 0),
+			(Color)config.GetValue(section, "custom_color", new Color(1, 1, 1, 1))
 			);
 	}
 
@@ -18,9 +18,9 @@ public static class HelperMethods
 
 		foreach (BreakableVariant variant in variants.Values)
 		{
-			updatedConfig.SetValue($"Variant - {variant.TypeName}", "typeName", variant.TypeName);
-			updatedConfig.SetValue($"Variant - {variant.TypeName}", "spriteVariant", variant.SpriteVariant);
-			updatedConfig.SetValue($"Variant - {variant.TypeName}", "customColor", variant.CustomColor);
+			updatedConfig.SetValue($"Variant - {variant.TypeName}", "type_name", variant.TypeName);
+			updatedConfig.SetValue($"Variant - {variant.TypeName}", "sprite_variant", variant.SpriteVariant);
+			updatedConfig.SetValue($"Variant - {variant.TypeName}", "custom_color", variant.CustomColor);
 		}
 
 		return updatedConfig;
