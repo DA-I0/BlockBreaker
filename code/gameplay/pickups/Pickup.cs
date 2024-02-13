@@ -21,7 +21,7 @@ public partial class Pickup : Area2D
 
 	protected virtual void OnBodyEntered(Node2D body)
 	{
-		if ((Paddle)body != null)
+		if ((BasePaddle)body != null)
 		{
 			ApplyPickup();
 			refs.gameScore.ChangeScore(_pointValue, false);

@@ -1,32 +1,28 @@
 using Godot;
 
-public delegate void PaddleStateNotification(PaddleState state);
-public enum PaddleMode { basic, bouncy, sticky };
-public enum PaddleState { idle, frozen, confused, locked, collisionLocked };
-
-public partial class Paddle : CharacterBody2D
+public partial class Paddle : BasePaddle
 {
-	private const float SizeTransitionTime = 0.25f;
+	protected const float SizeTransitionTime = 0.25f;
 
-	[Export] private int _baseMoveSpeed = 100;
+	[Export] protected int _baseMoveSpeed = 100;
 	[Export] protected float _bouncyBoost = 1.5f;
-	[Export] private int _positionY = 90;
-	[Export] private Texture2D[] _sprites;
+	[Export] protected int _positionY = 90;
+	[Export] protected Texture2D[] _sprites;
 
 	protected PaddleMode _paddleMode = PaddleMode.basic;
 	protected PaddleState _state = PaddleState.idle;
 
-	private int _size = 1;
+	protected int _size = 1;
 
-	private int _movementDirection = 1;
-	private float inputHorizontal;
+	protected int _movementDirection = 1;
+	protected float inputHorizontal;
 
-	Vector2 _inputDirection = Vector2.Zero;
+	protected Vector2 _inputDirection = Vector2.Zero;
 
-	private NinePatchRect _sprite;
-	private AnimationPlayer _animator;
-	private Timer _timer;
-	private SessionController refs;
+	protected NinePatchRect _sprite;
+	protected AnimationPlayer _animator;
+	protected Timer _timer;
+	protected SessionController refs;
 
 	public event PaddleStateNotification StateChanged;
 
@@ -100,22 +96,7 @@ public partial class Paddle : CharacterBody2D
 		}
 	}
 
-	private void GetMovement()
-	{
-		if (refs.CurrentGameState != GameState.gameplay)
-		{
-			return;
-		}
-
-		_inputDirection = new Vector2(inputHorizontal, 0);
-
-		if (refs.settings.ActiveInputType == InputType.Mouse)
-		{
-			inputHorizontal = 0;
-		}
-	}
-
-	public void ChangeSize(int value)
+	public override void ChangeSize(int value)
 	{
 		_size += value;
 
@@ -132,25 +113,25 @@ public partial class Paddle : CharacterBody2D
 		Resize();
 	}
 
-	public void SetPaddleMode(PaddleMode mode)
+	public override void SetPaddleMode(PaddleMode mode)
 	{
 		_paddleMode = mode;
 		AdjustSprite();
 	}
 
-	public void SetPaddleState(PaddleState state, float length = -1)
+	public override void SetPaddleState(PaddleState state, float duration = -1)
 	{
 		_state = state;
 
-		if (length > 0)
+		if (duration > 0)
 		{
-			_timer.Start(length);
+			_timer.Start(duration);
 		}
 
 		StateChanged?.Invoke(_state);
 	}
 
-	public virtual void ApplyPaddleEffect(Ball targetBall)
+	public override void ApplyPaddleEffect(Ball targetBall)
 	{
 		switch (_paddleMode)
 		{
@@ -169,7 +150,7 @@ public partial class Paddle : CharacterBody2D
 		VibrateController(0.5f, 0, 0.1f);
 	}
 
-	private void SetupReferences()
+	protected void SetupReferences()
 	{
 		_sprite = GetNode("PaddleSprite") as NinePatchRect;
 		_animator = GetNode("PaddleAnimator") as AnimationPlayer;
@@ -182,7 +163,7 @@ public partial class Paddle : CharacterBody2D
 		refs.levelManager.SceneChanged += Recenter;
 	}
 
-	private void SetupInitialValues()
+	protected void SetupInitialValues()
 	{
 		_movementDirection = 1;
 		_size = refs.SelectedDifficulty.StartPaddleSize;
@@ -193,13 +174,28 @@ public partial class Paddle : CharacterBody2D
 		SetPaddleState(PaddleState.idle);
 	}
 
-	private void Recenter()
+	protected virtual void Recenter()
 	{
 		Position = new Vector2(0, _positionY);
 		_state = PaddleState.idle;
 	}
 
-	private void Movement(double delta)
+	protected void GetMovement()
+	{
+		if (refs.CurrentGameState != GameState.gameplay)
+		{
+			return;
+		}
+
+		_inputDirection = new Vector2(inputHorizontal, 0);
+
+		if (refs.settings.ActiveInputType == InputType.Mouse)
+		{
+			inputHorizontal = 0;
+		}
+	}
+
+	protected virtual void Movement(double delta)
 	{
 		if (_state != PaddleState.idle)
 		{
@@ -218,7 +214,7 @@ public partial class Paddle : CharacterBody2D
 		_inputDirection = (refs.settings.ActiveInputType == InputType.Mouse) ? Vector2.Zero : _inputDirection;
 	}
 
-	private void CalculateMoveVelocity(Vector2 direction, int speed)
+	protected void CalculateMoveVelocity(Vector2 direction, int speed)
 	{
 		var newVelocity = Velocity;
 
@@ -226,12 +222,12 @@ public partial class Paddle : CharacterBody2D
 		Velocity = newVelocity;
 	}
 
-	private void Resize()
+	protected void Resize()
 	{
 		_animator.Play($"size_{_size}", SizeTransitionTime);
 	}
 
-	private void AdjustSprite()
+	protected virtual void AdjustSprite()
 	{
 		if (_sprites.Length < (int)_paddleMode)
 		{
@@ -241,7 +237,7 @@ public partial class Paddle : CharacterBody2D
 		_sprite.Texture = _sprites[(int)_paddleMode];
 	}
 
-	private void VibrateController(float strengthWeak, float strengthStrong, float time)
+	protected void VibrateController(float strengthWeak, float strengthStrong, float time)
 	{
 		if (refs.settings.ControllerVibrations)
 		{
@@ -256,7 +252,7 @@ public partial class Paddle : CharacterBody2D
 		}
 	}
 
-	private void Destroy()
+	protected void Destroy()
 	{
 		refs.paddle = null;
 		refs.health.ResetElements -= SetupInitialValues;

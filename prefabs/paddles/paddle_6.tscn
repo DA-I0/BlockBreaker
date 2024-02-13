@@ -1,0 +1,734 @@
+[gd_scene load_steps=20 format=3 uid="uid://qlo0nlesyoyb"]
+
+[ext_resource type="Script" path="res://code/gameplay/paddles/DoublePaddle.cs" id="1_tq360"]
+[ext_resource type="Texture2D" uid="uid://c6pb8kdanx5s4" path="res://assets/sprites/paddles/paddle_6-2.png" id="2_oh8j1"]
+[ext_resource type="Texture2D" uid="uid://c4hh6fllp4pde" path="res://assets/sprites/paddles/paddle_6.png" id="3_1gyr7"]
+[ext_resource type="Texture2D" uid="uid://d4eb52yyt7t7n" path="res://assets/sprites/paddles/paddle_6-2_bouncy.png" id="3_u05fb"]
+[ext_resource type="Texture2D" uid="uid://cwuv67grkg611" path="res://assets/sprites/paddles/paddle_6-2_sticky.png" id="4_5mm6o"]
+[ext_resource type="PackedScene" uid="uid://bplm8akef2gwt" path="res://prefabs/ui/paddle_effects.tscn" id="5_0r6py"]
+[ext_resource type="Script" path="res://code/gameplay/paddles/SecondaryPaddle.cs" id="5_v8go6"]
+[ext_resource type="Texture2D" uid="uid://1pxattnvpi08" path="res://assets/sprites/paddles/paddle_6_bouncy.png" id="6_r5hen"]
+[ext_resource type="Texture2D" uid="uid://dfofttb5u364d" path="res://assets/sprites/paddles/paddle_6_sticky.png" id="7_313f5"]
+
+[sub_resource type="Animation" id="Animation_lj8sh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PaddleSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-8, -2)]
+}
+
+[sub_resource type="Animation" id="Animation_fctnc"]
+resource_name = "size_1"
+length = 0.10001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Collider:polygon")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [PackedVector2Array(-9.6, -1.88235, 9.6, -1.88235, 9.6, -0.941176, -3.2, 2.82353, -9.6, 2.82353, -12.8, 1.88235, -12.8, -0.941176)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PaddleSprite:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(7, 5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PaddleSprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-5, -2)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SecondaryPaddle/SecondaryCollider:polygon")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [PackedVector2Array(2, -2, 4, -2, 5, -1, 5, 2, 4, 3, -2, 3, 2, -1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SecondaryPaddle/SecondaryPaddleSprite:size")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(7, 5)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SecondaryPaddle/SecondaryPaddleSprite:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-2, -2)]
+}
+
+[sub_resource type="Animation" id="Animation_fan4y"]
+resource_name = "size_2"
+length = 0.10001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Collider:polygon")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [PackedVector2Array(-12.8, -1.88235, 9.6, -1.88235, 9.6, -0.941176, -3.2, 2.82353, -12.8, 2.82353, -16, 1.88235, -16, -0.941176)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PaddleSprite:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(8, 5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PaddleSprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-6, -2)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SecondaryPaddle/SecondaryCollider:polygon")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [PackedVector2Array(2, -2, 5, -2, 6, -1, 6, 2, 5, 3, -2, 3, 2, -1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SecondaryPaddle/SecondaryPaddleSprite:size")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(8, 5)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SecondaryPaddle/SecondaryPaddleSprite:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-2, -2)]
+}
+
+[sub_resource type="Animation" id="Animation_f5lgp"]
+resource_name = "size_3"
+length = 0.10001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Collider:polygon")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [PackedVector2Array(-16, -1.88235, 9.6, -1.88235, 9.6, -0.941176, -3.2, 2.82353, -16, 2.82353, -19.2, 1.88235, -19.2, -0.941176)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PaddleSprite:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(9, 5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PaddleSprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-7, -2)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SecondaryPaddle/SecondaryCollider:polygon")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [PackedVector2Array(2, -2, 6, -2, 7, -1, 7, 2, 6, 3, -2, 3, 2, -1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SecondaryPaddle/SecondaryPaddleSprite:size")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(9, 5)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SecondaryPaddle/SecondaryPaddleSprite:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-2, -2)]
+}
+
+[sub_resource type="Animation" id="Animation_11vmx"]
+resource_name = "size_4"
+length = 0.10001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Collider:polygon")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [PackedVector2Array(-19.2, -1.88235, 9.6, -1.88235, 9.6, -0.941176, -3.2, 2.82353, -19.2, 2.82353, -22.4, 1.88235, -22.4, -0.941176)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PaddleSprite:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(10, 5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PaddleSprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-8, -2)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SecondaryPaddle/SecondaryCollider:polygon")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [PackedVector2Array(2, -2, 7, -2, 8, -1, 8, 2, 7, 3, -2, 3, 2, -1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SecondaryPaddle/SecondaryPaddleSprite:size")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(10, 5)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SecondaryPaddle/SecondaryPaddleSprite:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-2, -2)]
+}
+
+[sub_resource type="Animation" id="Animation_impam"]
+resource_name = "size_5"
+length = 0.10001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Collider:polygon")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [PackedVector2Array(-22.4, -1.88235, 9.6, -1.88235, 9.6, -0.941176, -3.2, 2.82353, -22.4, 2.82353, -25.6, 1.88235, -25.6, -0.941176)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PaddleSprite:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(11, 5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PaddleSprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-9, -2)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SecondaryPaddle/SecondaryCollider:polygon")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [PackedVector2Array(2, -2, 8, -2, 9, -1, 9, 2, 8, 3, -2, 3, 2, -1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SecondaryPaddle/SecondaryPaddleSprite:size")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(11, 5)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SecondaryPaddle/SecondaryPaddleSprite:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-2, -2)]
+}
+
+[sub_resource type="Animation" id="Animation_lm33q"]
+resource_name = "size_6"
+length = 0.10001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Collider:polygon")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [PackedVector2Array(-25.6, -1.88235, 9.6, -1.88235, 9.6, -0.941176, -3.2, 2.82353, -25.6, 2.82353, -28.8, 1.88235, -28.8, -0.941176)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PaddleSprite:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(12, 5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PaddleSprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-10, -2)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SecondaryPaddle/SecondaryCollider:polygon")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [PackedVector2Array(2, -2, 9, -2, 10, -1, 10, 2, 9, 3, -2, 3, 2, -1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SecondaryPaddle/SecondaryPaddleSprite:size")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(12, 5)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SecondaryPaddle/SecondaryPaddleSprite:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-2, -2)]
+}
+
+[sub_resource type="Animation" id="Animation_w3jcc"]
+resource_name = "size_7"
+length = 0.10001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Collider:polygon")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [PackedVector2Array(-28.8, -1.88235, 9.6, -1.88235, 9.6, -0.941176, -3.2, 2.82353, -28.8, 2.82353, -32, 1.88235, -32, -0.941176)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PaddleSprite:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(13, 5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PaddleSprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-11, -2)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SecondaryPaddle/SecondaryCollider:polygon")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [PackedVector2Array(2, -2, 10, -2, 11, -1, 11, 2, 10, 3, -2, 3, 2, -1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SecondaryPaddle/SecondaryPaddleSprite:size")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(13, 5)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SecondaryPaddle/SecondaryPaddleSprite:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-2, -2)]
+}
+
+[sub_resource type="Animation" id="Animation_8j2rt"]
+resource_name = "size_8"
+length = 0.10001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Collider:polygon")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [PackedVector2Array(-32, -1.88235, 9.6, -1.88235, 9.6, -0.941176, -3.2, 2.82353, -32, 2.82353, -35.2, 1.88235, -35.2, -0.941176)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PaddleSprite:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(14, 5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PaddleSprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-12, -2)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SecondaryPaddle/SecondaryCollider:polygon")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [PackedVector2Array(2, -2, 11, -2, 12, -1, 12, 2, 11, 3, -2, 3, 2, -1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SecondaryPaddle/SecondaryPaddleSprite:size")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(14, 5)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SecondaryPaddle/SecondaryPaddleSprite:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-2, -2)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6a3eu"]
+_data = {
+"RESET": SubResource("Animation_lj8sh"),
+"size_1": SubResource("Animation_fctnc"),
+"size_2": SubResource("Animation_fan4y"),
+"size_3": SubResource("Animation_f5lgp"),
+"size_4": SubResource("Animation_11vmx"),
+"size_5": SubResource("Animation_impam"),
+"size_6": SubResource("Animation_lm33q"),
+"size_7": SubResource("Animation_w3jcc"),
+"size_8": SubResource("Animation_8j2rt")
+}
+
+[node name="Paddle" type="CharacterBody2D" node_paths=PackedStringArray("_secondaryPaddle", "_secondarySprite")]
+disable_mode = 1
+collision_layer = 4
+collision_mask = 11
+platform_on_leave = 2
+platform_floor_layers = 0
+platform_wall_layers = 1
+safe_margin = 0.1
+script = ExtResource("1_tq360")
+_secondaryPaddle = NodePath("SecondaryPaddle")
+_secondarySprite = NodePath("SecondaryPaddle/SecondaryPaddleSprite")
+_secondarySprites = Array[Texture2D]([ExtResource("2_oh8j1"), ExtResource("3_u05fb"), ExtResource("4_5mm6o")])
+_bouncyBoost = 2.0
+_positionY = 98
+_sprites = Array[Texture2D]([ExtResource("3_1gyr7"), ExtResource("6_r5hen"), ExtResource("7_313f5")])
+
+[node name="Collider" type="CollisionPolygon2D" parent="."]
+position = Vector2(-1, 0)
+scale = Vector2(0.3125, 1.0625)
+polygon = PackedVector2Array(-16, -1.88235, 9.6, -1.88235, 9.6, -0.941176, -3.2, 2.82353, -16, 2.82353, -19.2, 1.88235, -19.2, -0.941176)
+one_way_collision = true
+one_way_collision_margin = 5.0
+
+[node name="PaddleSprite" type="NinePatchRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -2.0
+offset_right = 1.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_1gyr7")
+region_rect = Rect2(0, 0, 12, 5)
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 5
+patch_margin_bottom = 2
+
+[node name="PaddleAnimator" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6a3eu")
+}
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Effect" parent="." instance=ExtResource("5_0r6py")]
+
+[node name="SecondaryPaddle" type="CharacterBody2D" parent="."]
+disable_mode = 1
+collision_layer = 4
+collision_mask = 11
+platform_on_leave = 2
+platform_floor_layers = 4294901760
+platform_wall_layers = 1
+safe_margin = 0.1
+script = ExtResource("5_v8go6")
+
+[node name="SecondaryCollider" type="CollisionPolygon2D" parent="SecondaryPaddle"]
+polygon = PackedVector2Array(2, -2, 6, -2, 7, -1, 7, 2, 6, 3, -2, 3, 2, -1)
+one_way_collision = true
+one_way_collision_margin = 5.0
+
+[node name="SecondaryPaddleSprite" type="NinePatchRect" parent="SecondaryPaddle"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 7.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_oh8j1")
+region_rect = Rect2(8, 0, 12, 5)
+patch_margin_left = 5
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[connection signal="timeout" from="Timer" to="." method="SetPaddleState" binds= [0, -1]]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://bkbest8omytqs"]
 
-[ext_resource type="Script" path="res://code/gameplay/Paddle.cs" id="1_vadrw"]
+[ext_resource type="Script" path="res://code/gameplay/paddles/Paddle.cs" id="1_vadrw"]
 [ext_resource type="Texture2D" uid="uid://hfk6vlgis5yd" path="res://assets/sprites/paddles/paddle_2.png" id="2_kn5sb"]
 [ext_resource type="Texture2D" uid="uid://tgq441egdpu0" path="res://assets/sprites/paddles/paddle_2_bouncy.png" id="3_ssupe"]
 [ext_resource type="Texture2D" uid="uid://dp2mia4urmu3q" path="res://assets/sprites/paddles/paddle_2_sticky.png" id="4_yjsch"]

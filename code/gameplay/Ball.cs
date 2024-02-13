@@ -242,10 +242,11 @@ public partial class Ball : CharacterBody2D
 			_animator.Play("bounce", 0, 1.5f);
 		}
 
-		if (collision.GetCollider() == refs.paddle)
+		try
 		{
-			refs.paddle.ApplyPaddleEffect(this);
+			((BasePaddle)collision.GetCollider())?.ApplyPaddleEffect(this);
 		}
+		catch { }
 	}
 
 	private void DamageCollider(Breakable breakable)
