@@ -28,7 +28,7 @@ _description = NodePath("SkillOptions/DescriptionLabel")
 _paginatorParent = NodePath("ItemPaginator")
 _inactiveItemSprite = ExtResource("2_1dhuf")
 _activeItemSprite = ExtResource("3_uwmy0")
-_focusTarget = [NodePath("Confirm")]
+_focusTarget = []
 _returnButton = NodePath("Return")
 _returnTarget = "GameSetupPanel"
 
