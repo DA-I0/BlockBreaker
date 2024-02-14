@@ -22,11 +22,15 @@ namespace BoGK.UI
 
 		protected override void Focus()
 		{
-			if (Visible && _focusTarget.Length > 0)
+			if (Visible)
 			{
 				_currentPaddle = refs.SelectedPaddleIndex;
 				UpdateDisplayedValues();
-				_focusTarget[0].GrabFocus();
+
+				if (_focusTarget.Length > 0)
+				{
+					_focusTarget[0].GrabFocus();
+				}
 			}
 		}
 

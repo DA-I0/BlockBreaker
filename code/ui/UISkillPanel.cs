@@ -19,11 +19,15 @@ namespace BoGK.UI
 
 		protected override void Focus()
 		{
-			if (Visible && _focusTarget.Length > 0)
+			if (Visible)
 			{
 				_currentSkill = refs.SelectedSkillIndex;
 				UpdateDisplayedValues();
-				_focusTarget[0].GrabFocus();
+
+				if (_focusTarget.Length > 0)
+				{
+					_focusTarget[0].GrabFocus();
+				}
 			}
 		}
 
