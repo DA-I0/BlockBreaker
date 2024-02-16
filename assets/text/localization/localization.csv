@@ -39,6 +39,7 @@ DIFF_PADDLE_SIZE_MAX,Max paddle size,Maximale Schlägergröße,最大値パド�
 DIFF_PADDLE_SIZE_MIN,Min paddle size,Mindest Schlägergröße,,Minimalna wielkość paletki
 DIFF_PADDLE_SIZE_START,Starting paddle size,Anfängliche Schlägergröße,初期パドルサイズ,Początkowy rozmiar paletki
 DISCLAIMER_CUSTOM_DIFF,* Custom difficulty,,,* Własny poziom trudności
+DISCLAIMER_SWITCH_FOCUS_HINT,* Press {ui_focus_prev}/{ui_focus_next} to switch between panels.,,,
 DISCLAIMER_SWITCH_PANEL_HINT,* Press {ui_toggle_focus} to switch between panels.,,,
 GAME_LIVES,Lives,Leben,ライフ,Życia
 GAME_OVER,Game over!,Spiel vorbei!,ゲームオーバー！,Koniec gry!
@@ -68,6 +69,7 @@ LABEL_PERFECT_CLEAR,Perfect clear,,,
 LABEL_SCORE_MULTIPLIER,Score multiplier,,,
 LABEL_SKILL,Skill,Fähigkeiten,スキル,Umiejętność
 LABEL_TIME_LEFT,Time left,Zeit übrig,残り時間,Pozostały czas
+LEVEL,Level,Level,ステージ,Poziom
 MSG_ADVANCE_TO_NEXT_MAP,Press {game_play} to continue...,Drücke {game_play} um fortzufahren,続けるには{game_play}ボタンを押す,Wciśnij {game_play} aby kontynuować…
 MSG_LOADING,Loading...,Lädt…,ローディング中…,Ładowanie…
 MSG_NEW_KEYBINDIG,Press key to assign to action.,,,Wciśnij przycisk do przypisania.
@@ -92,7 +94,7 @@ OPTION_VIDEO_EFFECT_TRANSPARENCY,Effect transparency:,,,Przezroczystość efekt�
 OPTION_VIDEO_FULLSCREEN,Fullscreen,Vollbild,フルスクリーン,Pełen ekran
 OPTION_VIDEO_PICKUP_ORDER,Pickup visibility,,,Widoczność znajdziek
 OPTION_VIDEO_PICKUP_ORDER_BOTTOM,Bottom,Unten,下,Pod wszystkim
-OPTION_VIDEO_PICKUP_ORDER_MIDDLE,Above ball,,,Nad piłką
+OPTION_VIDEO_PICKUP_ORDER_MIDDLE,Above ball,,ボールの上,Nad piłką
 OPTION_VIDEO_PICKUP_ORDER_TOP,Top,Oben,上,Nad wszystkim
 OPTION_VIDEO_SCREEN_SHAKE,Enable screen shake,Bild Schütteln,クリーンシェイク,Wstrząs ekranu
 OPTION_VOLUME_EFFECTS,Effects volume:,Soundeffektlautstärke:,SE音量:,Głośność efektów:
@@ -108,6 +110,8 @@ PADDLE_4_DESC,"It’s roguelike! Well, almost…\nTime moves (normally) when pad
 PADDLE_4_NAME,Roguelike,,,
 PADDLE_5_DESC,"Perfect choice for anyone who craves complete control over the ball.\nBounce angle depends on which part of the paddle is hit, with center sending the ball straight up.",,,
 PADDLE_5_NAME,Bounce Control,,,
+PADDLE_6_DESC,"What’s better than one paddle? Two paddles!\nThey’re half the width but that shouldn’t be a problem, right?\n\n[It's an experiment so expect changes.]",,,
+PADDLE_6_NAME,Split,,,
 PLACEHOLDER_DIFF_NAME,New difficulty,Neues Schwierigkeiten,新しい難易度,Nowy poziom trudności
 PLACEHOLDER_PLAYER_NAME,Player,Spieler,プレイヤー,Gracz
 SKILL_ACTIVATION_COST,Activation cost,,,
@@ -119,4 +123,3 @@ SKILL_POWERBALL_DESC,Temporarily power up the ball to destroy any breakables on 
 SKILL_POWERBALL_NAME,Power Ball,,,
 SKILL_SCREENSHAKE_DESC,Shake the screen to slightly change the direction of the ball and drop a few chunks of the ceiling to help with block hunting.\nUsing it will lock the paddle for a few seconds.,,,
 SKILL_SCREENSHAKE_NAME,Shake,,,
-LEVEL,Level,Level,ステージ,Poziom
