@@ -10,6 +10,10 @@ namespace BoGK.UI
 		[Export] private Button _difficultyButton;
 		[Export] private Button _skillButton;
 
+		private int _lastActivePanel = -1;
+
+		private UIController uIControler;
+
 		public override void _Ready()
 		{
 			SetupBaseReferences();
@@ -50,20 +54,40 @@ namespace BoGK.UI
 
 		protected void SetupReferences()
 		{
-			_paddleButton.Pressed += () => ((UIController)GetNode("../..")).TogglePanel("PaddlePanel");
-			_difficultyButton.Pressed += () => ((UIController)GetNode("../..")).TogglePanel("DifficultyPanel");
-			_skillButton.Pressed += () => ((UIController)GetNode("../..")).TogglePanel("SkillPanel");
+			uiController = GetNode<UIController>("../..");
+			_paddleButton.Pressed += () => DisplayPaddlePanel();
+			_skillButton.Pressed += () => DisplaySkillPanel();
+			_difficultyButton.Pressed += () => DisplayDifficultyPanel();
 		}
 
 		protected override void Focus()
 		{
 			if (Visible)
 			{
-				((Button)_levelGrid.GetChild(0)).GrabFocus();
-				_focusIndex = 1;
+				switch (_lastActivePanel)
+				{
+					case 0:
+						_paddleButton.GrabFocus();
+						break;
+
+					case 1:
+						_skillButton.GrabFocus();
+						break;
+
+					case 2:
+						_difficultyButton.GrabFocus();
+						break;
+
+					default:
+						((Button)_levelGrid.GetChild(0)).GrabFocus();
+						_focusIndex = 1;
+						break;
+				}
+
 				UpdateSelectedPaddle();
 				UpdateSelectedDifficulty();
 				UpdateSelectedSkill();
+				_lastActivePanel = -1;
 			}
 		}
 
@@ -94,6 +118,24 @@ namespace BoGK.UI
 		private void UpdateSelectedSkill()
 		{
 			_skillButton.Text = Tr($"SKILL_{refs.SelectedSkill.ToString().ToUpper()}_NAME");
+		}
+
+		private void DisplayPaddlePanel()
+		{
+			_lastActivePanel = 0;
+			uiController.TogglePanel("PaddlePanel");
+		}
+
+		private void DisplaySkillPanel()
+		{
+			_lastActivePanel = 1;
+			uiController.TogglePanel("SkillPanel");
+		}
+
+		private void DisplayDifficultyPanel()
+		{
+			_lastActivePanel = 2;
+			uiController.TogglePanel("DifficultyPanel");
 		}
 	}
 }

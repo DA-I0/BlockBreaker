@@ -4,7 +4,7 @@ namespace BoGK.UI
 {
 	public partial class UIPaginatorPanel : UIPanel
 	{
-		[Export] private Node _paginatorParent;
+		[Export] protected Control _paginatorParent;
 		[Export] private Texture2D _inactiveItemSprite;
 		[Export] private Texture2D _activeItemSprite;
 

@@ -24,11 +24,16 @@ namespace BoGK.UI
 		[Export] private Label _advancingSpeed;
 		[Export] private CheckButton _advancingSpeedCheckButton;
 
+		[Export] private TextureButton _previousDifficulty;
+		[Export] private TextureButton _nextDifficulty;
+
 		[Export] private Control _nameEditControls;
 		[Export] private TextureButton _deleteDifficulty;
 		[Export] private TextureButton _editDifficulty;
 		[Export] private TextureButton _addDifficulty;
 		[Export] private Button _cancelEdit;
+
+		[Export] private Control _focusHint;
 
 		private int _currentDifficulty = 1;
 		private bool _inEditMode = false;
@@ -54,7 +59,7 @@ namespace BoGK.UI
 				}
 				else
 				{
-					_focusTarget[0].GrabFocus();
+					// _focusTarget[0].GrabFocus();
 				}
 			}
 		}
@@ -70,13 +75,16 @@ namespace BoGK.UI
 				_currentDifficulty = (_currentDifficulty < 0) ? 1 : _currentDifficulty;
 				ApplyStaticValues();
 			}
+
 			UpdatePaginatorStatus(_currentDifficulty);
+			TogglePaginationButtons();
 		}
 
 		private void EnableEditor(bool newDifficulty)
 		{
 			ApplyDifficultyToEditor(newDifficulty);
 			ToggleEditorControls(true);
+			Focus();
 		}
 
 		private void ToggleEditorControls(bool enable)
@@ -93,6 +101,8 @@ namespace BoGK.UI
 			_paddleSizeStartSlider.Visible = _inEditMode;
 			_paddleSizeMinSlider.Visible = _inEditMode;
 			_advancingSpeedCheckButton.Visible = _inEditMode;
+			_paginatorParent.Visible = !_inEditMode;
+			_focusHint.Visible = _inEditMode;
 
 			UpdateEditorButtons();
 			UpdateDisplayedValues();
@@ -204,6 +214,11 @@ namespace BoGK.UI
 			}
 			else
 			{
+				if (_addDifficulty.HasFocus() || _editDifficulty.HasFocus() || _deleteDifficulty.HasFocus())
+				{
+					return;
+				}
+
 				SelectDifficulty();
 			}
 		}
@@ -214,7 +229,7 @@ namespace BoGK.UI
 			uiController.TogglePanel("GameSetupPanel");
 		}
 
-		public void SaveDifficulty()
+		private void SaveDifficulty()
 		{
 			if (_newName.Text.Trim() == string.Empty)
 			{
@@ -249,12 +264,18 @@ namespace BoGK.UI
 			ToggleEditorControls(false);
 		}
 
-		public void DeleteDifficulty()
+		private void DeleteDifficulty()
 		{
 			FileOperations.DeleteDifficulty(refs.gameData.Difficulties[_currentDifficulty].DifficultyName);
 			refs.gameData.RemoveDifficulty(_currentDifficulty);
 			CreateItemIndicators(refs.gameData.Difficulties.Count);
 			ChangeDifficulty(false);
+		}
+
+		private void TogglePaginationButtons()
+		{
+			_previousDifficulty.Disabled = _inEditMode;
+			_nextDifficulty.Disabled = _inEditMode;
 		}
 	}
 }
