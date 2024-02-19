@@ -38,7 +38,7 @@ public static class HelperMethods
 			(int)difficultyConfig.GetValue("", "startPaddleSize", 1),
 			(int)difficultyConfig.GetValue("", "minPaddleSize", 1),
 			(bool)difficultyConfig.GetValue("", "advancingSpeed", false),
-			(float)difficultyConfig.GetValue("", "pickupSpeedMultiplier", 0.35f)
+			(float)difficultyConfig.GetValue("", "pickupSpeedMultiplier", 1)
 			);
 
 		return parsedDifficulty;
