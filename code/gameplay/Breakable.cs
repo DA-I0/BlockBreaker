@@ -13,6 +13,7 @@ public partial class Breakable : StaticBody2D
 	[Export] protected double _shakeDuration = 0.25f;
 
 	private Vector2 _defaultPosition;
+	private bool _isActive = true;
 	protected int _health;
 
 	protected string _defaultSpritePath;
@@ -108,7 +109,7 @@ public partial class Breakable : StaticBody2D
 
 	private void SpawnPickup()
 	{
-		if (_pickups == null)
+		if (_pickups == null || !_isActive)
 		{
 			return;
 		}
@@ -127,6 +128,7 @@ public partial class Breakable : StaticBody2D
 	protected virtual void Destroy()
 	{
 		SpawnPickup();
+		_isActive = false;
 		refs.gameScore.ChangeScore(_pointValue);
 		QueueFree();
 	}
