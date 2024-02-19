@@ -293,8 +293,8 @@ namespace BoGK.UI // TODO: break each category into a separate scene
 
 		private void UpdateVideoTextValues()
 		{
-			_backgroundBrightnessText.Text = System.MathF.Round((float)_backgroundBrightness.Value, 2).ToString();
-			_helperTransparencyText.Text = System.MathF.Round((float)_helperTransparency.Value, 2).ToString();
+			_backgroundBrightnessText.Text = $"{System.MathF.Round((float)_backgroundBrightness.Value * 100, 0)}%";
+			_helperTransparencyText.Text = $"{System.MathF.Round((float)_helperTransparency.Value * 100, 0)}%";
 		}
 
 		private void UpdateAudioTextValues()
@@ -306,9 +306,9 @@ namespace BoGK.UI // TODO: break each category into a separate scene
 
 		private void UpdateControlsTextValues()
 		{
-			_mouseSpeedText.Text = System.MathF.Round((float)_mouseSpeed.Value, 2).ToString();
-			_keyboardSpeedText.Text = System.MathF.Round((float)_keyboardSpeed.Value, 2).ToString();
-			_joypadSpeedText.Text = System.MathF.Round((float)_joypadSpeed.Value, 2).ToString();
+			_mouseSpeedText.Text = $"{System.MathF.Round((float)_mouseSpeed.Value, 2)}x";
+			_keyboardSpeedText.Text = $"{System.MathF.Round((float)_keyboardSpeed.Value, 2)}x";
+			_joypadSpeedText.Text = $"{System.MathF.Round((float)_joypadSpeed.Value, 2)}x";
 		}
 
 		private void SetupActiveJoypadOptions(long device = 0, bool connected = false)
