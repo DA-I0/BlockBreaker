@@ -165,8 +165,8 @@ vertical_alignment = 1
 [node name="LineEdit" type="LineEdit" parent="DifficultyOptions/Name/DifficultyNewName"]
 layout_mode = 2
 size_flags_horizontal = 3
-focus_neighbor_top = NodePath("../../../AdvancingSpeed/AdvancingSpeedToggle")
-focus_previous = NodePath("../../../AdvancingSpeed/AdvancingSpeedToggle")
+focus_neighbor_top = NodePath("../../../PickupSpeed/PickupSpeedSlider")
+focus_previous = NodePath("../../../PickupSpeed/PickupSpeedSlider")
 placeholder_text = "PLACEHOLDER_DIFF_NAME"
 
 [node name="MaxLives" type="HBoxContainer" parent="DifficultyOptions"]
@@ -299,8 +299,6 @@ text = "DIFF_ADVANCING_SPEED"
 
 [node name="AdvancingSpeedToggle" type="CheckButton" parent="DifficultyOptions/AdvancingSpeed"]
 layout_mode = 2
-focus_neighbor_bottom = NodePath("../../Name/DifficultyNewName/LineEdit")
-focus_next = NodePath("../../Name/DifficultyNewName/LineEdit")
 flat = true
 
 [node name="PickupSpeed" type="HBoxContainer" parent="DifficultyOptions"]
@@ -315,6 +313,8 @@ text = "DIFF_PADDLE_SIZE_MIN"
 [node name="PickupSpeedSlider" type="HSlider" parent="DifficultyOptions/PickupSpeed"]
 layout_mode = 2
 size_flags_horizontal = 3
+focus_neighbor_bottom = NodePath("../../Name/DifficultyNewName/LineEdit")
+focus_next = NodePath("../../Name/DifficultyNewName/LineEdit")
 min_value = 0.5
 max_value = 2.0
 step = 0.1
