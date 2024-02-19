@@ -7,7 +7,7 @@ namespace BoGK.UI
 		[Export] protected UIController uiController;
 		[Export] protected Control[] _focusTarget;
 		[Export] private Button _returnButton;
-		[Export] private string _returnTarget = string.Empty;
+		[Export] protected string _returnTarget = string.Empty;
 
 		protected int _focusIndex = 0;
 
@@ -35,7 +35,7 @@ namespace BoGK.UI
 		{
 			refs = GetNode("/root/GameController") as SessionController;
 			uiController.RefreshUI += Focus;
-			_returnButton.Pressed += () => uiController.TogglePanel(_returnTarget);
+			_returnButton.Pressed += () => Return();
 		}
 
 		protected virtual void Focus()
@@ -48,8 +48,15 @@ namespace BoGK.UI
 
 		protected virtual void ToggleFocus()
 		{
+			_focusTarget[_focusIndex]?.ReleaseFocus();
 			_focusIndex = (_focusIndex < _focusTarget.Length - 1) ? _focusIndex + 1 : 0;
-			_focusTarget[_focusIndex].GrabFocus();
+
+			_focusTarget[_focusIndex]?.GrabFocus();
+		}
+
+		protected virtual void Return()
+		{
+			uiController.TogglePanel(_returnTarget);
 		}
 	}
 }

@@ -5,6 +5,7 @@ namespace BoGK.UI
 {
 	public partial class UIDifficultyPanel : UIPaginatorPanel
 	{
+		[Export] private int _defaultDifficulty = 1;
 		[Export] private Label _name;
 		[Export] private LineEdit _newName;
 		[Export] private Label _livesMax;
@@ -33,7 +34,6 @@ namespace BoGK.UI
 		[Export] private TextureButton _deleteDifficulty;
 		[Export] private TextureButton _editDifficulty;
 		[Export] private TextureButton _addDifficulty;
-		[Export] private Button _cancelEdit;
 
 		[Export] private Control _focusHint;
 
@@ -53,17 +53,31 @@ namespace BoGK.UI
 			if (Visible)
 			{
 				_currentDifficulty = refs.SelectedDifficultyIndex;
-				UpdateDisplayedValues();
-
-				if (_inEditMode)
-				{
-					_newName.GrabFocus();
-				}
-				else
-				{
-					// _focusTarget[0].GrabFocus();
-				}
+				FocusOnControls();
 			}
+		}
+
+		protected override void Return()
+		{
+			if (_inEditMode)
+			{
+				ToggleEditorControls(false);
+			}
+			else
+			{
+				uiController.TogglePanel(_returnTarget);
+			}
+		}
+
+		private void FocusOnControls()
+		{
+			UpdateDisplayedValues();
+
+			if (_inEditMode)
+			{
+				_newName.GrabFocus();
+			}
+			else { }
 		}
 
 		private void UpdateDisplayedValues()
@@ -74,7 +88,7 @@ namespace BoGK.UI
 			}
 			else
 			{
-				_currentDifficulty = (_currentDifficulty < 0) ? 1 : _currentDifficulty;
+				_currentDifficulty = (_currentDifficulty < 0) ? _defaultDifficulty : _currentDifficulty;
 				ApplyStaticValues();
 			}
 
@@ -86,7 +100,7 @@ namespace BoGK.UI
 		{
 			ApplyDifficultyToEditor(newDifficulty);
 			ToggleEditorControls(true);
-			Focus();
+			FocusOnControls();
 		}
 
 		private void ToggleEditorControls(bool enable)
@@ -107,11 +121,11 @@ namespace BoGK.UI
 			_paginatorParent.Visible = !_inEditMode;
 			_focusHint.Visible = _inEditMode;
 
-			UpdateEditorButtons();
 			UpdateDisplayedValues();
+			UpdateEditorButtons();
 		}
 
-		private void ApplyEditorValues() // might have to do manual rounding for ball and angle speed, sometimes returns a lot of decimals
+		private void ApplyEditorValues()
 		{
 			_livesMax.Text = $"{Tr("DIFF_LIVES_MAX")}: {_livesMaxSlider.Value}";
 			_livesStart.Text = $"{Tr("DIFF_LIVES_START")}: {_livesStartSlider.Value}";
@@ -208,8 +222,6 @@ namespace BoGK.UI
 			_deleteDifficulty.Visible = showEditButtons;
 			_editDifficulty.Visible = showEditButtons;
 			_addDifficulty.Visible = !_inEditMode;
-
-			_cancelEdit.Visible = _inEditMode;
 		}
 
 		private void Confirm()
@@ -252,7 +264,7 @@ namespace BoGK.UI
 				(int)_paddleSizeStartSlider.Value,
 				(int)_paddleSizeMinSlider.Value,
 				(bool)_advancingSpeedCheckButton.ButtonPressed,
-				(float)_pickupSpeedSlider.Value
+				MathF.Round((float)_pickupSpeedSlider.Value, 2)
 			);
 
 			if (_currentDifficulty < 0)
