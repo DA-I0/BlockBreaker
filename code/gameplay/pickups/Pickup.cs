@@ -2,8 +2,12 @@ using Godot;
 
 public partial class Pickup : Area2D
 {
+	private const int BaseSpeed = 35;
+
 	[Export] private int _pointValue = 5;
-	[Export] private float _speed = 10f;
+	[Export] private int _customSpeedAdjustment = 0;
+
+	private int _moveSpeed;
 
 	protected SessionController refs;
 
@@ -11,11 +15,12 @@ public partial class Pickup : Area2D
 	{
 		refs = GetNode("/root/GameController") as SessionController;
 		ZIndex = refs.settings.PickupOrder;
+		_moveSpeed = (int)(BaseSpeed * refs.SelectedDifficulty.PickupSpeedMultiplier + _customSpeedAdjustment);
 	}
 
 	public override void _PhysicsProcess(double delta)
 	{
-		float newVerticalPosition = Position.Y + (_speed * (float)delta);
+		float newVerticalPosition = Position.Y + (_moveSpeed * (float)delta);
 		Position = new Vector2(Position.X, newVerticalPosition);
 	}
 

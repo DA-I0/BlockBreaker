@@ -37,7 +37,8 @@ public static class HelperMethods
 			(int)difficultyConfig.GetValue("", "maxPaddleSize", 1),
 			(int)difficultyConfig.GetValue("", "startPaddleSize", 1),
 			(int)difficultyConfig.GetValue("", "minPaddleSize", 1),
-			(bool)difficultyConfig.GetValue("", "advancingSpeed", false)
+			(bool)difficultyConfig.GetValue("", "advancingSpeed", false),
+			(float)difficultyConfig.GetValue("", "pickupSpeedMultiplier", 0.35f)
 			);
 
 		return parsedDifficulty;
@@ -56,6 +57,7 @@ public static class HelperMethods
 		parsedConfig.SetValue("", "startPaddleSize", difficulty.StartPaddleSize);
 		parsedConfig.SetValue("", "minPaddleSize", difficulty.MinPaddleSize);
 		parsedConfig.SetValue("", "advancingSpeed", difficulty.AdvancingSpeed);
+		parsedConfig.SetValue("", "pickupSpeedMultiplier", difficulty.PickupSpeedMultiplier);
 
 		return parsedConfig;
 	}

@@ -23,6 +23,8 @@ namespace BoGK.UI
 		[Export] private HSlider _paddleSizeMinSlider;
 		[Export] private Label _advancingSpeed;
 		[Export] private CheckButton _advancingSpeedCheckButton;
+		[Export] private Label _pickupSpeed;
+		[Export] private HSlider _pickupSpeedSlider;
 
 		[Export] private TextureButton _previousDifficulty;
 		[Export] private TextureButton _nextDifficulty;
@@ -101,6 +103,7 @@ namespace BoGK.UI
 			_paddleSizeStartSlider.Visible = _inEditMode;
 			_paddleSizeMinSlider.Visible = _inEditMode;
 			_advancingSpeedCheckButton.Visible = _inEditMode;
+			_pickupSpeedSlider.Visible = _inEditMode;
 			_paginatorParent.Visible = !_inEditMode;
 			_focusHint.Visible = _inEditMode;
 
@@ -112,12 +115,13 @@ namespace BoGK.UI
 		{
 			_livesMax.Text = $"{Tr("DIFF_LIVES_MAX")}: {_livesMaxSlider.Value}";
 			_livesStart.Text = $"{Tr("DIFF_LIVES_START")}: {_livesStartSlider.Value}";
-			_ballSpeed.Text = $"{Tr("DIFF_BALL_SPEED")}: {MathF.Round((float)_ballSpeedSlider.Value, 2)}";
-			_ballAngleSpeed.Text = $"{Tr("DIFF_ANGLE_SPEED")}: {MathF.Round((float)_ballAngleSlider.Value, 2)}";
+			_ballSpeed.Text = $"{Tr("DIFF_BALL_SPEED")}: {MathF.Round((float)_ballSpeedSlider.Value, 2)}x";
+			_ballAngleSpeed.Text = $"{Tr("DIFF_ANGLE_SPEED")}: {MathF.Round((float)_ballAngleSlider.Value, 2)}x";
 			_paddleSizeMax.Text = $"{Tr("DIFF_PADDLE_SIZE_MAX")}: {_paddleSizeMaxSlider.Value}";
 			_paddleSizeStart.Text = $"{Tr("DIFF_PADDLE_SIZE_START")}: {_paddleSizeStartSlider.Value}";
 			_paddleSizeMin.Text = $"{Tr("DIFF_PADDLE_SIZE_MIN")}: {_paddleSizeMinSlider.Value}";
 			_advancingSpeed.Text = $"{Tr("DIFF_ADVANCING_SPEED")}:";
+			_pickupSpeed.Text = $"{Tr("DIFF_PICKUP_SPEED")}: {MathF.Round((float)_pickupSpeedSlider.Value, 2)}x";
 		}
 
 		private void ApplyStaticValues()
@@ -133,12 +137,13 @@ namespace BoGK.UI
 
 			_livesMax.Text = $"{Tr("DIFF_LIVES_MAX")}: {refs.gameData.Difficulties[_currentDifficulty].MaxLives}";
 			_livesStart.Text = $"{Tr("DIFF_LIVES_START")}: {refs.gameData.Difficulties[_currentDifficulty].StartingLives}";
-			_ballSpeed.Text = $"{Tr("DIFF_BALL_SPEED")}: {refs.gameData.Difficulties[_currentDifficulty].BallSpeedMultiplier}";
-			_ballAngleSpeed.Text = $"{Tr("DIFF_ANGLE_SPEED")}: {refs.gameData.Difficulties[_currentDifficulty].AngleSelectSpeed}";
+			_ballSpeed.Text = $"{Tr("DIFF_BALL_SPEED")}: {refs.gameData.Difficulties[_currentDifficulty].BallSpeedMultiplier}x";
+			_ballAngleSpeed.Text = $"{Tr("DIFF_ANGLE_SPEED")}: {refs.gameData.Difficulties[_currentDifficulty].AngleSelectSpeed}x";
 			_paddleSizeMax.Text = $"{Tr("DIFF_PADDLE_SIZE_MAX")}: {refs.gameData.Difficulties[_currentDifficulty].MaxPaddleSize}";
 			_paddleSizeStart.Text = $"{Tr("DIFF_PADDLE_SIZE_START")}: {refs.gameData.Difficulties[_currentDifficulty].StartPaddleSize}";
 			_paddleSizeMin.Text = $"{Tr("DIFF_PADDLE_SIZE_MIN")}: {refs.gameData.Difficulties[_currentDifficulty].MinPaddleSize}";
 			_advancingSpeed.Text = $"{Tr("DIFF_ADVANCING_SPEED")}: {refs.gameData.Difficulties[_currentDifficulty].AdvancingSpeed}";
+			_pickupSpeed.Text = $"{Tr("DIFF_PICKUP_SPEED")}: {refs.gameData.Difficulties[_currentDifficulty].PickupSpeedMultiplier}x";
 		}
 
 		private void ApplyDifficultyToEditor(bool newDifficulty)
@@ -161,6 +166,7 @@ namespace BoGK.UI
 			_paddleSizeStartSlider.Value = refs.gameData.Difficulties[helperIndex].StartPaddleSize;
 			_paddleSizeMinSlider.Value = refs.gameData.Difficulties[helperIndex].MinPaddleSize;
 			_advancingSpeedCheckButton.ButtonPressed = refs.gameData.Difficulties[helperIndex].AdvancingSpeed;
+			_pickupSpeedSlider.Value = refs.gameData.Difficulties[helperIndex].PickupSpeedMultiplier;
 		}
 
 		private void UpdateEditorValues(float value)
@@ -245,7 +251,8 @@ namespace BoGK.UI
 				(int)_paddleSizeMaxSlider.Value,
 				(int)_paddleSizeStartSlider.Value,
 				(int)_paddleSizeMinSlider.Value,
-				(bool)_advancingSpeedCheckButton.ButtonPressed
+				(bool)_advancingSpeedCheckButton.ButtonPressed,
+				(float)_pickupSpeedSlider.Value
 			);
 
 			if (_currentDifficulty < 0)

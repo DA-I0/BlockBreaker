@@ -7,3 +7,4 @@ maxPaddleSize=8
 startPaddleSize=4
 minPaddleSize=3
 advancingSpeed=false
+pickupSpeedMultiplier=0.75

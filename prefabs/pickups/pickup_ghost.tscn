@@ -33,7 +33,7 @@ monitorable = false
 script = ExtResource("1_fttfs")
 _amount = -1
 _pointValue = -5
-_speed = 45.0
+_customSpeedAdjustment = 10
 
 [node name="Collider" type="CollisionPolygon2D" parent="."]
 position = Vector2(0.5, 0.5)
@@ -48,10 +48,10 @@ hframes = 2
 frame = 1
 
 [node name="Animator" type="AnimationPlayer" parent="."]
-autoplay = "idle"
 libraries = {
 "": SubResource("AnimationLibrary_m7os7")
 }
+autoplay = "idle"
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 position = Vector2(8.9407e-08, 0)

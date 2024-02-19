@@ -11,8 +11,9 @@ namespace BoGK.Models
 		public int StartPaddleSize;
 		public int MinPaddleSize;
 		public bool AdvancingSpeed;
+		public float PickupSpeedMultiplier;
 
-		public Difficulty(string name, int maxLives, int startingLives, float ballSpeedMultiplier, float angleSelectSpeed, int maxPaddleSize, int startPaddleSize, int minPaddleSize, bool advancingSpeed)
+		public Difficulty(string name, int maxLives, int startingLives, float ballSpeedMultiplier, float angleSelectSpeed, int maxPaddleSize, int startPaddleSize, int minPaddleSize, bool advancingSpeed, float pickupSpeedMultiplier)
 		{
 			DifficultyName = name;
 			MaxLives = maxLives;
@@ -23,8 +24,9 @@ namespace BoGK.Models
 			StartPaddleSize = startPaddleSize;
 			MinPaddleSize = minPaddleSize;
 			AdvancingSpeed = advancingSpeed;
+			PickupSpeedMultiplier = pickupSpeedMultiplier;
 		}
 
-		public override string ToString() => $"name:{DifficultyName};\nmaxLives:{MaxLives};\nstartingLives:{StartingLives};\nballSpeedMultiplier:{BallSpeedMultiplier};\nangleSelectSpeed:{AngleSelectSpeed};\nmaxPaddleSize:{MaxPaddleSize};\nstartPaddleSize:{StartPaddleSize};\nminPaddleSize:{MinPaddleSize};\nadvancingSpeed:{AdvancingSpeed}";
+		public override string ToString() => $"name:{DifficultyName};\nmaxLives:{MaxLives};\nstartingLives:{StartingLives};\nballSpeedMultiplier:{BallSpeedMultiplier};\nangleSelectSpeed:{AngleSelectSpeed};\nmaxPaddleSize:{MaxPaddleSize};\nstartPaddleSize:{StartPaddleSize};\nminPaddleSize:{MinPaddleSize};\nadvancingSpeed:{AdvancingSpeed};\nadpickupSpeed:{PickupSpeedMultiplier}";
 	}
 }

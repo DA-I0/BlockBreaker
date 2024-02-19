@@ -28,7 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://b32gq7r2tvcf3" path="res://assets/sprites/ui_elements/buttons/ui_icon_add_hover.png" id="24_dlfm4"]
 [ext_resource type="Texture2D" uid="uid://bn53u7bjick3w" path="res://assets/sprites/ui_elements/buttons/ui_icon_add_disabled.png" id="25_cqq4c"]
 
-[node name="DifficultyPanel" type="Panel" node_paths=PackedStringArray("_name", "_newName", "_livesMax", "_livesMaxSlider", "_livesStart", "_livesStartSlider", "_ballSpeed", "_ballSpeedSlider", "_ballAngleSpeed", "_ballAngleSlider", "_paddleSizeMax", "_paddleSizeMaxSlider", "_paddleSizeStart", "_paddleSizeStartSlider", "_paddleSizeMin", "_paddleSizeMinSlider", "_advancingSpeed", "_advancingSpeedCheckButton", "_previousDifficulty", "_nextDifficulty", "_nameEditControls", "_deleteDifficulty", "_editDifficulty", "_addDifficulty", "_cancelEdit", "_focusHint", "_paginatorParent", "_focusTarget", "_returnButton")]
+[node name="DifficultyPanel" type="Panel" node_paths=PackedStringArray("_name", "_newName", "_livesMax", "_livesMaxSlider", "_livesStart", "_livesStartSlider", "_ballSpeed", "_ballSpeedSlider", "_ballAngleSpeed", "_ballAngleSlider", "_paddleSizeMax", "_paddleSizeMaxSlider", "_paddleSizeStart", "_paddleSizeStartSlider", "_paddleSizeMin", "_paddleSizeMinSlider", "_advancingSpeed", "_advancingSpeedCheckButton", "_pickupSpeed", "_pickupSpeedSlider", "_previousDifficulty", "_nextDifficulty", "_nameEditControls", "_deleteDifficulty", "_editDifficulty", "_addDifficulty", "_cancelEdit", "_focusHint", "_paginatorParent", "_focusTarget", "_returnButton")]
 custom_minimum_size = Vector2(256, 224)
 anchors_preset = 15
 anchor_right = 1.0
@@ -52,6 +52,8 @@ _paddleSizeMin = NodePath("DifficultyOptions/MinPaddleSize/PaddleSizeMinLabel")
 _paddleSizeMinSlider = NodePath("DifficultyOptions/MinPaddleSize/PaddleSizeMinSlider")
 _advancingSpeed = NodePath("DifficultyOptions/AdvancingSpeed/AdvancingSpeedLabel")
 _advancingSpeedCheckButton = NodePath("DifficultyOptions/AdvancingSpeed/AdvancingSpeedToggle")
+_pickupSpeed = NodePath("DifficultyOptions/PickupSpeed/PickupSpeedLabel")
+_pickupSpeedSlider = NodePath("DifficultyOptions/PickupSpeed/PickupSpeedSlider")
 _previousDifficulty = NodePath("PreviousDifficulty")
 _nextDifficulty = NodePath("NextDifficulty")
 _nameEditControls = NodePath("DifficultyOptions/Name/DifficultyNewName")
@@ -301,6 +303,23 @@ focus_neighbor_bottom = NodePath("../../Name/DifficultyNewName/LineEdit")
 focus_next = NodePath("../../Name/DifficultyNewName/LineEdit")
 flat = true
 
+[node name="PickupSpeed" type="HBoxContainer" parent="DifficultyOptions"]
+layout_mode = 2
+
+[node name="PickupSpeedLabel" type="Label" parent="DifficultyOptions/PickupSpeed"]
+layout_mode = 2
+size_flags_horizontal = 3
+auto_translate = false
+text = "DIFF_PADDLE_SIZE_MIN"
+
+[node name="PickupSpeedSlider" type="HSlider" parent="DifficultyOptions/PickupSpeed"]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 0.5
+max_value = 2.0
+step = 0.1
+value = 1.5
+
 [node name="Spacer" type="Control" parent="DifficultyOptions"]
 layout_mode = 2
 size_flags_vertical = 3
@@ -432,6 +451,7 @@ text = "BUTTON_RETURN"
 [connection signal="value_changed" from="DifficultyOptions/MaxPaddleSize/PaddleSizeMaxSlider" to="." method="UpdateEditorValues"]
 [connection signal="value_changed" from="DifficultyOptions/StartPaddleSize/PaddleSizeStartSlider" to="." method="UpdateEditorValues"]
 [connection signal="value_changed" from="DifficultyOptions/MinPaddleSize/PaddleSizeMinSlider" to="." method="UpdateEditorValues"]
+[connection signal="value_changed" from="DifficultyOptions/PickupSpeed/PickupSpeedSlider" to="." method="UpdateEditorValues"]
 [connection signal="pressed" from="ConfirmationButtons/ConfirmDifficulty" to="." method="Confirm"]
 [connection signal="pressed" from="ConfirmationButtons/CancelEditor" to="." method="ToggleEditorControls" binds= [false]]
 [connection signal="pressed" from="CustomDifficultyButtons/DeleteDifficulty" to="." method="DeleteDifficulty"]
