@@ -79,7 +79,7 @@ anchor_bottom = 1.0
 offset_left = 5.0
 offset_top = 5.0
 offset_right = -5.0
-offset_bottom = -5.0
+offset_bottom = -6.0
 alignment = 2
 
 [node name="Play" type="Button" parent="Control/MenuButtons"]
@@ -126,54 +126,143 @@ focus_next = NodePath("../Play")
 focus_previous = NodePath("../Options")
 text = "BUTTON_EXIT"
 
-[node name="LeaderboardPanel" parent="Control" node_paths=PackedStringArray("uiController") instance=ExtResource("2_faxfe")]
+[node name="LeaderboardPanel" parent="Control" node_paths=PackedStringArray("_playerNames", "_playerScore", "uiController", "_returnButton") instance=ExtResource("2_faxfe")]
 layout_mode = 1
 grow_horizontal = 2
 grow_vertical = 2
+_playerNames = NodePath("PlayerNames")
+_playerScore = NodePath("PlayerScore")
 uiController = NodePath("../..")
+_returnButton = NodePath("Return")
 
-[node name="PaddlePanel" parent="Control" node_paths=PackedStringArray("uiController") instance=ExtResource("3_nju35")]
+[node name="PaddlePanel" parent="Control" node_paths=PackedStringArray("_paddleSprite", "_paddleName", "_paddleDescription", "_paginatorParent", "uiController", "_returnButton") instance=ExtResource("3_nju35")]
 layout_mode = 1
 grow_horizontal = 2
 grow_vertical = 2
+_paddleSprite = NodePath("PaddleSprite")
+_paddleName = NodePath("PaddleName")
+_paddleDescription = NodePath("PaddleDescription")
+_paginatorParent = NodePath("ItemPaginator")
 uiController = NodePath("../..")
+_returnButton = NodePath("Return")
 
-[node name="DifficultyPanel" parent="Control" node_paths=PackedStringArray("uiController") instance=ExtResource("4_4tq2l")]
+[node name="DifficultyPanel" parent="Control" node_paths=PackedStringArray("_name", "_newName", "_livesMax", "_livesMaxSlider", "_livesStart", "_livesStartSlider", "_ballSpeed", "_ballSpeedSlider", "_ballAngleSpeed", "_ballAngleSlider", "_paddleSizeMax", "_paddleSizeMaxSlider", "_paddleSizeStart", "_paddleSizeStartSlider", "_paddleSizeMin", "_paddleSizeMinSlider", "_advancingSpeed", "_advancingSpeedCheckButton", "_pickupSpeed", "_pickupSpeedSlider", "_previousDifficulty", "_nextDifficulty", "_nameEditControls", "_deleteDifficulty", "_editDifficulty", "_addDifficulty", "_focusHint", "_paginatorParent", "uiController", "_focusTarget", "_returnButton") instance=ExtResource("4_4tq2l")]
 layout_mode = 1
 grow_horizontal = 2
 grow_vertical = 2
+_name = NodePath("DifficultyOptions/Name/NameLabel")
+_newName = NodePath("DifficultyOptions/Name/DifficultyNewName/LineEdit")
+_livesMax = NodePath("DifficultyOptions/MaxLives/LivesMaxLabel")
+_livesMaxSlider = NodePath("DifficultyOptions/MaxLives/LivesMaxSlider")
+_livesStart = NodePath("DifficultyOptions/StartingLives/LivesStartLabel")
+_livesStartSlider = NodePath("DifficultyOptions/StartingLives/LivesStartSlider")
+_ballSpeed = NodePath("DifficultyOptions/BallSpeed/BallSpeedLabel")
+_ballSpeedSlider = NodePath("DifficultyOptions/BallSpeed/BallSpeedSlider")
+_ballAngleSpeed = NodePath("DifficultyOptions/AngleSelectSpeed/AngleSelectLabel")
+_ballAngleSlider = NodePath("DifficultyOptions/AngleSelectSpeed/AngleSelectSlider")
+_paddleSizeMax = NodePath("DifficultyOptions/MaxPaddleSize/PaddleSizeMaxLabel")
+_paddleSizeMaxSlider = NodePath("DifficultyOptions/MaxPaddleSize/PaddleSizeMaxSlider")
+_paddleSizeStart = NodePath("DifficultyOptions/StartPaddleSize/PaddleSizeStartLabel")
+_paddleSizeStartSlider = NodePath("DifficultyOptions/StartPaddleSize/PaddleSizeStartSlider")
+_paddleSizeMin = NodePath("DifficultyOptions/MinPaddleSize/PaddleSizeMinLabel")
+_paddleSizeMinSlider = NodePath("DifficultyOptions/MinPaddleSize/PaddleSizeMinSlider")
+_advancingSpeed = NodePath("DifficultyOptions/AdvancingSpeed/AdvancingSpeedLabel")
+_advancingSpeedCheckButton = NodePath("DifficultyOptions/AdvancingSpeed/AdvancingSpeedToggle")
+_pickupSpeed = NodePath("DifficultyOptions/PickupSpeed/PickupSpeedLabel")
+_pickupSpeedSlider = NodePath("DifficultyOptions/PickupSpeed/PickupSpeedSlider")
+_previousDifficulty = NodePath("PreviousDifficulty")
+_nextDifficulty = NodePath("NextDifficulty")
+_nameEditControls = NodePath("DifficultyOptions/Name/DifficultyNewName")
+_deleteDifficulty = NodePath("CustomDifficultyButtons/DeleteDifficulty")
+_editDifficulty = NodePath("CustomDifficultyButtons/EditDifficulty")
+_addDifficulty = NodePath("CustomDifficultyButtons/AddDifficulty")
+_focusHint = NodePath("DifficultyOptions/DISCLAIMER_SWITCH_FOCUS_HINT")
+_paginatorParent = NodePath("ItemPaginator")
 uiController = NodePath("../..")
+_focusTarget = [null, NodePath("CustomDifficultyButtons/AddDifficulty")]
+_returnButton = NodePath("Return")
 
-[node name="SkillPanel" parent="Control" node_paths=PackedStringArray("uiController") instance=ExtResource("31_ust1r")]
+[node name="SkillPanel" parent="Control" node_paths=PackedStringArray("_skillIcon", "_name", "_description", "_paginatorParent", "uiController", "_returnButton") instance=ExtResource("31_ust1r")]
 layout_mode = 1
 grow_horizontal = 2
 grow_vertical = 2
+_skillIcon = NodePath("SkillOptions/SkillIcon")
+_name = NodePath("SkillOptions/NameLabel")
+_description = NodePath("SkillOptions/DescriptionLabel")
+_paginatorParent = NodePath("ItemPaginator")
 uiController = NodePath("../..")
+_returnButton = NodePath("Return")
 
-[node name="GameSetupPanel" parent="Control" node_paths=PackedStringArray("uiController") instance=ExtResource("31_xmcps")]
+[node name="GameSetupPanel" parent="Control" node_paths=PackedStringArray("_levelGrid", "_paddleButton", "_difficultyButton", "_skillButton", "uiController", "_focusTarget", "_returnButton") instance=ExtResource("31_xmcps")]
 layout_mode = 1
 offset_right = 0.0
 offset_bottom = 0.0
+_levelGrid = NodePath("MainContent/LevelsContainer/Levels")
+_paddleButton = NodePath("MainContent/SidePanel/VBoxContainer/PaddleButton")
+_difficultyButton = NodePath("MainContent/SidePanel/VBoxContainer/DifficultyButton")
+_skillButton = NodePath("MainContent/SidePanel/VBoxContainer/SkillButton")
 uiController = NodePath("../..")
+_focusTarget = [NodePath("MainContent/SidePanel/VBoxContainer/PaddleButton")]
+_returnButton = NodePath("MainContent/SidePanel/VBoxContainer/Return")
 
-[node name="InfoPanel" parent="Control" node_paths=PackedStringArray("uiController") instance=ExtResource("7_1to6h")]
+[node name="InfoPanel" parent="Control" node_paths=PackedStringArray("uiController", "_focusTarget", "_returnButton") instance=ExtResource("7_1to6h")]
 layout_mode = 1
 grow_horizontal = 2
 grow_vertical = 2
 uiController = NodePath("../..")
+_focusTarget = [NodePath("ScrollContainer")]
+_returnButton = NodePath("Return")
 
-[node name="PatchNotesPanel" parent="Control" node_paths=PackedStringArray("uiController") instance=ExtResource("8_e7mht")]
+[node name="PatchNotesPanel" parent="Control" node_paths=PackedStringArray("_content", "uiController", "_focusTarget", "_returnButton") instance=ExtResource("8_e7mht")]
 layout_mode = 1
 grow_horizontal = 2
 grow_vertical = 2
+_content = NodePath("PatchNotesScrollContainer/PatchNotesContent")
 uiController = NodePath("../..")
+_focusTarget = [NodePath("PatchNotesScrollContainer")]
+_returnButton = NodePath("Return")
 
-[node name="OptionsPanel" parent="Control" node_paths=PackedStringArray("_keybindChangePanel", "uiController") instance=ExtResource("9_v0j1q")]
+[node name="OptionsPanel" parent="Control" node_paths=PackedStringArray("_header", "_language", "_font", "_controllerType", "_livesDisplay", "_stageClearDisplay", "_controlDevices", "_fullscreen", "_screenShake", "_pickupOrder", "_backgroundBrightnessText", "_backgroundBrightness", "_helperTransparencyText", "_helperTransparency", "_brekableVariantContainer", "_colorPickerPanel", "_masterVolumeText", "_masterVolume", "_musicVolumeText", "_musicVolume", "_effectsVolumeText", "_effectsVolume", "_keybindChangePanel", "_mouseSpeedText", "_mouseSpeed", "_keyboardSpeedText", "_keyboardSpeed", "_joypadSpeedText", "_joypadSpeed", "_activeJoypad", "_vibrations", "_previousCategoryShortuct", "_nextCategoryShortuct", "_categoryFocusTargets", "uiController", "_focusTarget", "_returnButton") instance=ExtResource("9_v0j1q")]
 layout_mode = 1
 grow_horizontal = 2
 grow_vertical = 2
+_header = NodePath("HeaderPanel/HeaderLabel")
+_language = NodePath("GeneralOptions/Options/LanguageSetting/LanguageOptions")
+_font = NodePath("GeneralOptions/Options/FontSetting/FontOptions")
+_controllerType = NodePath("GeneralOptions/Options/UIControlsSetting/UIControlsOptions")
+_livesDisplay = NodePath("GeneralOptions/Options/LivesDisplaySetting/LivesDisplayToggle")
+_stageClearDisplay = NodePath("GeneralOptions/Options/StageClearDisplaySetting/StageClearDisplayToggle")
+_controlDevices = NodePath("ControlOptions/Options")
+_fullscreen = NodePath("VideoOptions/Options/FullscreenSetting/FullscreenToggle")
+_screenShake = NodePath("VideoOptions/Options/ScreenShakeSetting/ScreenShakeToggle")
+_pickupOrder = NodePath("VideoOptions/Options/PickupSetting/PickupOptions")
+_backgroundBrightnessText = NodePath("VideoOptions/Options/BackgroundSetting/HBoxContainer/BackgroundValue")
+_backgroundBrightness = NodePath("VideoOptions/Options/BackgroundSetting/BackgroundSlider")
+_helperTransparencyText = NodePath("VideoOptions/Options/EffectsTransparencySetting/EffectsTransparencyText/EffectsTransparencyValue")
+_helperTransparency = NodePath("VideoOptions/Options/EffectsTransparencySetting/EffectsTransparencySlider")
+_brekableVariantContainer = NodePath("VideoOptions/Options/BreakableVariantSetting")
+_colorPickerPanel = NodePath("ColorPickerPanel")
+_masterVolumeText = NodePath("AudioOptions/Options/MasterVolumeSetting/MasterVolumeText/MasterVolumeValue")
+_masterVolume = NodePath("AudioOptions/Options/MasterVolumeSetting/MasterVolumeSlider")
+_musicVolumeText = NodePath("AudioOptions/Options/MusicVolumeSetting/MusicVolumeText/MusicVolumeValue")
+_musicVolume = NodePath("AudioOptions/Options/MusicVolumeSetting/MusicVolumeSlider")
+_effectsVolumeText = NodePath("AudioOptions/Options/EffectsVolumeSetting/EffectsVolumeText/EffectsVolumeValue")
+_effectsVolume = NodePath("AudioOptions/Options/EffectsVolumeSetting/EffectsVolumeSlider")
 _keybindChangePanel = NodePath("../../KeybindChangePanel")
+_mouseSpeedText = NodePath("ControlOptions/Options/MouseSettings/Mouse/MouseSpeedSetting/MouseSpeedText/MouseSpeedValue")
+_mouseSpeed = NodePath("ControlOptions/Options/MouseSettings/Mouse/MouseSpeedSetting/MouseSpeedSlider")
+_keyboardSpeedText = NodePath("ControlOptions/Options/KeyboardSettings/Keyboard/KeyboardSpeedSetting/KeyboardSpeedText/KeyboardSpeedValue")
+_keyboardSpeed = NodePath("ControlOptions/Options/KeyboardSettings/Keyboard/KeyboardSpeedSetting/KeyboardSpeedSlider")
+_joypadSpeedText = NodePath("ControlOptions/Options/JoypadSettings/Joypad/ControllerSpeedSetting/ControllerSpeedText/ControllerSpeedValue")
+_joypadSpeed = NodePath("ControlOptions/Options/JoypadSettings/Joypad/ControllerSpeedSetting/ControllerSpeedSlider")
+_activeJoypad = NodePath("ControlOptions/Options/JoypadSettings/Joypad/ActiveController/ActiveGamepadOptions")
+_vibrations = NodePath("ControlOptions/Options/JoypadSettings/Joypad/VibrationSetting/VibrationToggle")
+_previousCategoryShortuct = NodePath("CategoryButtons/PreviousShortcut")
+_nextCategoryShortuct = NodePath("CategoryButtons/NextShortcut")
+_categoryFocusTargets = [NodePath("GeneralOptions/Options/LanguageSetting/LanguageOptions"), NodePath("VideoOptions/Options/FullscreenSetting/FullscreenToggle"), NodePath("AudioOptions/Options/MasterVolumeSetting/MasterVolumeSlider"), NodePath("ControlOptions/Options/MouseSettings/ToggleButton")]
 uiController = NodePath("../..")
+_focusTarget = [NodePath("GeneralOptions/Options/LanguageSetting/LanguageOptions"), NodePath("OptionsButtons/Confirm")]
+_returnButton = NodePath("Return")
 
 [node name="LangSelection" parent="." instance=ExtResource("41_j8o0y")]
 visible = false
