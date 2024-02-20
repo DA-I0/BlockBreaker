@@ -1,9 +1,9 @@
 keys,en,de,ja,pl
-BREAKABLE_BARRIER_STURDY,Sturdy barrier,,,
-BREAKABLE_BLOCK_BASIC,Basic block,,,
-BREAKABLE_BLOCK_STURDY,Sturdy block,,,
-BREAKABLE_COFFIN,Coffin,,,
-BREAKABLE_EXPLOSIVES,Explosives,,,
+BREAKABLE_BARRIER_STURDY,Sturdy barrier,Robuster Barrikade,ハードバリケード,Wytrzymała bariera
+BREAKABLE_BLOCK_BASIC,Basic block,Grundblock,ベーシックブロック,Zwykły blok
+BREAKABLE_BLOCK_STURDY,Sturdy block,Robuster Block,ハードブロック,Wytrzymały blok
+BREAKABLE_COFFIN,Coffin,Sarg,棺,Trumna
+BREAKABLE_EXPLOSIVES,Explosives,Sprengstoff,爆発物,Dynamit
 BREAKABLE_SAFETY_NET,Safety net,,,
 BUTTON_AUDIO,Audio,Audio,サウンド,Dźwięk
 BUTTON_CANCEL,Cancel,Abbrechen,キャンセル,Anuluj
@@ -38,6 +38,7 @@ DIFF_NAME,Name,Name,名前,Nazwa
 DIFF_PADDLE_SIZE_MAX,Max paddle size,Maximale Schlägergröße,最大値パドルサイズ,Maksymalna wielkość paletki
 DIFF_PADDLE_SIZE_MIN,Min paddle size,Mindest Schlägergröße,,Minimalna wielkość paletki
 DIFF_PADDLE_SIZE_START,Starting paddle size,Anfängliche Schlägergröße,初期パドルサイズ,Początkowy rozmiar paletki
+DIFF_PICKUP_SPEED,Pickup speed,,,
 DISCLAIMER_CUSTOM_DIFF,* Custom difficulty,,,* Własny poziom trudności
 DISCLAIMER_SWITCH_FOCUS_HINT,* Press {ui_focus_prev}/{ui_focus_next} to switch between panels.,,,
 DISCLAIMER_SWITCH_PANEL_HINT,* Press {ui_toggle_focus} to switch between panels.,,,
@@ -64,12 +65,12 @@ INFO_CONTROLS_DESC,[b][u]Controls:[/u][/b]\n[b]Move paddle:[/b] {game_left}{game
 INFO_SCORE_MULTIPLIER_DESC,"[b][u]Score:[/u][/b]\nIncreases by 1 for every {multiplier_combo_step} destroyed elements, up to x{multiplier_max_combo}.\nGrabbing difficulty increasing pickups (small/fast ball, smaller paddle) also increases multiplier independent of combo.\nMax score multiplier: x{multiplier_max}.",,,
 LABEL_ALL,All,Alle,すべて,Wszystkie
 LABEL_DIFFICULTY,Difficulty,Schwierigkeitsgrad,難易度,Poziom trudności
-LABEL_PADDLE,Paddle,,,
+LABEL_PADDLE,Paddle,Schläger,パドル,Paletka
 LABEL_PERFECT_CLEAR,Perfect clear,,,
 LABEL_SCORE_MULTIPLIER,Score multiplier,,,
 LABEL_SKILL,Skill,Fähigkeiten,スキル,Umiejętność
 LABEL_TIME_LEFT,Time left,Zeit übrig,残り時間,Pozostały czas
-LEVEL,Level,Level,ステージ,Poziom
+LEVEL,Stage,Level,ステージ,Poziom
 MSG_ADVANCE_TO_NEXT_MAP,Press {game_play} to continue...,Drücke {game_play} um fortzufahren,続けるには{game_play}ボタンを押す,Wciśnij {game_play} aby kontynuować…
 MSG_LOADING,Loading...,Lädt…,ローディング中…,Ładowanie…
 MSG_NEW_KEYBINDIG,Press key to assign to action.,,,Wciśnij przycisk do przypisania.
