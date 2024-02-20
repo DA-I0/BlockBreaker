@@ -327,9 +327,19 @@ namespace BoGK.UI // TODO: break each category into a separate scene
 			foreach (Control inputType in _controlDevices.GetChildren())
 			{
 				Button toggleButton = inputType.GetChild(0) as Button;
-				Control controlSettings = inputType.GetChild(1) as Control;
-				toggleButton.Pressed += () => controlSettings.Visible = !controlSettings.Visible;
-				controlSettings.Visible = false;
+				Control categoryPanel = inputType.GetChild<Control>(1);
+				toggleButton.Pressed += () => ToggleControlCategory(categoryPanel);
+				categoryPanel.Visible = false;
+			}
+		}
+
+		private void ToggleControlCategory(Control target)
+		{
+			target.Visible = !target.Visible;
+
+			if (target.Visible)
+			{
+				target.GetChild(0).GetChild<Control>(1).GrabFocus();
 			}
 		}
 
