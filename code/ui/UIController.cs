@@ -80,7 +80,13 @@ namespace BoGK.UI
 
 		private void DisplayFirstLanguageSelection()
 		{
-			(GetChild(1) as Control).Visible = refs.settings.firstLaunch;
+			Control languagePanel = GetChild<Control>(1);
+			languagePanel.Visible = refs.settings.firstLaunch;
+
+			if (languagePanel.Visible)
+			{
+				languagePanel.GetChild<UIFirstLanguageSelection>(0).Focus();
+			}
 		}
 
 		private void UpdateUIFonts()

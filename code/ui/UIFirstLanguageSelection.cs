@@ -13,6 +13,11 @@ namespace BoGK.UI
 			PopulateLanguageList();
 		}
 
+		public void Focus()
+		{
+			GetChild(1).GetChild<Button>(FindDefaultLanguageButton()).GrabFocus();
+		}
+
 		private void PopulateLanguageList()
 		{
 			GridContainer gridContainer = GetChild(1) as GridContainer;
@@ -47,6 +52,22 @@ namespace BoGK.UI
 			refs.settings.Language = TranslationServer.GetLoadedLocales()[index];
 			refs.settings.SaveSettings();
 			(GetParent() as Control).Visible = false;
+			GetParent().GetParent<UIController>().TogglePanel(string.Empty);
+		}
+
+		private int FindDefaultLanguageButton()
+		{
+			string defaultLanguage = TranslationServer.GetLanguageName(refs.settings.DefaultLanguage);
+
+			for (int index = 0; index < GetChild(1).GetChildCount(); index++)
+			{
+				if (GetChild(1).GetChild<Button>(index).Text == defaultLanguage)
+				{
+					return index;
+				}
+			}
+
+			return 0;
 		}
 	}
 }
