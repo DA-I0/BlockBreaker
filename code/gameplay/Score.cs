@@ -95,7 +95,7 @@ public partial class Score : Node
 	public override void _Ready()
 	{
 		_exitTimer = (Timer)GetChild(0);
-		refs = GetParent() as SessionController;
+		refs = GetParent<SessionController>();
 		refs.levelManager.ResetSession += SessionSetup;
 		refs.levelManager.SceneChanged += EnablePerfectState;
 		refs.health.ResetElements += ResetMultiplier;

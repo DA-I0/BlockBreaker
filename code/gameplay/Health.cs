@@ -14,7 +14,7 @@ public partial class Health : Node
 
 	public override void _Ready()
 	{
-		refs = GetParent() as SessionController;
+		refs = GetParent<SessionController>();
 		refs.GameSetup += SetupInitialValues;
 	}
 

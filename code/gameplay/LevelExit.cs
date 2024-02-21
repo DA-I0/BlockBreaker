@@ -15,7 +15,7 @@ public partial class LevelExit : VariantController
 
 		_blockParent = GetNode("../Blocks");
 		_blockParent.ChildExitingTree += CheckLevelProgress;
-		refs = GetNode("/root/GameController") as SessionController;
+		refs = GetNode<SessionController>("/root/GameController");
 
 		UpdateLevelExit();
 	}

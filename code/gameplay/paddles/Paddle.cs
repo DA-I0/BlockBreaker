@@ -152,11 +152,11 @@ public partial class Paddle : BasePaddle
 
 	protected void SetupReferences()
 	{
-		_sprite = GetNode("PaddleSprite") as NinePatchRect;
-		_animator = GetNode("PaddleAnimator") as AnimationPlayer;
-		_timer = GetNode("Timer") as Timer;
+		_sprite = GetNode<NinePatchRect>("PaddleSprite");
+		_animator = GetNode<AnimationPlayer>("PaddleAnimator");
+		_timer = GetNode<Timer>("Timer");
 
-		refs = GetNode("/root/GameController") as SessionController;
+		refs = GetNode<SessionController>("/root/GameController");
 		refs.paddle = this;
 		refs.health.ResetElements += SetupInitialValues;
 		refs.levelManager.ResetSession += Destroy;

@@ -21,7 +21,7 @@ namespace BoGK.UI
 
 		private void SetupReferences()
 		{
-			refs = GetNode("/root/GameController") as SessionController;
+			refs = GetNode<SessionController>("/root/GameController");
 			refs.GameSetup += TogglePrompt;
 			refs.levelManager.ResetSession += TogglePrompt;
 			refs.GameStateChanged += Display;

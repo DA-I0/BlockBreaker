@@ -33,7 +33,7 @@ namespace BoGK.UI
 
 		protected virtual void SetupBaseReferences()
 		{
-			refs = GetNode("/root/GameController") as SessionController;
+			refs = GetNode<SessionController>("/root/GameController");
 			uiController.RefreshUI += Focus;
 			_returnButton.Pressed += () => Return();
 		}

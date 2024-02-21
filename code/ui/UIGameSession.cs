@@ -35,7 +35,7 @@ namespace BoGK.UI
 
 		private void SetupReferences()
 		{
-			refs = GetNode("/root/GameController") as SessionController;
+			refs = GetNode<SessionController>("/root/GameController");
 			refs.SkillReady += DisplaySkillIcon;
 			refs.SkillUsed += HideSkillIcon;
 			refs.gameScore.ScoreChanged += UpdateScore;

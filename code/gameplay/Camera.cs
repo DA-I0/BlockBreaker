@@ -21,9 +21,9 @@ public partial class Camera : Camera2D
 	public override void _Ready()
 	{
 		_defaultPosition = Position;
-		_timer = GetChild(0) as Timer;
+		_timer = GetChild<Timer>(0);
 
-		refs = GetParent() as SessionController;
+		refs = GetParent<SessionController>();
 		refs.SkillUsed += Shake;
 	}
 

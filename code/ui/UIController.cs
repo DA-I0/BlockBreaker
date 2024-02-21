@@ -18,7 +18,7 @@ namespace BoGK.UI
 
 		public override void _Ready()
 		{
-			refs = GetNode("/root/GameController") as SessionController;
+			refs = GetNode<SessionController>("/root/GameController");
 			refs.settings.SettingsUpdated += UpdateUIFonts;
 
 			FindPanels();

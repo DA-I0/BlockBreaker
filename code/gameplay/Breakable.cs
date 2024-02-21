@@ -29,9 +29,9 @@ public partial class Breakable : StaticBody2D
 
 	public override void _Ready()
 	{
-		_sprite = GetNode("Sprite") as Sprite2D;
+		_sprite = GetNode<Sprite2D>("Sprite");
 
-		refs = GetNode("/root/GameController") as SessionController;
+		refs = GetNode<SessionController>("/root/GameController");
 		SetInitialValues();
 		AdjustSprite();
 	}
@@ -119,7 +119,7 @@ public partial class Breakable : StaticBody2D
 		if (dropRandomization <= _pickupSpawnChance)
 		{
 			int pickupType = GD.RandRange(0, _pickups.Length - 1);
-			Area2D pickup = _pickups[pickupType].Instantiate() as Area2D;
+			Area2D pickup = _pickups[pickupType].Instantiate<Area2D>();
 			GetNode("../../..").CallDeferred("add_child", pickup);
 			pickup.Position = Position;
 		}

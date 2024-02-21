@@ -326,7 +326,7 @@ namespace BoGK.UI // TODO: break each category into a separate scene
 		{
 			foreach (Control inputType in _controlDevices.GetChildren())
 			{
-				Button toggleButton = inputType.GetChild(0) as Button;
+				Button toggleButton = inputType.GetChild<Button>(0);
 				Control categoryPanel = inputType.GetChild<Control>(1);
 				toggleButton.Pressed += () => ToggleControlCategory(categoryPanel);
 				categoryPanel.Visible = false;
@@ -420,8 +420,8 @@ namespace BoGK.UI // TODO: break each category into a separate scene
 					}
 
 					string[] inputEvents = refs.localization.GetInputSymbol(inputAction.Name, inputAction.GetParent().Name);
-					(inputAction.GetChild(2) as Button).Text = (inputEvents.Length > 0) ? inputEvents[0] : string.Empty;
-					(inputAction.GetChild(3) as Button).Text = (inputEvents.Length > 1) ? inputEvents[1] : string.Empty;
+					inputAction.GetChild<Button>(2).Text = (inputEvents.Length > 0) ? inputEvents[0] : string.Empty;
+					inputAction.GetChild<Button>(3).Text = (inputEvents.Length > 1) ? inputEvents[1] : string.Empty;
 				}
 			}
 

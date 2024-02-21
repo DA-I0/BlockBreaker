@@ -6,7 +6,7 @@ public partial class ObjectCleaner : Node2D
 
 	public override void _Ready()
 	{
-		refs = GetNode("/root/GameController") as SessionController;
+		refs = GetNode<SessionController>("/root/GameController");
 		refs.levelManager.ResetSession += Destroy;
 	}
 

@@ -9,7 +9,7 @@ namespace BoGK.UI
 
 		public override void _Ready()
 		{
-			refs = GetNode("/root/GameController") as SessionController;
+			refs = GetNode<SessionController>("/root/GameController");
 			PopulateLanguageList();
 		}
 
@@ -20,7 +20,7 @@ namespace BoGK.UI
 
 		private void PopulateLanguageList()
 		{
-			GridContainer gridContainer = GetChild(1) as GridContainer;
+			GridContainer gridContainer = GetChild<GridContainer>(1);
 
 			List<string> languageNames = new List<string>();
 
@@ -51,7 +51,7 @@ namespace BoGK.UI
 		{
 			refs.settings.Language = TranslationServer.GetLoadedLocales()[index];
 			refs.settings.SaveSettings();
-			(GetParent() as Control).Visible = false;
+			GetParent<Control>().Visible = false;
 			GetParent().GetParent<UIController>().TogglePanel(string.Empty);
 		}
 

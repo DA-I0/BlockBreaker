@@ -13,7 +13,7 @@ public partial class Pickup : Area2D
 
 	public override void _Ready()
 	{
-		refs = GetNode("/root/GameController") as SessionController;
+		refs = GetNode<SessionController>("/root/GameController");
 		ZIndex = refs.settings.PickupOrder;
 		_moveSpeed = (int)(BaseSpeed * refs.SelectedDifficulty.PickupSpeedMultiplier + _customSpeedAdjustment);
 	}

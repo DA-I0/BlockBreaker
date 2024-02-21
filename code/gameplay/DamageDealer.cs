@@ -30,7 +30,7 @@ public partial class DamageDealer : Node2D
 	{
 		if (target as Breakable != null)
 		{
-			((Breakable)(Node)target).Damage(_strength);
+			((Breakable)target).Damage(_strength);
 			return;
 		}
 	}
