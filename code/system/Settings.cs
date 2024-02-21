@@ -474,6 +474,12 @@ public class Settings
 		}
 		catch { }
 
-		return DefaultBreakableVariants[brekableName];//new BreakableVariant(string.Empty, 0, new Color(1, 1, 1, 1));
+		try
+		{
+			return DefaultBreakableVariants[brekableName];
+		}
+		catch { }
+
+		return new BreakableVariant(string.Empty, 0, new Color(1, 1, 1, 1));
 	}
 }
