@@ -22,6 +22,8 @@ public partial class DamageDealer : Node2D
 
 	private void Cleanup(StringName animName)
 	{
+		GetNode<SessionController>("/root/GameController").paddle.VibrateController(0.35f, 0.15f, 0.12f);
+
 		_animator.AnimationFinished -= Cleanup;
 		QueueFree();
 	}

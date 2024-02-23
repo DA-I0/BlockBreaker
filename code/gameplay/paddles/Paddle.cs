@@ -237,7 +237,7 @@ public partial class Paddle : BasePaddle
 		_sprite.Texture = _sprites[(int)_paddleMode];
 	}
 
-	protected void VibrateController(float strengthWeak, float strengthStrong, float time)
+	public void VibrateController(float strengthWeak, float strengthStrong, float time) // TODO: move
 	{
 		if (refs.settings.ControllerVibrations)
 		{
