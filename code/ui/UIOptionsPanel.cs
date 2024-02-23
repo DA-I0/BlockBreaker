@@ -7,7 +7,7 @@ namespace BoGK.UI // TODO: break each category into a separate scene
 {
 	public partial class UIOptionsPanel : UIPanel
 	{
-		private const int StaticItems = 4;
+		private const int StaticItems = 5;
 		[Export] private Label _header;
 		[Export] private OptionButton _language;
 		[Export] private OptionButton _font;
@@ -42,6 +42,7 @@ namespace BoGK.UI // TODO: break each category into a separate scene
 		[Export] private Label _previousCategoryShortuct;
 		[Export] private Label _nextCategoryShortuct;
 		[Export] private Control[] _categoryFocusTargets;
+		[Export] private UIConfirmationPrompt _confirmationPrompt;
 
 		private int _activePanel = 0;
 		private string _inputType = string.Empty;
@@ -179,6 +180,7 @@ namespace BoGK.UI // TODO: break each category into a separate scene
 			SaveBreakableVariants();
 			refs.settings.SaveSettings();
 			UpdateHeaderText();
+			_confirmationPrompt.Activate();
 		}
 
 		private void CancelSettings()

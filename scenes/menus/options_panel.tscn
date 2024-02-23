@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://ier2relg61ni"]
+[gd_scene load_steps=8 format=3 uid="uid://ier2relg61ni"]
 
 [ext_resource type="StyleBox" uid="uid://bnbwbb74r5uj6" path="res://theme/panel_header.tres" id="1_wbet2"]
 [ext_resource type="Script" path="res://code/ui/UIOptionsPanel.cs" id="2_o2q3s"]
@@ -6,8 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://chk6oivvrr8nn" path="res://assets/sprites/ui_elements/buttons/ui_icon_arrow_right.png" id="4_7mlu3"]
 [ext_resource type="Script" path="res://code/ui/UIColorPicker.cs" id="6_svy1v"]
 [ext_resource type="Shortcut" uid="uid://bhk5vranx2qfl" path="res://shortcuts/cancel.tres" id="6_vgxtx"]
+[ext_resource type="PackedScene" uid="uid://3l3vc2ulu3f6" path="res://prefabs/ui/settings_saved_prompt.tscn" id="7_goe0f"]
 
-[node name="OptionsPanel" type="Panel" node_paths=PackedStringArray("_header", "_language", "_font", "_controllerType", "_livesDisplay", "_stageClearDisplay", "_controlDevices", "_fullscreen", "_screenShake", "_pickupOrder", "_backgroundBrightnessText", "_backgroundBrightness", "_helperTransparencyText", "_helperTransparency", "_brekableVariantContainer", "_colorPickerPanel", "_masterVolumeText", "_masterVolume", "_musicVolumeText", "_musicVolume", "_effectsVolumeText", "_effectsVolume", "_mouseSpeedText", "_mouseSpeed", "_keyboardSpeedText", "_keyboardSpeed", "_joypadSpeedText", "_joypadSpeed", "_activeJoypad", "_vibrations", "_previousCategoryShortuct", "_nextCategoryShortuct", "_categoryFocusTargets", "_focusTarget", "_returnButton")]
+[node name="OptionsPanel" type="Panel" node_paths=PackedStringArray("_header", "_language", "_font", "_controllerType", "_livesDisplay", "_stageClearDisplay", "_controlDevices", "_fullscreen", "_screenShake", "_pickupOrder", "_backgroundBrightnessText", "_backgroundBrightness", "_helperTransparencyText", "_helperTransparency", "_brekableVariantContainer", "_colorPickerPanel", "_masterVolumeText", "_masterVolume", "_musicVolumeText", "_musicVolume", "_effectsVolumeText", "_effectsVolume", "_mouseSpeedText", "_mouseSpeed", "_keyboardSpeedText", "_keyboardSpeed", "_joypadSpeedText", "_joypadSpeed", "_activeJoypad", "_vibrations", "_previousCategoryShortuct", "_nextCategoryShortuct", "_categoryFocusTargets", "_confirmationPrompt", "_focusTarget", "_returnButton")]
 custom_minimum_size = Vector2(256, 224)
 anchors_preset = 15
 anchor_right = 1.0
@@ -47,6 +48,7 @@ _vibrations = NodePath("ControlOptions/Options/JoypadSettings/Joypad/VibrationSe
 _previousCategoryShortuct = NodePath("CategoryButtons/PreviousShortcut")
 _nextCategoryShortuct = NodePath("CategoryButtons/NextShortcut")
 _categoryFocusTargets = [NodePath("GeneralOptions/Options/LanguageSetting/LanguageOptions"), NodePath("VideoOptions/Options/FullscreenSetting/FullscreenToggle"), NodePath("AudioOptions/Options/MasterVolumeSetting/MasterVolumeSlider"), NodePath("ControlOptions/Options/MouseSettings/ToggleButton")]
+_confirmationPrompt = NodePath("SettingsSavedPrompt")
 _focusTarget = [NodePath("GeneralOptions/Options/LanguageSetting/LanguageOptions"), NodePath("OptionsButtons/Confirm")]
 _returnButton = NodePath("Return")
 
@@ -911,6 +913,10 @@ text = "BUTTON_CONFIRM"
 [node name="CancelColor" type="Button" parent="ColorPickerPanel/Buttons"]
 layout_mode = 2
 text = "BUTTON_CANCEL"
+
+[node name="SettingsSavedPrompt" parent="." node_paths=PackedStringArray("_animator") instance=ExtResource("7_goe0f")]
+layout_mode = 1
+_animator = NodePath("Animator")
 
 [connection signal="value_changed" from="VideoOptions/Options/BackgroundSetting/BackgroundSlider" to="." method="UpdateVideoTextValues" unbinds=1]
 [connection signal="value_changed" from="VideoOptions/Options/EffectsTransparencySetting/EffectsTransparencySlider" to="." method="UpdateVideoTextValues" unbinds=1]
