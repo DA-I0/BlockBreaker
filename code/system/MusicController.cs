@@ -52,6 +52,7 @@ public partial class MusicController : AudioController
 	private void ShuffleStageMusic(AudioStream[] targetArray)
 	{
 		Random randomizer = new Random();
+		AudioStream lastSong = targetArray[^1];
 
 		for (int index = targetArray.Length - 1; index > 0; index--)
 		{
@@ -59,6 +60,12 @@ public partial class MusicController : AudioController
 			AudioStream value = targetArray[randomIndex];
 			targetArray[randomIndex] = targetArray[index];
 			targetArray[index] = value;
+		}
+
+		if (lastSong == targetArray[0])
+		{
+			targetArray[0] = targetArray[1];
+			targetArray[1] = lastSong;
 		}
 
 		_clips = targetArray;
