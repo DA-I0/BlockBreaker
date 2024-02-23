@@ -8,6 +8,7 @@ namespace BoGK.UI
 		[Export] private Label _gameTitle;
 		[Export] private Label _gameVersion;
 		[Export] private Control _menuButtons;
+		[Export] private Control _languagePanel;
 		private Dictionary<string, CanvasItem> _panels = new Dictionary<string, CanvasItem>();
 
 		private string _activePanel = string.Empty;
@@ -57,7 +58,7 @@ namespace BoGK.UI
 			refs.localization.UpdateUILocalization();
 		}
 
-		private void FocusOnButtons()
+		public void FocusOnButtons()
 		{
 			if (_activePanel == string.Empty)
 			{
@@ -80,12 +81,11 @@ namespace BoGK.UI
 
 		private void DisplayFirstLanguageSelection()
 		{
-			Control languagePanel = GetChild<Control>(1);
-			languagePanel.Visible = refs.settings.firstLaunch;
+			_languagePanel.Visible = refs.settings.FirstLaunch;
 
-			if (languagePanel.Visible)
+			if (_languagePanel.Visible)
 			{
-				languagePanel.GetChild<UIFirstLanguageSelection>(0).Focus();
+				_languagePanel.GetChild<UIFirstLanguageSelection>(0).Focus();
 			}
 		}
 

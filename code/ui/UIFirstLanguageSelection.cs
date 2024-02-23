@@ -19,6 +19,11 @@ namespace BoGK.UI
 
 		public void Focus()
 		{
+			if (!refs.settings.FirstLaunch)
+			{
+				Disable();
+			}
+
 			_languageContainer.GetChild<Button>(_defaultLanguageIndex).GrabFocus();
 		}
 
@@ -64,13 +69,18 @@ namespace BoGK.UI
 		{
 			refs.settings.Language = TranslationServer.GetLoadedLocales()[index];
 			refs.settings.SaveSettings();
-			GetParent<Control>().Visible = false;
-			GetParent().GetParent<UIController>().TogglePanel(string.Empty);
+			Disable();
 		}
 
 		private bool CheckIfDefaultLanguage(string language)
 		{
 			return language == TranslationServer.GetLanguageName(refs.settings.DefaultLanguage);
+		}
+
+		private void Disable()
+		{
+			GetParent<Control>().Visible = false;
+			GetParent().GetParent<UIController>().FocusOnButtons();//TogglePanel(string.Empty);
 		}
 	}
 }

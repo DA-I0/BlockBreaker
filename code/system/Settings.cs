@@ -7,7 +7,7 @@ public enum InputType { Joypad, Keyboard, Mouse };
 
 public class Settings
 {
-	public bool firstLaunch = false;
+	private bool _firstLaunch = false;
 
 	private ConfigFile _defaultConfig;
 	private ConfigFile _config;
@@ -21,6 +21,11 @@ public class Settings
 	private readonly SessionController refs;
 
 	public event Notification SettingsUpdated;
+
+	public bool FirstLaunch
+	{
+		get { return _firstLaunch; }
+	}
 
 	// Default settings
 	public string DefaultLanguage
@@ -356,7 +361,7 @@ public class Settings
 		if (error != Error.Ok)
 		{
 			SetDefaultValues();
-			firstLaunch = true;
+			_firstLaunch = true;
 		}
 
 		ApplySettings();
@@ -367,6 +372,7 @@ public class Settings
 		ParseVariantsToConfig();
 		_config.Save(ProjectSettings.GetSetting("global/ConfigFilePath").ToString());
 		ApplySettings();
+		_firstLaunch = false;
 	}
 
 	public void ChangeKeybinding(string actionToChange, string inputValueToChange, InputEvent newInputValue)

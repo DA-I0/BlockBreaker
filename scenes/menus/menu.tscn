@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://gn5283p37bke" path="res://prefabs/ui/first_language_selection.tscn" id="41_j8o0y"]
 [ext_resource type="PackedScene" uid="uid://bjvyfeorydh7s" path="res://prefabs/ui/keybind_change_panel.tscn" id="42_x70i1"]
 
-[node name="Menu" type="AspectRatioContainer" node_paths=PackedStringArray("_gameTitle", "_gameVersion", "_menuButtons")]
+[node name="Menu" type="AspectRatioContainer" node_paths=PackedStringArray("_gameTitle", "_gameVersion", "_menuButtons", "_languagePanel")]
 custom_minimum_size = Vector2(256, 224)
 anchors_preset = 15
 anchor_right = 1.0
@@ -28,6 +28,7 @@ script = ExtResource("1_5bop1")
 _gameTitle = NodePath("Control/GameTitle")
 _gameVersion = NodePath("Control/GameVersion")
 _menuButtons = NodePath("Control/MenuButtons")
+_languagePanel = NodePath("LangSelection")
 
 [node name="Control" type="Panel" parent="."]
 z_index = 1
@@ -212,6 +213,7 @@ grow_vertical = 2
 uiController = NodePath("../..")
 _focusTarget = [NodePath("ScrollContainer")]
 _returnButton = NodePath("Return")
+_returnTarget = ""
 
 [node name="PatchNotesPanel" parent="Control" node_paths=PackedStringArray("_content", "uiController", "_focusTarget", "_returnButton") instance=ExtResource("8_e7mht")]
 layout_mode = 1
@@ -221,8 +223,9 @@ _content = NodePath("PatchNotesScrollContainer/PatchNotesContent")
 uiController = NodePath("../..")
 _focusTarget = [NodePath("PatchNotesScrollContainer")]
 _returnButton = NodePath("Return")
+_returnTarget = ""
 
-[node name="OptionsPanel" parent="Control" node_paths=PackedStringArray("_header", "_language", "_font", "_controllerType", "_livesDisplay", "_stageClearDisplay", "_controlDevices", "_fullscreen", "_screenShake", "_pickupOrder", "_backgroundBrightnessText", "_backgroundBrightness", "_helperTransparencyText", "_helperTransparency", "_brekableVariantContainer", "_colorPickerPanel", "_masterVolumeText", "_masterVolume", "_musicVolumeText", "_musicVolume", "_effectsVolumeText", "_effectsVolume", "_keybindChangePanel", "_mouseSpeedText", "_mouseSpeed", "_keyboardSpeedText", "_keyboardSpeed", "_joypadSpeedText", "_joypadSpeed", "_activeJoypad", "_vibrations", "_previousCategoryShortuct", "_nextCategoryShortuct", "_categoryFocusTargets", "uiController", "_focusTarget", "_returnButton") instance=ExtResource("9_v0j1q")]
+[node name="OptionsPanel" parent="Control" node_paths=PackedStringArray("_header", "_language", "_font", "_controllerType", "_livesDisplay", "_stageClearDisplay", "_controlDevices", "_fullscreen", "_screenShake", "_pickupOrder", "_backgroundBrightnessText", "_backgroundBrightness", "_helperTransparencyText", "_helperTransparency", "_brekableVariantContainer", "_colorPickerPanel", "_masterVolumeText", "_masterVolume", "_musicVolumeText", "_musicVolume", "_effectsVolumeText", "_effectsVolume", "_keybindChangePanel", "_mouseSpeedText", "_mouseSpeed", "_keyboardSpeedText", "_keyboardSpeed", "_joypadSpeedText", "_joypadSpeed", "_activeJoypad", "_vibrations", "_previousCategoryShortuct", "_nextCategoryShortuct", "_categoryFocusTargets", "_confirmationPrompt", "uiController", "_focusTarget", "_returnButton") instance=ExtResource("9_v0j1q")]
 layout_mode = 1
 grow_horizontal = 2
 grow_vertical = 2
@@ -260,6 +263,7 @@ _vibrations = NodePath("ControlOptions/Options/JoypadSettings/Joypad/VibrationSe
 _previousCategoryShortuct = NodePath("CategoryButtons/PreviousShortcut")
 _nextCategoryShortuct = NodePath("CategoryButtons/NextShortcut")
 _categoryFocusTargets = [NodePath("GeneralOptions/Options/LanguageSetting/LanguageOptions"), NodePath("VideoOptions/Options/FullscreenSetting/FullscreenToggle"), NodePath("AudioOptions/Options/MasterVolumeSetting/MasterVolumeSlider"), NodePath("ControlOptions/Options/MouseSettings/ToggleButton")]
+_confirmationPrompt = NodePath("SettingsSavedPrompt")
 uiController = NodePath("../..")
 _focusTarget = [NodePath("GeneralOptions/Options/LanguageSetting/LanguageOptions"), NodePath("OptionsButtons/Confirm")]
 _returnButton = NodePath("Return")
