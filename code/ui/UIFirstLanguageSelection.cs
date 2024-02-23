@@ -5,6 +5,10 @@ namespace BoGK.UI
 {
 	public partial class UIFirstLanguageSelection : Control
 	{
+		[Export] private GridContainer _languageContainer;
+
+		private int _defaultLanguageIndex = 0;
+
 		private SessionController refs;
 
 		public override void _Ready()
@@ -15,13 +19,11 @@ namespace BoGK.UI
 
 		public void Focus()
 		{
-			GetChild(1).GetChild<Button>(FindDefaultLanguageButton()).GrabFocus();
+			_languageContainer.GetChild<Button>(_defaultLanguageIndex).GrabFocus();
 		}
 
 		private void PopulateLanguageList()
 		{
-			GridContainer gridContainer = GetChild<GridContainer>(1);
-
 			List<string> languageNames = new List<string>();
 
 			foreach (string languageCode in TranslationServer.GetLoadedLocales())
@@ -35,15 +37,26 @@ namespace BoGK.UI
 			for (int index = 0; index < languageNames.Count; index++)
 			{
 				Button nextLanguage = new Button();
-				nextLanguage.Text = languageNames[index];
+
+				if (CheckIfDefaultLanguage(languageNames[index]))
+				{
+					nextLanguage.Text = languageNames[index];
+					_defaultLanguageIndex = index;
+				}
+				else
+				{
+					nextLanguage.Text = $"{languageNames[index]}*";
+
+				}
 
 				int languageIndex = index;
+
 				nextLanguage.Pressed += () => SetInitialLanguage(languageIndex);
 
 				nextLanguage.SizeFlagsHorizontal = SizeFlags.ShrinkCenter | SizeFlags.Expand;
 				nextLanguage.SizeFlagsVertical = SizeFlags.ShrinkCenter;
 
-				GetChild(1).AddChild(nextLanguage);
+				_languageContainer.AddChild(nextLanguage);
 			}
 		}
 
@@ -55,19 +68,9 @@ namespace BoGK.UI
 			GetParent().GetParent<UIController>().TogglePanel(string.Empty);
 		}
 
-		private int FindDefaultLanguageButton()
+		private bool CheckIfDefaultLanguage(string language)
 		{
-			string defaultLanguage = TranslationServer.GetLanguageName(refs.settings.DefaultLanguage);
-
-			for (int index = 0; index < GetChild(1).GetChildCount(); index++)
-			{
-				if (GetChild(1).GetChild<Button>(index).Text == defaultLanguage)
-				{
-					return index;
-				}
-			}
-
-			return 0;
+			return language == TranslationServer.GetLanguageName(refs.settings.DefaultLanguage);
 		}
 	}
 }
