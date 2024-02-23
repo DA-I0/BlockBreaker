@@ -76,6 +76,7 @@ text = "LABEL_PADDLE"
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 focus_neighbor_top = NodePath("../Return")
+focus_neighbor_right = NodePath(".")
 focus_neighbor_bottom = NodePath("../SkillButton")
 focus_next = NodePath("../SkillButton")
 focus_previous = NodePath("../Return")
@@ -95,6 +96,7 @@ text = "LABEL_SKILL"
 [node name="SkillButton" type="Button" parent="MainContent/SidePanel/VBoxContainer"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../PaddleButton")
+focus_neighbor_right = NodePath(".")
 focus_neighbor_bottom = NodePath("../DifficultyButton")
 focus_next = NodePath("../DifficultyButton")
 focus_previous = NodePath("../PaddleButton")
@@ -113,6 +115,7 @@ text = "LABEL_DIFFICULTY"
 [node name="DifficultyButton" type="Button" parent="MainContent/SidePanel/VBoxContainer"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../SkillButton")
+focus_neighbor_right = NodePath(".")
 focus_neighbor_bottom = NodePath("../Return")
 focus_next = NodePath("../Return")
 focus_previous = NodePath("../SkillButton")
