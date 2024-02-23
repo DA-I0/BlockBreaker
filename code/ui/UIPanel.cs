@@ -48,6 +48,11 @@ namespace BoGK.UI
 
 		protected virtual void ToggleFocus()
 		{
+			if (_focusTarget == null || _focusTarget.Length < 1)
+			{
+				return;
+			}
+
 			_focusTarget[_focusIndex]?.ReleaseFocus();
 			_focusIndex = (_focusIndex < _focusTarget.Length - 1) ? _focusIndex + 1 : 0;
 
