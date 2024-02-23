@@ -75,7 +75,9 @@ MSG_ADVANCE_TO_NEXT_MAP,Press {game_play} to continue...,Drücke {game_play} um 
 MSG_LOADING,Loading...,Lädt…,ローディング中…,Ładowanie…
 MSG_NEW_KEYBINDIG,Press key to assign to action.,,,Wciśnij przycisk do przypisania.
 MSG_NO_BONUSES,No bonuses,,,
+MSG_PARTIAL_TRANSLATION,* Partial translation,,,
 MSG_RETURN_TO_MENU,Return to menu?,Zum Hauptmenü zurückkehren?,メインメニューに戻りますか？,Wróć do menu?
+MSG_SETTINGS_SAVED,Settings saved!,,,
 OPTION_GENERAL_FONT,Font,Schriftart,フォント,Czcionka
 OPTION_GENERAL_LANGUAGE,Language,Sprache,言語,Język
 OPTION_GENERAL_UI_PROMPTS,Control prompts,,,
