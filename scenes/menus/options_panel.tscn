@@ -782,7 +782,7 @@ focus_neighbor_right = NodePath("../Default")
 focus_neighbor_bottom = NodePath("../Default")
 focus_next = NodePath("../Default")
 focus_previous = NodePath("../Confirm")
-focus_mode = 0
+focus_mode = 1
 shortcut = ExtResource("6_vgxtx")
 shortcut_in_tooltip = false
 text = "BUTTON_CANCEL"
@@ -795,7 +795,7 @@ focus_neighbor_right = NodePath("../Confirm")
 focus_neighbor_bottom = NodePath("../Confirm")
 focus_next = NodePath("../Cancel")
 focus_previous = NodePath("../Cancel")
-focus_mode = 0
+focus_mode = 1
 shortcut_in_tooltip = false
 text = "BUTTON_DEFAULT"
 
