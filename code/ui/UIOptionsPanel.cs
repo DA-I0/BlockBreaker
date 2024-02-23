@@ -463,6 +463,11 @@ namespace BoGK.UI // TODO: break each category into a separate scene
 		private void ToggleBreakableVariantsDisplay()
 		{
 			_brekableVariantContainer.Visible = !_brekableVariantContainer.Visible;
+
+			if (_brekableVariantContainer.Visible)
+			{
+				_brekableVariantContainer.GetChild(0).GetChild<Control>(2).GrabFocus();
+			}
 		}
 
 		private void PopulateBreakableVariants()
