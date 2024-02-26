@@ -220,6 +220,7 @@ namespace BoGK.UI // TODO: break each category into a separate scene
 		private void ChangeActivePanel(int targetPanelIndex)
 		{
 			_activePanel = targetPanelIndex;
+			FoldExpandableControls();
 			DisplayActivePanel();
 		}
 
@@ -608,6 +609,16 @@ namespace BoGK.UI // TODO: break each category into a separate scene
 			}
 
 			ChangeActivePanel(newPanelIndex);
+		}
+
+		private void FoldExpandableControls()
+		{
+			_brekableVariantContainer.Visible = false;
+
+			foreach (Control inputType in _controlDevices.GetChildren())
+			{
+				inputType.GetChild<Control>(1).Visible = false;
+			}
 		}
 	}
 }
