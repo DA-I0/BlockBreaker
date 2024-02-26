@@ -858,6 +858,7 @@ shortcut_in_tooltip = false
 text = "BUTTON_RETURN"
 
 [node name="ColorPickerPanel" type="ColorRect" parent="." node_paths=PackedStringArray("_colorPicker", "_targetSprite")]
+process_mode = 2
 visible = false
 z_index = 1
 layout_mode = 1

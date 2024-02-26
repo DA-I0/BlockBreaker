@@ -22,10 +22,12 @@ namespace BoGK.UI
 			_targetSprite.Modulate = _target.Modulate;
 			Visible = true;
 			_colorPicker.GrabFocus();
+			GetTree().Paused = true;
 		}
 
 		private void Deactivate()
 		{
+			GetTree().Paused = false;
 			Visible = false;
 			_target?.GrabFocus();
 		}
