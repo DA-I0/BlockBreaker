@@ -42,7 +42,7 @@ DIFF_PICKUP_SPEED,Pickup speed,,,
 DISCLAIMER_CUSTOM_DIFF,* Custom difficulty,,,* Własny poziom trudności
 DISCLAIMER_SWITCH_FOCUS_HINT,* Press {ui_focus_prev}/{ui_focus_next} to switch between panels.,,,
 DISCLAIMER_SWITCH_PANEL_HINT,* Press {ui_toggle_focus} to switch between panels.,,,
-GAME_LIVES,Lives,Leben,ライフ,Życia
+GAME_LIVES,Remaining lives,Verbleibende Leben,残りのライフ,Pozostałe życia
 GAME_OVER,Game over!,Spiel vorbei!,ゲームオーバー！,Koniec gry!
 GAME_SCORE,Score,Punktzahl,スコア,Punkty
 GAME_WIN,Victory!,Sieg!,勝利!,Zwycięstwo!

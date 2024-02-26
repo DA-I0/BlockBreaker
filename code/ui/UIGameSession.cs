@@ -69,13 +69,14 @@ namespace BoGK.UI
 		{
 			for (int i = 0; i < _lives.GetChildCount(); i++)
 			{
-				((CanvasItem)_lives.GetChild(i)).Visible = i < lives;
+				((CanvasItem)_lives.GetChild(i)).Visible = i < (lives - 1);
 			}
 		}
 
 		private void UpdateLifeText(int lives)
 		{
-			_livesText.Text = $"{Tr("GAME_LIVES")}: {lives}";
+			int remainingLives = lives > 0 ? lives - 1 : 0;
+			_livesText.Text = $"{Tr("GAME_LIVES")}: {remainingLives}";
 		}
 
 		private void HideGameStateUI()
