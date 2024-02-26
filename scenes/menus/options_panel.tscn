@@ -879,6 +879,11 @@ mouse_force_pass_scroll_events = false
 
 [node name="ColorPicker" type="ColorPicker" parent="ColorPickerPanel/MainPanel"]
 layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../../Buttons/CancelColor")
+focus_neighbor_right = NodePath("../../Buttons/ConfirmColor")
+focus_neighbor_bottom = NodePath("../../Buttons/ConfirmColor")
+focus_previous = NodePath("../../Buttons/CancelColor")
 focus_mode = 2
 edit_alpha = false
 sampler_visible = false
@@ -908,10 +913,24 @@ alignment = 1
 
 [node name="ConfirmColor" type="Button" parent="ColorPickerPanel/Buttons"]
 layout_mode = 2
+focus_neighbor_left = NodePath("../../MainPanel/ColorPicker")
+focus_neighbor_top = NodePath("../../MainPanel/ColorPicker")
+focus_neighbor_right = NodePath("../CancelColor")
+focus_neighbor_bottom = NodePath("../CancelColor")
+focus_next = NodePath("../CancelColor")
+focus_previous = NodePath("../../MainPanel/ColorPicker")
 text = "BUTTON_CONFIRM"
 
 [node name="CancelColor" type="Button" parent="ColorPickerPanel/Buttons"]
 layout_mode = 2
+focus_neighbor_left = NodePath("../ConfirmColor")
+focus_neighbor_top = NodePath("../../MainPanel/ColorPicker")
+focus_neighbor_right = NodePath("../../MainPanel/ColorPicker")
+focus_neighbor_bottom = NodePath("../../MainPanel/ColorPicker")
+focus_next = NodePath("../../MainPanel/ColorPicker")
+focus_previous = NodePath("../ConfirmColor")
+shortcut = ExtResource("6_vgxtx")
+shortcut_in_tooltip = false
 text = "BUTTON_CANCEL"
 
 [node name="SettingsSavedPrompt" parent="." node_paths=PackedStringArray("_animator") instance=ExtResource("7_goe0f")]

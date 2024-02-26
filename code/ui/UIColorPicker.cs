@@ -21,11 +21,13 @@ namespace BoGK.UI
 			_targetSprite.Texture = ((Button)target).Icon;
 			_targetSprite.Modulate = _target.Modulate;
 			Visible = true;
+			_colorPicker.GrabFocus();
 		}
 
 		private void Deactivate()
 		{
 			Visible = false;
+			_target?.GrabFocus();
 		}
 
 		private void UpdateColor(Color newColor)
