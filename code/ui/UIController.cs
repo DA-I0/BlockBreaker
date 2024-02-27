@@ -28,7 +28,7 @@ namespace BoGK.UI
 			DisplayFirstLanguageSelection();
 			UpdateUIFonts();
 			_gameTitle.Text = ProjectSettings.GetSetting("application/config/name").ToString();
-			_gameVersion.Text = ProjectSettings.GetSetting("global/Version").ToString();
+			_gameVersion.Text = ProjectSettings.GetSetting("application/config/version").ToString();
 		}
 
 		private void FindPanels()
