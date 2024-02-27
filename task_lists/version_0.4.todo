@@ -20,8 +20,6 @@ Version 0.4:
 				☐ Aggresive (can attack the player but only with debuffs?)
 			☐ River (slightly changes ball direction)
 			☐ Indestructible "breakables" (break to open and get a prize, in the form chests etc)
-		Paddles:
-			☐ Add double paddle (half-length, consists of two paddles, one under another, moving in opposit directions, might be a pickup instead?) @low
 		System:
 			☐ Dynamic translation loading (custom localization support) @low
 	Map elements:
@@ -43,9 +41,24 @@ Version 0.4:
 				☐ Level exit (big gate)
 				☐ Teleport (small gate)
 		☐ Use a different color palette for each tileset @low
+	UI:
+		☐ Split options panel into separate scenes
+		☐ Make breakable color selection usable witout mouse
+		☐ Add access to options and info panels in-game (from pause menu) @low
+		☐ Test stage display in options panel to show any graphics changes during setup (map transparency, breakable colors etc.) @low
+		☐ Add on-screen keyboard for gamepad use @low
+		☐ Keep button selection when returning to main menu from other panels instead of resetting to the first one @low
+	Accessibility:
+		☐ Add more customizale elements
+			☐ Ball (sprites: normal, outline, color?)
+			☐ Paddles (sprites: normal, outline)
 	Other:
+		☐ Refactor code @high
 		☐ Improve translations
+		☐ Compile all plans & dev notes into a proper design doc
+		☐ Implement optional CRT shader @low
 		☐ Make a new logo @low
 		☐ Add more music tracks @low
-		☐ Compile all plans & dev notes into a proper design doc
 	Issues:
+		☐ [Steam Deck] Random frame spikes (possibly engine issue)
+		☐ [Steam Deck] Have to manually open on-screen keyboard for text boxes
