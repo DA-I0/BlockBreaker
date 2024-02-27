@@ -71,19 +71,33 @@ script = ExtResource("2_fqfgb")
 
 [node name="DeathPitMarkerLevel" parent="GameElements" instance=ExtResource("17_75vht")]
 
-[node name="UIGameSession" parent="." instance=ExtResource("4_l3xv6")]
+[node name="UIGameSession" parent="." node_paths=PackedStringArray("_score", "_skill", "_lives", "_livesText", "_exitTimer", "_exitPrompt", "_stageClearPrompt") instance=ExtResource("4_l3xv6")]
+_score = NodePath("TopBar/SessionElements/Score")
+_skill = NodePath("SkillPrompt")
+_lives = NodePath("TopBar/SessionElements/Lives")
+_livesText = NodePath("TopBar/SessionElements/LivesText")
+_exitTimer = NodePath("ExitTimer")
+_exitPrompt = NodePath("ExitPrompt")
+_stageClearPrompt = NodePath("StageClearPrompt")
 
-[node name="LevelStartSplashPrompt" parent="UIGameSession" instance=ExtResource("19_qhvfq")]
+[node name="LevelStartSplashPrompt" parent="UIGameSession" node_paths=PackedStringArray("_levelName", "_animator") instance=ExtResource("19_qhvfq")]
 layout_mode = 1
+_levelName = NodePath("BackgroundPanel/LevelName")
+_animator = NodePath("Animator")
 
 [node name="PausePrompt" parent="UIGameSession" instance=ExtResource("17_ewsqo")]
 layout_mode = 1
 
-[node name="GameOverPrompt" parent="UIGameSession" instance=ExtResource("23_58rjm")]
+[node name="GameOverPrompt" parent="UIGameSession" node_paths=PackedStringArray("_header", "_score", "_name", "_focusTarget") instance=ExtResource("23_58rjm")]
 layout_mode = 1
+_header = NodePath("BackgroundPanel/VBoxContainer/HeaderLabel")
+_score = NodePath("BackgroundPanel/VBoxContainer/ScoreLabel")
+_name = NodePath("BackgroundPanel/VBoxContainer/PlayerName")
+_focusTarget = NodePath("BackgroundPanel/VBoxContainer/ButtonConfirm")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("4_jrwof")
+_maxPositionOffset = 0.75
 
 [node name="Timer" type="Timer" parent="Camera2D"]
 one_shot = true
