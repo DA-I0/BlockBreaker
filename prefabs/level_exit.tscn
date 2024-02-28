@@ -82,11 +82,13 @@ position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_mi8te")
 
 [node name="ExitSprite" type="Sprite2D" parent="."]
+z_index = 2
 position = Vector2(-14, -28)
 texture = ExtResource("2_v3lwi")
 centered = false
 
 [node name="DoorSprite" type="Sprite2D" parent="."]
+z_index = 2
 position = Vector2(-14, -28)
 texture = ExtResource("3_uiqh2")
 centered = false
