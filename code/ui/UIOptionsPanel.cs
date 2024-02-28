@@ -181,6 +181,7 @@ namespace BoGK.UI // TODO: break each category into a separate scene
 			refs.settings.SaveSettings();
 			UpdateHeaderText();
 			_confirmationPrompt.Activate();
+			refs.localization.UpdateUILocalization();
 		}
 
 		private void CancelSettings()
