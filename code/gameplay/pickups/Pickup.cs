@@ -3,6 +3,7 @@ using Godot;
 public partial class Pickup : Area2D
 {
 	private const int BaseSpeed = 35;
+	private readonly int[] SortingIndex = { 0, 2, 3 };
 
 	[Export] private int _pointValue = 5;
 	[Export] private int _customSpeedAdjustment = 0;
@@ -14,7 +15,7 @@ public partial class Pickup : Area2D
 	public override void _Ready()
 	{
 		refs = GetNode<SessionController>("/root/GameController");
-		ZIndex = refs.settings.PickupOrder;
+		ZIndex = SortingIndex[refs.settings.PickupOrder];
 		_moveSpeed = (int)(BaseSpeed * refs.SelectedDifficulty.PickupSpeedMultiplier + _customSpeedAdjustment);
 	}
 
