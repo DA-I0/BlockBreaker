@@ -764,6 +764,13 @@ grow_horizontal = 2
 grow_vertical = 0
 alignment = 2
 
+[node name="DISCLAIMER_SWITCH_FOCUS_SHORT_HINT" type="RichTextLabel" parent="OptionsButtons" groups=["manual_translation"]]
+layout_mode = 2
+text = "DISCLAIMER_SWITCH_FOCUS_SHORT_HINT"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
 [node name="Confirm" type="Button" parent="OptionsButtons"]
 layout_mode = 2
 focus_neighbor_left = NodePath("../Default")

@@ -60,7 +60,7 @@ _nameEditControls = NodePath("DifficultyOptions/Name/DifficultyNewName")
 _deleteDifficulty = NodePath("CustomDifficultyButtons/DeleteDifficulty")
 _editDifficulty = NodePath("CustomDifficultyButtons/EditDifficulty")
 _addDifficulty = NodePath("CustomDifficultyButtons/AddDifficulty")
-_focusHint = NodePath("DifficultyOptions/DISCLAIMER_SWITCH_FOCUS_HINT")
+_focusHint = NodePath("DifficultyOptions/DISCLAIMER_SWITCH_CONTROL_HINT")
 _paginatorParent = NodePath("ItemPaginator")
 _inactiveItemSprite = ExtResource("12_jovjc")
 _activeItemSprite = ExtResource("13_mxby1")
@@ -323,10 +323,10 @@ value = 1.5
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="DISCLAIMER_SWITCH_FOCUS_HINT" type="RichTextLabel" parent="DifficultyOptions" groups=["manual_translation"]]
+[node name="DISCLAIMER_SWITCH_CONTROL_HINT" type="RichTextLabel" parent="DifficultyOptions" groups=["manual_translation"]]
 layout_mode = 2
 size_flags_horizontal = 8
-text = "DISCLAIMER_SWITCH_FOCUS_HINT"
+text = "DISCLAIMER_SWITCH_CONTROL_HINT"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
