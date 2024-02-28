@@ -239,7 +239,7 @@ public partial class Paddle : BasePaddle
 
 	public void VibrateController(float strengthWeak, float strengthStrong, float time) // TODO: move
 	{
-		if (refs.settings.ControllerVibrations)
+		if (refs.settings.ControllerVibrations && refs.settings.ActiveInputType == InputType.Joypad)
 		{
 			if (refs.settings.ActiveControllerID < 0)
 			{
