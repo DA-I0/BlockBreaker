@@ -80,7 +80,7 @@ namespace BoGK.UI
 		private void Disable()
 		{
 			GetParent<Control>().Visible = false;
-			GetParent().GetParent<UIController>().FocusOnButtons();//TogglePanel(string.Empty);
+			GetParent().GetParent<UIController>().FocusOnButtons();
 		}
 	}
 }
