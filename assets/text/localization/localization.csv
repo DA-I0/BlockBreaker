@@ -30,7 +30,7 @@ DIFF_ANGLE_SPEED,Angle selection speed,,,Prędkość wyboru kąta
 DIFF_BALL_SPEED,Ball speed,Ball Geschwindigkeit,ボールスピード,Prędkość piłki
 DIFF_DEFAULT_EASY,Easy,Einfach,易しい,Łatwy
 DIFF_DEFAULT_HARD,Hard,Schwer,難しい,Trudny
-DIFF_DEFAULT_MEDIUM,Medium,Mittel,普通,Średni
+DIFF_DEFAULT_MEDIUM,Normal,Mittel,普通,Średni
 DIFF_DEFAULT_VERY_HARD,Very Hard,Sehr schwer,とても難しい,Bardzo trudny
 DIFF_LIVES_MAX,Max lives,Maximale Leben,最大値のライフ,Maksimum żyć
 DIFF_LIVES_START,Starting lives,Anfängliche Leben,初期のライフ,Początkowe życia
