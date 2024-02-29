@@ -23,9 +23,16 @@ public class Skill
 		Reset();
 	}
 
-	public virtual void Activate() { }
+	public virtual void Activate()
+	{
+		if (refs.paddle.PaddleState != PaddleState.locked && _activationPoints >= _activationPointsCost)
+		{
+			ApplySkillEffect();
+		}
+	}
 
 	protected virtual void SecondarySetup() { }
+	protected virtual void ApplySkillEffect() { }
 
 	protected void Reset()
 	{

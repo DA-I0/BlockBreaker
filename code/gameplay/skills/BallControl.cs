@@ -5,16 +5,13 @@ public class BallControl : Skill
 		_activationPointsCost = 5;
 	}
 
-	public override void Activate()
+	protected override void ApplySkillEffect()
 	{
-		if (refs.paddle.PaddleState != PaddleState.locked && _activationPoints >= _activationPointsCost)
+		for (int i = 0; i < refs.Balls.Count; i++)
 		{
-			for (int i = 0; i < refs.Balls.Count; i++)
-			{
-				((Ball)refs.Balls[i]).BallMode = BallMode.angleSelection;
-			}
-
-			OnActivation();
+			((Ball)refs.Balls[i]).BallMode = BallMode.angleSelection;
 		}
+
+		OnActivation();
 	}
 }

@@ -10,22 +10,19 @@ public class PowerBall : Skill
 		_activationPointsCost = 15;
 	}
 
-	public override void Activate()
-	{
-		if (refs.paddle.PaddleState != PaddleState.locked && _activationPoints >= _activationPointsCost)
-		{
-			TogglePowerBallState(true);
-
-			_skillTimer.Start(SkillDuration);
-			OnActivation();
-			_activationPoints = -999;
-		}
-	}
-
 	protected override void SecondarySetup()
 	{
 		_skillTimer = refs.GetChild<Godot.Timer>(refs.GetChildCount() - 1);
 		_skillTimer.Timeout += SkillEnd;
+	}
+
+	protected override void ApplySkillEffect()
+	{
+		TogglePowerBallState(true);
+
+		_skillTimer.Start(SkillDuration);
+		OnActivation();
+		_activationPoints = -999;
 	}
 
 	private void TogglePowerBallState(bool activate)

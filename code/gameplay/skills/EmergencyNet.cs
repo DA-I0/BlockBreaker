@@ -9,21 +9,18 @@ public class EmergencyNet : Skill
 		_activationPointsCost = 20;
 	}
 
-	public override void Activate()
+	protected override void ApplySkillEffect()
 	{
-		if (_activationPoints >= _activationPointsCost)
+		Node safetyNet = refs.gameElements.GetNodeOrNull("SafetyNet");
+
+		if (safetyNet != null)
 		{
-			Node safetyNet = refs.gameElements.GetNodeOrNull("SafetyNet");
-
-			if (safetyNet != null)
-			{
-				refs.gameElements.RemoveChild(safetyNet);
-				safetyNet.QueueFree();
-			}
-
-			safetyNet = ResourceLoader.Load<PackedScene>(PrefabPath).Instantiate();
-			refs.gameElements.CallDeferred("add_child", safetyNet);
-			OnActivation();
+			refs.gameElements.RemoveChild(safetyNet);
+			safetyNet.QueueFree();
 		}
+
+		safetyNet = ResourceLoader.Load<PackedScene>(PrefabPath).Instantiate();
+		refs.gameElements.CallDeferred("add_child", safetyNet);
+		OnActivation();
 	}
 }
