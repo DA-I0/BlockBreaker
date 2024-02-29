@@ -15,7 +15,6 @@ _playerNames = NodePath("PlayerNames")
 _playerScore = NodePath("PlayerScore")
 _focusTarget = []
 _returnButton = NodePath("Return")
-_returnTarget = null
 
 [node name="Header" type="Panel" parent="."]
 layout_mode = 1

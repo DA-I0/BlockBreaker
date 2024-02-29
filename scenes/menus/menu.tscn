@@ -147,7 +147,7 @@ _paginatorParent = NodePath("ItemPaginator")
 uiController = NodePath("../..")
 _returnButton = NodePath("Return")
 
-[node name="DifficultyPanel" parent="Control" node_paths=PackedStringArray("_name", "_newName", "_livesMax", "_livesMaxSlider", "_livesStart", "_livesStartSlider", "_ballSpeed", "_ballSpeedSlider", "_ballAngleSpeed", "_ballAngleSlider", "_paddleSizeMax", "_paddleSizeMaxSlider", "_paddleSizeStart", "_paddleSizeStartSlider", "_paddleSizeMin", "_paddleSizeMinSlider", "_advancingSpeed", "_advancingSpeedCheckButton", "_pickupSpeed", "_pickupSpeedSlider", "_previousDifficulty", "_nextDifficulty", "_nameEditControls", "_deleteDifficulty", "_editDifficulty", "_addDifficulty", "_paginatorParent", "uiController", "_focusTarget", "_returnButton") instance=ExtResource("4_4tq2l")]
+[node name="DifficultyPanel" parent="Control" node_paths=PackedStringArray("_name", "_newName", "_livesMax", "_livesMaxSlider", "_livesStart", "_livesStartSlider", "_ballSpeed", "_ballSpeedSlider", "_ballAngleSpeed", "_ballAngleSlider", "_paddleSizeMax", "_paddleSizeMaxSlider", "_paddleSizeStart", "_paddleSizeStartSlider", "_paddleSizeMin", "_paddleSizeMinSlider", "_advancingSpeed", "_advancingSpeedCheckButton", "_pickupSpeed", "_pickupSpeedSlider", "_previousDifficulty", "_nextDifficulty", "_nameEditControls", "_deleteDifficulty", "_editDifficulty", "_addDifficulty", "_focusHint", "_paginatorParent", "uiController", "_focusTarget", "_returnButton") instance=ExtResource("4_4tq2l")]
 layout_mode = 1
 grow_horizontal = 2
 grow_vertical = 2
@@ -177,6 +177,7 @@ _nameEditControls = NodePath("DifficultyOptions/Name/DifficultyNewName")
 _deleteDifficulty = NodePath("CustomDifficultyButtons/DeleteDifficulty")
 _editDifficulty = NodePath("CustomDifficultyButtons/EditDifficulty")
 _addDifficulty = NodePath("CustomDifficultyButtons/AddDifficulty")
+_focusHint = NodePath("DifficultyOptions/DISCLAIMER_SWITCH_CONTROL_HINT")
 _paginatorParent = NodePath("ItemPaginator")
 uiController = NodePath("../..")
 _focusTarget = [null, NodePath("CustomDifficultyButtons/AddDifficulty")]
