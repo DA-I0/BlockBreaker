@@ -1,11 +1,18 @@
-[b][u]Version 0.3 - 01/03/2024[/u][/b]
-Work in progress...
+[b][u]Version 0.3.0 - 01/03/2024[/u][/b]
+New version is here!
+
+While the main focus for this release was on the technical aspects of the game I didn't forget about the player facing parts either.
+We have more content, more features, lots of improvements and bugfixes.
+
+Everything is work in progress, as always, but we're getting there.
 
 [b]Added:[/b]
 - 7 new levels
 - 3 new skills: ball control, emergency net, power ball
+- new paddle: split (experimental)
 - new interactable: speed pad
-- new difficulty and optional difficulty modifier: advancing speed (each destroyed breakable increases ball speed)
+- new difficulty: very hard
+- new difficulty modifiers: pickup speed multiplier, advancing speed (each destroyed breakable increases ball speed)
 - new UI & user settings
 - new accessibility settings
 - bonus points for clearing stages without losing a life
@@ -21,22 +28,23 @@ Work in progress...
 - minor difficulty adjustments
 - various level changes
 - various UI improvements: new game setup screen, pagination status, layout changes and more
-- lives display style from extra lives (game over after dying on 0) to remaining lives (game over when reaching 0)
 - improved keyboard/gamepad menu navigation
+- localization improvements
 
 [b]Fixed:[/b]
 - ball slides over paddle when colliding under very small angle
-- [Steam Deck] game is zoomed in, with about half of the window visible on screen
 - language selection doesn't appear on first launch
 - difficulty removal button not working
 - control settings partially obscured by category buttons when using German or Japanese language
 - exit prompt displays mouse controls regardless of used control method
 - stage music is fully randomized, might select the same song multiple times
+- [Steam Deck] game is zoomed in, with about half of the window visible on screen
 
 [b]Known issues:[/b]
-- some UI elements require mouse to navigate
-- some UI layout issues when using German language with OpenDyslexic font
+- some UI layout issues when using OpenDyslexic font
+- no on-screen keyboard for textboxes when using a controller
 - ball bounce animation appears frozen when triggered too often
+- [Steam Deck] random frame spikes
 - continuous lack of gophers
 
 
