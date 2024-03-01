@@ -22,7 +22,7 @@ Everything is work in progress, as always, but we're getting there.
 - new music tracks and playlist shuffle
 
 [b]Changed:[/b]
-- updated Godot Engine to version 4.3
+- updated Godot Engine to version 4.3 dev 3
 - paddle collision improvements
 - skill readiness from time delay to breakable destruction
 - minor difficulty adjustments
@@ -42,7 +42,7 @@ Everything is work in progress, as always, but we're getting there.
 
 [b]Known issues:[/b]
 - some UI layout issues when using OpenDyslexic font
-- no on-screen keyboard for textboxes when using a controller
+- no on-screen keyboard for text boxes when using a controller
 - ball bounce animation appears frozen when triggered too often
 - [Steam Deck] random frame spikes
 - continuous lack of gophers
