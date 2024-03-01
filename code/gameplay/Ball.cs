@@ -409,7 +409,7 @@ public partial class Ball : CharacterBody2D
 
 	private void OnScreenExited(bool levelChange = false)
 	{
-		if (refs.Balls.Count > 1 && refs.Balls[0] != this)
+		if (refs.Balls.Count > 1)
 		{
 			Destroy();
 		}
@@ -428,7 +428,10 @@ public partial class Ball : CharacterBody2D
 
 	private void SceneChangeCleanup()
 	{
-		OnScreenExited(true);
+		if (refs.Balls[0] != this)
+		{
+			OnScreenExited(true);
+		}
 	}
 
 	private void Destroy()
