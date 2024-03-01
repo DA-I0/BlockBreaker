@@ -1,0 +1,45 @@
+[gd_scene load_steps=11 format=3 uid="uid://fewn6ij2dpue"]
+
+[ext_resource type="Script" path="res://code/gameplay/Breakable.cs" id="1_q2dg3"]
+[ext_resource type="Texture2D" uid="uid://pbc5xl3a0s4d" path="res://assets/sprites/props/tables/table_ver_01.png" id="2_1osff"]
+[ext_resource type="Texture2D" uid="uid://v1ns4kmnxwwv" path="res://assets/sprites/props/tables/table_ver_02.png" id="3_bdiyn"]
+[ext_resource type="Texture2D" uid="uid://7bfj7gesf5sd" path="res://assets/sprites/props/tables/table_ver_03.png" id="4_a1k77"]
+[ext_resource type="Texture2D" uid="uid://b15bb1715sy3f" path="res://assets/sprites/props/tables/table_ver_04.png" id="5_ax0ws"]
+[ext_resource type="Texture2D" uid="uid://bvr2653sr54r2" path="res://assets/sprites/props/tables/table_ver_05.png" id="6_q5gt0"]
+[ext_resource type="PackedScene" uid="uid://r3x55smb3e0x" path="res://prefabs/pickups/pickup_ball_slow.tscn" id="7_mgbkq"]
+[ext_resource type="PackedScene" uid="uid://dwa3x1brydi56" path="res://prefabs/pickups/pickup_extra_life.tscn" id="8_3ii3e"]
+[ext_resource type="PackedScene" uid="uid://crgjb8hqapmxf" path="res://prefabs/pickups/pickup_paddle_freeze.tscn" id="9_n6xbr"]
+[ext_resource type="PackedScene" uid="uid://iq10idmsyirx" path="res://prefabs/pickups/pickup_safety_net.tscn" id="10_yymm5"]
+
+[node name="TableVertical" type="StaticBody2D" node_paths=PackedStringArray("_timer")]
+script = ExtResource("1_q2dg3")
+_pointValue = 2
+_maxHealth = 5
+_sprites = Array[Texture2D]([ExtResource("2_1osff"), ExtResource("3_bdiyn"), ExtResource("4_a1k77"), ExtResource("5_ax0ws"), ExtResource("6_q5gt0")])
+_pickups = Array[PackedScene]([ExtResource("7_mgbkq"), ExtResource("8_3ii3e"), ExtResource("9_n6xbr"), ExtResource("10_yymm5")])
+_timer = NodePath("Timer")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(-4, -29)
+texture = ExtResource("2_1osff")
+centered = false
+
+[node name="LegCollider" type="CollisionPolygon2D" parent="."]
+position = Vector2(1, 0)
+polygon = PackedVector2Array(3, 0, 3, -1, 4, -1, 4, 0)
+
+[node name="LegCollider2" type="CollisionPolygon2D" parent="."]
+position = Vector2(-5, 0)
+polygon = PackedVector2Array(1, 0, 1, -1, 2, -1, 2, 0)
+
+[node name="LegCollider3" type="CollisionPolygon2D" parent="."]
+position = Vector2(-6, -24)
+polygon = PackedVector2Array(2, 0, 2, -1, 3, -1, 3, 0)
+
+[node name="LegCollider4" type="CollisionPolygon2D" parent="."]
+position = Vector2(2, -24)
+polygon = PackedVector2Array(2, 0, 2, -1, 3, -1, 3, 0)
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true

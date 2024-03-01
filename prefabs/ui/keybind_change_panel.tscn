@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bjvyfeorydh7s"]
+
+[node name="KeybindChangePanel" type="ColorRect"]
+z_index = 2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.501961)
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+offset_top = 97.0
+offset_bottom = 127.0
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "MSG_NEW_KEYBINDIG"
+horizontal_alignment = 1
+vertical_alignment = 1

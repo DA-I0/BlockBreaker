@@ -1,0 +1,33 @@
+[gd_scene load_steps=10 format=3 uid="uid://cluasrboxvukf"]
+
+[ext_resource type="Script" path="res://code/gameplay/Breakable.cs" id="1_di4q1"]
+[ext_resource type="Texture2D" uid="uid://1ab3s2o20g8y" path="res://assets/sprites/props/fences/fence_up_left_in_01.png" id="2_amtnm"]
+[ext_resource type="Texture2D" uid="uid://b2y02dxbykol6" path="res://assets/sprites/props/fences/fence_up_left_in_02.png" id="3_dmwkn"]
+[ext_resource type="Texture2D" uid="uid://ddy1n6gbdfeqh" path="res://assets/sprites/props/fences/fence_up_left_in_03.png" id="4_03s5u"]
+[ext_resource type="Texture2D" uid="uid://rp3td5jtt800" path="res://assets/sprites/props/fences/fence_up_left_in_04.png" id="5_ksm7a"]
+[ext_resource type="PackedScene" uid="uid://r3x55smb3e0x" path="res://prefabs/pickups/pickup_ball_slow.tscn" id="6_vh3w3"]
+[ext_resource type="PackedScene" uid="uid://dwa3x1brydi56" path="res://prefabs/pickups/pickup_extra_life.tscn" id="7_d7vh3"]
+[ext_resource type="PackedScene" uid="uid://crgjb8hqapmxf" path="res://prefabs/pickups/pickup_paddle_freeze.tscn" id="8_1sat8"]
+[ext_resource type="PackedScene" uid="uid://iq10idmsyirx" path="res://prefabs/pickups/pickup_safety_net.tscn" id="9_qpd2k"]
+
+[node name="FenceUpLeftIn" type="StaticBody2D" node_paths=PackedStringArray("_timer")]
+z_index = 3
+script = ExtResource("1_di4q1")
+_pointValue = 2
+_maxHealth = 4
+_sprites = Array[Texture2D]([ExtResource("2_amtnm"), ExtResource("3_dmwkn"), ExtResource("4_03s5u"), ExtResource("5_ksm7a")])
+_pickups = Array[PackedScene]([ExtResource("6_vh3w3"), ExtResource("7_d7vh3"), ExtResource("8_1sat8"), ExtResource("9_qpd2k")])
+_timer = NodePath("Timer")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(-8, -18)
+texture = ExtResource("2_amtnm")
+centered = false
+
+[node name="Collider" type="CollisionPolygon2D" parent="."]
+position = Vector2(-11, 9)
+scale = Vector2(1.4375, 1)
+polygon = PackedVector2Array(2.78261, -12, 2.78261, -13, 4.17391, -13, 4.17391, -16, 4.86957, -16, 4.86957, -12)
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true

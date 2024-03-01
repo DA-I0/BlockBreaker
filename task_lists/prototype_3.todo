@@ -1,0 +1,58 @@
+Prototype 3:
+	Features:
+		☐ Keep mode
+			☐ "Tree" level progression (think Outrun, Shadow the Hedgehog)
+			☐ Boss fights
+			☐ Store with items to buy (lives, pickups, paddles etc? available after each 5 levels or after boss fights)
+			☐ Multi-room levels (ball can travel to another room/screen, can be side-to-side or up-down)
+		☐ New skills
+			☐ Ball angle selection in flight?
+			☐ Power ball
+			☐ Temporary safety net?
+		☐ Update "shake" skill (add debrie falling from the celling that can damage breakables when hit)
+		☐ New functionality for dynamic elements
+			☐ Add repeating timed toggle for teleport door?
+			☐ Add on-map buttons that toggle connected element when hit with the ball?
+		☐ New pickups
+			☐ Magnet (pull pickups near the paddle towards it, not exclusive unlike sticky/bouncy paddle?)
+			☐ Random (randomize on spawn, ? as icon?)
+		☐ New paddles
+			☐ Double (half-length, consists of two paddles, one under another, moving in opposit directions, might be a pickup instead?)
+		☐ New interactive elements
+			☐ River (slightly changes ball direction)
+		☐ Replace music randomization with shuffle
+		☐ Dynamic translation loading
+		☐ Add active input type (auto, just mouse, just keyboard, just gamepad)
+		☐ Add active controller (all, <list of connected devices>)
+	Map elements:
+		☐ Stairs + railing
+			☐ Ball can move over stairs
+			☐ Ball can move **down** through broken railing
+			☐ Ball can't move up through wall at the bottom of the stairs or railing
+		☐ Cracked walls (can be destroyed with TNT)
+		☐ More map decorations (up the visual variety)
+			☐ Fountain
+		☐ New tileset
+			☐ Floor tiles
+				☐ ?
+			☐ Wall tiles
+				☐ Straight
+				☐ Corners
+				☐ Thin internal walls
+			☐ Props
+				☐ ?
+			☐ Interactables
+				☐ Level exit (big gate)
+				☐ Teleport (small gate)
+	UI:
+		☐ Splash screen on map load (display map name/number)
+		☐ Improve main menu layout and theming
+		☐ Add access to options and info panels in-game
+		☐ Implement full keyboard/gamepad navigation
+	Other:
+		☐ Improve translations
+		☐ Make a new logo @low
+		☐ Add more music tracks
+	Issues:
+		☐ Ball sometimes slides along the paddle instead of bouncing @high
+		☐ Game launches zoomed in, only half of the window is visible on screen @SteamDeck @high

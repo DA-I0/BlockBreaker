@@ -1,0 +1,504 @@
+[gd_scene load_steps=16 format=3 uid="uid://d3cenf7vduiem"]
+
+[ext_resource type="Script" path="res://code/gameplay/Paddle.cs" id="1_fg4cs"]
+[ext_resource type="Texture2D" uid="uid://bdnrfv0eveohj" path="res://assets/sprites/paddles/paddle_1.png" id="2_qjynj"]
+[ext_resource type="Texture2D" uid="uid://p1ln6vt0i3ak" path="res://assets/sprites/paddles/paddle_1_bouncy.png" id="3_1nd2x"]
+[ext_resource type="Texture2D" uid="uid://ch81qs8133yeu" path="res://assets/sprites/paddles/paddle_1_sticky.png" id="4_4g85y"]
+[ext_resource type="PackedScene" uid="uid://bplm8akef2gwt" path="res://prefabs/ui/paddle_effects.tscn" id="5_jjrqj"]
+
+[sub_resource type="Animation" id="Animation_lj8sh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PaddleSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-8, -2)]
+}
+
+[sub_resource type="Animation" id="Animation_sx6pf"]
+resource_name = "size_1"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TopCollider:polygon")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [PackedVector2Array(-3.2, -1.61765, 16, -1.61765, 19.2, -0.676471, 19.2, 0.264706, -6.4, 0.264706, -6.4, -0.676471)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PaddleSprite:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(8, 5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PaddleSprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-4, -2)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BottomCollider:polygon")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [PackedVector2Array(-16, -3.08823, 3.2, -3.08824, 6.4, -2.14706, 6.4, -0.264706, -19.2, -0.264705, -19.2, -2.14706)]
+}
+
+[sub_resource type="Animation" id="Animation_ryi87"]
+resource_name = "size_2"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TopCollider:polygon")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [PackedVector2Array(-9.6, -1.61765, 22.4, -1.61765, 25.6, -0.676471, 25.6, 0.264706, -12.8, 0.264706, -12.8, -0.676471)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PaddleSprite:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(12, 5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PaddleSprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-6, -2)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BottomCollider:polygon")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [PackedVector2Array(-22.4, -3.08823, 9.6, -3.08824, 12.8, -2.14706, 12.8, -0.264706, -25.6, -0.264705, -25.6, -2.14706)]
+}
+
+[sub_resource type="Animation" id="Animation_f5lgp"]
+resource_name = "size_3"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TopCollider:polygon")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [PackedVector2Array(-16, -1.61765, 28.8, -1.61765, 32, -0.676471, 32, 0.264706, -19.2, 0.264706, -19.2, -0.676471)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PaddleSprite:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(16, 5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PaddleSprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-8, -2)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BottomCollider:polygon")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [PackedVector2Array(-28.8, -3.08823, 16, -3.08824, 19.2, -2.14706, 19.2, -0.264706, -32, -0.264705, -32, -2.14706)]
+}
+
+[sub_resource type="Animation" id="Animation_kek1c"]
+resource_name = "size_4"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TopCollider:polygon")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [PackedVector2Array(-22.4, -1.61765, 35.2, -1.61765, 38.4, -0.676471, 38.4, 0.264706, -25.6, 0.264706, -25.6, -0.676471)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PaddleSprite:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(20, 5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PaddleSprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-10, -2)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BottomCollider:polygon")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [PackedVector2Array(-35.2, -3.08823, 22.4, -3.08824, 25.6, -2.14706, 25.6, -0.264707, -38.4, -0.264705, -38.4, -2.14706)]
+}
+
+[sub_resource type="Animation" id="Animation_k3vdl"]
+resource_name = "size_5"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TopCollider:polygon")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [PackedVector2Array(-28.8, -1.61765, 41.6, -1.61765, 44.8, -0.676471, 44.8, 0.264706, -32, 0.264706, -32, -0.676471)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PaddleSprite:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(24, 5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PaddleSprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-12, -2)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BottomCollider:polygon")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [PackedVector2Array(-41.6, -3.08823, 28.8, -3.08824, 32, -2.14706, 32, -0.264707, -44.8, -0.264705, -44.8, -2.14706)]
+}
+
+[sub_resource type="Animation" id="Animation_a1qq5"]
+resource_name = "size_6"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TopCollider:polygon")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [PackedVector2Array(-35.2, -1.61765, 48, -1.61765, 51.2, -0.676471, 51.2, 0.264706, -38.4, 0.264706, -38.4, -0.676471)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PaddleSprite:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(28, 5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PaddleSprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-14, -2)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BottomCollider:polygon")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [PackedVector2Array(-48, -3.08823, 35.2, -3.08824, 38.4, -2.14706, 38.4, -0.264707, -51.2, -0.264705, -51.2, -2.14706)]
+}
+
+[sub_resource type="Animation" id="Animation_1xuyw"]
+resource_name = "size_7"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TopCollider:polygon")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [PackedVector2Array(-41.6, -1.61765, 54.4, -1.61765, 57.6, -0.676471, 57.6, 0.264706, -44.8, 0.264706, -44.8, -0.676471)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PaddleSprite:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(32, 5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PaddleSprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-16, -2)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BottomCollider:polygon")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [PackedVector2Array(-54.4, -3.08823, 41.6, -3.08824, 44.8, -2.14706, 44.8, -0.264707, -57.6, -0.264704, -57.6, -2.14706)]
+}
+
+[sub_resource type="Animation" id="Animation_e0xqm"]
+resource_name = "size_8"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TopCollider:polygon")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [PackedVector2Array(-48, -1.61765, 60.8, -1.61765, 64, -0.676471, 64, 0.264706, -51.2, 0.264706, -51.2, -0.676471)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PaddleSprite:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(36, 5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PaddleSprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-18, -2)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BottomCollider:polygon")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [PackedVector2Array(-60.8, -3.08823, 48, -3.08824, 51.2, -2.14706, 51.2, -0.264707, -64, -0.264704, -64, -2.14706)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6a3eu"]
+_data = {
+"RESET": SubResource("Animation_lj8sh"),
+"size_1": SubResource("Animation_sx6pf"),
+"size_2": SubResource("Animation_ryi87"),
+"size_3": SubResource("Animation_f5lgp"),
+"size_4": SubResource("Animation_kek1c"),
+"size_5": SubResource("Animation_k3vdl"),
+"size_6": SubResource("Animation_a1qq5"),
+"size_7": SubResource("Animation_1xuyw"),
+"size_8": SubResource("Animation_e0xqm")
+}
+
+[node name="Paddle" type="CharacterBody2D"]
+disable_mode = 1
+collision_layer = 4
+collision_mask = 11
+platform_on_leave = 2
+platform_floor_layers = 0
+platform_wall_layers = 1
+safe_margin = 0.1
+script = ExtResource("1_fg4cs")
+_bouncyBoost = 2.0
+_positionY = 100
+_sprites = Array[Texture2D]([ExtResource("2_qjynj"), ExtResource("3_1nd2x"), ExtResource("4_4g85y")])
+
+[node name="TopCollider" type="CollisionPolygon2D" parent="."]
+position = Vector2(-2, -0.28125)
+scale = Vector2(0.3125, 1.0625)
+build_mode = 1
+polygon = PackedVector2Array(-48, -1.61765, 60.8, -1.61765, 64, -0.676471, 64, 0.264706, -51.2, 0.264706, -51.2, -0.676471)
+one_way_collision = true
+one_way_collision_margin = 5.0
+
+[node name="BottomCollider" type="CollisionPolygon2D" parent="."]
+position = Vector2(-2, -0.28125)
+rotation = 3.14159
+scale = Vector2(0.3125, 1.0625)
+build_mode = 1
+polygon = PackedVector2Array(-60.8, -3.08823, 48, -3.08824, 51.2, -2.14706, 51.2, -0.264707, -64, -0.264704, -64, -2.14706)
+one_way_collision = true
+one_way_collision_margin = 5.0
+
+[node name="PaddleSprite" type="NinePatchRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -2.0
+offset_right = 28.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_qjynj")
+region_rect = Rect2(0, 0, 20, 5)
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="PaddleAnimator" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6a3eu")
+}
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Effect" parent="." instance=ExtResource("5_jjrqj")]
+
+[connection signal="timeout" from="Timer" to="." method="SetPaddleState" binds= [0, -1]]

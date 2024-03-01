@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dlal65qsoq41b"]
+
+[ext_resource type="Texture2D" uid="uid://dm5bqeoarld01" path="res://assets/sprites/props/bridge_end.png" id="1_kw5gu"]
+
+[node name="BridgeEnd" type="Node2D"]
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(-16, -4)
+texture = ExtResource("1_kw5gu")
+centered = false

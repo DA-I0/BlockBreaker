@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqv810k55wsmh"]
+
+[ext_resource type="Script" path="res://code/gameplay/ObjectCleaner.cs" id="1_mkokm"]
+[ext_resource type="PackedScene" uid="uid://8sgos4qf0xee" path="res://prefabs/blocks/safety_net_block.tscn" id="1_nw7ro"]
+
+[node name="SafetyNet" type="Node2D"]
+script = ExtResource("1_mkokm")
+
+[node name="BlockSafetyNet" parent="." instance=ExtResource("1_nw7ro")]
+position = Vector2(-72, 108)
+
+[node name="BlockSafetyNet2" parent="." instance=ExtResource("1_nw7ro")]
+position = Vector2(-24, 108)
+
+[node name="BlockSafetyNet3" parent="." instance=ExtResource("1_nw7ro")]
+position = Vector2(24, 108)
+
+[node name="BlockSafetyNet4" parent="." instance=ExtResource("1_nw7ro")]
+position = Vector2(72, 108)

@@ -1,0 +1,1728 @@
+[gd_scene load_steps=43 format=3 uid="uid://2bhhrfvm7kux"]
+
+[ext_resource type="Script" path="res://code/ui/UIController.cs" id="1_5ctlo"]
+[ext_resource type="PackedScene" uid="uid://gn5283p37bke" path="res://prefabs/ui/first_language_selection.tscn" id="2_8j3rs"]
+[ext_resource type="Theme" uid="uid://dj60ywofwk371" path="res://theme/ui.theme" id="3_sjckc"]
+[ext_resource type="StyleBox" uid="uid://bxlfb6t2obups" path="res://theme/panel_thin.tres" id="3_v54h8"]
+[ext_resource type="Script" path="res://code/ui/UIPaddlePanel.cs" id="5_yyr40"]
+[ext_resource type="Script" path="res://code/ui/UILeaderboard.cs" id="6_3powx"]
+[ext_resource type="Shortcut" uid="uid://b0g14u724bnvg" path="res://shortcuts/previous.tres" id="6_dwepl"]
+[ext_resource type="Texture2D" uid="uid://f7a58ge3hksa" path="res://assets/sprites/blocks/block_basic.png" id="7_26x0h"]
+[ext_resource type="Texture2D" uid="uid://bkkbuv1lumwpe" path="res://assets/sprites/ui_elements/icons/ui_icon_arrow_left.png" id="7_jq31p"]
+[ext_resource type="Texture2D" uid="uid://d0cnr320o626e" path="res://assets/sprites/blocks/block_sturdy_01.png" id="8_a12sc"]
+[ext_resource type="Texture2D" uid="uid://cy50s2cbk4uju" path="res://assets/sprites/ui_elements/icons/ui_icon_arrow_left_pressed.png" id="8_j01t3"]
+[ext_resource type="Texture2D" uid="uid://d2igfcna5mbgv" path="res://assets/sprites/ui_elements/icons/ui_icon_arrow_left_hover.png" id="9_2ddjg"]
+[ext_resource type="Texture2D" uid="uid://7d4eyxkvyukd" path="res://assets/sprites/blocks/barrier_basic.png" id="9_ps03f"]
+[ext_resource type="Texture2D" uid="uid://bnni5cj6uglbh" path="res://assets/sprites/blocks/barrier_sturdy_01.png" id="10_b3uxo"]
+[ext_resource type="Texture2D" uid="uid://bmqn8ykrxswu5" path="res://assets/sprites/ui_elements/icons/ui_icon_arrow_left_disabled.png" id="10_enfqf"]
+[ext_resource type="Texture2D" uid="uid://chk6oivvrr8nn" path="res://assets/sprites/ui_elements/icons/ui_icon_arrow_right.png" id="11_27sep"]
+[ext_resource type="Shortcut" uid="uid://dbejlkyilhqj6" path="res://shortcuts/next.tres" id="11_tce16"]
+[ext_resource type="Texture2D" uid="uid://1ucmb2n300ts" path="res://assets/sprites/ui_elements/icons/ui_icon_arrow_right_pressed.png" id="12_ovde2"]
+[ext_resource type="Texture2D" uid="uid://bkkudkcwwl8ml" path="res://assets/sprites/ui_elements/icons/ui_icon_arrow_right_hover.png" id="13_5d0sh"]
+[ext_resource type="Texture2D" uid="uid://bbd31fqk7ctsp" path="res://assets/sprites/ui_elements/icons/ui_icon_arrow_right_disabled.png" id="14_rbym7"]
+[ext_resource type="Texture2D" uid="uid://c6d4r5rvlnwnj" path="res://assets/sprites/game_area.png" id="15_ppnoe"]
+[ext_resource type="Script" path="res://code/ui/UIDifficultyPanel.cs" id="15_swngl"]
+[ext_resource type="Shortcut" uid="uid://b5ydjlfn0ps7g" path="res://shortcuts/confirm.tres" id="16_dq4b3"]
+[ext_resource type="Shortcut" uid="uid://bhk5vranx2qfl" path="res://shortcuts/cancel.tres" id="17_c27yp"]
+[ext_resource type="Texture2D" uid="uid://cp27aowbjgp2l" path="res://assets/sprites/ui_elements/icons/ui_icon_remove.png" id="17_is4ul"]
+[ext_resource type="Texture2D" uid="uid://cf0h3lftyyhft" path="res://assets/sprites/ui_elements/icons/ui_icon_remove_pressed.png" id="18_p68cf"]
+[ext_resource type="Texture2D" uid="uid://bdp7f07yfa3ey" path="res://assets/sprites/ui_elements/icons/ui_icon_remove_hover.png" id="19_b1nm1"]
+[ext_resource type="Texture2D" uid="uid://bpgcu5lna27rb" path="res://assets/sprites/ui_elements/icons/ui_icon_remove_disabled.png" id="20_3frvn"]
+[ext_resource type="Texture2D" uid="uid://lmc6m32k03bw" path="res://assets/sprites/ui_elements/icons/ui_icon_edit.png" id="21_seue2"]
+[ext_resource type="Texture2D" uid="uid://c6pcnoxwm5sas" path="res://assets/sprites/ui_elements/icons/ui_icon_edit_pressed.png" id="22_d5box"]
+[ext_resource type="Texture2D" uid="uid://dx7ipshg4pe3u" path="res://assets/sprites/ui_elements/icons/ui_icon_edit_hover.png" id="23_awklh"]
+[ext_resource type="Texture2D" uid="uid://bc1ny1ht3iahj" path="res://assets/sprites/ui_elements/icons/ui_icon_edit_disabled.png" id="24_n2lwv"]
+[ext_resource type="Texture2D" uid="uid://83kany0im6u1" path="res://assets/sprites/ui_elements/icons/ui_icon_add.png" id="25_q7ksc"]
+[ext_resource type="Texture2D" uid="uid://n2wtamb35ikq" path="res://assets/sprites/ui_elements/icons/ui_icon_add_pressed.png" id="26_y7c7v"]
+[ext_resource type="Texture2D" uid="uid://b32gq7r2tvcf3" path="res://assets/sprites/ui_elements/icons/ui_icon_add_hover.png" id="27_ld2id"]
+[ext_resource type="Script" path="res://code/ui/UILevelPanel.cs" id="28_5o2bk"]
+[ext_resource type="Texture2D" uid="uid://bn53u7bjick3w" path="res://assets/sprites/ui_elements/icons/ui_icon_add_disabled.png" id="28_jvlsi"]
+[ext_resource type="Script" path="res://code/ui/UIInfoPanel.cs" id="30_g7tuq"]
+[ext_resource type="Script" path="res://code/ui/UIOptionsPanel.cs" id="37_7pgst"]
+[ext_resource type="Script" path="res://code/ui/UIPatchNotesPanel.cs" id="38_0jdd4"]
+[ext_resource type="StyleBox" uid="uid://bnbwbb74r5uj6" path="res://theme/panel_header.tres" id="42_rspqf"]
+[ext_resource type="PackedScene" uid="uid://bjvyfeorydh7s" path="res://prefabs/ui/keybind_change_panel.tscn" id="43_k0jm2"]
+
+[node name="Menu" type="AspectRatioContainer" node_paths=PackedStringArray("_gameTitle", "_gameVersion", "_menuButtons")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -128.0
+offset_top = -112.0
+offset_right = -128.0
+offset_bottom = -112.0
+grow_horizontal = 2
+grow_vertical = 2
+ratio = 1.1429
+script = ExtResource("1_5ctlo")
+_gameTitle = NodePath("Control/GameTitle")
+_gameVersion = NodePath("Control/GameVersion")
+_menuButtons = NodePath("Control/MenuButtons")
+
+[node name="Control" type="Panel" parent="."]
+z_index = 1
+layout_mode = 2
+
+[node name="GameTitle" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.05
+anchor_right = 1.0
+anchor_bottom = 0.25
+offset_left = 5.0
+offset_top = 5.0
+offset_right = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+auto_translate = false
+theme_override_font_sizes/font_size = 32
+text = "<game_title>"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameVersion" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 6.0
+offset_right = -5.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 0
+auto_translate = false
+text = "<game_version>"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="MenuButtons" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.15
+anchor_right = 0.18
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = -6.0
+alignment = 2
+
+[node name="Play" type="Button" parent="Control/MenuButtons"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Exit")
+focus_neighbor_bottom = NodePath("../Leaderboard")
+focus_next = NodePath("../Leaderboard")
+focus_previous = NodePath("../Exit")
+text = "BUTTON_PLAY"
+
+[node name="Leaderboard" type="Button" parent="Control/MenuButtons"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Play")
+focus_neighbor_bottom = NodePath("../Info")
+focus_next = NodePath("../Info")
+focus_previous = NodePath("../Play")
+text = "BUTTON_LEADERBOARD"
+
+[node name="Info" type="Button" parent="Control/MenuButtons"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Leaderboard")
+focus_neighbor_bottom = NodePath("../PatchNotes")
+focus_next = NodePath("../PatchNotes")
+focus_previous = NodePath("../Leaderboard")
+text = "BUTTON_INFO"
+
+[node name="PatchNotes" type="Button" parent="Control/MenuButtons"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Info")
+focus_neighbor_bottom = NodePath("../Options")
+focus_next = NodePath("../Options")
+focus_previous = NodePath("../Info")
+text = "BUTTON_PATCH_NOTES"
+
+[node name="Options" type="Button" parent="Control/MenuButtons"]
+layout_mode = 2
+text = "BUTTON_OPTIONS"
+
+[node name="Exit" type="Button" parent="Control/MenuButtons"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Options")
+focus_neighbor_bottom = NodePath("../Play")
+focus_next = NodePath("../Play")
+focus_previous = NodePath("../Options")
+text = "BUTTON_EXIT"
+
+[node name="LeaderboardPanel" type="Panel" parent="Control" node_paths=PackedStringArray("_playerNames", "_playerScore", "_focusTarget")]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_styles/panel = ExtResource("3_v54h8")
+script = ExtResource("6_3powx")
+_playerNames = NodePath("PlayerNames")
+_playerScore = NodePath("PlayerScore")
+_focusTarget = NodePath("Return")
+
+[node name="Header" type="Panel" parent="Control/LeaderboardPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+offset_bottom = 20.0
+grow_horizontal = 2
+
+[node name="HeaderLabel" type="Label" parent="Control/LeaderboardPanel/Header"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "HEADER_LEADERBOARD"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerNames" type="Label" parent="Control/LeaderboardPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.7
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 21.0
+offset_right = -4.0
+offset_bottom = -4.0
+text = "<player_names>"
+text_overrun_behavior = 3
+
+[node name="PlayerScore" type="Label" parent="Control/LeaderboardPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.7
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 21.0
+offset_right = -4.0
+offset_bottom = -4.0
+text = "<score>"
+horizontal_alignment = 2
+
+[node name="CustomDifficultyDisclaimer" type="Label" parent="Control/LeaderboardPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_right = -5.0
+offset_bottom = -4.0
+grow_vertical = 0
+text = "DISCLAIMER_CUSTOM_DIFF"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Return" type="Button" parent="Control/LeaderboardPanel" node_paths=PackedStringArray("shortcut_context")]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_bottom = -6.0
+grow_vertical = 0
+shortcut_context = NodePath("..")
+shortcut = ExtResource("17_c27yp")
+shortcut_in_tooltip = false
+text = "BUTTON_RETURN"
+
+[node name="PaddlePanel" type="Panel" parent="Control" node_paths=PackedStringArray("_paddleSprite", "_paddleName", "_paddleDescription", "_focusTarget")]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("5_yyr40")
+_paddleSprite = NodePath("PaddleSprite")
+_paddleName = NodePath("PaddleName")
+_paddleDescription = NodePath("PaddleDescription")
+_focusTarget = NodePath("ConfirmPaddle")
+
+[node name="PaddleHeader" type="Panel" parent="Control/PaddlePanel"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+
+[node name="PaddleHeaderLabel" type="Label" parent="Control/PaddlePanel/PaddleHeader"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "HEADER_PADDLE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PreviousPaddle" type="TextureButton" parent="Control/PaddlePanel" node_paths=PackedStringArray("shortcut_context")]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.1
+anchor_bottom = 1.0
+grow_vertical = 2
+pivot_offset = Vector2(0, 50)
+focus_mode = 0
+shortcut_context = NodePath("..")
+shortcut = ExtResource("6_dwepl")
+shortcut_in_tooltip = false
+texture_normal = ExtResource("7_jq31p")
+texture_pressed = ExtResource("8_j01t3")
+texture_hover = ExtResource("9_2ddjg")
+texture_disabled = ExtResource("10_enfqf")
+texture_focused = ExtResource("9_2ddjg")
+stretch_mode = 5
+
+[node name="NextPaddle" type="TextureButton" parent="Control/PaddlePanel" node_paths=PackedStringArray("shortcut_context")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.9
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+pivot_offset = Vector2(100, 50)
+focus_mode = 0
+shortcut_context = NodePath("..")
+shortcut = ExtResource("11_tce16")
+shortcut_in_tooltip = false
+texture_normal = ExtResource("11_27sep")
+texture_pressed = ExtResource("12_ovde2")
+texture_hover = ExtResource("13_5d0sh")
+texture_disabled = ExtResource("14_rbym7")
+texture_focused = ExtResource("13_5d0sh")
+stretch_mode = 5
+
+[node name="PaddleName" type="Label" parent="Control/PaddlePanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_right = 0.9
+offset_top = 21.0
+offset_bottom = 45.0
+theme_override_font_sizes/font_size = 24
+text = "paddle_name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PaddleSprite" type="TextureRect" parent="Control/PaddlePanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3
+anchor_top = 0.35
+anchor_right = 0.7
+anchor_bottom = 0.55
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(100, 100)
+texture = ExtResource("15_ppnoe")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="PaddleDescription" type="Label" parent="Control/PaddlePanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.6
+anchor_right = 0.9
+anchor_bottom = 1.0
+offset_bottom = -21.0
+text = "paddle_desc"
+autowrap_mode = 2
+
+[node name="ConfirmPaddle" type="Button" parent="Control/PaddlePanel" node_paths=PackedStringArray("shortcut_context")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 0
+shortcut_context = NodePath("..")
+shortcut = ExtResource("16_dq4b3")
+shortcut_in_tooltip = false
+text = "BUTTON_CONFIRM"
+
+[node name="Return" type="Button" parent="Control/PaddlePanel" node_paths=PackedStringArray("shortcut_context")]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_bottom = -6.0
+grow_vertical = 0
+focus_mode = 0
+shortcut_context = NodePath("..")
+shortcut = ExtResource("17_c27yp")
+shortcut_in_tooltip = false
+text = "BUTTON_RETURN"
+
+[node name="DifficultyPanel" type="Panel" parent="Control" node_paths=PackedStringArray("_name", "_newName", "_livesMax", "_livesMaxSlider", "_livesStart", "_livesStartSlider", "_ballSpeed", "_ballSpeedSlider", "_ballAngleSpeed", "_ballAngleSlider", "_paddleSizeMax", "_paddleSizeMaxSlider", "_paddleSizeStart", "_paddleSizeStartSlider", "_paddleSizeMin", "_paddleSizeMinSlider", "_nameEditControls", "_deleteDifficulty", "_editDifficulty", "_addDifficulty", "_cancelEdit", "_focusTarget")]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("15_swngl")
+_name = NodePath("DifficultyOptions/Name/NameLabel")
+_newName = NodePath("DifficultyOptions/Name/DifficultyNewName/LineEdit")
+_livesMax = NodePath("DifficultyOptions/MaxLives/LivesMaxLabel")
+_livesMaxSlider = NodePath("DifficultyOptions/MaxLives/LivesMaxSlider")
+_livesStart = NodePath("DifficultyOptions/StartingLives/LivesStartLabel")
+_livesStartSlider = NodePath("DifficultyOptions/StartingLives/LivesStartSlider")
+_ballSpeed = NodePath("DifficultyOptions/BallSpeed/BallSpeedLabel")
+_ballSpeedSlider = NodePath("DifficultyOptions/BallSpeed/BallSpeedSlider")
+_ballAngleSpeed = NodePath("DifficultyOptions/AngleSelectSpeed/AngleSelectLabel")
+_ballAngleSlider = NodePath("DifficultyOptions/AngleSelectSpeed/AngleSelectSlider")
+_paddleSizeMax = NodePath("DifficultyOptions/MaxPaddleSize/PaddleSizeMaxLabel")
+_paddleSizeMaxSlider = NodePath("DifficultyOptions/MaxPaddleSize/PaddleSizeMaxSlider")
+_paddleSizeStart = NodePath("DifficultyOptions/StartPaddleSize/PaddleSizeStartLabel")
+_paddleSizeStartSlider = NodePath("DifficultyOptions/StartPaddleSize/PaddleSizeStartSlider")
+_paddleSizeMin = NodePath("DifficultyOptions/MinPaddleSize/PaddleSizeMinLabel")
+_paddleSizeMinSlider = NodePath("DifficultyOptions/MinPaddleSize/PaddleSizeMinSlider")
+_nameEditControls = NodePath("DifficultyOptions/Name/DifficultyNewName")
+_deleteDifficulty = NodePath("CustomDifficultyButtons/DeleteDifficulty")
+_editDifficulty = NodePath("CustomDifficultyButtons/EditDifficulty")
+_addDifficulty = NodePath("CustomDifficultyButtons/AddDifficulty")
+_cancelEdit = NodePath("ConfirmationButtons/CancelEditor")
+_focusTarget = NodePath("DifficultyOptions")
+
+[node name="DifficultyHeader" type="Panel" parent="Control/DifficultyPanel"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+
+[node name="DifficultyHeaderLabel" type="Label" parent="Control/DifficultyPanel/DifficultyHeader"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "HEADER_DIFFICULTY"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PreviousDifficulty" type="TextureButton" parent="Control/DifficultyPanel" node_paths=PackedStringArray("shortcut_context")]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.1
+anchor_bottom = 1.0
+grow_vertical = 2
+pivot_offset = Vector2(0, 50)
+focus_mode = 0
+shortcut_context = NodePath("..")
+shortcut = ExtResource("6_dwepl")
+shortcut_in_tooltip = false
+texture_normal = ExtResource("7_jq31p")
+texture_pressed = ExtResource("8_j01t3")
+texture_hover = ExtResource("9_2ddjg")
+texture_disabled = ExtResource("10_enfqf")
+texture_focused = ExtResource("9_2ddjg")
+stretch_mode = 5
+
+[node name="NextDifficulty" type="TextureButton" parent="Control/DifficultyPanel" node_paths=PackedStringArray("shortcut_context")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.9
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+pivot_offset = Vector2(100, 50)
+focus_mode = 0
+shortcut_context = NodePath("..")
+shortcut = ExtResource("11_tce16")
+shortcut_in_tooltip = false
+texture_normal = ExtResource("11_27sep")
+texture_pressed = ExtResource("12_ovde2")
+texture_hover = ExtResource("13_5d0sh")
+texture_disabled = ExtResource("14_rbym7")
+texture_focused = ExtResource("13_5d0sh")
+stretch_mode = 5
+
+[node name="DifficultyOptions" type="VBoxContainer" parent="Control/DifficultyPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_right = 0.9
+anchor_bottom = 1.0
+offset_top = 24.0
+offset_bottom = -32.0
+focus_mode = 2
+
+[node name="Name" type="Control" parent="Control/DifficultyPanel/DifficultyOptions"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="Control/DifficultyPanel/DifficultyOptions/Name"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "<diff_name>"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DifficultyNewName" type="HBoxContainer" parent="Control/DifficultyPanel/DifficultyOptions/Name"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NewNameLabel" type="Label" parent="Control/DifficultyPanel/DifficultyOptions/Name/DifficultyNewName"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "DIFF_NAME"
+vertical_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="Control/DifficultyPanel/DifficultyOptions/Name/DifficultyNewName"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "PLACEHOLDER_DIFF_NAME"
+
+[node name="MaxLives" type="HBoxContainer" parent="Control/DifficultyPanel/DifficultyOptions"]
+layout_mode = 2
+
+[node name="LivesMaxLabel" type="Label" parent="Control/DifficultyPanel/DifficultyOptions/MaxLives"]
+layout_mode = 2
+size_flags_horizontal = 3
+auto_translate = false
+text = "DIFF_LIVES_MAX"
+
+[node name="LivesMaxSlider" type="HSlider" parent="Control/DifficultyPanel/DifficultyOptions/MaxLives"]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 1.0
+max_value = 10.0
+value = 1.0
+rounded = true
+
+[node name="StartingLives" type="HBoxContainer" parent="Control/DifficultyPanel/DifficultyOptions"]
+layout_mode = 2
+
+[node name="LivesStartLabel" type="Label" parent="Control/DifficultyPanel/DifficultyOptions/StartingLives"]
+layout_mode = 2
+size_flags_horizontal = 3
+auto_translate = false
+text = "DIFF_LIVES_START"
+
+[node name="LivesStartSlider" type="HSlider" parent="Control/DifficultyPanel/DifficultyOptions/StartingLives"]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 1.0
+max_value = 10.0
+value = 1.0
+rounded = true
+
+[node name="BallSpeed" type="HBoxContainer" parent="Control/DifficultyPanel/DifficultyOptions"]
+layout_mode = 2
+
+[node name="BallSpeedLabel" type="Label" parent="Control/DifficultyPanel/DifficultyOptions/BallSpeed"]
+layout_mode = 2
+size_flags_horizontal = 3
+auto_translate = false
+text = "DIFF_BALL_SPEED"
+
+[node name="BallSpeedSlider" type="HSlider" parent="Control/DifficultyPanel/DifficultyOptions/BallSpeed"]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 0.5
+max_value = 1.5
+step = 0.1
+value = 0.5
+
+[node name="AngleSelectSpeed" type="HBoxContainer" parent="Control/DifficultyPanel/DifficultyOptions"]
+layout_mode = 2
+
+[node name="AngleSelectLabel" type="Label" parent="Control/DifficultyPanel/DifficultyOptions/AngleSelectSpeed"]
+layout_mode = 2
+size_flags_horizontal = 3
+auto_translate = false
+text = "DIFF_ANGLE_SPEED"
+
+[node name="AngleSelectSlider" type="HSlider" parent="Control/DifficultyPanel/DifficultyOptions/AngleSelectSpeed"]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 0.5
+max_value = 2.5
+step = 0.1
+value = 0.5
+
+[node name="MaxPaddleSize" type="HBoxContainer" parent="Control/DifficultyPanel/DifficultyOptions"]
+layout_mode = 2
+
+[node name="PaddleSizeMaxLabel" type="Label" parent="Control/DifficultyPanel/DifficultyOptions/MaxPaddleSize"]
+layout_mode = 2
+size_flags_horizontal = 3
+auto_translate = false
+text = "DIFF_PADDLE_SIZE_MAX"
+
+[node name="PaddleSizeMaxSlider" type="HSlider" parent="Control/DifficultyPanel/DifficultyOptions/MaxPaddleSize"]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 1.0
+max_value = 8.0
+value = 1.0
+rounded = true
+
+[node name="StartPaddleSize" type="HBoxContainer" parent="Control/DifficultyPanel/DifficultyOptions"]
+layout_mode = 2
+
+[node name="PaddleSizeStartLabel" type="Label" parent="Control/DifficultyPanel/DifficultyOptions/StartPaddleSize"]
+layout_mode = 2
+size_flags_horizontal = 3
+auto_translate = false
+text = "DIFF_PADDLE_SIZE_START"
+
+[node name="PaddleSizeStartSlider" type="HSlider" parent="Control/DifficultyPanel/DifficultyOptions/StartPaddleSize"]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 1.0
+max_value = 8.0
+value = 1.0
+rounded = true
+
+[node name="MinPaddleSize" type="HBoxContainer" parent="Control/DifficultyPanel/DifficultyOptions"]
+layout_mode = 2
+
+[node name="PaddleSizeMinLabel" type="Label" parent="Control/DifficultyPanel/DifficultyOptions/MinPaddleSize"]
+layout_mode = 2
+size_flags_horizontal = 3
+auto_translate = false
+text = "DIFF_PADDLE_SIZE_MIN"
+
+[node name="PaddleSizeMinSlider" type="HSlider" parent="Control/DifficultyPanel/DifficultyOptions/MinPaddleSize"]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 1.0
+max_value = 8.0
+value = 1.0
+rounded = true
+
+[node name="ConfirmationButtons" type="HBoxContainer" parent="Control/DifficultyPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="ConfirmDifficulty" type="Button" parent="Control/DifficultyPanel/ConfirmationButtons" node_paths=PackedStringArray("shortcut_context")]
+layout_mode = 2
+shortcut_context = NodePath("../..")
+shortcut = ExtResource("16_dq4b3")
+shortcut_in_tooltip = false
+text = "BUTTON_CONFIRM"
+
+[node name="CancelEditor" type="Button" parent="Control/DifficultyPanel/ConfirmationButtons" node_paths=PackedStringArray("shortcut_context")]
+layout_mode = 2
+shortcut_context = NodePath("../..")
+shortcut = ExtResource("17_c27yp")
+shortcut_in_tooltip = false
+text = "BUTTON_CANCEL"
+
+[node name="CustomDifficultyButtons" type="HBoxContainer" parent="Control/DifficultyPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -5.0
+offset_bottom = -5.0
+grow_horizontal = 0
+grow_vertical = 0
+alignment = 2
+
+[node name="DeleteDifficulty" type="TextureButton" parent="Control/DifficultyPanel/CustomDifficultyButtons"]
+layout_mode = 2
+texture_normal = ExtResource("17_is4ul")
+texture_pressed = ExtResource("18_p68cf")
+texture_hover = ExtResource("19_b1nm1")
+texture_disabled = ExtResource("20_3frvn")
+texture_focused = ExtResource("19_b1nm1")
+
+[node name="EditDifficulty" type="TextureButton" parent="Control/DifficultyPanel/CustomDifficultyButtons"]
+layout_mode = 2
+texture_normal = ExtResource("21_seue2")
+texture_pressed = ExtResource("22_d5box")
+texture_hover = ExtResource("23_awklh")
+texture_disabled = ExtResource("24_n2lwv")
+texture_focused = ExtResource("23_awklh")
+
+[node name="AddDifficulty" type="TextureButton" parent="Control/DifficultyPanel/CustomDifficultyButtons"]
+layout_mode = 2
+texture_normal = ExtResource("25_q7ksc")
+texture_pressed = ExtResource("26_y7c7v")
+texture_hover = ExtResource("27_ld2id")
+texture_disabled = ExtResource("28_jvlsi")
+texture_focused = ExtResource("27_ld2id")
+
+[node name="Return" type="Button" parent="Control/DifficultyPanel" node_paths=PackedStringArray("shortcut_context")]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_bottom = -6.0
+grow_vertical = 0
+focus_mode = 0
+shortcut_context = NodePath("..")
+shortcut = ExtResource("17_c27yp")
+shortcut_in_tooltip = false
+text = "BUTTON_RETURN"
+
+[node name="LevelPanel" type="Panel" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("28_5o2bk")
+
+[node name="LevelHeader" type="Panel" parent="Control/LevelPanel"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+
+[node name="LevelHeaderLabel" type="Label" parent="Control/LevelPanel/LevelHeader"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "HEADER_LEVEL"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Levels" type="GridContainer" parent="Control/LevelPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 22.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 5
+
+[node name="Return" type="Button" parent="Control/LevelPanel" node_paths=PackedStringArray("shortcut_context")]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_bottom = -6.0
+grow_vertical = 0
+focus_mode = 0
+shortcut_context = NodePath("..")
+shortcut = ExtResource("17_c27yp")
+shortcut_in_tooltip = false
+text = "BUTTON_RETURN"
+
+[node name="InfoPanel" type="Panel" parent="Control" node_paths=PackedStringArray("_focusTarget")]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+focus_mode = 2
+script = ExtResource("30_g7tuq")
+_focusTarget = NodePath("ScrollContainer")
+
+[node name="InfoHeader" type="Panel" parent="Control/InfoPanel"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+
+[node name="InfoHeaderLabel" type="Label" parent="Control/InfoPanel/InfoHeader"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "HEADER_INFO"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/InfoPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 19.0
+offset_right = -4.0
+offset_bottom = -4.0
+focus_mode = 2
+
+[node name="InfoContent" type="VBoxContainer" parent="Control/InfoPanel/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="InfoMovement" type="HBoxContainer" parent="Control/InfoPanel/ScrollContainer/InfoContent"]
+layout_mode = 2
+
+[node name="ControlsIcon" type="Label" parent="Control/InfoPanel/ScrollContainer/InfoContent/InfoMovement"]
+custom_minimum_size = Vector2(30, 20)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "🎮"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="INFO_CONTROLS_DESC" type="RichTextLabel" parent="Control/InfoPanel/ScrollContainer/InfoContent/InfoMovement" groups=["manual_translation"]]
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "<info_controls_desc>"
+fit_content = true
+scroll_active = false
+shortcut_keys_enabled = false
+
+[node name="HSeparator" type="HSeparator" parent="Control/InfoPanel/ScrollContainer/InfoContent"]
+layout_mode = 2
+
+[node name="InfoBlocks" type="HBoxContainer" parent="Control/InfoPanel/ScrollContainer/InfoContent"]
+layout_mode = 2
+
+[node name="Icons" type="VBoxContainer" parent="Control/InfoPanel/ScrollContainer/InfoContent/InfoBlocks"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="Icon1" type="TextureRect" parent="Control/InfoPanel/ScrollContainer/InfoContent/InfoBlocks/Icons"]
+layout_mode = 2
+texture = ExtResource("7_26x0h")
+expand_mode = 5
+stretch_mode = 4
+
+[node name="Icon2" type="TextureRect" parent="Control/InfoPanel/ScrollContainer/InfoContent/InfoBlocks/Icons"]
+layout_mode = 2
+texture = ExtResource("8_a12sc")
+expand_mode = 5
+stretch_mode = 4
+
+[node name="INFO_BLOCKS_DESC" type="RichTextLabel" parent="Control/InfoPanel/ScrollContainer/InfoContent/InfoBlocks" groups=["manual_translation"]]
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "<info_blocks_desc>"
+fit_content = true
+scroll_active = false
+shortcut_keys_enabled = false
+
+[node name="HSeparator2" type="HSeparator" parent="Control/InfoPanel/ScrollContainer/InfoContent"]
+layout_mode = 2
+
+[node name="InfoBarriers" type="HBoxContainer" parent="Control/InfoPanel/ScrollContainer/InfoContent"]
+layout_mode = 2
+
+[node name="Icons" type="VBoxContainer" parent="Control/InfoPanel/ScrollContainer/InfoContent/InfoBarriers"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="Icon1" type="TextureRect" parent="Control/InfoPanel/ScrollContainer/InfoContent/InfoBarriers/Icons"]
+layout_mode = 2
+texture = ExtResource("9_ps03f")
+expand_mode = 5
+stretch_mode = 4
+
+[node name="Icon2" type="TextureRect" parent="Control/InfoPanel/ScrollContainer/InfoContent/InfoBarriers/Icons"]
+layout_mode = 2
+texture = ExtResource("10_b3uxo")
+expand_mode = 5
+stretch_mode = 4
+
+[node name="INFO_BARRIERS_DESC" type="RichTextLabel" parent="Control/InfoPanel/ScrollContainer/InfoContent/InfoBarriers" groups=["manual_translation"]]
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "<info_barriers_desc>"
+fit_content = true
+scroll_active = false
+shortcut_keys_enabled = false
+
+[node name="HSeparator3" type="HSeparator" parent="Control/InfoPanel/ScrollContainer/InfoContent"]
+layout_mode = 2
+
+[node name="InfoScore" type="HBoxContainer" parent="Control/InfoPanel/ScrollContainer/InfoContent"]
+layout_mode = 2
+
+[node name="ScoreIcon" type="Label" parent="Control/InfoPanel/ScrollContainer/InfoContent/InfoScore"]
+custom_minimum_size = Vector2(30, 20)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "(x9)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="INFO_SCORE_MULTIPLIER_DESC" type="RichTextLabel" parent="Control/InfoPanel/ScrollContainer/InfoContent/InfoScore" groups=["manual_translation"]]
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "<info_score_multiplier_desc>"
+fit_content = true
+scroll_active = false
+shortcut_keys_enabled = false
+
+[node name="Return" type="Button" parent="Control/InfoPanel" node_paths=PackedStringArray("shortcut_context")]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_bottom = -6.0
+grow_vertical = 0
+shortcut_context = NodePath("..")
+shortcut = ExtResource("17_c27yp")
+shortcut_in_tooltip = false
+text = "BUTTON_RETURN"
+
+[node name="PatchNotesPanel" type="Panel" parent="Control" node_paths=PackedStringArray("_content", "_focusTarget")]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("38_0jdd4")
+_content = NodePath("PatchNotesScrollContainer/PatchNotesContent")
+_focusTarget = NodePath("PatchNotesScrollContainer")
+
+[node name="PatchNotesHeader" type="Panel" parent="Control/PatchNotesPanel"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+offset_bottom = 20.0
+
+[node name="PatchNotesHeaderLabel" type="Label" parent="Control/PatchNotesPanel/PatchNotesHeader"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "HEADER_PATCH_NOTES"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PatchNotesScrollContainer" type="ScrollContainer" parent="Control/PatchNotesPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = 19.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 2
+
+[node name="PatchNotesContent" type="RichTextLabel" parent="Control/PatchNotesPanel/PatchNotesScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_sjckc")
+bbcode_enabled = true
+text = "<patch_notes>"
+fit_content = true
+scroll_active = false
+shortcut_keys_enabled = false
+
+[node name="Return" type="Button" parent="Control/PatchNotesPanel" node_paths=PackedStringArray("shortcut_context")]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_bottom = -6.0
+grow_vertical = 0
+shortcut_context = NodePath("..")
+shortcut = ExtResource("17_c27yp")
+shortcut_in_tooltip = false
+text = "BUTTON_RETURN"
+
+[node name="OptionsPanel" type="Panel" parent="Control" node_paths=PackedStringArray("_header", "_language", "_controllerType", "_controlDevices", "_fullscreen", "_resolution", "_screenShake", "_backgroundBrightness", "_pickupOrder", "_helperTransparency", "_masterVolume", "_musicVolume", "_effectsVolume", "_keybindChangePanel", "_mouseSpeed", "_keyboardSpeed", "_joypadSpeed", "_activeJoypad", "_vibrations", "_focusTarget")]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_styles/panel = ExtResource("42_rspqf")
+script = ExtResource("37_7pgst")
+_header = NodePath("HeaderPanel/HeaderLabel")
+_language = NodePath("GeneralOptions/Options/LanguageSetting/LanguageOptions")
+_controllerType = NodePath("GeneralOptions/Options/UIControlsSetting/UIControlsOptions")
+_controlDevices = NodePath("ControlOptions/Options")
+_fullscreen = NodePath("VideoOptions/Options/FullscreenSetting/FullscreenToggle")
+_resolution = NodePath("VideoOptions/Options/ResolutionSetting/ResolutionOptions")
+_screenShake = NodePath("VideoOptions/Options/ScreenShakeSetting/ScreenShakeToggle")
+_backgroundBrightness = NodePath("VideoOptions/Options/BackgroundSetting/BackgroundSlider")
+_pickupOrder = NodePath("VideoOptions/Options/PickupSetting/PickupOptions")
+_helperTransparency = NodePath("VideoOptions/Options/EffectsTransparencySetting/EffectsTransparencySlider")
+_masterVolume = NodePath("AudioOptions/Options/MasterVolumeSetting/MasterVolumeSlider")
+_musicVolume = NodePath("AudioOptions/Options/MusicVolumeSetting/MusicVolumeSlider")
+_effectsVolume = NodePath("AudioOptions/Options/EffectsVolumeSetting/EffectsVolumeSlider")
+_keybindChangePanel = NodePath("../../KeybindChangePanel")
+_mouseSpeed = NodePath("ControlOptions/Options/MouseSettings/Mouse/MouseSpeedSetting/MouseSpeedSlider")
+_keyboardSpeed = NodePath("ControlOptions/Options/KeyboardSettings/Keyboard/KeyboardSpeedSetting/KeyboardSpeedSlider")
+_joypadSpeed = NodePath("ControlOptions/Options/JoypadSettings/Joypad/ControllerSpeedSetting/ControllerSpeedSlider")
+_activeJoypad = NodePath("ControlOptions/Options/JoypadSettings/Joypad/ActiveController/ActiveGamepadOptions")
+_vibrations = NodePath("ControlOptions/Options/JoypadSettings/Joypad/VibrationSetting/VibrationToggle")
+_focusTarget = NodePath("GeneralOptions/Options/LanguageSetting/LanguageOptions")
+
+[node name="HeaderPanel" type="Panel" parent="Control/OptionsPanel"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+
+[node name="HeaderLabel" type="Label" parent="Control/OptionsPanel/HeaderPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "header_options"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GeneralOptions" type="ScrollContainer" parent="Control/OptionsPanel"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.18
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 21.0
+offset_bottom = -20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("3_sjckc")
+follow_focus = true
+
+[node name="Options" type="VBoxContainer" parent="Control/OptionsPanel/GeneralOptions"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="LanguageSetting" type="Control" parent="Control/OptionsPanel/GeneralOptions/Options"]
+custom_minimum_size = Vector2(0, 19)
+layout_mode = 2
+
+[node name="LanguageLabel" type="Label" parent="Control/OptionsPanel/GeneralOptions/Options/LanguageSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.4
+anchor_bottom = 1.0
+offset_left = 4.0
+text = "OPTION_GENERAL_LANGUAGE"
+vertical_alignment = 1
+
+[node name="LanguageOptions" type="OptionButton" parent="Control/OptionsPanel/GeneralOptions/Options/LanguageSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_right = -4.0
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath("../../../../OptionsButtons/Confirm")
+focus_previous = NodePath("../../../../OptionsButtons/Confirm")
+
+[node name="UIControlsSetting" type="Control" parent="Control/OptionsPanel/GeneralOptions/Options"]
+custom_minimum_size = Vector2(0, 19)
+layout_mode = 2
+
+[node name="UIControlsLabel" type="Label" parent="Control/OptionsPanel/GeneralOptions/Options/UIControlsSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.4
+anchor_bottom = 1.0
+offset_left = 4.0
+text = "OPTION_GENERAL_UI_PROMPTS"
+vertical_alignment = 1
+
+[node name="UIControlsOptions" type="OptionButton" parent="Control/OptionsPanel/GeneralOptions/Options/UIControlsSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_right = -4.0
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath("../../../../OptionsButtons/Confirm")
+focus_previous = NodePath("../../../../OptionsButtons/Confirm")
+item_count = 5
+popup/item_0/text = "Generic"
+popup/item_0/id = 1
+popup/item_1/text = "Nintendo"
+popup/item_1/id = 2
+popup/item_2/text = "Playstation"
+popup/item_2/id = 3
+popup/item_3/text = "Steam Deck"
+popup/item_3/id = 4
+popup/item_4/text = "XBox"
+popup/item_4/id = 5
+
+[node name="VideoOptions" type="ScrollContainer" parent="Control/OptionsPanel"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.18
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 21.0
+offset_bottom = -20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("3_sjckc")
+follow_focus = true
+
+[node name="Options" type="VBoxContainer" parent="Control/OptionsPanel/VideoOptions"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="FullscreenSetting" type="Control" parent="Control/OptionsPanel/VideoOptions/Options"]
+custom_minimum_size = Vector2(0, 19)
+layout_mode = 2
+
+[node name="FullscreenLabel" type="Label" parent="Control/OptionsPanel/VideoOptions/Options/FullscreenSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.4
+anchor_bottom = 1.0
+offset_left = 4.0
+text = "OPTION_VIDEO_FULLSCREEN"
+vertical_alignment = 1
+
+[node name="FullscreenToggle" type="CheckButton" parent="Control/OptionsPanel/VideoOptions/Options/FullscreenSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_right = -4.0
+focus_neighbor_right = NodePath("../../../../OptionsButtons/Confirm")
+focus_neighbor_bottom = NodePath("../../ResolutionSetting/ResolutionOptions")
+focus_next = NodePath("../../ResolutionSetting/ResolutionOptions")
+flat = true
+
+[node name="ResolutionSetting" type="Control" parent="Control/OptionsPanel/VideoOptions/Options"]
+visible = false
+custom_minimum_size = Vector2(0, 19)
+layout_mode = 2
+
+[node name="ResolutionLabel" type="Label" parent="Control/OptionsPanel/VideoOptions/Options/ResolutionSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.4
+anchor_bottom = 1.0
+offset_left = 4.0
+text = "OPTION_VIDEO_RESOLUTION"
+vertical_alignment = 1
+
+[node name="ResolutionOptions" type="OptionButton" parent="Control/OptionsPanel/VideoOptions/Options/ResolutionSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_right = -4.0
+focus_neighbor_top = NodePath("../../FullscreenSetting/FullscreenToggle")
+focus_neighbor_right = NodePath("../../../../OptionsButtons/Confirm")
+focus_neighbor_bottom = NodePath("../../ScreenShakeSetting/ScreenShakeToggle")
+focus_next = NodePath("../../ScreenShakeSetting/ScreenShakeToggle")
+focus_previous = NodePath("../../FullscreenSetting/FullscreenToggle")
+item_count = 3
+popup/item_0/text = "256x224"
+popup/item_0/id = 0
+popup/item_1/text = "640x480"
+popup/item_1/id = 1
+popup/item_2/text = "1280x720"
+popup/item_2/id = 2
+
+[node name="ScreenShakeSetting" type="Control" parent="Control/OptionsPanel/VideoOptions/Options"]
+custom_minimum_size = Vector2(0, 19)
+layout_mode = 2
+tooltip_text = "tooltip_screen_shake"
+
+[node name="ShakeScreenLabel" type="Label" parent="Control/OptionsPanel/VideoOptions/Options/ScreenShakeSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.4
+anchor_bottom = 1.0
+offset_left = 4.0
+text = "OPTION_VIDEO_SCREEN_SHAKE"
+vertical_alignment = 1
+
+[node name="ScreenShakeToggle" type="CheckButton" parent="Control/OptionsPanel/VideoOptions/Options/ScreenShakeSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_right = -4.0
+focus_neighbor_top = NodePath("../../ResolutionSetting/ResolutionOptions")
+focus_neighbor_right = NodePath("../../../../OptionsButtons/Confirm")
+focus_previous = NodePath("../../ResolutionSetting/ResolutionOptions")
+flat = true
+
+[node name="BackgroundSetting" type="Control" parent="Control/OptionsPanel/VideoOptions/Options"]
+custom_minimum_size = Vector2(0, 19)
+layout_mode = 2
+
+[node name="BackgroundLabel" type="Label" parent="Control/OptionsPanel/VideoOptions/Options/BackgroundSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.4
+anchor_bottom = 1.0
+offset_left = 4.0
+text = "OPTION_VIDEO_BACKGROUND_TRANSPARENCY"
+vertical_alignment = 1
+
+[node name="BackgroundSlider" type="HSlider" parent="Control/OptionsPanel/VideoOptions/Options/BackgroundSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_right = -4.0
+focus_neighbor_right = NodePath("../../../../OptionsButtons/Confirm")
+focus_neighbor_bottom = NodePath("../../../../OptionsButtons/Confirm")
+focus_next = NodePath("../../../../OptionsButtons/Confirm")
+min_value = 0.4
+max_value = 1.0
+step = 0.1
+value = 1.0
+
+[node name="PickupSetting" type="Control" parent="Control/OptionsPanel/VideoOptions/Options"]
+custom_minimum_size = Vector2(0, 19)
+layout_mode = 2
+
+[node name="PickupLabel" type="Label" parent="Control/OptionsPanel/VideoOptions/Options/PickupSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.4
+anchor_bottom = 1.0
+offset_left = 4.0
+text = "OPTION_VIDEO_PICKUP_ORDER"
+vertical_alignment = 1
+
+[node name="PickupOptions" type="OptionButton" parent="Control/OptionsPanel/VideoOptions/Options/PickupSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_right = -4.0
+focus_neighbor_top = NodePath("../../FullscreenSetting/FullscreenToggle")
+focus_neighbor_right = NodePath("../../../../OptionsButtons/Confirm")
+focus_neighbor_bottom = NodePath("../../ScreenShakeSetting/ScreenShakeToggle")
+focus_next = NodePath("../../ScreenShakeSetting/ScreenShakeToggle")
+focus_previous = NodePath("../../FullscreenSetting/FullscreenToggle")
+item_count = 3
+popup/item_0/text = "OPTION_VIDEO_PICKUP_ORDER_BOTTOM"
+popup/item_0/id = 0
+popup/item_1/text = "OPTION_VIDEO_PICKUP_ORDER_MIDDLE"
+popup/item_1/id = 1
+popup/item_2/text = "OPTION_VIDEO_PICKUP_ORDER_TOP"
+popup/item_2/id = 2
+
+[node name="EffectsTransparencySetting" type="Control" parent="Control/OptionsPanel/VideoOptions/Options"]
+custom_minimum_size = Vector2(0, 19)
+layout_mode = 2
+
+[node name="EffectsTransparencyLabel" type="Label" parent="Control/OptionsPanel/VideoOptions/Options/EffectsTransparencySetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.4
+anchor_bottom = 1.0
+offset_left = 4.0
+text = "OPTION_VIDEO_EFFECT_TRANSPARENCY"
+vertical_alignment = 1
+
+[node name="EffectsTransparencySlider" type="HSlider" parent="Control/OptionsPanel/VideoOptions/Options/EffectsTransparencySetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_right = -4.0
+max_value = 1.0
+step = 0.1
+value = 0.1
+
+[node name="AudioOptions" type="ScrollContainer" parent="Control/OptionsPanel"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.18
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 21.0
+offset_bottom = -20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("3_sjckc")
+follow_focus = true
+
+[node name="Options" type="VBoxContainer" parent="Control/OptionsPanel/AudioOptions"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MasterVolumeSetting" type="Control" parent="Control/OptionsPanel/AudioOptions/Options"]
+custom_minimum_size = Vector2(0, 19)
+layout_mode = 2
+
+[node name="MasterVolumeLabel" type="Label" parent="Control/OptionsPanel/AudioOptions/Options/MasterVolumeSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.4
+anchor_bottom = 1.0
+offset_left = 4.0
+text = "OPTION_VOLUME_MASTER"
+vertical_alignment = 1
+
+[node name="MasterVolumeSlider" type="HSlider" parent="Control/OptionsPanel/AudioOptions/Options/MasterVolumeSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_right = -4.0
+focus_neighbor_right = NodePath("../../../../OptionsButtons/Confirm")
+focus_neighbor_bottom = NodePath("../../MusicVolumeSetting/MusicVolumeSlider")
+focus_next = NodePath("../../MusicVolumeSetting/MusicVolumeSlider")
+min_value = -60.0
+max_value = 6.0
+
+[node name="MusicVolumeSetting" type="Control" parent="Control/OptionsPanel/AudioOptions/Options"]
+custom_minimum_size = Vector2(0, 19)
+layout_mode = 2
+
+[node name="MusicVolumeLabel" type="Label" parent="Control/OptionsPanel/AudioOptions/Options/MusicVolumeSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.4
+anchor_bottom = 1.0
+offset_left = 4.0
+text = "OPTION_VOLUME_MUSIC"
+vertical_alignment = 1
+
+[node name="MusicVolumeSlider" type="HSlider" parent="Control/OptionsPanel/AudioOptions/Options/MusicVolumeSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_right = -4.0
+focus_neighbor_top = NodePath("../../MasterVolumeSetting/MasterVolumeSlider")
+focus_neighbor_right = NodePath("../../../../OptionsButtons/Confirm")
+focus_neighbor_bottom = NodePath("../../EffectsVolumeSetting/EffectsVolumeSlider")
+focus_next = NodePath("../../EffectsVolumeSetting/EffectsVolumeSlider")
+focus_previous = NodePath("../../MasterVolumeSetting/MasterVolumeSlider")
+min_value = -60.0
+max_value = 6.0
+
+[node name="EffectsVolumeSetting" type="Control" parent="Control/OptionsPanel/AudioOptions/Options"]
+custom_minimum_size = Vector2(0, 19)
+layout_mode = 2
+
+[node name="EffectsVolumeLabel" type="Label" parent="Control/OptionsPanel/AudioOptions/Options/EffectsVolumeSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.4
+anchor_bottom = 1.0
+offset_left = 4.0
+text = "OPTION_VOLUME_EFFECTS"
+vertical_alignment = 1
+
+[node name="EffectsVolumeSlider" type="HSlider" parent="Control/OptionsPanel/AudioOptions/Options/EffectsVolumeSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_right = -4.0
+focus_neighbor_top = NodePath("../../MusicVolumeSetting/MusicVolumeSlider")
+focus_neighbor_right = NodePath("../../../../OptionsButtons/Confirm")
+focus_neighbor_bottom = NodePath("../../../../OptionsButtons/Confirm")
+focus_next = NodePath("../../../../OptionsButtons/Confirm")
+focus_previous = NodePath("../../MusicVolumeSetting/MusicVolumeSlider")
+min_value = -60.0
+max_value = 6.0
+
+[node name="ControlOptions" type="ScrollContainer" parent="Control/OptionsPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.18
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -10.0
+offset_top = 21.0
+offset_right = -4.0
+offset_bottom = -20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("3_sjckc")
+follow_focus = true
+
+[node name="Options" type="VBoxContainer" parent="Control/OptionsPanel/ControlOptions"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MouseSettings" type="VBoxContainer" parent="Control/OptionsPanel/ControlOptions/Options"]
+custom_minimum_size = Vector2(0, 19)
+layout_mode = 2
+
+[node name="ToggleButton" type="Button" parent="Control/OptionsPanel/ControlOptions/Options/MouseSettings"]
+layout_mode = 2
+text = "BUTTON_MOUSE"
+icon = ExtResource("11_27sep")
+flat = true
+alignment = 0
+
+[node name="Mouse" type="VBoxContainer" parent="Control/OptionsPanel/ControlOptions/Options/MouseSettings"]
+layout_mode = 2
+
+[node name="MouseSpeedSetting" type="Control" parent="Control/OptionsPanel/ControlOptions/Options/MouseSettings/Mouse"]
+custom_minimum_size = Vector2(0, 19)
+layout_mode = 2
+
+[node name="MouseSpeedLabel" type="Label" parent="Control/OptionsPanel/ControlOptions/Options/MouseSettings/Mouse/MouseSpeedSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.4
+anchor_bottom = 1.0
+offset_left = 18.0
+text = "OPTION_INPUT_MOUSE_SPEED"
+vertical_alignment = 1
+
+[node name="MouseSpeedSlider" type="HSlider" parent="Control/OptionsPanel/ControlOptions/Options/MouseSettings/Mouse/MouseSpeedSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_right = -4.0
+focus_neighbor_right = NodePath("../../../../../../OptionsButtons/Confirm")
+focus_neighbor_bottom = NodePath("../../../../KeyboardSettings/Keyboard/KeyboardSpeedSetting/KeyboardSpeedSlider")
+focus_next = NodePath("../../../../KeyboardSettings/Keyboard/KeyboardSpeedSetting/KeyboardSpeedSlider")
+min_value = 0.1
+max_value = 2.0
+step = 0.1
+value = 1.0
+
+[node name="KeyboardSettings" type="VBoxContainer" parent="Control/OptionsPanel/ControlOptions/Options"]
+custom_minimum_size = Vector2(0, 19)
+layout_mode = 2
+
+[node name="ToggleButton" type="Button" parent="Control/OptionsPanel/ControlOptions/Options/KeyboardSettings"]
+layout_mode = 2
+text = "BUTTON_KEYBOARD"
+icon = ExtResource("11_27sep")
+flat = true
+alignment = 0
+
+[node name="Keyboard" type="VBoxContainer" parent="Control/OptionsPanel/ControlOptions/Options/KeyboardSettings"]
+layout_mode = 2
+
+[node name="KeyboardSpeedSetting" type="Control" parent="Control/OptionsPanel/ControlOptions/Options/KeyboardSettings/Keyboard"]
+custom_minimum_size = Vector2(0, 19)
+layout_mode = 2
+
+[node name="KeyboardSpeedLabel" type="Label" parent="Control/OptionsPanel/ControlOptions/Options/KeyboardSettings/Keyboard/KeyboardSpeedSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.4
+anchor_bottom = 1.0
+offset_left = 18.0
+text = "OPTION_INPUT_KEYBOARD_SPEED"
+vertical_alignment = 1
+
+[node name="KeyboardSpeedSlider" type="HSlider" parent="Control/OptionsPanel/ControlOptions/Options/KeyboardSettings/Keyboard/KeyboardSpeedSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_right = -4.0
+focus_neighbor_top = NodePath("../../../../MouseSettings/Mouse/MouseSpeedSetting/MouseSpeedSlider")
+focus_neighbor_right = NodePath("../../../../../../OptionsButtons/Confirm")
+focus_previous = NodePath("../../../../MouseSettings/Mouse/MouseSpeedSetting/MouseSpeedSlider")
+min_value = 0.5
+max_value = 2.0
+step = 0.1
+value = 1.0
+
+[node name="JoypadSettings" type="VBoxContainer" parent="Control/OptionsPanel/ControlOptions/Options"]
+custom_minimum_size = Vector2(0, 19)
+layout_mode = 2
+
+[node name="ToggleButton" type="Button" parent="Control/OptionsPanel/ControlOptions/Options/JoypadSettings"]
+layout_mode = 2
+text = "BUTTON_CONTROLLER"
+icon = ExtResource("11_27sep")
+flat = true
+alignment = 0
+
+[node name="Joypad" type="VBoxContainer" parent="Control/OptionsPanel/ControlOptions/Options/JoypadSettings"]
+layout_mode = 2
+
+[node name="ActiveController" type="Control" parent="Control/OptionsPanel/ControlOptions/Options/JoypadSettings/Joypad"]
+visible = false
+custom_minimum_size = Vector2(0, 19)
+layout_mode = 2
+
+[node name="UIActiveGamepadLabel" type="Label" parent="Control/OptionsPanel/ControlOptions/Options/JoypadSettings/Joypad/ActiveController"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.4
+anchor_bottom = 1.0
+offset_left = 18.0
+text = "OPTION_INPUT_ACTIVE_GAMEPAD"
+vertical_alignment = 1
+
+[node name="ActiveGamepadOptions" type="OptionButton" parent="Control/OptionsPanel/ControlOptions/Options/JoypadSettings/Joypad/ActiveController"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_right = -4.0
+
+[node name="ControllerSpeedSetting" type="Control" parent="Control/OptionsPanel/ControlOptions/Options/JoypadSettings/Joypad"]
+custom_minimum_size = Vector2(0, 19)
+layout_mode = 2
+
+[node name="ControllerSpeedLabel" type="Label" parent="Control/OptionsPanel/ControlOptions/Options/JoypadSettings/Joypad/ControllerSpeedSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.4
+anchor_bottom = 1.0
+offset_left = 18.0
+text = "OPTION_INPUT_CONTROLLER_SPEED"
+vertical_alignment = 1
+
+[node name="ControllerSpeedSlider" type="HSlider" parent="Control/OptionsPanel/ControlOptions/Options/JoypadSettings/Joypad/ControllerSpeedSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_right = -4.0
+focus_neighbor_top = NodePath("../../../../MouseSettings/Mouse/MouseSpeedSetting/MouseSpeedSlider")
+focus_neighbor_right = NodePath("../../../../../../OptionsButtons/Confirm")
+focus_previous = NodePath("../../../../MouseSettings/Mouse/MouseSpeedSetting/MouseSpeedSlider")
+min_value = 0.5
+max_value = 2.0
+step = 0.1
+value = 1.0
+
+[node name="VibrationSetting" type="Control" parent="Control/OptionsPanel/ControlOptions/Options/JoypadSettings/Joypad"]
+custom_minimum_size = Vector2(0, 19)
+layout_mode = 2
+
+[node name="VibrationLabel" type="Label" parent="Control/OptionsPanel/ControlOptions/Options/JoypadSettings/Joypad/VibrationSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.4
+anchor_bottom = 1.0
+offset_left = 18.0
+text = "OPTION_INPUT_CONTROLLER_VIBRATIONS"
+vertical_alignment = 1
+
+[node name="VibrationToggle" type="CheckButton" parent="Control/OptionsPanel/ControlOptions/Options/JoypadSettings/Joypad/VibrationSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_right = -4.0
+focus_neighbor_right = NodePath("../../../../../../OptionsButtons/Confirm")
+focus_neighbor_bottom = NodePath("../../../../../../VideoOptions/Options/ResolutionSetting/ResolutionOptions")
+focus_next = NodePath("../../../../../../VideoOptions/Options/ResolutionSetting/ResolutionOptions")
+flat = true
+
+[node name="OptionsButtons" type="HBoxContainer" parent="Control/OptionsPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.18
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -4.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 2
+
+[node name="Confirm" type="Button" parent="Control/OptionsPanel/OptionsButtons" node_paths=PackedStringArray("shortcut_context")]
+layout_mode = 2
+focus_neighbor_right = NodePath("../Cancel")
+focus_neighbor_bottom = NodePath("../../GeneralOptions/Options/LanguageSetting/LanguageOptions")
+focus_next = NodePath("../Cancel")
+focus_previous = NodePath("../../GeneralOptions/Options/LanguageSetting/LanguageOptions")
+shortcut_context = NodePath("../..")
+shortcut = ExtResource("16_dq4b3")
+text = "BUTTON_CONFIRM"
+
+[node name="Cancel" type="Button" parent="Control/OptionsPanel/OptionsButtons" node_paths=PackedStringArray("shortcut_context")]
+layout_mode = 2
+focus_neighbor_left = NodePath("../Confirm")
+focus_neighbor_bottom = NodePath("../../GeneralOptions/Options/LanguageSetting/LanguageOptions")
+focus_next = NodePath("../../GeneralOptions/Options/LanguageSetting/LanguageOptions")
+focus_previous = NodePath("../Confirm")
+shortcut_context = NodePath("../..")
+shortcut = ExtResource("17_c27yp")
+text = "BUTTON_CANCEL"
+
+[node name="Default" type="Button" parent="Control/OptionsPanel/OptionsButtons" node_paths=PackedStringArray("shortcut_context")]
+layout_mode = 2
+focus_neighbor_left = NodePath("../Confirm")
+focus_neighbor_bottom = NodePath("../../GeneralOptions/Options/LanguageSetting/LanguageOptions")
+focus_next = NodePath("../../GeneralOptions/Options/LanguageSetting/LanguageOptions")
+focus_previous = NodePath("../Confirm")
+shortcut_context = NodePath("../..")
+shortcut = ExtResource("17_c27yp")
+text = "BUTTON_DEFAULT"
+
+[node name="CategoryButtons" type="VBoxContainer" parent="Control/OptionsPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 0.18
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 5.75
+offset_right = -5.0
+offset_bottom = -6.0
+grow_vertical = 0
+alignment = 2
+
+[node name="General" type="Button" parent="Control/OptionsPanel/CategoryButtons"]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../Video")
+focus_next = NodePath("../Video")
+text = "BUTTON_GENERAL"
+
+[node name="Video" type="Button" parent="Control/OptionsPanel/CategoryButtons"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../General")
+focus_neighbor_bottom = NodePath("../Audio")
+focus_next = NodePath("../Audio")
+focus_previous = NodePath("../General")
+text = "BUTTON_VIDEO"
+
+[node name="Audio" type="Button" parent="Control/OptionsPanel/CategoryButtons"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Video")
+focus_neighbor_bottom = NodePath("../Controls")
+focus_next = NodePath("../Controls")
+focus_previous = NodePath("../Video")
+text = "BUTTON_AUDIO"
+
+[node name="Controls" type="Button" parent="Control/OptionsPanel/CategoryButtons"]
+layout_mode = 2
+text = "BUTTON_CONTROLS"
+
+[node name="Return" type="Button" parent="Control/OptionsPanel/CategoryButtons" node_paths=PackedStringArray("shortcut_context")]
+layout_mode = 2
+shortcut_context = NodePath("../..")
+shortcut = ExtResource("17_c27yp")
+shortcut_in_tooltip = false
+text = "BUTTON_RETURN"
+
+[node name="LangSelection" parent="." instance=ExtResource("2_8j3rs")]
+visible = false
+layout_mode = 2
+
+[node name="KeybindChangePanel" parent="." instance=ExtResource("43_k0jm2")]
+visible = false
+layout_mode = 2
+
+[connection signal="pressed" from="Control/MenuButtons/Play" to="." method="TogglePanel" binds= ["PaddlePanel"]]
+[connection signal="pressed" from="Control/MenuButtons/Leaderboard" to="." method="TogglePanel" binds= ["LeaderboardPanel"]]
+[connection signal="pressed" from="Control/MenuButtons/Info" to="." method="TogglePanel" binds= ["InfoPanel"]]
+[connection signal="pressed" from="Control/MenuButtons/PatchNotes" to="." method="TogglePanel" binds= ["PatchNotesPanel"]]
+[connection signal="pressed" from="Control/MenuButtons/Options" to="." method="TogglePanel" binds= ["OptionsPanel"]]
+[connection signal="pressed" from="Control/MenuButtons/Exit" to="." method="ExitGame"]
+[connection signal="pressed" from="Control/LeaderboardPanel/Return" to="." method="TogglePanel" binds= [""]]
+[connection signal="pressed" from="Control/PaddlePanel/PreviousPaddle" to="Control/PaddlePanel" method="ChangePaddle" binds= [false]]
+[connection signal="pressed" from="Control/PaddlePanel/NextPaddle" to="Control/PaddlePanel" method="ChangePaddle" binds= [true]]
+[connection signal="pressed" from="Control/PaddlePanel/ConfirmPaddle" to="Control/PaddlePanel" method="SelectPaddle"]
+[connection signal="pressed" from="Control/PaddlePanel/Return" to="." method="TogglePanel" binds= [""]]
+[connection signal="pressed" from="Control/DifficultyPanel/PreviousDifficulty" to="Control/DifficultyPanel" method="ChangeDifficulty" binds= [false]]
+[connection signal="pressed" from="Control/DifficultyPanel/NextDifficulty" to="Control/DifficultyPanel" method="ChangeDifficulty" binds= [true]]
+[connection signal="value_changed" from="Control/DifficultyPanel/DifficultyOptions/MaxLives/LivesMaxSlider" to="Control/DifficultyPanel" method="UpdateEditorValues"]
+[connection signal="value_changed" from="Control/DifficultyPanel/DifficultyOptions/StartingLives/LivesStartSlider" to="Control/DifficultyPanel" method="UpdateEditorValues"]
+[connection signal="value_changed" from="Control/DifficultyPanel/DifficultyOptions/BallSpeed/BallSpeedSlider" to="Control/DifficultyPanel" method="UpdateEditorValues"]
+[connection signal="value_changed" from="Control/DifficultyPanel/DifficultyOptions/AngleSelectSpeed/AngleSelectSlider" to="Control/DifficultyPanel" method="UpdateEditorValues"]
+[connection signal="value_changed" from="Control/DifficultyPanel/DifficultyOptions/MaxPaddleSize/PaddleSizeMaxSlider" to="Control/DifficultyPanel" method="UpdateEditorValues"]
+[connection signal="value_changed" from="Control/DifficultyPanel/DifficultyOptions/StartPaddleSize/PaddleSizeStartSlider" to="Control/DifficultyPanel" method="UpdateEditorValues"]
+[connection signal="value_changed" from="Control/DifficultyPanel/DifficultyOptions/MinPaddleSize/PaddleSizeMinSlider" to="Control/DifficultyPanel" method="UpdateEditorValues"]
+[connection signal="pressed" from="Control/DifficultyPanel/ConfirmationButtons/ConfirmDifficulty" to="Control/DifficultyPanel" method="Confirm"]
+[connection signal="pressed" from="Control/DifficultyPanel/ConfirmationButtons/CancelEditor" to="Control/DifficultyPanel" method="ToggleEditorControls" binds= [false]]
+[connection signal="pressed" from="Control/DifficultyPanel/CustomDifficultyButtons/EditDifficulty" to="Control/DifficultyPanel" method="EnableEditor" binds= [false]]
+[connection signal="pressed" from="Control/DifficultyPanel/CustomDifficultyButtons/AddDifficulty" to="Control/DifficultyPanel" method="EnableEditor" binds= [true]]
+[connection signal="pressed" from="Control/DifficultyPanel/Return" to="." method="TogglePanel" binds= ["PaddlePanel"]]
+[connection signal="pressed" from="Control/LevelPanel/Return" to="." method="TogglePanel" binds= ["DifficultyPanel"]]
+[connection signal="pressed" from="Control/InfoPanel/Return" to="." method="TogglePanel" binds= [""]]
+[connection signal="pressed" from="Control/PatchNotesPanel/Return" to="." method="TogglePanel" binds= [""]]
+[connection signal="pressed" from="Control/OptionsPanel/OptionsButtons/Confirm" to="Control/OptionsPanel" method="SaveSettings"]
+[connection signal="pressed" from="Control/OptionsPanel/OptionsButtons/Cancel" to="Control/OptionsPanel" method="CancelSettings"]
+[connection signal="pressed" from="Control/OptionsPanel/OptionsButtons/Default" to="Control/OptionsPanel" method="RestoreDefaultSettings"]
+[connection signal="pressed" from="Control/OptionsPanel/CategoryButtons/General" to="Control/OptionsPanel" method="ChangeActivePanel" binds= [0]]
+[connection signal="pressed" from="Control/OptionsPanel/CategoryButtons/Video" to="Control/OptionsPanel" method="ChangeActivePanel" binds= [1]]
+[connection signal="pressed" from="Control/OptionsPanel/CategoryButtons/Audio" to="Control/OptionsPanel" method="ChangeActivePanel" binds= [2]]
+[connection signal="pressed" from="Control/OptionsPanel/CategoryButtons/Controls" to="Control/OptionsPanel" method="ChangeActivePanel" binds= [3]]
+[connection signal="pressed" from="Control/OptionsPanel/CategoryButtons/Return" to="." method="TogglePanel" binds= [""]]

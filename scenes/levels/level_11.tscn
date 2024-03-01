@@ -1,0 +1,427 @@
+[gd_scene load_steps=16 format=3 uid="uid://dyup5w0wk4mi"]
+
+[ext_resource type="Texture2D" uid="uid://clfnabf8ysvwd" path="res://assets/sprites/tilesets/map_tiles_bricked.png" id="1_r0w8v"]
+[ext_resource type="PackedScene" uid="uid://too80a13ex5u" path="res://prefabs/blocks/block_basic.tscn" id="2_6ge52"]
+[ext_resource type="Texture2D" uid="uid://uadotagtweom" path="res://assets/sprites/tilesets/map_details_bricked.png" id="2_s15f6"]
+[ext_resource type="PackedScene" uid="uid://clchdmucxr4xn" path="res://prefabs/blocks/block_sturdy.tscn" id="3_ox10q"]
+[ext_resource type="PackedScene" uid="uid://dlrofqirtncwr" path="res://prefabs/blocks/barrier_basic.tscn" id="4_v27tv"]
+[ext_resource type="PackedScene" uid="uid://bg5r3twijp0e" path="res://prefabs/blocks/barrier_sturdy.tscn" id="5_3mumk"]
+[ext_resource type="PackedScene" uid="uid://doawgt0jptjhp" path="res://prefabs/blocks/coffin.tscn" id="6_cwrtl"]
+[ext_resource type="PackedScene" uid="uid://c7ob1oeeah2yr" path="res://prefabs/hazards/whirlpool.tscn" id="6_ubsue"]
+[ext_resource type="PackedScene" uid="uid://cgpa7sf8jgxu8" path="res://prefabs/level_exit.tscn" id="7_ejwvx"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y748h"]
+texture = ExtResource("1_r0w8v")
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0 = 0
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+3:0/0 = 0
+3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:0/0/physics_layer_0/angular_velocity = 0.0
+4:0/0 = 0
+4:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:0/0/physics_layer_0/angular_velocity = 0.0
+5:0/0 = 0
+5:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:0/0/physics_layer_0/angular_velocity = 0.0
+6:0/0 = 0
+6:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+6:0/0/physics_layer_0/angular_velocity = 0.0
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+1:1/0 = 0
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
+2:1/0 = 0
+2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:1/0/physics_layer_0/angular_velocity = 0.0
+3:1/0 = 0
+3:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:1/0/physics_layer_0/angular_velocity = 0.0
+4:1/0 = 0
+4:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:1/0/physics_layer_0/angular_velocity = 0.0
+5:1/0 = 0
+5:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:1/0/physics_layer_0/angular_velocity = 0.0
+6:1/0 = 0
+6:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+6:1/0/physics_layer_0/angular_velocity = 0.0
+0:2/0 = 0
+0:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:2/0/physics_layer_0/angular_velocity = 0.0
+1:2/0 = 0
+1:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:2/0/physics_layer_0/angular_velocity = 0.0
+2:2/0 = 0
+2:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:2/0/physics_layer_0/angular_velocity = 0.0
+3:2/0 = 0
+3:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:2/0/physics_layer_0/angular_velocity = 0.0
+4:2/0 = 0
+4:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:2/0/physics_layer_0/angular_velocity = 0.0
+5:2/0 = 0
+5:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:2/0/physics_layer_0/angular_velocity = 0.0
+6:2/0 = 0
+6:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+6:2/0/physics_layer_0/angular_velocity = 0.0
+2:3/0 = 0
+2:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:3/0/physics_layer_0/angular_velocity = 0.0
+3:3/0 = 0
+3:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:3/0/physics_layer_0/angular_velocity = 0.0
+4:3/0 = 0
+4:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:3/0/physics_layer_0/angular_velocity = 0.0
+2:4/0 = 0
+2:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:4/0/physics_layer_0/angular_velocity = 0.0
+3:4/0 = 0
+3:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:4/0/physics_layer_0/angular_velocity = 0.0
+4:4/0 = 0
+4:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:4/0/physics_layer_0/angular_velocity = 0.0
+2:5/0 = 0
+2:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:5/0/physics_layer_0/angular_velocity = 0.0
+3:5/0 = 0
+3:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:5/0/physics_layer_0/angular_velocity = 0.0
+4:5/0 = 0
+4:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:5/0/physics_layer_0/angular_velocity = 0.0
+5:5/0 = 0
+5:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:5/0/physics_layer_0/angular_velocity = 0.0
+6:5/0 = 0
+6:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+6:5/0/physics_layer_0/angular_velocity = 0.0
+2:6/0 = 0
+2:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:6/0/physics_layer_0/angular_velocity = 0.0
+3:6/0 = 0
+3:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:6/0/physics_layer_0/angular_velocity = 0.0
+4:6/0 = 0
+4:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:6/0/physics_layer_0/angular_velocity = 0.0
+5:6/0 = 0
+5:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:6/0/physics_layer_0/angular_velocity = 0.0
+6:6/0 = 0
+6:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+6:6/0/physics_layer_0/angular_velocity = 0.0
+2:7/0 = 0
+2:7/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:7/0/physics_layer_0/angular_velocity = 0.0
+3:7/0 = 0
+3:7/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:7/0/physics_layer_0/angular_velocity = 0.0
+4:7/0 = 0
+4:7/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:7/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hgiyf"]
+texture = ExtResource("2_s15f6")
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0 = 0
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+3:0/0 = 0
+3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:0/0/physics_layer_0/angular_velocity = 0.0
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+1:1/0 = 0
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
+3:1/0 = 0
+3:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:1/0/physics_layer_0/angular_velocity = 0.0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, 6, 5, 6, 5, 8, -4, 8)
+0:2/0 = 0
+0:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:2/0/physics_layer_0/angular_velocity = 0.0
+1:2/0 = 0
+1:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:2/0/physics_layer_0/angular_velocity = 0.0
+3:2/0 = 0
+3:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:2/0/physics_layer_0/angular_velocity = 0.0
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -8, 5, -8, 5, -5, 4, -4, -3, -4, -4, -5)
+0:3/0 = 0
+0:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:3/0/physics_layer_0/angular_velocity = 0.0
+1:3/0 = 0
+1:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:3/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSet" id="TileSet_qov5v"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_y748h")
+sources/1 = SubResource("TileSetAtlasSource_hgiyf")
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_p587y"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_37x88"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_7jrrh"]
+normal = Vector2(0, 1)
+
+[node name="Map" type="Node"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_qov5v")
+format = 2
+layer_0/tile_data = PackedInt32Array(-327688, 0, 0, -262152, 0, 1, -327687, 65536, 0, -262151, 65536, 1, -327686, 131072, 0, -262150, 131072, 1, -327685, 131072, 0, -262149, 131072, 1, -327684, 131072, 0, -262148, 131072, 1, -327683, 131072, 0, -262147, 131072, 1, -327682, 131072, 0, -262146, 131072, 1, -327681, 131072, 0, -262145, 131072, 1, -393216, 131072, 0, -327680, 131072, 1, -393215, 131072, 0, -327679, 131072, 1, -393214, 131072, 0, -327678, 131072, 1, -393213, 131072, 0, -327677, 131072, 1, -393212, 131072, 0, -327676, 131072, 1, -393211, 131072, 0, -327675, 131072, 1, -393210, 327680, 0, -327674, 327680, 1, -393209, 393216, 0, -327673, 393216, 1, 458744, 0, 2, 393208, 0, 2, 327672, 0, 2, 262136, 0, 2, 196600, 0, 2, 131064, 0, 2, 65528, 0, 2, -8, 0, 2, -65544, 0, 2, -131080, 0, 2, -196616, 0, 2, -196615, 65536, 2, -196614, 131072, 2, -196613, 196608, 2, -196612, 196608, 2, -196611, 196608, 2, -196610, 196608, 2, -196609, 196608, 2, -262144, 196608, 2, -262143, 196608, 2, -262142, 196608, 2, -262141, 196608, 2, 458751, 196608, 3, 393216, 196608, 3, 458750, 196608, 3, 393217, 196608, 3, 458749, 196608, 3, 393218, 196608, 3, 458748, 196608, 3, 393219, 196608, 3, 458747, 196608, 3, 393220, 196608, 3, 458746, 131072, 3, 393221, 262144, 3, 458745, 65536, 2, 393209, 65536, 2, 327673, 65536, 2, 262137, 65536, 2, 196601, 65536, 2, 131065, 65536, 2, 65529, 65536, 2, -7, 65536, 2, -65543, 65536, 2, 393222, 327680, 2, 393223, 393216, 2, 327686, 327680, 2, 327687, 393216, 2, 262150, 327680, 2, 262151, 393216, 2, 196614, 327680, 2, 196615, 393216, 2, 131078, 327680, 2, 131079, 393216, 2, 65542, 327680, 2, 65543, 393216, 2, 6, 327680, 2, 7, 393216, 2, -65530, 327680, 2, -65529, 393216, 2, -131066, 327680, 2, -131065, 393216, 2, -196602, 327680, 2, -196601, 393216, 2, -262138, 327680, 2, -262137, 393216, 2, -131079, 65536, 2, -262140, 196608, 2, -196604, 196608, 3, -262139, 262144, 2, -196603, 262144, 3, -131068, 196608, 3, -131067, 262144, 3, -65532, 196608, 3, -65531, 262144, 3, 4, 196608, 3, 5, 262144, 3, 65540, 196608, 3, 65541, 262144, 3, 131076, 196608, 3, 131077, 262144, 3, 131074, 196608, 3, 131075, 196608, 3, 196610, 262144, 5, 196611, 196608, 3, 262146, 262144, 7, 262147, 196608, 3, 262148, 196608, 3, 262149, 262144, 3, 196612, 196608, 3, 196613, 262144, 3, 327684, 196608, 3, 327685, 262144, 3, -131078, 131072, 3, -131077, 196608, 3, -65542, 131072, 3, -65541, 196608, 3, -6, 131072, 3, -5, 196608, 3, 65530, 131072, 3, 65531, 196608, 3, 131066, 131072, 3, 131067, 196608, 3, 196602, 131072, 3, 196603, 196608, 3, 262138, 131072, 3, 262139, 196608, 3, 327674, 131072, 3, 327675, 196608, 3, 393210, 131072, 3, 393211, 196608, 3, 65536, 196608, 3, 0, 196608, 3, -65536, 196608, 3, -131072, 196608, 3, -196608, 196608, 3, -131073, 196608, 3, -131074, 196608, 3, -131075, 196608, 3, -131076, 196608, 3, -65540, 196608, 3, -4, 196608, 3, 65532, 196608, 3, 131068, 196608, 3, 196604, 196608, 3, 262140, 196608, 3, 327676, 196608, 3, 393212, 196608, 3, 393213, 196608, 3, 327677, 131072, 7, 262141, 131072, 5, 196605, 196608, 3, 131069, 196608, 3, 65533, 196608, 3, -3, 196608, 3, -65539, 196608, 3, -65538, 196608, 3, -2, 196608, 3, 65534, 196608, 3, 131070, 196608, 3, 196606, 196608, 3, 262142, 196608, 5, 327678, 196608, 7, 393214, 196608, 3, 393215, 196608, 3, 327679, 196608, 7, 262143, 196608, 5, 196607, 196608, 3, 131071, 196608, 3, 65535, 196608, 3, -1, 196608, 3, -65537, 196608, 3, 131072, 196608, 3, 196608, 196608, 5, 262144, 196608, 7, 327680, 196608, 3, 327681, 196608, 3, 262145, 196608, 7, 196609, 196608, 5, 131073, 196608, 3, 65537, 196608, 3, 1, 196608, 3, -65535, 196608, 3, -131071, 196608, 3, -196607, 196608, 3, -196606, 196608, 3, -131070, 196608, 3, -65534, 196608, 3, 2, 196608, 3, 65538, 196608, 3, 65539, 196608, 3, 3, 196608, 3, -65533, 196608, 3, -131069, 196608, 3, -196605, 196608, 3, 327682, 196608, 3, 327683, 196608, 3)
+layer_1/name = ""
+layer_1/enabled = true
+layer_1/modulate = Color(1, 1, 1, 1)
+layer_1/y_sort_enabled = false
+layer_1/y_sort_origin = 0
+layer_1/z_index = 0
+layer_1/tile_data = PackedInt32Array(-393215, 196609, 0, -327679, 196609, 1, -262143, 196609, 2, -393211, 196609, 0, -327675, 196609, 1, -262139, 196609, 2, -327682, 196609, 0, -262146, 196609, 1, -196610, 196609, 2, -327686, 196609, 0, -262150, 196609, 1, -196614, 196609, 2, -262148, 65537, 1, -327676, 65537, 0, -327678, 131073, 0)
+layer_2/name = ""
+layer_2/enabled = true
+layer_2/modulate = Color(1, 1, 1, 1)
+layer_2/y_sort_enabled = false
+layer_2/y_sort_origin = 0
+layer_2/z_index = 0
+layer_2/tile_data = PackedInt32Array(-262146, 1, 1, -327679, 1, 1, -327675, 1, 1, -262150, 1, 1)
+
+[node name="MapColliders" type="StaticBody2D" parent="."]
+collision_mask = 6
+
+[node name="ColliderLeft" type="CollisionShape2D" parent="MapColliders"]
+position = Vector2(-97, 27)
+shape = SubResource("WorldBoundaryShape2D_p587y")
+
+[node name="ColliderRight" type="CollisionShape2D" parent="MapColliders"]
+position = Vector2(97, 27)
+shape = SubResource("WorldBoundaryShape2D_37x88")
+
+[node name="ColliderTop" type="CollisionShape2D" parent="MapColliders"]
+position = Vector2(0, -65)
+shape = SubResource("WorldBoundaryShape2D_7jrrh")
+
+[node name="Blocks" type="Node2D" parent="."]
+
+[node name="BlockBasic" parent="Blocks" instance=ExtResource("2_6ge52")]
+position = Vector2(-80, -48)
+
+[node name="BlockBasic2" parent="Blocks" instance=ExtResource("2_6ge52")]
+position = Vector2(-64, -48)
+
+[node name="BlockBasic3" parent="Blocks" instance=ExtResource("2_6ge52")]
+position = Vector2(-48, -48)
+
+[node name="BlockBasic4" parent="Blocks" instance=ExtResource("2_6ge52")]
+position = Vector2(-32, -48)
+
+[node name="BlockBasic5" parent="Blocks" instance=ExtResource("2_6ge52")]
+position = Vector2(-16, -48)
+
+[node name="BlockBasic6" parent="Blocks" instance=ExtResource("2_6ge52")]
+position = Vector2(0, -48)
+
+[node name="BlockBasic7" parent="Blocks" instance=ExtResource("2_6ge52")]
+position = Vector2(16, -48)
+
+[node name="BlockBasic8" parent="Blocks" instance=ExtResource("2_6ge52")]
+position = Vector2(32, -48)
+
+[node name="BlockBasic9" parent="Blocks" instance=ExtResource("2_6ge52")]
+position = Vector2(48, -48)
+
+[node name="BlockBasic10" parent="Blocks" instance=ExtResource("2_6ge52")]
+position = Vector2(64, -48)
+
+[node name="BlockBasic11" parent="Blocks" instance=ExtResource("2_6ge52")]
+position = Vector2(80, -48)
+
+[node name="BlockBasic12" parent="Blocks" instance=ExtResource("2_6ge52")]
+position = Vector2(-72, -34)
+
+[node name="BlockBasic13" parent="Blocks" instance=ExtResource("2_6ge52")]
+position = Vector2(-72, -28)
+
+[node name="BlockBasic14" parent="Blocks" instance=ExtResource("2_6ge52")]
+position = Vector2(-72, -14)
+
+[node name="BlockBasic15" parent="Blocks" instance=ExtResource("2_6ge52")]
+position = Vector2(-72, -8)
+
+[node name="BlockBasic16" parent="Blocks" instance=ExtResource("2_6ge52")]
+position = Vector2(-32, -32)
+
+[node name="BlockBasic17" parent="Blocks" instance=ExtResource("2_6ge52")]
+position = Vector2(-16, -32)
+
+[node name="BlockBasic18" parent="Blocks" instance=ExtResource("2_6ge52")]
+position = Vector2(0, -32)
+
+[node name="BlockBasic19" parent="Blocks" instance=ExtResource("2_6ge52")]
+position = Vector2(16, -32)
+
+[node name="BlockBasic20" parent="Blocks" instance=ExtResource("2_6ge52")]
+position = Vector2(32, -32)
+
+[node name="BlockBasic21" parent="Blocks" instance=ExtResource("2_6ge52")]
+position = Vector2(-24, -26)
+
+[node name="BlockBasic22" parent="Blocks" instance=ExtResource("2_6ge52")]
+position = Vector2(24, -26)
+
+[node name="BlockBasic23" parent="Blocks" instance=ExtResource("2_6ge52")]
+position = Vector2(-33, -20)
+
+[node name="BlockBasic24" parent="Blocks" instance=ExtResource("2_6ge52")]
+position = Vector2(31, -20)
+
+[node name="BlockBasic25" parent="Blocks" instance=ExtResource("2_6ge52")]
+position = Vector2(-24, -14)
+
+[node name="BlockBasic26" parent="Blocks" instance=ExtResource("2_6ge52")]
+position = Vector2(24, -14)
+
+[node name="BlockBasic27" parent="Blocks" instance=ExtResource("2_6ge52")]
+position = Vector2(-34, -8)
+
+[node name="BlockBasic28" parent="Blocks" instance=ExtResource("2_6ge52")]
+position = Vector2(-18, -8)
+
+[node name="BlockBasic29" parent="Blocks" instance=ExtResource("2_6ge52")]
+position = Vector2(-2, -8)
+
+[node name="BlockBasic30" parent="Blocks" instance=ExtResource("2_6ge52")]
+position = Vector2(14, -8)
+
+[node name="BlockBasic31" parent="Blocks" instance=ExtResource("2_6ge52")]
+position = Vector2(30, -8)
+
+[node name="BlockBasic32" parent="Blocks" instance=ExtResource("2_6ge52")]
+position = Vector2(72, -34)
+
+[node name="BlockBasic33" parent="Blocks" instance=ExtResource("2_6ge52")]
+position = Vector2(72, -28)
+
+[node name="BlockBasic34" parent="Blocks" instance=ExtResource("2_6ge52")]
+position = Vector2(72, -14)
+
+[node name="BlockBasic35" parent="Blocks" instance=ExtResource("2_6ge52")]
+position = Vector2(72, -8)
+
+[node name="BlockBasic36" parent="Blocks" instance=ExtResource("2_6ge52")]
+position = Vector2(-80, 6)
+
+[node name="BlockBasic37" parent="Blocks" instance=ExtResource("2_6ge52")]
+position = Vector2(-64, 6)
+
+[node name="BlockBasic38" parent="Blocks" instance=ExtResource("2_6ge52")]
+position = Vector2(-48, 6)
+
+[node name="BlockBasic39" parent="Blocks" instance=ExtResource("2_6ge52")]
+position = Vector2(-32, 6)
+
+[node name="BlockBasic40" parent="Blocks" instance=ExtResource("2_6ge52")]
+position = Vector2(-16, 6)
+
+[node name="BlockBasic41" parent="Blocks" instance=ExtResource("2_6ge52")]
+position = Vector2(0, 6)
+
+[node name="BlockBasic42" parent="Blocks" instance=ExtResource("2_6ge52")]
+position = Vector2(16, 6)
+
+[node name="BlockBasic43" parent="Blocks" instance=ExtResource("2_6ge52")]
+position = Vector2(32, 6)
+
+[node name="BlockBasic44" parent="Blocks" instance=ExtResource("2_6ge52")]
+position = Vector2(48, 6)
+
+[node name="BlockBasic45" parent="Blocks" instance=ExtResource("2_6ge52")]
+position = Vector2(64, 6)
+
+[node name="BlockBasic46" parent="Blocks" instance=ExtResource("2_6ge52")]
+position = Vector2(80, 6)
+
+[node name="BlockSturdy" parent="Blocks" instance=ExtResource("3_ox10q")]
+position = Vector2(-8, -26)
+
+[node name="BlockSturdy2" parent="Blocks" instance=ExtResource("3_ox10q")]
+position = Vector2(8, -26)
+
+[node name="BlockSturdy3" parent="Blocks" instance=ExtResource("3_ox10q")]
+position = Vector2(-17, -20)
+
+[node name="BlockSturdy4" parent="Blocks" instance=ExtResource("3_ox10q")]
+position = Vector2(-1, -20)
+
+[node name="BlockSturdy5" parent="Blocks" instance=ExtResource("3_ox10q")]
+position = Vector2(15, -20)
+
+[node name="BlockSturdy6" parent="Blocks" instance=ExtResource("3_ox10q")]
+position = Vector2(-8, -14)
+
+[node name="BlockSturdy7" parent="Blocks" instance=ExtResource("3_ox10q")]
+position = Vector2(8, -14)
+
+[node name="Barriers" type="Node2D" parent="."]
+
+[node name="BarrierBasic" parent="Barriers" instance=ExtResource("4_v27tv")]
+position = Vector2(-19, 27)
+
+[node name="BarrierBasic2" parent="Barriers" instance=ExtResource("4_v27tv")]
+position = Vector2(19, 27)
+
+[node name="BarrierSturdy" parent="Barriers" instance=ExtResource("5_3mumk")]
+position = Vector2(-53, -25)
+
+[node name="BarrierSturdy2" parent="Barriers" instance=ExtResource("5_3mumk")]
+position = Vector2(-53, -6)
+
+[node name="BarrierSturdy3" parent="Barriers" instance=ExtResource("5_3mumk")]
+position = Vector2(52, -25)
+
+[node name="BarrierSturdy4" parent="Barriers" instance=ExtResource("5_3mumk")]
+position = Vector2(52, -5)
+
+[node name="OtherBreakables" type="Node2D" parent="."]
+
+[node name="Coffin" parent="OtherBreakables" instance=ExtResource("6_cwrtl")]
+position = Vector2(-72, -19)
+
+[node name="Coffin2" parent="OtherBreakables" instance=ExtResource("6_cwrtl")]
+position = Vector2(73, -19)
+
+[node name="Interactables" type="Node2D" parent="."]
+
+[node name="Whirlpool" parent="Interactables" node_paths=PackedStringArray("_sprites") instance=ExtResource("6_ubsue")]
+position = Vector2(-64, 32)
+_sprites = []
+
+[node name="Whirlpool2" parent="Interactables" node_paths=PackedStringArray("_sprites") instance=ExtResource("6_ubsue")]
+position = Vector2(64, 32)
+_sprites = []
+
+[node name="LevelExit" parent="." instance=ExtResource("7_ejwvx")]
+position = Vector2(0, -63)

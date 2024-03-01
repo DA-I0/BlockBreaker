@@ -1,0 +1,34 @@
+[gd_scene load_steps=11 format=3 uid="uid://74t5tvv8uh4i"]
+
+[ext_resource type="Script" path="res://code/gameplay/Breakable.cs" id="1_h6x06"]
+[ext_resource type="Texture2D" uid="uid://cudhoetjxnfew" path="res://assets/sprites/props/graves/grave_02_01.png" id="2_o3o3g"]
+[ext_resource type="Texture2D" uid="uid://bn7xev1shxd4c" path="res://assets/sprites/props/graves/grave_02_02.png" id="3_ddjk0"]
+[ext_resource type="Texture2D" uid="uid://dwxvqev6y42u7" path="res://assets/sprites/props/graves/grave_02_03.png" id="4_47g72"]
+[ext_resource type="Texture2D" uid="uid://bi2yp8j7eyhcv" path="res://assets/sprites/props/graves/grave_02_04.png" id="5_rt4dl"]
+[ext_resource type="PackedScene" uid="uid://r3x55smb3e0x" path="res://prefabs/pickups/pickup_ball_slow.tscn" id="6_pc0w7"]
+[ext_resource type="PackedScene" uid="uid://dwa3x1brydi56" path="res://prefabs/pickups/pickup_extra_life.tscn" id="7_4jypu"]
+[ext_resource type="PackedScene" uid="uid://dpwpfxkjnkw8c" path="res://prefabs/pickups/pickup_ghost.tscn" id="8_1nx1e"]
+[ext_resource type="PackedScene" uid="uid://crgjb8hqapmxf" path="res://prefabs/pickups/pickup_paddle_freeze.tscn" id="9_w7v2q"]
+[ext_resource type="PackedScene" uid="uid://iq10idmsyirx" path="res://prefabs/pickups/pickup_safety_net.tscn" id="10_eynu1"]
+
+[node name="Grave02" type="StaticBody2D" node_paths=PackedStringArray("_timer")]
+z_index = 2
+script = ExtResource("1_h6x06")
+_pointValue = 2
+_maxHealth = 4
+_sprites = Array[Texture2D]([ExtResource("2_o3o3g"), ExtResource("3_ddjk0"), ExtResource("4_47g72"), ExtResource("5_rt4dl")])
+_pickups = Array[PackedScene]([ExtResource("6_pc0w7"), ExtResource("7_4jypu"), ExtResource("8_1nx1e"), ExtResource("9_w7v2q"), ExtResource("10_eynu1")])
+_timer = NodePath("Timer")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(-8, -14)
+texture = ExtResource("2_o3o3g")
+centered = false
+
+[node name="Collider" type="CollisionPolygon2D" parent="."]
+position = Vector2(-9, -1)
+scale = Vector2(1.4375, 1)
+polygon = PackedVector2Array(4.17391, 1, 4.17391, -1, 8.34783, -1, 8.34783, 1)
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
