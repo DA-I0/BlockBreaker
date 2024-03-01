@@ -62,3 +62,4 @@ Version 0.4:
 	Issues:
 		☐ [Steam Deck] Random frame spikes (possibly engine issue)
 		☐ [Steam Deck] Have to manually open on-screen keyboard for text boxes
+		☐ Cloned balls don't copy all of the speed multiplier values
