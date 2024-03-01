@@ -1,6 +1,6 @@
 [Player_0]
 
-name="Gopher"
+name="Gopher Supreme"
 difficulty="Normal"
 score=10000
 usedCustomDifficulty=false

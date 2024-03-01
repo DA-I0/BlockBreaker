@@ -1,6 +1,7 @@
 using Godot;
 
-public delegate void ScoreNotification(int score, int scoreMultiplier);
+public delegate void ScoreNotification(int score, int scoreMultiplier, int combo);
+public delegate void StageClearScoreNotification(int score, int scoreMultiplier, int timeLeft, int perfectClearBonus);
 
 public partial class Score : Node
 {
@@ -8,16 +9,20 @@ public partial class Score : Node
 	public readonly int ComboMultiplierStep = 10;
 	public readonly int MaxComboMultiplier = 5;
 	public readonly int PaddleSizeForMultiplier = 3;
+	[Export] public int PerfectClearBonus = 50;
 
 	private int _currentScore = 0;
 
 	private int _currentScoreMultiplier = 1;
 	private int _comboChain = 0;
 
+	private bool _isPerfect = true;
+
 	private Timer _exitTimer;
 	private SessionController refs;
 
 	public event ScoreNotification ScoreChanged;
+	public event StageClearScoreNotification StageCleared;
 	public event Notification TimerStart;
 	public event Notification TimerEnd;
 
@@ -51,15 +56,16 @@ public partial class Score : Node
 
 		UpdateMultiplier();
 		_currentScore += pointValue * _currentScoreMultiplier;
-		ScoreChanged?.Invoke(_currentScore, _currentScoreMultiplier);
+		ScoreChanged?.Invoke(_currentScore, _currentScoreMultiplier, _comboChain);
 		refs.audioController.PlayAudio(1);
 	}
 
 	public void ResetMultiplier()
 	{
+		_isPerfect = false;
 		_comboChain = 0;
 		_currentScoreMultiplier = 1;
-		ScoreChanged?.Invoke(_currentScore, _currentScoreMultiplier);
+		ScoreChanged?.Invoke(_currentScore, _currentScoreMultiplier, _comboChain);
 	}
 
 	public void InvokeExitTimer()
@@ -70,22 +76,39 @@ public partial class Score : Node
 
 	public void AddBonusScore()
 	{
-		ChangeScore((int)_exitTimer.TimeLeft, false);
+		int timeLeft = TimeLeft;
+		ChangeScore(TimeLeft, false);
 		_exitTimer.Stop();
 		TimerEnd?.Invoke();
+
+		if (_isPerfect)
+		{
+			ChangeScore(PerfectClearBonus, false);
+			StageCleared?.Invoke(_currentScore, _currentScoreMultiplier, timeLeft, PerfectClearBonus);
+		}
+		else
+		{
+			StageCleared?.Invoke(_currentScore, _currentScoreMultiplier, timeLeft, 0);
+		}
 	}
 
 	public override void _Ready()
 	{
 		_exitTimer = (Timer)GetChild(0);
-		refs = GetParent() as SessionController;
+		refs = GetParent<SessionController>();
 		refs.levelManager.ResetSession += SessionSetup;
+		refs.levelManager.SceneChanged += EnablePerfectState;
 		refs.health.ResetElements += ResetMultiplier;
 	}
 
 	private void SessionSetup()
 	{
 		Cleanup();
+	}
+
+	private void EnablePerfectState()
+	{
+		_isPerfect = true;
 	}
 
 	private void UpdateMultiplier()

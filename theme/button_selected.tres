@@ -1,6 +1,6 @@
 [gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://bno4muweeuuce"]
 
-[ext_resource type="Texture2D" uid="uid://dkyo1knm2xxhn" path="res://assets/sprites/ui_elements/ui_frame.png" id="1_pkyr3"]
+[ext_resource type="Texture2D" uid="uid://dkyo1knm2xxhn" path="res://assets/sprites/ui_elements/backgrounds/ui_frame.png" id="1_pkyr3"]
 
 [resource]
 content_margin_bottom = 0.0

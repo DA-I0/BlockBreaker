@@ -6,7 +6,7 @@ public partial class DeathMarker : Node2D
 
 	public override void _Ready()
 	{
-		refs = GetNode("/root/GameController") as SessionController;
+		refs = GetNode<SessionController>("/root/GameController");
 		refs.health.LifeChanged += ToggleVisibility;
 		refs.GameSetup += SetupMarker;
 	}

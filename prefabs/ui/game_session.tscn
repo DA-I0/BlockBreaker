@@ -1,29 +1,41 @@
-[gd_scene load_steps=6 format=3 uid="uid://bfkkajngi247g"]
+[gd_scene load_steps=7 format=3 uid="uid://bfkkajngi247g"]
 
 [ext_resource type="Script" path="res://code/ui/UIGameSession.cs" id="1_wdiid"]
-[ext_resource type="Texture2D" uid="uid://ct1i42wllkc35" path="res://assets/sprites/ui_elements/ui_frame_thin.png" id="2_2kwjs"]
-[ext_resource type="Texture2D" uid="uid://bynfnyg3xa7g6" path="res://assets/sprites/ui_elements/ui_life.png" id="3_npm6i"]
+[ext_resource type="Texture2D" uid="uid://ct1i42wllkc35" path="res://assets/sprites/ui_elements/backgrounds/ui_frame_thin.png" id="2_2kwjs"]
+[ext_resource type="Texture2D" uid="uid://bynfnyg3xa7g6" path="res://assets/sprites/ui_elements/gameplay/ui_life.png" id="3_npm6i"]
 [ext_resource type="StyleBox" uid="uid://bxlfb6t2obups" path="res://theme/panel_thin.tres" id="4_0yyln"]
-[ext_resource type="Texture2D" uid="uid://csp7417ptlu6y" path="res://assets/sprites/ui_elements/ui_shake.png" id="4_5cocx"]
+[ext_resource type="Texture2D" uid="uid://csp7417ptlu6y" path="res://assets/sprites/ui_elements/skill_icons/skill_ScreenShake.png" id="4_5cocx"]
+[ext_resource type="PackedScene" uid="uid://cf1rht26jg8pb" path="res://prefabs/ui/stage_clear_prompt.tscn" id="6_m8rur"]
 
-[node name="UIGameSession" type="Control" node_paths=PackedStringArray("_score", "_skill", "_lives", "_exitTimer", "_exitPrompt")]
+[node name="UIGameSession" type="Control" node_paths=PackedStringArray("_score", "_skill", "_lives", "_livesText", "_exitTimer", "_exitPrompt", "_stageClearPrompt")]
 z_index = 10
+custom_minimum_size = Vector2(256, 224)
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -128.0
+offset_top = -112.0
+offset_right = -128.0
+offset_bottom = -112.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_wdiid")
 _score = NodePath("TopBar/SessionElements/Score")
 _skill = NodePath("SkillPrompt")
 _lives = NodePath("TopBar/SessionElements/Lives")
+_livesText = NodePath("TopBar/SessionElements/LivesText")
 _exitTimer = NodePath("ExitTimer")
 _exitPrompt = NodePath("ExitPrompt")
+_stageClearPrompt = NodePath("StageClearPrompt")
 
 [node name="TopBar" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_left = -128.0
-offset_top = -112.0
-offset_right = 128.0
-offset_bottom = -96.0
+custom_minimum_size = Vector2(256, 16)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 16.0
+grow_horizontal = 2
 
 [node name="Background" type="NinePatchRect" parent="TopBar"]
 layout_mode = 1
@@ -52,6 +64,13 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 3
 text = "<score>"
+vertical_alignment = 1
+
+[node name="LivesText" type="Label" parent="TopBar/SessionElements"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "<lives>"
+horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="Lives" type="HBoxContainer" parent="TopBar/SessionElements"]
@@ -115,11 +134,10 @@ texture = ExtResource("3_npm6i")
 stretch_mode = 5
 
 [node name="SkillPrompt" type="Panel" parent="."]
-layout_mode = 0
-offset_left = -128.0
-offset_top = -97.0
-offset_right = -108.0
-offset_bottom = -77.0
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 1
+anchors_preset = -1
+offset_top = 15.0
 theme_override_styles/panel = ExtResource("4_0yyln")
 
 [node name="SkillIcon" type="TextureRect" parent="SkillPrompt"]
@@ -136,36 +154,37 @@ texture = ExtResource("4_5cocx")
 expand_mode = 2
 stretch_mode = 3
 
-[node name="ExitTimer" type="Panel" parent="."]
-layout_mode = 0
-offset_left = -15.0
-offset_top = -112.0
-offset_right = 15.0
-offset_bottom = -84.0
-size_flags_vertical = 0
-
-[node name="Label" type="Label" parent="ExitTimer"]
+[node name="ExitTimer" type="PanelContainer" parent="."]
+clip_contents = true
+custom_minimum_size = Vector2(30, 24)
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -15.0
+offset_right = 15.0
 grow_horizontal = 2
-grow_vertical = 2
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="ExitTimer" groups=["font_timer_variant"]]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 4
 auto_translate = false
-theme_override_font_sizes/font_size = 22
 text = "60"
 horizontal_alignment = 1
-vertical_alignment = 2
 justification_flags = 1
 
 [node name="ExitPrompt" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
+custom_minimum_size = Vector2(256, 25)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
 offset_left = -128.0
-offset_top = -112.0
 offset_right = 128.0
-offset_bottom = -87.0
+offset_bottom = 25.0
+grow_horizontal = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
 
@@ -186,3 +205,7 @@ size_flags_vertical = 8
 text = "<advance_to_next_map>"
 fit_content = true
 autowrap_mode = 0
+
+[node name="StageClearPrompt" parent="." instance=ExtResource("6_m8rur")]
+layout_mode = 1
+anchors_preset = -1

@@ -1,7 +1,9 @@
-Temporary credits while it's just a prototype.
+# Credits
+- Fonts: Silver by Poppy Works (https://poppyworks.itch.io/silver), OpenDyslexic by Abbie Gonzalez (https://opendyslexic.org/)
+- Sound effects made using: sfxr by DrPetter (https://www.drpetter.se/project_sfxr.html).
+- Localization help: Polyglot project (https://drive.google.com/open?id=17f0dQawb-s_Fd7DHgmVvJoEGDMH_yoSd8EYigrb0zmM)
 
-Sound effects made with [sfxr by DrPetter](https://www.drpetter.se/project_sfxr.html).
-
-Music:
-"beam" by sinneslöschen (https://pixabay.com/users/sinneschl%C3%B6sen-1888724/)
-"Admin Rights - Full", "Claimed" and "Grind" by TipTopTomCat (https://tiptoptomcat.itch.io/)
+## Music:
+- various tracks by TipTopTomCat (https://tiptoptomcat.itch.io/)
+- "beam" by sinneslöschen (https://pixabay.com/users/sinneschl%C3%B6sen-1888724/)
+- "Ancestral" by RatticusVile (https://ratticusvile.itch.io/digdeep)

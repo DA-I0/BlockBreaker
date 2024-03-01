@@ -1,57 +1,60 @@
 using Godot;
 
-public partial class UIPause : Control
+namespace BoGK.UI
 {
-	SessionController refs;
-
-	public override void _Ready()
+	public partial class UIPause : Control
 	{
-		refs = GetNode("/root/GameController") as SessionController;
-		refs.GameStateChanged += TogglePausePanel;
-		TogglePausePanel();
-	}
+		SessionController refs;
 
-	public override void _Input(InputEvent @event)
-	{
-		if (@event.IsActionReleased("game_pause"))
+		public override void _Ready()
 		{
-			switch (refs.CurrentGameState)
+			refs = GetNode<SessionController>("/root/GameController");
+			refs.GameStateChanged += TogglePausePanel;
+			TogglePausePanel();
+		}
+
+		public override void _Input(InputEvent @event)
+		{
+			if (@event.IsActionReleased("game_pause"))
 			{
-				case GameState.gameplay:
-					refs.ChangeGameState(GameState.pause);
-					break;
+				switch (refs.CurrentGameState)
+				{
+					case GameState.gameplay:
+						refs.ChangeGameState(GameState.pause);
+						break;
 
-				case GameState.pause:
-					refs.ChangeGameState(GameState.gameplay);
-					break;
+					case GameState.pause:
+						refs.ChangeGameState(GameState.gameplay);
+						break;
 
-				default:
-					break;
+					default:
+						break;
+				}
 			}
 		}
-	}
 
-	private void TogglePausePanel()
-	{
-		Visible = (refs.CurrentGameState == GameState.pause);
-		Focus();
-	}
-
-	private void ReturnToMenu()
-	{
-		refs.levelManager.LoadMenuScene();
-	}
-
-	private void ReturnToGame()
-	{
-		refs.ChangeGameState(GameState.gameplay);
-	}
-
-	private void Focus()
-	{
-		if (Visible)
+		private void TogglePausePanel()
 		{
-			((Button)FindChild("ButtonConfirm")).GrabFocus();
+			Visible = (refs.CurrentGameState == GameState.pause);
+			Focus();
+		}
+
+		private void ReturnToMenu()
+		{
+			refs.levelManager.LoadMenuScene();
+		}
+
+		private void ReturnToGame()
+		{
+			refs.ChangeGameState(GameState.gameplay);
+		}
+
+		private void Focus()
+		{
+			if (Visible)
+			{
+				((Button)FindChild("ButtonConfirm")).GrabFocus();
+			}
 		}
 	}
 }

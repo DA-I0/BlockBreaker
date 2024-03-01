@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://jpldd4vrbmum"]
+[gd_scene load_steps=25 format=3 uid="uid://jpldd4vrbmum"]
 
 [ext_resource type="Script" path="res://code/system/SessionController.cs" id="1_uqmtw"]
 [ext_resource type="Script" path="res://code/system/AudioController.cs" id="2_adfrp"]
@@ -17,12 +17,15 @@
 [ext_resource type="AudioStream" uid="uid://daguq1ydeal20" path="res://assets/audio/music/sinnesloschen-beam-117362.mp3" id="6_n5ei6"]
 [ext_resource type="AudioStream" uid="uid://bjfu5jvkqqjd1" path="res://assets/audio/sfx/shake_available.wav" id="6_v8ycg"]
 [ext_resource type="AudioStream" uid="uid://cpd3aml2jsiie" path="res://assets/audio/sfx/shake.wav" id="7_arthc"]
+[ext_resource type="AudioStream" uid="uid://otxfhtj6ryuf" path="res://assets/audio/music/Countersunk.mp3" id="8_4lc41"]
+[ext_resource type="AudioStream" uid="uid://bbjdaneaj1j84" path="res://assets/audio/music/Ancestral.mp3" id="9_to68m"]
 [ext_resource type="AudioStream" uid="uid://cig284vodgdhh" path="res://assets/audio/sfx/explosion.wav" id="13_7yk1x"]
 [ext_resource type="PackedScene" uid="uid://3o4xaawp25f5" path="res://prefabs/decorations/death_pit_marker_level.tscn" id="17_75vht"]
 [ext_resource type="PackedScene" uid="uid://dseel27vbf765" path="res://prefabs/ui/pause_prompt.tscn" id="17_ewsqo"]
-[ext_resource type="PackedScene" uid="uid://bhik7pnvh1ghu" path="res://prefabs/ui/game_over_prompt.tscn" id="19_qhvfq"]
+[ext_resource type="PackedScene" uid="uid://bhik7pnvh1ghu" path="res://prefabs/ui/level_start_splash_prompt.tscn" id="19_qhvfq"]
+[ext_resource type="PackedScene" uid="uid://2rnuyiyxwfl8" path="res://prefabs/ui/game_over_prompt.tscn" id="23_58rjm"]
 
-[node name="GameController" type="Node" node_paths=PackedStringArray("musicController", "audioController", "gameScore", "health", "levelManager", "gameElements", "_skillTimer")]
+[node name="GameController" type="Node" node_paths=PackedStringArray("musicController", "audioController", "gameScore", "health", "levelManager", "gameElements")]
 script = ExtResource("1_uqmtw")
 musicController = NodePath("MusicController")
 audioController = NodePath("AudioController")
@@ -30,19 +33,19 @@ gameScore = NodePath("Score")
 health = NodePath("Health")
 levelManager = NodePath("LevelManager")
 gameElements = NodePath("GameElements")
-_skillTimer = NodePath("SkillTimer")
 
 [node name="SessionController" type="Node" parent="."]
 process_mode = 3
 
 [node name="MusicController" type="AudioStreamPlayer" parent="."]
+process_mode = 3
 bus = &"Music"
 script = ExtResource("2_sxw6d")
 _menuSong = ExtResource("6_n5ei6")
-_clips = Array[AudioStream]([ExtResource("3_we41i"), ExtResource("4_boptt"), ExtResource("5_dwmw2")])
+_clips = Array[AudioStream]([ExtResource("3_we41i"), ExtResource("4_boptt"), ExtResource("5_dwmw2"), ExtResource("8_4lc41"), ExtResource("9_to68m")])
 
 [node name="AudioController" type="AudioStreamPlayer" parent="."]
-max_polyphony = 10
+max_polyphony = 16
 bus = &"Effects"
 script = ExtResource("2_adfrp")
 _clips = Array[AudioStream]([ExtResource("3_5ds7p"), ExtResource("4_0r48c"), ExtResource("5_pxp6u"), ExtResource("7_arthc"), ExtResource("6_v8ycg"), ExtResource("13_7yk1x")])
@@ -68,25 +71,39 @@ script = ExtResource("2_fqfgb")
 
 [node name="DeathPitMarkerLevel" parent="GameElements" instance=ExtResource("17_75vht")]
 
-[node name="UI" type="Node" parent="."]
+[node name="UIGameSession" parent="." node_paths=PackedStringArray("_score", "_skill", "_lives", "_livesText", "_exitTimer", "_exitPrompt", "_stageClearPrompt") instance=ExtResource("4_l3xv6")]
+_score = NodePath("TopBar/SessionElements/Score")
+_skill = NodePath("SkillPrompt")
+_lives = NodePath("TopBar/SessionElements/Lives")
+_livesText = NodePath("TopBar/SessionElements/LivesText")
+_exitTimer = NodePath("ExitTimer")
+_exitPrompt = NodePath("ExitPrompt")
+_stageClearPrompt = NodePath("StageClearPrompt")
 
-[node name="UIGameSession" parent="." instance=ExtResource("4_l3xv6")]
+[node name="LevelStartSplashPrompt" parent="UIGameSession" node_paths=PackedStringArray("_levelName", "_animator") instance=ExtResource("19_qhvfq")]
+layout_mode = 1
+_levelName = NodePath("BackgroundPanel/LevelName")
+_animator = NodePath("Animator")
 
 [node name="PausePrompt" parent="UIGameSession" instance=ExtResource("17_ewsqo")]
+layout_mode = 1
 
-[node name="GameOverPrompt" parent="UIGameSession" instance=ExtResource("19_qhvfq")]
+[node name="GameOverPrompt" parent="UIGameSession" node_paths=PackedStringArray("_header", "_score", "_name", "_focusTarget") instance=ExtResource("23_58rjm")]
+layout_mode = 1
+_header = NodePath("BackgroundPanel/VBoxContainer/HeaderLabel")
+_score = NodePath("BackgroundPanel/VBoxContainer/ScoreLabel")
+_name = NodePath("BackgroundPanel/VBoxContainer/PlayerName")
+_focusTarget = NodePath("BackgroundPanel/VBoxContainer/ButtonConfirm")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("4_jrwof")
+_maxPositionOffset = 0.75
 
 [node name="Timer" type="Timer" parent="Camera2D"]
 one_shot = true
 
 [node name="SkillTimer" type="Timer" parent="."]
-wait_time = 10.0
 one_shot = true
 
 [connection signal="timeout" from="Score/Timer" to="Score" method="AddBonusScore"]
 [connection signal="child_entered_tree" from="CurrentScene" to="LevelManager" method="OnCurrentSceneChildEnteredTree"]
-[connection signal="child_entered_tree" from="UI" to="LevelManager" method="OnCurrentSceneChildEnteredTree"]
-[connection signal="timeout" from="SkillTimer" to="." method="EnableSkill"]

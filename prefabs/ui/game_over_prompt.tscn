@@ -1,17 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://bhik7pnvh1ghu"]
+[gd_scene load_steps=2 format=3 uid="uid://2rnuyiyxwfl8"]
 
-[ext_resource type="Script" path="res://code/ui/UIGameOver.cs" id="1_vpg1k"]
+[ext_resource type="Script" path="res://code/ui/UIGameOver.cs" id="1_g8ij7"]
 
 [node name="GameOverPrompt" type="Control" node_paths=PackedStringArray("_header", "_score", "_name", "_focusTarget")]
 process_mode = 3
 z_index = 10
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 offset_left = -128.0
 offset_top = -112.0
 offset_right = 128.0
 offset_bottom = 112.0
-script = ExtResource("1_vpg1k")
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_g8ij7")
 _header = NodePath("BackgroundPanel/VBoxContainer/HeaderLabel")
 _score = NodePath("BackgroundPanel/VBoxContainer/ScoreLabel")
 _name = NodePath("BackgroundPanel/VBoxContainer/PlayerName")

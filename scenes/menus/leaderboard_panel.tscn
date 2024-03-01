@@ -1,0 +1,86 @@
+[gd_scene load_steps=4 format=3 uid="uid://drfe6ou5jke8d"]
+
+[ext_resource type="StyleBox" uid="uid://bxlfb6t2obups" path="res://theme/panel_thin.tres" id="1_t3en8"]
+[ext_resource type="Script" path="res://code/ui/UILeaderboard.cs" id="2_0qndn"]
+[ext_resource type="Shortcut" uid="uid://bhk5vranx2qfl" path="res://shortcuts/cancel.tres" id="3_fpvx0"]
+
+[node name="LeaderboardPanel" type="Panel" node_paths=PackedStringArray("_playerNames", "_playerScore", "_focusTarget", "_returnButton")]
+custom_minimum_size = Vector2(256, 224)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_styles/panel = ExtResource("1_t3en8")
+script = ExtResource("2_0qndn")
+_playerNames = NodePath("PlayerNames")
+_playerScore = NodePath("PlayerScore")
+_focusTarget = []
+_returnButton = NodePath("Return")
+
+[node name="Header" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+offset_bottom = 20.0
+grow_horizontal = 2
+
+[node name="HeaderLabel" type="Label" parent="Header"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "HEADER_LEADERBOARD"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerNames" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.7
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 21.0
+offset_right = -4.0
+offset_bottom = -4.0
+text = "<player_names>"
+text_overrun_behavior = 3
+
+[node name="PlayerScore" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.7
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 21.0
+offset_right = -4.0
+offset_bottom = -4.0
+text = "<score>"
+horizontal_alignment = 2
+
+[node name="CustomDifficultyDisclaimer" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_right = -5.0
+offset_bottom = -4.0
+grow_vertical = 0
+text = "DISCLAIMER_CUSTOM_DIFF"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Return" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_bottom = -6.0
+grow_vertical = 0
+focus_mode = 0
+shortcut = ExtResource("3_fpvx0")
+shortcut_in_tooltip = false
+text = "BUTTON_RETURN"

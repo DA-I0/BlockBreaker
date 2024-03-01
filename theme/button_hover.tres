@@ -1,6 +1,6 @@
 [gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://cio6xq7mmnvgs"]
 
-[ext_resource type="Texture2D" uid="uid://dsqv3xkv10glh" path="res://assets/sprites/ui_elements/ui_frame_thin_hover.png" id="1_4d1hy"]
+[ext_resource type="Texture2D" uid="uid://dsqv3xkv10glh" path="res://assets/sprites/ui_elements/backgrounds/ui_frame_thin_hover.png" id="1_4d1hy"]
 
 [resource]
 content_margin_top = 0.0

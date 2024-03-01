@@ -1,25 +1,32 @@
-public struct Difficulty
+namespace BoGK.Models
 {
-	public string DifficultyName;
-	public int MaxLives;
-	public int StartingLives;
-	public float BallSpeedMultiplier;
-	public float AngleSelectSpeed;
-	public int MaxPaddleSize;
-	public int StartPaddleSize;
-	public int MinPaddleSize;
-
-	public Difficulty(string name, int maxLives, int startingLives, float ballSpeedMultiplier, float angleSelectSpeed, int maxPaddleSize, int startPaddleSize, int minPaddleSize)
+	public struct Difficulty
 	{
-		DifficultyName = name;
-		MaxLives = maxLives;
-		StartingLives = startingLives;
-		BallSpeedMultiplier = ballSpeedMultiplier;
-		AngleSelectSpeed = angleSelectSpeed;
-		MaxPaddleSize = maxPaddleSize;
-		StartPaddleSize = startPaddleSize;
-		MinPaddleSize = minPaddleSize;
-	}
+		public string DifficultyName;
+		public int MaxLives;
+		public int StartingLives;
+		public float BallSpeedMultiplier;
+		public float AngleSelectSpeed;
+		public int MaxPaddleSize;
+		public int StartPaddleSize;
+		public int MinPaddleSize;
+		public bool AdvancingSpeed;
+		public float PickupSpeedMultiplier;
 
-	public override string ToString() => $"name:{DifficultyName};\nmaxLives:{MaxLives};\nstartingLives:{StartingLives};\nballSpeedMultiplier:{BallSpeedMultiplier};\nangleSelectSpeed:{AngleSelectSpeed};\nmaxPaddleSize:{MaxPaddleSize};\nstartPaddleSize:{StartPaddleSize};\nminPaddleSize:{MinPaddleSize};";
+		public Difficulty(string name, int maxLives, int startingLives, float ballSpeedMultiplier, float angleSelectSpeed, int maxPaddleSize, int startPaddleSize, int minPaddleSize, bool advancingSpeed, float pickupSpeedMultiplier)
+		{
+			DifficultyName = name;
+			MaxLives = maxLives;
+			StartingLives = startingLives;
+			BallSpeedMultiplier = ballSpeedMultiplier;
+			AngleSelectSpeed = angleSelectSpeed;
+			MaxPaddleSize = maxPaddleSize;
+			StartPaddleSize = startPaddleSize;
+			MinPaddleSize = minPaddleSize;
+			AdvancingSpeed = advancingSpeed;
+			PickupSpeedMultiplier = pickupSpeedMultiplier;
+		}
+
+		public override string ToString() => $"name:{DifficultyName};\nmaxLives:{MaxLives};\nstartingLives:{StartingLives};\nballSpeedMultiplier:{BallSpeedMultiplier};\nangleSelectSpeed:{AngleSelectSpeed};\nmaxPaddleSize:{MaxPaddleSize};\nstartPaddleSize:{StartPaddleSize};\nminPaddleSize:{MinPaddleSize};\nadvancingSpeed:{AdvancingSpeed};\nadpickupSpeed:{PickupSpeedMultiplier}";
+	}
 }

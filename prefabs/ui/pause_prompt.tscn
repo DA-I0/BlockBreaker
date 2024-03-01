@@ -1,16 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://dseel27vbf765"]
+[gd_scene load_steps=3 format=3 uid="uid://dseel27vbf765"]
 
 [ext_resource type="Script" path="res://code/ui/UIPause.cs" id="1_eak34"]
+[ext_resource type="Shortcut" uid="uid://bhk5vranx2qfl" path="res://shortcuts/cancel.tres" id="2_awmsf"]
 
 [node name="PausePrompt" type="Control"]
 process_mode = 3
 z_index = 10
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 offset_left = -128.0
 offset_top = -112.0
 offset_right = 128.0
 offset_bottom = 112.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_eak34")
 
 [node name="BackgroundPanel" type="PanelContainer" parent="."]
@@ -53,6 +60,8 @@ text = "BUTTON_CONFIRM"
 
 [node name="ButtonCancel" type="Button" parent="BackgroundPanel/VBoxContainer/Buttons"]
 layout_mode = 2
+shortcut = ExtResource("2_awmsf")
+shortcut_in_tooltip = false
 text = "BUTTON_CANCEL"
 
 [connection signal="pressed" from="BackgroundPanel/VBoxContainer/Buttons/ButtonConfirm" to="." method="ReturnToMenu"]

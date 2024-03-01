@@ -1,47 +1,157 @@
 using System.Collections.Generic;
 using System.Linq;
+using BoGK.Models;
 using Godot;
 
 public enum InputType { Joypad, Keyboard, Mouse };
 
 public class Settings
 {
-	public bool firstLaunch = false;
+	private bool _firstLaunch = false;
 
-	private const string DefaultLanguage = "en";
-	private const string DefaultControlerPrompts = "generic";
-	private const int DefaultInputType = 1;
-	private const int DefaultScreenMode = 3;
-	private const int DefaultScreenWidth = 1280;
-	private const int DefaultScreenHeight = 1120;
-	private const bool DefaultScreenShake = true;
-	private const float DefaultBackgroundBrightness = 1f;
-	private const int DefaultPickupOrder = 0;
-	private const float DefaultHelperTransparency = 0.4f;
-	private const float DefaultMasterVolume = 0f;
-	private const float DefaultMusicVolume = -10f;
-	private const float DefaultEffectsVolume = -20f;
-	private const float DefaultMouseSpeed = 1f;
-	private const float DefaultKeyboardSpeed = 1f;
-	private const float DefaultControllerSpeed = 1f;
-	private const bool DefaultControllerVibrations = true;
-	private Dictionary<string, Godot.Collections.Array<InputEvent>> DefaultKeybindings = new Dictionary<string, Godot.Collections.Array<InputEvent>>();
-
-	private InputType _activeInputType = InputType.Keyboard;
-	private int _activeControllerId = 0;
+	private ConfigFile _defaultConfig;
 	private ConfigFile _config;
-	private SessionController refs;
 
+	private Dictionary<string, Godot.Collections.Array<InputEvent>> DefaultKeybindings = new Dictionary<string, Godot.Collections.Array<InputEvent>>();
+	private Dictionary<string, BreakableVariant> _defaultBreakableVariants = new Dictionary<string, BreakableVariant>();
+	private Dictionary<string, BreakableVariant> _breakableVariants = new Dictionary<string, BreakableVariant>();
+	private InputType _activeInputType = InputType.Keyboard;
+	private int _activeControllerId = -1;
+
+	private readonly SessionController refs;
+
+	public event Notification SettingsUpdated;
+
+	public bool FirstLaunch
+	{
+		get { return _firstLaunch; }
+	}
+
+	// Default settings
+	public string DefaultLanguage
+	{
+		get { return (string)_defaultConfig.GetValue("general", "language"); }
+	}
+
+	public int DefaultFont
+	{
+		get { return (int)_defaultConfig.GetValue("general", "font"); }
+	}
+
+	public string DefaultControlerPrompts
+	{
+		get { return (string)_defaultConfig.GetValue("general", "controler_prompts"); }
+	}
+
+	public bool DefaultLivesAsText // move to a separate UI category?
+	{
+		get { return (bool)_defaultConfig.GetValue("general", "lives_as_text"); }
+	}
+
+	public bool DefaultStageClearScreen // move to a separate UI category?
+	{
+		get { return (bool)_defaultConfig.GetValue("general", "stage_clear_screen"); }
+	}
+
+	public int DefaultScreenMode
+	{
+		get { return (int)_defaultConfig.GetValue("display", "screen_mode"); }
+	}
+
+	public bool DefaultScreenShake
+	{
+		get { return (bool)_defaultConfig.GetValue("display", "screen_shake"); }
+	}
+
+	public int DefaultPickupOrder
+	{
+		get { return (int)_defaultConfig.GetValue("display", "pickup_order"); }
+	}
+
+	public float DefaultBackgroundBrightness
+	{
+		get { return (float)_defaultConfig.GetValue("display", "background_brightness"); }
+	}
+
+	public float DefaultHelperTransparency
+	{
+		get { return (float)_defaultConfig.GetValue("display", "helper_transparency"); }
+	}
+
+	public Dictionary<string, BreakableVariant> DefaultBreakableVariants
+	{
+		get { return _defaultBreakableVariants; }
+	}
+
+	public float DefaultMasterVolume
+	{
+		get { return (float)_defaultConfig.GetValue("audio", "master_volume"); }
+	}
+
+	public float DefaultMusicVolume
+	{
+		get { return (float)_defaultConfig.GetValue("audio", "music_volume"); }
+	}
+
+	public float DefaultEffectsVolume
+	{
+		get { return (float)_defaultConfig.GetValue("audio", "effects_volume"); }
+	}
+
+	public float DefaultMouseSpeed
+	{
+		get { return (float)_defaultConfig.GetValue("controls", "mouse_speed"); }
+	}
+
+	public float DefaultKeyboardSpeed
+	{
+		get { return (float)_defaultConfig.GetValue("controls", "keyboard_speed"); }
+	}
+
+	public float DefaultControllerSpeed
+	{
+		get { return (float)_defaultConfig.GetValue("controls", "controller_speed"); }
+	}
+
+	public bool DefaultControllerVibrations
+	{
+		get { return (bool)_defaultConfig.GetValue("controls", "controller_vibrations"); }
+	}
+
+	public int DefaultInputType
+	{
+		get { return (int)_defaultConfig.GetValue("controls", "input_type"); }
+	}
+
+	// Custom setting
 	public string Language
 	{
 		get { return (string)_config.GetValue("general", "language", DefaultLanguage); }
 		set { _config.SetValue("general", "language", value); }
 	}
 
+	public int Font
+	{
+		get { return (int)_config.GetValue("general", "font", DefaultFont); }
+		set { _config.SetValue("general", "font", value); }
+	}
+
 	public string ControlerPrompts
 	{
-		get { return (string)_config.GetValue("general", "controlerPrompts", DefaultControlerPrompts); }
-		set { _config.SetValue("general", "controlerPrompts", value); }
+		get { return (string)_config.GetValue("general", "controler_prompts", DefaultControlerPrompts); }
+		set { _config.SetValue("general", "controler_prompts", value); }
+	}
+
+	public bool LivesAsText // move to a separate UI category?
+	{
+		get { return (bool)_config.GetValue("general", "lives_as_text", DefaultLivesAsText); }
+		set { _config.SetValue("general", "lives_as_text", value); }
+	}
+
+	public bool StageClearScreen // move to a separate UI category?
+	{
+		get { return (bool)_config.GetValue("general", "stage_clear_screen", DefaultStageClearScreen); }
+		set { _config.SetValue("general", "stage_clear_screen", value); }
 	}
 
 	public int ScreenMode
@@ -50,28 +160,10 @@ public class Settings
 		set { _config.SetValue("display", "screen_mode", value); }
 	}
 
-	public int ScreenWidth
-	{
-		get { return (int)_config.GetValue("display", "screen_width", DefaultScreenWidth); }
-		set { _config.SetValue("display", "screen_width", value); }
-	}
-
-	public int ScreenHeight
-	{
-		get { return (int)_config.GetValue("display", "screen_height", DefaultScreenHeight); }
-		set { _config.SetValue("display", "screen_height", value); }
-	}
-
 	public bool ScreenShake
 	{
 		get { return (bool)_config.GetValue("display", "screen_shake", DefaultScreenShake); }
 		set { _config.SetValue("display", "screen_shake", value); }
-	}
-
-	public float BackgroundBrightness
-	{
-		get { return (float)_config.GetValue("display", "background_brightness", DefaultBackgroundBrightness); }
-		set { _config.SetValue("display", "background_brightness", value); }
 	}
 
 	public int PickupOrder
@@ -80,10 +172,22 @@ public class Settings
 		set { _config.SetValue("display", "pickup_order", value); }
 	}
 
+	public float BackgroundBrightness
+	{
+		get { return (float)_config.GetValue("display", "background_brightness", DefaultBackgroundBrightness); }
+		set { _config.SetValue("display", "background_brightness", value); }
+	}
+
 	public float HelperTransparency
 	{
 		get { return (float)_config.GetValue("display", "helper_transparency", DefaultHelperTransparency); }
 		set { _config.SetValue("display", "helper_transparency", value); }
+	}
+
+	public Dictionary<string, BreakableVariant> BreakableVariants
+	{
+		get { return _breakableVariants; }
+		set { _breakableVariants = value; }
 	}
 
 	public float MasterVolume
@@ -134,7 +238,7 @@ public class Settings
 		set
 		{
 			_activeInputType = value;
-			_config.SetValue("general", "inputType", (int)value);
+			_config.SetValue("controls", "input_type", (int)value);
 		}
 	}
 
@@ -154,6 +258,7 @@ public class Settings
 	{
 		refs = sessionController;
 		PrepareDefaultKeybindings();
+		LoadDefaultSettings();
 		LoadSettings();
 	}
 
@@ -183,19 +288,21 @@ public class Settings
 	public void SetDefaultGeneralValues()
 	{
 		Language = DefaultLanguage;
+		Font = DefaultFont;
 		ActiveInputType = (InputType)DefaultInputType;
 		ControlerPrompts = DefaultControlerPrompts;
+		LivesAsText = DefaultLivesAsText;
+		StageClearScreen = DefaultStageClearScreen;
 	}
 
 	public void SetDefaultVideoValues()
 	{
 		ScreenMode = DefaultScreenMode;
-		ScreenWidth = DisplayServer.ScreenGetSize().X;//DefaultScreenWidth;
-		ScreenHeight = DisplayServer.ScreenGetSize().Y;//DefaultScreenHeight;
 		ScreenShake = DefaultScreenShake;
 		BackgroundBrightness = DefaultBackgroundBrightness;
 		PickupOrder = DefaultPickupOrder;
 		HelperTransparency = DefaultHelperTransparency;
+		BreakableVariants = DefaultBreakableVariants;
 	}
 
 	public void SetDefaultAudioValues()
@@ -233,6 +340,19 @@ public class Settings
 		SaveKeybindings();
 	}
 
+	private void LoadDefaultSettings()
+	{
+		_defaultConfig = new ConfigFile();
+		Error error = _defaultConfig.Load(ProjectSettings.GetSetting("global/DefaultConfigFilePath").ToString());
+
+		if (error != Error.Ok)
+		{
+			GD.PrintErr("Failed to read default config file.");
+		}
+
+		ParseVariantsFromConfig(_defaultConfig, _defaultBreakableVariants);
+	}
+
 	public void LoadSettings()
 	{
 		_config = new ConfigFile();
@@ -241,7 +361,7 @@ public class Settings
 		if (error != Error.Ok)
 		{
 			SetDefaultValues();
-			firstLaunch = true;
+			_firstLaunch = true;
 		}
 
 		ApplySettings();
@@ -249,8 +369,10 @@ public class Settings
 
 	public void SaveSettings()
 	{
+		ParseVariantsToConfig();
 		_config.Save(ProjectSettings.GetSetting("global/ConfigFilePath").ToString());
 		ApplySettings();
+		_firstLaunch = false;
 	}
 
 	public void ChangeKeybinding(string actionToChange, string inputValueToChange, InputEvent newInputValue)
@@ -297,16 +419,73 @@ public class Settings
 	private void ApplySettings()
 	{
 		TranslationServer.SetLocale(Language);
+		ApplyFont();
 
 		DisplayServer.WindowSetMode((DisplayServer.WindowMode)ScreenMode, 0);
-		Vector2I newResolution = new Vector2I(ScreenWidth, ScreenHeight);
-		DisplayServer.WindowSetSize(newResolution, 0);
+		ParseVariantsFromConfig(_config, BreakableVariants);
 
 		AudioServer.SetBusVolumeDb(AudioServer.GetBusIndex("Master"), MasterVolume);
 		AudioServer.SetBusVolumeDb(AudioServer.GetBusIndex("Music"), MusicVolume);
 		AudioServer.SetBusVolumeDb(AudioServer.GetBusIndex("Effects"), EffectsVolume);
 
+		ActiveControllerID = (ActiveController != string.Empty) ? FindConnectedController() : -1;
 		ApplyKeybindings();
-		firstLaunch = false;
+		SettingsUpdated?.Invoke();
+	}
+
+	private int FindConnectedController()
+	{
+		foreach (int index in Input.GetConnectedJoypads())
+		{
+			if (Input.GetJoyName(index) == ActiveController)
+			{
+				return index;
+			}
+		}
+
+		return -1;
+	}
+
+	private void ApplyFont()
+	{
+		Theme currentTheme = ThemeDB.GetProjectTheme();
+		currentTheme.DefaultFont = ResourceLoader.Load<Font>($"res://assets/fonts/{refs.gameData.Fonts[Font].FontName}");
+		currentTheme.DefaultFontSize = refs.gameData.Fonts[Font].DefaultSize;
+	}
+
+	private void ParseVariantsToConfig()
+	{
+		HelperMethods.VariantsToConfig(_config, BreakableVariants);
+	}
+
+	private void ParseVariantsFromConfig(ConfigFile sourceConfig, Dictionary<string, BreakableVariant> targetVariants)
+	{
+		string[] variantSections = sourceConfig.GetSections();
+
+		foreach (string section in variantSections)
+		{
+			if (section.StartsWith("Variant - "))
+			{
+				BreakableVariant newVariant = HelperMethods.VariantFromConfig(sourceConfig, section);
+				targetVariants[section.Split(" - ")[^1]] = newVariant;
+			}
+		}
+	}
+
+	public BreakableVariant FindVariant(string brekableName)
+	{
+		try
+		{
+			return BreakableVariants[brekableName];
+		}
+		catch { }
+
+		try
+		{
+			return DefaultBreakableVariants[brekableName];
+		}
+		catch { }
+
+		return new BreakableVariant(string.Empty, 0, new Color(1, 1, 1, 1));
 	}
 }

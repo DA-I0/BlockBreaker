@@ -1,10 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://7gsh2bx2alvg"]
+[gd_scene load_steps=9 format=3 uid="uid://7gsh2bx2alvg"]
 
-[ext_resource type="Texture2D" uid="uid://rlvlqv7y5ge2" path="res://assets/sprites/blocks/bollard_01.png" id="1_5hspi"]
 [ext_resource type="Script" path="res://code/gameplay/interactables/Bollard.cs" id="1_f3s8j"]
-[ext_resource type="Texture2D" uid="uid://dx8n5vcq3tnxq" path="res://assets/sprites/blocks/bollard_04.png" id="1_h6vwd"]
-[ext_resource type="Texture2D" uid="uid://df4dyfblsq6a2" path="res://assets/sprites/blocks/bollard_02.png" id="3_pg1rd"]
-[ext_resource type="Texture2D" uid="uid://07ywpul68v63" path="res://assets/sprites/blocks/bollard_03.png" id="4_05j7l"]
+[ext_resource type="Texture2D" uid="uid://dhew86m1ys0l6" path="res://assets/sprites/interactables/bollard.png" id="2_nw1by"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xjr6v"]
 size = Vector2(4, 4)
@@ -28,38 +25,38 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite:texture")
+tracks/1/path = NodePath(".:z_index")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1, 1.33333, 1.66667),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("1_5hspi"), ExtResource("3_pg1rd"), ExtResource("1_5hspi"), ExtResource("3_pg1rd"), ExtResource("1_5hspi"), ExtResource("4_05j7l"), ExtResource("1_h6vwd")]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:z_index")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0, 1.33333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [0, 2]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".:_isActived")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:_isActived")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
 "times": PackedFloat32Array(0, 1.66667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.250001, 0.500001, 0.750001, 1, 1.33334, 1.66667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 0, 1, 0, 2, 3]
 }
 
 [sub_resource type="Animation" id="Animation_18ftg"]
@@ -81,38 +78,38 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite:texture")
+tracks/1/path = NodePath(".:z_index")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.166667, 0.333333),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [ExtResource("1_h6vwd"), ExtResource("4_05j7l"), ExtResource("1_5hspi")]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:z_index")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.333333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [2, 0]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".:_isActived")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:_isActived")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.333334),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [3, 2, 0]
 }
 
 [sub_resource type="Animation" id="Animation_ypv3i"]
@@ -135,19 +132,19 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite:texture")
+tracks/1/path = NodePath(".:z_index")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("1_5hspi")]
+"values": [0]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath(".:z_index")
+tracks/2/path = NodePath("Sprite:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -177,26 +174,26 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite:texture")
+tracks/1/path = NodePath(".:z_index")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("1_h6vwd")]
+"values": [2]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath(".:z_index")
+tracks/2/path = NodePath("Sprite:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [2]
+"values": [3]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_n5g5p"]
@@ -208,7 +205,9 @@ _data = {
 }
 
 [node name="Bollard" type="StaticBody2D" node_paths=PackedStringArray("_animator", "_timer", "_sprites")]
+z_index = 2
 script = ExtResource("1_f3s8j")
+_isActived = false
 _cooldown = 2.0
 _animator = NodePath("Animator")
 _timer = NodePath("Timer")
@@ -216,12 +215,13 @@ _sprites = []
 
 [node name="Collider" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_xjr6v")
-disabled = true
 
 [node name="Sprite" type="Sprite2D" parent="."]
 position = Vector2(-2, -8)
-texture = ExtResource("1_5hspi")
+texture = ExtResource("2_nw1by")
 centered = false
+hframes = 4
+frame = 3
 
 [node name="Animator" type="AnimationPlayer" parent="."]
 libraries = {

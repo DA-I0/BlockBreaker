@@ -1,10 +1,10 @@
+using BoGK.Models;
 using Godot;
 
 public partial class Breakable : StaticBody2D
 {
 	[Export] protected int _pointValue = 1;
 	[Export] protected int _maxHealth = 1;
-	[Export] protected Texture2D[] _sprites;
 
 	[Export] private double _pickupSpawnChance = 0.1f;
 	[Export] private PackedScene[] _pickups;
@@ -13,7 +13,10 @@ public partial class Breakable : StaticBody2D
 	[Export] protected double _shakeDuration = 0.25f;
 
 	private Vector2 _defaultPosition;
+	private bool _isActive = true;
 	protected int _health;
+
+	protected string _defaultSpritePath;
 
 	protected Sprite2D _sprite;
 	[Export] protected Timer _timer;
@@ -26,9 +29,9 @@ public partial class Breakable : StaticBody2D
 
 	public override void _Ready()
 	{
-		_sprite = GetNode("Sprite") as Sprite2D;
+		_sprite = GetNode<Sprite2D>("Sprite");
 
-		refs = GetNode("/root/GameController") as SessionController;
+		refs = GetNode<SessionController>("/root/GameController");
 		SetInitialValues();
 		AdjustSprite();
 	}
@@ -70,20 +73,43 @@ public partial class Breakable : StaticBody2D
 	{
 		_defaultPosition = _sprite.Position;
 		_health = _maxHealth;
+		_defaultSpritePath = _sprite.Texture.ResourcePath;
+		ApplySpriteVariant();
 	}
 
 	protected virtual void AdjustSprite()
 	{
-		if (_sprite != null && _sprites.Length > 0)
+		_sprite.Frame = (_health <= 0) ? 0 : _maxHealth - _health;
+	}
+
+	private void ApplySpriteVariant()
+	{
+
+		string breakableName = _defaultSpritePath.Split('/')[^1].Replace(".png", "");
+		BreakableVariant variant = refs.settings.FindVariant(breakableName);
+
+		switch (variant.SpriteVariant)
 		{
-			int spriteIndex = (_health <= 0) ? 0 : _maxHealth - _health;
-			_sprite.Texture = _sprites[spriteIndex];
+			case 1:
+				_sprite.Texture = ResourceLoader.Load<Texture2D>(_defaultSpritePath.Replace(".png", "_rim.png"));
+				_sprite.Modulate = new Color(1, 1, 1, 1);
+				break;
+
+			case 2:
+				_sprite.Texture = ResourceLoader.Load<Texture2D>(_defaultSpritePath.Replace(".png", "_alt.png"));
+				_sprite.Modulate = variant.CustomColor;
+				break;
+
+			default:
+				_sprite.Texture = ResourceLoader.Load<Texture2D>(_defaultSpritePath);
+				_sprite.Modulate = new Color(1, 1, 1, 1);
+				break;
 		}
 	}
 
 	private void SpawnPickup()
 	{
-		if (_pickups == null)
+		if (_pickups == null || !_isActive)
 		{
 			return;
 		}
@@ -93,7 +119,7 @@ public partial class Breakable : StaticBody2D
 		if (dropRandomization <= _pickupSpawnChance)
 		{
 			int pickupType = GD.RandRange(0, _pickups.Length - 1);
-			Area2D pickup = _pickups[pickupType].Instantiate() as Area2D;
+			Area2D pickup = _pickups[pickupType].Instantiate<Area2D>();
 			GetNode("../../..").CallDeferred("add_child", pickup);
 			pickup.Position = Position;
 		}
@@ -102,6 +128,7 @@ public partial class Breakable : StaticBody2D
 	protected virtual void Destroy()
 	{
 		SpawnPickup();
+		_isActive = false;
 		refs.gameScore.ChangeScore(_pointValue);
 		QueueFree();
 	}

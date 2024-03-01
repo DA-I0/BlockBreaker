@@ -223,7 +223,6 @@ collision_mask = 2
 script = ExtResource("1_ypcb4")
 _animator = NodePath("Animator")
 _pointValue = 0
-_sprites = Array[Texture2D]([ExtResource("2_hnhbp")])
 _pickupSpawnChance = 0.0
 
 [node name="Collider" type="CollisionShape2D" parent="."]

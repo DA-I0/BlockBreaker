@@ -1,8 +1,13 @@
 using System.Collections.Generic;
 using System.Linq;
+using BoGK.Models;
 
 public class GameData
 {
+	public readonly FontVariant[] Fonts = { new FontVariant("Silver_adjusted.tres", 11), new FontVariant("OpenDyslexic-Regular_adjusted.tres", 9) };
+	public readonly FontVariant[] TimerFonts = { new FontVariant("Silver_timer.tres", 22), new FontVariant("OpenDyslexic-Regular_timer.tres", 16) };
+	private readonly Skill[] _skills = { new BallControl(), new ScreenShake(), new PowerBall(), new EmergencyNet() };
+
 	private List<string> _levels = new List<string>();
 
 	private List<Difficulty> _difficulties = new List<Difficulty>();
@@ -14,6 +19,11 @@ public class GameData
 	private static int MaxLeaderboardEntries = 10;
 
 	private SessionController refs;
+
+	public Skill[] Skills
+	{
+		get { return _skills; }
+	}
 
 	public List<string> Levels
 	{
@@ -72,7 +82,7 @@ public class GameData
 	{
 		_levels.Clear();
 
-		foreach (string levelFile in refs.fileOperations.GetFileList(Godot.ProjectSettings.GetSetting("global/DefaultLevelFolder").ToString()))
+		foreach (string levelFile in FileOperations.GetFileList(Godot.ProjectSettings.GetSetting("global/DefaultLevelFolder").ToString()))
 		{
 			_levels.Add(levelFile);
 		}
@@ -80,14 +90,14 @@ public class GameData
 
 	private void LoadDifficulties()
 	{
-		foreach (Difficulty resourceDifficulty in refs.fileOperations.LoadDifficulties(Godot.ProjectSettings.GetSetting("global/DefaultDifficultyFolder").ToString()))
+		foreach (Difficulty resourceDifficulty in FileOperations.LoadDifficulties(Godot.ProjectSettings.GetSetting("global/DefaultDifficultyFolder").ToString()))
 		{
 			AddDifficulty(resourceDifficulty);
 		}
 
 		_defaultDifficultyCount = _difficulties.Count;
 
-		foreach (Difficulty resourceDifficulty in refs.fileOperations.LoadDifficulties(Godot.ProjectSettings.GetSetting("global/CustomDifficultyFolder").ToString()))
+		foreach (Difficulty resourceDifficulty in FileOperations.LoadDifficulties(Godot.ProjectSettings.GetSetting("global/CustomDifficultyFolder").ToString()))
 		{
 			AddDifficulty(resourceDifficulty);
 		}
@@ -95,13 +105,13 @@ public class GameData
 
 	private void LoadPatchNotes()
 	{
-		string rawPatchNotes = refs.fileOperations.LoadTextFile(Godot.ProjectSettings.GetSetting("global/PatchNotesFilePath").ToString());
+		string rawPatchNotes = FileOperations.LoadTextFile(Godot.ProjectSettings.GetSetting("global/PatchNotesFilePath").ToString());
 		_patchNotes = refs.localization.InsertCustomValues(rawPatchNotes);
 	}
 
 	public void LoadLeaderboard()
 	{
-		_leaderboard = refs.fileOperations.LoadLeaderboard().ToList();
+		_leaderboard = FileOperations.LoadLeaderboard().ToList();
 	}
 
 	public bool CanScoreJoinLeaderboard(int newScore)
@@ -120,7 +130,7 @@ public class GameData
 	public void AddScoreToLeaderboard(HighScore newEntry)
 	{
 		InsertLeaderboardEntry(newEntry);
-		refs.fileOperations.SaveLeaderboard(_leaderboard.ToArray());
+		FileOperations.SaveLeaderboard(_leaderboard.ToArray());
 	}
 
 	private void InsertLeaderboardEntry(HighScore newEntry)

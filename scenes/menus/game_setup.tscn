@@ -1,0 +1,173 @@
+[gd_scene load_steps=6 format=3 uid="uid://b3h1pgyhdyfg6"]
+
+[ext_resource type="Script" path="res://code/ui/UIGameSetupPanel.cs" id="1_qrg3h"]
+[ext_resource type="Shortcut" uid="uid://bhk5vranx2qfl" path="res://shortcuts/cancel.tres" id="2_c0qja"]
+[ext_resource type="Texture2D" uid="uid://dkyo1knm2xxhn" path="res://assets/sprites/ui_elements/backgrounds/ui_frame.png" id="3_xghkx"]
+[ext_resource type="Texture2D" uid="uid://bdnrfv0eveohj" path="res://assets/sprites/paddles/paddle_1.png" id="4_f1u0x"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_35ikn"]
+texture = ExtResource("3_xghkx")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 5.0
+region_rect = Rect2(4, 4, 12, 8)
+
+[node name="GameSetupPanel" type="Panel" node_paths=PackedStringArray("_levelGrid", "_paddleButton", "_difficultyButton", "_skillButton", "_focusTarget", "_returnButton")]
+custom_minimum_size = Vector2(256, 224)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1024.0
+offset_bottom = -896.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_qrg3h")
+_levelGrid = NodePath("MainContent/LevelsContainer/Levels")
+_paddleButton = NodePath("MainContent/SidePanel/VBoxContainer/PaddleButton")
+_difficultyButton = NodePath("MainContent/SidePanel/VBoxContainer/DifficultyButton")
+_skillButton = NodePath("MainContent/SidePanel/VBoxContainer/SkillButton")
+_focusTarget = [NodePath("MainContent/SidePanel/VBoxContainer/PaddleButton")]
+_returnButton = NodePath("MainContent/SidePanel/VBoxContainer/Return")
+
+[node name="GameSetupHeader" type="Panel" parent="."]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+
+[node name="LevelHeaderLabel" type="Label" parent="GameSetupHeader"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "HEADER_GAME_SETUP"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MainContent" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 20.0
+offset_right = -4.0
+offset_bottom = -4.0
+
+[node name="SidePanel" type="PanelContainer" parent="MainContent"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+theme_override_styles/panel = SubResource("StyleBoxTexture_35ikn")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainContent/SidePanel"]
+layout_mode = 2
+
+[node name="PaddleLabel" type="Label" parent="MainContent/SidePanel/VBoxContainer"]
+layout_mode = 2
+text = "LABEL_PADDLE"
+
+[node name="PaddleButton" type="Button" parent="MainContent/SidePanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+focus_neighbor_top = NodePath("../Return")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../SkillButton")
+focus_next = NodePath("../SkillButton")
+focus_previous = NodePath("../Return")
+icon = ExtResource("4_f1u0x")
+icon_alignment = 1
+
+[node name="Spacer" type="Control" parent="MainContent/SidePanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 2
+size_flags_vertical = 2
+size_flags_stretch_ratio = 0.0
+
+[node name="SkillLabel" type="Label" parent="MainContent/SidePanel/VBoxContainer"]
+layout_mode = 2
+text = "LABEL_SKILL"
+
+[node name="SkillButton" type="Button" parent="MainContent/SidePanel/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../PaddleButton")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../DifficultyButton")
+focus_next = NodePath("../DifficultyButton")
+focus_previous = NodePath("../PaddleButton")
+text = "selected_diff"
+
+[node name="Spacer2" type="Control" parent="MainContent/SidePanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 2
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.0
+
+[node name="DifficultyLabel" type="Label" parent="MainContent/SidePanel/VBoxContainer"]
+layout_mode = 2
+text = "LABEL_DIFFICULTY"
+
+[node name="DifficultyButton" type="Button" parent="MainContent/SidePanel/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../SkillButton")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../Return")
+focus_next = NodePath("../Return")
+focus_previous = NodePath("../SkillButton")
+text = "selected_diff"
+
+[node name="Spacer3" type="Control" parent="MainContent/SidePanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Return" type="Button" parent="MainContent/SidePanel/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../DifficultyButton")
+focus_neighbor_bottom = NodePath("../PaddleButton")
+focus_next = NodePath("../PaddleButton")
+focus_previous = NodePath("../DifficultyButton")
+focus_mode = 0
+shortcut = ExtResource("2_c0qja")
+shortcut_in_tooltip = false
+text = "BUTTON_RETURN"
+
+[node name="Spacer4" type="Control" parent="MainContent/SidePanel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="LevelsContainer" type="Control" parent="MainContent"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.9
+
+[node name="Levels" type="GridContainer" parent="MainContent/LevelsContainer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 3.0
+offset_right = -3.0
+offset_bottom = -3.0
+columns = 5
+
+[node name="DISCLAIMER_SWITCH_FOCUS_HINT" type="RichTextLabel" parent="MainContent/LevelsContainer" groups=["manual_translation"]]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+offset_top = -2.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "DISCLAIMER_SWITCH_FOCUS_HINT"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0

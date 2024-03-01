@@ -6,6 +6,9 @@ public partial class Ball : CharacterBody2D
 {
 	private const float MaxBallSpeedMultiplier = 1.5f;
 	private const float MinBallSpeedMultiplier = 0.5f;
+	private const int MaxTrailCurvePoints = 10;
+	private const string DefaultSprite = "res://assets/sprites/animations/ball.png";
+	private const string PowerSprite = "res://assets/sprites/animations/power_ball.png";
 
 	private BallMode _ballMode = BallMode.idle;
 
@@ -16,17 +19,23 @@ public partial class Ball : CharacterBody2D
 
 	private float _speedMultiplier = 1f;
 	private float _boostMultiplier = 1f;
+	private float _advancingSpeedMultiplier = 1f;
+	private int _lastSpeedUpdateComboValue = 0;
+	private bool _isPowerBall = false;
 
 	private bool _increasingRotation = true;
 	private float _startingRotation = 0;
 
-	private float _combinedSpeedMultiplier;
+	private float _combinedSpeed;
+	private Curve2D _speedTrailCurve = new Curve2D();
+
 
 	[Export] private Sprite2D _sprite;
 	[Export] private Sprite2D _arrow;
 	[Export] private Timer _arrowTimer;
 	[Export] private AnimationPlayer _animator;
 	[Export] private CpuParticles2D _particles;
+	[Export] private Line2D _speedTrail;
 
 	private SessionController refs;
 
@@ -63,13 +72,12 @@ public partial class Ball : CharacterBody2D
 			return;
 		}
 
-		if (@event.IsActionPressed("game_play"))
+		if (HelperMethods.IsActiveInputDevice(refs, @event) && @event.IsActionPressed("game_play"))
 		{
 			switch (_ballMode)
 			{
 				case BallMode.idle:
 					BallMode = BallMode.angleSelection;
-					_arrowTimer.Start(0.001f);
 					break;
 
 				case BallMode.angleSelection:
@@ -108,13 +116,16 @@ public partial class Ball : CharacterBody2D
 		refs.levelManager.ResetSession += Destroy;
 		refs.levelManager.SceneChanged += SceneChangeCleanup;
 		refs.health.ResetElements += Reset;
+
+		if (refs.SelectedDifficulty.AdvancingSpeed)
+		{
+			refs.gameScore.ScoreChanged += AdvancingSpeed;
+		}
 	}
 
 	public void SetInitialValues(SessionController sessionController, Ball sourceBall = null, float angleChange = 0)
 	{
 		SetupReferences(sessionController);
-		_animator.AnimationSetNext("bounce", "roll");
-
 
 		if (sourceBall == null)
 		{
@@ -130,12 +141,15 @@ public partial class Ball : CharacterBody2D
 			Release();
 			ChangeRotation(sourceBall.RotationDegrees + angleChange);
 		}
+
 	}
 
 	public void Reset()
 	{
+		_advancingSpeedMultiplier = 1f;
 		SpeedMultiplier = 1f;
 		ChangeSize(1f);
+		SetPowerBallState(false);
 		StateReset();
 	}
 
@@ -146,17 +160,18 @@ public partial class Ball : CharacterBody2D
 		GetParent().CallDeferred(Node.MethodName.AddChild, newBall);
 	}
 
-	public void AddVelocity(Vector2 velocity)
-	{
-		// Velocity += velocity * 0.1f;
-	}
-
 	public void ChangeSpeedMultiplier(float value)
 	{
 		SpeedMultiplier += value;
 	}
 
 	public void ChangeTempSpeedMultiplier(float value)
+	{
+		_boostMultiplier += value;
+		UpdateSpeed();
+	}
+
+	public void SetTempSpeedMultiplier(float value)
 	{
 		_boostMultiplier = value;
 		UpdateSpeed();
@@ -167,6 +182,8 @@ public partial class Ball : CharacterBody2D
 		Scale = new Vector2(value, value);
 		float arrowScale = (value == 1) ? 1 : (1 / value);
 		_arrow.Scale = new Vector2(arrowScale, arrowScale);
+
+		_speedTrail.WidthCurve.SetPointValue(1, value);
 	}
 
 	public void ChangeRotation(float value)
@@ -185,6 +202,12 @@ public partial class Ball : CharacterBody2D
 		BallMode = BallMode.idle;
 	}
 
+	public void SetPowerBallState(bool active)
+	{
+		_isPowerBall = active;
+		AdjustPowerVisuals();
+	}
+
 	private void Release()
 	{
 		Velocity = new Vector2(0, -_baseSpeed).Rotated(_arrow.Rotation);
@@ -194,10 +217,11 @@ public partial class Ball : CharacterBody2D
 
 	private void Move(double delta)
 	{
-		float _moveSpeed = (float)delta * _combinedSpeedMultiplier;
-		KinematicCollision2D collision = MoveAndCollide(Velocity * _moveSpeed);
+		float _moveSpeed = (float)delta * _combinedSpeed;
+		KinematicCollision2D collision = MoveAndCollide(Velocity * _moveSpeed, false, 0.01f);
 		Bounce(collision);
 		AdjustSpriteRotation();
+		UpdateSpeedTrail();
 	}
 
 	private void Bounce(KinematicCollision2D collision)
@@ -207,17 +231,38 @@ public partial class Ball : CharacterBody2D
 			return;
 		}
 
-		_animator.Play("bounce", 0, 1.5f);
 		refs.audioController.PlayAudio(0);
 
-		Velocity = Velocity.Bounce(collision.GetNormal());
-
 		Breakable breakable = collision.GetCollider() as Breakable;
-		breakable?.Damage(1);
+		DamageCollider(breakable);
 
-		if (collision.GetCollider() == refs.paddle)
+		if (!_isPowerBall || breakable == null)
 		{
-			refs.paddle.ApplyPaddleEffect(this);
+			Velocity = Velocity.Bounce(collision.GetNormal());
+			_animator.Play("bounce", 0, 1.5f);
+		}
+
+		try
+		{
+			((BasePaddle)collision.GetCollider())?.ApplyPaddleEffect(this);
+		}
+		catch { }
+	}
+
+	private void DamageCollider(Breakable breakable)
+	{
+		if (breakable == null)
+		{
+			return;
+		}
+
+		if (_isPowerBall)
+		{
+			breakable.Damage(999);
+		}
+		else
+		{
+			breakable?.Damage(1);
 		}
 	}
 
@@ -234,10 +279,30 @@ public partial class Ball : CharacterBody2D
 		}
 	}
 
+	private void CheckAdvancingSpeedMultiplierLimits()
+	{
+		if (_advancingSpeedMultiplier > MaxBallSpeedMultiplier)
+		{
+			_advancingSpeedMultiplier = MaxBallSpeedMultiplier;
+		}
+
+		if (_advancingSpeedMultiplier < MinBallSpeedMultiplier)
+		{
+			_advancingSpeedMultiplier = MinBallSpeedMultiplier;
+		}
+	}
+
 	private void UpdateSpeed()
 	{
-		_combinedSpeedMultiplier = _baseSpeed * refs.SelectedDifficulty.BallSpeedMultiplier * _speedMultiplier * _boostMultiplier;
-		_animator.Play("roll", 0, _combinedSpeedMultiplier);
+		_combinedSpeed = _baseSpeed * refs.SelectedDifficulty.BallSpeedMultiplier * _speedMultiplier * _boostMultiplier * _advancingSpeedMultiplier;
+
+		if (_ballMode == BallMode.moving)
+		{
+			_animator.Play("roll", 0, _combinedSpeed);
+			_particles.Emitting = true;
+		}
+
+		ToggleSpeedTrail();
 	}
 
 	private void ReduceTempSpeedMultiplier()
@@ -253,6 +318,17 @@ public partial class Ball : CharacterBody2D
 		}
 	}
 
+	private void AdvancingSpeed(int score, int scoreMultiplier, int combo)
+	{
+		if (_lastSpeedUpdateComboValue < combo)
+		{
+			_advancingSpeedMultiplier += 0.02f;
+			_lastSpeedUpdateComboValue = combo;
+			CheckAdvancingSpeedMultiplierLimits();
+			UpdateSpeed();
+		}
+	}
+
 	private void RotateArrow()
 	{
 		if (_startingRotation >= _maxReleaseAngle || _startingRotation <= -_maxReleaseAngle)
@@ -261,7 +337,7 @@ public partial class Ball : CharacterBody2D
 		}
 
 		_startingRotation += _increasingRotation ? refs.SelectedDifficulty.AngleSelectSpeed : -refs.SelectedDifficulty.AngleSelectSpeed;
-		_arrow.RotationDegrees = _startingRotation;
+		_arrow.RotationDegrees = _startingRotation + _sprite.RotationDegrees;
 	}
 
 	private void AdjustSpriteRotation()
@@ -280,13 +356,13 @@ public partial class Ball : CharacterBody2D
 				_startingRotation = 0;
 				_arrow.Visible = true;
 				_increasingRotation = true;
+				_arrowTimer.Start(0.001f);
 				refs.paddle.SetPaddleState(PaddleState.locked);
 				break;
 
 			case BallMode.moving:
 				refs.paddle.SetPaddleState(PaddleState.idle);
-				_animator.Play("roll");
-				_particles.Emitting = true;
+				UpdateSpeed();
 				break;
 
 			case BallMode.spinning:
@@ -295,9 +371,39 @@ public partial class Ball : CharacterBody2D
 
 			default:
 				Velocity = Vector2.Zero;
-				ChangeTempSpeedMultiplier(1);
+				SetTempSpeedMultiplier(1);
 				_animator.Play("idle");
+				_speedTrailCurve.ClearPoints();
 				break;
+		}
+	}
+
+	private void UpdateSpeedTrail()
+	{
+		_speedTrailCurve.AddPoint(Position);
+
+		if (_speedTrailCurve.GetBakedPoints().Length > MaxTrailCurvePoints)
+		{
+			_speedTrailCurve.RemovePoint(0);
+		}
+
+		_speedTrail.Points = _speedTrailCurve.GetBakedPoints();
+	}
+
+	private void ToggleSpeedTrail()
+	{
+		_speedTrail.Visible = (_speedMultiplier * _boostMultiplier * _advancingSpeedMultiplier > 1) && _ballMode == BallMode.moving;
+	}
+
+	private void AdjustPowerVisuals()
+	{
+		if (_isPowerBall)
+		{
+			_sprite.Texture = ResourceLoader.Load<Texture2D>(PowerSprite);
+		}
+		else
+		{
+			_sprite.Texture = ResourceLoader.Load<Texture2D>(DefaultSprite);
 		}
 	}
 
@@ -322,7 +428,10 @@ public partial class Ball : CharacterBody2D
 
 	private void SceneChangeCleanup()
 	{
-		OnScreenExited(true);
+		if (refs.Balls[0] != this)
+		{
+			OnScreenExited(true);
+		}
 	}
 
 	private void Destroy()

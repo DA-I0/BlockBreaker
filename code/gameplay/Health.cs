@@ -14,13 +14,18 @@ public partial class Health : Node
 
 	public override void _Ready()
 	{
-		refs = GetParent() as SessionController;
+		refs = GetParent<SessionController>();
 		refs.GameSetup += SetupInitialValues;
 	}
 
 	public override void _Input(InputEvent @event)
 	{
-		if (@event.IsActionPressed("game_reset"))
+		if (refs.CurrentGameState != GameState.gameplay)
+		{
+			return;
+		}
+
+		if (HelperMethods.IsActiveInputDevice(refs, @event) && @event.IsActionPressed("game_reset"))
 		{
 			ChangeLives(-1);
 		}

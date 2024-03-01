@@ -1,0 +1,169 @@
+[gd_scene load_steps=7 format=3 uid="uid://d2lh5jna47ms"]
+
+[ext_resource type="Script" path="res://code/ui/UIInfoPanel.cs" id="1_jo6ym"]
+[ext_resource type="Texture2D" uid="uid://c1kv13qe3is8s" path="res://assets/sprites/ui_elements/object_icons/block_basic.png" id="2_ocyo2"]
+[ext_resource type="Texture2D" uid="uid://br6f2ykk024ej" path="res://assets/sprites/ui_elements/object_icons/block_sturdy.png" id="3_i78pc"]
+[ext_resource type="Texture2D" uid="uid://dtav2g4wgajw3" path="res://assets/sprites/ui_elements/object_icons/barrier_basic.png" id="4_7ns8m"]
+[ext_resource type="Texture2D" uid="uid://cvgm2qekp8dmh" path="res://assets/sprites/ui_elements/object_icons/barrier_sturdy.png" id="5_q728f"]
+[ext_resource type="Shortcut" uid="uid://bhk5vranx2qfl" path="res://shortcuts/cancel.tres" id="6_g5t76"]
+
+[node name="InfoPanel" type="Panel" node_paths=PackedStringArray("_focusTarget", "_returnButton")]
+custom_minimum_size = Vector2(256, 224)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+focus_mode = 2
+script = ExtResource("1_jo6ym")
+_focusTarget = [NodePath("ScrollContainer")]
+_returnButton = NodePath("Return")
+_returnTarget = null
+
+[node name="InfoHeader" type="Panel" parent="."]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+
+[node name="InfoHeaderLabel" type="Label" parent="InfoHeader"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "HEADER_INFO"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 19.0
+offset_right = -4.0
+offset_bottom = -4.0
+focus_mode = 2
+
+[node name="InfoContent" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="InfoMovement" type="HBoxContainer" parent="ScrollContainer/InfoContent"]
+layout_mode = 2
+
+[node name="ControlsIcon" type="Label" parent="ScrollContainer/InfoContent/InfoMovement"]
+custom_minimum_size = Vector2(30, 20)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "🎮"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="INFO_CONTROLS_DESC" type="RichTextLabel" parent="ScrollContainer/InfoContent/InfoMovement" groups=["manual_translation"]]
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "<info_controls_desc>"
+fit_content = true
+scroll_active = false
+shortcut_keys_enabled = false
+
+[node name="HSeparator" type="HSeparator" parent="ScrollContainer/InfoContent"]
+layout_mode = 2
+
+[node name="InfoBlocks" type="HBoxContainer" parent="ScrollContainer/InfoContent"]
+layout_mode = 2
+
+[node name="Icons" type="VBoxContainer" parent="ScrollContainer/InfoContent/InfoBlocks"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="Icon1" type="TextureRect" parent="ScrollContainer/InfoContent/InfoBlocks/Icons"]
+layout_mode = 2
+texture = ExtResource("2_ocyo2")
+expand_mode = 5
+stretch_mode = 4
+
+[node name="Icon2" type="TextureRect" parent="ScrollContainer/InfoContent/InfoBlocks/Icons"]
+layout_mode = 2
+texture = ExtResource("3_i78pc")
+expand_mode = 5
+stretch_mode = 4
+
+[node name="INFO_BLOCKS_DESC" type="RichTextLabel" parent="ScrollContainer/InfoContent/InfoBlocks" groups=["manual_translation"]]
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "<info_blocks_desc>"
+fit_content = true
+scroll_active = false
+shortcut_keys_enabled = false
+
+[node name="HSeparator2" type="HSeparator" parent="ScrollContainer/InfoContent"]
+layout_mode = 2
+
+[node name="InfoBarriers" type="HBoxContainer" parent="ScrollContainer/InfoContent"]
+layout_mode = 2
+
+[node name="Icons" type="VBoxContainer" parent="ScrollContainer/InfoContent/InfoBarriers"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="Icon1" type="TextureRect" parent="ScrollContainer/InfoContent/InfoBarriers/Icons"]
+layout_mode = 2
+texture = ExtResource("4_7ns8m")
+expand_mode = 5
+stretch_mode = 4
+
+[node name="Icon2" type="TextureRect" parent="ScrollContainer/InfoContent/InfoBarriers/Icons"]
+layout_mode = 2
+texture = ExtResource("5_q728f")
+expand_mode = 5
+stretch_mode = 4
+
+[node name="INFO_BARRIERS_DESC" type="RichTextLabel" parent="ScrollContainer/InfoContent/InfoBarriers" groups=["manual_translation"]]
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "<info_barriers_desc>"
+fit_content = true
+scroll_active = false
+shortcut_keys_enabled = false
+
+[node name="HSeparator3" type="HSeparator" parent="ScrollContainer/InfoContent"]
+layout_mode = 2
+
+[node name="InfoScore" type="HBoxContainer" parent="ScrollContainer/InfoContent"]
+layout_mode = 2
+
+[node name="ScoreIcon" type="Label" parent="ScrollContainer/InfoContent/InfoScore"]
+custom_minimum_size = Vector2(30, 20)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "(x9)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="INFO_SCORE_MULTIPLIER_DESC" type="RichTextLabel" parent="ScrollContainer/InfoContent/InfoScore" groups=["manual_translation"]]
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "<info_score_multiplier_desc>"
+fit_content = true
+scroll_active = false
+shortcut_keys_enabled = false
+
+[node name="Return" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_bottom = -6.0
+grow_vertical = 0
+shortcut = ExtResource("6_g5t76")
+shortcut_in_tooltip = false
+text = "BUTTON_RETURN"

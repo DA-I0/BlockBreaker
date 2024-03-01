@@ -1,0 +1,91 @@
+[gd_scene load_steps=6 format=3 uid="uid://b0nv0tb61h4oc"]
+
+[ext_resource type="Texture2D" uid="uid://crx7mhj1mb27o" path="res://assets/sprites/interactables/speed_pad.png" id="1_1d21n"]
+[ext_resource type="Script" path="res://code/gameplay/interactables/SpeedPad.cs" id="1_ara8p"]
+
+[sub_resource type="Animation" id="Animation_8iu70"]
+resource_name = "idle_disabled"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:monitoring")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.501961)]
+}
+
+[sub_resource type="Animation" id="Animation_8l83x"]
+resource_name = "idle_enabled"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:monitoring")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wd4ti"]
+_data = {
+"idle_disabled": SubResource("Animation_8iu70"),
+"idle_enabled": SubResource("Animation_8l83x")
+}
+
+[node name="SpeedPad" type="Area2D" node_paths=PackedStringArray("_animator", "_timer", "_sprites")]
+collision_mask = 2
+script = ExtResource("1_ara8p")
+_cooldown = 2.0
+_animator = NodePath("Animator")
+_timer = NodePath("Timer")
+_sprites = []
+
+[node name="Trigger" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-5, -5, -1, -7, 1, -7, 5, -5, 5, 7, 3, 8, 1, 9, -1, 9, -3, 8, -5, 7)
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(-8, -7)
+texture = ExtResource("1_1d21n")
+centered = false
+
+[node name="Animator" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_wd4ti")
+}
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="OnBodyEntered"]
+[connection signal="timeout" from="Timer" to="." method="Toggle"]

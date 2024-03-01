@@ -9,7 +9,7 @@ public partial class SafetyNet : Pickup
 		if (safetyNet != null)
 		{
 			refs.gameElements.RemoveChild(safetyNet);
-			safetyNet.QueueFree();
+			((ObjectCleaner)safetyNet).Destroy();
 		}
 
 		safetyNet = ResourceLoader.Load<PackedScene>("res://prefabs/safety_net.tscn").Instantiate();

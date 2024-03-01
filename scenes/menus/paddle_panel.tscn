@@ -1,0 +1,169 @@
+[gd_scene load_steps=17 format=3 uid="uid://b2pir58gb6mba"]
+
+[ext_resource type="Script" path="res://code/ui/UIPaddlePanel.cs" id="1_0dbns"]
+[ext_resource type="Texture2D" uid="uid://dnhfga4qcm0xk" path="res://assets/sprites/ui_elements/buttons/ui_icon_status_disabled.png" id="2_rk5kc"]
+[ext_resource type="Shortcut" uid="uid://b0g14u724bnvg" path="res://shortcuts/previous.tres" id="2_suvvh"]
+[ext_resource type="Texture2D" uid="uid://cbeh40qu6hwk0" path="res://assets/sprites/ui_elements/buttons/ui_icon_status_enabled.png" id="3_m8cgv"]
+[ext_resource type="Texture2D" uid="uid://bkkbuv1lumwpe" path="res://assets/sprites/ui_elements/buttons/ui_icon_arrow_left.png" id="3_xsgim"]
+[ext_resource type="Texture2D" uid="uid://cy50s2cbk4uju" path="res://assets/sprites/ui_elements/buttons/ui_icon_arrow_left_pressed.png" id="4_wpxwm"]
+[ext_resource type="Texture2D" uid="uid://d2igfcna5mbgv" path="res://assets/sprites/ui_elements/buttons/ui_icon_arrow_left_hover.png" id="5_xcs5x"]
+[ext_resource type="Texture2D" uid="uid://bmqn8ykrxswu5" path="res://assets/sprites/ui_elements/buttons/ui_icon_arrow_left_disabled.png" id="6_ksgky"]
+[ext_resource type="Shortcut" uid="uid://dbejlkyilhqj6" path="res://shortcuts/next.tres" id="7_pwmw3"]
+[ext_resource type="Texture2D" uid="uid://chk6oivvrr8nn" path="res://assets/sprites/ui_elements/buttons/ui_icon_arrow_right.png" id="8_62dvy"]
+[ext_resource type="Texture2D" uid="uid://1ucmb2n300ts" path="res://assets/sprites/ui_elements/buttons/ui_icon_arrow_right_pressed.png" id="9_1st2g"]
+[ext_resource type="Texture2D" uid="uid://bkkudkcwwl8ml" path="res://assets/sprites/ui_elements/buttons/ui_icon_arrow_right_hover.png" id="10_3hk83"]
+[ext_resource type="Texture2D" uid="uid://bbd31fqk7ctsp" path="res://assets/sprites/ui_elements/buttons/ui_icon_arrow_right_disabled.png" id="11_utjoo"]
+[ext_resource type="Texture2D" uid="uid://c6d4r5rvlnwnj" path="res://assets/sprites/game_area.png" id="12_1s8cm"]
+[ext_resource type="Shortcut" uid="uid://b5ydjlfn0ps7g" path="res://shortcuts/confirm.tres" id="13_llndj"]
+[ext_resource type="Shortcut" uid="uid://bhk5vranx2qfl" path="res://shortcuts/cancel.tres" id="14_12fea"]
+
+[node name="PaddlePanel" type="Panel" node_paths=PackedStringArray("_paddleSprite", "_paddleName", "_paddleDescription", "_paginatorParent", "_focusTarget", "_returnButton")]
+custom_minimum_size = Vector2(256, 224)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1_0dbns")
+_paddleSprite = NodePath("PaddleSprite")
+_paddleName = NodePath("PaddleName")
+_paddleDescription = NodePath("PaddleDescription")
+_paginatorParent = NodePath("ItemPaginator")
+_inactiveItemSprite = ExtResource("2_rk5kc")
+_activeItemSprite = ExtResource("3_m8cgv")
+_focusTarget = []
+_returnButton = NodePath("Return")
+_returnTarget = "GameSetupPanel"
+
+[node name="PaddleHeader" type="Panel" parent="."]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+
+[node name="PaddleHeaderLabel" type="Label" parent="PaddleHeader"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "HEADER_PADDLE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PreviousPaddle" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.1
+anchor_bottom = 1.0
+grow_vertical = 2
+pivot_offset = Vector2(0, 50)
+focus_mode = 1
+shortcut = ExtResource("2_suvvh")
+shortcut_in_tooltip = false
+texture_normal = ExtResource("3_xsgim")
+texture_pressed = ExtResource("4_wpxwm")
+texture_hover = ExtResource("5_xcs5x")
+texture_disabled = ExtResource("6_ksgky")
+texture_focused = ExtResource("5_xcs5x")
+stretch_mode = 5
+
+[node name="NextPaddle" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.9
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+pivot_offset = Vector2(100, 50)
+focus_mode = 1
+shortcut = ExtResource("7_pwmw3")
+shortcut_in_tooltip = false
+texture_normal = ExtResource("8_62dvy")
+texture_pressed = ExtResource("9_1st2g")
+texture_hover = ExtResource("10_3hk83")
+texture_disabled = ExtResource("11_utjoo")
+texture_focused = ExtResource("10_3hk83")
+stretch_mode = 5
+
+[node name="PaddleName" type="Label" parent="." groups=["font_timer_variant"]]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_right = 0.9
+offset_top = 21.0
+offset_bottom = 45.0
+theme_override_font_sizes/font_size = 22
+text = "paddle_name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PaddleSprite" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3
+anchor_top = 0.25
+anchor_right = 0.7
+anchor_bottom = 0.45
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(100, 100)
+texture = ExtResource("12_1s8cm")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="PaddleDescription" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.5
+anchor_right = 0.9
+anchor_bottom = 1.0
+offset_bottom = -21.0
+text = "paddle_desc"
+autowrap_mode = 2
+
+[node name="ItemPaginator" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="ConfirmPaddle" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 0
+focus_mode = 1
+shortcut = ExtResource("13_llndj")
+shortcut_in_tooltip = false
+text = "BUTTON_CONFIRM"
+
+[node name="Return" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_bottom = -6.0
+grow_vertical = 0
+focus_mode = 0
+shortcut = ExtResource("14_12fea")
+shortcut_in_tooltip = false
+text = "BUTTON_RETURN"
+
+[connection signal="pressed" from="PreviousPaddle" to="." method="ChangePaddle" binds= [false]]
+[connection signal="pressed" from="NextPaddle" to="." method="ChangePaddle" binds= [true]]
+[connection signal="pressed" from="ConfirmPaddle" to="." method="SelectPaddle"]

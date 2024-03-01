@@ -1,0 +1,443 @@
+[gd_scene load_steps=28 format=3 uid="uid://bxrvi55amlhny"]
+
+[ext_resource type="Script" path="res://code/ui/UIDifficultyPanel.cs" id="1_hl0tc"]
+[ext_resource type="Shortcut" uid="uid://b0g14u724bnvg" path="res://shortcuts/previous.tres" id="2_jhden"]
+[ext_resource type="Texture2D" uid="uid://bkkbuv1lumwpe" path="res://assets/sprites/ui_elements/buttons/ui_icon_arrow_left.png" id="3_i7062"]
+[ext_resource type="Texture2D" uid="uid://cy50s2cbk4uju" path="res://assets/sprites/ui_elements/buttons/ui_icon_arrow_left_pressed.png" id="4_w61dl"]
+[ext_resource type="Texture2D" uid="uid://d2igfcna5mbgv" path="res://assets/sprites/ui_elements/buttons/ui_icon_arrow_left_hover.png" id="5_h4tig"]
+[ext_resource type="Texture2D" uid="uid://bmqn8ykrxswu5" path="res://assets/sprites/ui_elements/buttons/ui_icon_arrow_left_disabled.png" id="6_8otev"]
+[ext_resource type="Shortcut" uid="uid://dbejlkyilhqj6" path="res://shortcuts/next.tres" id="7_oa6st"]
+[ext_resource type="Texture2D" uid="uid://chk6oivvrr8nn" path="res://assets/sprites/ui_elements/buttons/ui_icon_arrow_right.png" id="8_kjhlr"]
+[ext_resource type="Texture2D" uid="uid://1ucmb2n300ts" path="res://assets/sprites/ui_elements/buttons/ui_icon_arrow_right_pressed.png" id="9_blqh6"]
+[ext_resource type="Texture2D" uid="uid://bkkudkcwwl8ml" path="res://assets/sprites/ui_elements/buttons/ui_icon_arrow_right_hover.png" id="10_t0iuh"]
+[ext_resource type="Texture2D" uid="uid://bbd31fqk7ctsp" path="res://assets/sprites/ui_elements/buttons/ui_icon_arrow_right_disabled.png" id="11_mdyw8"]
+[ext_resource type="Texture2D" uid="uid://dnhfga4qcm0xk" path="res://assets/sprites/ui_elements/buttons/ui_icon_status_disabled.png" id="12_jovjc"]
+[ext_resource type="Shortcut" uid="uid://b5ydjlfn0ps7g" path="res://shortcuts/confirm.tres" id="12_lorva"]
+[ext_resource type="Texture2D" uid="uid://cbeh40qu6hwk0" path="res://assets/sprites/ui_elements/buttons/ui_icon_status_enabled.png" id="13_mxby1"]
+[ext_resource type="Shortcut" uid="uid://bhk5vranx2qfl" path="res://shortcuts/cancel.tres" id="13_yt11b"]
+[ext_resource type="Texture2D" uid="uid://cp27aowbjgp2l" path="res://assets/sprites/ui_elements/buttons/ui_icon_remove.png" id="14_uudvo"]
+[ext_resource type="Texture2D" uid="uid://cf0h3lftyyhft" path="res://assets/sprites/ui_elements/buttons/ui_icon_remove_pressed.png" id="15_gtx8j"]
+[ext_resource type="Texture2D" uid="uid://bdp7f07yfa3ey" path="res://assets/sprites/ui_elements/buttons/ui_icon_remove_hover.png" id="16_0am70"]
+[ext_resource type="Texture2D" uid="uid://bpgcu5lna27rb" path="res://assets/sprites/ui_elements/buttons/ui_icon_remove_disabled.png" id="17_ykg6o"]
+[ext_resource type="Texture2D" uid="uid://lmc6m32k03bw" path="res://assets/sprites/ui_elements/buttons/ui_icon_edit.png" id="18_do2p2"]
+[ext_resource type="Texture2D" uid="uid://c6pcnoxwm5sas" path="res://assets/sprites/ui_elements/buttons/ui_icon_edit_pressed.png" id="19_iitjb"]
+[ext_resource type="Texture2D" uid="uid://dx7ipshg4pe3u" path="res://assets/sprites/ui_elements/buttons/ui_icon_edit_hover.png" id="20_1janj"]
+[ext_resource type="Texture2D" uid="uid://bc1ny1ht3iahj" path="res://assets/sprites/ui_elements/buttons/ui_icon_edit_disabled.png" id="21_htgg4"]
+[ext_resource type="Texture2D" uid="uid://83kany0im6u1" path="res://assets/sprites/ui_elements/buttons/ui_icon_add.png" id="22_x63dr"]
+[ext_resource type="Texture2D" uid="uid://n2wtamb35ikq" path="res://assets/sprites/ui_elements/buttons/ui_icon_add_pressed.png" id="23_fyy7r"]
+[ext_resource type="Texture2D" uid="uid://b32gq7r2tvcf3" path="res://assets/sprites/ui_elements/buttons/ui_icon_add_hover.png" id="24_dlfm4"]
+[ext_resource type="Texture2D" uid="uid://bn53u7bjick3w" path="res://assets/sprites/ui_elements/buttons/ui_icon_add_disabled.png" id="25_cqq4c"]
+
+[node name="DifficultyPanel" type="Panel" node_paths=PackedStringArray("_name", "_newName", "_livesMax", "_livesMaxSlider", "_livesStart", "_livesStartSlider", "_ballSpeed", "_ballSpeedSlider", "_ballAngleSpeed", "_ballAngleSlider", "_paddleSizeMax", "_paddleSizeMaxSlider", "_paddleSizeStart", "_paddleSizeStartSlider", "_paddleSizeMin", "_paddleSizeMinSlider", "_advancingSpeed", "_advancingSpeedCheckButton", "_pickupSpeed", "_pickupSpeedSlider", "_previousDifficulty", "_nextDifficulty", "_nameEditControls", "_deleteDifficulty", "_editDifficulty", "_addDifficulty", "_focusHint", "_paginatorParent", "_focusTarget", "_returnButton")]
+custom_minimum_size = Vector2(256, 224)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1_hl0tc")
+_name = NodePath("DifficultyOptions/Name/NameLabel")
+_newName = NodePath("DifficultyOptions/Name/DifficultyNewName/LineEdit")
+_livesMax = NodePath("DifficultyOptions/MaxLives/LivesMaxLabel")
+_livesMaxSlider = NodePath("DifficultyOptions/MaxLives/LivesMaxSlider")
+_livesStart = NodePath("DifficultyOptions/StartingLives/LivesStartLabel")
+_livesStartSlider = NodePath("DifficultyOptions/StartingLives/LivesStartSlider")
+_ballSpeed = NodePath("DifficultyOptions/BallSpeed/BallSpeedLabel")
+_ballSpeedSlider = NodePath("DifficultyOptions/BallSpeed/BallSpeedSlider")
+_ballAngleSpeed = NodePath("DifficultyOptions/AngleSelectSpeed/AngleSelectLabel")
+_ballAngleSlider = NodePath("DifficultyOptions/AngleSelectSpeed/AngleSelectSlider")
+_paddleSizeMax = NodePath("DifficultyOptions/MaxPaddleSize/PaddleSizeMaxLabel")
+_paddleSizeMaxSlider = NodePath("DifficultyOptions/MaxPaddleSize/PaddleSizeMaxSlider")
+_paddleSizeStart = NodePath("DifficultyOptions/StartPaddleSize/PaddleSizeStartLabel")
+_paddleSizeStartSlider = NodePath("DifficultyOptions/StartPaddleSize/PaddleSizeStartSlider")
+_paddleSizeMin = NodePath("DifficultyOptions/MinPaddleSize/PaddleSizeMinLabel")
+_paddleSizeMinSlider = NodePath("DifficultyOptions/MinPaddleSize/PaddleSizeMinSlider")
+_advancingSpeed = NodePath("DifficultyOptions/AdvancingSpeed/AdvancingSpeedLabel")
+_advancingSpeedCheckButton = NodePath("DifficultyOptions/AdvancingSpeed/AdvancingSpeedToggle")
+_pickupSpeed = NodePath("DifficultyOptions/PickupSpeed/PickupSpeedLabel")
+_pickupSpeedSlider = NodePath("DifficultyOptions/PickupSpeed/PickupSpeedSlider")
+_previousDifficulty = NodePath("PreviousDifficulty")
+_nextDifficulty = NodePath("NextDifficulty")
+_nameEditControls = NodePath("DifficultyOptions/Name/DifficultyNewName")
+_deleteDifficulty = NodePath("CustomDifficultyButtons/DeleteDifficulty")
+_editDifficulty = NodePath("CustomDifficultyButtons/EditDifficulty")
+_addDifficulty = NodePath("CustomDifficultyButtons/AddDifficulty")
+_focusHint = NodePath("DifficultyOptions/DISCLAIMER_SWITCH_CONTROL_HINT")
+_paginatorParent = NodePath("ItemPaginator")
+_inactiveItemSprite = ExtResource("12_jovjc")
+_activeItemSprite = ExtResource("13_mxby1")
+_focusTarget = [null, NodePath("CustomDifficultyButtons/AddDifficulty")]
+_returnButton = NodePath("Return")
+_returnTarget = "GameSetupPanel"
+
+[node name="DifficultyHeader" type="Panel" parent="."]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+
+[node name="DifficultyHeaderLabel" type="Label" parent="DifficultyHeader"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "HEADER_DIFFICULTY"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PreviousDifficulty" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.1
+anchor_bottom = 1.0
+grow_vertical = 2
+pivot_offset = Vector2(0, 50)
+focus_mode = 0
+shortcut = ExtResource("2_jhden")
+shortcut_in_tooltip = false
+texture_normal = ExtResource("3_i7062")
+texture_pressed = ExtResource("4_w61dl")
+texture_hover = ExtResource("5_h4tig")
+texture_disabled = ExtResource("6_8otev")
+texture_focused = ExtResource("5_h4tig")
+stretch_mode = 5
+
+[node name="NextDifficulty" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.9
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+pivot_offset = Vector2(100, 50)
+focus_mode = 0
+shortcut = ExtResource("7_oa6st")
+shortcut_in_tooltip = false
+texture_normal = ExtResource("8_kjhlr")
+texture_pressed = ExtResource("9_blqh6")
+texture_hover = ExtResource("10_t0iuh")
+texture_disabled = ExtResource("11_mdyw8")
+texture_focused = ExtResource("10_t0iuh")
+stretch_mode = 5
+
+[node name="DifficultyOptions" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_right = 0.9
+anchor_bottom = 1.0
+offset_top = 24.0
+offset_bottom = -22.0
+focus_mode = 2
+
+[node name="Name" type="Control" parent="DifficultyOptions"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="DifficultyOptions/Name"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "<diff_name>"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DifficultyNewName" type="HBoxContainer" parent="DifficultyOptions/Name"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NewNameLabel" type="Label" parent="DifficultyOptions/Name/DifficultyNewName"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "DIFF_NAME"
+vertical_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="DifficultyOptions/Name/DifficultyNewName"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_neighbor_top = NodePath("../../../PickupSpeed/PickupSpeedSlider")
+focus_previous = NodePath("../../../PickupSpeed/PickupSpeedSlider")
+placeholder_text = "PLACEHOLDER_DIFF_NAME"
+
+[node name="MaxLives" type="HBoxContainer" parent="DifficultyOptions"]
+layout_mode = 2
+
+[node name="LivesMaxLabel" type="Label" parent="DifficultyOptions/MaxLives"]
+layout_mode = 2
+size_flags_horizontal = 3
+auto_translate = false
+text = "DIFF_LIVES_MAX"
+
+[node name="LivesMaxSlider" type="HSlider" parent="DifficultyOptions/MaxLives"]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 1.0
+max_value = 10.0
+value = 1.0
+rounded = true
+
+[node name="StartingLives" type="HBoxContainer" parent="DifficultyOptions"]
+layout_mode = 2
+
+[node name="LivesStartLabel" type="Label" parent="DifficultyOptions/StartingLives"]
+layout_mode = 2
+size_flags_horizontal = 3
+auto_translate = false
+text = "DIFF_LIVES_START"
+
+[node name="LivesStartSlider" type="HSlider" parent="DifficultyOptions/StartingLives"]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 1.0
+max_value = 10.0
+value = 1.0
+rounded = true
+
+[node name="BallSpeed" type="HBoxContainer" parent="DifficultyOptions"]
+layout_mode = 2
+
+[node name="BallSpeedLabel" type="Label" parent="DifficultyOptions/BallSpeed"]
+layout_mode = 2
+size_flags_horizontal = 3
+auto_translate = false
+text = "DIFF_BALL_SPEED"
+
+[node name="BallSpeedSlider" type="HSlider" parent="DifficultyOptions/BallSpeed"]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 0.5
+max_value = 1.5
+step = 0.1
+value = 0.5
+
+[node name="AngleSelectSpeed" type="HBoxContainer" parent="DifficultyOptions"]
+layout_mode = 2
+
+[node name="AngleSelectLabel" type="Label" parent="DifficultyOptions/AngleSelectSpeed"]
+layout_mode = 2
+size_flags_horizontal = 3
+auto_translate = false
+text = "DIFF_ANGLE_SPEED"
+
+[node name="AngleSelectSlider" type="HSlider" parent="DifficultyOptions/AngleSelectSpeed"]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 0.5
+max_value = 2.5
+step = 0.1
+value = 0.5
+
+[node name="MaxPaddleSize" type="HBoxContainer" parent="DifficultyOptions"]
+layout_mode = 2
+
+[node name="PaddleSizeMaxLabel" type="Label" parent="DifficultyOptions/MaxPaddleSize"]
+layout_mode = 2
+size_flags_horizontal = 3
+auto_translate = false
+text = "DIFF_PADDLE_SIZE_MAX"
+
+[node name="PaddleSizeMaxSlider" type="HSlider" parent="DifficultyOptions/MaxPaddleSize"]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 1.0
+max_value = 8.0
+value = 1.0
+rounded = true
+
+[node name="StartPaddleSize" type="HBoxContainer" parent="DifficultyOptions"]
+layout_mode = 2
+
+[node name="PaddleSizeStartLabel" type="Label" parent="DifficultyOptions/StartPaddleSize"]
+layout_mode = 2
+size_flags_horizontal = 3
+auto_translate = false
+text = "DIFF_PADDLE_SIZE_START"
+
+[node name="PaddleSizeStartSlider" type="HSlider" parent="DifficultyOptions/StartPaddleSize"]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 1.0
+max_value = 8.0
+value = 1.0
+rounded = true
+
+[node name="MinPaddleSize" type="HBoxContainer" parent="DifficultyOptions"]
+layout_mode = 2
+
+[node name="PaddleSizeMinLabel" type="Label" parent="DifficultyOptions/MinPaddleSize"]
+layout_mode = 2
+size_flags_horizontal = 3
+auto_translate = false
+text = "DIFF_PADDLE_SIZE_MIN"
+
+[node name="PaddleSizeMinSlider" type="HSlider" parent="DifficultyOptions/MinPaddleSize"]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 1.0
+max_value = 8.0
+value = 1.0
+rounded = true
+
+[node name="AdvancingSpeed" type="HBoxContainer" parent="DifficultyOptions"]
+layout_mode = 2
+
+[node name="AdvancingSpeedLabel" type="Label" parent="DifficultyOptions/AdvancingSpeed"]
+layout_mode = 2
+size_flags_horizontal = 3
+auto_translate = false
+text = "DIFF_ADVANCING_SPEED"
+
+[node name="AdvancingSpeedToggle" type="CheckButton" parent="DifficultyOptions/AdvancingSpeed"]
+layout_mode = 2
+flat = true
+
+[node name="PickupSpeed" type="HBoxContainer" parent="DifficultyOptions"]
+layout_mode = 2
+
+[node name="PickupSpeedLabel" type="Label" parent="DifficultyOptions/PickupSpeed"]
+layout_mode = 2
+size_flags_horizontal = 3
+auto_translate = false
+text = "DIFF_PADDLE_SIZE_MIN"
+
+[node name="PickupSpeedSlider" type="HSlider" parent="DifficultyOptions/PickupSpeed"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_neighbor_bottom = NodePath("../../Name/DifficultyNewName/LineEdit")
+focus_next = NodePath("../../Name/DifficultyNewName/LineEdit")
+min_value = 0.5
+max_value = 2.0
+step = 0.1
+value = 1.5
+
+[node name="Spacer" type="Control" parent="DifficultyOptions"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="DISCLAIMER_SWITCH_CONTROL_HINT" type="RichTextLabel" parent="DifficultyOptions" groups=["manual_translation"]]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "DISCLAIMER_SWITCH_CONTROL_HINT"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="ItemPaginator" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="ConfirmationButtons" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="ConfirmDifficulty" type="Button" parent="ConfirmationButtons"]
+layout_mode = 2
+focus_mode = 1
+shortcut = ExtResource("12_lorva")
+shortcut_in_tooltip = false
+text = "BUTTON_CONFIRM"
+
+[node name="CustomDifficultyButtons" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -5.0
+offset_bottom = -5.0
+grow_horizontal = 0
+grow_vertical = 0
+alignment = 2
+
+[node name="DeleteDifficulty" type="TextureButton" parent="CustomDifficultyButtons"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../AddDifficulty")
+focus_neighbor_right = NodePath("../EditDifficulty")
+focus_next = NodePath("../EditDifficulty")
+focus_previous = NodePath("../AddDifficulty")
+focus_mode = 1
+texture_normal = ExtResource("14_uudvo")
+texture_pressed = ExtResource("15_gtx8j")
+texture_hover = ExtResource("16_0am70")
+texture_disabled = ExtResource("17_ykg6o")
+texture_focused = ExtResource("16_0am70")
+
+[node name="EditDifficulty" type="TextureButton" parent="CustomDifficultyButtons"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../DeleteDifficulty")
+focus_neighbor_right = NodePath("../AddDifficulty")
+focus_next = NodePath("../AddDifficulty")
+focus_previous = NodePath("../DeleteDifficulty")
+texture_normal = ExtResource("18_do2p2")
+texture_pressed = ExtResource("19_iitjb")
+texture_hover = ExtResource("20_1janj")
+texture_disabled = ExtResource("21_htgg4")
+texture_focused = ExtResource("20_1janj")
+
+[node name="AddDifficulty" type="TextureButton" parent="CustomDifficultyButtons"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../EditDifficulty")
+focus_neighbor_right = NodePath("../DeleteDifficulty")
+focus_next = NodePath("../DeleteDifficulty")
+focus_previous = NodePath("../EditDifficulty")
+focus_mode = 1
+texture_normal = ExtResource("22_x63dr")
+texture_pressed = ExtResource("23_fyy7r")
+texture_hover = ExtResource("24_dlfm4")
+texture_disabled = ExtResource("25_cqq4c")
+texture_focused = ExtResource("24_dlfm4")
+
+[node name="Return" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_bottom = -6.0
+grow_vertical = 0
+focus_mode = 0
+shortcut = ExtResource("13_yt11b")
+shortcut_in_tooltip = false
+text = "BUTTON_RETURN"
+
+[connection signal="pressed" from="PreviousDifficulty" to="." method="ChangeDifficulty" binds= [false]]
+[connection signal="pressed" from="NextDifficulty" to="." method="ChangeDifficulty" binds= [true]]
+[connection signal="value_changed" from="DifficultyOptions/MaxLives/LivesMaxSlider" to="." method="UpdateEditorValues"]
+[connection signal="value_changed" from="DifficultyOptions/StartingLives/LivesStartSlider" to="." method="UpdateEditorValues"]
+[connection signal="value_changed" from="DifficultyOptions/BallSpeed/BallSpeedSlider" to="." method="UpdateEditorValues"]
+[connection signal="value_changed" from="DifficultyOptions/AngleSelectSpeed/AngleSelectSlider" to="." method="UpdateEditorValues"]
+[connection signal="value_changed" from="DifficultyOptions/MaxPaddleSize/PaddleSizeMaxSlider" to="." method="UpdateEditorValues"]
+[connection signal="value_changed" from="DifficultyOptions/StartPaddleSize/PaddleSizeStartSlider" to="." method="UpdateEditorValues"]
+[connection signal="value_changed" from="DifficultyOptions/MinPaddleSize/PaddleSizeMinSlider" to="." method="UpdateEditorValues"]
+[connection signal="value_changed" from="DifficultyOptions/PickupSpeed/PickupSpeedSlider" to="." method="UpdateEditorValues"]
+[connection signal="pressed" from="ConfirmationButtons/ConfirmDifficulty" to="." method="Confirm"]
+[connection signal="pressed" from="CustomDifficultyButtons/DeleteDifficulty" to="." method="DeleteDifficulty"]
+[connection signal="pressed" from="CustomDifficultyButtons/EditDifficulty" to="." method="EnableEditor" binds= [false]]
+[connection signal="pressed" from="CustomDifficultyButtons/AddDifficulty" to="." method="EnableEditor" binds= [true]]

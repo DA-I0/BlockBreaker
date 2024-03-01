@@ -1,0 +1,10 @@
+name="DIFF_DEFAULT_MEDIUM"
+maxLives=5
+startingLives=3
+ballSpeedMultiplier=1
+angleSelectSpeed=1.2
+maxPaddleSize=6
+startPaddleSize=3
+minPaddleSize=1
+advancingSpeed=false
+pickupSpeedMultiplier=1

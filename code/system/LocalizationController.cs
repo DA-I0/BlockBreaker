@@ -35,7 +35,7 @@ public partial class LocalizationController
 	private void LoadCustomValues()
 	{
 		_customValues.Clear();
-		string content = refs.fileOperations.LoadTextFile("res://assets/text/custom_text_values.txt");
+		string content = FileOperations.LoadTextFile("res://assets/text/custom_text_values.txt");
 		ParseCustomValues(content);
 	}
 
@@ -70,9 +70,9 @@ public partial class LocalizationController
 		{
 			string placeholder = modifiedString.Substring(placeholderStart, placeholderEnd - placeholderStart);
 
-			if (placeholder.Contains("game_"))
+			if (placeholder.Contains("game_") || placeholder.Contains("ui_"))
 			{
-				modifiedString = modifiedString.Replace(placeholder, GetInputSymbol(placeholder.Replace("{", "").Replace("}", ""), refs.settings.ActiveInputType.ToString())[0]);//GetInputValues(placeholder.Replace("{", "").Replace("}", "")));
+				modifiedString = modifiedString.Replace(placeholder, GetInputSymbol(placeholder.Replace("{", "").Replace("}", ""), refs.settings.ActiveInputType.ToString())[0]);
 			}
 			else
 			{

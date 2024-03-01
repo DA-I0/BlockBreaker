@@ -48,6 +48,7 @@ Down:🠇;
 Left:🠄;
 Right:🠆;
 Up:🠅;
+Shift+Tab:⒂+⒇;
 Joypad Axis 0 -:L⒯;
 Joypad Axis 0 +:L⒰;
 Joypad Motion on Axis 0:L⒫;

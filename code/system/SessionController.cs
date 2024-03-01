@@ -1,16 +1,16 @@
 using Godot;
 
-public enum GameState { gameplay, menu, pause, gameOver, gameWin }
+public enum GameState { gameplay, menu, pause, gameOver, gameWin, stageClear }
 
 public partial class SessionController : Node
 {
 	private GameState _gameState = GameState.menu;
-	private int _currentPaddle = -1;
-	private int _currentDifficulty = -1;
-	private int _currentLevel = -1;
+	private int _currentPaddle;
+	private int _currentDifficulty;
+	private int _currentLevel;
+	private int _currentSkill;
 
 	public GameData gameData;
-	public FileOperations fileOperations;
 	public Settings settings;
 	public LocalizationController localization;
 	[Export] public AudioController musicController;
@@ -21,7 +21,6 @@ public partial class SessionController : Node
 	[Export] public Node gameElements;
 
 	public Paddle paddle;
-	[Export] private Timer _skillTimer;
 
 	public event Notification LastBallLost; // can't be here, gotta move it to a single place
 	public event Notification GameStateChanged;
@@ -34,7 +33,22 @@ public partial class SessionController : Node
 		get { return _gameState; }
 	}
 
-	public Difficulty SelectedDifficulty
+	public int SelectedPaddleIndex
+	{
+		get { return _currentPaddle; }
+	}
+
+	public string SelectedPaddle
+	{
+		get { return $"res://prefabs/paddles/paddle_{_currentPaddle}.tscn"; }
+	}
+
+	public int SelectedDifficultyIndex
+	{
+		get { return _currentDifficulty; }
+	}
+
+	public BoGK.Models.Difficulty SelectedDifficulty
 	{
 		get { return gameData.Difficulties[_currentDifficulty]; }
 	}
@@ -44,14 +58,24 @@ public partial class SessionController : Node
 		get { return _currentDifficulty > (gameData.DefaultDifficultyCount - 1); }
 	}
 
-	public string SelectedPaddle
+	public int SelectedSkillIndex
 	{
-		get { return $"res://prefabs/paddles/paddle_{_currentPaddle}.tscn"; }
+		get { return _currentSkill; }
+	}
+
+	public Skill SelectedSkill
+	{
+		get { return gameData.Skills[_currentSkill]; }
 	}
 
 	public Godot.Collections.Array<Node> Balls
 	{
 		get { return gameElements.GetChild(0).GetChildren(); }
+	}
+
+	public bool IsLastLevel
+	{
+		get { return (gameData.Levels.Count - 1) == _currentLevel; }
 	}
 
 	public override void _Ready()
@@ -68,7 +92,6 @@ public partial class SessionController : Node
 	private void SetupReferences()
 	{
 		gameData = new GameData(this);
-		fileOperations = new FileOperations(this);
 		settings = new Settings(this);
 		localization = new LocalizationController(this);
 
@@ -98,7 +121,10 @@ public partial class SessionController : Node
 		ball.SetInitialValues(this);
 		gameElements.GetChild(0).AddChild(ball);
 
-		_skillTimer.Start();
+		SelectedSkill.Setup(this);
+		SelectedSkill.SkillReady += EnableSkill;
+		SelectedSkill.SkillUsed += UseSkillNotification;
+
 		GameSetup?.Invoke();
 	}
 
@@ -114,7 +140,7 @@ public partial class SessionController : Node
 		_currentLevel++;
 		if (gameData.Levels.Count > _currentLevel)
 		{
-			levelManager.LoadGameScene(gameData.Levels[_currentLevel]);
+			SelectLevel(_currentLevel);
 		}
 		else
 		{
@@ -125,25 +151,56 @@ public partial class SessionController : Node
 
 	private void ResetSession()
 	{
-		_currentPaddle = -1;
-		_currentDifficulty = -1;
+		SelectedSkill.SkillReady -= EnableSkill;
+		SelectedSkill.SkillUsed -= UseSkillNotification;
+
+		_currentPaddle = 1;
+		_currentDifficulty = 1;
 		_currentLevel = -1;
-		_skillTimer.Stop();
+		_currentSkill = 0;
+
 		ChangeGameState(GameState.menu);
 	}
 
 	public void ChangeGameState(GameState state)
 	{
 		_gameState = state;
-		GetTree().Paused = (_gameState == GameState.pause);
+		GetTree().Paused = (_gameState == GameState.pause) || (_gameState == GameState.gameOver) || (_gameState == GameState.gameWin);
 		Input.MouseMode = (_gameState == GameState.gameplay) ? Input.MouseModeEnum.Captured : Input.MouseModeEnum.Visible;
 		GameStateChanged?.Invoke();
 	}
 
 	public override void _Input(InputEvent @event)
 	{
-		Shake(@event);
+		UseSkill(@event);
+		SetActiveInputType(@event);
+	}
 
+	public void SetPaddle(int number)
+	{
+		_currentPaddle = number;
+	}
+
+	public void SetDifficulty(int index)
+	{
+		_currentDifficulty = index;
+	}
+
+	public void SetSkill(int index)
+	{
+		_currentSkill = index;
+	}
+
+	private void UseSkill(InputEvent @event)
+	{
+		if (_gameState == GameState.gameplay && @event.IsActionReleased("game_skill"))
+		{
+			SelectedSkill.Activate();
+		}
+	}
+
+	private void SetActiveInputType(InputEvent @event)
+	{
 		if (@event.AsText().Contains("Joypad"))
 		{
 			settings.ActiveInputType = InputType.Joypad;
@@ -159,36 +216,9 @@ public partial class SessionController : Node
 		settings.ActiveInputType = InputType.Keyboard;
 	}
 
-	public void SetPaddle(int number)
+	private void UseSkillNotification()
 	{
-		_currentPaddle = number;
-	}
-
-	public void SetDifficulty(int index)
-	{
-		_currentDifficulty = index;
-	}
-
-	private void Shake(InputEvent @event)
-	{
-		if (_gameState == GameState.gameplay && @event.IsActionReleased("game_skill"))
-		{
-			if (paddle.PaddleState != PaddleState.locked && _skillTimer.TimeLeft <= 0)
-			{
-				paddle.SetPaddleState(PaddleState.confused, 3f);
-
-				for (int i = 0; i < Balls.Count; i++)
-				{
-					float angleChange = GD.RandRange(5, 15);
-					int direction = GD.RandRange(-1, 1) < 0 ? -1 : 1;
-					((Ball)Balls[i]).ChangeRotation(angleChange * direction);
-				}
-
-				audioController.PlayAudio(3);
-				_skillTimer.Start();
-				SkillUsed?.Invoke();
-			}
-		}
+		SkillUsed?.Invoke();
 	}
 
 	private void EnableSkill()

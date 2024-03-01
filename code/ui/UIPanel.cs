@@ -1,29 +1,67 @@
 using Godot;
 
-public partial class UIPanel : Panel
+namespace BoGK.UI
 {
-	[Export] protected Control _focusTarget;
-
-	protected SessionController refs;
-	protected UIController uiController;
-
-	public override void _Ready()
+	public partial class UIPanel : Panel
 	{
-		SetupReferences();
-	}
+		[Export] protected UIController uiController;
+		[Export] protected Control[] _focusTarget;
+		[Export] private Button _returnButton;
+		[Export] protected string _returnTarget = string.Empty;
 
-	protected virtual void SetupReferences()
-	{
-		refs = GetNode("/root/GameController") as SessionController;
-		uiController = (UIController)GetNode("../..");
-		uiController.RefreshUI += Focus;
-	}
+		protected int _focusIndex = 0;
 
-	protected virtual void Focus()
-	{
-		if (Visible)
+		protected SessionController refs;
+
+		public override void _Ready()
 		{
-			_focusTarget.GrabFocus();
+			SetupBaseReferences();
+		}
+
+		public override void _Input(InputEvent @event)
+		{
+			if (!Visible)
+			{
+				return;
+			}
+
+			if (@event.IsActionPressed("ui_toggle_focus"))
+			{
+				ToggleFocus();
+			}
+		}
+
+		protected virtual void SetupBaseReferences()
+		{
+			refs = GetNode<SessionController>("/root/GameController");
+			uiController.RefreshUI += Focus;
+			_returnButton.Pressed += () => Return();
+		}
+
+		protected virtual void Focus()
+		{
+			if (Visible && _focusTarget.Length > 0)
+			{
+				_focusTarget[0].GrabFocus();
+			}
+		}
+
+		protected virtual void ToggleFocus()
+		{
+			if (_focusTarget == null || _focusTarget.Length < 1)
+			{
+				return;
+			}
+
+			_focusTarget[_focusIndex]?.ReleaseFocus();
+			_focusIndex = (_focusIndex < _focusTarget.Length - 1) ? _focusIndex + 1 : 0;
+
+			_focusTarget[_focusIndex]?.GrabFocus();
+		}
+
+		protected virtual void Return()
+		{
+			uiController.TogglePanel(_returnTarget);
 		}
 	}
 }

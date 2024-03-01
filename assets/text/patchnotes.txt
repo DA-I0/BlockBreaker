@@ -1,46 +1,50 @@
-[b][u]Prototype 2 - 01/12/2023[/u][/b]
-Quite a big update on both technical and feature levels.
-We have a new engine, a bunch of gameplay and system additions as well as first new tileset to spice things up.
+[b][u]Version 0.3.0 - 01/03/2024[/u][/b]
+New version is here!
 
-While there might be some growing pains due to porting to Godot and my limited experience with the engine I tried to keep them to minimum so the game stays playable and fun. Now, onto the changes!
+While the main focus for this release was on the technical aspects of the game I didn't forget about the player facing parts either.
+We have more content, more features, lots of improvements and bugfixes.
+
+Everything is work in progress, as always, but we're getting there.
 
 [b]Added:[/b]
-- 13 new levels
-- difficulty settings: 3 default presets + customization
-- new paddles: armed, curved, roguelike, bounce control
-- new pickups: bouncy paddle, freeze paddle, sticky paddle, reverse controls, slow ball
-- new breakables: chairs, explosives, fences, graves, pumpkins, tables
-- new decorations: benches, bookcase, candle stand, paintings, windows, wardrobes
-- new tileset: garden
+- 7 new levels
+- 3 new skills: ball control, emergency net, power ball
+- new paddle: split (experimental)
+- new interactable: speed pad
+- new difficulty: very hard
+- new difficulty modifiers: pickup speed multiplier, advancing speed (each destroyed breakable increases ball speed)
+- new UI & user settings
+- new accessibility settings
+- bonus points for clearing stages without losing a life
+- stage clear panel with score bonus summary
+- new map tile variants
 - new visual effects
-- player skill: screen shake (press {game_skill} during gameplay to shake the screen which randomly changes ball rotation and freezes paddle for a short time)
-- game over screen
-- local leaderboard
-- localization support, partial localization for German, Japanese and Polish languages
-- new user settings
+- new music tracks and playlist shuffle
 
 [b]Changed:[/b]
-- switched from Unity to Godot Engine
-- ball collision improvements
-- adjustments to original levels
-- default tileset improvements
-- UI layout and theming
+- updated Godot Engine to version 4.3 dev 3
+- paddle collision improvements
+- skill readiness from time delay to breakable destruction
+- minor difficulty adjustments
+- various level changes
+- various UI improvements: new game setup screen, pagination status, layout changes and more
+- improved keyboard/gamepad menu navigation
+- localization improvements
 
 [b]Fixed:[/b]
-- fullscreen toggle doesn't update to loaded state
-- weird ball collisions
+- ball slides over paddle when colliding under very small angle
+- language selection doesn't appear on first launch
+- difficulty removal button not working
+- control settings partially obscured by category buttons when using German or Japanese language
+- exit prompt displays mouse controls regardless of used control method
+- stage music is fully randomized, might select the same song multiple times
+- [Steam Deck] game is zoomed in, with about half of the window visible on screen
 
 [b]Known issues:[/b]
-- stage music is fully randomized, might select the same song multiple times
-- ball slides over paddle when colliding under very small angle
-- some UI elements require mouse to navigate
-- control settings partially obscured by category buttons when using German or Japanese language
-- [Steam Deck] game is zoomed in, with about half of the window visible on screen
+- some UI layout issues when using OpenDyslexic font
+- no on-screen keyboard for text boxes when using a controller
+- ball bounce animation appears frozen when triggered too often
+- [Steam Deck] random frame spikes
 - continuous lack of gophers
-
-[b]Important note:[/b]
-If you played the Unity version (Prototype 1) make sure to remove the "DA-I0" folder created by the game. You can find it at:
-- Linux: ~/.config/unity3d/unity3d/DA-I0
-- Windows: C:\Users\<user_name>\AppData\LocalLow\DA-I0
 
 

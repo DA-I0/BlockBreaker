@@ -1,32 +1,35 @@
 using Godot;
 
-public partial class UIPatchNotesPanel : UIPanel
+namespace BoGK.UI
 {
-	[Export] private RichTextLabel _content;
-
-	public override void _Ready()
+	public partial class UIPatchNotesPanel : UIPanel
 	{
-		SetupReferences();
-		LoadPatchNotes();
-	}
+		[Export] private RichTextLabel _content;
 
-	public void LoadPatchNotes()
-	{
-		_content.Text = refs.gameData.PatchNotes;
-	}
-
-	public override void _Input(InputEvent @event)
-	{
-		if (Visible)
+		public override void _Ready()
 		{
-			if (@event.IsActionPressed("ui_down"))
-			{
-				((ScrollContainer)_focusTarget).ScrollVertical += 10;
-			}
+			SetupBaseReferences();
+			LoadPatchNotes();
+		}
 
-			if (@event.IsActionPressed("ui_up"))
+		public void LoadPatchNotes()
+		{
+			_content.Text = refs.gameData.PatchNotes;
+		}
+
+		public override void _Input(InputEvent @event)
+		{
+			if (Visible)
 			{
-				((ScrollContainer)_focusTarget).ScrollVertical -= 10;
+				if (@event.IsActionPressed("ui_down"))
+				{
+					((ScrollContainer)_focusTarget[0]).ScrollVertical += 10;
+				}
+
+				if (@event.IsActionPressed("ui_up"))
+				{
+					((ScrollContainer)_focusTarget[0]).ScrollVertical -= 10;
+				}
 			}
 		}
 	}
