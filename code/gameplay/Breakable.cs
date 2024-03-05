@@ -13,7 +13,7 @@ public partial class Breakable : StaticBody2D
 	[Export] protected double _shakeDuration = 0.25f;
 
 	private Vector2 _defaultPosition;
-	private bool _isActive = true;
+	private bool _isDead;
 	protected int _health;
 
 	protected string _defaultSpritePath;
@@ -58,6 +58,11 @@ public partial class Breakable : StaticBody2D
 
 	public virtual void Damage(int value)
 	{
+		if (_isDead)
+		{
+			return;
+		}
+
 		_health -= value;
 
 		if (_health <= 0)
@@ -73,6 +78,7 @@ public partial class Breakable : StaticBody2D
 	{
 		_defaultPosition = _sprite.Position;
 		_health = _maxHealth;
+		_isDead = _health <= 0;
 		_defaultSpritePath = _sprite.Texture.ResourcePath;
 		ApplySpriteVariant();
 	}
@@ -109,7 +115,7 @@ public partial class Breakable : StaticBody2D
 
 	private void SpawnPickup()
 	{
-		if (_pickups == null || !_isActive)
+		if (_pickups == null || _isDead)
 		{
 			return;
 		}
@@ -128,7 +134,7 @@ public partial class Breakable : StaticBody2D
 	protected virtual void Destroy()
 	{
 		SpawnPickup();
-		_isActive = false;
+		_isDead = true;
 		refs.gameScore.ChangeScore(_pointValue);
 		QueueFree();
 	}
