@@ -232,4 +232,4 @@ hue_variation_min = -0.71
 hue_variation_max = 1.0
 
 [connection signal="timeout" from="ArrowSprite/Timer" to="." method="RotateArrow"]
-[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="OnScreenExited" binds= [false]]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="OnScreenExited"]

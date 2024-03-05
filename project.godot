@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Blockade of Gopher Keep"
-config/version="0.3.1"
+config/version="0.3.2"
 run/main_scene="res://prefabs/game_controller.tscn"
 config/features=PackedStringArray("4.3", "C#", "Mobile")
 boot_splash/bg_color=Color(0, 0, 0, 1)
