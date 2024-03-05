@@ -407,7 +407,7 @@ public partial class Ball : CharacterBody2D
 		}
 	}
 
-	private void OnScreenExited(bool levelChange = false)
+	private void OnScreenExited()
 	{
 		if (refs.Balls.Count > 1)
 		{
@@ -415,22 +415,19 @@ public partial class Ball : CharacterBody2D
 		}
 		else
 		{
-			if (!levelChange)
-			{
-				refs.health.ChangeLives(-1);
-			}
-			else
-			{
-				StateReset();
-			}
+			refs.health.ChangeLives(-1);
 		}
 	}
 
 	private void SceneChangeCleanup()
 	{
-		if (refs.Balls[0] != this)
+		if (refs.Balls[0] == this)
 		{
-			OnScreenExited(true);
+			StateReset();
+		}
+		else
+		{
+			Destroy();
 		}
 	}
 
@@ -439,6 +436,12 @@ public partial class Ball : CharacterBody2D
 		refs.levelManager.ResetSession -= Destroy;
 		refs.levelManager.SceneChanged -= SceneChangeCleanup;
 		refs.health.ResetElements -= Reset;
+
+		if (refs.SelectedDifficulty.AdvancingSpeed)
+		{
+			refs.gameScore.ScoreChanged -= AdvancingSpeed;
+		}
+
 		QueueFree();
 	}
 }
