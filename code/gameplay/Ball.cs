@@ -433,6 +433,7 @@ public partial class Ball : CharacterBody2D
 
 	private void Destroy()
 	{
+		GetParent().RemoveChild(this);
 		refs.levelManager.ResetSession -= Destroy;
 		refs.levelManager.SceneChanged -= SceneChangeCleanup;
 		refs.health.ResetElements -= Reset;
