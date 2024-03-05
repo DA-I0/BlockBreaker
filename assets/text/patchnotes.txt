@@ -1,3 +1,16 @@
+[b][u]Version 0.3.2 - 05/03/2024[/u][/b]
+More hotfixes for game breaking bugs.
+
+[b]Fixed:[/b]
+- ball not resetting properly during scene change
+- handling and cleanup of destroyed balls
+- handling and cleanup of destroyed breakables
+
+[b][u]Version 0.3.1 - 04/03/2024[/u][/b]
+I'm not sure how I missed it but blocks in stages 2 and 3 were missing all of their properties, which means no points, pickups and possible issues.
+
+This release fixes that.
+
 [b][u]Version 0.3.0 - 01/03/2024[/u][/b]
 New version is here!
 
