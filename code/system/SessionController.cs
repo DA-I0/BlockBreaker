@@ -9,6 +9,7 @@ public partial class SessionController : Node
 	private int _currentDifficulty;
 	private int _currentLevel;
 	private int _currentSkill;
+	private int _sessionLength;
 
 	public GameData gameData;
 	public Settings settings;
@@ -66,6 +67,12 @@ public partial class SessionController : Node
 	public Skill SelectedSkill
 	{
 		get { return gameData.Skills[_currentSkill]; }
+	}
+
+	public int SessionLength
+	{
+		get { return _sessionLength; }
+		set { _sessionLength = value; }
 	}
 
 	public Godot.Collections.Array<Node> Balls
@@ -130,17 +137,19 @@ public partial class SessionController : Node
 
 	public void SelectLevel(int levelIndex)
 	{
-		_currentLevel = levelIndex;
-		levelManager.LoadGameScene(gameData.Levels[_currentLevel]);
+		_currentLevel = 0;
+		levelManager.SetupSessionLevels(levelIndex, SessionLength);
+		levelManager.SelectSessionLevel(_currentLevel);
 		ChangeGameState(GameState.gameplay);
 	}
 
 	public void AdvanceCurrentLevel()
 	{
 		_currentLevel++;
-		if (gameData.Levels.Count > _currentLevel)
+
+		if (SessionLength > _currentLevel)
 		{
-			SelectLevel(_currentLevel);
+			levelManager.SelectSessionLevel(_currentLevel);
 		}
 		else
 		{

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Godot;
 
 public delegate void Notification();
@@ -7,6 +8,8 @@ public partial class LevelManager : Node
 {
 	private Node _currentScene;
 	private Node _loadingScreen;
+
+	private List<string> _sessionLevels = new List<string>();
 
 	public event Notification ResetSession;
 	public event Notification SceneChanged;
@@ -37,6 +40,28 @@ public partial class LevelManager : Node
 		SetupNewScene(scenePath);
 		SceneChanged?.Invoke();
 		SceneChangedWithInfo?.Invoke(sceneName);
+	}
+
+	public void SetupSessionLevels(int startingIndex, int sessionLength)
+	{
+		_sessionLevels.Clear();
+
+		int remainingLength = refs.gameData.Levels.Count - (startingIndex + sessionLength);
+
+		if (remainingLength >= 0)
+		{
+			_sessionLevels = refs.gameData.Levels.GetRange(startingIndex, sessionLength);
+		}
+		else
+		{
+			_sessionLevels = refs.gameData.Levels.GetRange(startingIndex, refs.gameData.Levels.Count - startingIndex);
+			_sessionLevels.AddRange(refs.gameData.Levels.GetRange(0, -remainingLength));
+		}
+	}
+
+	public void SelectSessionLevel(int index)
+	{
+		LoadGameScene(_sessionLevels[index]);
 	}
 
 	private void SetupReferences()

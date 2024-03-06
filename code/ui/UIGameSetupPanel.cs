@@ -9,6 +9,8 @@ namespace BoGK.UI
 		[Export] private Button _paddleButton;
 		[Export] private Button _difficultyButton;
 		[Export] private Button _skillButton;
+		[Export] private Label _sessionLengthLabel;
+		[Export] private HSlider _sessionLengthSlider;
 
 		private int _lastActivePanel = -1;
 
@@ -19,6 +21,8 @@ namespace BoGK.UI
 			SetupBaseReferences();
 			SetupReferences();
 			PopulateLevels();
+			_sessionLengthSlider.MaxValue = refs.gameData.Levels.Count;
+			_sessionLengthSlider.Value = refs.gameData.Levels.Count;
 		}
 
 		private void PopulateLevels()
@@ -136,6 +140,12 @@ namespace BoGK.UI
 		{
 			_lastActivePanel = 2;
 			uiController.TogglePanel("DifficultyPanel");
+		}
+
+		private void SetSessionLength(float value)
+		{
+			refs.SessionLength = (int)value;
+			_sessionLengthLabel.Text = $"{Tr("LABEL_SESSION_LENGTH")}: {(int)value}";
 		}
 	}
 }

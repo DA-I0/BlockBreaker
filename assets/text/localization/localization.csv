@@ -69,6 +69,7 @@ LABEL_DIFFICULTY,Difficulty,Schwierigkeitsgrad,難易度,Poziom trudności
 LABEL_PADDLE,Paddle,Schläger,パドル,Paletka
 LABEL_PERFECT_CLEAR,Perfect clear,,,
 LABEL_SCORE_MULTIPLIER,Score multiplier,,,
+LABEL_SESSION_LENGTH,Session length,,,
 LABEL_SKILL,Skill,Fähigkeiten,スキル,Umiejętność
 LABEL_TIME_LEFT,Time left,Zeit übrig,残り時間,Pozostały czas
 LEVEL,Stage,Level,ステージ,Poziom
