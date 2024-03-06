@@ -35,7 +35,7 @@ namespace BoGK.UI
 			{
 				if (!languageNames.Contains(languageCode))
 				{
-					languageNames.Add(TranslationServer.GetLanguageName(languageCode));
+					languageNames.Add(HelperMethods.GetLocalizedLanguage(languageCode));
 				}
 			}
 

@@ -72,6 +72,7 @@ LABEL_SCORE_MULTIPLIER,Score multiplier,,,
 LABEL_SESSION_LENGTH,Session length,,,
 LABEL_SKILL,Skill,Fähigkeiten,スキル,Umiejętność
 LABEL_TIME_LEFT,Time left,Zeit übrig,残り時間,Pozostały czas
+LANGUAGE_NAME,English,Deutsch,日本語,Polski
 LEVEL,Stage,Level,ステージ,Poziom
 MSG_ADVANCE_TO_NEXT_MAP,Press {game_play} to continue...,Drücke {game_play} um fortzufahren,続けるには{game_play}ボタンを押す,Wciśnij {game_play} aby kontynuować…
 MSG_LOADING,Loading...,Lädt…,ローディング中…,Ładowanie…

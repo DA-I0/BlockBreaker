@@ -130,7 +130,7 @@ namespace BoGK.UI // TODO: break each category into a separate scene
 
 		private void UpdateSettings()
 		{
-			_language.Selected = FindOptionIndex(_language, TranslationServer.GetLanguageName(refs.settings.Language));
+			_language.Selected = FindOptionIndex(_language, HelperMethods.GetLocalizedLanguage(refs.settings.Language));
 			_font.Selected = refs.settings.Font;
 			_controllerType.Selected = FindOptionIndex(_controllerType, refs.settings.ControlerPrompts);
 			_livesDisplay.ButtonPressed = refs.settings.LivesAsText;
@@ -246,7 +246,7 @@ namespace BoGK.UI // TODO: break each category into a separate scene
 			{
 				if (!languageNames.Contains(languageCode))
 				{
-					languageNames.Add(TranslationServer.GetLanguageName(languageCode));
+					languageNames.Add(HelperMethods.GetLocalizedLanguage(languageCode));
 				}
 			}
 

@@ -71,4 +71,9 @@ public static class HelperMethods
 
 		return true;
 	}
+
+	public static string GetLocalizedLanguage(string languageCode)
+	{
+		return TranslationServer.GetTranslationObject(languageCode).GetMessage("LANGUAGE_NAME");
+	}
 }
