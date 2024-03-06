@@ -11,6 +11,7 @@ namespace BoGK.UI
 		[Export] private Button _skillButton;
 		[Export] private Label _sessionLengthLabel;
 		[Export] private HSlider _sessionLengthSlider;
+		[Export] private CheckButton _randomizeStagesButton;
 
 		private int _lastActivePanel = -1;
 
@@ -91,6 +92,7 @@ namespace BoGK.UI
 				UpdateSelectedPaddle();
 				UpdateSelectedDifficulty();
 				UpdateSelectedSkill();
+				UpdateSessionCustomization();
 				_lastActivePanel = -1;
 			}
 		}
@@ -124,6 +126,11 @@ namespace BoGK.UI
 			_skillButton.Text = Tr($"SKILL_{refs.SelectedSkill.ToString().ToUpper()}_NAME");
 		}
 
+		private void UpdateSessionCustomization()
+		{
+			_randomizeStagesButton.SetPressedNoSignal(refs.ShuffleStages);
+		}
+
 		private void DisplayPaddlePanel()
 		{
 			_lastActivePanel = 0;
@@ -146,6 +153,11 @@ namespace BoGK.UI
 		{
 			refs.SessionLength = (int)value;
 			_sessionLengthLabel.Text = $"{Tr("LABEL_SESSION_LENGTH")}: {(int)value}";
+		}
+
+		private void SetStageShuffle(bool setActive)
+		{
+			refs.ShuffleStages = setActive;
 		}
 	}
 }

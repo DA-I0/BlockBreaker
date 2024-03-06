@@ -57,6 +57,8 @@ public partial class LevelManager : Node
 			_sessionLevels = refs.gameData.Levels.GetRange(startingIndex, refs.gameData.Levels.Count - startingIndex);
 			_sessionLevels.AddRange(refs.gameData.Levels.GetRange(0, -remainingLength));
 		}
+
+		ShuffleStageList();
 	}
 
 	public void SelectSessionLevel(int index)
@@ -106,5 +108,21 @@ public partial class LevelManager : Node
 		}
 
 		RemoveChild(_loadingScreen);
+	}
+
+	private void ShuffleStageList()
+	{
+		if (refs.ShuffleStages)
+		{
+			System.Random randomizer = new System.Random();
+
+			for (int index = _sessionLevels.Count - 1; index > 0; index--)
+			{
+				int randomIndex = randomizer.Next(index + 1);
+				string value = _sessionLevels[randomIndex];
+				_sessionLevels[randomIndex] = _sessionLevels[index];
+				_sessionLevels[index] = value;
+			}
+		}
 	}
 }

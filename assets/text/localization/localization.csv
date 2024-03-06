@@ -70,6 +70,7 @@ LABEL_PADDLE,Paddle,Schläger,パドル,Paletka
 LABEL_PERFECT_CLEAR,Perfect clear,,,
 LABEL_SCORE_MULTIPLIER,Score multiplier,,,
 LABEL_SESSION_LENGTH,Session length,,,
+LABEL_SHUFFLE_STAGES,Shuffle stages,,,
 LABEL_SKILL,Skill,Fähigkeiten,スキル,Umiejętność
 LABEL_TIME_LEFT,Time left,Zeit übrig,残り時間,Pozostały czas
 LANGUAGE_NAME,English,Deutsch,日本語,Polski

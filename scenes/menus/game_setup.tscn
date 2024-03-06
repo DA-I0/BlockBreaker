@@ -12,7 +12,7 @@ texture_margin_top = 1.0
 texture_margin_right = 5.0
 region_rect = Rect2(4, 4, 12, 8)
 
-[node name="GameSetupPanel" type="Panel" node_paths=PackedStringArray("_levelGrid", "_paddleButton", "_difficultyButton", "_skillButton", "_sessionLengthLabel", "_sessionLengthSlider", "_focusTarget", "_returnButton")]
+[node name="GameSetupPanel" type="Panel" node_paths=PackedStringArray("_levelGrid", "_paddleButton", "_difficultyButton", "_skillButton", "_sessionLengthLabel", "_sessionLengthSlider", "_randomizeStagesButton", "_focusTarget", "_returnButton")]
 custom_minimum_size = Vector2(256, 224)
 anchors_preset = 15
 anchor_right = 1.0
@@ -30,6 +30,7 @@ _difficultyButton = NodePath("MainContent/SidePanel/VBoxContainer/DifficultyButt
 _skillButton = NodePath("MainContent/SidePanel/VBoxContainer/SkillButton")
 _sessionLengthLabel = NodePath("MainContent/SidePanel/VBoxContainer/SessionLengthLabel")
 _sessionLengthSlider = NodePath("MainContent/SidePanel/VBoxContainer/SessionLengthSlider")
+_randomizeStagesButton = NodePath("MainContent/SidePanel/VBoxContainer/RandomizeStagesCheckButton")
 _focusTarget = [NodePath("MainContent/SidePanel/VBoxContainer/PaddleButton")]
 _returnButton = NodePath("MainContent/SidePanel/VBoxContainer/Return")
 
@@ -77,11 +78,11 @@ text = "LABEL_PADDLE"
 [node name="PaddleButton" type="Button" parent="MainContent/SidePanel/VBoxContainer"]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
-focus_neighbor_top = NodePath("../Return")
+focus_neighbor_top = NodePath("../RandomizeStagesCheckButton")
 focus_neighbor_right = NodePath(".")
 focus_neighbor_bottom = NodePath("../SkillButton")
 focus_next = NodePath("../SkillButton")
-focus_previous = NodePath("../Return")
+focus_previous = NodePath("../RandomizeStagesCheckButton")
 icon = ExtResource("4_f1u0x")
 icon_alignment = 1
 
@@ -118,8 +119,8 @@ text = "LABEL_DIFFICULTY"
 layout_mode = 2
 focus_neighbor_top = NodePath("../SkillButton")
 focus_neighbor_right = NodePath(".")
-focus_neighbor_bottom = NodePath("../Return")
-focus_next = NodePath("../Return")
+focus_neighbor_bottom = NodePath("../SessionLengthSlider")
+focus_next = NodePath("../SessionLengthSlider")
 focus_previous = NodePath("../SkillButton")
 text = "selected_diff"
 
@@ -133,12 +134,31 @@ text = "LABEL_SESSION_LENGTH"
 
 [node name="SessionLengthSlider" type="HSlider" parent="MainContent/SidePanel/VBoxContainer"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../DifficultyButton")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../RandomizeStagesCheckButton")
+focus_next = NodePath("../RandomizeStagesCheckButton")
+focus_previous = NodePath("../DifficultyButton")
 min_value = 1.0
 max_value = 1.0
 value = 1.0
 rounded = true
 
 [node name="Spacer4" type="Control" parent="MainContent/SidePanel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="RandomizeStagesCheckButton" type="CheckButton" parent="MainContent/SidePanel/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../SessionLengthSlider")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../PaddleButton")
+focus_next = NodePath("../PaddleButton")
+focus_previous = NodePath("../SessionLengthSlider")
+text = "LABEL_SHUFFLE_STAGES"
+flat = true
+
+[node name="Spacer6" type="Control" parent="MainContent/SidePanel/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 10
 
@@ -189,3 +209,4 @@ scroll_active = false
 autowrap_mode = 0
 
 [connection signal="value_changed" from="MainContent/SidePanel/VBoxContainer/SessionLengthSlider" to="." method="SetSessionLength"]
+[connection signal="toggled" from="MainContent/SidePanel/VBoxContainer/RandomizeStagesCheckButton" to="." method="SetStageShuffle"]

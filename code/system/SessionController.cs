@@ -10,6 +10,7 @@ public partial class SessionController : Node
 	private int _currentLevel;
 	private int _currentSkill;
 	private int _sessionLength;
+	private bool _shuffleStages;
 
 	public GameData gameData;
 	public Settings settings;
@@ -73,6 +74,12 @@ public partial class SessionController : Node
 	{
 		get { return _sessionLength; }
 		set { _sessionLength = value; }
+	}
+
+	public bool ShuffleStages
+	{
+		get { return _shuffleStages; }
+		set { _shuffleStages = value; }
 	}
 
 	public Godot.Collections.Array<Node> Balls
@@ -167,6 +174,7 @@ public partial class SessionController : Node
 		_currentDifficulty = 1;
 		_currentLevel = -1;
 		_currentSkill = 0;
+		_shuffleStages = false;
 
 		ChangeGameState(GameState.menu);
 	}
