@@ -1,0 +1,148 @@
+[gd_scene load_steps=3 format=3 uid="uid://h7igipx5q2nn"]
+
+[ext_resource type="Script" path="res://code/ui/UICustomSessionPanel.cs" id="1_jsgpn"]
+[ext_resource type="Shortcut" uid="uid://bhk5vranx2qfl" path="res://shortcuts/cancel.tres" id="16_yme4c"]
+
+[node name="CustomSettingsPanel" type="Panel" node_paths=PackedStringArray("_customSessionLengthButton", "_sessionLengthLabel", "_sessionLengthSlider", "_shuffleStagesButton", "_focusTarget", "_returnButton")]
+custom_minimum_size = Vector2(256, 224)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1_jsgpn")
+_customSessionLengthButton = NodePath("VBoxContainer/CustomSessionLength/CustomSessionLengthCheckButton")
+_sessionLengthLabel = NodePath("VBoxContainer/CustomStageCount/CustomStageCountLabel")
+_sessionLengthSlider = NodePath("VBoxContainer/CustomStageCount/CustomStageCountSlider")
+_shuffleStagesButton = NodePath("VBoxContainer/ShuffleStages/ShuffleStagesCheckButton")
+_focusTarget = [NodePath("VBoxContainer/CustomSessionLength/CustomSessionLengthCheckButton")]
+_returnButton = NodePath("Return")
+_returnTarget = "GameSetupPanel"
+
+[node name="CustomSettingsHeader" type="Panel" parent="."]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+
+[node name="CustomSettingsHeaderLabel" type="Label" parent="CustomSettingsHeader"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "HEADER_PADDLE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_right = 0.9
+anchor_bottom = 1.0
+offset_top = 24.0
+offset_bottom = -22.0
+
+[node name="CustomSessionLength" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+
+[node name="CustomSessionLengthLabel" type="Label" parent="VBoxContainer/CustomSessionLength"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.6
+anchor_bottom = 1.0
+text = "LABEL_ENABLE_CUSTOM_SESSION_LENGTH"
+
+[node name="CustomSessionLengthCheckButton" type="CheckButton" parent="VBoxContainer/CustomSessionLength"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.6
+anchor_right = 1.0
+anchor_bottom = 1.0
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../../../ConfirmPaddle")
+focus_neighbor_right = NodePath(".")
+focus_previous = NodePath("../../../ConfirmPaddle")
+flat = true
+
+[node name="CustomStageCount" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+
+[node name="CustomStageCountLabel" type="Label" parent="VBoxContainer/CustomStageCount"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.6
+anchor_bottom = 1.0
+text = "LABEL_SESSION_LENGTH"
+
+[node name="CustomStageCountSlider" type="HSlider" parent="VBoxContainer/CustomStageCount"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.6
+anchor_right = 1.0
+anchor_bottom = 1.0
+focus_neighbor_left = NodePath(".")
+focus_neighbor_right = NodePath(".")
+min_value = 1.0
+value = 1.0
+rounded = true
+
+[node name="ShuffleStages" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+
+[node name="ShuffleStagesLabel" type="Label" parent="VBoxContainer/ShuffleStages"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.6
+anchor_bottom = 1.0
+text = "LABEL_SHUFFLE_STAGES"
+
+[node name="ShuffleStagesCheckButton" type="CheckButton" parent="VBoxContainer/ShuffleStages"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.6
+anchor_right = 1.0
+anchor_bottom = 1.0
+focus_neighbor_left = NodePath(".")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../../../ConfirmPaddle")
+focus_next = NodePath("../../../ConfirmPaddle")
+flat = true
+
+[node name="ConfirmPaddle" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 0
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../VBoxContainer/ShuffleStages/ShuffleStagesCheckButton")
+focus_neighbor_bottom = NodePath("../VBoxContainer/CustomSessionLength/CustomSessionLengthCheckButton")
+focus_next = NodePath("../VBoxContainer/CustomSessionLength/CustomSessionLengthCheckButton")
+focus_previous = NodePath("../VBoxContainer/ShuffleStages/ShuffleStagesCheckButton")
+shortcut_in_tooltip = false
+text = "BUTTON_CONFIRM"
+
+[node name="Return" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_bottom = -6.0
+grow_vertical = 0
+focus_mode = 0
+shortcut = ExtResource("16_yme4c")
+shortcut_in_tooltip = false
+text = "BUTTON_RETURN"
+
+[connection signal="toggled" from="VBoxContainer/CustomSessionLength/CustomSessionLengthCheckButton" to="." method="ToggleCustomSessionLength"]
+[connection signal="value_changed" from="VBoxContainer/CustomStageCount/CustomStageCountSlider" to="." method="UpdateSessionLengthText"]
+[connection signal="pressed" from="ConfirmPaddle" to="." method="SetSessionSettings"]

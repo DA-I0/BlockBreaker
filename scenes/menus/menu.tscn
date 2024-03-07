@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://2bhhrfvm7kux"]
+[gd_scene load_steps=13 format=3 uid="uid://2bhhrfvm7kux"]
 
 [ext_resource type="Script" path="res://code/ui/UIController.cs" id="1_5bop1"]
 [ext_resource type="PackedScene" uid="uid://drfe6ou5jke8d" path="res://scenes/menus/leaderboard_panel.tscn" id="2_faxfe"]
 [ext_resource type="PackedScene" uid="uid://b2pir58gb6mba" path="res://scenes/menus/paddle_panel.tscn" id="3_nju35"]
 [ext_resource type="PackedScene" uid="uid://bxrvi55amlhny" path="res://scenes/menus/difficulty_panel.tscn" id="4_4tq2l"]
+[ext_resource type="PackedScene" uid="uid://h7igipx5q2nn" path="res://scenes/menus/custom_settings_panel.tscn" id="6_4weu7"]
 [ext_resource type="PackedScene" uid="uid://d2lh5jna47ms" path="res://scenes/menus/info_panel.tscn" id="7_1to6h"]
 [ext_resource type="PackedScene" uid="uid://d1ubicvpl60sr" path="res://scenes/menus/patch_notes_panel.tscn" id="8_e7mht"]
 [ext_resource type="PackedScene" uid="uid://ier2relg61ni" path="res://scenes/menus/options_panel.tscn" id="9_v0j1q"]
@@ -194,7 +195,20 @@ _paginatorParent = NodePath("ItemPaginator")
 uiController = NodePath("../..")
 _returnButton = NodePath("Return")
 
-[node name="GameSetupPanel" parent="Control" node_paths=PackedStringArray("_levelGrid", "_paddleButton", "_difficultyButton", "_skillButton", "uiController", "_focusTarget", "_returnButton") instance=ExtResource("31_xmcps")]
+[node name="CustomSettingsPanel" parent="Control" node_paths=PackedStringArray("_customSessionLengthButton", "_sessionLengthLabel", "_sessionLengthSlider", "_shuffleStagesButton", "uiController", "_focusTarget", "_returnButton") instance=ExtResource("6_4weu7")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+_customSessionLengthButton = NodePath("VBoxContainer/CustomSessionLength/CustomSessionLengthCheckButton")
+_sessionLengthLabel = NodePath("VBoxContainer/CustomStageCount/CustomStageCountLabel")
+_sessionLengthSlider = NodePath("VBoxContainer/CustomStageCount/CustomStageCountSlider")
+_shuffleStagesButton = NodePath("VBoxContainer/ShuffleStages/ShuffleStagesCheckButton")
+uiController = NodePath("../..")
+_focusTarget = [NodePath("VBoxContainer/CustomSessionLength/CustomSessionLengthCheckButton")]
+_returnButton = NodePath("Return")
+
+[node name="GameSetupPanel" parent="Control" node_paths=PackedStringArray("_levelGrid", "_paddleButton", "_difficultyButton", "_skillButton", "_customSettingsButton", "uiController", "_focusTarget", "_returnButton") instance=ExtResource("31_xmcps")]
 layout_mode = 1
 offset_right = 0.0
 offset_bottom = 0.0
@@ -202,6 +216,7 @@ _levelGrid = NodePath("MainContent/LevelsContainer/Levels")
 _paddleButton = NodePath("MainContent/SidePanel/VBoxContainer/PaddleButton")
 _difficultyButton = NodePath("MainContent/SidePanel/VBoxContainer/DifficultyButton")
 _skillButton = NodePath("MainContent/SidePanel/VBoxContainer/SkillButton")
+_customSettingsButton = NodePath("MainContent/SidePanel/VBoxContainer/CustomSettingsButton")
 uiController = NodePath("../..")
 _focusTarget = [NodePath("MainContent/SidePanel/VBoxContainer/PaddleButton")]
 _returnButton = NodePath("MainContent/SidePanel/VBoxContainer/Return")

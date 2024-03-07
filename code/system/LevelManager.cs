@@ -48,6 +48,11 @@ public partial class LevelManager : Node
 
 		int remainingLength = refs.gameData.Levels.Count - (startingIndex + sessionLength);
 
+		if (sessionLength < 0)
+		{
+			sessionLength = refs.gameData.Levels.Count - startingIndex;
+		}
+
 		if (remainingLength >= 0)
 		{
 			_sessionLevels = refs.gameData.Levels.GetRange(startingIndex, sessionLength);

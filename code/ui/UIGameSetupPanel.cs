@@ -9,9 +9,8 @@ namespace BoGK.UI
 		[Export] private Button _paddleButton;
 		[Export] private Button _difficultyButton;
 		[Export] private Button _skillButton;
-		[Export] private Label _sessionLengthLabel;
-		[Export] private HSlider _sessionLengthSlider;
-		[Export] private CheckButton _randomizeStagesButton;
+		[Export] private Button _customSettingsButton;
+		[Export] private Label _customSettingsLabel;
 
 		private int _lastActivePanel = -1;
 
@@ -22,8 +21,6 @@ namespace BoGK.UI
 			SetupBaseReferences();
 			SetupReferences();
 			PopulateLevels();
-			_sessionLengthSlider.MaxValue = refs.gameData.Levels.Count;
-			_sessionLengthSlider.Value = refs.gameData.Levels.Count;
 		}
 
 		private void PopulateLevels()
@@ -60,9 +57,6 @@ namespace BoGK.UI
 		protected void SetupReferences()
 		{
 			uiController = GetNode<UIController>("../..");
-			_paddleButton.Pressed += () => DisplayPaddlePanel();
-			_skillButton.Pressed += () => DisplaySkillPanel();
-			_difficultyButton.Pressed += () => DisplayDifficultyPanel();
 		}
 
 		protected override void Focus()
@@ -81,6 +75,10 @@ namespace BoGK.UI
 
 					case 2:
 						_difficultyButton.GrabFocus();
+						break;
+
+					case 3:
+						_customSettingsButton.GrabFocus();
 						break;
 
 					default:
@@ -128,7 +126,17 @@ namespace BoGK.UI
 
 		private void UpdateSessionCustomization()
 		{
-			_randomizeStagesButton.SetPressedNoSignal(refs.ShuffleStages);
+			_customSettingsLabel.Text = string.Empty;
+
+			if (refs.SessionLength > 0)
+			{
+				_customSettingsLabel.Text += $"{Tr("LABEL_SESSION_LENGTH")}: {refs.SessionLength}\n";
+			}
+
+			if (refs.ShuffleStages)
+			{
+				_customSettingsLabel.Text += $"{Tr("LABEL_SHUFFLE_STAGES")}\n";
+			}
 		}
 
 		private void DisplayPaddlePanel()
@@ -149,15 +157,10 @@ namespace BoGK.UI
 			uiController.TogglePanel("DifficultyPanel");
 		}
 
-		private void SetSessionLength(float value)
+		private void DisplayCustomSettingsPanel()
 		{
-			refs.SessionLength = (int)value;
-			_sessionLengthLabel.Text = $"{Tr("LABEL_SESSION_LENGTH")}: {(int)value}";
-		}
-
-		private void SetStageShuffle(bool setActive)
-		{
-			refs.ShuffleStages = setActive;
+			_lastActivePanel = 3;
+			uiController.TogglePanel("CustomSettingsPanel");
 		}
 	}
 }

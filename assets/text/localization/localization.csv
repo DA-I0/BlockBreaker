@@ -20,6 +20,7 @@ BUTTON_INFO,Info,Anleitung,説明,Info
 BUTTON_KEYBOARD,Keyboard,Tastatur,キーボード,Klawiatura
 BUTTON_LEADERBOARD,Leaderboard,Rangliste,ハイスコア,Lista wyników
 BUTTON_MOUSE,Mouse,Maus,マウス,Mysz
+BUTTON_OPEN,Open,,,
 BUTTON_OPTIONS,Options,Optionen,設定,Opcje
 BUTTON_PATCH_NOTES,Patch notes,Versionshinweise,リリースノート,Lista zmian
 BUTTON_PLAY,Play,Spielen,プレイ,Graj
@@ -65,10 +66,12 @@ INFO_BLOCKS_DESC,"[b][u]Blocks:[/u][/b]\nExist in two variants - basic and sturd
 INFO_CONTROLS_DESC,[b][u]Controls:[/u][/b]\n[b]Move paddle:[/b] {game_left}{game_right}\n[b]Release ball:[/b] {game_play}\n[b]Use skill:[/b] {game_skill}\n[b]Reset ball (-1 life):[/b] {game_reset}\n[b]Pause game:[/b] {game_pause},,,
 INFO_SCORE_MULTIPLIER_DESC,"[b][u]Score:[/u][/b]\nIncreases by 1 for every {multiplier_combo_step} destroyed elements, up to x{multiplier_max_combo}.\nGrabbing difficulty increasing pickups (small/fast ball, smaller paddle) also increases multiplier independent of combo.\nMax score multiplier: x{multiplier_max}.",,,
 LABEL_ALL,All,Alle,すべて,Wszystkie
+LABEL_CUSTOM_SESSION,Custom settings,,,
 LABEL_DIFFICULTY,Difficulty,Schwierigkeitsgrad,難易度,Poziom trudności
 LABEL_PADDLE,Paddle,Schläger,パドル,Paletka
 LABEL_PERFECT_CLEAR,Perfect clear,,,
 LABEL_SCORE_MULTIPLIER,Score multiplier,,,
+LABEL_ENABLE_CUSTOM_SESSION_LENGTH,Enable custom session length,,,
 LABEL_SESSION_LENGTH,Session length,,,
 LABEL_SHUFFLE_STAGES,Shuffle stages,,,
 LABEL_SKILL,Skill,Fähigkeiten,スキル,Umiejętność

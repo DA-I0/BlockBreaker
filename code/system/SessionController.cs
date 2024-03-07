@@ -174,6 +174,7 @@ public partial class SessionController : Node
 		_currentDifficulty = 1;
 		_currentLevel = -1;
 		_currentSkill = 0;
+		_sessionLength = -1;
 		_shuffleStages = false;
 
 		ChangeGameState(GameState.menu);
