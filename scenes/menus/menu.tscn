@@ -208,7 +208,7 @@ uiController = NodePath("../..")
 _focusTarget = [NodePath("VBoxContainer/CustomSessionLength/CustomSessionLengthCheckButton")]
 _returnButton = NodePath("Return")
 
-[node name="GameSetupPanel" parent="Control" node_paths=PackedStringArray("_levelGrid", "_paddleButton", "_difficultyButton", "_skillButton", "_customSettingsButton", "uiController", "_focusTarget", "_returnButton") instance=ExtResource("31_xmcps")]
+[node name="GameSetupPanel" parent="Control" node_paths=PackedStringArray("_levelGrid", "_paddleButton", "_difficultyButton", "_skillButton", "_customSettingsButton", "_customSettingsLabel", "uiController", "_focusTarget", "_returnButton") instance=ExtResource("31_xmcps")]
 layout_mode = 1
 offset_right = 0.0
 offset_bottom = 0.0
@@ -217,6 +217,7 @@ _paddleButton = NodePath("MainContent/SidePanel/VBoxContainer/PaddleButton")
 _difficultyButton = NodePath("MainContent/SidePanel/VBoxContainer/DifficultyButton")
 _skillButton = NodePath("MainContent/SidePanel/VBoxContainer/SkillButton")
 _customSettingsButton = NodePath("MainContent/SidePanel/VBoxContainer/CustomSettingsButton")
+_customSettingsLabel = NodePath("MainContent/SidePanel/VBoxContainer/CustomSettingsDetailsLabel")
 uiController = NodePath("../..")
 _focusTarget = [NodePath("MainContent/SidePanel/VBoxContainer/PaddleButton")]
 _returnButton = NodePath("MainContent/SidePanel/VBoxContainer/Return")
