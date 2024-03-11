@@ -31,6 +31,7 @@ namespace BoGK.UI
 		private void UpdateDisplayedValues()
 		{
 			_customSessionLengthButton.ButtonPressed = (refs.SessionLength > 0);
+			ToggleCustomSessionLength(_customSessionLengthButton.ButtonPressed);
 			_sessionLengthSlider.MaxValue = refs.gameData.Levels.Count;
 			_sessionLengthSlider.Value = refs.gameData.Levels.Count;
 			_shuffleStagesButton.ButtonPressed = refs.ShuffleStages;
@@ -38,6 +39,7 @@ namespace BoGK.UI
 
 		private void ToggleCustomSessionLength(bool setActive)
 		{
+			_sessionLengthSlider.GetParent<Control>().Visible = setActive;
 			_sessionLengthSlider.Editable = setActive;
 		}
 
