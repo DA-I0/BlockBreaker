@@ -239,6 +239,7 @@ public partial class Ball : CharacterBody2D
 		if (!_isPowerBall || breakable == null)
 		{
 			Velocity = Velocity.Bounce(collision.GetNormal());
+			_animator.Stop();
 			_animator.Play("bounce", 0, 1.5f);
 		}
 
