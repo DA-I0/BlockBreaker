@@ -66,9 +66,15 @@ public partial class LevelManager : Node
 		ShuffleStageList();
 	}
 
-	public void SelectSessionLevel(int index)
+	public bool SelectSessionLevel(int index)
 	{
+		if (index >= _sessionLevels.Count || index < 0)
+		{
+			return false;
+		}
+
 		LoadGameScene(_sessionLevels[index]);
+		return true;
 	}
 
 	private void SetupReferences()

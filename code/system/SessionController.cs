@@ -154,11 +154,7 @@ public partial class SessionController : Node
 	{
 		_currentLevel++;
 
-		if (SessionLength > _currentLevel)
-		{
-			levelManager.SelectSessionLevel(_currentLevel);
-		}
-		else
+		if (!levelManager.SelectSessionLevel(_currentLevel))
 		{
 			_currentLevel = -1;
 			ChangeGameState(GameState.gameWin);
