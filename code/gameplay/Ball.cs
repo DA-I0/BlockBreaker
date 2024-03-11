@@ -160,11 +160,6 @@ public partial class Ball : CharacterBody2D
 		GetParent().CallDeferred(Node.MethodName.AddChild, newBall);
 	}
 
-	public void ChangeSpeedMultiplier(float value)
-	{
-		SpeedMultiplier += value;
-	}
-
 	public void ChangeTempSpeedMultiplier(float value)
 	{
 		_boostMultiplier += value;

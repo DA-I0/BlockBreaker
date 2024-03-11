@@ -8,7 +8,7 @@ public partial class BallChangeSpeed : Pickup
 	{
 		foreach (Ball ball in refs.Balls)
 		{
-			ball.ChangeSpeedMultiplier(_speedChange);
+			ball.SpeedMultiplier += _speedChange;
 		}
 	}
 }
