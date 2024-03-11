@@ -358,6 +358,7 @@ public partial class Ball : CharacterBody2D
 				_arrow.Visible = true;
 				_increasingRotation = true;
 				_arrowTimer.Start(0.001f);
+				_animator.Pause();
 				refs.paddle.SetPaddleState(PaddleState.locked);
 				break;
 
