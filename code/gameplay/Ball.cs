@@ -6,6 +6,8 @@ public partial class Ball : CharacterBody2D
 {
 	private const float MaxBallSpeedMultiplier = 1.5f;
 	private const float MinBallSpeedMultiplier = 0.5f;
+	private const float MaxAdvancingSpeedMultiplier = 2f;
+	private const float MinAdvancingSpeedMultiplier = 1f;
 	private const int MaxTrailCurvePoints = 10;
 	private const string DefaultSprite = "res://assets/sprites/animations/ball.png";
 	private const string PowerSprite = "res://assets/sprites/animations/power_ball.png";
@@ -146,7 +148,7 @@ public partial class Ball : CharacterBody2D
 
 	public void Reset()
 	{
-		_advancingSpeedMultiplier = 1f;
+		_advancingSpeedMultiplier = MinAdvancingSpeedMultiplier;
 		SpeedMultiplier = 1f;
 		ChangeSize(1f);
 		SetPowerBallState(false);
@@ -277,14 +279,14 @@ public partial class Ball : CharacterBody2D
 
 	private void CheckAdvancingSpeedMultiplierLimits()
 	{
-		if (_advancingSpeedMultiplier > MaxBallSpeedMultiplier)
+		if (_advancingSpeedMultiplier > MaxAdvancingSpeedMultiplier)
 		{
-			_advancingSpeedMultiplier = MaxBallSpeedMultiplier;
+			_advancingSpeedMultiplier = MaxAdvancingSpeedMultiplier;
 		}
 
-		if (_advancingSpeedMultiplier < MinBallSpeedMultiplier)
+		if (_advancingSpeedMultiplier < MinAdvancingSpeedMultiplier)
 		{
-			_advancingSpeedMultiplier = MinBallSpeedMultiplier;
+			_advancingSpeedMultiplier = MinAdvancingSpeedMultiplier;
 		}
 	}
 
