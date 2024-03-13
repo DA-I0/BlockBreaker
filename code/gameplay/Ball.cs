@@ -290,13 +290,9 @@ public partial class Ball : CharacterBody2D
 
 	private void UpdateSpeed()
 	{
-		_combinedSpeed = _baseSpeed * refs.SelectedDifficulty.BallSpeedMultiplier * _speedMultiplier * _boostMultiplier * _advancingSpeedMultiplier;
-
-		if (_ballMode == BallMode.moving)
-		{
-			_animator.Play("roll", 0, _combinedSpeed);
-			_particles.Emitting = true;
-		}
+		float _combinedSpeedMultiplier = refs.SelectedDifficulty.BallSpeedMultiplier * _speedMultiplier * _boostMultiplier * _advancingSpeedMultiplier;
+		_combinedSpeed = _baseSpeed * _combinedSpeedMultiplier;
+		_animator.SpeedScale = _combinedSpeedMultiplier;
 
 		ToggleSpeedTrail();
 	}
@@ -360,10 +356,12 @@ public partial class Ball : CharacterBody2D
 			case BallMode.moving:
 				refs.paddle.SetPaddleState(PaddleState.idle);
 				UpdateSpeed();
+				_animator.Play("roll");
+				_particles.Emitting = true;
 				break;
 
 			case BallMode.spinning:
-				_animator.Play("spin");
+				_animator.Play("spin", 0, 1 / _animator.SpeedScale);
 				break;
 
 			default:
