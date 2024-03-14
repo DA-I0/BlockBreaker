@@ -1,0 +1,197 @@
+[gd_scene load_steps=4 format=3 uid="uid://cff7qtvilr8ef"]
+
+[ext_resource type="Theme" uid="uid://dj60ywofwk371" path="res://theme/ui.theme" id="1_j6odu"]
+[ext_resource type="Texture2D" uid="uid://chk6oivvrr8nn" path="res://assets/sprites/ui_elements/buttons/ui_icon_arrow_right.png" id="2_8ch1w"]
+[ext_resource type="Script" path="res://code/ui/UIOptionsVideoPanel.cs" id="2_hm0h4"]
+
+[node name="VideoOptions" type="ScrollContainer" node_paths=PackedStringArray("_fullscreen", "_screenShake", "_pickupOrder", "_backgroundBrightnessText", "_backgroundBrightness", "_helperTransparencyText", "_helperTransparency", "_brekableVariantContainer", "_focusTarget")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 35.0
+offset_right = -4.0
+offset_bottom = -20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_j6odu")
+follow_focus = true
+script = ExtResource("2_hm0h4")
+_fullscreen = NodePath("Options/FullscreenSetting/FullscreenToggle")
+_screenShake = NodePath("Options/ScreenShakeSetting/ScreenShakeToggle")
+_pickupOrder = NodePath("Options/PickupSetting/PickupOptions")
+_backgroundBrightnessText = NodePath("Options/BackgroundSetting/HBoxContainer/BackgroundValue")
+_backgroundBrightness = NodePath("Options/BackgroundSetting/BackgroundSlider")
+_helperTransparencyText = NodePath("Options/EffectsTransparencySetting/EffectsTransparencyText/EffectsTransparencyValue")
+_helperTransparency = NodePath("Options/EffectsTransparencySetting/EffectsTransparencySlider")
+_brekableVariantContainer = NodePath("Options/BreakableVariantSetting")
+_focusTarget = [NodePath("Options/FullscreenSetting/FullscreenToggle")]
+
+[node name="Options" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="FullscreenSetting" type="Control" parent="Options"]
+custom_minimum_size = Vector2(0, 19)
+layout_mode = 2
+
+[node name="FullscreenLabel" type="Label" parent="Options/FullscreenSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.45
+anchor_bottom = 1.0
+offset_left = 4.0
+text = "OPTION_VIDEO_FULLSCREEN"
+vertical_alignment = 1
+
+[node name="FullscreenToggle" type="CheckButton" parent="Options/FullscreenSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+focus_neighbor_top = NodePath("../../CustomCollorsToggleButton")
+focus_previous = NodePath("../../CustomCollorsToggleButton")
+flat = true
+
+[node name="ScreenShakeSetting" type="Control" parent="Options"]
+custom_minimum_size = Vector2(0, 19)
+layout_mode = 2
+tooltip_text = "tooltip_screen_shake"
+
+[node name="ShakeScreenLabel" type="Label" parent="Options/ScreenShakeSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.45
+anchor_bottom = 1.0
+offset_left = 4.0
+text = "OPTION_VIDEO_SCREEN_SHAKE"
+vertical_alignment = 1
+
+[node name="ScreenShakeToggle" type="CheckButton" parent="Options/ScreenShakeSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+flat = true
+
+[node name="PickupSetting" type="Control" parent="Options"]
+custom_minimum_size = Vector2(0, 19)
+layout_mode = 2
+
+[node name="PickupLabel" type="Label" parent="Options/PickupSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.45
+anchor_bottom = 1.0
+offset_left = 4.0
+text = "OPTION_VIDEO_PICKUP_ORDER"
+vertical_alignment = 1
+
+[node name="PickupOptions" type="OptionButton" parent="Options/PickupSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+offset_right = -4.0
+item_count = 3
+popup/item_0/text = "OPTION_VIDEO_PICKUP_ORDER_BOTTOM"
+popup/item_0/id = 0
+popup/item_1/text = "OPTION_VIDEO_PICKUP_ORDER_MIDDLE"
+popup/item_1/id = 1
+popup/item_2/text = "OPTION_VIDEO_PICKUP_ORDER_TOP"
+popup/item_2/id = 2
+
+[node name="BackgroundSetting" type="Control" parent="Options"]
+custom_minimum_size = Vector2(0, 19)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Options/BackgroundSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.45
+anchor_bottom = 1.0
+offset_left = 4.0
+
+[node name="BackgroundLabel" type="Label" parent="Options/BackgroundSetting/HBoxContainer"]
+layout_mode = 2
+text = "OPTION_VIDEO_BACKGROUND_TRANSPARENCY"
+vertical_alignment = 1
+
+[node name="BackgroundValue" type="Label" parent="Options/BackgroundSetting/HBoxContainer"]
+layout_mode = 2
+text = "0"
+vertical_alignment = 1
+
+[node name="BackgroundSlider" type="HSlider" parent="Options/BackgroundSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+offset_right = -4.0
+min_value = 0.4
+max_value = 1.0
+step = 0.1
+value = 1.0
+
+[node name="EffectsTransparencySetting" type="Control" parent="Options"]
+custom_minimum_size = Vector2(0, 19)
+layout_mode = 2
+
+[node name="EffectsTransparencyText" type="HBoxContainer" parent="Options/EffectsTransparencySetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.45
+anchor_bottom = 1.0
+offset_left = 4.0
+
+[node name="EffectsTransparencyLabel" type="Label" parent="Options/EffectsTransparencySetting/EffectsTransparencyText"]
+layout_mode = 2
+text = "OPTION_VIDEO_EFFECT_TRANSPARENCY"
+vertical_alignment = 1
+
+[node name="EffectsTransparencyValue" type="Label" parent="Options/EffectsTransparencySetting/EffectsTransparencyText"]
+layout_mode = 2
+text = "0"
+vertical_alignment = 1
+
+[node name="EffectsTransparencySlider" type="HSlider" parent="Options/EffectsTransparencySetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+offset_right = -4.0
+focus_neighbor_top = NodePath("../../PickupSetting/PickupOptions")
+focus_neighbor_bottom = NodePath("../../CustomCollorsToggleButton")
+focus_next = NodePath("../../CustomCollorsToggleButton")
+focus_previous = NodePath("../../PickupSetting/PickupOptions")
+max_value = 1.0
+step = 0.1
+value = 0.1
+
+[node name="CustomCollorsToggleButton" type="Button" parent="Options"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../EffectsTransparencySetting/EffectsTransparencySlider")
+focus_neighbor_bottom = NodePath("../FullscreenSetting/FullscreenToggle")
+focus_next = NodePath("../FullscreenSetting/FullscreenToggle")
+focus_previous = NodePath("../EffectsTransparencySetting/EffectsTransparencySlider")
+text = "BUTTON_CUSTOM_COLORS"
+icon = ExtResource("2_8ch1w")
+flat = true
+alignment = 0
+
+[node name="BreakableVariantSetting" type="VBoxContainer" parent="Options"]
+custom_minimum_size = Vector2(0, 19)
+layout_mode = 2
+
+[connection signal="pressed" from="Options/CustomCollorsToggleButton" to="." method="ToggleBreakableVariantsDisplay"]

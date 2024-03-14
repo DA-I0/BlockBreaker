@@ -241,47 +241,16 @@ _focusTarget = [NodePath("PatchNotesScrollContainer")]
 _returnButton = NodePath("Return")
 _returnTarget = ""
 
-[node name="OptionsPanel" parent="Control" node_paths=PackedStringArray("_header", "_language", "_font", "_controllerType", "_livesDisplay", "_stageClearDisplay", "_controlDevices", "_fullscreen", "_screenShake", "_pickupOrder", "_backgroundBrightnessText", "_backgroundBrightness", "_helperTransparencyText", "_helperTransparency", "_brekableVariantContainer", "_colorPickerPanel", "_masterVolumeText", "_masterVolume", "_musicVolumeText", "_musicVolume", "_effectsVolumeText", "_effectsVolume", "_keybindChangePanel", "_mouseSpeedText", "_mouseSpeed", "_keyboardSpeedText", "_keyboardSpeed", "_joypadSpeedText", "_joypadSpeed", "_activeJoypad", "_vibrations", "_previousCategoryShortuct", "_nextCategoryShortuct", "_categoryFocusTargets", "_confirmationPrompt", "uiController", "_focusTarget", "_returnButton") instance=ExtResource("9_v0j1q")]
+[node name="OptionsPanel" parent="Control" node_paths=PackedStringArray("_header", "_categoryPanels", "_previousCategoryShortuct", "_nextCategoryShortuct", "_confirmationPrompt", "uiController", "_returnButton") instance=ExtResource("9_v0j1q")]
 layout_mode = 1
 grow_horizontal = 2
 grow_vertical = 2
 _header = NodePath("HeaderPanel/HeaderLabel")
-_language = NodePath("GeneralOptions/Options/LanguageSetting/LanguageOptions")
-_font = NodePath("GeneralOptions/Options/FontSetting/FontOptions")
-_controllerType = NodePath("GeneralOptions/Options/UIControlsSetting/UIControlsOptions")
-_livesDisplay = NodePath("GeneralOptions/Options/LivesDisplaySetting/LivesDisplayToggle")
-_stageClearDisplay = NodePath("GeneralOptions/Options/StageClearDisplaySetting/StageClearDisplayToggle")
-_controlDevices = NodePath("ControlOptions/Options")
-_fullscreen = NodePath("VideoOptions/Options/FullscreenSetting/FullscreenToggle")
-_screenShake = NodePath("VideoOptions/Options/ScreenShakeSetting/ScreenShakeToggle")
-_pickupOrder = NodePath("VideoOptions/Options/PickupSetting/PickupOptions")
-_backgroundBrightnessText = NodePath("VideoOptions/Options/BackgroundSetting/HBoxContainer/BackgroundValue")
-_backgroundBrightness = NodePath("VideoOptions/Options/BackgroundSetting/BackgroundSlider")
-_helperTransparencyText = NodePath("VideoOptions/Options/EffectsTransparencySetting/EffectsTransparencyText/EffectsTransparencyValue")
-_helperTransparency = NodePath("VideoOptions/Options/EffectsTransparencySetting/EffectsTransparencySlider")
-_brekableVariantContainer = NodePath("VideoOptions/Options/BreakableVariantSetting")
-_colorPickerPanel = NodePath("ColorPickerPanel")
-_masterVolumeText = NodePath("AudioOptions/Options/MasterVolumeSetting/MasterVolumeText/MasterVolumeValue")
-_masterVolume = NodePath("AudioOptions/Options/MasterVolumeSetting/MasterVolumeSlider")
-_musicVolumeText = NodePath("AudioOptions/Options/MusicVolumeSetting/MusicVolumeText/MusicVolumeValue")
-_musicVolume = NodePath("AudioOptions/Options/MusicVolumeSetting/MusicVolumeSlider")
-_effectsVolumeText = NodePath("AudioOptions/Options/EffectsVolumeSetting/EffectsVolumeText/EffectsVolumeValue")
-_effectsVolume = NodePath("AudioOptions/Options/EffectsVolumeSetting/EffectsVolumeSlider")
-_keybindChangePanel = NodePath("../../KeybindChangePanel")
-_mouseSpeedText = NodePath("ControlOptions/Options/MouseSettings/Mouse/MouseSpeedSetting/MouseSpeedText/MouseSpeedValue")
-_mouseSpeed = NodePath("ControlOptions/Options/MouseSettings/Mouse/MouseSpeedSetting/MouseSpeedSlider")
-_keyboardSpeedText = NodePath("ControlOptions/Options/KeyboardSettings/Keyboard/KeyboardSpeedSetting/KeyboardSpeedText/KeyboardSpeedValue")
-_keyboardSpeed = NodePath("ControlOptions/Options/KeyboardSettings/Keyboard/KeyboardSpeedSetting/KeyboardSpeedSlider")
-_joypadSpeedText = NodePath("ControlOptions/Options/JoypadSettings/Joypad/ControllerSpeedSetting/ControllerSpeedText/ControllerSpeedValue")
-_joypadSpeed = NodePath("ControlOptions/Options/JoypadSettings/Joypad/ControllerSpeedSetting/ControllerSpeedSlider")
-_activeJoypad = NodePath("ControlOptions/Options/JoypadSettings/Joypad/ActiveController/ActiveGamepadOptions")
-_vibrations = NodePath("ControlOptions/Options/JoypadSettings/Joypad/VibrationSetting/VibrationToggle")
+_categoryPanels = NodePath("CategoryPanels")
 _previousCategoryShortuct = NodePath("CategoryButtons/PreviousShortcut")
 _nextCategoryShortuct = NodePath("CategoryButtons/NextShortcut")
-_categoryFocusTargets = [NodePath("GeneralOptions/Options/LanguageSetting/LanguageOptions"), NodePath("VideoOptions/Options/FullscreenSetting/FullscreenToggle"), NodePath("AudioOptions/Options/MasterVolumeSetting/MasterVolumeSlider"), NodePath("ControlOptions/Options/MouseSettings/ToggleButton")]
 _confirmationPrompt = NodePath("SettingsSavedPrompt")
 uiController = NodePath("../..")
-_focusTarget = [NodePath("GeneralOptions/Options/LanguageSetting/LanguageOptions"), NodePath("OptionsButtons/Confirm")]
 _returnButton = NodePath("Return")
 
 [node name="LangSelection" parent="." instance=ExtResource("41_j8o0y")]

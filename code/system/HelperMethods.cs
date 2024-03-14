@@ -76,4 +76,17 @@ public static class HelperMethods
 	{
 		return TranslationServer.GetTranslationObject(languageCode).GetMessage("LANGUAGE_NAME");
 	}
+
+	public static int FindOptionIndex(OptionButton targetList, string optionToFind)
+	{
+		for (int ind = 0; ind < targetList.ItemCount; ind++)
+		{
+			if (targetList.GetItemText(ind).ToLower() == optionToFind.ToLower())
+			{
+				return ind;
+			}
+		}
+
+		return -1;
+	}
 }

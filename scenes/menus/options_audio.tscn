@@ -1,0 +1,143 @@
+[gd_scene load_steps=3 format=3 uid="uid://mfl77pe1dbgc"]
+
+[ext_resource type="Theme" uid="uid://dj60ywofwk371" path="res://theme/ui.theme" id="1_h0am0"]
+[ext_resource type="Script" path="res://code/ui/UIOptionsAudioPanel.cs" id="2_lrogc"]
+
+[node name="AudioOptions" type="ScrollContainer" node_paths=PackedStringArray("_masterVolumeText", "_masterVolume", "_musicVolumeText", "_musicVolume", "_effectsVolumeText", "_effectsVolume", "_focusTarget")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 35.0
+offset_right = -4.0
+offset_bottom = -20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_h0am0")
+follow_focus = true
+script = ExtResource("2_lrogc")
+_masterVolumeText = NodePath("Options/MasterVolumeSetting/MasterVolumeText/MasterVolumeValue")
+_masterVolume = NodePath("Options/MasterVolumeSetting/MasterVolumeSlider")
+_musicVolumeText = NodePath("Options/MusicVolumeSetting/MusicVolumeText/MusicVolumeValue")
+_musicVolume = NodePath("Options/MusicVolumeSetting/MusicVolumeSlider")
+_effectsVolumeText = NodePath("Options/EffectsVolumeSetting/EffectsVolumeText/EffectsVolumeValue")
+_effectsVolume = NodePath("Options/EffectsVolumeSetting/EffectsVolumeSlider")
+_focusTarget = [NodePath("Options/MasterVolumeSetting/MasterVolumeSlider")]
+
+[node name="Options" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MasterVolumeSetting" type="Control" parent="Options"]
+custom_minimum_size = Vector2(0, 19)
+layout_mode = 2
+
+[node name="MasterVolumeText" type="HBoxContainer" parent="Options/MasterVolumeSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.45
+anchor_bottom = 1.0
+offset_left = 4.0
+
+[node name="MasterVolumeLabel" type="Label" parent="Options/MasterVolumeSetting/MasterVolumeText"]
+layout_mode = 2
+text = "OPTION_VOLUME_MASTER"
+vertical_alignment = 1
+
+[node name="MasterVolumeValue" type="Label" parent="Options/MasterVolumeSetting/MasterVolumeText"]
+layout_mode = 2
+text = "0"
+vertical_alignment = 1
+
+[node name="MasterVolumeSlider" type="HSlider" parent="Options/MasterVolumeSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+offset_right = -4.0
+focus_neighbor_top = NodePath("../../EffectsVolumeSetting/EffectsVolumeSlider")
+focus_neighbor_bottom = NodePath("../../MusicVolumeSetting/MusicVolumeSlider")
+focus_next = NodePath("../../MusicVolumeSetting/MusicVolumeSlider")
+focus_previous = NodePath("../../EffectsVolumeSetting/EffectsVolumeSlider")
+min_value = -60.0
+max_value = 6.0
+rounded = true
+
+[node name="MusicVolumeSetting" type="Control" parent="Options"]
+custom_minimum_size = Vector2(0, 19)
+layout_mode = 2
+
+[node name="MusicVolumeText" type="HBoxContainer" parent="Options/MusicVolumeSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.45
+anchor_bottom = 1.0
+offset_left = 4.0
+
+[node name="MusicVolumeLabel" type="Label" parent="Options/MusicVolumeSetting/MusicVolumeText"]
+layout_mode = 2
+text = "OPTION_VOLUME_MUSIC"
+vertical_alignment = 1
+
+[node name="MusicVolumeValue" type="Label" parent="Options/MusicVolumeSetting/MusicVolumeText"]
+layout_mode = 2
+text = "0"
+vertical_alignment = 1
+
+[node name="MusicVolumeSlider" type="HSlider" parent="Options/MusicVolumeSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+offset_right = -4.0
+focus_neighbor_top = NodePath("../../MasterVolumeSetting/MasterVolumeSlider")
+focus_neighbor_bottom = NodePath("../../EffectsVolumeSetting/EffectsVolumeSlider")
+focus_next = NodePath("../../EffectsVolumeSetting/EffectsVolumeSlider")
+focus_previous = NodePath("../../MasterVolumeSetting/MasterVolumeSlider")
+min_value = -60.0
+max_value = 6.0
+rounded = true
+
+[node name="EffectsVolumeSetting" type="Control" parent="Options"]
+custom_minimum_size = Vector2(0, 19)
+layout_mode = 2
+
+[node name="EffectsVolumeText" type="HBoxContainer" parent="Options/EffectsVolumeSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.45
+anchor_bottom = 1.0
+offset_left = 4.0
+
+[node name="EffectsVolumeLabel" type="Label" parent="Options/EffectsVolumeSetting/EffectsVolumeText"]
+layout_mode = 2
+text = "OPTION_VOLUME_EFFECTS"
+vertical_alignment = 1
+
+[node name="EffectsVolumeValue" type="Label" parent="Options/EffectsVolumeSetting/EffectsVolumeText"]
+layout_mode = 2
+text = "0"
+vertical_alignment = 1
+
+[node name="EffectsVolumeSlider" type="HSlider" parent="Options/EffectsVolumeSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+offset_right = -4.0
+focus_neighbor_top = NodePath("../../MusicVolumeSetting/MusicVolumeSlider")
+focus_neighbor_bottom = NodePath("../../MasterVolumeSetting/MasterVolumeSlider")
+focus_next = NodePath("../../MasterVolumeSetting/MasterVolumeSlider")
+focus_previous = NodePath("../../MusicVolumeSetting/MusicVolumeSlider")
+min_value = -60.0
+max_value = 6.0
+rounded = true
+
+[connection signal="value_changed" from="Options/MasterVolumeSetting/MasterVolumeSlider" to="." method="OnMasterVolumeSliderValueChanged"]

@@ -2,16 +2,18 @@ using Godot;
 
 namespace BoGK.UI
 {
-	public partial class UIPanel : Panel
+	public partial class UIOptionsBaseCategory : ScrollContainer
 	{
-		[Export] protected UIController uiController;
 		[Export] protected Control[] _focusTarget;
-		[Export] private Button _returnButton;
-		[Export] protected string _returnTarget = string.Empty;
 
 		protected int _focusIndex = 0;
 
-		protected SessionController refs;
+		protected SessionController Refs
+		{
+			get { return _mainPanel.Refs; }
+		}
+
+		protected UIOptionsPanel _mainPanel;
 
 		public override void _Ready()
 		{
@@ -33,16 +35,31 @@ namespace BoGK.UI
 
 		protected virtual void SetupBaseReferences()
 		{
-			refs = GetNode<SessionController>("/root/GameController");
-			uiController.RefreshUI += Focus;
-			_returnButton.Pressed += () => Return();
+			_mainPanel = GetParent().GetParent<UIOptionsPanel>();
+			_mainPanel.UIController.RefreshUI += Focus;
 		}
+
+		public virtual void Enable()
+		{
+			Visible = true;
+			UpdateSettings();
+			Focus();
+		}
+
+		public virtual void Disable()
+		{
+			Visible = false;
+		}
+
+		public virtual void UpdateSettings() { }
+		public virtual void ApplySettings() { }
+		public virtual void RestoreDefaultSettings() { }
 
 		protected virtual void Focus()
 		{
 			if (Visible && _focusTarget.Length > 0)
 			{
-				_focusTarget[0]?.GrabFocus();
+				_focusTarget[0].GrabFocus();
 			}
 		}
 
@@ -57,11 +74,6 @@ namespace BoGK.UI
 			_focusIndex = (_focusIndex < _focusTarget.Length - 1) ? _focusIndex + 1 : 0;
 
 			_focusTarget[_focusIndex]?.GrabFocus();
-		}
-
-		protected virtual void Return()
-		{
-			uiController.TogglePanel(_returnTarget);
 		}
 	}
 }
