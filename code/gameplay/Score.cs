@@ -10,6 +10,7 @@ public partial class Score : Node
 	public readonly int MaxComboMultiplier = 5;
 	public readonly int PaddleSizeForMultiplier = 3;
 	[Export] public int PerfectClearBonus = 50;
+	[Export] public int GameWinBonus = 100;
 
 	private int _currentScore = 0;
 
@@ -97,8 +98,9 @@ public partial class Score : Node
 		_exitTimer = (Timer)GetChild(0);
 		refs = GetParent<SessionController>();
 		refs.levelManager.ResetSession += SessionSetup;
-		refs.levelManager.SceneChanged += EnablePerfectState;
+		refs.levelManager.SceneChanged += ResetPerfectState;
 		refs.health.ResetElements += ResetMultiplier;
+		refs.GameStateChanged += AddEndScore;
 	}
 
 	private void SessionSetup()
@@ -106,7 +108,7 @@ public partial class Score : Node
 		Cleanup();
 	}
 
-	private void EnablePerfectState()
+	private void ResetPerfectState()
 	{
 		_isPerfect = true;
 	}
@@ -138,6 +140,14 @@ public partial class Score : Node
 		if (_currentScoreMultiplier > MaxScoreMultiplier)
 		{
 			_currentScoreMultiplier = MaxScoreMultiplier;
+		}
+	}
+
+	private void AddEndScore(GameState newState)
+	{
+		if (newState == GameState.gameWin)
+		{
+			ChangeScore(GameWinBonus, false);
 		}
 	}
 }
