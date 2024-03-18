@@ -42,9 +42,9 @@ namespace BoGK.UI
 			}
 		}
 
-		private void Display()
+		private void Display(GameState newState)
 		{
-			if (refs.CurrentGameState == GameState.gameOver)
+			if (newState == GameState.gameOver)
 			{
 				_header.Text = $"[b][u]{Tr("GAME_OVER")}[/u][/b]";
 			}

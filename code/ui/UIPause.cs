@@ -10,7 +10,7 @@ namespace BoGK.UI
 		{
 			refs = GetNode<SessionController>("/root/GameController");
 			refs.GameStateChanged += TogglePausePanel;
-			TogglePausePanel();
+			TogglePausePanel(GameState.gameplay);
 		}
 
 		public override void _Input(InputEvent @event)
@@ -33,9 +33,9 @@ namespace BoGK.UI
 			}
 		}
 
-		private void TogglePausePanel()
+		private void TogglePausePanel(GameState newState)
 		{
-			Visible = (refs.CurrentGameState == GameState.pause);
+			Visible = (newState == GameState.pause);
 			Focus();
 		}
 

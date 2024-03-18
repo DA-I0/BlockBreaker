@@ -2,6 +2,8 @@ using Godot;
 
 public enum GameState { gameplay, menu, pause, gameOver, gameWin, stageClear }
 
+public delegate void GameStateChange(GameState newState);
+
 public partial class SessionController : Node
 {
 	private GameState _gameState = GameState.menu;
@@ -25,7 +27,7 @@ public partial class SessionController : Node
 	public Paddle paddle;
 
 	public event Notification LastBallLost; // can't be here, gotta move it to a single place
-	public event Notification GameStateChanged;
+	public event GameStateChange GameStateChanged;
 	public event Notification GameSetup;
 	public event Notification SkillReady;
 	public event Notification SkillUsed;
@@ -181,7 +183,7 @@ public partial class SessionController : Node
 		_gameState = state;
 		GetTree().Paused = (_gameState == GameState.pause) || (_gameState == GameState.gameOver) || (_gameState == GameState.gameWin);
 		Input.MouseMode = (_gameState == GameState.gameplay) ? Input.MouseModeEnum.Captured : Input.MouseModeEnum.Visible;
-		GameStateChanged?.Invoke();
+		GameStateChanged?.Invoke(_gameState);
 	}
 
 	public override void _Input(InputEvent @event)
