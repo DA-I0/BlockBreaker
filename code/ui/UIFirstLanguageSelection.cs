@@ -9,11 +9,11 @@ namespace BoGK.UI
 
 		private int _defaultLanguageIndex = 0;
 
-		private SessionController refs;
+		private GameSystem.SessionController refs;
 
 		public override void _Ready()
 		{
-			refs = GetNode<SessionController>("/root/GameController");
+			refs = GetNode<GameSystem.SessionController>("/root/GameController");
 			PopulateLanguageList();
 		}
 
@@ -35,7 +35,7 @@ namespace BoGK.UI
 			{
 				if (!languageNames.Contains(languageCode))
 				{
-					languageNames.Add(HelperMethods.GetLocalizedLanguage(languageCode));
+					languageNames.Add(GameSystem.HelperMethods.GetLocalizedLanguage(languageCode));
 				}
 			}
 

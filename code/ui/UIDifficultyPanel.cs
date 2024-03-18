@@ -269,13 +269,13 @@ namespace BoGK.UI
 
 			if (_currentDifficulty < 0)
 			{
-				FileOperations.SaveDifficulty(string.Empty, newDifficulty);
+				GameSystem.FileOperations.SaveDifficulty(string.Empty, newDifficulty);
 				refs.gameData.AddDifficulty(newDifficulty);
 				_currentDifficulty = refs.gameData.Difficulties.Count - 1;
 			}
 			else
 			{
-				FileOperations.SaveDifficulty(refs.gameData.Difficulties[_currentDifficulty].DifficultyName, newDifficulty);
+				GameSystem.FileOperations.SaveDifficulty(refs.gameData.Difficulties[_currentDifficulty].DifficultyName, newDifficulty);
 				refs.gameData.UpdateDifficulty(_currentDifficulty, newDifficulty);
 			}
 
@@ -285,7 +285,7 @@ namespace BoGK.UI
 
 		private void DeleteDifficulty()
 		{
-			FileOperations.DeleteDifficulty(refs.gameData.Difficulties[_currentDifficulty].DifficultyName);
+			GameSystem.FileOperations.DeleteDifficulty(refs.gameData.Difficulties[_currentDifficulty].DifficultyName);
 			refs.gameData.RemoveDifficulty(_currentDifficulty);
 			CreateItemIndicators(refs.gameData.Difficulties.Count);
 			ChangeDifficulty(false);

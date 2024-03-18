@@ -1,41 +1,44 @@
-public class PowerBall : Skill
+namespace BoGK.Gameplay
 {
-	private const int PowerPoints = 15;
-	private const int SkillDuration = 4;
-
-	private Godot.Timer _skillTimer;
-
-	public PowerBall()
+	public class PowerBall : Skill
 	{
-		_activationPointsCost = 15;
-	}
+		private const int PowerPoints = 15;
+		private const int SkillDuration = 4;
 
-	protected override void SecondarySetup()
-	{
-		_skillTimer = refs.GetChild<Godot.Timer>(refs.GetChildCount() - 1);
-		_skillTimer.Timeout += SkillEnd;
-	}
+		private Godot.Timer _skillTimer;
 
-	protected override void ApplySkillEffect()
-	{
-		TogglePowerBallState(true);
-
-		_skillTimer.Start(SkillDuration);
-		OnActivation();
-		_activationPoints = -999;
-	}
-
-	private void TogglePowerBallState(bool activate)
-	{
-		for (int i = 0; i < refs.Balls.Count; i++)
+		public PowerBall()
 		{
-			((Ball)refs.Balls[i]).SetPowerBallState(activate);
+			_activationPointsCost = 15;
 		}
-	}
 
-	private void SkillEnd()
-	{
-		TogglePowerBallState(false);
-		Reset();
+		protected override void SecondarySetup()
+		{
+			_skillTimer = refs.GetChild<Godot.Timer>(refs.GetChildCount() - 1);
+			_skillTimer.Timeout += SkillEnd;
+		}
+
+		protected override void ApplySkillEffect()
+		{
+			TogglePowerBallState(true);
+
+			_skillTimer.Start(SkillDuration);
+			OnActivation();
+			_activationPoints = -999;
+		}
+
+		private void TogglePowerBallState(bool activate)
+		{
+			for (int i = 0; i < refs.Balls.Count; i++)
+			{
+				((Ball)refs.Balls[i]).SetPowerBallState(activate);
+			}
+		}
+
+		private void SkillEnd()
+		{
+			TogglePowerBallState(false);
+			Reset();
+		}
 	}
 }

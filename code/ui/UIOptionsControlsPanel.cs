@@ -70,7 +70,7 @@ namespace BoGK.UI
 			_mouseSpeed.Value = Refs.settings.SpeedMouse;
 			_keyboardSpeed.Value = Refs.settings.SpeedKeyboard;
 			_joypadSpeed.Value = Refs.settings.SpeedController;
-			int activeJoypadIndexHelper = HelperMethods.FindOptionIndex(_activeJoypad, Refs.settings.ActiveController);
+			int activeJoypadIndexHelper = GameSystem.HelperMethods.FindOptionIndex(_activeJoypad, Refs.settings.ActiveController);
 			_activeJoypad.Selected = (activeJoypadIndexHelper < 0) ? 0 : activeJoypadIndexHelper;
 			_vibrations.ButtonPressed = Refs.settings.ControllerVibrations;
 

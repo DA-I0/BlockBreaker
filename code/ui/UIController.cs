@@ -13,13 +13,13 @@ namespace BoGK.UI
 
 		private string _activePanel = string.Empty;
 
-		private SessionController refs;
+		private GameSystem.SessionController refs;
 
 		public event Notification RefreshUI;
 
 		public override void _Ready()
 		{
-			refs = GetNode<SessionController>("/root/GameController");
+			refs = GetNode<GameSystem.SessionController>("/root/GameController");
 			refs.settings.SettingsUpdated += UpdateUIFonts;
 
 			FindPanels();

@@ -8,7 +8,7 @@ namespace BoGK.UI
 
 		protected int _focusIndex = 0;
 
-		protected SessionController Refs
+		protected GameSystem.SessionController Refs
 		{
 			get { return _mainPanel.Refs; }
 		}

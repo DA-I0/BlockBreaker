@@ -9,7 +9,7 @@ namespace BoGK.UI
 		public override void _Ready()
 		{
 			_effectAnimator = GetNode<AnimationPlayer>("EffectAnimator");
-			((Paddle)GetNode("..")).StateChanged += PlayEffect;
+			((Gameplay.Paddle)GetNode("..")).StateChanged += PlayEffect;
 		}
 
 		private void PlayEffect(PaddleState _state)

@@ -6,11 +6,11 @@ namespace BoGK.UI
 	{
 		[Export] private Label _text;
 
-		private SessionController refs;
+		private GameSystem.SessionController refs;
 
 		public override void _Ready()
 		{
-			refs = GetNode<SessionController>("/root/GameController");
+			refs = GetNode<GameSystem.SessionController>("/root/GameController");
 			refs.gameScore.StageCleared += DisplayStageSummary;
 		}
 

@@ -1,25 +1,28 @@
 using Godot;
 
-public partial class RoguelikePaddle : Paddle
+namespace BoGK.Gameplay
 {
-	[Export] double _minTimeScale = 0.1;
-	[Export] double _slowdown = 0.05;
-
-	public override void _Process(double delta)
+	public partial class RoguelikePaddle : Paddle
 	{
-		UpdateTimeScale();
-	}
+		[Export] private double _minTimeScale = 0.1;
+		[Export] private double _slowdown = 0.05;
 
-	private void UpdateTimeScale()
-	{
-		if (_state == PaddleState.idle && Velocity == Vector2.Zero)
+		public override void _Process(double delta)
 		{
-			float newTimeScale = (float)Mathf.Lerp(Engine.TimeScale, _minTimeScale, _slowdown);
-			Engine.TimeScale = newTimeScale;
+			UpdateTimeScale();
 		}
-		else
+
+		private void UpdateTimeScale()
 		{
-			Engine.TimeScale = 1;
+			if (_state == PaddleState.idle && Velocity == Vector2.Zero)
+			{
+				float newTimeScale = (float)Mathf.Lerp(Engine.TimeScale, _minTimeScale, _slowdown);
+				Engine.TimeScale = newTimeScale;
+			}
+			else
+			{
+				Engine.TimeScale = 1;
+			}
 		}
 	}
 }

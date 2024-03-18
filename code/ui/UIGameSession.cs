@@ -12,7 +12,7 @@ namespace BoGK.UI
 		[Export] private Control _exitPrompt;
 		[Export] private Control _stageClearPrompt;
 
-		private SessionController refs;
+		private GameSystem.SessionController refs;
 
 		public override void _Ready()
 		{
@@ -35,7 +35,7 @@ namespace BoGK.UI
 
 		private void SetupReferences()
 		{
-			refs = GetNode<SessionController>("/root/GameController");
+			refs = GetNode<GameSystem.SessionController>("/root/GameController");
 			refs.SkillReady += DisplaySkillIcon;
 			refs.SkillUsed += HideSkillIcon;
 			refs.gameScore.ScoreChanged += UpdateScore;
@@ -129,7 +129,7 @@ namespace BoGK.UI
 
 		private void UpdateSkillIcon()
 		{
-			string activeSkillIconPath = $"{ProjectSettings.GetSetting("global/SkillIconsFilePath")}/skill_{refs.SelectedSkill.GetType()}.png";
+			string activeSkillIconPath = $"{ProjectSettings.GetSetting("global/SkillIconsFilePath")}/skill_{refs.SelectedSkill.ToString()}.png";
 			((TextureRect)_skill.GetChild(0)).Texture = ResourceLoader.Load<Texture2D>(activeSkillIconPath);
 		}
 

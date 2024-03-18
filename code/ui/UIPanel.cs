@@ -11,7 +11,7 @@ namespace BoGK.UI
 
 		protected int _focusIndex = 0;
 
-		protected SessionController refs;
+		protected GameSystem.SessionController refs;
 
 		public override void _Ready()
 		{
@@ -33,7 +33,7 @@ namespace BoGK.UI
 
 		protected virtual void SetupBaseReferences()
 		{
-			refs = GetNode<SessionController>("/root/GameController");
+			refs = GetNode<GameSystem.SessionController>("/root/GameController");
 			uiController.RefreshUI += Focus;
 			_returnButton.Pressed += () => Return();
 		}

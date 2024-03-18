@@ -1,12 +1,15 @@
 using Godot;
 
-public partial class PaddleChangeState : Pickup
+namespace BoGK.Gameplay
 {
-	[Export] private PaddleState _state;
-	[Export] private float _time = 2f;
-
-	protected override void ApplyPickup()
+	public partial class PaddleChangeState : Pickup
 	{
-		refs.paddle.SetPaddleState(_state, _time);
+		[Export] private PaddleState _state;
+		[Export] private float _time = 2f;
+
+		protected override void ApplyPickup()
+		{
+			refs.paddle.SetPaddleState(_state, _time);
+		}
 	}
 }

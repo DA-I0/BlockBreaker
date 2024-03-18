@@ -2,66 +2,69 @@ using Godot;
 
 public delegate void LifeNotification(int changeValue);
 
-public partial class Health : Node
+namespace BoGK.Gameplay
 {
-	private int _lives;
-
-	private SessionController refs;
-
-	public event Notification GameOver;
-	public event Notification ResetElements;
-	public event LifeNotification LifeChanged;
-
-	public override void _Ready()
+	public partial class Health : Node
 	{
-		refs = GetParent<SessionController>();
-		refs.GameSetup += SetupInitialValues;
-	}
+		private int _lives;
 
-	public override void _Input(InputEvent @event)
-	{
-		if (refs.CurrentGameState != GameState.gameplay)
+		private GameSystem.SessionController refs;
+
+		public event Notification GameOver;
+		public event Notification ResetElements;
+		public event LifeNotification LifeChanged;
+
+		public override void _Ready()
 		{
-			return;
+			refs = GetParent<GameSystem.SessionController>();
+			refs.GameSetup += SetupInitialValues;
 		}
 
-		if (HelperMethods.IsActiveInputDevice(refs, @event) && @event.IsActionPressed("game_reset"))
+		public override void _Input(InputEvent @event)
 		{
-			ChangeLives(-1);
-		}
-	}
+			if (refs.CurrentGameState != GameState.gameplay)
+			{
+				return;
+			}
 
-	public void ChangeLives(int amount)
-	{
-		_lives += amount;
-
-		if (_lives > refs.SelectedDifficulty.MaxLives)
-		{
-			_lives = refs.SelectedDifficulty.MaxLives;
+			if (GameSystem.HelperMethods.IsActiveInputDevice(refs, @event) && @event.IsActionPressed("game_reset"))
+			{
+				ChangeLives(-1);
+			}
 		}
 
-		LifeChanged?.Invoke(_lives);
-
-		if (amount < 1)
+		public void ChangeLives(int amount)
 		{
-			refs.audioController.PlayAudio(2);
-			ResetElements?.Invoke();
+			_lives += amount;
+
+			if (_lives > refs.SelectedDifficulty.MaxLives)
+			{
+				_lives = refs.SelectedDifficulty.MaxLives;
+			}
+
+			LifeChanged?.Invoke(_lives);
+
+			if (amount < 1)
+			{
+				refs.audioController.PlayAudio(2);
+				ResetElements?.Invoke();
+			}
+
+			CheckForGameOver();
 		}
 
-		CheckForGameOver();
-	}
-
-	private void SetupInitialValues()
-	{
-		_lives = refs.SelectedDifficulty.StartingLives;
-		LifeChanged?.Invoke(_lives);
-	}
-
-	private void CheckForGameOver()
-	{
-		if (_lives < 1)
+		private void SetupInitialValues()
 		{
-			GameOver?.Invoke();
+			_lives = refs.SelectedDifficulty.StartingLives;
+			LifeChanged?.Invoke(_lives);
+		}
+
+		private void CheckForGameOver()
+		{
+			if (_lives < 1)
+			{
+				GameOver?.Invoke();
+			}
 		}
 	}
 }

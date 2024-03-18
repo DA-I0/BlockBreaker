@@ -1,14 +1,17 @@
 using Godot;
 
-public partial class BallChangeSpeed : Pickup
+namespace BoGK.Gameplay
 {
-	[Export] private float _speedChange = 2f;
-
-	protected override void ApplyPickup()
+	public partial class BallChangeSpeed : Pickup
 	{
-		foreach (Ball ball in refs.Balls)
+		[Export] private float _speedChange = 2f;
+
+		protected override void ApplyPickup()
 		{
-			ball.SpeedMultiplier += _speedChange;
+			foreach (Ball ball in refs.Balls)
+			{
+				ball.SpeedMultiplier += _speedChange;
+			}
 		}
 	}
 }

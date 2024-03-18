@@ -1,7 +1,10 @@
-public partial class PaddleSwapDirection : Pickup
+namespace BoGK.Gameplay
 {
-	protected override void ApplyPickup()
+	public partial class PaddleSwapDirection : Pickup
 	{
-		refs.paddle.MovementDirection *= -1;
+		protected override void ApplyPickup()
+		{
+			refs.paddle.MovementDirection *= -1;
+		}
 	}
 }

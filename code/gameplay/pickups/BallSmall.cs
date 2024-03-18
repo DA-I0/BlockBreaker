@@ -1,14 +1,17 @@
 using Godot;
 
-public partial class BallSmall : Pickup
+namespace BoGK.Gameplay
 {
-	[Export] private float _newSize = 0.5f;
-
-	protected override void ApplyPickup()
+	public partial class BallSmall : Pickup
 	{
-		foreach (Ball ball in refs.Balls)
+		[Export] private float _newSize = 0.5f;
+
+		protected override void ApplyPickup()
 		{
-			ball.ChangeSize(_newSize);
+			foreach (Ball ball in refs.Balls)
+			{
+				ball.ChangeSize(_newSize);
+			}
 		}
 	}
 }

@@ -11,7 +11,7 @@ namespace BoGK.UI
 
 		private bool canAddToLeaderboard = false;
 
-		private SessionController refs;
+		private GameSystem.SessionController refs;
 
 		public override void _Ready()
 		{
@@ -21,7 +21,7 @@ namespace BoGK.UI
 
 		private void SetupReferences()
 		{
-			refs = GetNode<SessionController>("/root/GameController");
+			refs = GetNode<GameSystem.SessionController>("/root/GameController");
 			refs.GameSetup += TogglePrompt;
 			refs.levelManager.ResetSession += TogglePrompt;
 			refs.GameStateChanged += Display;

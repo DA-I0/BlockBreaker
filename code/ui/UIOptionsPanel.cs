@@ -18,7 +18,7 @@ namespace BoGK.UI
 			get { return _categoryPanels.GetChild<UIOptionsBaseCategory>(_activePanel); }
 		}
 
-		public SessionController Refs
+		public GameSystem.SessionController Refs
 		{
 			get { return refs; }
 		}

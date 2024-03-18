@@ -1,17 +1,20 @@
 using Godot;
 
-public partial class BallMulti : Pickup
+namespace BoGK.Gameplay
 {
-	[Export] private float _angleChange = 15f;
-
-	protected override void ApplyPickup()
+	public partial class BallMulti : Pickup
 	{
-		int ballCount = refs.Balls.Count;
-		for (int i = 0; i < ballCount; i++)
+		[Export] private float _angleChange = 15f;
+
+		protected override void ApplyPickup()
 		{
-			Ball sourceBall = (Ball)refs.Balls[i];
-			sourceBall.SpawnCopy(_angleChange);
-			sourceBall.SpawnCopy(-_angleChange);
+			int ballCount = refs.Balls.Count;
+			for (int i = 0; i < ballCount; i++)
+			{
+				Ball sourceBall = (Ball)refs.Balls[i];
+				sourceBall.SpawnCopy(_angleChange);
+				sourceBall.SpawnCopy(-_angleChange);
+			}
 		}
 	}
 }

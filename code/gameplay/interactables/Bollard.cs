@@ -1,26 +1,29 @@
 using Godot;
 
-public partial class Bollard : Interactable
+namespace BoGK.Gameplay
 {
-	protected override void Toggle()
+	public partial class Bollard : Interactable
 	{
-		if (_isActived)
+		protected override void Toggle()
 		{
-			_animator.Play("deactivate");
-			_animator.Queue("idle_disabled");
+			if (_isActived)
+			{
+				_animator.Play("deactivate");
+				_animator.Queue("idle_disabled");
+			}
+			else
+			{
+				_animator.Play("activate");
+				_animator.Queue("idle_enabled");
+			}
 		}
-		else
-		{
-			_animator.Play("activate");
-			_animator.Queue("idle_enabled");
-		}
-	}
 
-	private void StartTimer(StringName animationName)
-	{
-		if (animationName.ToString().Contains("idle_"))
+		private void StartTimer(StringName animationName)
 		{
-			_timer.Start(_cooldown);
+			if (animationName.ToString().Contains("idle_"))
+			{
+				_timer.Start(_cooldown);
+			}
 		}
 	}
 }

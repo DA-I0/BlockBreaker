@@ -1,34 +1,37 @@
 using Godot;
 
-public partial class StaticPaddle : Paddle
+namespace BoGK.Gameplay
 {
-	[Export] private CollisionPolygon2D _topCollider;
-	[Export] private float _maxBounceAngle = 45f;
-
-	public override void ApplyPaddleEffect(Ball targetBall)
+	public partial class StaticPaddle : Paddle
 	{
-		ApplyBallRotation(targetBall);
+		[Export] private CollisionPolygon2D _topCollider;
+		[Export] private float _maxBounceAngle = 45f;
 
-		switch (_paddleMode)
+		public override void ApplyPaddleEffect(Ball targetBall)
 		{
-			case PaddleMode.bouncy:
-				targetBall.SetTempSpeedMultiplier(_bouncyBoost);
-				break;
+			ApplyBallRotation(targetBall);
 
-			case PaddleMode.sticky:
-				targetBall.StateReset();
-				break;
+			switch (_paddleMode)
+			{
+				case PaddleMode.bouncy:
+					targetBall.SetTempSpeedMultiplier(_bouncyBoost);
+					break;
 
-			default:
-				break;
+				case PaddleMode.sticky:
+					targetBall.StateReset();
+					break;
+
+				default:
+					break;
+			}
 		}
-	}
 
-	private void ApplyBallRotation(Ball targetBall)
-	{
-		float positionDifference = Position.X - targetBall.Position.X;
-		float paddleLength = Mathf.Abs(_topCollider.Polygon[0].X - _topCollider.Polygon[1].X);
-		float newRotation = -90 - ((positionDifference / (paddleLength * 0.5f)) * _maxBounceAngle);
-		targetBall.ChangeRotationTo(newRotation);
+		private void ApplyBallRotation(Ball targetBall)
+		{
+			float positionDifference = Position.X - targetBall.Position.X;
+			float paddleLength = Mathf.Abs(_topCollider.Polygon[0].X - _topCollider.Polygon[1].X);
+			float newRotation = -90 - ((positionDifference / (paddleLength * 0.5f)) * _maxBounceAngle);
+			targetBall.ChangeRotationTo(newRotation);
+		}
 	}
 }

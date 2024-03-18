@@ -33,11 +33,11 @@ namespace BoGK.UI
 
 		private void UpdateDisplayedValues()
 		{
-			Skill currentSkill = refs.gameData.Skills[_currentSkill];
+			Gameplay.Skill currentSkill = refs.gameData.Skills[_currentSkill];
 			_name.Text = $"SKILL_{currentSkill.ToString().ToUpper()}_NAME";
 			_description.Text = $"{Tr("SKILL_ACTIVATION_COST")}: {currentSkill.ActivationCost}\n\n{Tr($"SKILL_{currentSkill.ToString().ToUpper()}_DESC")}";
 
-			string activeSkillIconPath = $"{ProjectSettings.GetSetting("global/SkillIconsFilePath")}/skill_{currentSkill.GetType()}.png";
+			string activeSkillIconPath = $"{ProjectSettings.GetSetting("global/SkillIconsFilePath")}/skill_{currentSkill}.png";
 			_skillIcon.Texture = ResourceLoader.Load<Texture2D>(activeSkillIconPath);
 
 			UpdatePaginatorStatus(_currentSkill);

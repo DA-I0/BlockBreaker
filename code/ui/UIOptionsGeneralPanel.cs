@@ -25,9 +25,9 @@ namespace BoGK.UI
 
 		public override void UpdateSettings()
 		{
-			_language.Selected = HelperMethods.FindOptionIndex(_language, HelperMethods.GetLocalizedLanguage(Refs.settings.Language));
+			_language.Selected = GameSystem.HelperMethods.FindOptionIndex(_language, GameSystem.HelperMethods.GetLocalizedLanguage(Refs.settings.Language));
 			_font.Selected = Refs.settings.Font;
-			_controllerType.Selected = HelperMethods.FindOptionIndex(_controllerType, Refs.settings.ControlerPrompts);
+			_controllerType.Selected = GameSystem.HelperMethods.FindOptionIndex(_controllerType, Refs.settings.ControlerPrompts);
 			_livesDisplay.ButtonPressed = Refs.settings.LivesAsText;
 			_stageClearDisplay.ButtonPressed = Refs.settings.StageClearScreen;
 		}
@@ -60,7 +60,7 @@ namespace BoGK.UI
 			{
 				if (!languageNames.Contains(languageCode))
 				{
-					languageNames.Add(HelperMethods.GetLocalizedLanguage(languageCode));
+					languageNames.Add(GameSystem.HelperMethods.GetLocalizedLanguage(languageCode));
 				}
 			}
 

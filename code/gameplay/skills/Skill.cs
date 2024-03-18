@@ -1,75 +1,85 @@
-public class Skill
+using System;
+
+namespace BoGK.Gameplay
 {
-	protected int _activationPointsCost;
-	protected int _activationPoints;
-	protected int _lastUpdateCombo;
-
-	protected SessionController refs;
-
-	public event Notification SkillReady;
-	public event Notification SkillUsed;
-
-	public int ActivationCost
+	public class Skill
 	{
-		get { return _activationPointsCost; }
-	}
+		protected int _activationPointsCost;
+		protected int _activationPoints;
+		protected int _lastUpdateCombo;
 
-	public void Setup(SessionController sessionController)
-	{
-		refs = sessionController;
-		refs.gameScore.ScoreChanged += UpdateActivationPoints;
-		refs.levelManager.ResetSession += Cleanup;
-		SecondarySetup();
-		Reset();
-	}
+		protected GameSystem.SessionController refs;
 
-	public virtual void Activate()
-	{
-		if (refs.paddle.PaddleState != PaddleState.locked && _activationPoints >= _activationPointsCost)
+		public event Notification SkillReady;
+		public event Notification SkillUsed;
+
+		public int ActivationCost
 		{
-			ApplySkillEffect();
+			get { return _activationPointsCost; }
 		}
-	}
 
-	protected virtual void SecondarySetup() { }
-	protected virtual void ApplySkillEffect() { }
-
-	protected void Reset()
-	{
-		_activationPoints = 0;
-		_lastUpdateCombo = 0;
-	}
-
-	protected void UpdateActivationPoints(int score, int scoreMultiplier, int combo)
-	{
-		if (combo == 0)
+		public void Setup(GameSystem.SessionController sessionController)
 		{
+			refs = sessionController;
+			refs.gameScore.ScoreChanged += UpdateActivationPoints;
+			refs.levelManager.ResetSession += Cleanup;
+			SecondarySetup();
+			Reset();
+		}
+
+		public virtual void Activate()
+		{
+			if (refs.paddle.PaddleState != PaddleState.locked && _activationPoints >= _activationPointsCost)
+			{
+				ApplySkillEffect();
+			}
+		}
+
+		public override string ToString()
+		{
+			return base.ToString().Split('.')[^1];
+		}
+
+		protected virtual void SecondarySetup() { }
+		protected virtual void ApplySkillEffect() { }
+
+		protected void Reset()
+		{
+			_activationPoints = 0;
 			_lastUpdateCombo = 0;
-			return;
 		}
 
-		if (_lastUpdateCombo < combo)
+		protected void UpdateActivationPoints(int score, int scoreMultiplier, int combo)
 		{
-			_lastUpdateCombo = combo;
-			_activationPoints++;
+			if (combo == 0)
+			{
+				_lastUpdateCombo = 0;
+				return;
+			}
+
+			if (_lastUpdateCombo < combo)
+			{
+				_lastUpdateCombo = combo;
+				_activationPoints++;
+			}
+
+			if (_activationPoints >= _activationPointsCost)
+			{
+				SkillReady?.Invoke();
+			}
 		}
 
-		if (_activationPoints >= _activationPointsCost)
+		protected virtual void OnActivation()
 		{
-			SkillReady?.Invoke();
+			SkillUsed?.Invoke();
+			Reset();
 		}
-	}
 
-	protected virtual void OnActivation()
-	{
-		SkillUsed?.Invoke();
-		Reset();
-	}
-
-	protected void Cleanup()
-	{
-		Reset();
-		refs.gameScore.ScoreChanged -= UpdateActivationPoints;
-		refs.levelManager.ResetSession -= Cleanup;
+		protected void Cleanup()
+		{
+			Reset();
+			refs.gameScore.ScoreChanged -= UpdateActivationPoints;
+			refs.levelManager.ResetSession -= Cleanup;
+		}
 	}
 }

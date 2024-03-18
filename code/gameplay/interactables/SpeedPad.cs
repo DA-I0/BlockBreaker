@@ -1,16 +1,19 @@
 using Godot;
 
-public partial class SpeedPad : Interactable
+namespace BoGK.Gameplay
 {
-	[Export] private float _boost = 1f;
-
-	private void OnBodyEntered(Node2D body)
+	public partial class SpeedPad : Interactable
 	{
-		if ((Ball)body != null)
+		[Export] private float _boost = 1f;
+
+		private void OnBodyEntered(Node2D body)
 		{
-			((Ball)body).ChangeTempSpeedMultiplier(_boost);
-			Toggle();
-			_timer.Start(_cooldown);
+			if ((Ball)body != null)
+			{
+				((Ball)body).ChangeTempSpeedMultiplier(_boost);
+				Toggle();
+				_timer.Start(_cooldown);
+			}
 		}
 	}
 }
