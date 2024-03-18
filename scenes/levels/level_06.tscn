@@ -261,10 +261,10 @@ _timer = NodePath("Timer")
 position = Vector2(16, 34)
 _timer = NodePath("Timer")
 
+[node name="BlockBasic44" parent="Blocks" instance=ExtResource("2_q7bub")]
+position = Vector2(-56, -25)
+
 [node name="LevelExit" parent="." node_paths=PackedStringArray("_animator", "_sprites") instance=ExtResource("3_jemen")]
 position = Vector2(0, -63)
 _animator = NodePath("Animator")
 _sprites = [NodePath("ExitSprite"), NodePath("DoorSprite")]
-
-[node name="BlockBasic" parent="." instance=ExtResource("2_q7bub")]
-position = Vector2(-56, -25)
