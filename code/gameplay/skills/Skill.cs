@@ -1,5 +1,3 @@
-using System;
-
 namespace BoGK.Gameplay
 {
 	public class Skill

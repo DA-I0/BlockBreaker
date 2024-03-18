@@ -1,4 +1,3 @@
-using System.Linq;
 using Godot;
 
 namespace BoGK.UI
@@ -15,7 +14,7 @@ namespace BoGK.UI
 		public override void _Ready()
 		{
 			SetupBaseReferences();
-			_paddleCount = DirAccess.GetFilesAt("res://prefabs/paddles/").Count();
+			_paddleCount = DirAccess.GetFilesAt("res://prefabs/paddles/").Length;
 			CreateItemIndicators(_paddleCount);
 			UpdateDisplayedValues();
 		}
