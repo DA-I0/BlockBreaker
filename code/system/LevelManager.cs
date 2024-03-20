@@ -107,7 +107,7 @@ namespace BoGK.GameSystem
 			if (!scenePath.Contains("menu"))
 			{
 				Node2D mapBackground = (Node2D)newScene.GetChild(0);
-				mapBackground.Modulate = new Color(mapBackground.Modulate.R, mapBackground.Modulate.G, mapBackground.Modulate.B, refs.settings.BackgroundBrightness);
+				mapBackground.Modulate = new Color(refs.settings.BackgroundBrightness, refs.settings.BackgroundBrightness, refs.settings.BackgroundBrightness, 1f);
 			}
 
 			_currentScene.CallDeferred("add_child", newScene);
