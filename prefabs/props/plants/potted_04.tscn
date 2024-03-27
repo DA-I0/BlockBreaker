@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfnd30w5wwj87"]
+
+[ext_resource type="Texture2D" uid="uid://b2r15emw8owlq" path="res://assets/sprites/props/plants/potted_04.png" id="1_kisbn"]
+
+[node name="Potted_04" type="StaticBody2D"]
+z_index = 2
+
+[node name="Collider" type="CollisionPolygon2D" parent="."]
+position = Vector2(1, -2)
+polygon = PackedVector2Array(-9, -1, -9, 1, -8, 2, 6, 2, 7, 1, 7, -1, 6, -2, -8, -2)
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(-8, -14)
+texture = ExtResource("1_kisbn")
+centered = false
