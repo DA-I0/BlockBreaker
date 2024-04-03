@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://4ff7xxnkeqd5"]
+
+[ext_resource type="Script" path="res://code/gameplay/Enemy.cs" id="1_rucrn"]
+[ext_resource type="Texture2D" uid="uid://y1cqf2rr20kv" path="res://assets/sprites/enemies/enemy_basic.png" id="7_4irhk"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2b8qt"]
+radius = 1.0
+height = 4.0
+
+[node name="EnemyBasic" type="CharacterBody2D" node_paths=PackedStringArray("_movementTimer")]
+z_index = 2
+script = ExtResource("1_rucrn")
+_state = 2
+_speed = 15.0
+_minMoveDistance = 5.0
+_maxMoveDistance = 40.0
+_maxThinkingDuration = 1.0
+_maxVerticalPosition = 70.0
+_movementTimer = NodePath("Timer")
+_pointValue = 3
+_maxHealth = 3
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_2b8qt")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(0, -7)
+texture = ExtResource("7_4irhk")
+hframes = 2
+vframes = 2
+region_rect = Rect2(4, 4, 44, 33)
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="SelectDestination"]

@@ -1,9 +1,10 @@
+using BoGK.Interfaces;
 using BoGK.Models;
 using Godot;
 
 namespace BoGK.Gameplay
 {
-	public partial class Breakable : StaticBody2D
+	public partial class Breakable : Node2D, IBreakable
 	{
 		[Export] protected int _pointValue = 1;
 		[Export] protected int _maxHealth = 1;

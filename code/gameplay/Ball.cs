@@ -1,4 +1,5 @@
 using BoGK.GameSystem;
+using BoGK.Interfaces;
 using Godot;
 
 public enum BallMode { idle, angleSelection, moving, frozen, spinning };
@@ -233,7 +234,7 @@ namespace BoGK.Gameplay
 
 			refs.audioController.PlayAudio(0);
 
-			Breakable breakable = collision.GetCollider() as Breakable;
+			IBreakable breakable = collision.GetCollider() as IBreakable;
 			DamageCollider(breakable);
 
 			if (!_isPowerBall || breakable == null)
@@ -250,7 +251,7 @@ namespace BoGK.Gameplay
 			catch { }
 		}
 
-		private void DamageCollider(Breakable breakable)
+		private void DamageCollider(IBreakable breakable)
 		{
 			if (breakable == null)
 			{
