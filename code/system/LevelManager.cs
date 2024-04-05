@@ -106,11 +106,31 @@ namespace BoGK.GameSystem
 
 			if (!scenePath.Contains("menu"))
 			{
-				Node2D mapBackground = (Node2D)newScene.GetChild(0);
-				mapBackground.Modulate = new Color(refs.settings.BackgroundBrightness, refs.settings.BackgroundBrightness, refs.settings.BackgroundBrightness, 1f);
+				ApplyBackgroundSettings(newScene);
 			}
 
 			_currentScene.CallDeferred("add_child", newScene);
+		}
+
+		private void ApplyBackgroundSettings(Node targetScene)
+		{
+			TileMap mapBackground = targetScene.GetChild<TileMap>(0);
+
+			if (refs.settings.UseAlternativeColorPalette)
+			{
+				string tileSetPath = mapBackground.TileSet.ResourcePath;
+				tileSetPath = tileSetPath.Replace(".tres", "_muted.tres");
+				mapBackground.TileSet = ResourceLoader.Load<TileSet>(tileSetPath);
+			}
+
+			mapBackground.Modulate = new Color(refs.settings.BackgroundBrightness, refs.settings.BackgroundBrightness, refs.settings.BackgroundBrightness, 1f);
+
+			Node2D mapDetails = targetScene.GetChild<Node2D>(1);
+
+			if (mapDetails.Name == "MapVisuals")
+			{
+				mapDetails.Modulate = new Color(refs.settings.BackgroundBrightness, refs.settings.BackgroundBrightness, refs.settings.BackgroundBrightness, 1f);
+			}
 		}
 
 		private void OnCurrentSceneChildEnteredTree(Node node)

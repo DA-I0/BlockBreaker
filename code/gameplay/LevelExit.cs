@@ -10,15 +10,14 @@ namespace BoGK.Gameplay
 		[Export] private AnimationPlayer _animator;
 
 		private Node _blockParent;
-		protected SessionController refs;
 
 		public override void _Ready()
 		{
+			refs = GetNode<SessionController>("/root/GameController");
 			ApplyVariant();
 
 			_blockParent = GetNode("../Blocks");
 			_blockParent.ChildExitingTree += CheckLevelProgress;
-			refs = GetNode<SessionController>("/root/GameController");
 
 			UpdateLevelExit();
 		}

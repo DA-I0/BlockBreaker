@@ -174,5 +174,4 @@ position = Vector2(80, -15)
 [node name="LevelExit" parent="." node_paths=PackedStringArray("_animator", "_sprites") instance=ExtResource("3_vkg58")]
 position = Vector2(0, -63)
 _animator = NodePath("Animator")
-_variant = null
 _sprites = [NodePath("ExitSprite"), NodePath("DoorSprite")]

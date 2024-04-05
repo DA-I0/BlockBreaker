@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://j3nmxhf1creq"
-path="res://.godot/imported/tileset_garden_floors.png-1bfca5aeec54f53d4bde36043aa4ee40.ctex"
+uid="uid://61muoxtbtmxo"
+path="res://.godot/imported/teleport_door_basic_muted.png-aa50f7b0d1ec5430763c914ce6e5903b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/tilesets/tileset_garden_floors.png"
-dest_files=["res://.godot/imported/tileset_garden_floors.png-1bfca5aeec54f53d4bde36043aa4ee40.ctex"]
+source_file="res://assets/sprites/interactables/teleport_door_basic_muted.png"
+dest_files=["res://.godot/imported/teleport_door_basic_muted.png-aa50f7b0d1ec5430763c914ce6e5903b.ctex"]
 
 [params]
 

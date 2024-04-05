@@ -168,7 +168,9 @@ position = Vector2(-86, 29)
 [node name="BarrierSturdy3" parent="Barriers" instance=ExtResource("3_mxnfo")]
 position = Vector2(86, 77)
 
-[node name="LevelExit" parent="." instance=ExtResource("16_uk2i8")]
+[node name="LevelExit" parent="." node_paths=PackedStringArray("_animator", "_sprites") instance=ExtResource("16_uk2i8")]
 position = Vector2(95, -48)
 rotation = 1.5708
+_animator = NodePath("Animator")
 _variant = 2
+_sprites = [NodePath("ExitSprite"), NodePath("DoorSprite")]

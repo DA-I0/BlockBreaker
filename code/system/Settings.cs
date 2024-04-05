@@ -70,6 +70,11 @@ namespace BoGK.GameSystem
 			get { return (int)_defaultConfig.GetValue("display", "pickup_order"); }
 		}
 
+		public bool DefaultUseAlternativeColorPalette
+		{
+			get { return (bool)_defaultConfig.GetValue("display", "use_alternative_color_palette"); }
+		}
+
 		public float DefaultBackgroundBrightness
 		{
 			get { return (float)_defaultConfig.GetValue("display", "background_brightness"); }
@@ -172,6 +177,12 @@ namespace BoGK.GameSystem
 		{
 			get { return (int)_config.GetValue("display", "pickup_order", DefaultPickupOrder); }
 			set { _config.SetValue("display", "pickup_order", value); }
+		}
+
+		public bool UseAlternativeColorPalette
+		{
+			get { return (bool)_config.GetValue("display", "use_alternative_color_palette", DefaultUseAlternativeColorPalette); }
+			set { _config.SetValue("display", "use_alternative_color_palette", value); }
 		}
 
 		public float BackgroundBrightness

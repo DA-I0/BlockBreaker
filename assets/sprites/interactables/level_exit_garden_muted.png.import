@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://j3nmxhf1creq"
-path="res://.godot/imported/tileset_garden_floors.png-1bfca5aeec54f53d4bde36043aa4ee40.ctex"
+uid="uid://lyiq3qpo62pv"
+path="res://.godot/imported/level_exit_garden_muted.png-2580d2233f7fbae0b64a428e9b23c1ff.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/tilesets/tileset_garden_floors.png"
-dest_files=["res://.godot/imported/tileset_garden_floors.png-1bfca5aeec54f53d4bde36043aa4ee40.ctex"]
+source_file="res://assets/sprites/interactables/level_exit_garden_muted.png"
+dest_files=["res://.godot/imported/level_exit_garden_muted.png-2580d2233f7fbae0b64a428e9b23c1ff.ctex"]
 
 [params]
 

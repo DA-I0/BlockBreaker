@@ -12,6 +12,7 @@ namespace BoGK.Gameplay
 
 		public override void _Ready()
 		{
+			refs = GetNode<GameSystem.SessionController>("/root/GameController");
 			ApplyVariant();
 			UpdateState();
 		}

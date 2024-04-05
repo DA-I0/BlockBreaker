@@ -1,6 +1,6 @@
 using Godot;
 
-public enum Variant { none, basic, garden, room };
+public enum Variant { basic, garden };
 
 namespace BoGK.GameSystem
 {
@@ -9,23 +9,31 @@ namespace BoGK.GameSystem
 		[Export] private Variant _variant;
 		[Export] private Sprite2D[] _sprites;
 
+		protected SessionController refs;
+
 		public override void _Ready()
 		{
+			refs = GetNode<SessionController>("/root/GameController");
 			ApplyVariant();
 		}
 
 		protected void ApplyVariant()
 		{
-			if (_variant == Variant.none)
-			{
-				return;
-			}
-
 			foreach (Sprite2D sprite in _sprites)
 			{
 				string spritePath = sprite.Texture.ResourcePath;
 				string oldSpriteVariant = spritePath.Split("_")[^1];
-				spritePath = spritePath.Replace(oldSpriteVariant, $"{_variant}.png");
+				string mutedSpritePath = spritePath.Replace(oldSpriteVariant, $"{_variant}_muted.png");
+
+				if (refs.settings.UseAlternativeColorPalette && FileAccess.FileExists(mutedSpritePath))
+				{
+					spritePath = mutedSpritePath;
+				}
+				else
+				{
+					spritePath = spritePath.Replace(oldSpriteVariant, $"{_variant}.png");
+				}
+
 				sprite.Texture = ResourceLoader.Load<Texture2D>(spritePath);
 			}
 		}

@@ -1,11 +1,11 @@
-[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://c8le7h84mb1kt"]
+[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://dw34ir0rfpmxx"]
 
-[ext_resource type="Texture2D" uid="uid://dwxamvx0nwexc" path="res://assets/sprites/tilesets/tileset_garden_walls.png" id="1_n0ywg"]
-[ext_resource type="Texture2D" uid="uid://j3nmxhf1creq" path="res://assets/sprites/tilesets/tileset_garden_floors.png" id="2_1ks2b"]
-[ext_resource type="Texture2D" uid="uid://sdi7py2yyvh0" path="res://assets/sprites/tilesets/map_details_garden.png" id="3_hl1fr"]
+[ext_resource type="Texture2D" uid="uid://du4rln6movc64" path="res://assets/sprites/tilesets/tileset_garden_walls_muted.png" id="1_vdww0"]
+[ext_resource type="Texture2D" uid="uid://mt3melswc8j3" path="res://assets/sprites/tilesets/tileset_garden_floors_muted.png" id="2_ta153"]
+[ext_resource type="Texture2D" uid="uid://sdi7py2yyvh0" path="res://assets/sprites/tilesets/map_details_garden.png" id="3_fqhr4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_evcp4"]
-texture = ExtResource("1_n0ywg")
+texture = ExtResource("1_vdww0")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -156,7 +156,7 @@ texture = ExtResource("1_n0ywg")
 7:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_if8is"]
-texture = ExtResource("2_1ks2b")
+texture = ExtResource("2_ta153")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -394,7 +394,7 @@ texture = ExtResource("2_1ks2b")
 7:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-6, 8, -8, 6, -8, -6, -4, -7, 0, -7, 4, -6, 5, -5, 6, -2, 7, 0, 7, 6, 6, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xshv0"]
-texture = ExtResource("3_hl1fr")
+texture = ExtResource("3_fqhr4")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0

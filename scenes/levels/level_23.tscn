@@ -190,47 +190,61 @@ position = Vector2(-8, 67)
 [node name="BlockBasic43" parent="Blocks" instance=ExtResource("4_uiwt7")]
 position = Vector2(8, 67)
 
-[node name="BlockSturdy" parent="Blocks" instance=ExtResource("5_u7jlh")]
+[node name="BlockSturdy" parent="Blocks" node_paths=PackedStringArray("_timer") instance=ExtResource("5_u7jlh")]
 position = Vector2(-40, 13)
+_timer = NodePath("Timer")
 
-[node name="BlockSturdy2" parent="Blocks" instance=ExtResource("5_u7jlh")]
+[node name="BlockSturdy2" parent="Blocks" node_paths=PackedStringArray("_timer") instance=ExtResource("5_u7jlh")]
 position = Vector2(-56, 19)
+_timer = NodePath("Timer")
 
-[node name="BlockSturdy3" parent="Blocks" instance=ExtResource("5_u7jlh")]
+[node name="BlockSturdy3" parent="Blocks" node_paths=PackedStringArray("_timer") instance=ExtResource("5_u7jlh")]
 position = Vector2(-40, 25)
+_timer = NodePath("Timer")
 
-[node name="BlockSturdy4" parent="Blocks" instance=ExtResource("5_u7jlh")]
+[node name="BlockSturdy4" parent="Blocks" node_paths=PackedStringArray("_timer") instance=ExtResource("5_u7jlh")]
 position = Vector2(-56, 31)
+_timer = NodePath("Timer")
 
-[node name="BlockSturdy5" parent="Blocks" instance=ExtResource("5_u7jlh")]
+[node name="BlockSturdy5" parent="Blocks" node_paths=PackedStringArray("_timer") instance=ExtResource("5_u7jlh")]
 position = Vector2(-40, 37)
+_timer = NodePath("Timer")
 
-[node name="BlockSturdy6" parent="Blocks" instance=ExtResource("5_u7jlh")]
+[node name="BlockSturdy6" parent="Blocks" node_paths=PackedStringArray("_timer") instance=ExtResource("5_u7jlh")]
 position = Vector2(-56, 43)
+_timer = NodePath("Timer")
 
-[node name="BlockSturdy7" parent="Blocks" instance=ExtResource("5_u7jlh")]
+[node name="BlockSturdy7" parent="Blocks" node_paths=PackedStringArray("_timer") instance=ExtResource("5_u7jlh")]
 position = Vector2(40, 13)
+_timer = NodePath("Timer")
 
-[node name="BlockSturdy8" parent="Blocks" instance=ExtResource("5_u7jlh")]
+[node name="BlockSturdy8" parent="Blocks" node_paths=PackedStringArray("_timer") instance=ExtResource("5_u7jlh")]
 position = Vector2(56, 19)
+_timer = NodePath("Timer")
 
-[node name="BlockSturdy9" parent="Blocks" instance=ExtResource("5_u7jlh")]
+[node name="BlockSturdy9" parent="Blocks" node_paths=PackedStringArray("_timer") instance=ExtResource("5_u7jlh")]
 position = Vector2(40, 25)
+_timer = NodePath("Timer")
 
-[node name="BlockSturdy10" parent="Blocks" instance=ExtResource("5_u7jlh")]
+[node name="BlockSturdy10" parent="Blocks" node_paths=PackedStringArray("_timer") instance=ExtResource("5_u7jlh")]
 position = Vector2(56, 31)
+_timer = NodePath("Timer")
 
-[node name="BlockSturdy11" parent="Blocks" instance=ExtResource("5_u7jlh")]
+[node name="BlockSturdy11" parent="Blocks" node_paths=PackedStringArray("_timer") instance=ExtResource("5_u7jlh")]
 position = Vector2(40, 37)
+_timer = NodePath("Timer")
 
-[node name="BlockSturdy12" parent="Blocks" instance=ExtResource("5_u7jlh")]
+[node name="BlockSturdy12" parent="Blocks" node_paths=PackedStringArray("_timer") instance=ExtResource("5_u7jlh")]
 position = Vector2(56, 43)
+_timer = NodePath("Timer")
 
-[node name="BlockSturdy13" parent="Blocks" instance=ExtResource("5_u7jlh")]
+[node name="BlockSturdy13" parent="Blocks" node_paths=PackedStringArray("_timer") instance=ExtResource("5_u7jlh")]
 position = Vector2(-18, 20)
+_timer = NodePath("Timer")
 
-[node name="BlockSturdy14" parent="Blocks" instance=ExtResource("5_u7jlh")]
+[node name="BlockSturdy14" parent="Blocks" node_paths=PackedStringArray("_timer") instance=ExtResource("5_u7jlh")]
 position = Vector2(18, 20)
+_timer = NodePath("Timer")
 
 [node name="Barriers" type="Node2D" parent="."]
 
@@ -242,100 +256,133 @@ position = Vector2(7, -38)
 
 [node name="OtherBreakables" type="Node2D" parent="."]
 
-[node name="Pumpkin" parent="OtherBreakables" instance=ExtResource("7_j50wy")]
+[node name="Pumpkin" parent="OtherBreakables" node_paths=PackedStringArray("_timer") instance=ExtResource("7_j50wy")]
 position = Vector2(-85, -52)
+_timer = NodePath("Timer")
 
-[node name="Pumpkin2" parent="OtherBreakables" instance=ExtResource("7_j50wy")]
+[node name="Pumpkin2" parent="OtherBreakables" node_paths=PackedStringArray("_timer") instance=ExtResource("7_j50wy")]
 position = Vector2(-82, -38)
+_timer = NodePath("Timer")
 
-[node name="Pumpkin3" parent="OtherBreakables" instance=ExtResource("7_j50wy")]
+[node name="Pumpkin3" parent="OtherBreakables" node_paths=PackedStringArray("_timer") instance=ExtResource("7_j50wy")]
 position = Vector2(-67, -49)
+_timer = NodePath("Timer")
 
-[node name="Pumpkin4" parent="OtherBreakables" instance=ExtResource("7_j50wy")]
+[node name="Pumpkin4" parent="OtherBreakables" node_paths=PackedStringArray("_timer") instance=ExtResource("7_j50wy")]
 position = Vector2(-66, -35)
+_timer = NodePath("Timer")
 
-[node name="Pumpkin5" parent="OtherBreakables" instance=ExtResource("7_j50wy")]
+[node name="Pumpkin5" parent="OtherBreakables" node_paths=PackedStringArray("_timer") instance=ExtResource("7_j50wy")]
 position = Vector2(-50, -53)
+_timer = NodePath("Timer")
 
-[node name="Pumpkin6" parent="OtherBreakables" instance=ExtResource("7_j50wy")]
+[node name="Pumpkin6" parent="OtherBreakables" node_paths=PackedStringArray("_timer") instance=ExtResource("7_j50wy")]
 position = Vector2(-46, -38)
+_timer = NodePath("Timer")
 
-[node name="Pumpkin7" parent="OtherBreakables" instance=ExtResource("7_j50wy")]
+[node name="Pumpkin7" parent="OtherBreakables" node_paths=PackedStringArray("_timer") instance=ExtResource("7_j50wy")]
 position = Vector2(41, -52)
+_timer = NodePath("Timer")
 
-[node name="Pumpkin8" parent="OtherBreakables" instance=ExtResource("7_j50wy")]
+[node name="Pumpkin8" parent="OtherBreakables" node_paths=PackedStringArray("_timer") instance=ExtResource("7_j50wy")]
 position = Vector2(44, -38)
+_timer = NodePath("Timer")
 
-[node name="Pumpkin9" parent="OtherBreakables" instance=ExtResource("7_j50wy")]
+[node name="Pumpkin9" parent="OtherBreakables" node_paths=PackedStringArray("_timer") instance=ExtResource("7_j50wy")]
 position = Vector2(61, -49)
+_timer = NodePath("Timer")
 
-[node name="Pumpkin10" parent="OtherBreakables" instance=ExtResource("7_j50wy")]
+[node name="Pumpkin10" parent="OtherBreakables" node_paths=PackedStringArray("_timer") instance=ExtResource("7_j50wy")]
 position = Vector2(60, -37)
+_timer = NodePath("Timer")
 
-[node name="Pumpkin11" parent="OtherBreakables" instance=ExtResource("7_j50wy")]
+[node name="Pumpkin11" parent="OtherBreakables" node_paths=PackedStringArray("_timer") instance=ExtResource("7_j50wy")]
 position = Vector2(80, -51)
+_timer = NodePath("Timer")
 
-[node name="Pumpkin12" parent="OtherBreakables" instance=ExtResource("7_j50wy")]
+[node name="Pumpkin12" parent="OtherBreakables" node_paths=PackedStringArray("_timer") instance=ExtResource("7_j50wy")]
 position = Vector2(78, -37)
+_timer = NodePath("Timer")
 
-[node name="Explosives" parent="OtherBreakables" instance=ExtResource("6_3unkt")]
+[node name="Explosives" parent="OtherBreakables" node_paths=PackedStringArray("_animator") instance=ExtResource("6_3unkt")]
 position = Vector2(-37, 56)
+_animator = NodePath("Animator")
 
-[node name="Explosives2" parent="OtherBreakables" instance=ExtResource("6_3unkt")]
+[node name="Explosives2" parent="OtherBreakables" node_paths=PackedStringArray("_animator") instance=ExtResource("6_3unkt")]
 position = Vector2(37, 56)
+_animator = NodePath("Animator")
 
-[node name="Explosives3" parent="OtherBreakables" instance=ExtResource("6_3unkt")]
+[node name="Explosives3" parent="OtherBreakables" node_paths=PackedStringArray("_animator") instance=ExtResource("6_3unkt")]
 position = Vector2(0, 22)
+_animator = NodePath("Animator")
 
-[node name="FenceUpLeftOut" parent="OtherBreakables" instance=ExtResource("7_8vnls")]
+[node name="FenceUpLeftOut" parent="OtherBreakables" node_paths=PackedStringArray("_timer") instance=ExtResource("7_8vnls")]
 position = Vector2(-24, 4)
+_timer = NodePath("Timer")
 
-[node name="FenceUp" parent="OtherBreakables" instance=ExtResource("8_rd3ga")]
+[node name="FenceUp" parent="OtherBreakables" node_paths=PackedStringArray("_timer") instance=ExtResource("8_rd3ga")]
 position = Vector2(-8, 4)
+_timer = NodePath("Timer")
 
-[node name="FenceUp2" parent="OtherBreakables" instance=ExtResource("8_rd3ga")]
+[node name="FenceUp2" parent="OtherBreakables" node_paths=PackedStringArray("_timer") instance=ExtResource("8_rd3ga")]
 position = Vector2(8, 4)
+_timer = NodePath("Timer")
 
-[node name="FenceUpRightOut" parent="OtherBreakables" instance=ExtResource("9_ayhq3")]
+[node name="FenceUpRightOut" parent="OtherBreakables" node_paths=PackedStringArray("_timer") instance=ExtResource("9_ayhq3")]
 position = Vector2(24, 4)
+_timer = NodePath("Timer")
 
-[node name="FenceLeft" parent="OtherBreakables" instance=ExtResource("18_sf1n7")]
+[node name="FenceLeft" parent="OtherBreakables" node_paths=PackedStringArray("_timer") instance=ExtResource("18_sf1n7")]
 position = Vector2(-24, 20)
+_timer = NodePath("Timer")
 
-[node name="FenceRight" parent="OtherBreakables" instance=ExtResource("9_jgncc")]
+[node name="FenceRight" parent="OtherBreakables" node_paths=PackedStringArray("_timer") instance=ExtResource("9_jgncc")]
 position = Vector2(24, 20)
+_timer = NodePath("Timer")
 
-[node name="FenceLeftEnd" parent="OtherBreakables" instance=ExtResource("12_l2wdv")]
+[node name="FenceLeftEnd" parent="OtherBreakables" node_paths=PackedStringArray("_timer") instance=ExtResource("12_l2wdv")]
 position = Vector2(-24, 40)
+_timer = NodePath("Timer")
 
-[node name="FenceDownLeftOut" parent="OtherBreakables" instance=ExtResource("13_biwes")]
+[node name="FenceDownLeftOut" parent="OtherBreakables" node_paths=PackedStringArray("_timer") instance=ExtResource("13_biwes")]
 position = Vector2(-24, 48)
+_timer = NodePath("Timer")
 
-[node name="FenceRightEnd" parent="OtherBreakables" instance=ExtResource("14_sxopu")]
+[node name="FenceRightEnd" parent="OtherBreakables" node_paths=PackedStringArray("_timer") instance=ExtResource("14_sxopu")]
 position = Vector2(24, 40)
+_timer = NodePath("Timer")
 
-[node name="FenceDownRightOut" parent="OtherBreakables" instance=ExtResource("15_5wlus")]
+[node name="FenceDownRightOut" parent="OtherBreakables" node_paths=PackedStringArray("_timer") instance=ExtResource("15_5wlus")]
 position = Vector2(24, 48)
+_timer = NodePath("Timer")
 
-[node name="FenceDown" parent="OtherBreakables" instance=ExtResource("16_vjg2v")]
+[node name="FenceDown" parent="OtherBreakables" node_paths=PackedStringArray("_timer") instance=ExtResource("16_vjg2v")]
 position = Vector2(-8, 48)
+_timer = NodePath("Timer")
 
-[node name="FenceDown2" parent="OtherBreakables" instance=ExtResource("16_vjg2v")]
+[node name="FenceDown2" parent="OtherBreakables" node_paths=PackedStringArray("_timer") instance=ExtResource("16_vjg2v")]
 position = Vector2(8, 48)
+_timer = NodePath("Timer")
 
 [node name="Interactables" type="Node2D" parent="."]
 
-[node name="TeleportDoor" parent="Interactables" node_paths=PackedStringArray("_linkedDoor") instance=ExtResource("9_3d1q4")]
+[node name="TeleportDoor" parent="Interactables" node_paths=PackedStringArray("_linkedDoor", "_animator", "_timer", "_sprites") instance=ExtResource("9_3d1q4")]
 position = Vector2(-95, 24)
 rotation = -1.5708
 _linkedDoor = NodePath("../TeleportDoor4")
+_animator = NodePath("Animator")
+_timer = NodePath("Timer")
 _variant = 2
+_sprites = [NodePath("ExitSprite"), NodePath("DoorSprite")]
 
-[node name="TeleportDoor4" parent="Interactables" node_paths=PackedStringArray("_linkedDoor") instance=ExtResource("9_3d1q4")]
+[node name="TeleportDoor4" parent="Interactables" node_paths=PackedStringArray("_linkedDoor", "_animator", "_timer", "_sprites") instance=ExtResource("9_3d1q4")]
 position = Vector2(95, 24)
 rotation = 1.5708
 _linkedDoor = NodePath("../TeleportDoor")
+_animator = NodePath("Animator")
+_timer = NodePath("Timer")
 _variant = 2
+_sprites = [NodePath("ExitSprite"), NodePath("DoorSprite")]
 
 [node name="Props" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -357,6 +404,8 @@ position = Vector2(0, -49)
 position = Vector2(0, -34)
 scale = Vector2(-1, -1)
 
-[node name="LevelExit" parent="." instance=ExtResource("16_uk2i8")]
+[node name="LevelExit" parent="." node_paths=PackedStringArray("_animator", "_sprites") instance=ExtResource("16_uk2i8")]
 position = Vector2(0, -63)
+_animator = NodePath("Animator")
 _variant = 2
+_sprites = [NodePath("ExitSprite"), NodePath("DoorSprite")]

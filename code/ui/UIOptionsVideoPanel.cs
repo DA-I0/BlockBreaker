@@ -10,6 +10,7 @@ namespace BoGK.UI
 		[Export] private CheckButton _screenShake;
 		[Export] private OptionButton _pickupOrder;
 		[Export] private Label _backgroundBrightnessText;
+		[Export] private CheckButton _colorPalette;
 		[Export] private HSlider _backgroundBrightness;
 		[Export] private Label _helperTransparencyText;
 		[Export] private HSlider _helperTransparency;
@@ -33,6 +34,7 @@ namespace BoGK.UI
 			_fullscreen.ButtonPressed = (Refs.settings.ScreenMode > 0);
 			_screenShake.ButtonPressed = Refs.settings.ScreenShake;
 			_pickupOrder.Selected = Refs.settings.PickupOrder;
+			_colorPalette.ButtonPressed = Refs.settings.UseAlternativeColorPalette;
 			_backgroundBrightness.Value = Refs.settings.BackgroundBrightness;
 			_helperTransparency.Value = Refs.settings.HelperTransparency;
 
@@ -43,6 +45,7 @@ namespace BoGK.UI
 		{
 			Refs.settings.ScreenMode = _fullscreen.ButtonPressed ? 3 : 0;
 			Refs.settings.ScreenShake = _screenShake.ButtonPressed;
+			Refs.settings.UseAlternativeColorPalette = _colorPalette.ButtonPressed;
 			Refs.settings.BackgroundBrightness = (float)_backgroundBrightness.Value;
 			Refs.settings.PickupOrder = _pickupOrder.Selected;
 			Refs.settings.HelperTransparency = (float)_helperTransparency.Value;
