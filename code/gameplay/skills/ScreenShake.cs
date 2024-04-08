@@ -11,7 +11,7 @@ namespace BoGK.Gameplay
 
 		public ScreenShake()
 		{
-			_activationPointsCost = 5;
+			_activationPointsCost = 10;
 		}
 
 		protected override void ApplySkillEffect()
