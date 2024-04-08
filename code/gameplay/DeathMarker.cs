@@ -20,7 +20,7 @@ namespace BoGK.Gameplay
 
 		private void SetupMarker()
 		{
-			Modulate = new Color(Modulate.R, Modulate.G, Modulate.B, refs.settings.HelperTransparency);
+			Modulate = new Color(Modulate.R, Modulate.G, Modulate.B, refs.settings.EffectTransparency);
 			ToggleVisibility(refs.SelectedDifficulty.StartingLives);
 		}
 	}
