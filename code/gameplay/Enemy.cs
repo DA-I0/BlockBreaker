@@ -15,6 +15,7 @@ namespace BoGK.Gameplay
 		[Export] private float _maxHorizontalPosition = 94;
 		[Export] private float _maxVerticalPosition = 80;
 		[Export] private Timer _movementTimer;
+		[Export] private AnimationPlayer _animator;
 		// breakable stuff
 		[Export] protected int _pointValue = 1;
 		[Export] protected int _maxHealth = 1;
@@ -65,6 +66,7 @@ namespace BoGK.Gameplay
 				{
 					Vector2 newVelocity = Position.DirectionTo(_newDestination) * (float)delta * _speed;
 					KinematicCollision2D collision = MoveAndCollide(newVelocity, false, 0.01f);
+					AnimateMovement();
 
 					if (collision != null)
 					{
@@ -73,6 +75,7 @@ namespace BoGK.Gameplay
 				}
 				else
 				{
+					_animator.Stop();
 					RandomizeThinkingDelay();
 				}
 			}
@@ -122,6 +125,28 @@ namespace BoGK.Gameplay
 		private void RandomizeThinkingDelay()
 		{
 			_movementTimer.Start(GD.RandRange(0, _maxThinkingDuration));
+		}
+
+		private void AnimateMovement()
+		{
+			switch (_moveDirection)
+			{
+				case Vector2(0f, -1f):
+					_animator.Play("walk_up");
+					break;
+
+				case Vector2(-1f, 0f):
+					_animator.Play("walk_left");
+					break;
+
+				case Vector2(1f, 0f):
+					_animator.Play("walk_right");
+					break;
+
+				default:
+					_animator.Play("walk_down");
+					break;
+			}
 		}
 		//------------------------------
 
