@@ -11,7 +11,7 @@ namespace BoGK.Gameplay
 
 		public ScreenShake()
 		{
-			_activationPointsCost = 10;
+			_activationPointsCost = 5;
 		}
 
 		protected override void ApplySkillEffect()
@@ -31,6 +31,7 @@ namespace BoGK.Gameplay
 			{
 				Node2D debris = (Node2D)ResourceLoader.Load<PackedScene>(PrefabPath).Instantiate();
 				debris.Position = new Vector2(GD.RandRange(-MaxOffesetHor, MaxOffesetHor), GD.RandRange(-MaxOffesetVer, MaxOffesetVer));
+				debris.Modulate = new Color(1f, 1f, 1f, refs.settings.HelperTransparency);
 				level.AddChild(debris);
 			}
 
