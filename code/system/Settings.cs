@@ -80,9 +80,9 @@ namespace BoGK.GameSystem
 			get { return (float)_defaultConfig.GetValue("display", "background_brightness"); }
 		}
 
-		public float DefaultHelperTransparency
+		public float DefaultEffectTransparency
 		{
-			get { return (float)_defaultConfig.GetValue("display", "helper_transparency"); }
+			get { return (float)_defaultConfig.GetValue("display", "effect_transparency"); }
 		}
 
 		public Dictionary<string, BreakableVariant> DefaultBreakableVariants
@@ -191,10 +191,10 @@ namespace BoGK.GameSystem
 			set { _config.SetValue("display", "background_brightness", value); }
 		}
 
-		public float HelperTransparency
+		public float EffectTransparency
 		{
-			get { return (float)_config.GetValue("display", "helper_transparency", DefaultHelperTransparency); }
-			set { _config.SetValue("display", "helper_transparency", value); }
+			get { return (float)_config.GetValue("display", "effect_transparency", DefaultEffectTransparency); }
+			set { _config.SetValue("display", "effect_transparency", value); }
 		}
 
 		public Dictionary<string, BreakableVariant> BreakableVariants
@@ -314,7 +314,7 @@ namespace BoGK.GameSystem
 			ScreenShake = DefaultScreenShake;
 			BackgroundBrightness = DefaultBackgroundBrightness;
 			PickupOrder = DefaultPickupOrder;
-			HelperTransparency = DefaultHelperTransparency;
+			EffectTransparency = DefaultEffectTransparency;
 			BreakableVariants = DefaultBreakableVariants;
 		}
 

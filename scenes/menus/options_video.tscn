@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://chk6oivvrr8nn" path="res://assets/sprites/ui_elements/buttons/ui_icon_arrow_right.png" id="2_8ch1w"]
 [ext_resource type="Script" path="res://code/ui/UIOptionsVideoPanel.cs" id="2_hm0h4"]
 
-[node name="VideoOptions" type="ScrollContainer" node_paths=PackedStringArray("_fullscreen", "_screenShake", "_pickupOrder", "_backgroundBrightnessText", "_colorPalette", "_backgroundBrightness", "_helperTransparencyText", "_helperTransparency", "_brekableVariantContainer", "_focusTarget")]
+[node name="VideoOptions" type="ScrollContainer" node_paths=PackedStringArray("_fullscreen", "_screenShake", "_pickupOrder", "_backgroundBrightnessText", "_colorPalette", "_backgroundBrightness", "_effectTransparencyText", "_effectTransparency", "_brekableVariantContainer", "_focusTarget")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -23,8 +23,8 @@ _pickupOrder = NodePath("Options/PickupSetting/PickupOptions")
 _backgroundBrightnessText = NodePath("Options/BackgroundSetting/HBoxContainer/BackgroundValue")
 _colorPalette = NodePath("Options/ColorPaletteSetting/ColorPaletteToggle")
 _backgroundBrightness = NodePath("Options/BackgroundSetting/BackgroundSlider")
-_helperTransparencyText = NodePath("Options/EffectsTransparencySetting/EffectsTransparencyText/EffectsTransparencyValue")
-_helperTransparency = NodePath("Options/EffectsTransparencySetting/EffectsTransparencySlider")
+_effectTransparencyText = NodePath("Options/EffectsTransparencySetting/EffectsTransparencyText/EffectsTransparencyValue")
+_effectTransparency = NodePath("Options/EffectsTransparencySetting/EffectsTransparencySlider")
 _brekableVariantContainer = NodePath("Options/BreakableVariantSetting")
 _focusTarget = [NodePath("Options/FullscreenSetting/FullscreenToggle")]
 

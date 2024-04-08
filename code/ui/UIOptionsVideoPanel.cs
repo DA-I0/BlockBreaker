@@ -12,8 +12,8 @@ namespace BoGK.UI
 		[Export] private Label _backgroundBrightnessText;
 		[Export] private CheckButton _colorPalette;
 		[Export] private HSlider _backgroundBrightness;
-		[Export] private Label _helperTransparencyText;
-		[Export] private HSlider _helperTransparency;
+		[Export] private Label _effectTransparencyText;
+		[Export] private HSlider _effectTransparency;
 		[Export] private Control _brekableVariantContainer;
 		[Export] private UIColorPicker _colorPickerPanel;
 
@@ -36,7 +36,7 @@ namespace BoGK.UI
 			_pickupOrder.Selected = Refs.settings.PickupOrder;
 			_colorPalette.ButtonPressed = Refs.settings.UseAlternativeColorPalette;
 			_backgroundBrightness.Value = Refs.settings.BackgroundBrightness;
-			_helperTransparency.Value = Refs.settings.HelperTransparency;
+			_effectTransparency.Value = Refs.settings.EffectTransparency;
 
 			UpdateVariants();
 		}
@@ -48,7 +48,7 @@ namespace BoGK.UI
 			Refs.settings.UseAlternativeColorPalette = _colorPalette.ButtonPressed;
 			Refs.settings.BackgroundBrightness = (float)_backgroundBrightness.Value;
 			Refs.settings.PickupOrder = _pickupOrder.Selected;
-			Refs.settings.HelperTransparency = (float)_helperTransparency.Value;
+			Refs.settings.EffectTransparency = (float)_effectTransparency.Value;
 
 			SaveBreakableVariants();
 		}
@@ -68,13 +68,13 @@ namespace BoGK.UI
 		{
 			_mainPanel.FinalizeSetup += PopulateBreakableVariants;
 			_backgroundBrightness.ValueChanged += UpdateTextValues;
-			_helperTransparency.ValueChanged += UpdateTextValues;
+			_effectTransparency.ValueChanged += UpdateTextValues;
 		}
 
 		private void UpdateTextValues(double value)
 		{
 			_backgroundBrightnessText.Text = $"{System.MathF.Round((float)_backgroundBrightness.Value * 100, 0)}%";
-			_helperTransparencyText.Text = $"{System.MathF.Round((float)_helperTransparency.Value * 100, 0)}%";
+			_effectTransparencyText.Text = $"{System.MathF.Round((float)_effectTransparency.Value * 100, 0)}%";
 		}
 
 		private void ToggleBreakableVariantsDisplay()
