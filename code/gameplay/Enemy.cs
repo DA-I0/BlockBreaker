@@ -1,7 +1,7 @@
 using BoGK.Interfaces;
 using Godot;
 
-public enum EnemyState { idle, standby, moving };
+public enum EnemyState { idle, standby, moving, hurt };
 
 namespace BoGK.Gameplay
 {
@@ -16,17 +16,17 @@ namespace BoGK.Gameplay
 		[Export] private float _maxVerticalPosition = 80;
 		[Export] private Timer _movementTimer;
 		[Export] private AnimationPlayer _animator;
+
 		// breakable stuff
 		[Export] protected int _pointValue = 1;
 		[Export] protected int _maxHealth = 1;
+		[Export] protected double _invulnerabilityDuration = 1f;
+		[Export] protected Timer _invulnerabilityTimer;
 
 		[Export] private double _pickupSpawnChance = 0.1f;
 		[Export] private PackedScene[] _pickups;
 
 		[Export] protected float _maxPositionOffset = 0.5f;
-		[Export] protected double _invulnerabilityDuration = 0.25f;
-
-		[Export] protected Timer _invulnerabilityTimer;
 
 		private Vector2 _defaultPosition;
 		private bool _isDead;
@@ -34,9 +34,19 @@ namespace BoGK.Gameplay
 
 		protected string _defaultSpritePath;
 		// breakable stuff - end
+
+		private EnemyState _lastState;
 		private Vector2 _newDestination;
-		private Vector2 _moveDirection;
+		[Export] private Vector2 _moveDirection = new Vector2(0, 1);
 		private float _moveDistance;
+
+		protected Sprite2D _sprite;
+		protected GameSystem.SessionController refs;
+
+		public int MaxHealth
+		{
+			get { return _maxHealth; }
+		}
 
 		public override void _Ready()
 		{
@@ -44,7 +54,8 @@ namespace BoGK.Gameplay
 
 			refs = GetNode<GameSystem.SessionController>("/root/GameController");
 			SetInitialValues();
-			AdjustSprite();
+			_lastState = _state;
+			AnimateMovement(0f);
 		}
 
 		public override void _PhysicsProcess(double delta)
@@ -52,10 +63,12 @@ namespace BoGK.Gameplay
 			Move(delta);
 		}
 
-		protected virtual void AdjustSprite() // rename to ShowDamage or something
+		protected virtual void TriggerDamageReaction()
 		{
-			// replace with animations/animation rows as frames are needed for walking anims
-			_sprite.Frame = (_health <= 0) ? 0 : _maxHealth - _health;
+			_lastState = _state;
+			_state = EnemyState.hurt;
+			AnimateDamage();
+			_invulnerabilityTimer.Start(_invulnerabilityDuration);
 		}
 
 		private void Move(double delta)
@@ -113,8 +126,6 @@ namespace BoGK.Gameplay
 			{
 				_newDestination.Y = _maxVerticalPosition - 1;
 			}
-
-			GD.Print($"New destination: {_newDestination} -- Direction: {_moveDirection}");
 		}
 
 		private float CheckTargetDistance()
@@ -127,40 +138,59 @@ namespace BoGK.Gameplay
 			_movementTimer.Start(GD.RandRange(0, _maxThinkingDuration));
 		}
 
-		private void AnimateMovement()
+		private void AnimateMovement(float customSpeed = 1f)
 		{
 			switch (_moveDirection)
 			{
 				case Vector2(0f, -1f):
-					_animator.Play("walk_up");
+					_animator.Play("walk_up", -1, customSpeed);
 					break;
 
 				case Vector2(-1f, 0f):
-					_animator.Play("walk_left");
+					_animator.Play("walk_left", -1, customSpeed);
 					break;
 
 				case Vector2(1f, 0f):
-					_animator.Play("walk_right");
+					_animator.Play("walk_right", -1, customSpeed);
 					break;
 
 				default:
-					_animator.Play("walk_down");
+					_animator.Play("walk_down", -1, customSpeed);
 					break;
 			}
 		}
-		//------------------------------
 
-		protected Sprite2D _sprite;
-		protected GameSystem.SessionController refs;
-
-		public int MaxHealth
+		private void AnimateDamage()
 		{
-			get { return _maxHealth; }
+			switch (_moveDirection)
+			{
+				case Vector2(0f, -1f):
+					_animator.Play("damage_up");
+					break;
+
+				case Vector2(-1f, 0f):
+					_animator.Play("damage_left");
+					break;
+
+				case Vector2(1f, 0f):
+					_animator.Play("damage_right");
+					break;
+
+				default:
+					_animator.Play("damage_down");
+					break;
+			}
 		}
 
-		public virtual void Damage(int value) // stop movement, make invulnerable for a moment
+		private void RestorePreviousState()
 		{
-			if (_isDead)
+			AnimateMovement(0f);
+			_state = _lastState;
+		}
+
+		public virtual void Damage(int value)
+		{
+			if (_isDead || _state == EnemyState.hurt)
 			{
 				return;
 			}
@@ -172,8 +202,7 @@ namespace BoGK.Gameplay
 				Destroy();
 			}
 
-			// _timer?.Start(_shakeDuration);
-			AdjustSprite();
+			TriggerDamageReaction();
 			RandomizeThinkingDelay();
 		}
 
@@ -183,34 +212,7 @@ namespace BoGK.Gameplay
 			_health = _maxHealth;
 			_isDead = _health <= 0;
 			_defaultSpritePath = _sprite.Texture.ResourcePath;
-			ApplySpriteVariant();
 			_newDestination = Position;
-		}
-
-		private void ApplySpriteVariant()
-		{
-			/*
-						string breakableName = _defaultSpritePath.Split('/')[^1].Replace(".png", "");
-						BreakableVariant variant = refs.settings.FindVariant(breakableName);
-
-						switch (variant.SpriteVariant)
-						{
-							case 1:
-								_sprite.Texture = ResourceLoader.Load<Texture2D>(_defaultSpritePath.Replace(".png", "_rim.png"));
-								_sprite.Modulate = new Color(1, 1, 1, 1);
-								break;
-
-							case 2:
-								_sprite.Texture = ResourceLoader.Load<Texture2D>(_defaultSpritePath.Replace(".png", "_alt.png"));
-								_sprite.Modulate = variant.CustomColor;
-								break;
-
-							default:
-								_sprite.Texture = ResourceLoader.Load<Texture2D>(_defaultSpritePath);
-								_sprite.Modulate = new Color(1, 1, 1, 1);
-								break;
-						}
-						*/
 		}
 
 		private void SpawnPickup()
