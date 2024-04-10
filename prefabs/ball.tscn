@@ -166,7 +166,7 @@ colors = PackedColorArray(0.694118, 0.243137, 0.32549, 0, 0.937255, 0.490196, 0.
 
 [node name="Ball" type="CharacterBody2D" node_paths=PackedStringArray("_sprite", "_arrow", "_arrowTimer", "_animator", "_particles", "_speedTrail")]
 collision_layer = 2
-collision_mask = 5
+collision_mask = 21
 platform_on_leave = 2
 platform_floor_layers = 4
 script = ExtResource("1_474hh")

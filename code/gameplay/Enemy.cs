@@ -1,10 +1,11 @@
 using BoGK.Interfaces;
 using Godot;
 
-public enum EnemyState { idle, standby, moving, hurt };
-
 namespace BoGK.Gameplay
 {
+	public enum EnemyState { idle, moving, hurt };
+	public enum MovementType { random, pathSequence, pathPingPong };
+
 	public partial class Enemy : CharacterBody2D, IBreakable
 	{
 		[Export] private EnemyState _state;
@@ -14,6 +15,9 @@ namespace BoGK.Gameplay
 		[Export] private float _maxThinkingDuration;
 		[Export] private float _maxHorizontalPosition = 94;
 		[Export] private float _maxVerticalPosition = 80;
+		[Export] private MovementType _movementType;
+		[Export] private Node2D[] _path;
+
 		[Export] private Timer _movementTimer;
 		[Export] private AnimationPlayer _animator;
 
@@ -39,6 +43,8 @@ namespace BoGK.Gameplay
 		private Vector2 _newDestination;
 		[Export] private Vector2 _moveDirection = new Vector2(0, 1);
 		private float _moveDistance;
+		private int _nextPathIndex = -1;
+		private int _pathDirection = 1;
 
 		protected Sprite2D _sprite;
 		protected GameSystem.SessionController refs;
@@ -63,6 +69,20 @@ namespace BoGK.Gameplay
 			Move(delta);
 		}
 
+		public void PauseMovement()
+		{
+			if (_state == EnemyState.hurt)
+			{
+				return;
+			}
+
+			_lastState = _state;
+			_state = EnemyState.idle;
+			AnimateMovement(0f);
+			_invulnerabilityTimer.Stop();
+			_invulnerabilityTimer.Start(0.1f);
+		}
+
 		protected virtual void TriggerDamageReaction()
 		{
 			_lastState = _state;
@@ -81,7 +101,7 @@ namespace BoGK.Gameplay
 					KinematicCollision2D collision = MoveAndCollide(newVelocity, false, 0.01f);
 					AnimateMovement();
 
-					if (collision != null)
+					if (collision != null && _movementType == MovementType.random)
 					{
 						SelectDestination();
 					}
@@ -95,6 +115,18 @@ namespace BoGK.Gameplay
 		}
 
 		private void SelectDestination()
+		{
+			if (_movementType == MovementType.random)
+			{
+				SelectRandomDestinationPoint();
+			}
+			else
+			{
+				SelectPathDestinationPoint();
+			}
+		}
+
+		private void SelectRandomDestinationPoint()
 		{
 			int directionModifier = 0;
 
@@ -128,6 +160,48 @@ namespace BoGK.Gameplay
 			}
 		}
 
+		private void SelectPathDestinationPoint()
+		{
+			if (_path == null || _path.Length < 1)
+			{
+				return;
+			}
+
+			_nextPathIndex += _pathDirection;
+			CheckPathPoints();
+
+			_newDestination = _path[_nextPathIndex].Position;
+			_moveDirection = Position.DirectionTo(_newDestination);
+		}
+
+		private void CheckPathPoints()
+		{
+			if (_movementType == MovementType.pathSequence)
+			{
+				if (_nextPathIndex >= _path.Length)
+				{
+					_nextPathIndex = 0;
+					return;
+				}
+			}
+
+			if (_movementType == MovementType.pathPingPong)
+			{
+				if (_nextPathIndex >= _path.Length)
+				{
+					_nextPathIndex = _path.Length - 2;
+					_pathDirection = -1;
+					return;
+				}
+
+				if (_nextPathIndex < 0)
+				{
+					_nextPathIndex = 1;
+					_pathDirection = 1;
+				}
+			}
+		}
+
 		private float CheckTargetDistance()
 		{
 			return Position.DistanceTo(_newDestination);
@@ -140,7 +214,8 @@ namespace BoGK.Gameplay
 
 		private void AnimateMovement(float customSpeed = 1f)
 		{
-			switch (_moveDirection)
+
+			switch (SpriteDirection())
 			{
 				case Vector2(0f, -1f):
 					_animator.Play("walk_up", -1, customSpeed);
@@ -162,7 +237,7 @@ namespace BoGK.Gameplay
 
 		private void AnimateDamage()
 		{
-			switch (_moveDirection)
+			switch (SpriteDirection())
 			{
 				case Vector2(0f, -1f):
 					_animator.Play("damage_up");
@@ -180,6 +255,11 @@ namespace BoGK.Gameplay
 					_animator.Play("damage_down");
 					break;
 			}
+		}
+
+		private Vector2 SpriteDirection()
+		{
+			return new Vector2(Mathf.RoundToInt(_moveDirection.X), Mathf.RoundToInt(_moveDirection.Y));
 		}
 
 		private void RestorePreviousState()
@@ -203,7 +283,6 @@ namespace BoGK.Gameplay
 			}
 
 			TriggerDamageReaction();
-			RandomizeThinkingDelay();
 		}
 
 		protected virtual void SetInitialValues()

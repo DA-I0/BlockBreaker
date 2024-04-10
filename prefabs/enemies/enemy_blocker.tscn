@@ -1,11 +1,93 @@
-[gd_scene load_steps=14 format=3 uid="uid://cb5kj1wnbuk65"]
+[gd_scene load_steps=15 format=3 uid="uid://cb5kj1wnbuk65"]
 
 [ext_resource type="Script" path="res://code/gameplay/Enemy.cs" id="1_r8l4r"]
 [ext_resource type="Texture2D" uid="uid://b02cdys1knl2t" path="res://assets/sprites/enemies/enemy_blocker.png" id="2_16wwx"]
+[ext_resource type="Script" path="res://code/gameplay/SecondaryCollider.cs" id="3_oox4l"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2b8qt"]
 radius = 1.0
 height = 8.0
+
+[sub_resource type="Animation" id="Animation_c4fvq"]
+resource_name = "damage_down"
+length = 0.20001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+
+[sub_resource type="Animation" id="Animation_n7qww"]
+resource_name = "damage_left"
+length = 0.20001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [11]
+}
+
+[sub_resource type="Animation" id="Animation_202o2"]
+resource_name = "damage_right"
+length = 0.20001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [15]
+}
+
+[sub_resource type="Animation" id="Animation_wpydl"]
+resource_name = "damage_up"
+length = 0.20001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [7]
+}
+
+[sub_resource type="Animation" id="Animation_ynh8e"]
+resource_name = "invulnerability"
+length = 0.40001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.588235), Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_c8s2d"]
 resource_name = "walk_down"
@@ -175,87 +257,6 @@ tracks/2/keys = {
 "values": [Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_c4fvq"]
-resource_name = "damage_down"
-length = 0.20001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [3]
-}
-
-[sub_resource type="Animation" id="Animation_wpydl"]
-resource_name = "damage_up"
-length = 0.20001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [7]
-}
-
-[sub_resource type="Animation" id="Animation_n7qww"]
-resource_name = "damage_left"
-length = 0.20001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [11]
-}
-
-[sub_resource type="Animation" id="Animation_202o2"]
-resource_name = "damage_right"
-length = 0.20001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [15]
-}
-
-[sub_resource type="Animation" id="Animation_ynh8e"]
-resource_name = "invulnerability"
-length = 0.40001
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.588235), Color(1, 1, 1, 1)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0ciwk"]
 _data = {
 "damage_down": SubResource("Animation_c4fvq"),
@@ -269,15 +270,15 @@ _data = {
 "walk_up": SubResource("Animation_m1m1c")
 }
 
-[node name="EnemyBlocker" type="CharacterBody2D" node_paths=PackedStringArray("_movementTimer", "_animator", "_invulnerabilityTimer")]
+[node name="EnemyBlocker" type="CharacterBody2D" node_paths=PackedStringArray("_path", "_movementTimer", "_animator", "_invulnerabilityTimer")]
 z_index = 2
 script = ExtResource("1_r8l4r")
-_state = 2
 _speed = 15.0
 _minMoveDistance = 5.0
 _maxMoveDistance = 40.0
 _maxThinkingDuration = 1.0
 _maxVerticalPosition = 70.0
+_path = []
 _movementTimer = NodePath("Timer")
 _animator = NodePath("Animator")
 _pointValue = 3
@@ -302,9 +303,9 @@ libraries = {
 "": SubResource("AnimationLibrary_0ciwk")
 }
 next/damage_down = &"invulnerability"
-next/damage_up = &"invulnerability"
 next/damage_left = &"invulnerability"
 next/damage_right = &"invulnerability"
+next/damage_up = &"invulnerability"
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
@@ -312,6 +313,10 @@ one_shot = true
 [node name="DamageTimer" type="Timer" parent="."]
 
 [node name="Area2D" type="CharacterBody2D" parent="."]
+collision_layer = 16
+collision_mask = 16
+safe_margin = 0.1
+script = ExtResource("3_oox4l")
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="Area2D"]
 position = Vector2(0, 0.5)
