@@ -270,7 +270,7 @@ _data = {
 "walk_up": SubResource("Animation_m1m1c")
 }
 
-[node name="EnemyBlocker" type="CharacterBody2D" node_paths=PackedStringArray("_path", "_movementTimer", "_animator", "_invulnerabilityTimer")]
+[node name="EnemyDefender" type="CharacterBody2D" node_paths=PackedStringArray("_path", "_movementTimer", "_animator", "_invulnerabilityTimer")]
 z_index = 2
 script = ExtResource("1_r8l4r")
 _speed = 15.0
