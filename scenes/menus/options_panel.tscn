@@ -71,7 +71,7 @@ _livesDisplay = NodePath("Options/LivesDisplaySetting/LivesDisplayToggle")
 _stageClearDisplay = NodePath("Options/StageClearDisplaySetting/StageClearDisplayToggle")
 _focusTarget = [NodePath("Options/LanguageSetting/LanguageOptions"), NodePath("../../OptionsButtons/Confirm")]
 
-[node name="VideoOptions" parent="CategoryPanels" node_paths=PackedStringArray("_fullscreen", "_screenShake", "_pickupOrder", "_backgroundBrightnessText", "_backgroundBrightness", "_helperTransparencyText", "_helperTransparency", "_brekableVariantContainer", "_colorPickerPanel", "_focusTarget") instance=ExtResource("4_i76gf")]
+[node name="VideoOptions" parent="CategoryPanels" node_paths=PackedStringArray("_fullscreen", "_screenShake", "_pickupOrder", "_backgroundBrightnessText", "_colorPalette", "_backgroundBrightness", "_effectTransparencyText", "_effectTransparency", "_brekableVariantContainer", "_colorPickerPanel", "_focusTarget") instance=ExtResource("4_i76gf")]
 layout_mode = 1
 offset_left = 0.0
 offset_top = 0.0
@@ -83,9 +83,10 @@ _fullscreen = NodePath("Options/FullscreenSetting/FullscreenToggle")
 _screenShake = NodePath("Options/ScreenShakeSetting/ScreenShakeToggle")
 _pickupOrder = NodePath("Options/PickupSetting/PickupOptions")
 _backgroundBrightnessText = NodePath("Options/BackgroundSetting/HBoxContainer/BackgroundValue")
+_colorPalette = NodePath("Options/ColorPaletteSetting/ColorPaletteToggle")
 _backgroundBrightness = NodePath("Options/BackgroundSetting/BackgroundSlider")
-_helperTransparencyText = NodePath("Options/EffectsTransparencySetting/EffectsTransparencyText/EffectsTransparencyValue")
-_helperTransparency = NodePath("Options/EffectsTransparencySetting/EffectsTransparencySlider")
+_effectTransparencyText = NodePath("Options/EffectsTransparencySetting/EffectsTransparencyText/EffectsTransparencyValue")
+_effectTransparency = NodePath("Options/EffectsTransparencySetting/EffectsTransparencySlider")
 _brekableVariantContainer = NodePath("Options/BreakableVariantSetting")
 _colorPickerPanel = NodePath("../../ColorPickerPanel")
 _focusTarget = [NodePath("Options/FullscreenSetting/FullscreenToggle"), NodePath("../../OptionsButtons/Confirm")]
@@ -239,7 +240,7 @@ shortcut = ExtResource("6_vgxtx")
 shortcut_in_tooltip = false
 text = "BUTTON_RETURN"
 
-[node name="ColorPickerPanel" type="ColorRect" parent="."]
+[node name="ColorPickerPanel" type="ColorRect" parent="." node_paths=PackedStringArray("_colorPicker", "_targetSprite")]
 process_mode = 2
 visible = false
 z_index = 1
@@ -250,6 +251,8 @@ anchor_bottom = 1.0
 grow_vertical = 0
 color = Color(0, 0, 0, 0.705882)
 script = ExtResource("6_svy1v")
+_colorPicker = NodePath("MainPanel/ColorPicker")
+_targetSprite = NodePath("IconPanel/TextureRect")
 
 [node name="MainPanel" type="PanelContainer" parent="ColorPickerPanel"]
 layout_mode = 1
