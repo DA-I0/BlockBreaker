@@ -1,8 +1,8 @@
 [gd_resource type="TileSet" load_steps=7 format=3 uid="uid://bnvffa22rlbi1"]
 
-[ext_resource type="Texture2D" uid="uid://qd1b7g625qis" path="res://assets/sprites/tilesets/tileset_brick_walls_muted.png" id="1_sae6q"]
-[ext_resource type="Texture2D" uid="uid://sltk4yduu2q5" path="res://assets/sprites/tilesets/tileset_brick_floors_muted.png" id="2_2t6hv"]
-[ext_resource type="Texture2D" uid="uid://uadotagtweom" path="res://assets/sprites/tilesets/map_details_bricked.png" id="3_wqqnp"]
+[ext_resource type="Texture2D" uid="uid://qd1b7g625qis" path="res://assets/sprites/tilesets/muted/tileset_brick_walls_muted.png" id="1_sae6q"]
+[ext_resource type="Texture2D" uid="uid://sltk4yduu2q5" path="res://assets/sprites/tilesets/muted/tileset_brick_floors_muted.png" id="2_2t6hv"]
+[ext_resource type="Texture2D" uid="uid://uadotagtweom" path="res://assets/sprites/tilesets/default/map_details_bricked.png" id="3_wqqnp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_evcp4"]
 texture = ExtResource("1_sae6q")
