@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b02cdys1knl2t"
-path="res://.godot/imported/enemy_blocker.png-55c4c01857f47d677ee989274a291283.ctex"
+uid="uid://c6d3s53ey73tx"
+path="res://.godot/imported/enemy_deflector.png-1144171a6dcdffa129591464cb6f126b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/enemies/enemy_blocker.png"
-dest_files=["res://.godot/imported/enemy_blocker.png-55c4c01857f47d677ee989274a291283.ctex"]
+source_file="res://assets/sprites/enemies/enemy_deflector.png"
+dest_files=["res://.godot/imported/enemy_deflector.png-1144171a6dcdffa129591464cb6f126b.ctex"]
 
 [params]
 

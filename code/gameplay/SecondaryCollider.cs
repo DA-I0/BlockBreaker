@@ -1,9 +1,8 @@
-using BoGK.Interfaces;
 using Godot;
 
 namespace BoGK.Gameplay
 {
-	public partial class SecondaryCollider : Node, IBreakable
+	public partial class SecondaryCollider : Node
 	{
 		private Enemy _parent;
 
@@ -12,9 +11,9 @@ namespace BoGK.Gameplay
 			_parent = GetParent<Enemy>();
 		}
 
-		public void Damage(int value)
+		public void HitContact(Node2D source)
 		{
-			_parent.PauseMovement();
+			_parent.BraceOnContact(source);
 		}
 	}
 }

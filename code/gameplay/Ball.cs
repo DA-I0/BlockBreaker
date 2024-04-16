@@ -246,6 +246,12 @@ namespace BoGK.Gameplay
 
 			try
 			{
+				((SecondaryCollider)collision.GetCollider())?.HitContact(this);
+			}
+			catch { }
+
+			try
+			{
 				((BasePaddle)collision.GetCollider())?.ApplyPaddleEffect(this);
 			}
 			catch { }

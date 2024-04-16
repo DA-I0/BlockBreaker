@@ -8,18 +8,18 @@ namespace BoGK.Gameplay
 
 	public partial class Enemy : CharacterBody2D, IBreakable
 	{
-		[Export] private EnemyState _state;
-		[Export] private float _speed;
-		[Export] private float _minMoveDistance;
-		[Export] private float _maxMoveDistance;
-		[Export] private float _maxThinkingDuration;
-		[Export] private float _maxHorizontalPosition = 94;
-		[Export] private float _maxVerticalPosition = 80;
-		[Export] private MovementType _movementType;
-		[Export] private Node2D[] _path;
+		[Export] protected EnemyState _state;
+		[Export] protected float _speed;
+		[Export] protected float _minMoveDistance;
+		[Export] protected float _maxMoveDistance;
+		[Export] protected float _maxThinkingDuration;
+		[Export] protected float _maxHorizontalPosition = 94;
+		[Export] protected float _maxVerticalPosition = 70;
+		[Export] protected MovementType _movementType;
+		[Export] protected Node2D[] _path;
 
-		[Export] private Timer _movementTimer;
-		[Export] private AnimationPlayer _animator;
+		[Export] protected Timer _movementTimer;
+		[Export] protected AnimationPlayer _animator;
 
 		// breakable stuff
 		[Export] protected int _pointValue = 1;
@@ -27,24 +27,24 @@ namespace BoGK.Gameplay
 		[Export] protected double _invulnerabilityDuration = 1f;
 		[Export] protected Timer _invulnerabilityTimer;
 
-		[Export] private double _pickupSpawnChance = 0.1f;
-		[Export] private PackedScene[] _pickups;
+		[Export] protected double _pickupSpawnChance = 0.1f;
+		[Export] protected PackedScene[] _pickups;
 
 		[Export] protected float _maxPositionOffset = 0.5f;
 
-		private Vector2 _defaultPosition;
-		private bool _isDead;
+		protected Vector2 _defaultPosition;
+		protected bool _isDead;
 		protected int _health;
 
 		protected string _defaultSpritePath;
 		// breakable stuff - end
 
-		private EnemyState _lastState;
-		private Vector2 _newDestination;
-		[Export] private Vector2 _moveDirection = new Vector2(0, 1);
-		private float _moveDistance;
-		private int _nextPathIndex = -1;
-		private int _pathDirection = 1;
+		protected EnemyState _lastState;
+		protected Vector2 _newDestination;
+		[Export] protected Vector2 _moveDirection = new Vector2(0, 1);
+		protected float _moveDistance;
+		protected int _nextPathIndex = -1;
+		protected int _pathDirection = 1;
 
 		protected Sprite2D _sprite;
 		protected GameSystem.SessionController refs;
@@ -69,12 +69,28 @@ namespace BoGK.Gameplay
 			Move(delta);
 		}
 
-		public void PauseMovement()
+		public virtual void BraceOnContact(Node2D attacker)
 		{
 			if (_state == EnemyState.hurt)
 			{
 				return;
 			}
+
+			PauseMovement();
+		}
+
+		protected virtual void TriggerDamageReaction()
+		{
+			_lastState = _state;
+			_state = EnemyState.hurt;
+			AnimateDamage();
+			_invulnerabilityTimer.Stop();
+			_invulnerabilityTimer.Start(_invulnerabilityDuration);
+		}
+
+		protected virtual void PauseMovement()
+		{
+			RestorePreviousState();
 
 			_lastState = _state;
 			_state = EnemyState.idle;
@@ -83,15 +99,7 @@ namespace BoGK.Gameplay
 			_invulnerabilityTimer.Start(0.1f);
 		}
 
-		protected virtual void TriggerDamageReaction()
-		{
-			_lastState = _state;
-			_state = EnemyState.hurt;
-			AnimateDamage();
-			_invulnerabilityTimer.Start(_invulnerabilityDuration);
-		}
-
-		private void Move(double delta)
+		protected void Move(double delta)
 		{
 			if (_state == EnemyState.moving)
 			{
@@ -114,7 +122,7 @@ namespace BoGK.Gameplay
 			}
 		}
 
-		private void SelectDestination()
+		protected void SelectDestination()
 		{
 			if (_movementType == MovementType.random)
 			{
@@ -126,7 +134,7 @@ namespace BoGK.Gameplay
 			}
 		}
 
-		private void SelectRandomDestinationPoint()
+		protected void SelectRandomDestinationPoint()
 		{
 			int directionModifier = 0;
 
@@ -142,7 +150,7 @@ namespace BoGK.Gameplay
 			CheckDestinationLimits();
 		}
 
-		private void CheckDestinationLimits()
+		protected void CheckDestinationLimits()
 		{
 			if (_newDestination.X >= _maxHorizontalPosition)
 			{
@@ -160,7 +168,7 @@ namespace BoGK.Gameplay
 			}
 		}
 
-		private void SelectPathDestinationPoint()
+		protected void SelectPathDestinationPoint()
 		{
 			if (_path == null || _path.Length < 1)
 			{
@@ -174,7 +182,7 @@ namespace BoGK.Gameplay
 			_moveDirection = Position.DirectionTo(_newDestination);
 		}
 
-		private void CheckPathPoints()
+		protected void CheckPathPoints()
 		{
 			if (_movementType == MovementType.pathSequence)
 			{
@@ -202,17 +210,17 @@ namespace BoGK.Gameplay
 			}
 		}
 
-		private float CheckTargetDistance()
+		protected float CheckTargetDistance()
 		{
 			return Position.DistanceTo(_newDestination);
 		}
 
-		private void RandomizeThinkingDelay()
+		protected void RandomizeThinkingDelay()
 		{
 			_movementTimer.Start(GD.RandRange(0, _maxThinkingDuration));
 		}
 
-		private void AnimateMovement(float customSpeed = 1f)
+		protected void AnimateMovement(float customSpeed = 1f)
 		{
 
 			switch (SpriteDirection())
@@ -235,7 +243,7 @@ namespace BoGK.Gameplay
 			}
 		}
 
-		private void AnimateDamage()
+		protected void AnimateDamage()
 		{
 			switch (SpriteDirection())
 			{
@@ -257,12 +265,12 @@ namespace BoGK.Gameplay
 			}
 		}
 
-		private Vector2 SpriteDirection()
+		protected Vector2 SpriteDirection()
 		{
 			return new Vector2(Mathf.RoundToInt(_moveDirection.X), Mathf.RoundToInt(_moveDirection.Y));
 		}
 
-		private void RestorePreviousState()
+		protected void RestorePreviousState()
 		{
 			AnimateMovement(0f);
 			_state = _lastState;
@@ -282,6 +290,7 @@ namespace BoGK.Gameplay
 				Destroy();
 			}
 
+			RestorePreviousState();
 			TriggerDamageReaction();
 		}
 
@@ -294,7 +303,7 @@ namespace BoGK.Gameplay
 			_newDestination = Position;
 		}
 
-		private void SpawnPickup()
+		protected void SpawnPickup()
 		{
 			if (_pickups == null || _isDead)
 			{
