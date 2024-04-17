@@ -21,7 +21,7 @@ _fullscreen = NodePath("Options/FullscreenSetting/FullscreenToggle")
 _screenShake = NodePath("Options/ScreenShakeSetting/ScreenShakeToggle")
 _pickupOrder = NodePath("Options/PickupSetting/PickupOptions")
 _backgroundBrightnessText = NodePath("Options/BackgroundSetting/HBoxContainer/BackgroundValue")
-_colorPalette = NodePath("Options/ColorPaletteSetting/ColorPaletteToggle")
+_colorPalette = NodePath("Options/ColorPaletteSetting/ColorPaletteOptions")
 _backgroundBrightness = NodePath("Options/BackgroundSetting/BackgroundSlider")
 _effectTransparencyText = NodePath("Options/EffectsTransparencySetting/EffectsTransparencyText/EffectsTransparencyValue")
 _effectTransparency = NodePath("Options/EffectsTransparencySetting/EffectsTransparencySlider")
@@ -122,16 +122,19 @@ offset_left = 4.0
 text = "OPTION_VIDEO_COLOR_PALETTE"
 vertical_alignment = 1
 
-[node name="ColorPaletteToggle" type="CheckButton" parent="Options/ColorPaletteSetting"]
+[node name="ColorPaletteOptions" type="OptionButton" parent="Options/ColorPaletteSetting"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -3.0
-focus_neighbor_top = NodePath("../../CustomCollorsToggleButton")
-focus_previous = NodePath("../../CustomCollorsToggleButton")
-flat = true
+offset_right = -4.0
+item_count = 2
+popup/item_0/text = "OPTION_VIDEO_PALETTE_DEFAULT"
+popup/item_0/id = 0
+popup/item_1/text = "OPTION_VIDEO_PALETTE_MUTED"
+popup/item_1/id = 1
 
 [node name="BackgroundSetting" type="Control" parent="Options"]
 custom_minimum_size = Vector2(0, 19)

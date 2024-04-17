@@ -116,10 +116,11 @@ namespace BoGK.GameSystem
 		{
 			TileMap mapBackground = targetScene.GetChild<TileMap>(0);
 
-			if (refs.settings.UseAlternativeColorPalette)
+			string tileSetPath = mapBackground.TileSet.ResourcePath;
+			tileSetPath = tileSetPath.Replace(".tres", $"_{refs.settings.BackgroundColorPalette}.tres");
+
+			if (FileAccess.FileExists(tileSetPath))
 			{
-				string tileSetPath = mapBackground.TileSet.ResourcePath;
-				tileSetPath = tileSetPath.Replace(".tres", "_muted.tres");
 				mapBackground.TileSet = ResourceLoader.Load<TileSet>(tileSetPath);
 			}
 

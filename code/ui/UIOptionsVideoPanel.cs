@@ -10,7 +10,7 @@ namespace BoGK.UI
 		[Export] private CheckButton _screenShake;
 		[Export] private OptionButton _pickupOrder;
 		[Export] private Label _backgroundBrightnessText;
-		[Export] private CheckButton _colorPalette;
+		[Export] private OptionButton _colorPalette;
 		[Export] private HSlider _backgroundBrightness;
 		[Export] private Label _effectTransparencyText;
 		[Export] private HSlider _effectTransparency;
@@ -34,7 +34,7 @@ namespace BoGK.UI
 			_fullscreen.ButtonPressed = (Refs.settings.ScreenMode > 0);
 			_screenShake.ButtonPressed = Refs.settings.ScreenShake;
 			_pickupOrder.Selected = Refs.settings.PickupOrder;
-			_colorPalette.ButtonPressed = Refs.settings.UseAlternativeColorPalette;
+			_colorPalette.Selected = GameSystem.HelperMethods.FindOptionIndex(_colorPalette, $"OPTION_VIDEO_PALETTE_{Refs.settings.BackgroundColorPalette}");
 			_backgroundBrightness.Value = Refs.settings.BackgroundBrightness;
 			_effectTransparency.Value = Refs.settings.EffectTransparency;
 
@@ -45,7 +45,7 @@ namespace BoGK.UI
 		{
 			Refs.settings.ScreenMode = _fullscreen.ButtonPressed ? 3 : 0;
 			Refs.settings.ScreenShake = _screenShake.ButtonPressed;
-			Refs.settings.UseAlternativeColorPalette = _colorPalette.ButtonPressed;
+			Refs.settings.BackgroundColorPalette = _colorPalette.GetItemText(_colorPalette.Selected).Split("_")[^1].ToLower();
 			Refs.settings.BackgroundBrightness = (float)_backgroundBrightness.Value;
 			Refs.settings.PickupOrder = _pickupOrder.Selected;
 			Refs.settings.EffectTransparency = (float)_effectTransparency.Value;
