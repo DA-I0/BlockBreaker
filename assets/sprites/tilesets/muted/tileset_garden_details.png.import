@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://sltk4yduu2q5"
-path="res://.godot/imported/tileset_brick_floors_muted.png-5e1f6896fafa45e7e9ef6a3dcb79b959.ctex"
+uid="uid://g5nnf78bu0vx"
+path="res://.godot/imported/tileset_garden_details.png-c9df878b70e158fa831ebbb3cb282391.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/tilesets/muted/tileset_brick_floors_muted.png"
-dest_files=["res://.godot/imported/tileset_brick_floors_muted.png-5e1f6896fafa45e7e9ef6a3dcb79b959.ctex"]
+source_file="res://assets/sprites/tilesets/muted/tileset_garden_details.png"
+dest_files=["res://.godot/imported/tileset_garden_details.png-c9df878b70e158fa831ebbb3cb282391.ctex"]
 
 [params]
 

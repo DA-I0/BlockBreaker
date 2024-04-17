@@ -1,11 +1,11 @@
 [gd_resource type="TileSet" load_steps=7 format=3 uid="uid://bnvffa22rlbi1"]
 
-[ext_resource type="Texture2D" uid="uid://qd1b7g625qis" path="res://assets/sprites/tilesets/muted/tileset_brick_walls_muted.png" id="1_sae6q"]
-[ext_resource type="Texture2D" uid="uid://sltk4yduu2q5" path="res://assets/sprites/tilesets/muted/tileset_brick_floors_muted.png" id="2_2t6hv"]
-[ext_resource type="Texture2D" uid="uid://5xfpk1kfvewt" path="res://assets/sprites/tilesets/muted/map_details_bricked_muted.png" id="3_yogev"]
+[ext_resource type="Texture2D" uid="uid://qd1b7g625qis" path="res://assets/sprites/tilesets/muted/tileset_brick_walls.png" id="1_amfwr"]
+[ext_resource type="Texture2D" uid="uid://sltk4yduu2q5" path="res://assets/sprites/tilesets/muted/tileset_brick_floors.png" id="2_prolf"]
+[ext_resource type="Texture2D" uid="uid://5xfpk1kfvewt" path="res://assets/sprites/tilesets/muted/tileset_bricked_details.png" id="3_grkrt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_evcp4"]
-texture = ExtResource("1_sae6q")
+texture = ExtResource("1_amfwr")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -143,7 +143,7 @@ texture = ExtResource("1_sae6q")
 6:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-5, 8, -5, -8, 5, -8, 5, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_if8is"]
-texture = ExtResource("2_2t6hv")
+texture = ExtResource("2_prolf")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -359,7 +359,7 @@ texture = ExtResource("2_2t6hv")
 8:2/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xshv0"]
-texture = ExtResource("3_yogev")
+texture = ExtResource("3_grkrt")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://uadotagtweom"
-path="res://.godot/imported/map_details_bricked.png-6fec6db419d9d4a4e53b11c368bc133c.ctex"
+uid="uid://sltk4yduu2q5"
+path="res://.godot/imported/tileset_brick_floors.png-1ebe47d98e3367c25512feebc3035178.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/tilesets/default/map_details_bricked.png"
-dest_files=["res://.godot/imported/map_details_bricked.png-6fec6db419d9d4a4e53b11c368bc133c.ctex"]
+source_file="res://assets/sprites/tilesets/muted/tileset_brick_floors.png"
+dest_files=["res://.godot/imported/tileset_brick_floors.png-1ebe47d98e3367c25512feebc3035178.ctex"]
 
 [params]
 

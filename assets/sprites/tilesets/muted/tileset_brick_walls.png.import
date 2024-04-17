@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://qd1b7g625qis"
-path="res://.godot/imported/tileset_brick_walls_muted.png-b5455eeebe9374dc9122a37b302e0945.ctex"
+path="res://.godot/imported/tileset_brick_walls.png-641c2e8525132ad5e67d3150403bc32a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/tilesets/muted/tileset_brick_walls_muted.png"
-dest_files=["res://.godot/imported/tileset_brick_walls_muted.png-b5455eeebe9374dc9122a37b302e0945.ctex"]
+source_file="res://assets/sprites/tilesets/muted/tileset_brick_walls.png"
+dest_files=["res://.godot/imported/tileset_brick_walls.png-641c2e8525132ad5e67d3150403bc32a.ctex"]
 
 [params]
 

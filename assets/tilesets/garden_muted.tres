@@ -1,8 +1,8 @@
 [gd_resource type="TileSet" load_steps=7 format=3 uid="uid://dw34ir0rfpmxx"]
 
-[ext_resource type="Texture2D" uid="uid://du4rln6movc64" path="res://assets/sprites/tilesets/muted/tileset_garden_walls_muted.png" id="1_vdww0"]
-[ext_resource type="Texture2D" uid="uid://mt3melswc8j3" path="res://assets/sprites/tilesets/muted/tileset_garden_floors_muted.png" id="2_ta153"]
-[ext_resource type="Texture2D" uid="uid://sdi7py2yyvh0" path="res://assets/sprites/tilesets/default/map_details_garden.png" id="3_fqhr4"]
+[ext_resource type="Texture2D" uid="uid://du4rln6movc64" path="res://assets/sprites/tilesets/muted/tileset_garden_walls.png" id="1_vdww0"]
+[ext_resource type="Texture2D" uid="uid://mt3melswc8j3" path="res://assets/sprites/tilesets/muted/tileset_garden_floors.png" id="2_ta153"]
+[ext_resource type="Texture2D" uid="uid://sdi7py2yyvh0" path="res://assets/sprites/tilesets/default/tileset_garden_details.png" id="3_fqhr4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_evcp4"]
 texture = ExtResource("1_vdww0")

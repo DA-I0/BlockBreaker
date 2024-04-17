@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://sdi7py2yyvh0"
-path="res://.godot/imported/map_details_garden.png-3053ed15038647058c4241fffd5ff78a.ctex"
+uid="uid://du4rln6movc64"
+path="res://.godot/imported/tileset_garden_walls.png-352d78cf015271967c57571d9035256d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/tilesets/default/map_details_garden.png"
-dest_files=["res://.godot/imported/map_details_garden.png-3053ed15038647058c4241fffd5ff78a.ctex"]
+source_file="res://assets/sprites/tilesets/muted/tileset_garden_walls.png"
+dest_files=["res://.godot/imported/tileset_garden_walls.png-352d78cf015271967c57571d9035256d.ctex"]
 
 [params]
 
