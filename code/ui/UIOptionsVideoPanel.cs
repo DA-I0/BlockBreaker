@@ -67,6 +67,7 @@ namespace BoGK.UI
 		private void SetupReferences()
 		{
 			_mainPanel.FinalizeSetup += PopulateBreakableVariants;
+			_mainPanel.FinalizeSetup += PopulateBackgroundColorPalettes;
 			_backgroundBrightness.ValueChanged += UpdateTextValues;
 			_effectTransparency.ValueChanged += UpdateTextValues;
 		}
@@ -75,6 +76,16 @@ namespace BoGK.UI
 		{
 			_backgroundBrightnessText.Text = $"{System.MathF.Round((float)_backgroundBrightness.Value * 100, 0)}%";
 			_effectTransparencyText.Text = $"{System.MathF.Round((float)_effectTransparency.Value * 100, 0)}%";
+		}
+
+		private void PopulateBackgroundColorPalettes()
+		{
+			_colorPalette.Clear();
+
+			foreach (string palette in GameSystem.FileOperations.GetFolderList(ProjectSettings.GetSetting("global/TilesetFolderPath").ToString()))
+			{
+				_colorPalette.AddItem($"OPTION_VIDEO_PALETTE_{palette.ToUpper()}");
+			}
 		}
 
 		private void ToggleBreakableVariantsDisplay()

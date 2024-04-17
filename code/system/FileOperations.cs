@@ -5,11 +5,21 @@ namespace BoGK.GameSystem
 {
 	public static class FileOperations
 	{
+		public static string[] GetFolderList(string path)
+		{
+			if (!DirAccess.DirExistsAbsolute(path))
+			{
+				return System.Array.Empty<string>();
+			}
+
+			return DirAccess.GetDirectoriesAt(path);
+		}
+
 		public static string[] GetFileList(string path)
 		{
 			if (!DirAccess.DirExistsAbsolute(path))
 			{
-				return new string[0];
+				return System.Array.Empty<string>();
 			}
 
 			return DirAccess.GetFilesAt(path);
