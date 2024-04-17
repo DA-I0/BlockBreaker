@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://chk6oivvrr8nn" path="res://assets/sprites/ui_elements/buttons/ui_icon_arrow_right.png" id="2_8ch1w"]
 [ext_resource type="Script" path="res://code/ui/UIOptionsVideoPanel.cs" id="2_hm0h4"]
 
-[node name="VideoOptions" type="ScrollContainer" node_paths=PackedStringArray("_fullscreen", "_screenShake", "_pickupOrder", "_backgroundBrightnessText", "_colorPalette", "_backgroundBrightness", "_effectTransparencyText", "_effectTransparency", "_brekableVariantContainer", "_focusTarget")]
+[node name="VideoOptions" type="ScrollContainer" node_paths=PackedStringArray("_fullscreen", "_screenShake", "_pickupOrder", "_backgroundBrightnessText", "_backgroundColorPalette", "_backgroundBrightness", "_effectTransparencyText", "_effectTransparency", "_breakableColorPalette", "_breakableVariantContainer", "_focusTarget")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -21,11 +21,12 @@ _fullscreen = NodePath("Options/FullscreenSetting/FullscreenToggle")
 _screenShake = NodePath("Options/ScreenShakeSetting/ScreenShakeToggle")
 _pickupOrder = NodePath("Options/PickupSetting/PickupOptions")
 _backgroundBrightnessText = NodePath("Options/BackgroundSetting/HBoxContainer/BackgroundValue")
-_colorPalette = NodePath("Options/ColorPaletteSetting/ColorPaletteOptions")
+_backgroundColorPalette = NodePath("Options/BackgroundColorPaletteSetting/BackgroundColorPaletteOptions")
 _backgroundBrightness = NodePath("Options/BackgroundSetting/BackgroundSlider")
 _effectTransparencyText = NodePath("Options/EffectsTransparencySetting/EffectsTransparencyText/EffectsTransparencyValue")
 _effectTransparency = NodePath("Options/EffectsTransparencySetting/EffectsTransparencySlider")
-_brekableVariantContainer = NodePath("Options/BreakableVariantSetting")
+_breakableColorPalette = NodePath("Options/BreakableVariantSetting/BreakableColorPaletteSetting/BreakableColorPaletteOptions")
+_breakableVariantContainer = NodePath("Options/BreakableVariantSetting")
 _focusTarget = [NodePath("Options/FullscreenSetting/FullscreenToggle")]
 
 [node name="Options" type="VBoxContainer" parent="."]
@@ -109,20 +110,20 @@ popup/item_1/id = 1
 popup/item_2/text = "OPTION_VIDEO_PICKUP_ORDER_TOP"
 popup/item_2/id = 2
 
-[node name="ColorPaletteSetting" type="Control" parent="Options"]
+[node name="BackgroundColorPaletteSetting" type="Control" parent="Options"]
 custom_minimum_size = Vector2(0, 19)
 layout_mode = 2
 
-[node name="ColorPaletteLabel" type="Label" parent="Options/ColorPaletteSetting"]
+[node name="BackgroundColorPaletteLabel" type="Label" parent="Options/BackgroundColorPaletteSetting"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.45
 anchor_bottom = 1.0
 offset_left = 4.0
-text = "OPTION_VIDEO_COLOR_PALETTE"
+text = "OPTION_VIDEO_BACKGROUND_COLOR_PALETTE"
 vertical_alignment = 1
 
-[node name="ColorPaletteOptions" type="OptionButton" parent="Options/ColorPaletteSetting"]
+[node name="BackgroundColorPaletteOptions" type="OptionButton" parent="Options/BackgroundColorPaletteSetting"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -217,4 +218,27 @@ alignment = 0
 custom_minimum_size = Vector2(0, 19)
 layout_mode = 2
 
+[node name="BreakableColorPaletteSetting" type="Control" parent="Options/BreakableVariantSetting"]
+custom_minimum_size = Vector2(0, 19)
+layout_mode = 2
+
+[node name="BreakableColorPaletteLabel" type="Label" parent="Options/BreakableVariantSetting/BreakableColorPaletteSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.45
+anchor_bottom = 1.0
+offset_left = 4.0
+text = "OPTION_VIDEO_BREAKABLE_COLOR_PALETTE"
+vertical_alignment = 1
+
+[node name="BreakableColorPaletteOptions" type="OptionButton" parent="Options/BreakableVariantSetting/BreakableColorPaletteSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+offset_right = -4.0
+
 [connection signal="pressed" from="Options/CustomCollorsToggleButton" to="." method="ToggleBreakableVariantsDisplay"]
+[connection signal="item_selected" from="Options/BreakableVariantSetting/BreakableColorPaletteSetting/BreakableColorPaletteOptions" to="." method="UpdateVariants" unbinds=1]

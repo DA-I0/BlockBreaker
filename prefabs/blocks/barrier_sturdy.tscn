@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://iq10idmsyirx" path="res://prefabs/pickups/pickup_safety_net.tscn" id="4_8equa"]
 [ext_resource type="PackedScene" uid="uid://dcky3cvrc86mx" path="res://prefabs/pickups/pickup_paddle_bouncy.tscn" id="5_30keu"]
 [ext_resource type="PackedScene" uid="uid://b2bctq01a4fwu" path="res://prefabs/pickups/pickup_paddle_sticky.tscn" id="6_a0ewh"]
-[ext_resource type="Texture2D" uid="uid://tfyulolh812e" path="res://assets/sprites/blocks/barrier_sturdy.png" id="10_lglij"]
+[ext_resource type="Texture2D" uid="uid://tfyulolh812e" path="res://assets/sprites/blocks/default/barrier_sturdy.png" id="10_lglij"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jer7o"]
 size = Vector2(10, 3)

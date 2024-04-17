@@ -10,11 +10,12 @@ namespace BoGK.UI
 		[Export] private CheckButton _screenShake;
 		[Export] private OptionButton _pickupOrder;
 		[Export] private Label _backgroundBrightnessText;
-		[Export] private OptionButton _colorPalette;
+		[Export] private OptionButton _backgroundColorPalette;
 		[Export] private HSlider _backgroundBrightness;
 		[Export] private Label _effectTransparencyText;
 		[Export] private HSlider _effectTransparency;
-		[Export] private Control _brekableVariantContainer;
+		[Export] private OptionButton _breakableColorPalette;
+		[Export] private Control _breakableVariantContainer;
 		[Export] private UIColorPicker _colorPickerPanel;
 
 		public override void _Ready()
@@ -34,9 +35,10 @@ namespace BoGK.UI
 			_fullscreen.ButtonPressed = (Refs.settings.ScreenMode > 0);
 			_screenShake.ButtonPressed = Refs.settings.ScreenShake;
 			_pickupOrder.Selected = Refs.settings.PickupOrder;
-			_colorPalette.Selected = GameSystem.HelperMethods.FindOptionIndex(_colorPalette, $"OPTION_VIDEO_PALETTE_{Refs.settings.BackgroundColorPalette}");
+			_backgroundColorPalette.Selected = GameSystem.HelperMethods.FindOptionIndex(_backgroundColorPalette, $"OPTION_VIDEO_PALETTE_{Refs.settings.BackgroundColorPalette}");
 			_backgroundBrightness.Value = Refs.settings.BackgroundBrightness;
 			_effectTransparency.Value = Refs.settings.EffectTransparency;
+			_breakableColorPalette.Selected = GameSystem.HelperMethods.FindOptionIndex(_breakableColorPalette, $"OPTION_VIDEO_PALETTE_{Refs.settings.BreakableColorPalette}");
 
 			UpdateVariants();
 		}
@@ -45,10 +47,11 @@ namespace BoGK.UI
 		{
 			Refs.settings.ScreenMode = _fullscreen.ButtonPressed ? 3 : 0;
 			Refs.settings.ScreenShake = _screenShake.ButtonPressed;
-			Refs.settings.BackgroundColorPalette = _colorPalette.GetItemText(_colorPalette.Selected).Split("_")[^1].ToLower();
+			Refs.settings.BackgroundColorPalette = _backgroundColorPalette.GetItemText(_backgroundColorPalette.Selected).Split("_")[^1].ToLower();
 			Refs.settings.BackgroundBrightness = (float)_backgroundBrightness.Value;
 			Refs.settings.PickupOrder = _pickupOrder.Selected;
 			Refs.settings.EffectTransparency = (float)_effectTransparency.Value;
+			Refs.settings.BreakableColorPalette = _breakableColorPalette.GetItemText(_breakableColorPalette.Selected).Split("_")[^1].ToLower();
 
 			SaveBreakableVariants();
 		}
@@ -80,21 +83,23 @@ namespace BoGK.UI
 
 		private void PopulateBackgroundColorPalettes()
 		{
-			_colorPalette.Clear();
+			_backgroundColorPalette.Clear();
+			_breakableColorPalette.Clear();
 
 			foreach (string palette in GameSystem.FileOperations.GetFolderList(ProjectSettings.GetSetting("global/TilesetFolderPath").ToString()))
 			{
-				_colorPalette.AddItem($"OPTION_VIDEO_PALETTE_{palette.ToUpper()}");
+				_backgroundColorPalette.AddItem($"OPTION_VIDEO_PALETTE_{palette.ToUpper()}");
+				_breakableColorPalette.AddItem($"OPTION_VIDEO_PALETTE_{palette.ToUpper()}");
 			}
 		}
 
 		private void ToggleBreakableVariantsDisplay()
 		{
-			_brekableVariantContainer.Visible = !_brekableVariantContainer.Visible;
+			_breakableVariantContainer.Visible = !_breakableVariantContainer.Visible;
 
-			if (_brekableVariantContainer.Visible)
+			if (_breakableVariantContainer.Visible)
 			{
-				_brekableVariantContainer.GetChild(0).GetChild<Control>(2).GrabFocus();
+				_breakableVariantContainer.GetChild(0).GetChild<Control>(-1).GrabFocus();
 			}
 		}
 
@@ -148,7 +153,7 @@ namespace BoGK.UI
 				container.AddChild(pickerButton);
 				container.AddChild(variantSelector);
 
-				_brekableVariantContainer.AddChild(container);
+				_breakableVariantContainer.AddChild(container);
 			}
 
 			Control spacer = new Control
@@ -157,16 +162,16 @@ namespace BoGK.UI
 				CustomMinimumSize = new Vector2(0, 50)
 			};
 
-			_brekableVariantContainer.AddChild(spacer);
+			_breakableVariantContainer.AddChild(spacer);
 
-			_brekableVariantContainer.Visible = false;
+			_breakableVariantContainer.Visible = false;
 		}
 
 		private void SaveBreakableVariants()
 		{
-			foreach (Control variantContainer in _brekableVariantContainer.GetChildren())
+			foreach (Control variantContainer in _breakableVariantContainer.GetChildren())
 			{
-				if (variantContainer.Name != "spacer")
+				if (variantContainer.Name != "spacer" && !variantContainer.Name.ToString().Contains("Setting"))
 				{
 					BreakableVariant targetVariant = Refs.settings.BreakableVariants[variantContainer.Name];
 					targetVariant.SpriteVariant = variantContainer.GetChild<OptionButton>(2).Selected;
@@ -178,9 +183,9 @@ namespace BoGK.UI
 
 		private void UpdateVariants()
 		{
-			foreach (Control variantContainer in _brekableVariantContainer.GetChildren().Cast<Control>())
+			foreach (Control variantContainer in _breakableVariantContainer.GetChildren().Cast<Control>())
 			{
-				if (variantContainer.Name != "spacer")
+				if (variantContainer.Name != "spacer" && !variantContainer.Name.ToString().Contains("Setting"))
 				{
 					variantContainer.GetChild<OptionButton>(2).Selected = Refs.settings.BreakableVariants[variantContainer.Name].SpriteVariant;
 					UpdateVariantControls(variantContainer);
@@ -191,7 +196,8 @@ namespace BoGK.UI
 		private void UpdateVariantControls(Control variantContainer)
 		{
 			BreakableVariant variant = Refs.settings.BreakableVariants[variantContainer.Name];
-			string breakableIcon = $"res://assets/sprites/ui_elements/object_icons/{variant.TypeName}";
+			string iconPalette = _breakableColorPalette.GetItemText(_breakableColorPalette.Selected).Split("_")[^1].ToLower();
+			string breakableIcon = $"{ProjectSettings.GetSetting("global/BreakableIconsFilePath")}/{iconPalette}/{variant.TypeName}";
 			int variantIndex = variantContainer.GetChild<OptionButton>(2).Selected;
 
 			switch (variantIndex)
@@ -201,7 +207,7 @@ namespace BoGK.UI
 					break;
 
 				case 2:
-					breakableIcon += "_alt.png";
+					breakableIcon = $"{breakableIcon.Replace(iconPalette, "custom")}.png";
 					break;
 
 				default:
@@ -216,7 +222,7 @@ namespace BoGK.UI
 
 		private void FoldExpandableControls()
 		{
-			_brekableVariantContainer.Visible = false;
+			_breakableVariantContainer.Visible = false;
 		}
 	}
 }

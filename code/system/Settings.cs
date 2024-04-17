@@ -85,6 +85,11 @@ namespace BoGK.GameSystem
 			get { return (float)_defaultConfig.GetValue("display", "effect_transparency"); }
 		}
 
+		public string DefaultBreakableColorPalette
+		{
+			get { return (string)_defaultConfig.GetValue("display", "background_color_palette"); }
+		}
+
 		public Dictionary<string, BreakableVariant> DefaultBreakableVariants
 		{
 			get { return _defaultBreakableVariants; }
@@ -195,6 +200,12 @@ namespace BoGK.GameSystem
 		{
 			get { return (float)_config.GetValue("display", "effect_transparency", DefaultEffectTransparency); }
 			set { _config.SetValue("display", "effect_transparency", value); }
+		}
+
+		public string BreakableColorPalette
+		{
+			get { return (string)_config.GetValue("display", "breakable_color_palette", DefaultBreakableColorPalette); }
+			set { _config.SetValue("display", "breakable_color_palette", value); }
 		}
 
 		public Dictionary<string, BreakableVariant> BreakableVariants

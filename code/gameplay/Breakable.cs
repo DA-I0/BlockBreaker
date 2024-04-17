@@ -94,10 +94,12 @@ namespace BoGK.Gameplay
 		private void ApplySpriteVariant()
 		{
 			string[] spriteFolder = _defaultSpritePath.Split('/');
+			spriteFolder[^2] = refs.settings.BreakableColorPalette;
+
 			string breakableName = spriteFolder[^1].Replace(".png", "");
 			BreakableVariant variant = refs.settings.FindVariant(breakableName);
 
-			spriteFolder[^2] = "_default"; // replace with palette folder selection
+			_defaultSpritePath = spriteFolder.Join("/");
 
 			switch (variant.SpriteVariant)
 			{
@@ -107,7 +109,7 @@ namespace BoGK.Gameplay
 					break;
 
 				case 2:
-					spriteFolder[^2] = "custom"; // replace with palette folder selection
+					spriteFolder[^2] = "custom";
 					_sprite.Texture = ResourceLoader.Load<Texture2D>(spriteFolder.Join("/"));
 					_sprite.Modulate = variant.CustomColor;
 					break;

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dlrofqirtncwr"]
 
-[ext_resource type="Texture2D" uid="uid://7d4eyxkvyukd" path="res://assets/sprites/blocks/default/barrier_basic.png" id="1_ixoo2"]
+[ext_resource type="Texture2D" uid="uid://7d4eyxkvyukd" path="res://assets/sprites/blocks/default/barrier_basic.png" id="1_oay5s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jer7o"]
 size = Vector2(10, 3)
@@ -14,6 +14,6 @@ shape = SubResource("RectangleShape2D_jer7o")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 position = Vector2(-5, -11)
-texture = ExtResource("1_ixoo2")
+texture = ExtResource("1_oay5s")
 centered = false
 region_rect = Rect2(4, 4, 44, 33)

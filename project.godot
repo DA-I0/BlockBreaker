@@ -57,6 +57,7 @@ CustomLeaderboardFilePath="user://leaderboard.txt"
 SkillIconsFilePath="res://assets/sprites/ui_elements/skill_icons"
 DefaultConfigFilePath="res://assets/text/default_settings.cfg"
 TilesetFolderPath="res://assets/sprites/tilesets"
+BreakableIconsFilePath="res://assets/sprites/ui_elements/breakable_icons"
 
 [global_group]
 
