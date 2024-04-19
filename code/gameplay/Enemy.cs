@@ -101,7 +101,7 @@ namespace BoGK.Gameplay
 
 		protected void Move(double delta)
 		{
-			if (_state == EnemyState.moving)
+			if (_state == EnemyState.moving && _movementTimer.TimeLeft <= 0)
 			{
 				if (CheckTargetDistance() > 1f)
 				{
@@ -116,11 +116,8 @@ namespace BoGK.Gameplay
 				}
 				else
 				{
-					if (_movementTimer.TimeLeft <= 0)
-					{
-						_animator.Stop();
-						StartDestinationPlanning();
-					}
+					_animator.Stop();
+					StartDestinationPlanning();
 				}
 			}
 		}
