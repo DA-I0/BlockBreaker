@@ -12,7 +12,8 @@ namespace BoGK.Gameplay
 		[Export] protected float _speed;
 		[Export] protected float _minMoveDistance;
 		[Export] protected float _maxMoveDistance;
-		[Export] protected float _maxThinkingDuration;
+		[Export] protected bool _randomizeThinkingDuration = false;
+		[Export] protected double _maxThinkingDuration;
 		[Export] protected float _maxHorizontalPosition = 94;
 		[Export] protected float _maxVerticalPosition = 70;
 		[Export] protected MovementType _movementType;
@@ -32,7 +33,6 @@ namespace BoGK.Gameplay
 
 		[Export] protected float _maxPositionOffset = 0.5f;
 
-		protected Vector2 _defaultPosition;
 		protected bool _isDead;
 		protected int _health;
 
@@ -116,8 +116,11 @@ namespace BoGK.Gameplay
 				}
 				else
 				{
-					_animator.Stop();
-					RandomizeThinkingDelay();
+					if (_movementTimer.TimeLeft <= 0)
+					{
+						_animator.Stop();
+						StartDestinationPlanning();
+					}
 				}
 			}
 		}
@@ -215,9 +218,16 @@ namespace BoGK.Gameplay
 			return Position.DistanceTo(_newDestination);
 		}
 
-		protected void RandomizeThinkingDelay()
+		protected void StartDestinationPlanning()
 		{
-			_movementTimer.Start(GD.RandRange(0, _maxThinkingDuration));
+			if (_randomizeThinkingDuration)
+			{
+				_movementTimer.Start(GD.RandRange(0, _maxThinkingDuration));
+			}
+			else
+			{
+				_movementTimer.Start(_maxThinkingDuration);
+			}
 		}
 
 		protected void AnimateMovement(float customSpeed = 1f)
@@ -296,7 +306,6 @@ namespace BoGK.Gameplay
 
 		protected virtual void SetInitialValues()
 		{
-			_defaultPosition = _sprite.Position;
 			_health = _maxHealth;
 			_isDead = _health <= 0;
 			_defaultSpritePath = _sprite.Texture.ResourcePath;
