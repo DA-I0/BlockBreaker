@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dxpeesdtf5ibq"]
 
-[ext_resource type="Texture2D" uid="uid://ybi3i5vxi237" path="res://assets/sprites/props/plants/potted_02.png" id="1_4um7j"]
+[ext_resource type="Texture2D" uid="uid://ybi3i5vxi237" path="res://assets/sprites/props/default/plants/potted_02.png" id="1_4um7j"]
 
 [node name="Potted_02" type="StaticBody2D"]
 z_index = 2

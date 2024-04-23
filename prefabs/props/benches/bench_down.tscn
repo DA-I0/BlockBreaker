@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://b666svkyjniq6"]
 
-[ext_resource type="Texture2D" uid="uid://cwspok164w18l" path="res://assets/sprites/props/benches/bench_down.png" id="1_do8yp"]
+[ext_resource type="Texture2D" uid="uid://cwspok164w18l" path="res://assets/sprites/props/default/benches/bench_down.png" id="1_do8yp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_47th3"]
 size = Vector2(2, 1)

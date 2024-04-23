@@ -91,10 +91,11 @@ namespace BoGK.Gameplay
 			_sprite.Frame = (_health <= 0) ? 0 : _maxHealth - _health;
 		}
 
-		private void ApplySpriteVariant()
+		private void ApplySpriteVariant() // move folder path replacement to a separate place and reuse it for non breakable objects
 		{
 			string[] spriteFolder = _defaultSpritePath.Split('/');
-			spriteFolder[^2] = refs.settings.BreakableColorPalette;
+			int folderPaletteIndex = _defaultSpritePath.Contains("props") ? 3 : 2; // not a great solution
+			spriteFolder[^folderPaletteIndex] = refs.settings.BreakableColorPalette;
 
 			string breakableName = spriteFolder[^1].Replace(".png", "");
 			BreakableVariant variant = refs.settings.FindVariant(breakableName);
