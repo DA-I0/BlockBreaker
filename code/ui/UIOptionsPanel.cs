@@ -39,11 +39,6 @@ namespace BoGK.UI
 		}
 		public override void _Input(InputEvent @event)
 		{
-			if (!Visible)
-			{
-				return;
-			}
-
 			if (@event.IsActionPressed("ui_category_prev"))
 			{
 				SwitchActivePanel(false);
@@ -57,11 +52,8 @@ namespace BoGK.UI
 
 		protected override void Focus()
 		{
-			if (Visible && _focusTarget.Length > 0)
-			{
-				_focusTarget[0]?.GrabFocus();
-				ChangeActivePanel(0);
-			}
+			_confirmationPrompt.Reset();
+			ChangeActivePanel(0);
 		}
 
 		private void CategoryFocus()

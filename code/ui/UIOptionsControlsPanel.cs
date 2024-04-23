@@ -32,11 +32,6 @@ namespace BoGK.UI
 
 		public override void _Input(InputEvent @event)
 		{
-			if (!Visible)
-			{
-				return;
-			}
-
 			if (@event.IsActionPressed("ui_toggle_focus"))
 			{
 				ToggleFocus();
@@ -56,6 +51,7 @@ namespace BoGK.UI
 
 		public override void Disable()
 		{
+			ProcessMode = ProcessModeEnum.Disabled;
 			Visible = false;
 			FoldExpandableControls();
 		}

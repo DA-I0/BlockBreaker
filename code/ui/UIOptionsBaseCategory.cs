@@ -22,11 +22,6 @@ namespace BoGK.UI
 
 		public override void _Input(InputEvent @event)
 		{
-			if (!Visible)
-			{
-				return;
-			}
-
 			if (@event.IsActionPressed("ui_toggle_focus"))
 			{
 				ToggleFocus();
@@ -36,18 +31,20 @@ namespace BoGK.UI
 		protected virtual void SetupBaseReferences()
 		{
 			_mainPanel = GetParent().GetParent<UIOptionsPanel>();
-			_mainPanel.UIController.RefreshUI += Focus;
 		}
 
 		public virtual void Enable()
 		{
+			ProcessMode = ProcessModeEnum.Inherit;
 			Visible = true;
+			_focusIndex = 0;
 			UpdateSettings();
 			Focus();
 		}
 
 		public virtual void Disable()
 		{
+			ProcessMode = ProcessModeEnum.Disabled;
 			Visible = false;
 		}
 
@@ -57,7 +54,7 @@ namespace BoGK.UI
 
 		protected virtual void Focus()
 		{
-			if (Visible && _focusTarget.Length > 0)
+			if (_focusTarget.Length > 0)
 			{
 				_focusTarget[0].GrabFocus();
 			}

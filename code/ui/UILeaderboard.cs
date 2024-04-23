@@ -10,15 +10,9 @@ namespace BoGK.UI
 		public override void _Ready()
 		{
 			SetupBaseReferences();
-			SetupReferences();
 		}
 
-		protected void SetupReferences()
-		{
-			uiController.RefreshUI += ApplyLeaderboardValues;
-		}
-
-		private void ApplyLeaderboardValues()
+		protected override void UpdateDisplayedValues()
 		{
 			_playerNames.Text = string.Empty;
 			_playerScore.Text = string.Empty;

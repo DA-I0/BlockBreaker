@@ -59,40 +59,41 @@ namespace BoGK.UI
 			uiController = GetNode<UIController>("../..");
 		}
 
+		protected override void UpdateDisplayedValues()
+		{
+			UpdateSelectedPaddle();
+			UpdateSelectedDifficulty();
+			UpdateSelectedSkill();
+			UpdateSessionCustomization();
+		}
+
 		protected override void Focus()
 		{
-			if (Visible)
+			switch (_lastActivePanel)
 			{
-				switch (_lastActivePanel)
-				{
-					case 0:
-						_paddleButton.GrabFocus();
-						break;
+				case 0:
+					_paddleButton.GrabFocus();
+					break;
 
-					case 1:
-						_skillButton.GrabFocus();
-						break;
+				case 1:
+					_skillButton.GrabFocus();
+					break;
 
-					case 2:
-						_difficultyButton.GrabFocus();
-						break;
+				case 2:
+					_difficultyButton.GrabFocus();
+					break;
 
-					case 3:
-						_customSettingsButton.GrabFocus();
-						break;
+				case 3:
+					_customSettingsButton.GrabFocus();
+					break;
 
-					default:
-						((Button)_levelGrid.GetChild(0)).GrabFocus();
-						_focusIndex = 1;
-						break;
-				}
-
-				UpdateSelectedPaddle();
-				UpdateSelectedDifficulty();
-				UpdateSelectedSkill();
-				UpdateSessionCustomization();
-				_lastActivePanel = -1;
+				default:
+					_focusIndex = 1;
+					_levelGrid.GetChild<Button>(0).GrabFocus();
+					break;
 			}
+
+			_lastActivePanel = -1;
 		}
 
 		private void UpdateSelectedPaddle()

@@ -165,5 +165,6 @@ offset_left = 5.0
 offset_bottom = -6.0
 grow_vertical = 0
 shortcut = ExtResource("6_g5t76")
+shortcut_feedback = false
 shortcut_in_tooltip = false
 text = "BUTTON_RETURN"

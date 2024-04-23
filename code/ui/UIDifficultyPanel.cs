@@ -50,11 +50,24 @@ namespace BoGK.UI
 
 		protected override void Focus()
 		{
-			if (Visible)
+			_currentDifficulty = refs.SelectedDifficultyIndex;
+			FocusOnControls();
+		}
+
+		protected override void UpdateDisplayedValues()
+		{
+			if (_inEditMode)
 			{
-				_currentDifficulty = refs.SelectedDifficultyIndex;
-				FocusOnControls();
+				ApplyEditorValues();
 			}
+			else
+			{
+				_currentDifficulty = (_currentDifficulty < 0) ? _defaultDifficulty : _currentDifficulty;
+				ApplyStaticValues();
+			}
+
+			UpdatePaginatorStatus(_currentDifficulty);
+			TogglePaginationButtons();
 		}
 
 		protected override void Return()
@@ -71,29 +84,10 @@ namespace BoGK.UI
 
 		private void FocusOnControls()
 		{
-			UpdateDisplayedValues();
-
 			if (_inEditMode)
 			{
 				_newName.GrabFocus();
 			}
-			else { }
-		}
-
-		private void UpdateDisplayedValues()
-		{
-			if (_inEditMode)
-			{
-				ApplyEditorValues();
-			}
-			else
-			{
-				_currentDifficulty = (_currentDifficulty < 0) ? _defaultDifficulty : _currentDifficulty;
-				ApplyStaticValues();
-			}
-
-			UpdatePaginatorStatus(_currentDifficulty);
-			TogglePaginationButtons();
 		}
 
 		private void EnableEditor(bool newDifficulty)

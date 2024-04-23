@@ -71,7 +71,7 @@ _livesDisplay = NodePath("Options/LivesDisplaySetting/LivesDisplayToggle")
 _stageClearDisplay = NodePath("Options/StageClearDisplaySetting/StageClearDisplayToggle")
 _focusTarget = [NodePath("Options/LanguageSetting/LanguageOptions"), NodePath("../../OptionsButtons/Confirm")]
 
-[node name="VideoOptions" parent="CategoryPanels" node_paths=PackedStringArray("_fullscreen", "_screenShake", "_pickupOrder", "_backgroundBrightnessText", "_backgroundColorPalette", "_backgroundBrightness", "_effectTransparencyText", "_effectTransparency", "_breakableColorPalette", "_colorPickerPanel", "_focusTarget") instance=ExtResource("4_i76gf")]
+[node name="VideoOptions" parent="CategoryPanels" node_paths=PackedStringArray("_fullscreen", "_screenShake", "_pickupOrder", "_backgroundBrightnessText", "_backgroundColorPalette", "_backgroundBrightness", "_effectTransparencyText", "_effectTransparency", "_breakableColorPalette", "_breakableVariantContainer", "_colorPickerPanel", "_focusTarget") instance=ExtResource("4_i76gf")]
 layout_mode = 1
 offset_left = 0.0
 offset_top = 0.0
@@ -88,6 +88,7 @@ _backgroundBrightness = NodePath("Options/BackgroundSetting/BackgroundSlider")
 _effectTransparencyText = NodePath("Options/EffectsTransparencySetting/EffectsTransparencyText/EffectsTransparencyValue")
 _effectTransparency = NodePath("Options/EffectsTransparencySetting/EffectsTransparencySlider")
 _breakableColorPalette = NodePath("Options/BreakableVariantSetting/BreakableColorPaletteSetting/BreakableColorPaletteOptions")
+_breakableVariantContainer = NodePath("Options/BreakableVariantSetting")
 _colorPickerPanel = NodePath("../../ColorPickerPanel")
 _focusTarget = [NodePath("Options/FullscreenSetting/FullscreenToggle"), NodePath("../../OptionsButtons/Confirm")]
 
@@ -237,6 +238,7 @@ offset_bottom = -6.0
 grow_vertical = 0
 focus_mode = 0
 shortcut = ExtResource("6_vgxtx")
+shortcut_feedback = false
 shortcut_in_tooltip = false
 text = "BUTTON_RETURN"
 

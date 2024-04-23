@@ -21,19 +21,14 @@ namespace BoGK.UI
 
 		protected override void Focus()
 		{
-			if (Visible)
+			if (_focusTarget.Length > 0)
 			{
 				_currentPaddle = refs.SelectedPaddleIndex;
-				UpdateDisplayedValues();
-
-				if (_focusTarget.Length > 0)
-				{
-					_focusTarget[0].GrabFocus();
-				}
+				_focusTarget[0].GrabFocus();
 			}
 		}
 
-		private void UpdateDisplayedValues()
+		protected override void UpdateDisplayedValues()
 		{
 			if (ResourceLoader.Exists($"res://assets/sprites/paddles/paddle_{_currentPaddle}_icon.png"))
 			{

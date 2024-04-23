@@ -48,21 +48,20 @@ namespace BoGK.UI
 
 			if (panelName != string.Empty && _activePanel != panelName)
 			{
-				_panels[panelName].Visible = true;
+				((UIPanel)_panels[panelName]).Enable();
 			}
 
 			_activePanel = panelName;
 
-			FocusOnButtons();
-			RefreshUI?.Invoke();
 			refs.localization.UpdateUILocalization();
+			FocusOnButtons();
 		}
 
 		public void FocusOnButtons()
 		{
 			if (_activePanel == string.Empty)
 			{
-				((Button)_menuButtons.GetChild(0)).GrabFocus();
+				_menuButtons.GetChild<Button>(0).GrabFocus();
 			}
 		}
 
@@ -75,7 +74,7 @@ namespace BoGK.UI
 		{
 			foreach (var panel in _panels)
 			{
-				panel.Value.Visible = false;
+				((UIPanel)panel.Value).Disable();
 			}
 		}
 

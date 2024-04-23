@@ -148,6 +148,7 @@ grow_horizontal = 2
 grow_vertical = 0
 focus_mode = 1
 shortcut = ExtResource("13_llndj")
+shortcut_feedback = false
 shortcut_in_tooltip = false
 text = "BUTTON_CONFIRM"
 
@@ -161,6 +162,7 @@ offset_bottom = -6.0
 grow_vertical = 0
 focus_mode = 0
 shortcut = ExtResource("14_12fea")
+shortcut_feedback = false
 shortcut_in_tooltip = false
 text = "BUTTON_RETURN"
 

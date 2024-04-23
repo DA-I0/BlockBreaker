@@ -8,4 +8,9 @@ public partial class UIConfirmationPrompt : Control
 	{
 		_animator.Play("activate");
 	}
+
+	public void Reset()
+	{
+		_animator.Play("disabled");
+	}
 }

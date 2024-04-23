@@ -20,27 +20,35 @@ namespace BoGK.UI
 
 		public override void _Input(InputEvent @event)
 		{
-			if (!Visible)
-			{
-				return;
-			}
-
 			if (@event.IsActionPressed("ui_toggle_focus"))
 			{
 				ToggleFocus();
 			}
 		}
 
+		public void Enable()
+		{
+			ProcessMode = ProcessModeEnum.Inherit;
+			Visible = true;
+			Focus();
+			UpdateDisplayedValues();
+		}
+
+		public void Disable()
+		{
+			ProcessMode = ProcessModeEnum.Disabled;
+			Visible = false;
+		}
+
 		protected virtual void SetupBaseReferences()
 		{
 			refs = GetNode<GameSystem.SessionController>("/root/GameController");
-			uiController.RefreshUI += Focus;
 			_returnButton.Pressed += () => Return();
 		}
 
 		protected virtual void Focus()
 		{
-			if (Visible && _focusTarget.Length > 0)
+			if (_focusTarget.Length > 0)
 			{
 				_focusTarget[0]?.GrabFocus();
 			}
@@ -58,6 +66,8 @@ namespace BoGK.UI
 
 			_focusTarget[_focusIndex]?.GrabFocus();
 		}
+
+		protected virtual void UpdateDisplayedValues() { }
 
 		protected virtual void Return()
 		{
