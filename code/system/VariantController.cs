@@ -1,6 +1,6 @@
 using Godot;
 
-public enum Variant { basic, garden };
+public enum Variant { basic, room, garden };
 
 namespace BoGK.GameSystem
 {
