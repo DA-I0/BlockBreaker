@@ -28,7 +28,7 @@ namespace BoGK.UI
 			}
 		}
 
-		private void UpdateDisplayedValues()
+		protected override void UpdateDisplayedValues()
 		{
 			_customSessionLengthButton.ButtonPressed = (refs.SessionLength > 0);
 			ToggleCustomSessionLength(_customSessionLengthButton.ButtonPressed);
