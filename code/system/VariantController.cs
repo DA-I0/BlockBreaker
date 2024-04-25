@@ -21,17 +21,13 @@ namespace BoGK.GameSystem
 		{
 			foreach (Sprite2D sprite in _sprites)
 			{
-				string spritePath = sprite.Texture.ResourcePath;
+				string spritePath = HelperMethods.ReplaceSpritePalettePath(sprite.Texture.ResourcePath, refs.settings.InteractableColorPalette);
 				string defaultSpriteVariant = spritePath.Split("_")[^1];
-				string customSpritePath = spritePath.Replace(defaultSpriteVariant, $"{_variant}_{refs.settings.BackgroundColorPalette}.png");
+				string customSpritePath = spritePath.Replace(defaultSpriteVariant, $"{_variant}.png");
 
 				if (FileAccess.FileExists(customSpritePath))
 				{
 					spritePath = customSpritePath;
-				}
-				else
-				{
-					spritePath = spritePath.Replace(defaultSpriteVariant, $"{_variant}.png");
 				}
 
 				sprite.Texture = ResourceLoader.Load<Texture2D>(spritePath);

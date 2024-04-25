@@ -91,32 +91,25 @@ namespace BoGK.Gameplay
 			_sprite.Frame = (_health <= 0) ? 0 : _maxHealth - _health;
 		}
 
-		private void ApplySpriteVariant() // move folder path replacement to a separate place and reuse it for non breakable objects
+		private void ApplySpriteVariant()
 		{
-			string[] spriteFolder = _defaultSpritePath.Split('/');
-			int folderPaletteIndex = _defaultSpritePath.Contains("props") ? 3 : 2; // not a great solution
-			spriteFolder[^folderPaletteIndex] = refs.settings.BreakableColorPalette;
-
-			string breakableName = spriteFolder[^1].Replace(".png", "");
+			string breakableName = _defaultSpritePath.Split('/')[^1].Replace(".png", "");
 			BreakableVariant variant = refs.settings.FindVariant(breakableName);
-
-			_defaultSpritePath = spriteFolder.Join("/");
 
 			switch (variant.SpriteVariant)
 			{
 				case 1:
-					_sprite.Texture = ResourceLoader.Load<Texture2D>(_defaultSpritePath.Replace(".png", "_rim.png"));
+					_sprite.Texture = ResourceLoader.Load<Texture2D>(GameSystem.HelperMethods.ReplaceSpritePalettePath(_defaultSpritePath, refs.settings.InteractableColorPalette).Replace(".png", "_rim.png"));
 					_sprite.Modulate = new Color(1, 1, 1, 1);
 					break;
 
 				case 2:
-					spriteFolder[^2] = "custom";
-					_sprite.Texture = ResourceLoader.Load<Texture2D>(spriteFolder.Join("/"));
+					_sprite.Texture = ResourceLoader.Load<Texture2D>(_defaultSpritePath.Replace(refs.settings.InteractableColorPalette, "custom"));
 					_sprite.Modulate = variant.CustomColor;
 					break;
 
 				default:
-					_sprite.Texture = ResourceLoader.Load<Texture2D>(_defaultSpritePath);
+					_sprite.Texture = ResourceLoader.Load<Texture2D>(GameSystem.HelperMethods.ReplaceSpritePalettePath(_defaultSpritePath, refs.settings.InteractableColorPalette));
 					_sprite.Modulate = new Color(1, 1, 1, 1);
 					break;
 			}

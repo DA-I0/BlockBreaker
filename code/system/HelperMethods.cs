@@ -91,5 +91,23 @@ namespace BoGK.GameSystem
 
 			return -1;
 		}
+
+		public static string ReplaceSpritePalettePath(string originalPath, string palette)
+		{
+			string[] spriteFolder = originalPath.Split('/');
+			int folderPaletteIndex = originalPath.Contains("props") ? 3 : 2; // not a great solution
+			spriteFolder[^folderPaletteIndex] = palette;
+
+			string updatedPath = spriteFolder.Join("/");
+
+			if (FileAccess.FileExists(updatedPath))
+			{
+				return updatedPath;
+			}
+			else
+			{
+				return originalPath;
+			}
+		}
 	}
 }
