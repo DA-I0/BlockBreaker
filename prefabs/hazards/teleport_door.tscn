@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://ctgplrud2njoq"]
 
 [ext_resource type="Script" path="res://code/gameplay/interactables/TeleportDoor.cs" id="1_g3j3m"]
-[ext_resource type="Texture2D" uid="uid://c64m2njsydqpo" path="res://assets/sprites/interactables/teleport_basic.png" id="2_1tnpu"]
-[ext_resource type="Texture2D" uid="uid://bo1jfu5dou0fn" path="res://assets/sprites/interactables/teleport_door_basic.png" id="3_ucllp"]
+[ext_resource type="Texture2D" uid="uid://c64m2njsydqpo" path="res://assets/sprites/interactables/default/teleport_basic.png" id="2_1tnpu"]
+[ext_resource type="Texture2D" uid="uid://bo1jfu5dou0fn" path="res://assets/sprites/interactables/default/teleport_door_basic.png" id="3_ucllp"]
 
 [sub_resource type="Animation" id="Animation_hnk17"]
 resource_name = "idle_disabled"

@@ -6,13 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://iq10idmsyirx" path="res://prefabs/pickups/pickup_safety_net.tscn" id="4_8equa"]
 [ext_resource type="PackedScene" uid="uid://dcky3cvrc86mx" path="res://prefabs/pickups/pickup_paddle_bouncy.tscn" id="5_30keu"]
 [ext_resource type="PackedScene" uid="uid://b2bctq01a4fwu" path="res://prefabs/pickups/pickup_paddle_sticky.tscn" id="6_a0ewh"]
-[ext_resource type="Texture2D" uid="uid://tfyulolh812e" path="res://assets/sprites/blocks/default/barrier_sturdy.png" id="10_lglij"]
+[ext_resource type="Texture2D" uid="uid://tfyulolh812e" path="res://assets/sprites/blocks/muted/barrier_sturdy.png" id="10_lglij"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jer7o"]
 size = Vector2(10, 3)
 
 [node name="BarrierSturdy" type="StaticBody2D"]
-z_index = 2
 script = ExtResource("1_mcrwh")
 _pointValue = 3
 _maxHealth = 3
@@ -23,9 +22,9 @@ position = Vector2(0, -1.5)
 shape = SubResource("RectangleShape2D_jer7o")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-position = Vector2(-5, -11)
 texture = ExtResource("10_lglij")
 centered = false
+offset = Vector2(-5, -11)
 hframes = 3
 region_rect = Rect2(4, 4, 44, 33)
 

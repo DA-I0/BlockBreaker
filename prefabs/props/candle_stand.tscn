@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bjqqfreqrhl48"]
 
-[ext_resource type="Texture2D" uid="uid://cqnqic6w71v4p" path="res://assets/sprites/props/default/candle_stand.png" id="1_7lnao"]
+[ext_resource type="Texture2D" uid="uid://cqnqic6w71v4p" path="res://assets/sprites/props/default/other/candle_stand.png" id="1_7lnao"]
 
 [node name="CandleStand" type="StaticBody2D"]
 z_index = 2

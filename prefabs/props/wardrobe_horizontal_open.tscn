@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c4y3jhgwpubns"]
 
-[ext_resource type="Texture2D" uid="uid://bgy4nsj1i1atm" path="res://assets/sprites/props/default/wardrobe_horizontal_open.png" id="1_gkrdq"]
+[ext_resource type="Texture2D" uid="uid://bgy4nsj1i1atm" path="res://assets/sprites/props/default/other/wardrobe_horizontal_open.png" id="1_gkrdq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_47th3"]
 size = Vector2(18, 6)

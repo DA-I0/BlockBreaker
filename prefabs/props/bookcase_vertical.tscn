@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://csmmv158rne2b"]
 
-[ext_resource type="Texture2D" uid="uid://bq1mpi5fdg3vs" path="res://assets/sprites/props/default/bookcase_vertical.png" id="1_f52hb"]
+[ext_resource type="Texture2D" uid="uid://bq1mpi5fdg3vs" path="res://assets/sprites/props/default/other/bookcase_vertical.png" id="1_f52hb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_47th3"]
 size = Vector2(8, 18)
