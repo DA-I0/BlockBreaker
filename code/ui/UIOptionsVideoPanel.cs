@@ -112,15 +112,17 @@ namespace BoGK.UI
 					Text = $"BREAKABLE_{variant.TypeName.ToUpper()}",
 					AutoTranslate = true,
 					AnchorBottom = 1,
-					AnchorRight = 0.3f,
+					AnchorRight = 0.6f,
 					OffsetLeft = 8
 				};
 
 				Button pickerButton = new Button
 				{
 					AnchorBottom = 1,
-					AnchorLeft = 0.3f,
-					AnchorRight = 0.3f,
+					AnchorLeft = 0.5f,
+					AnchorRight = 0.5f,
+					OffsetLeft = -4,
+					OffsetRight = -4,
 					IconAlignment = HorizontalAlignment.Center,
 					Flat = true
 				};
@@ -130,9 +132,9 @@ namespace BoGK.UI
 				OptionButton variantSelector = new OptionButton
 				{
 					AnchorBottom = 1,
-					AnchorLeft = 0.3f,
+					AnchorLeft = 0.6f,
 					AnchorRight = 1,
-					OffsetLeft = 32,
+					OffsetLeft = -3,
 					OffsetRight = -4
 				};
 
