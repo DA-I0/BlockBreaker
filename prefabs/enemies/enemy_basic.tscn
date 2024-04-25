@@ -222,8 +222,6 @@ _data = {
 }
 
 [node name="EnemyBasic" type="CharacterBody2D" node_paths=PackedStringArray("_path", "_movementTimer", "_animator", "_invulnerabilityTimer")]
-z_index = 2
-y_sort_enabled = true
 script = ExtResource("1_rucrn")
 _speed = 15.0
 _minMoveDistance = 5.0
@@ -242,8 +240,9 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_2b8qt")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-position = Vector2(0, -7)
 texture = ExtResource("7_4irhk")
+centered = false
+offset = Vector2(-8, -15)
 hframes = 4
 vframes = 4
 region_rect = Rect2(4, 4, 44, 33)
