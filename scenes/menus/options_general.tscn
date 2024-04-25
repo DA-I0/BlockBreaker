@@ -35,7 +35,7 @@ layout_mode = 2
 [node name="LanguageLabel" type="Label" parent="Options/LanguageSetting"]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.45
+anchor_right = 0.6
 anchor_bottom = 1.0
 offset_left = 4.0
 text = "OPTION_GENERAL_LANGUAGE"
@@ -44,7 +44,7 @@ vertical_alignment = 1
 [node name="LanguageOptions" type="OptionButton" parent="Options/LanguageSetting"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.5
+anchor_left = 0.6
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -3.0
@@ -59,7 +59,7 @@ layout_mode = 2
 [node name="FontLabel" type="Label" parent="Options/FontSetting"]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.45
+anchor_right = 0.6
 anchor_bottom = 1.0
 offset_left = 4.0
 text = "OPTION_GENERAL_FONT"
@@ -68,7 +68,7 @@ vertical_alignment = 1
 [node name="FontOptions" type="OptionButton" parent="Options/FontSetting"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.5
+anchor_left = 0.6
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -3.0
@@ -87,7 +87,7 @@ layout_mode = 2
 [node name="UIControlsLabel" type="Label" parent="Options/UIControlsSetting"]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.45
+anchor_right = 0.6
 anchor_bottom = 1.0
 offset_left = 4.0
 text = "OPTION_GENERAL_UI_PROMPTS"
@@ -96,7 +96,7 @@ vertical_alignment = 1
 [node name="UIControlsOptions" type="OptionButton" parent="Options/UIControlsSetting"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.5
+anchor_left = 0.6
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -3.0
@@ -120,7 +120,7 @@ layout_mode = 2
 [node name="LivesDisplayLabel" type="Label" parent="Options/LivesDisplaySetting"]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.45
+anchor_right = 0.6
 anchor_bottom = 1.0
 offset_left = 4.0
 text = "OPTION_UI_LIFE_DISPLAY"
@@ -129,7 +129,7 @@ vertical_alignment = 1
 [node name="LivesDisplayToggle" type="CheckButton" parent="Options/LivesDisplaySetting"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.5
+anchor_left = 0.6
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -3.0
@@ -142,7 +142,7 @@ layout_mode = 2
 [node name="StageClearDisplayLabel" type="Label" parent="Options/StageClearDisplaySetting"]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.45
+anchor_right = 0.6
 anchor_bottom = 1.0
 offset_left = 4.0
 text = "OPTION_UI_DISPLAY_STAGE_COMPLETE_SCREEN"
@@ -151,7 +151,7 @@ vertical_alignment = 1
 [node name="StageClearDisplayToggle" type="CheckButton" parent="Options/StageClearDisplaySetting"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.5
+anchor_left = 0.6
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -3.0

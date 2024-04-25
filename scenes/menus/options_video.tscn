@@ -41,7 +41,7 @@ layout_mode = 2
 [node name="FullscreenLabel" type="Label" parent="Options/FullscreenSetting"]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.45
+anchor_right = 0.6
 anchor_bottom = 1.0
 offset_left = 4.0
 text = "OPTION_VIDEO_FULLSCREEN"
@@ -50,7 +50,7 @@ vertical_alignment = 1
 [node name="FullscreenToggle" type="CheckButton" parent="Options/FullscreenSetting"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.5
+anchor_left = 0.6
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -3.0
@@ -66,7 +66,7 @@ tooltip_text = "tooltip_screen_shake"
 [node name="ShakeScreenLabel" type="Label" parent="Options/ScreenShakeSetting"]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.45
+anchor_right = 0.6
 anchor_bottom = 1.0
 offset_left = 4.0
 text = "OPTION_VIDEO_SCREEN_SHAKE"
@@ -75,7 +75,7 @@ vertical_alignment = 1
 [node name="ScreenShakeToggle" type="CheckButton" parent="Options/ScreenShakeSetting"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.5
+anchor_left = 0.6
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -3.0
@@ -88,7 +88,7 @@ layout_mode = 2
 [node name="PickupLabel" type="Label" parent="Options/PickupSetting"]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.45
+anchor_right = 0.6
 anchor_bottom = 1.0
 offset_left = 4.0
 text = "OPTION_VIDEO_PICKUP_ORDER"
@@ -97,7 +97,7 @@ vertical_alignment = 1
 [node name="PickupOptions" type="OptionButton" parent="Options/PickupSetting"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.5
+anchor_left = 0.6
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -3.0
@@ -117,16 +117,16 @@ layout_mode = 2
 [node name="BackgroundColorPaletteLabel" type="Label" parent="Options/BackgroundColorPaletteSetting"]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.45
+anchor_right = 0.6
 anchor_bottom = 1.0
 offset_left = 4.0
-text = "OPTION_VIDEO_BACKGROUND_COLOR_PALETTE"
+text = "OPTION_VIDEO_BACKGROUND_PALETTE"
 vertical_alignment = 1
 
 [node name="BackgroundColorPaletteOptions" type="OptionButton" parent="Options/BackgroundColorPaletteSetting"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.5
+anchor_left = 0.6
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -3.0
@@ -139,7 +139,7 @@ layout_mode = 2
 [node name="HBoxContainer" type="HBoxContainer" parent="Options/BackgroundSetting"]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.45
+anchor_right = 0.6
 anchor_bottom = 1.0
 offset_left = 4.0
 
@@ -156,7 +156,7 @@ vertical_alignment = 1
 [node name="BackgroundSlider" type="HSlider" parent="Options/BackgroundSetting"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.5
+anchor_left = 0.6
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -3.0
@@ -173,7 +173,7 @@ layout_mode = 2
 [node name="EffectsTransparencyText" type="HBoxContainer" parent="Options/EffectsTransparencySetting"]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.45
+anchor_right = 0.6
 anchor_bottom = 1.0
 offset_left = 4.0
 
@@ -190,7 +190,7 @@ vertical_alignment = 1
 [node name="EffectsTransparencySlider" type="HSlider" parent="Options/EffectsTransparencySetting"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.5
+anchor_left = 0.6
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -3.0
@@ -225,16 +225,16 @@ layout_mode = 2
 [node name="BreakableColorPaletteLabel" type="Label" parent="Options/BreakableVariantSetting/BreakableColorPaletteSetting"]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.45
+anchor_right = 0.6
 anchor_bottom = 1.0
-offset_left = 4.0
-text = "OPTION_VIDEO_BREAKABLE_COLOR_PALETTE"
+offset_left = 8.0
+text = "OPTION_VIDEO_INTERACTABLE_PALETTE"
 vertical_alignment = 1
 
 [node name="BreakableColorPaletteOptions" type="OptionButton" parent="Options/BreakableVariantSetting/BreakableColorPaletteSetting"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.5
+anchor_left = 0.6
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -3.0
