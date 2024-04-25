@@ -38,7 +38,7 @@ namespace BoGK.UI
 			_backgroundColorPalette.Selected = GameSystem.HelperMethods.FindOptionIndex(_backgroundColorPalette, $"OPTION_VIDEO_PALETTE_{Refs.settings.BackgroundColorPalette}");
 			_backgroundBrightness.Value = Refs.settings.BackgroundBrightness;
 			_effectTransparency.Value = Refs.settings.EffectTransparency;
-			_breakableColorPalette.Selected = GameSystem.HelperMethods.FindOptionIndex(_breakableColorPalette, $"OPTION_VIDEO_PALETTE_{Refs.settings.BreakableColorPalette}");
+			_breakableColorPalette.Selected = GameSystem.HelperMethods.FindOptionIndex(_breakableColorPalette, $"OPTION_VIDEO_PALETTE_{Refs.settings.InteractableColorPalette}");
 
 			UpdateVariants();
 		}
@@ -51,7 +51,7 @@ namespace BoGK.UI
 			Refs.settings.BackgroundBrightness = (float)_backgroundBrightness.Value;
 			Refs.settings.PickupOrder = _pickupOrder.Selected;
 			Refs.settings.EffectTransparency = (float)_effectTransparency.Value;
-			Refs.settings.BreakableColorPalette = _breakableColorPalette.GetItemText(_breakableColorPalette.Selected).Split("_")[^1].ToLower();
+			Refs.settings.InteractableColorPalette = _breakableColorPalette.GetItemText(_breakableColorPalette.Selected).Split("_")[^1].ToLower();
 
 			SaveBreakableVariants();
 		}
