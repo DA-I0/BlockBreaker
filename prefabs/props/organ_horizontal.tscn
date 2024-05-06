@@ -10,7 +10,7 @@ size = Vector2(22, 6)
 [node name="Collider" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_47th3")
 
-[node name="Sprite" type="Sprite2D" parent="."]
+[node name="Sprite" type="Sprite2D" parent="." groups=["static_props"]]
 position = Vector2(-11, -19)
 texture = ExtResource("1_dsamx")
 centered = false

@@ -4,7 +4,7 @@
 
 [node name="BridgeEnd" type="Node2D"]
 
-[node name="Sprite" type="Sprite2D" parent="."]
+[node name="Sprite" type="Sprite2D" parent="." groups=["static_props"]]
 position = Vector2(-16, -4)
 texture = ExtResource("1_kw5gu")
 centered = false

@@ -82,6 +82,7 @@ namespace BoGK.GameSystem
 		private void SetupReferences()
 		{
 			_currentScene = GetNode("../CurrentScene");
+			_currentScene.ChildEnteredTree += (Node scene) => CallDeferred("ApplyBackgroundSettings", scene);
 
 			refs = (SessionController)GetParent();
 		}
@@ -104,18 +105,23 @@ namespace BoGK.GameSystem
 			ResourceLoader.LoadThreadedRequest(scenePath);
 			Node newScene = (ResourceLoader.LoadThreadedGet(scenePath) as PackedScene).Instantiate();
 
-			if (!scenePath.Contains("menu"))
-			{
-				ApplyBackgroundSettings(newScene);
-			}
-
 			_currentScene.CallDeferred("add_child", newScene);
 		}
 
 		private void ApplyBackgroundSettings(Node targetScene)
 		{
-			TileMap mapBackground = targetScene.GetChild<TileMap>(0);
+			if (targetScene.SceneFilePath.Contains("menu"))
+			{
+				return;
+			}
 
+			ApplyTilesetSettings(targetScene.GetChild<TileMap>(0));
+			ApplySpritePropSettings(targetScene.GetChild<Node2D>(1));
+			ApplyStaticPropSettings(targetScene);
+		}
+
+		private void ApplyTilesetSettings(TileMap mapBackground)
+		{
 			string tileSetPath = mapBackground.TileSet.ResourcePath;
 			tileSetPath = tileSetPath.Replace(".tres", $"_{refs.settings.BackgroundColorPalette}.tres");
 
@@ -125,12 +131,30 @@ namespace BoGK.GameSystem
 			}
 
 			mapBackground.Modulate = new Color(refs.settings.BackgroundBrightness, refs.settings.BackgroundBrightness, refs.settings.BackgroundBrightness, 1f);
+		}
 
-			Node2D mapDetails = targetScene.GetChild<Node2D>(1);
-
+		private void ApplySpritePropSettings(Node2D mapDetails)
+		{
 			if (mapDetails.Name == "MapVisuals")
 			{
 				mapDetails.Modulate = new Color(refs.settings.BackgroundBrightness, refs.settings.BackgroundBrightness, refs.settings.BackgroundBrightness, 1f);
+
+				foreach (Sprite2D sprite in mapDetails.GetChildren())
+				{
+					sprite.Texture = ResourceLoader.Load<Texture2D>(HelperMethods.ReplaceSpritePalettePath(sprite.Texture.ResourcePath, refs.settings.BackgroundColorPalette));
+				}
+			}
+		}
+
+		private void ApplyStaticPropSettings(Node targetScene)
+		{
+			Godot.Collections.Array<Node> staticProps = targetScene.GetChild(0).GetTree().GetNodesInGroup("static_props");
+			Color backgroundBrightness = new Color(refs.settings.BackgroundBrightness, refs.settings.BackgroundBrightness, refs.settings.BackgroundBrightness, 1f);
+
+			foreach (Sprite2D prop in staticProps)
+			{
+				prop.Texture = ResourceLoader.Load<Texture2D>(HelperMethods.ReplaceSpritePalettePath(prop.Texture.ResourcePath, refs.settings.BackgroundColorPalette));
+				prop.Modulate = backgroundBrightness;
 			}
 		}
 

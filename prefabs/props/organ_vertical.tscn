@@ -11,7 +11,7 @@ size = Vector2(9, 20)
 position = Vector2(-0.5, 6)
 shape = SubResource("RectangleShape2D_47th3")
 
-[node name="Sprite" type="Sprite2D" parent="."]
+[node name="Sprite" type="Sprite2D" parent="." groups=["static_props"]]
 position = Vector2(-7, -16)
 texture = ExtResource("1_fc31w")
 centered = false

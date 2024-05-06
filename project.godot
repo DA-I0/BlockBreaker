@@ -62,6 +62,7 @@ BreakableIconsFilePath="res://assets/sprites/ui_elements/breakable_icons"
 [global_group]
 
 manual_translation="Elements to translate with value injections."
+static_props="Static props marked for palette swapping."
 
 [gui]
 

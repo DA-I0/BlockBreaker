@@ -30,14 +30,14 @@ _data = {
 [node name="Collider" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-3, 0, -3, 2, -2, 3, 3, 3, 4, 2, 4, 0)
 
-[node name="Sprite" type="Sprite2D" parent="."]
+[node name="Sprite" type="Sprite2D" parent="." groups=["static_props"]]
 position = Vector2(-3, -9)
 texture = ExtResource("1_1n3hu")
 centered = false
 hframes = 6
 
 [node name="Animator" type="AnimationPlayer" parent="."]
-autoplay = "idle"
 libraries = {
 "": SubResource("AnimationLibrary_y55gb")
 }
+autoplay = "idle"

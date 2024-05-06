@@ -8,11 +8,11 @@ size = Vector2(18, 6)
 [node name="WardrobeHorizontal" type="StaticBody2D"]
 z_index = 2
 
-[node name="Sprite" type="Sprite2D" parent="."]
-position = Vector2(-9, -25)
-texture = ExtResource("1_jc04b")
-centered = false
-
 [node name="Collider" type="CollisionShape2D" parent="."]
 position = Vector2(0, -3)
 shape = SubResource("RectangleShape2D_47th3")
+
+[node name="Sprite" type="Sprite2D" parent="." groups=["static_props"]]
+position = Vector2(-9, -25)
+texture = ExtResource("1_jc04b")
+centered = false

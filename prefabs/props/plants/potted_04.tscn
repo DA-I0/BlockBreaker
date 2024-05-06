@@ -9,7 +9,7 @@ z_index = 2
 position = Vector2(1, -2)
 polygon = PackedVector2Array(-9, -1, -9, 1, -8, 2, 6, 2, 7, 1, 7, -1, 6, -2, -8, -2)
 
-[node name="Sprite" type="Sprite2D" parent="."]
+[node name="Sprite" type="Sprite2D" parent="." groups=["static_props"]]
 position = Vector2(-8, -14)
 texture = ExtResource("1_kisbn")
 centered = false
