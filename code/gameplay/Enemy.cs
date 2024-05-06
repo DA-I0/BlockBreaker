@@ -60,6 +60,7 @@ namespace BoGK.Gameplay
 
 			refs = GetNode<GameSystem.SessionController>("/root/GameController");
 			SetInitialValues();
+			ApplyPalette();
 			_lastState = _state;
 			AnimateMovement(0f);
 		}
@@ -325,6 +326,11 @@ namespace BoGK.Gameplay
 				GetNode("../../..").CallDeferred("add_child", pickup);
 				pickup.Position = Position;
 			}
+		}
+
+		protected void ApplyPalette()
+		{
+			_sprite.Texture = ResourceLoader.Load<Texture2D>(GameSystem.HelperMethods.ReplaceSpritePalettePath(_defaultSpritePath, refs.settings.InteractableColorPalette));
 		}
 
 		protected virtual void Destroy()

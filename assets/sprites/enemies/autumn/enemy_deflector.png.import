@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6d3s53ey73tx"
-path="res://.godot/imported/enemy_deflector.png-1144171a6dcdffa129591464cb6f126b.ctex"
+uid="uid://bby23lcs6q860"
+path="res://.godot/imported/enemy_deflector.png-7e0c41bcd610bed145ffdb35eef199c5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/enemies/enemy_deflector.png"
-dest_files=["res://.godot/imported/enemy_deflector.png-1144171a6dcdffa129591464cb6f126b.ctex"]
+source_file="res://assets/sprites/enemies/autumn/enemy_deflector.png"
+dest_files=["res://.godot/imported/enemy_deflector.png-7e0c41bcd610bed145ffdb35eef199c5.ctex"]
 
 [params]
 

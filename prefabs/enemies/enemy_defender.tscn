@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://cb5kj1wnbuk65"]
 
 [ext_resource type="Script" path="res://code/gameplay/EnemyDefender.cs" id="1_w70d1"]
-[ext_resource type="Texture2D" uid="uid://b02cdys1knl2t" path="res://assets/sprites/enemies/enemy_defender.png" id="2_fx5wy"]
+[ext_resource type="Texture2D" uid="uid://b02cdys1knl2t" path="res://assets/sprites/enemies/default/enemy_defender.png" id="2_fx5wy"]
 [ext_resource type="Script" path="res://code/gameplay/SecondaryCollider.cs" id="3_oox4l"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2b8qt"]
