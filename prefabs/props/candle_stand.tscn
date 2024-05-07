@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cqnqic6w71v4p" path="res://assets/sprites/props/default/other/candle_stand.png" id="1_7lnao"]
 
 [node name="CandleStand" type="StaticBody2D"]
-z_index = 2
+z_index = 1
 
 [node name="Collider" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-3, 0, 0, 0, 0, 1, 1, 1, 1, 0, 4, 0, 5, -1, 1, -1, 1, -3, 0, -3, 0, -1, -4, -1)

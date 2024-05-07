@@ -5,9 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://dwa3x1brydi56" path="res://prefabs/pickups/pickup_extra_life.tscn" id="8_x8ura"]
 [ext_resource type="PackedScene" uid="uid://crgjb8hqapmxf" path="res://prefabs/pickups/pickup_paddle_freeze.tscn" id="9_dwkbx"]
 [ext_resource type="PackedScene" uid="uid://iq10idmsyirx" path="res://prefabs/pickups/pickup_safety_net.tscn" id="10_3xwij"]
-[ext_resource type="Texture2D" uid="uid://cpti1ilc1nvij" path="res://assets/sprites/props/tables/table_horizontal.png" id="11_8dkxj"]
+[ext_resource type="Texture2D" uid="uid://cpti1ilc1nvij" path="res://assets/sprites/props/default/tables/table_horizontal.png" id="11_8dkxj"]
 
 [node name="TableHorizontal" type="StaticBody2D" node_paths=PackedStringArray("_timer")]
+z_index = 1
 script = ExtResource("1_mx3g1")
 _pointValue = 2
 _maxHealth = 5
@@ -15,7 +16,6 @@ _pickups = Array[PackedScene]([ExtResource("7_t1xqw"), ExtResource("8_x8ura"), E
 _timer = NodePath("Timer")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-z_index = 2
 position = Vector2(-12, -14)
 texture = ExtResource("11_8dkxj")
 centered = false

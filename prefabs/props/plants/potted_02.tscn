@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://ybi3i5vxi237" path="res://assets/sprites/props/default/plants/potted_02.png" id="1_4um7j"]
 
 [node name="Potted_02" type="StaticBody2D"]
-z_index = 2
+z_index = 1
 
 [node name="Collider" type="CollisionPolygon2D" parent="."]
 position = Vector2(1, -2)

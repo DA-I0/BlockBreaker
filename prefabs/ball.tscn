@@ -165,6 +165,7 @@ offsets = PackedFloat32Array(0, 0.465217, 1)
 colors = PackedColorArray(0.694118, 0.243137, 0.32549, 0, 0.937255, 0.490196, 0.341176, 0.313726, 1, 0.803922, 0.458824, 0.784314)
 
 [node name="Ball" type="CharacterBody2D" node_paths=PackedStringArray("_sprite", "_arrow", "_arrowTimer", "_animator", "_particles", "_speedTrail")]
+y_sort_enabled = true
 collision_layer = 2
 collision_mask = 21
 platform_on_leave = 2
@@ -182,7 +183,7 @@ _speedTrail = NodePath("SpeedTrail")
 shape = SubResource("CircleShape2D_j0lxo")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-z_index = 1
+y_sort_enabled = true
 texture = ExtResource("1_thobj")
 centered = false
 offset = Vector2(-4, -4)
@@ -208,6 +209,8 @@ scale = Vector2(0.7, 0.7)
 
 [node name="SpeedTrail" type="Line2D" parent="."]
 top_level = true
+y_sort_enabled = true
+position = Vector2(0, -0.01)
 points = PackedVector2Array(0, 0, 0, 16)
 width = 8.0
 width_curve = SubResource("Curve_cy1tt")
@@ -215,6 +218,8 @@ gradient = SubResource("Gradient_4yhjv")
 joint_mode = 1
 
 [node name="SpeedParticles" type="CPUParticles2D" parent="."]
+y_sort_enabled = true
+position = Vector2(0, -0.01)
 amount = 4
 lifetime = 0.15
 speed_scale = 0.75

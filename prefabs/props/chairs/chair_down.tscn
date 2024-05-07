@@ -5,10 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://dwa3x1brydi56" path="res://prefabs/pickups/pickup_extra_life.tscn" id="7_jgaei"]
 [ext_resource type="PackedScene" uid="uid://crgjb8hqapmxf" path="res://prefabs/pickups/pickup_paddle_freeze.tscn" id="8_isoal"]
 [ext_resource type="PackedScene" uid="uid://iq10idmsyirx" path="res://prefabs/pickups/pickup_safety_net.tscn" id="9_geghp"]
-[ext_resource type="Texture2D" uid="uid://cbpl8y051wamo" path="res://assets/sprites/props/chairs/chair_down.png" id="10_bn2tg"]
+[ext_resource type="Texture2D" uid="uid://cbpl8y051wamo" path="res://assets/sprites/props/default/chairs/chair_down.png" id="10_bn2tg"]
 
 [node name="ChairDown" type="StaticBody2D" node_paths=PackedStringArray("_timer")]
-z_index = 2
+z_index = 1
 script = ExtResource("1_rk47a")
 _pointValue = 2
 _maxHealth = 4

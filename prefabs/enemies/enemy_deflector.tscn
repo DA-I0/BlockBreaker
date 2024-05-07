@@ -339,6 +339,7 @@ _data = {
 }
 
 [node name="EnemyDeflector" type="CharacterBody2D" node_paths=PackedStringArray("_path", "_movementTimer", "_animator", "_invulnerabilityTimer")]
+z_index = 1
 script = ExtResource("1_ca707")
 _deflectBoost = 1.5
 _speed = 15.0

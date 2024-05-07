@@ -2,13 +2,13 @@
 
 [ext_resource type="Script" path="res://code/gameplay/Breakable.cs" id="1_8ykjd"]
 [ext_resource type="PackedScene" uid="uid://dpwpfxkjnkw8c" path="res://prefabs/pickups/pickup_ghost.tscn" id="2_iu6jv"]
-[ext_resource type="Texture2D" uid="uid://bjde23uwa2wa2" path="res://assets/sprites/blocks/default/coffin.png" id="3_7wox4"]
+[ext_resource type="Texture2D" uid="uid://bjde23uwa2wa2" path="res://assets/sprites/blocks/muted/coffin.png" id="3_k1kv8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jer7o"]
 size = Vector2(5, 2)
 
 [node name="Coffin" type="StaticBody2D" node_paths=PackedStringArray("_timer")]
-z_index = 3
+z_index = 1
 script = ExtResource("1_8ykjd")
 _pointValue = 3
 _maxHealth = 2
@@ -22,7 +22,7 @@ shape = SubResource("RectangleShape2D_jer7o")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 position = Vector2(-4, -11)
-texture = ExtResource("3_7wox4")
+texture = ExtResource("3_k1kv8")
 centered = false
 hframes = 2
 region_rect = Rect2(4, 4, 44, 33)

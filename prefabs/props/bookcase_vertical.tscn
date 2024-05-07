@@ -6,7 +6,7 @@
 size = Vector2(8, 18)
 
 [node name="BookcaseVertical" type="StaticBody2D"]
-z_index = 2
+z_index = 1
 
 [node name="Collider" type="CollisionShape2D" parent="."]
 position = Vector2(0, -9)

@@ -30,7 +30,7 @@ _data = {
 }
 
 [node name="Fountain01" type="StaticBody2D"]
-z_index = 2
+z_index = 1
 
 [node name="Collider" type="CollisionShape2D" parent="."]
 rotation = 1.5708

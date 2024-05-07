@@ -205,7 +205,6 @@ _data = {
 }
 
 [node name="Bollard" type="StaticBody2D" node_paths=PackedStringArray("_animator", "_timer", "_sprites")]
-z_index = 2
 script = ExtResource("1_f3s8j")
 _isActived = false
 _cooldown = 2.0

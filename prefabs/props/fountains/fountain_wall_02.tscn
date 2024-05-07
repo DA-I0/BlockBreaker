@@ -26,12 +26,12 @@ _data = {
 }
 
 [node name="FountainWall01" type="StaticBody2D"]
+z_index = 1
 
 [node name="Collider" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-3, 0, -4, 1, -4, 3, -3, 4, 3, 4, 4, 3, 4, 1, 3, 0)
 
 [node name="Sprite" type="Sprite2D" parent="." groups=["static_props"]]
-z_index = 2
 position = Vector2(-4, -13)
 texture = ExtResource("1_wcuif")
 centered = false

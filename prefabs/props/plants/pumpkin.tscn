@@ -3,10 +3,10 @@
 [ext_resource type="Script" path="res://code/gameplay/Breakable.cs" id="1_qib44"]
 [ext_resource type="PackedScene" uid="uid://dwa3x1brydi56" path="res://prefabs/pickups/pickup_extra_life.tscn" id="4_rms64"]
 [ext_resource type="PackedScene" uid="uid://iq10idmsyirx" path="res://prefabs/pickups/pickup_safety_net.tscn" id="5_ioinn"]
-[ext_resource type="Texture2D" uid="uid://cfxi8ohclxntp" path="res://assets/sprites/props/plants/pumpkin.png" id="6_r4b37"]
+[ext_resource type="Texture2D" uid="uid://cfxi8ohclxntp" path="res://assets/sprites/props/default/plants/pumpkin.png" id="6_r4b37"]
 
 [node name="Pumpkin" type="StaticBody2D" node_paths=PackedStringArray("_timer")]
-z_index = 2
+z_index = 1
 script = ExtResource("1_qib44")
 _pointValue = 2
 _maxHealth = 2

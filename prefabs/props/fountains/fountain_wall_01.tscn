@@ -26,6 +26,7 @@ _data = {
 }
 
 [node name="FountainWall01" type="StaticBody2D"]
+z_index = 1
 
 [node name="Collider" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-3, 0, -3, 2, -2, 3, 3, 3, 4, 2, 4, 0)

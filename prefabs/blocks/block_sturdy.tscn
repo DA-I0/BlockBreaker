@@ -6,13 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://tt41n2fom0vc" path="res://prefabs/pickups/pickup_paddle_thin.tscn" id="4_ugw4u"]
 [ext_resource type="PackedScene" uid="uid://cav5klqn0n3k6" path="res://prefabs/pickups/pickup_paddle_wide.tscn" id="5_cym8p"]
 [ext_resource type="PackedScene" uid="uid://ccwj4m630w7qu" path="res://prefabs/pickups/pickup_paddle_reverse.tscn" id="6_ucqdu"]
-[ext_resource type="Texture2D" uid="uid://cs2c1un0rn273" path="res://assets/sprites/blocks/default/block_sturdy.png" id="10_48dvt"]
+[ext_resource type="Texture2D" uid="uid://cs2c1un0rn273" path="res://assets/sprites/blocks/default/block_sturdy.png" id="7_pt25c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jer7o"]
 size = Vector2(16, 6)
 
 [node name="BlockSturdy" type="StaticBody2D" node_paths=PackedStringArray("_timer")]
-z_index = 2
+z_index = 1
 script = ExtResource("1_ibg4v")
 _pointValue = 3
 _maxHealth = 3
@@ -23,7 +23,7 @@ _timer = NodePath("Timer")
 shape = SubResource("RectangleShape2D_jer7o")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-texture = ExtResource("10_48dvt")
+texture = ExtResource("7_pt25c")
 hframes = 3
 region_rect = Rect2(4, 4, 44, 33)
 

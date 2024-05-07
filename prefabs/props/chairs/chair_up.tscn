@@ -5,9 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://dwa3x1brydi56" path="res://prefabs/pickups/pickup_extra_life.tscn" id="7_xinc1"]
 [ext_resource type="PackedScene" uid="uid://crgjb8hqapmxf" path="res://prefabs/pickups/pickup_paddle_freeze.tscn" id="8_htjhi"]
 [ext_resource type="PackedScene" uid="uid://iq10idmsyirx" path="res://prefabs/pickups/pickup_safety_net.tscn" id="9_v16id"]
-[ext_resource type="Texture2D" uid="uid://cnsavmw8igtgm" path="res://assets/sprites/props/chairs/chair_up.png" id="10_u1708"]
+[ext_resource type="Texture2D" uid="uid://cnsavmw8igtgm" path="res://assets/sprites/props/default/chairs/chair_up.png" id="10_u1708"]
 
 [node name="ChairUp" type="StaticBody2D" node_paths=PackedStringArray("_timer")]
+z_index = 1
 script = ExtResource("1_pasw3")
 _pointValue = 2
 _maxHealth = 4
@@ -15,7 +16,6 @@ _pickups = Array[PackedScene]([ExtResource("6_sq8x6"), ExtResource("7_xinc1"), E
 _timer = NodePath("Timer")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-z_index = 2
 position = Vector2(-3, -14)
 texture = ExtResource("10_u1708")
 centered = false

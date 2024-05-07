@@ -18,16 +18,21 @@ normal = Vector2(-1, 0)
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_7jrrh"]
 normal = Vector2(0, 1)
 
-[node name="Map" type="Node"]
+[node name="Map" type="Node2D"]
+y_sort_enabled = true
 
 [node name="TileMap" type="TileMap" parent="."]
+y_sort_enabled = true
 tile_set = ExtResource("1_y24kp")
 format = 2
 layer_0/name = "Background"
+layer_0/y_sort_enabled = true
 layer_0/tile_data = PackedInt32Array(-327688, 2, 0, -262152, 65538, 1610612736, -327687, 65538, 0, -262151, 2, 3, -262150, 131074, 3, -262149, 65538, 3, -262148, 65538, 4, -262147, 65538, 4, -262146, 131074, 268435460, -262145, 65538, 3, -327680, 65538, 3, -327679, 131074, 268435460, -327678, 65538, 4, -327677, 65538, 3, -327676, 65538, 4, -327675, 131074, 3, -393210, 65538, 0, -327674, 196610, 3, -393209, 2, 268435456, -327673, 65538, 1879048192, -196614, 3, 0, -196613, 65539, 0, -196612, 65539, 0, -196611, 65539, 0, -196610, 131075, 0, -196609, 3, 5, -262144, 131075, 5, -262143, 3, 0, -262142, 65539, 0, -262141, 65539, 0, 458751, 3, 5, 393216, 131075, 5, 458750, 131075, 1, 393217, 3, 1, 458749, 65539, 1, 393218, 65539, 1, 458748, 65539, 1, 393219, 65539, 1, 458747, 65539, 1, 393220, 65539, 1, 458746, 3, 1, 393221, 131075, 1, 393222, 131074, 1879048195, 393223, 131074, 1879048192, 327686, 65538, 1879048195, 327687, 65538, 1879048192, 262150, 65538, 1879048196, 262151, 65538, 1879048192, 196614, 131074, 1879048195, 196615, 131074, 1879048192, 131078, 65538, 1879048196, 131079, 65538, 1879048192, 65542, 65538, 1879048195, 65543, 65538, 1879048192, 6, 65538, 1879048196, 7, 65538, 1879048192, -65530, 131074, 1879048196, -65529, 131074, 1879048192, -131066, 65538, 1879048195, -131065, 65538, 1879048192, -196602, 65538, 1879048196, -196601, 65538, 1879048192, -262138, 131074, 1879048196, -262137, 131074, 1879048192, -262140, 65539, 0, -262139, 131075, 0, -196603, 131075, 1, -131067, 131075, 1, -65531, 131075, 1, 5, 131075, 1, 65541, 131075, 1, 131077, 131075, 1, 262149, 131075, 1, 196613, 131075, 1, 327685, 131075, 1, -131078, 3, 1, -65542, 3, 1, -6, 3, 1, 65530, 3, 1, 131066, 3, 1, 196602, 3, 1, 262138, 3, 1, 327674, 3, 1, 393210, 3, 1, -131077, 3, 4, -65541, 3, 5, -5, 3, 5, 65531, 3, 5, 131067, 3, 5, 196603, 3, 5, 262139, 3, 5, 327675, 3, 5, 393211, 3, 6, -131076, 65539, 4, -65540, 65539, 5, -4, 131075, 5, 65532, 131075, 5, 131068, 65539, 5, 196604, 131075, 5, 262140, 131075, 5, 327676, 65539, 5, 393212, 65539, 6, -131075, 65539, 4, -65539, 65539, 6, -3, 65539, 1, 65533, 65539, 1, 131069, 65539, 7, 196605, 65539, 1, 262141, 65539, 1, 327677, 65539, 4, 393213, 65539, 6, -131074, 65539, 4, -65538, 65539, 6, -2, 65539, 1, 65534, 65539, 1, 131070, 65539, 7, 196606, 65539, 1, 262142, 65539, 1, 327678, 65539, 4, 393214, 65539, 6, -131073, 65539, 5, -65537, 65539, 5, -1, 3, 5, 65535, 3, 5, 131071, 65539, 5, 196607, 3, 5, 262143, 3, 5, 327679, 65539, 5, 393215, 65539, 5, -196608, 65539, 5, -131072, 65539, 5, -65536, 131075, 5, 0, 131075, 5, 65536, 65539, 5, 131072, 131075, 5, 196608, 131075, 5, 262144, 65539, 5, 327680, 65539, 5, -196607, 65539, 4, -131071, 65539, 6, -65535, 65539, 1, 1, 65539, 1, 65537, 65539, 7, 131073, 65539, 1, 196609, 65539, 1, 262145, 65539, 4, 327681, 65539, 6, -196606, 65539, 4, -131070, 65539, 6, -65534, 65539, 1, 2, 65539, 1, 65538, 65539, 7, 131074, 65539, 1, 196610, 65539, 1, 262146, 65539, 4, 327682, 65539, 6, -196605, 65539, 4, -131069, 65539, 5, -65533, 3, 5, 3, 3, 5, 65539, 65539, 5, 131075, 3, 5, 196611, 3, 5, 262147, 65539, 5, 327683, 65539, 6, -196604, 131075, 4, -131068, 131075, 5, -65532, 131075, 5, 4, 131075, 5, 65540, 131075, 5, 131076, 131075, 5, 196612, 131075, 5, 262148, 131075, 5, 327684, 131075, 6, -327686, 131074, 0, -196616, 131074, 1610612736, -8, 131074, 1610612736, 262136, 131074, 1610612736, 458744, 131074, 1610612736, -393211, 131074, 268435456, -393215, 131074, 268435456, -327682, 131074, 268435456, -327685, 65538, 0, -327683, 65538, 0, -327684, 65538, 0, -327681, 65538, 0, -393216, 65538, 0, -393214, 65538, 0, -393213, 65538, 0, -393212, 65538, 0, -131080, 65538, 1610612736, -65544, 65538, 1610612736, 65528, 65538, 1610612736, 131064, 65538, 1610612736, 196600, 65538, 1610612736, 327672, 65538, 1610612736, 393208, 65538, 1610612736, -131079, 65538, 1610612739, 65529, 65538, 1610612739, 131065, 65538, 1610612739, 393209, 65538, 1610612739, -65543, 65538, 1610612740, 196601, 65538, 1610612740, 327673, 65538, 1610612740, -196615, 131074, 1610612740, 262137, 131074, 1610612740, 458745, 131074, 1610612740, -7, 131074, 1610612739)
 layer_1/name = "Decorations"
+layer_1/y_sort_enabled = true
 layer_1/tile_data = PackedInt32Array(-262146, 196612, 1, -196610, 262146, 268435458, -262147, 327682, 1, -196611, 327682, 2, -262148, 327682, 1, -196612, 327682, 2, -262149, 327682, 1, -196613, 327682, 2, -262150, 196612, 1, -196614, 262146, 2, -327679, 196612, 1, -262143, 262146, 2, -327675, 196612, 1, -262139, 262146, 268435458, -327676, 327682, 1, -262140, 327682, 2, -327677, 327682, 1, -262141, 327682, 2, -327678, 327682, 1, -262142, 327682, 2, 327679, 262147, 7, 262144, 262147, 268435463, 65536, 262147, 268435463, 131071, 262147, 7, -196608, 262147, 268435463, -131073, 262147, 7, 65539, 262147, 7, 262147, 262147, 7, 327676, 262147, 268435463, 131068, 262147, 268435463, 327680, 262147, 805306375, 393215, 262147, 536870919, -65537, 262147, 536870919, -131072, 262147, 805306375, -65540, 262147, 805306375, -131069, 262147, 536870919, 327685, 393218, 4, 393210, 393218, 4, 327674, 393218, 3, 262138, 393218, 3, 131077, 393218, 3, 65530, 393218, 3, -65531, 393218, 3, -131067, 393218, 3, -131078, 393218, 3, -6, 393218, 3, 196613, 393218, 2, 262149, 393218, 2, 5, 393218, 2, 65541, 393218, 2, 131066, 393218, 2, 196602, 393218, 2, -65542, 393218, 2, -196603, 393218, 2, -327682, 196612, 0, -327686, 196612, 0, -393215, 196612, 0, -393211, 196612, 0, -196616, 196612, 1610612736, -196615, 196612, 1610612737, -8, 196612, 1610612736, -7, 196612, 1610612737, 262136, 196612, 1610612736, 262137, 196612, 1610612737, 458744, 196612, 1610612736, 458745, 196612, 1610612737, 393223, 196612, 1879048192, 393222, 196612, 1879048193, 196615, 196612, 1879048192, 196614, 196612, 1879048193, -65529, 196612, 1879048192, -65530, 196612, 1879048193, -262137, 196612, 1879048192, -262138, 196612, 1879048193)
 layer_2/name = "Decorations2"
+layer_2/y_sort_enabled = true
 layer_2/tile_data = PackedInt32Array(-196614, 393218, 1, -262139, 393218, 1, 131071, 262147, 536870919, 65536, 262147, 805306375, 131068, 262147, 805306375, 65539, 262147, 536870919, -262146, 262146, 268435460, -327675, 262146, 268435460, -327679, 262146, 4, -262150, 262146, 4)
 
 [node name="MapColliders" type="StaticBody2D" parent="."]
@@ -46,6 +51,7 @@ position = Vector2(0, -65)
 shape = SubResource("WorldBoundaryShape2D_7jrrh")
 
 [node name="Blocks" type="Node2D" parent="."]
+y_sort_enabled = true
 
 [node name="BlockSturdy7" parent="Blocks" node_paths=PackedStringArray("_timer") instance=ExtResource("5_5unjr")]
 position = Vector2(-8, 24)
@@ -229,6 +235,7 @@ position = Vector2(-64, 61)
 position = Vector2(-64, 53)
 
 [node name="Barriers" type="Node2D" parent="."]
+y_sort_enabled = true
 
 [node name="BarrierBasic" parent="Barriers" instance=ExtResource("7_ldvge")]
 position = Vector2(-64, 4)
@@ -237,6 +244,7 @@ position = Vector2(-64, 4)
 position = Vector2(64, 4)
 
 [node name="OtherBreakables" type="Node2D" parent="."]
+y_sort_enabled = true
 
 [node name="Explosives" parent="OtherBreakables" node_paths=PackedStringArray("_animator") instance=ExtResource("5_2pbom")]
 position = Vector2(-22, 28)
@@ -247,40 +255,47 @@ position = Vector2(21, 28)
 _animator = NodePath("Animator")
 
 [node name="Interactables" type="Node2D" parent="."]
+y_sort_enabled = true
 
-[node name="Whirlpool" parent="Interactables" node_paths=PackedStringArray("_animator", "_timer") instance=ExtResource("6_52ir1")]
+[node name="Whirlpool" parent="Interactables" node_paths=PackedStringArray("_animator", "_timer", "_sprites") instance=ExtResource("6_52ir1")]
 position = Vector2(-32, 0)
 _animator = NodePath("Animator")
 _timer = NodePath("Timer")
+_sprites = [NodePath("Sprite")]
 
-[node name="Whirlpool2" parent="Interactables" node_paths=PackedStringArray("_animator", "_timer") instance=ExtResource("6_52ir1")]
+[node name="Whirlpool2" parent="Interactables" node_paths=PackedStringArray("_animator", "_timer", "_sprites") instance=ExtResource("6_52ir1")]
 position = Vector2(32, 48)
 _animator = NodePath("Animator")
 _timer = NodePath("Timer")
+_sprites = [NodePath("Sprite")]
 
 [node name="Props" type="Node2D" parent="."]
 y_sort_enabled = true
 position = Vector2(0, 17)
 
-[node name="Bollard" parent="Props" node_paths=PackedStringArray("_animator", "_timer") instance=ExtResource("10_1m0w0")]
+[node name="Bollard" parent="Props" node_paths=PackedStringArray("_animator", "_timer", "_sprites") instance=ExtResource("10_1m0w0")]
 position = Vector2(-71, 8)
 _animator = NodePath("Animator")
 _timer = NodePath("Timer")
+_sprites = [NodePath("Sprite")]
 
-[node name="Bollard2" parent="Props" node_paths=PackedStringArray("_animator", "_timer") instance=ExtResource("10_1m0w0")]
+[node name="Bollard2" parent="Props" node_paths=PackedStringArray("_animator", "_timer", "_sprites") instance=ExtResource("10_1m0w0")]
 position = Vector2(-57, 8)
 _animator = NodePath("Animator")
 _timer = NodePath("Timer")
+_sprites = [NodePath("Sprite")]
 
-[node name="Bollard3" parent="Props" node_paths=PackedStringArray("_animator", "_timer") instance=ExtResource("10_1m0w0")]
+[node name="Bollard3" parent="Props" node_paths=PackedStringArray("_animator", "_timer", "_sprites") instance=ExtResource("10_1m0w0")]
 position = Vector2(57, 8)
 _animator = NodePath("Animator")
 _timer = NodePath("Timer")
+_sprites = [NodePath("Sprite")]
 
-[node name="Bollard4" parent="Props" node_paths=PackedStringArray("_animator", "_timer") instance=ExtResource("10_1m0w0")]
+[node name="Bollard4" parent="Props" node_paths=PackedStringArray("_animator", "_timer", "_sprites") instance=ExtResource("10_1m0w0")]
 position = Vector2(71, 8)
 _animator = NodePath("Animator")
 _timer = NodePath("Timer")
+_sprites = [NodePath("Sprite")]
 
 [node name="LevelExit" parent="." node_paths=PackedStringArray("_animator", "_sprites") instance=ExtResource("11_angef")]
 position = Vector2(0, -63)

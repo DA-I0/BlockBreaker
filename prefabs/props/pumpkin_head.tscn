@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bdjpumfwu8h33" path="res://assets/sprites/props/default/plants/pumpkin_head.png" id="1_17g2b"]
 
 [node name="PumpkinHead" type="StaticBody2D"]
-z_index = 2
+z_index = 1
 
 [node name="Collider" type="CollisionPolygon2D" parent="."]
 position = Vector2(1, 0)

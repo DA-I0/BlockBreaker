@@ -222,6 +222,7 @@ _data = {
 }
 
 [node name="EnemyBasic" type="CharacterBody2D" node_paths=PackedStringArray("_path", "_movementTimer", "_animator", "_invulnerabilityTimer")]
+z_index = 1
 script = ExtResource("1_rucrn")
 _speed = 15.0
 _minMoveDistance = 5.0
