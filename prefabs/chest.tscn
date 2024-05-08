@@ -10,7 +10,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jer7o"]
 size = Vector2(8, 3)
 
-[node name="BlockBasic" type="StaticBody2D"]
+[node name="Chest" type="StaticBody2D"]
 z_index = 1
 script = ExtResource("1_xum4s")
 _destroyOnDeath = false
