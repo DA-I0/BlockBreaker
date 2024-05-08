@@ -110,14 +110,12 @@ namespace BoGK.GameSystem
 
 		private void ApplyBackgroundSettings(Node targetScene)
 		{
-			if (targetScene.SceneFilePath.Contains("menu"))
+			if (targetScene.Name == "Map")
 			{
-				return;
+				ApplyTilesetSettings(targetScene.GetChild<TileMap>(0));
+				ApplySpritePropSettings(targetScene.GetChild<Node2D>(1));
+				ApplyStaticPropSettings(targetScene);
 			}
-
-			ApplyTilesetSettings(targetScene.GetChild<TileMap>(0));
-			ApplySpritePropSettings(targetScene.GetChild<Node2D>(1));
-			ApplyStaticPropSettings(targetScene);
 		}
 
 		private void ApplyTilesetSettings(TileMap mapBackground)
