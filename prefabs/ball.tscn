@@ -209,7 +209,7 @@ scale = Vector2(0.7, 0.7)
 
 [node name="SpeedTrail" type="Line2D" parent="."]
 top_level = true
-y_sort_enabled = true
+z_index = -1
 position = Vector2(0, -0.01)
 points = PackedVector2Array(0, 0, 0, 16)
 width = 8.0
@@ -218,7 +218,7 @@ gradient = SubResource("Gradient_4yhjv")
 joint_mode = 1
 
 [node name="SpeedParticles" type="CPUParticles2D" parent="."]
-y_sort_enabled = true
+z_index = -1
 position = Vector2(0, -0.01)
 amount = 4
 lifetime = 0.15
