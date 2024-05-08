@@ -121,11 +121,14 @@ namespace BoGK.UI
 					AnchorBottom = 1,
 					AnchorLeft = 0.5f,
 					AnchorRight = 0.5f,
+					OffsetTop = 1,
 					OffsetLeft = -4,
 					OffsetRight = -4,
 					IconAlignment = HorizontalAlignment.Center,
 					Flat = true
 				};
+
+				pickerButton.AddThemeColorOverride("icon_disabled_color", new Color(1f, 1f, 1f, 1f));
 
 				pickerButton.Pressed += () => _colorPickerPanel.Activate(pickerButton);
 
@@ -156,6 +159,20 @@ namespace BoGK.UI
 				container.AddChild(variantSelector);
 
 				_breakableVariantContainer.AddChild(container);
+
+				pickerButton.FocusNeighborLeft = variantSelector.GetPath();
+				variantSelector.FocusNeighborLeft = pickerButton.GetPath();
+
+				int previousVariantIndex = _breakableVariantContainer.GetChildCount() - 2;
+
+				if (previousVariantIndex >= 1)
+				{
+					_breakableVariantContainer.GetChild(previousVariantIndex).GetChild<Control>(1).FocusNeighborBottom = pickerButton.GetPath();
+					_breakableVariantContainer.GetChild(previousVariantIndex).GetChild<Control>(2).FocusNeighborBottom = variantSelector.GetPath();
+
+					pickerButton.FocusNeighborTop = _breakableVariantContainer.GetChild(previousVariantIndex).GetChild(1).GetPath();
+					variantSelector.FocusNeighborTop = _breakableVariantContainer.GetChild(previousVariantIndex).GetChild(2).GetPath();
+				}
 			}
 
 			Control spacer = new Control
@@ -220,6 +237,7 @@ namespace BoGK.UI
 			variantContainer.GetChild<Button>(1).Icon = ResourceLoader.Load<Texture2D>(breakableIcon);
 			variantContainer.GetChild<Button>(1).Modulate = (variantIndex > 1) ? variant.CustomColor : new Color(1, 1, 1, 1);
 			variantContainer.GetChild<Button>(1).Disabled = (variantIndex < 2);
+			variantContainer.GetChild<Button>(1).Flat = (variantIndex < 2);
 		}
 
 		private void FoldExpandableControls()
