@@ -6,6 +6,7 @@ namespace BoGK.Gameplay
 {
 	public partial class Breakable : Node2D, IBreakable
 	{
+		[Export] protected bool _destroyOnDeath = true;
 		[Export] protected int _pointValue = 1;
 		[Export] protected int _maxHealth = 1;
 
@@ -88,7 +89,7 @@ namespace BoGK.Gameplay
 
 		protected virtual void AdjustSprite()
 		{
-			_sprite.Frame = (_health <= 0) ? 0 : _maxHealth - _health;
+			_sprite.Frame = (_sprite.Hframes > _maxHealth - _health) ? _maxHealth - _health : 0;
 		}
 
 		private void ApplySpriteVariant()
@@ -138,7 +139,11 @@ namespace BoGK.Gameplay
 			SpawnPickup();
 			_isDead = true;
 			refs.gameScore.ChangeScore(_pointValue);
-			QueueFree();
+
+			if (_destroyOnDeath)
+			{
+				QueueFree();
+			}
 		}
 	}
 }
