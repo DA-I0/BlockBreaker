@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using Godot;
 
 namespace BoGK.UI
@@ -12,6 +13,7 @@ namespace BoGK.UI
 		private Dictionary<string, CanvasItem> _panels = new Dictionary<string, CanvasItem>();
 
 		private string _activePanel = string.Empty;
+		private int _lastPanelIndex = 0;
 
 		private GameSystem.SessionController refs;
 
@@ -49,6 +51,7 @@ namespace BoGK.UI
 			if (panelName != string.Empty && _activePanel != panelName)
 			{
 				((UIPanel)_panels[panelName]).Enable();
+				_lastPanelIndex = FindPanelIndex(panelName);
 			}
 
 			_activePanel = panelName;
@@ -61,7 +64,7 @@ namespace BoGK.UI
 		{
 			if (_activePanel == string.Empty)
 			{
-				_menuButtons.GetChild<Button>(0).GrabFocus();
+				_menuButtons.GetChild<Button>(_lastPanelIndex).GrabFocus();
 			}
 		}
 
@@ -76,6 +79,19 @@ namespace BoGK.UI
 			{
 				((UIPanel)panel.Value).Disable();
 			}
+		}
+
+		private int FindPanelIndex(string panelName)
+		{
+			for (int index = 0; index < _menuButtons.GetChildCount(); index++)
+			{
+				if (_menuButtons.GetChild(index).Name == panelName.Replace("Panel", string.Empty))
+				{
+					return index;
+				}
+			}
+
+			return 0;
 		}
 
 		private void DisplayFirstLanguageSelection()
