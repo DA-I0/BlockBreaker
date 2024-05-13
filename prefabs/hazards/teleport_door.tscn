@@ -73,6 +73,7 @@ _data = {
 size = Vector2(10, 0.0908837)
 
 [node name="TeleportDoor" type="Area2D" node_paths=PackedStringArray("_animator", "_timer", "_sprites")]
+y_sort_enabled = true
 collision_mask = 2
 monitoring = false
 monitorable = false
