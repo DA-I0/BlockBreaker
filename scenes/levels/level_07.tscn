@@ -15,7 +15,7 @@ normal = Vector2(-1, 0)
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_f2efr"]
 normal = Vector2(0, 1)
 
-[node name="Map" type="Node2D"]
+[node name="Map" type="Node2D" groups=["levels"]]
 y_sort_enabled = true
 
 [node name="TileMap" type="TileMap" parent="."]
