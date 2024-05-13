@@ -22,7 +22,7 @@ namespace BoGK.Gameplay
 
 		private void OnBodyEntered(Node2D body)
 		{
-			if ((Ball)body != null)
+			if ((Ball)body != null && _linkedDoor != null)
 			{
 				_linkedDoor.TeleportBall((Ball)body);
 				Toggle();
