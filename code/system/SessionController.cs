@@ -128,11 +128,8 @@ namespace BoGK.GameSystem
 
 		private void SetupGameElements()
 		{
-			if (paddle != null)
+			if (paddle == null)
 			{
-				return;
-			}
-
 			paddle = (Paddle)ResourceLoader.Load<PackedScene>(SelectedPaddle).Instantiate();
 			gameElements.AddChild(paddle);
 
@@ -145,6 +142,9 @@ namespace BoGK.GameSystem
 			SelectedSkill.SkillUsed += UseSkillNotification;
 
 			GameSetup?.Invoke();
+			}
+
+			ChangeGameState(GameState.gameplay);
 		}
 
 		public void SelectLevel(int levelIndex)
@@ -152,7 +152,6 @@ namespace BoGK.GameSystem
 			_currentLevel = 0;
 			levelManager.SetupSessionLevels(levelIndex, SessionLength);
 			levelManager.SelectSessionLevel(_currentLevel);
-			ChangeGameState(GameState.gameplay);
 		}
 
 		public void AdvanceCurrentLevel()

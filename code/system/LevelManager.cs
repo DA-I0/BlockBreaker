@@ -40,8 +40,6 @@ namespace BoGK.GameSystem
 			AddChild(_loadingScreen);
 			ClearCurrentScene(_currentScene);
 			SetupNewScene(scenePath);
-			SceneChanged?.Invoke();
-			SceneChangedWithInfo?.Invoke(sceneName);
 		}
 
 		public void SetupSessionLevels(int startingIndex, int sessionLength)
@@ -82,7 +80,7 @@ namespace BoGK.GameSystem
 		private void SetupReferences()
 		{
 			_currentScene = GetNode("../CurrentScene");
-			_currentScene.ChildEnteredTree += (Node scene) => CallDeferred("ApplyBackgroundSettings", scene);
+			_currentScene.ChildEnteredTree += (Node scene) => CallDeferred("FinalizeStageSetup", scene);
 
 			refs = (SessionController)GetParent();
 		}
@@ -108,13 +106,15 @@ namespace BoGK.GameSystem
 			_currentScene.CallDeferred("add_child", newScene);
 		}
 
-		private void ApplyBackgroundSettings(Node targetScene)
+		private void FinalizeStageSetup(Node targetScene)
 		{
-			if (targetScene.Name == "Map")
+			if (targetScene.IsInGroup("levels"))
 			{
 				ApplyTilesetSettings(targetScene.GetNode<TileMap>("TileMap"));
 				ApplySpritePropSettings(targetScene.GetNode<Node2D>("MapVisuals"));
 				ApplyStaticPropSettings(targetScene);
+				SceneChanged?.Invoke();
+				SceneChangedWithInfo?.Invoke(targetScene.SceneFilePath.Split("/")[^1]);
 			}
 		}
 
@@ -133,6 +133,11 @@ namespace BoGK.GameSystem
 
 		private void ApplySpritePropSettings(Node2D mapDetails)
 		{
+			if (mapDetails == null)
+			{
+				return;
+			}
+
 			mapDetails.Modulate = new Color(refs.settings.BackgroundBrightness, refs.settings.BackgroundBrightness, refs.settings.BackgroundBrightness, 1f);
 
 			foreach (Sprite2D sprite in mapDetails.GetChildren())
