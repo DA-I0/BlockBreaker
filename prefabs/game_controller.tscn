@@ -53,7 +53,7 @@ _clips = Array[AudioStream]([ExtResource("3_5ds7p"), ExtResource("4_0r48c"), Ext
 [node name="Score" type="Node" parent="."]
 script = ExtResource("3_kncmn")
 
-[node name="Timer" type="Timer" parent="Score"]
+[node name="ScoreTimer" type="Timer" parent="Score"]
 wait_time = 60.0
 one_shot = true
 
@@ -99,11 +99,11 @@ _focusTarget = NodePath("BackgroundPanel/VBoxContainer/ButtonConfirm")
 script = ExtResource("4_jrwof")
 _maxPositionOffset = 0.75
 
-[node name="Timer" type="Timer" parent="Camera2D"]
+[node name="CameraTimer" type="Timer" parent="Camera2D"]
 one_shot = true
 
 [node name="SkillTimer" type="Timer" parent="."]
 one_shot = true
 
-[connection signal="timeout" from="Score/Timer" to="Score" method="AddBonusScore"]
+[connection signal="timeout" from="Score/ScoreTimer" to="Score" method="AddBonusScore"]
 [connection signal="child_entered_tree" from="CurrentScene" to="LevelManager" method="OnCurrentSceneChildEnteredTree"]
