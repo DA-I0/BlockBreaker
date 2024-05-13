@@ -97,7 +97,7 @@ namespace BoGK.Gameplay
 
 		public override void _Ready()
 		{
-			_exitTimer = (Timer)GetChild(0);
+			_exitTimer = GetNode<Timer>("ScoreTimer");
 			refs = GetParent<GameSystem.SessionController>();
 			refs.levelManager.ResetSession += SessionSetup;
 			refs.levelManager.SceneChanged += ResetPerfectState;

@@ -13,7 +13,7 @@ namespace BoGK.Gameplay
 
 		protected override void SecondarySetup()
 		{
-			_skillTimer = refs.GetChild<Godot.Timer>(refs.GetChildCount() - 1);
+			_skillTimer = refs.GetNode<Godot.Timer>("SkillTimer");
 			_skillTimer.Timeout += SkillEnd;
 		}
 

@@ -23,7 +23,7 @@ namespace BoGK.Gameplay
 		public override void _Ready()
 		{
 			_defaultPosition = Position;
-			_timer = GetChild<Timer>(0);
+			_timer = GetNode<Timer>("CameraTimer");
 
 			refs = GetParent<GameSystem.SessionController>();
 			refs.SkillUsed += Shake;

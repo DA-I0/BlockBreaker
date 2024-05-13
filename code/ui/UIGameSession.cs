@@ -69,7 +69,7 @@ namespace BoGK.UI
 		{
 			for (int i = 0; i < _lives.GetChildCount(); i++)
 			{
-				((CanvasItem)_lives.GetChild(i)).Visible = i < (lives - 1);
+				_lives.GetChild<CanvasItem>(i).Visible = i < (lives - 1);
 			}
 		}
 
@@ -124,13 +124,13 @@ namespace BoGK.UI
 
 		private void UpdateTimer()
 		{
-			((Label)_exitTimer.GetChild(0)).Text = refs.gameScore.TimeLeft.ToString();
+			_exitTimer.GetNode<Label>("TimeLeft").Text = refs.gameScore.TimeLeft.ToString();
 		}
 
 		private void UpdateSkillIcon()
 		{
 			string activeSkillIconPath = $"{ProjectSettings.GetSetting("global/SkillIconsFilePath")}/skill_{refs.SelectedSkill.ToString()}.png";
-			((TextureRect)_skill.GetChild(0)).Texture = ResourceLoader.Load<Texture2D>(activeSkillIconPath);
+			_skill.GetNode<TextureRect>("SkillIcon").Texture = ResourceLoader.Load<Texture2D>(activeSkillIconPath);
 		}
 
 		private void HideSkillIcon()

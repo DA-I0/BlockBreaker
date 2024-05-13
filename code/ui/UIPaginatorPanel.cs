@@ -29,11 +29,11 @@ namespace BoGK.UI
 			{
 				if (index == activeIndex)
 				{
-					((TextureRect)_paginatorParent.GetChild(index)).Texture = _activeItemSprite;
+					_paginatorParent.GetChild<TextureRect>(index).Texture = _activeItemSprite;
 				}
 				else
 				{
-					((TextureRect)_paginatorParent.GetChild(index)).Texture = _inactiveItemSprite;
+					_paginatorParent.GetChild<TextureRect>(index).Texture = _inactiveItemSprite;
 				}
 			}
 		}

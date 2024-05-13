@@ -15,7 +15,7 @@ namespace BoGK.GameSystem
 		{
 			defaultPosition = Position;
 
-			((AnimationPlayer)GetChild(1)).AnimationFinished += RandomizeDelay;
+			GetNode<AnimationPlayer>("Animator").AnimationFinished += RandomizeDelay;
 			RandomizeDelay("");
 		}
 
@@ -23,7 +23,7 @@ namespace BoGK.GameSystem
 		{
 			RandomizePosition();
 			float delay = (float)GD.RandRange(_minDelay, _maxDelay);
-			((Timer)GetChild(2)).Start(delay);
+			GetNode<Timer>("Timer").Start(delay);
 		}
 
 		private void RandomizePosition()
@@ -36,7 +36,7 @@ namespace BoGK.GameSystem
 
 		private void Trigger()
 		{
-			((AnimationPlayer)GetChild(1)).Play("idle");
+			GetNode<AnimationPlayer>("Animator").Play("idle");
 		}
 	}
 }

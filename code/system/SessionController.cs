@@ -89,7 +89,7 @@ namespace BoGK.GameSystem
 
 		public Godot.Collections.Array<Node> Balls
 		{
-			get { return gameElements.GetChild(0).GetChildren(); }
+			get { return gameElements.GetNode("Balls").GetChildren(); }
 		}
 
 		public bool IsLastLevel
@@ -130,18 +130,18 @@ namespace BoGK.GameSystem
 		{
 			if (paddle == null)
 			{
-			paddle = (Paddle)ResourceLoader.Load<PackedScene>(SelectedPaddle).Instantiate();
-			gameElements.AddChild(paddle);
+				paddle = (Paddle)ResourceLoader.Load<PackedScene>(SelectedPaddle).Instantiate();
+				gameElements.AddChild(paddle);
 
-			Ball ball = (Ball)ResourceLoader.Load<PackedScene>("res://prefabs/ball.tscn").Instantiate();
-			ball.SetInitialValues(this);
-			gameElements.GetChild(0).AddChild(ball);
+				Ball ball = (Ball)ResourceLoader.Load<PackedScene>("res://prefabs/ball.tscn").Instantiate();
+				ball.SetInitialValues(this);
+				gameElements.GetNode("Balls").AddChild(ball);
 
-			SelectedSkill.Setup(this);
-			SelectedSkill.SkillReady += EnableSkill;
-			SelectedSkill.SkillUsed += UseSkillNotification;
+				SelectedSkill.Setup(this);
+				SelectedSkill.SkillReady += EnableSkill;
+				SelectedSkill.SkillUsed += UseSkillNotification;
 
-			GameSetup?.Invoke();
+				GameSetup?.Invoke();
 			}
 
 			ChangeGameState(GameState.gameplay);
