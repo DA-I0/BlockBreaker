@@ -112,8 +112,8 @@ namespace BoGK.GameSystem
 		{
 			if (targetScene.Name == "Map")
 			{
-				ApplyTilesetSettings(targetScene.GetChild<TileMap>(0));
-				ApplySpritePropSettings(targetScene.GetChild<Node2D>(1));
+				ApplyTilesetSettings(targetScene.GetNode<TileMap>("TileMap"));
+				ApplySpritePropSettings(targetScene.GetNode<Node2D>("MapVisuals"));
 				ApplyStaticPropSettings(targetScene);
 			}
 		}
@@ -133,14 +133,11 @@ namespace BoGK.GameSystem
 
 		private void ApplySpritePropSettings(Node2D mapDetails)
 		{
-			if (mapDetails.Name == "MapVisuals")
-			{
-				mapDetails.Modulate = new Color(refs.settings.BackgroundBrightness, refs.settings.BackgroundBrightness, refs.settings.BackgroundBrightness, 1f);
+			mapDetails.Modulate = new Color(refs.settings.BackgroundBrightness, refs.settings.BackgroundBrightness, refs.settings.BackgroundBrightness, 1f);
 
-				foreach (Sprite2D sprite in mapDetails.GetChildren())
-				{
-					sprite.Texture = ResourceLoader.Load<Texture2D>(HelperMethods.ReplaceSpritePalettePath(sprite.Texture.ResourcePath, refs.settings.BackgroundColorPalette));
-				}
+			foreach (Sprite2D sprite in mapDetails.GetChildren())
+			{
+				sprite.Texture = ResourceLoader.Load<Texture2D>(HelperMethods.ReplaceSpritePalettePath(sprite.Texture.ResourcePath, refs.settings.BackgroundColorPalette));
 			}
 		}
 
