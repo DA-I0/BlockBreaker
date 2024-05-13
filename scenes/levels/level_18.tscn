@@ -415,6 +415,7 @@ position = Vector2(-91, 73)
 _timer = NodePath("Timer")
 
 [node name="LevelExit" parent="." node_paths=PackedStringArray("_animator", "_sprites") instance=ExtResource("10_fp613")]
+z_index = 2
 position = Vector2(1, 17)
 _animator = NodePath("Animator")
 _variant = 1

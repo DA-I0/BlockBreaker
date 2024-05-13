@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c34t3gdogm3wk"]
+[gd_scene load_steps=17 format=3 uid="uid://c34t3gdogm3wk"]
 
 [ext_resource type="TileSet" uid="uid://c8le7h84mb1kt" path="res://assets/tilesets/garden.tres" id="1_no733"]
 [ext_resource type="PackedScene" uid="uid://too80a13ex5u" path="res://prefabs/blocks/block_basic.tscn" id="4_ot7pl"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://u76dunxkcmbk" path="res://prefabs/props/graves/grave_01.tscn" id="7_gc6p4"]
 [ext_resource type="PackedScene" uid="uid://c7ob1oeeah2yr" path="res://prefabs/hazards/whirlpool.tscn" id="9_cmosx"]
 [ext_resource type="PackedScene" uid="uid://cgnc7bmtrnili" path="res://prefabs/props/fountains/fountain_wall_01.tscn" id="10_2hsmu"]
+[ext_resource type="PackedScene" uid="uid://4ff7xxnkeqd5" path="res://prefabs/enemies/enemy_basic.tscn" id="11_8g2mq"]
+[ext_resource type="PackedScene" uid="uid://doxeqxtttk3qa" path="res://prefabs/path_node.tscn" id="12_8qcyr"]
 [ext_resource type="PackedScene" uid="uid://wl2u6pnrqvcy" path="res://prefabs/blocks/explosives.tscn" id="19_h8a3k"]
 [ext_resource type="PackedScene" uid="uid://cgpa7sf8jgxu8" path="res://prefabs/level_exit.tscn" id="22_7ws6e"]
 
@@ -297,6 +299,42 @@ position = Vector2(-56, -82)
 position = Vector2(56, -82)
 rotation = 3.14159
 scale = Vector2(1, -1)
+
+[node name="Enemies" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="EnemyBasic" parent="Enemies" node_paths=PackedStringArray("_path", "_movementTimer", "_animator", "_invulnerabilityTimer") instance=ExtResource("11_8g2mq")]
+position = Vector2(-56, -22)
+_state = 1
+_movementType = 1
+_path = [NodePath("../../PathMarkers/PathNode2"), NodePath("../../PathMarkers/PathNode")]
+_movementTimer = NodePath("Timer")
+_animator = NodePath("Animator")
+_invulnerabilityTimer = NodePath("DamageTimer")
+
+[node name="EnemyBasic2" parent="Enemies" node_paths=PackedStringArray("_path", "_movementTimer", "_animator", "_invulnerabilityTimer") instance=ExtResource("11_8g2mq")]
+position = Vector2(56, -59)
+_state = 1
+_movementType = 1
+_path = [NodePath("../../PathMarkers/PathNode3"), NodePath("../../PathMarkers/PathNode4")]
+_movementTimer = NodePath("Timer")
+_animator = NodePath("Animator")
+_invulnerabilityTimer = NodePath("DamageTimer")
+
+[node name="PathMarkers" type="Node2D" parent="."]
+z_index = -5
+
+[node name="PathNode" parent="PathMarkers" instance=ExtResource("12_8qcyr")]
+position = Vector2(-56, -59)
+
+[node name="PathNode2" parent="PathMarkers" instance=ExtResource("12_8qcyr")]
+position = Vector2(-56, -22)
+
+[node name="PathNode3" parent="PathMarkers" instance=ExtResource("12_8qcyr")]
+position = Vector2(56, -59)
+
+[node name="PathNode4" parent="PathMarkers" instance=ExtResource("12_8qcyr")]
+position = Vector2(56, -22)
 
 [node name="LevelExit" parent="." node_paths=PackedStringArray("_animator", "_sprites") instance=ExtResource("22_7ws6e")]
 position = Vector2(0, -63)

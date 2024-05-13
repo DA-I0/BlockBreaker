@@ -5,9 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://clchdmucxr4xn" path="res://prefabs/blocks/block_sturdy.tscn" id="3_ol4aw"]
 [ext_resource type="PackedScene" uid="uid://bg5r3twijp0e" path="res://prefabs/blocks/barrier_sturdy.tscn" id="4_8h67r"]
 [ext_resource type="PackedScene" uid="uid://u76dunxkcmbk" path="res://prefabs/props/graves/grave_01.tscn" id="5_1n38a"]
-[ext_resource type="PackedScene" uid="uid://wl2u6pnrqvcy" path="res://prefabs/blocks/explosives.tscn" id="6_84ne4"]
 [ext_resource type="PackedScene" uid="uid://74t5tvv8uh4i" path="res://prefabs/props/graves/grave_02.tscn" id="7_rh0p8"]
 [ext_resource type="PackedScene" uid="uid://rv6ehrudwl3l" path="res://prefabs/props/graves/grave_03.tscn" id="8_dxt35"]
+[ext_resource type="PackedScene" uid="uid://b6hhhjgeco8c5" path="res://prefabs/enemies/enemy_deflector.tscn" id="9_1wvup"]
 [ext_resource type="PackedScene" uid="uid://b666svkyjniq6" path="res://prefabs/props/benches/bench_down.tscn" id="9_vtfn7"]
 [ext_resource type="PackedScene" uid="uid://cgpa7sf8jgxu8" path="res://prefabs/level_exit.tscn" id="10_c6y61"]
 
@@ -267,10 +267,6 @@ position = Vector2(-40, 51)
 [node name="OtherBreakables" type="Node2D" parent="."]
 y_sort_enabled = true
 
-[node name="Explosives" parent="OtherBreakables" node_paths=PackedStringArray("_animator") instance=ExtResource("6_84ne4")]
-position = Vector2(-16, -16)
-_animator = NodePath("Animator")
-
 [node name="Grave09" parent="OtherBreakables" node_paths=PackedStringArray("_timer") instance=ExtResource("5_1n38a")]
 position = Vector2(53, -49)
 _timer = NodePath("Timer")
@@ -305,6 +301,15 @@ position = Vector2(0, 20)
 
 [node name="BenchDown" parent="Props" instance=ExtResource("9_vtfn7")]
 position = Vector2(-48, -68)
+
+[node name="Enemies" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="EnemyDeflector" parent="Enemies" node_paths=PackedStringArray("_movementTimer", "_animator", "_invulnerabilityTimer") instance=ExtResource("9_1wvup")]
+position = Vector2(-16, -24)
+_movementTimer = NodePath("MovementTimer")
+_animator = NodePath("Animator")
+_invulnerabilityTimer = NodePath("DamageTimer")
 
 [node name="LevelExit" parent="." node_paths=PackedStringArray("_animator", "_sprites") instance=ExtResource("10_c6y61")]
 z_index = 3

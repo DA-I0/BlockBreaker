@@ -327,6 +327,7 @@ rotation = -1.5708
 _linkedDoor = NodePath("../TeleportDoor2")
 _animator = NodePath("Animator")
 _timer = NodePath("Timer")
+_variant = 1
 _sprites = [NodePath("ExitSprite"), NodePath("DoorSprite")]
 
 [node name="TeleportDoor2" parent="Interactables" node_paths=PackedStringArray("_linkedDoor", "_animator", "_timer", "_sprites") instance=ExtResource("7_ontix")]
@@ -334,6 +335,7 @@ position = Vector2(56, -63)
 _linkedDoor = NodePath("../TeleportDoor")
 _animator = NodePath("Animator")
 _timer = NodePath("Timer")
+_variant = 1
 _sprites = [NodePath("ExitSprite"), NodePath("DoorSprite")]
 
 [node name="TeleportDoor3" parent="Interactables" node_paths=PackedStringArray("_linkedDoor", "_animator", "_timer", "_sprites") instance=ExtResource("7_ontix")]
@@ -341,6 +343,7 @@ position = Vector2(-56, -62)
 _linkedDoor = NodePath("../TeleportDoor4")
 _animator = NodePath("Animator")
 _timer = NodePath("Timer")
+_variant = 1
 _sprites = [NodePath("ExitSprite"), NodePath("DoorSprite")]
 
 [node name="TeleportDoor4" parent="Interactables" node_paths=PackedStringArray("_linkedDoor", "_animator", "_timer", "_sprites") instance=ExtResource("7_ontix")]
@@ -349,6 +352,7 @@ rotation = 1.5708
 _linkedDoor = NodePath("../TeleportDoor3")
 _animator = NodePath("Animator")
 _timer = NodePath("Timer")
+_variant = 1
 _sprites = [NodePath("ExitSprite"), NodePath("DoorSprite")]
 
 [node name="Bollard" parent="Interactables" node_paths=PackedStringArray("_animator", "_timer", "_sprites") instance=ExtResource("8_xv1pu")]
@@ -382,4 +386,5 @@ _sprites = [NodePath("Sprite")]
 [node name="LevelExit" parent="." node_paths=PackedStringArray("_animator", "_sprites") instance=ExtResource("9_1dp8c")]
 position = Vector2(0, -63)
 _animator = NodePath("Animator")
+_variant = 1
 _sprites = [NodePath("ExitSprite"), NodePath("DoorSprite")]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c5v1pnc8ydlw4"]
+[gd_scene load_steps=19 format=3 uid="uid://c5v1pnc8ydlw4"]
 
 [ext_resource type="TileSet" uid="uid://c8le7h84mb1kt" path="res://assets/tilesets/garden.tres" id="1_6vdyc"]
 [ext_resource type="PackedScene" uid="uid://too80a13ex5u" path="res://prefabs/blocks/block_basic.tscn" id="4_yl52o"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://b666svkyjniq6" path="res://prefabs/props/benches/bench_down.tscn" id="12_hw2t5"]
 [ext_resource type="PackedScene" uid="uid://cuq1qtdgfjphi" path="res://prefabs/props/bridge_center.tscn" id="13_ucyvi"]
 [ext_resource type="PackedScene" uid="uid://74t5tvv8uh4i" path="res://prefabs/props/graves/grave_02.tscn" id="14_hrsvk"]
+[ext_resource type="PackedScene" uid="uid://4ff7xxnkeqd5" path="res://prefabs/enemies/enemy_basic.tscn" id="14_n60fv"]
 [ext_resource type="PackedScene" uid="uid://rv6ehrudwl3l" path="res://prefabs/props/graves/grave_03.tscn" id="15_kp7st"]
 [ext_resource type="PackedScene" uid="uid://cgpa7sf8jgxu8" path="res://prefabs/level_exit.tscn" id="22_84cae"]
 
@@ -320,6 +321,14 @@ position = Vector2(-64, 11)
 
 [node name="BridgeCenter2" parent="Props" instance=ExtResource("13_ucyvi")]
 position = Vector2(64, 11)
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="EnemyBasic" parent="Enemies" node_paths=PackedStringArray("_movementTimer", "_animator", "_invulnerabilityTimer") instance=ExtResource("14_n60fv")]
+position = Vector2(-70, -19)
+_movementTimer = NodePath("Timer")
+_animator = NodePath("Animator")
+_invulnerabilityTimer = NodePath("DamageTimer")
 
 [node name="LevelExit" parent="." node_paths=PackedStringArray("_animator", "_sprites") instance=ExtResource("22_84cae")]
 position = Vector2(0, -63)

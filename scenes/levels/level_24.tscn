@@ -3,7 +3,6 @@
 [ext_resource type="TileSet" uid="uid://c8le7h84mb1kt" path="res://assets/tilesets/garden.tres" id="1_jgvc4"]
 [ext_resource type="PackedScene" uid="uid://too80a13ex5u" path="res://prefabs/blocks/block_basic.tscn" id="2_yt21g"]
 [ext_resource type="PackedScene" uid="uid://clchdmucxr4xn" path="res://prefabs/blocks/block_sturdy.tscn" id="3_ylyd8"]
-[ext_resource type="PackedScene" uid="uid://dlrofqirtncwr" path="res://prefabs/blocks/barrier_basic.tscn" id="4_cebkk"]
 [ext_resource type="PackedScene" uid="uid://drms5ps6bg2fo" path="res://prefabs/props/fences/fence_right.tscn" id="5_4ykly"]
 [ext_resource type="PackedScene" uid="uid://d35418gb0o456" path="res://prefabs/props/fences/fence_left.tscn" id="6_dh5he"]
 [ext_resource type="PackedScene" uid="uid://dq77tbjk27cpl" path="res://prefabs/props/plants/pumpkin.tscn" id="7_5i2i4"]
@@ -12,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://rv6ehrudwl3l" path="res://prefabs/props/graves/grave_03.tscn" id="10_s3ljw"]
 [ext_resource type="PackedScene" uid="uid://ctgplrud2njoq" path="res://prefabs/hazards/teleport_door.tscn" id="11_gpeaq"]
 [ext_resource type="PackedScene" uid="uid://b666svkyjniq6" path="res://prefabs/props/benches/bench_down.tscn" id="12_w1r6s"]
+[ext_resource type="PackedScene" uid="uid://cb5kj1wnbuk65" path="res://prefabs/enemies/enemy_defender.tscn" id="13_6csqn"]
 [ext_resource type="PackedScene" uid="uid://btfjqc4cjmasg" path="res://prefabs/props/benches/bench_up.tscn" id="13_grmb4"]
 [ext_resource type="PackedScene" uid="uid://cgpa7sf8jgxu8" path="res://prefabs/level_exit.tscn" id="14_y32ka"]
 
@@ -236,15 +236,6 @@ _timer = NodePath("Timer")
 position = Vector2(48, -5)
 _timer = NodePath("Timer")
 
-[node name="Barriers" type="Node2D" parent="."]
-y_sort_enabled = true
-
-[node name="BarrierBasic2" parent="Barriers" instance=ExtResource("4_cebkk")]
-position = Vector2(8, 67)
-
-[node name="BarrierBasic3" parent="Barriers" instance=ExtResource("4_cebkk")]
-position = Vector2(-8, 67)
-
 [node name="OtherBreakables" type="Node2D" parent="."]
 y_sort_enabled = true
 
@@ -457,6 +448,21 @@ position = Vector2(80, -26)
 z_as_relative = false
 y_sort_enabled = true
 position = Vector2(-80, -26)
+
+[node name="Enemies" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="EnemyDefender" parent="Enemies" node_paths=PackedStringArray("_movementTimer", "_animator", "_invulnerabilityTimer") instance=ExtResource("13_6csqn")]
+position = Vector2(-8, 66)
+_movementTimer = NodePath("MovementTimer")
+_animator = NodePath("Animator")
+_invulnerabilityTimer = NodePath("DamageTimer")
+
+[node name="EnemyDefender2" parent="Enemies" node_paths=PackedStringArray("_movementTimer", "_animator", "_invulnerabilityTimer") instance=ExtResource("13_6csqn")]
+position = Vector2(8, 66)
+_movementTimer = NodePath("MovementTimer")
+_animator = NodePath("Animator")
+_invulnerabilityTimer = NodePath("DamageTimer")
 
 [node name="LevelExit" parent="." node_paths=PackedStringArray("_animator", "_sprites") instance=ExtResource("14_y32ka")]
 position = Vector2(0, -63)
