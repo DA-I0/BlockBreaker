@@ -111,7 +111,7 @@ namespace BoGK.GameSystem
 			if (targetScene.IsInGroup("levels"))
 			{
 				ApplyTilesetSettings(targetScene.GetNode<TileMap>("TileMap"));
-				ApplySpritePropSettings(targetScene.GetNode<Node2D>("MapVisuals"));
+				ApplySpritePropSettings(targetScene.GetNodeOrNull<Node2D>("MapVisuals"));
 				ApplyStaticPropSettings(targetScene);
 				SceneChanged?.Invoke();
 				SceneChangedWithInfo?.Invoke(targetScene.SceneFilePath.Split("/")[^1]);
