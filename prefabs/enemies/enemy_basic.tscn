@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://4ff7xxnkeqd5"]
+[gd_scene load_steps=15 format=3 uid="uid://4ff7xxnkeqd5"]
 
 [ext_resource type="Script" path="res://code/gameplay/Enemy.cs" id="1_rucrn"]
+[ext_resource type="PackedScene" uid="uid://dwa3x1brydi56" path="res://prefabs/pickups/pickup_extra_life.tscn" id="2_5b23q"]
 [ext_resource type="Texture2D" uid="uid://y1cqf2rr20kv" path="res://assets/sprites/enemies/default/enemy_basic.png" id="7_4irhk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2b8qt"]
@@ -234,6 +235,8 @@ _animator = NodePath("Animator")
 _pointValue = 3
 _maxHealth = 3
 _invulnerabilityTimer = NodePath("DamageTimer")
+_pickupSpawnChance = 0.05
+_pickups = Array[PackedScene]([ExtResource("2_5b23q")])
 
 [node name="Collider" type="CollisionShape2D" parent="."]
 rotation = 1.5708

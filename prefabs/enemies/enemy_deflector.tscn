@@ -1,6 +1,7 @@
-[gd_scene load_steps=19 format=3 uid="uid://b6hhhjgeco8c5"]
+[gd_scene load_steps=20 format=3 uid="uid://b6hhhjgeco8c5"]
 
 [ext_resource type="Script" path="res://code/gameplay/EnemyDeflector.cs" id="1_ca707"]
+[ext_resource type="PackedScene" uid="uid://dwa3x1brydi56" path="res://prefabs/pickups/pickup_extra_life.tscn" id="2_ixijk"]
 [ext_resource type="Texture2D" uid="uid://c6d3s53ey73tx" path="res://assets/sprites/enemies/default/enemy_deflector.png" id="2_jwv3f"]
 [ext_resource type="Script" path="res://code/gameplay/SecondaryCollider.cs" id="3_tqauo"]
 
@@ -352,6 +353,8 @@ _animator = NodePath("Animator")
 _pointValue = 5
 _maxHealth = 3
 _invulnerabilityTimer = NodePath("DamageTimer")
+_pickupSpawnChance = 0.05
+_pickups = Array[PackedScene]([ExtResource("2_ixijk")])
 
 [node name="Collider" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)
