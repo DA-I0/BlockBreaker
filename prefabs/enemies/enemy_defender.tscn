@@ -282,7 +282,6 @@ _movementTimer = NodePath("MovementTimer")
 _animator = NodePath("Animator")
 _pointValue = 5
 _maxHealth = 3
-_invulnerabilityDuration = 2.0
 _invulnerabilityTimer = NodePath("DamageTimer")
 
 [node name="Collider" type="CollisionShape2D" parent="."]
