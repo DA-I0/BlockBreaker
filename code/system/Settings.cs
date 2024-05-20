@@ -323,9 +323,11 @@ namespace BoGK.GameSystem
 		{
 			ScreenMode = DefaultScreenMode;
 			ScreenShake = DefaultScreenShake;
+			BackgroundColorPalette = DefaultBackgroundColorPalette;
 			BackgroundBrightness = DefaultBackgroundBrightness;
 			PickupOrder = DefaultPickupOrder;
 			EffectTransparency = DefaultEffectTransparency;
+			InteractableColorPalette = DefaultInteractableColorPalette;
 			BreakableVariants = DefaultBreakableVariants;
 		}
 
