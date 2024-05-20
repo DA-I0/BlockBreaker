@@ -25,7 +25,7 @@ namespace BoGK.GameSystem
 				string defaultSpriteVariant = spritePath.Split("_")[^1];
 				string customSpritePath = spritePath.Replace(defaultSpriteVariant, $"{_variant}.png");
 
-				if (FileAccess.FileExists(customSpritePath))
+				if (ResourceLoader.Exists(customSpritePath))
 				{
 					spritePath = customSpritePath;
 				}

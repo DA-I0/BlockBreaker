@@ -123,7 +123,7 @@ namespace BoGK.GameSystem
 			string tileSetPath = mapBackground.TileSet.ResourcePath;
 			tileSetPath = tileSetPath.Replace(".tres", $"_{refs.settings.BackgroundColorPalette}.tres");
 
-			if (FileAccess.FileExists(tileSetPath))
+			if (ResourceLoader.Exists(tileSetPath))
 			{
 				mapBackground.TileSet = ResourceLoader.Load<TileSet>(tileSetPath);
 			}

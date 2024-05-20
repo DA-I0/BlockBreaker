@@ -100,7 +100,7 @@ namespace BoGK.GameSystem
 
 			string updatedPath = spriteFolder.Join("/");
 
-			if (FileAccess.FileExists(updatedPath))
+			if (ResourceLoader.Exists(updatedPath))
 			{
 				return updatedPath;
 			}
