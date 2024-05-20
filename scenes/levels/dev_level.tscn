@@ -1,6 +1,7 @@
-[gd_scene load_steps=21 format=3 uid="uid://d4m1jfj78tqtc"]
+[gd_scene load_steps=24 format=3 uid="uid://d4m1jfj78tqtc"]
 
 [ext_resource type="TileSet" uid="uid://k6j8nflqdn4d" path="res://assets/tilesets/room.tres" id="1_8uyjl"]
+[ext_resource type="Texture2D" uid="uid://cmsn2xa1o5svp" path="res://assets/sprites/props/default/other/cobweb_02.png" id="2_mnm3m"]
 [ext_resource type="PackedScene" uid="uid://dh8isiaa82bx3" path="res://prefabs/props/organ_horizontal.tscn" id="2_oqlr7"]
 [ext_resource type="PackedScene" uid="uid://clchdmucxr4xn" path="res://prefabs/blocks/block_sturdy.tscn" id="3_15t42"]
 [ext_resource type="PackedScene" uid="uid://dkhf56y7u7tq2" path="res://prefabs/props/barrel.tscn" id="3_71jer"]
@@ -14,9 +15,11 @@
 [ext_resource type="PackedScene" uid="uid://dxpeesdtf5ibq" path="res://prefabs/props/plants/potted_02.tscn" id="7_lb463"]
 [ext_resource type="PackedScene" uid="uid://dvbe7nx6l3add" path="res://prefabs/props/plants/potted_01.tscn" id="8_fdsrs"]
 [ext_resource type="PackedScene" uid="uid://4ff7xxnkeqd5" path="res://prefabs/enemies/enemy_basic.tscn" id="11_m1rpf"]
+[ext_resource type="PackedScene" uid="uid://ddn2r6568bhpi" path="res://prefabs/chest.tscn" id="12_d5f7q"]
 [ext_resource type="PackedScene" uid="uid://cb5kj1wnbuk65" path="res://prefabs/enemies/enemy_defender.tscn" id="14_hjjfb"]
 [ext_resource type="PackedScene" uid="uid://b6hhhjgeco8c5" path="res://prefabs/enemies/enemy_deflector.tscn" id="14_rimix"]
 [ext_resource type="Texture2D" uid="uid://isrddw1bvwul" path="res://assets/sprites/pickups/pickup_paddle_magnet.png" id="15_7ys6a"]
+[ext_resource type="PackedScene" uid="uid://doxeqxtttk3qa" path="res://prefabs/path_node.tscn" id="15_led4s"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_p587y"]
 normal = Vector2(1, 0)
@@ -27,7 +30,7 @@ normal = Vector2(-1, 0)
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_7jrrh"]
 normal = Vector2(0, 1)
 
-[node name="Map" type="Node2D"]
+[node name="Map" type="Node2D" groups=["levels"]]
 y_sort_enabled = true
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -42,6 +45,10 @@ layer_2/tile_data = PackedInt32Array(-262146, 131074, 1, -393214, 2, 2, -327678,
 
 [node name="MapVisuals" type="Node2D" parent="."]
 y_sort_enabled = true
+
+[node name="Cobweb02" type="Sprite2D" parent="MapVisuals"]
+position = Vector2(25, -82)
+texture = ExtResource("2_mnm3m")
 
 [node name="MapColliders" type="StaticBody2D" parent="."]
 y_sort_enabled = true
@@ -197,6 +204,9 @@ position = Vector2(-40, -60)
 [node name="Potted_01" parent="Blocks" instance=ExtResource("8_fdsrs")]
 position = Vector2(41, -58)
 
+[node name="BlockBasic34" parent="Blocks" instance=ExtResource("12_d5f7q")]
+position = Vector2(74, 9)
+
 [node name="LevelExit" parent="." node_paths=PackedStringArray("_animator", "_sprites") instance=ExtResource("4_cbpmn")]
 position = Vector2(0, -63)
 _animator = NodePath("Animator")
@@ -211,11 +221,11 @@ _variant = 1
 _sprites = [NodePath("ExitSprite"), NodePath("DoorSprite")]
 
 [node name="TestPath" type="Node2D" parent="."]
+z_index = 5
+z_as_relative = false
 
-[node name="Sprite2D" type="Sprite2D" parent="TestPath"]
-modulate = Color(0.684193, 0.442669, 0.530012, 1)
-position = Vector2(-40, 25.5)
-texture = ExtResource("15_7ys6a")
+[node name="PathNode" parent="TestPath" instance=ExtResource("15_led4s")]
+position = Vector2(-40, 24)
 
 [node name="Sprite2D2" type="Sprite2D" parent="TestPath"]
 modulate = Color(0.684193, 0.442669, 0.530012, 1)
@@ -239,7 +249,7 @@ y_sort_enabled = true
 position = Vector2(-29, 26)
 _state = 1
 _movementType = 1
-_path = [NodePath("../../TestPath/Sprite2D"), NodePath("../../TestPath/Sprite2D2"), NodePath("../../TestPath/Sprite2D3"), NodePath("../../TestPath/Sprite2D4")]
+_path = [NodePath("../../TestPath/PathNode"), NodePath("../../TestPath/Sprite2D2"), NodePath("../../TestPath/Sprite2D3"), NodePath("../../TestPath/Sprite2D4")]
 _movementTimer = NodePath("MovementTimer")
 _animator = NodePath("Animator")
 _invulnerabilityTimer = NodePath("DamageTimer")
@@ -264,7 +274,7 @@ _state = 1
 _randomizeThinkingDuration = true
 _maxThinkingDuration = 3.0
 _movementType = 1
-_path = [NodePath("../../TestPath/Sprite2D3"), NodePath("../../TestPath/Sprite2D4"), NodePath("../../TestPath/Sprite2D"), NodePath("../../TestPath/Sprite2D2")]
+_path = [NodePath("../../TestPath/Sprite2D3"), NodePath("../../TestPath/Sprite2D4"), null, NodePath("../../TestPath/Sprite2D2")]
 _movementTimer = NodePath("Timer")
 _animator = NodePath("Animator")
 _invulnerabilityTimer = NodePath("DamageTimer")
