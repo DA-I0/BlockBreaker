@@ -1,57 +1,59 @@
 Version 0.4:
 	Features:
-		Keep mode:
-			☐ "Tree" level progression (think Outrun, Shadow the Hedgehog)?
-				☐ Each branch node consists of multiple levels
-				☐ Each branch uses different tileset type?
-				☐ Can't change a branch or use the store until all stages in the branch are completed
-			☐ Boss fights
-				☐ Appear at the end of each branch node
-				☐ Bosses can attack player (paddle) - attack can cause damage (life loss) or negative effects
-			☐ Store with items to buy (lives, pickups, paddles etc? available after each 5 levels or after boss fights)
-			☐ Multi-room levels (ball can travel to another room/screen, can be side-to-side or up-down)
-			☐ Ability to rebuild parts of the keep for coins to get bonuses
-			☐ Chest items (drops coins and other keep mode limited items?)
 		Dynamic elements:
-			☐ Add repeating timed toggle for teleport door?
-			☐ Add on-map buttons that toggle connected element when hit with the ball?
-			☐ Enemies
-				☐ Peaceful (act as moving obstacles rather than danger)
-				☐ Aggresive (can attack the player but only with debuffs?)
+			Enemies:
+				✔ Health & destruction @done(24-04-03 19:05)
+				✔ Color palette support @done(24-05-06 15:37)
+				Movement:
+					✔ Random @done(24-04-03 19:05)
+					✔ Specified path @done(24-04-10 16:45)
+				Animations:
+					✔ Movement @done(24-04-09 16:10)
+					✔ Hit reaction @done(24-04-09 16:10)
+					✔ Action (Deflector) @done(24-04-16 17:03)
+				Variants:
+					✔ Peaceful (acts as a moving obstacles rather than danger) @done(24-04-03 19:05)
+					✔ Defender (has a shield, can't be hurt from the front) @done(24-04-09 16:11)
+					✔ Deflector (when ball hits the shield they bash the ball acting like the "bouncy paddle") @low @done(24-04-16 17:03)
 			☐ River (slightly changes ball direction)
-			☐ Indestructible "breakables" (break to open and get a prize, in the form chests etc)
+			✔ Indestructible "breakables" (break to open and get a prize, in the form chests etc) @done(24-05-08 17:39)
+		Gameplay:
+			✔ Add option for session length (end game after x maps) @done(24-03-06 16:17)
+			✔ Add option for map progression randomization @done(24-03-06 18:18)
+			✔ Add bonus score for winning the game @done(24-03-18 14:28)
 		System:
 			☐ Dynamic translation loading (custom localization support) @low
 	Map elements:
-		☐ Stairs + railing @low
-			☐ Ball can move over stairs
-			☐ Ball can move **down** through broken railing
-			☐ Ball can't move up through wall at the bottom of the stairs or railing
-		☐ Cracked walls (can be destroyed with TNT)
-		☐ New tileset @low
-			☐ Floor tiles
-				☐ ?
-			☐ Wall tiles
-				☐ Straight
-				☐ Corners
-				☐ Thin internal walls
-			☐ Props
-				☐ ?
-			☐ Interactables
-				☐ Level exit (big gate)
-				☐ Teleport (small gate)
-		☐ Use a different color palette for each tileset @low
+		New tileset: @low
+			✔ Floor tiles @done(24-04-24 16:21)
+				✔ Wood @done(24-04-24 16:21)
+				✔ Carpet 1 @done(24-04-24 16:21)
+				✔ Carpet 2 @done(24-04-24 16:21)
+			✔ Wall tiles @done(24-04-24 16:21)
+				✔ Straight @done(24-04-24 16:21)
+				✔ Corners @done(24-04-24 16:21)
+				✔ Thin internal walls @done(24-04-24 16:21)
+			✔ Props @done(24-05-08 17:39)
+				✔ Potted plants @done(24-03-27 17:06)
+				✔ Organ @done(24-05-01 17:17)
+				✔ Barrel @done(24-05-01 17:17)
+				✔ Chest @done(24-05-08 17:39)
+			✔ Interactables @done(24-03-27 17:07)
+				✔ Level exit (big gate) @done(24-03-27 17:07)
+				✔ Teleport (small gate) @done(24-03-27 17:07)
+		✘ Use a different color palette for each tileset @low @cancelled(24-05-02 14:27)
 	UI:
-		☐ Split options panel into separate scenes
-		☐ Make breakable color selection usable witout mouse
-		☐ Add access to options and info panels in-game (from pause menu) @low
+		✔ Split options panel into separate scenes @done(24-03-14 20:18)
+		✔ Improve breakable color selection button styling (don't dim when disabled) @done(24-05-08 16:16)
+		☐ Improve breakable color selection without mouse
+		✔ Change language names to local versions @done(24-03-06 16:37)
+		✔ Split session customization into a separate panel from the game setup screen @done(24-03-07 17:47)
 		☐ Test stage display in options panel to show any graphics changes during setup (map transparency, breakable colors etc.) @low
-		☐ Add on-screen keyboard for gamepad use @low
-		☐ Keep button selection when returning to main menu from other panels instead of resetting to the first one @low
+		✔ Keep button selection when returning to main menu from other panels instead of resetting to the first one @low @done(24-05-08 17:10)
 	Accessibility:
-		☐ Add more customizale elements
-			☐ Ball (sprites: normal, outline, color?)
-			☐ Paddles (sprites: normal, outline)
+		✔ Add support for palette swapping (background) @done(24-04-05 16:41)
+		✔ Add support for palette swapping (breakables) @done(24-04-17 18:48)
+		✔ Add support for palette swapping (static decorations) @done(24-05-06 20:16)
 	Other:
 		☐ Refactor code @high
 		☐ Improve translations
@@ -59,7 +61,18 @@ Version 0.4:
 		☐ Implement optional CRT shader @low
 		☐ Make a new logo @low
 		☐ Add more music tracks @low
+		✘ Replace manual color swapping with shader based solution @low @cancelled(24-04-12 16:35)
+			Too limiting, problematic edge cases.
 	Issues:
-		☐ [Steam Deck] Random frame spikes (possibly engine issue)
+		✔ Menu buttons lose focus making keyboard/gamepad navigation impossible @high @done(24-04-23 16:21)
+		☐ Random frame spikes (possibly engine issue) @high
 		☐ [Steam Deck] Have to manually open on-screen keyboard for text boxes
 		☐ Cloned balls don't copy all of the speed multiplier values
+		✔ Incorrect water tiles in stage 28 @done(24-03-12 15:24)
+		✔ Incorrect ball animation speed on release @done(24-03-13 16:46)
+		✔ Ball animation doesn't pause when using "ball control" skill @done(24-03-11 15:27)
+		✔ Ball animation stuck in "bounce" state until next collision when triggered in quick succession @done(24-03-11 15:24)
+		✔ Some map visuals don't apply background transparency setting @done(24-03-18 14:37)
+		✔ Pause menu retriggers when closed using keybind @done(24-03-18 13:53)
+		✔ Enemy draw order stuck based on position in hierarchy instead of position on map @done(24-05-07 18:15)
+		✔ Level switching freezes the game @high @done(24-05-13 21:13)
