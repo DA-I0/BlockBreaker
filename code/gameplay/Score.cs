@@ -1,7 +1,7 @@
 using Godot;
 
 public delegate void ScoreNotification(int score, int scoreMultiplier, int combo);
-public delegate void StageClearScoreNotification(int score, int scoreMultiplier, int timeLeft, int perfectClearBonus);
+public delegate void StageClearScoreNotification(int score, int scoreMultiplier, int timeLeft, int enemyClearBonus, int perfectClearBonus);
 
 namespace BoGK.Gameplay
 {
@@ -11,6 +11,7 @@ namespace BoGK.Gameplay
 		public readonly int ComboMultiplierStep = 10;
 		public readonly int MaxComboMultiplier = 5;
 		public readonly int PaddleSizeForMultiplier = 3;
+		[Export] public int EnemyClearBonus = 50;
 		[Export] public int PerfectClearBonus = 50;
 		[Export] public int GameWinBonus = 100;
 
@@ -84,15 +85,22 @@ namespace BoGK.Gameplay
 			_exitTimer.Stop();
 			TimerEnd?.Invoke();
 
+			int currentEnemyBonus = 0;
+			int currentPerfectBonus = 0;
+
+			if (refs.levelManager.ClearedAllEnemies())
+			{
+				ChangeScore(EnemyClearBonus, false);
+				currentEnemyBonus = EnemyClearBonus;
+			}
+
 			if (_isPerfect)
 			{
 				ChangeScore(PerfectClearBonus, false);
-				StageCleared?.Invoke(_currentScore, _currentScoreMultiplier, timeLeft, PerfectClearBonus);
+				currentPerfectBonus = PerfectClearBonus;
 			}
-			else
-			{
-				StageCleared?.Invoke(_currentScore, _currentScoreMultiplier, timeLeft, 0);
-			}
+
+			StageCleared?.Invoke(_currentScore, _currentScoreMultiplier, timeLeft, currentEnemyBonus, currentPerfectBonus);
 		}
 
 		public override void _Ready()

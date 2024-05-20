@@ -77,6 +77,18 @@ namespace BoGK.GameSystem
 			return true;
 		}
 
+		public bool ClearedAllEnemies()
+		{
+			Node enemyNode = _currentScene.GetChild(0).GetNodeOrNull("Enemies");
+
+			if (enemyNode != null && enemyNode.GetChildCount() < 1)
+			{
+				return true;
+			}
+
+			return false;
+		}
+
 		private void SetupReferences()
 		{
 			_currentScene = GetNode("../CurrentScene");
