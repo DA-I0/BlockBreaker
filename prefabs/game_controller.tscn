@@ -119,10 +119,10 @@ one_shot = true
 one_shot = true
 
 [node name="CRTShader" type="ColorRect" parent="."]
+visible = false
 z_index = 20
 material = SubResource("ShaderMaterial_5fj4y")
 custom_minimum_size = Vector2(256, 224)
-anchors_preset = -1
 offset_left = -128.0
 offset_top = -112.0
 offset_right = 128.0
