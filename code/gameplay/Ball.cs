@@ -319,7 +319,7 @@ namespace BoGK.Gameplay
 
 		private void AdvancingSpeed(int score, int scoreMultiplier, int combo)
 		{
-			if (_lastSpeedUpdateComboValue < combo)
+			if (_lastSpeedUpdateComboValue != combo)
 			{
 				_advancingSpeedMultiplier += 0.02f;
 				_lastSpeedUpdateComboValue = combo;
