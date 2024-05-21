@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://chk6oivvrr8nn" path="res://assets/sprites/ui_elements/buttons/ui_icon_arrow_right.png" id="2_8ch1w"]
 [ext_resource type="Script" path="res://code/ui/UIOptionsVideoPanel.cs" id="2_hm0h4"]
 
-[node name="VideoOptions" type="ScrollContainer" node_paths=PackedStringArray("_fullscreen", "_screenShake", "_pickupOrder", "_backgroundBrightnessText", "_backgroundColorPalette", "_backgroundBrightness", "_effectTransparencyText", "_effectTransparency", "_breakableColorPalette", "_breakableVariantContainer", "_focusTarget")]
+[node name="VideoOptions" type="ScrollContainer" node_paths=PackedStringArray("_fullscreen", "_screenShake", "_crtShader", "_pickupOrder", "_backgroundBrightnessText", "_backgroundColorPalette", "_backgroundBrightness", "_effectTransparencyText", "_effectTransparency", "_breakableColorPalette", "_breakableVariantContainer", "_focusTarget")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -19,6 +19,7 @@ follow_focus = true
 script = ExtResource("2_hm0h4")
 _fullscreen = NodePath("Options/FullscreenSetting/FullscreenToggle")
 _screenShake = NodePath("Options/ScreenShakeSetting/ScreenShakeToggle")
+_crtShader = NodePath("Options/CRTShaderSetting/CRTShaderToggle")
 _pickupOrder = NodePath("Options/PickupSetting/PickupOptions")
 _backgroundBrightnessText = NodePath("Options/BackgroundSetting/HBoxContainer/BackgroundValue")
 _backgroundColorPalette = NodePath("Options/BackgroundColorPaletteSetting/BackgroundColorPaletteOptions")
@@ -73,6 +74,29 @@ text = "OPTION_VIDEO_SCREEN_SHAKE"
 vertical_alignment = 1
 
 [node name="ScreenShakeToggle" type="CheckButton" parent="Options/ScreenShakeSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.6
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+flat = true
+
+[node name="CRTShaderSetting" type="Control" parent="Options"]
+custom_minimum_size = Vector2(0, 19)
+layout_mode = 2
+tooltip_text = "tooltip_screen_shake"
+
+[node name="CRTShaderLabel" type="Label" parent="Options/CRTShaderSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.6
+anchor_bottom = 1.0
+offset_left = 4.0
+text = "OPTION_VIDEO_CRT_SHADER"
+vertical_alignment = 1
+
+[node name="CRTShaderToggle" type="CheckButton" parent="Options/CRTShaderSetting"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.6

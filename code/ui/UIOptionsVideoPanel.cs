@@ -8,6 +8,7 @@ namespace BoGK.UI
 	{
 		[Export] private CheckButton _fullscreen;
 		[Export] private CheckButton _screenShake;
+		[Export] private CheckButton _crtShader;
 		[Export] private OptionButton _pickupOrder;
 		[Export] private Label _backgroundBrightnessText;
 		[Export] private OptionButton _backgroundColorPalette;
@@ -34,6 +35,7 @@ namespace BoGK.UI
 		{
 			_fullscreen.ButtonPressed = (Refs.settings.ScreenMode > 0);
 			_screenShake.ButtonPressed = Refs.settings.ScreenShake;
+			_crtShader.ButtonPressed = Refs.settings.UseCRTShader;
 			_pickupOrder.Selected = Refs.settings.PickupOrder;
 			_backgroundColorPalette.Selected = GameSystem.HelperMethods.FindOptionIndex(_backgroundColorPalette, $"OPTION_VIDEO_PALETTE_{Refs.settings.BackgroundColorPalette}");
 			_backgroundBrightness.Value = Refs.settings.BackgroundBrightness;
@@ -47,6 +49,7 @@ namespace BoGK.UI
 		{
 			Refs.settings.ScreenMode = _fullscreen.ButtonPressed ? 3 : 0;
 			Refs.settings.ScreenShake = _screenShake.ButtonPressed;
+			Refs.settings.UseCRTShader = _crtShader.ButtonPressed;
 			Refs.settings.BackgroundColorPalette = _backgroundColorPalette.GetItemText(_backgroundColorPalette.Selected).Split("_")[^1].ToLower();
 			Refs.settings.BackgroundBrightness = (float)_backgroundBrightness.Value;
 			Refs.settings.PickupOrder = _pickupOrder.Selected;

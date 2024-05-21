@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://jpldd4vrbmum"]
+[gd_scene load_steps=27 format=3 uid="uid://jpldd4vrbmum"]
 
 [ext_resource type="Script" path="res://code/system/SessionController.cs" id="1_uqmtw"]
 [ext_resource type="Script" path="res://code/system/AudioController.cs" id="2_adfrp"]
@@ -24,6 +24,12 @@
 [ext_resource type="PackedScene" uid="uid://dseel27vbf765" path="res://prefabs/ui/pause_prompt.tscn" id="17_ewsqo"]
 [ext_resource type="PackedScene" uid="uid://bhik7pnvh1ghu" path="res://prefabs/ui/level_start_splash_prompt.tscn" id="19_qhvfq"]
 [ext_resource type="PackedScene" uid="uid://2rnuyiyxwfl8" path="res://prefabs/ui/game_over_prompt.tscn" id="23_58rjm"]
+[ext_resource type="Shader" path="res://assets/shaders/crt_scanlines.gdshader" id="25_lb4o0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5fj4y"]
+shader = ExtResource("25_lb4o0")
+shader_parameter/pixel_displacement = 0.0001
+shader_parameter/brightness = 2.5
 
 [node name="GameController" type="Node" node_paths=PackedStringArray("musicController", "audioController", "gameScore", "health", "levelManager", "gameElements")]
 script = ExtResource("1_uqmtw")
@@ -72,6 +78,13 @@ script = ExtResource("2_fqfgb")
 [node name="DeathPitMarkerLevel" parent="GameElements" instance=ExtResource("17_75vht")]
 
 [node name="UIGameSession" parent="." node_paths=PackedStringArray("_score", "_skill", "_lives", "_livesText", "_exitTimer", "_exitPrompt", "_stageClearPrompt") instance=ExtResource("4_l3xv6")]
+anchors_preset = -1
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 128.0
+offset_bottom = 112.0
+grow_horizontal = 1
+grow_vertical = 1
 _score = NodePath("TopBar/SessionElements/Score")
 _skill = NodePath("SkillPrompt")
 _lives = NodePath("TopBar/SessionElements/Lives")
@@ -104,6 +117,17 @@ one_shot = true
 
 [node name="SkillTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="CRTShader" type="ColorRect" parent="."]
+z_index = 20
+material = SubResource("ShaderMaterial_5fj4y")
+custom_minimum_size = Vector2(256, 224)
+anchors_preset = -1
+offset_left = -128.0
+offset_top = -112.0
+offset_right = 128.0
+offset_bottom = 112.0
+mouse_filter = 2
 
 [connection signal="timeout" from="Score/ScoreTimer" to="Score" method="AddBonusScore"]
 [connection signal="child_entered_tree" from="CurrentScene" to="LevelManager" method="OnCurrentSceneChildEnteredTree"]

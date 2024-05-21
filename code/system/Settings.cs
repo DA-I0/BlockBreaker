@@ -65,6 +65,11 @@ namespace BoGK.GameSystem
 			get { return (bool)_defaultConfig.GetValue("display", "screen_shake"); }
 		}
 
+		public bool DefaultUseCRTShader
+		{
+			get { return (bool)_defaultConfig.GetValue("display", "crt_shader"); }
+		}
+
 		public int DefaultPickupOrder
 		{
 			get { return (int)_defaultConfig.GetValue("display", "pickup_order"); }
@@ -176,6 +181,12 @@ namespace BoGK.GameSystem
 		{
 			get { return (bool)_config.GetValue("display", "screen_shake", DefaultScreenShake); }
 			set { _config.SetValue("display", "screen_shake", value); }
+		}
+
+		public bool UseCRTShader
+		{
+			get { return (bool)_config.GetValue("display", "crt_shader", DefaultScreenShake); }
+			set { _config.SetValue("display", "crt_shader", value); }
 		}
 
 		public int PickupOrder
@@ -323,6 +334,7 @@ namespace BoGK.GameSystem
 		{
 			ScreenMode = DefaultScreenMode;
 			ScreenShake = DefaultScreenShake;
+			UseCRTShader = DefaultUseCRTShader;
 			BackgroundColorPalette = DefaultBackgroundColorPalette;
 			BackgroundBrightness = DefaultBackgroundBrightness;
 			PickupOrder = DefaultPickupOrder;
@@ -448,6 +460,7 @@ namespace BoGK.GameSystem
 			ApplyFont();
 
 			DisplayServer.WindowSetMode((DisplayServer.WindowMode)ScreenMode, 0);
+			refs.GetNode<Control>("CRTShader").Visible = UseCRTShader;
 			ParseVariantsFromConfig(_config, BreakableVariants);
 
 			AudioServer.SetBusVolumeDb(AudioServer.GetBusIndex("Master"), MasterVolume);
