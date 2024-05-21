@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cf1rht26jg8pb" path="res://prefabs/ui/stage_clear_prompt.tscn" id="6_m8rur"]
 
 [node name="UIGameSession" type="Control" node_paths=PackedStringArray("_score", "_skill", "_lives", "_livesText", "_exitTimer", "_exitPrompt", "_stageClearPrompt")]
+process_mode = 3
 z_index = 10
 custom_minimum_size = Vector2(256, 224)
 layout_mode = 3
@@ -153,6 +154,7 @@ expand_mode = 2
 stretch_mode = 3
 
 [node name="ExitTimer" type="PanelContainer" parent="."]
+process_mode = 1
 clip_contents = true
 custom_minimum_size = Vector2(30, 24)
 layout_mode = 1
