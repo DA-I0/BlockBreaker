@@ -63,11 +63,6 @@ namespace BoGK.Gameplay
 
 		public override void _Input(InputEvent @event)
 		{
-			if (refs.CurrentGameState != GameState.gameplay)
-			{
-				return;
-			}
-
 			if (@event is InputEventMouseMotion eventMouseMotion)
 			{
 				inputHorizontal = eventMouseMotion.Relative.X * refs.settings.SpeedMouse;
