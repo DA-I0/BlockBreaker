@@ -35,7 +35,6 @@ namespace BoGK.Gameplay
 		private float _combinedSpeed;
 		private Curve2D _speedTrailCurve = new Curve2D();
 
-
 		[Export] private Sprite2D _sprite;
 		[Export] private Sprite2D _arrow;
 		[Export] private Timer _arrowTimer;
@@ -164,6 +163,8 @@ namespace BoGK.Gameplay
 		public void ChangeTempSpeedMultiplier(float value)
 		{
 			_boostMultiplier += value;
+			_boostMultiplier = (_boostMultiplier < 1) ? 1 : _boostMultiplier;
+
 			UpdateSpeed();
 		}
 
@@ -308,12 +309,7 @@ namespace BoGK.Gameplay
 		{
 			if (_boostMultiplier > 1)
 			{
-				_boostMultiplier -= _boostDrag;
-				UpdateSpeed();
-			}
-			else
-			{
-				_boostMultiplier = 1;
+				ChangeTempSpeedMultiplier(-_boostDrag);
 			}
 		}
 
