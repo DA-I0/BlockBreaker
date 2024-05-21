@@ -26,6 +26,11 @@ namespace BoGK.Gameplay
 			_activationPoints = -999;
 		}
 
+		protected override void SecondaryCleanup()
+		{
+			_skillTimer.Timeout -= SkillEnd;
+		}
+
 		private void TogglePowerBallState(bool activate)
 		{
 			for (int i = 0; i < refs.Balls.Count; i++)

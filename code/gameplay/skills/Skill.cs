@@ -76,8 +76,11 @@ namespace BoGK.Gameplay
 		protected void Cleanup()
 		{
 			Reset();
+			SecondaryCleanup();
 			refs.gameScore.ScoreChanged -= UpdateActivationPoints;
 			refs.levelManager.ResetSession -= Cleanup;
 		}
+
+		protected virtual void SecondaryCleanup() { }
 	}
 }
