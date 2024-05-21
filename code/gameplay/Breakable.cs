@@ -35,29 +35,24 @@ namespace BoGK.Gameplay
 		{
 			_sprite = GetNode<Sprite2D>("Sprite");
 
+			if (_timer != null)
+			{
+				_timer.Timeout += RestoreDefaultPosition;
+			}
+
 			refs = GetNode<GameSystem.SessionController>("/root/GameController");
 			SetInitialValues();
 			AdjustSprite();
 		}
 
-		public override void _Process(double delta)
+		public override void _PhysicsProcess(double delta)
 		{
 			if (_timer == null)
 			{
 				return;
 			}
 
-			if (_timer.TimeLeft > 0)
-			{
-				float horizontalOffset = (float)GD.RandRange(0.0, 1.0) * _maxPositionOffset;
-				float verticalOffset = (float)GD.RandRange(0.0, 1.0) * _maxPositionOffset;
-
-				_sprite.Position = _defaultPosition + new Vector2(horizontalOffset, verticalOffset);
-			}
-			else
-			{
-				_sprite.Position = _defaultPosition;
-			}
+			AnimateHitReaction();
 		}
 
 		public virtual void Damage(int value)
@@ -132,6 +127,22 @@ namespace BoGK.Gameplay
 				GetNode("../../..").CallDeferred("add_child", pickup);
 				pickup.Position = Position;
 			}
+		}
+
+		private void AnimateHitReaction()
+		{
+			if (_timer.TimeLeft > 0)
+			{
+				float horizontalOffset = (float)GD.RandRange(0.0, 1.0) * _maxPositionOffset;
+				float verticalOffset = (float)GD.RandRange(0.0, 1.0) * _maxPositionOffset;
+
+				_sprite.Position = _defaultPosition + new Vector2(horizontalOffset, verticalOffset);
+			}
+		}
+
+		private void RestoreDefaultPosition()
+		{
+			_sprite.Position = _defaultPosition;
 		}
 
 		protected virtual void Destroy()

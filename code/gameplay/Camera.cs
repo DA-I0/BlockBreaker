@@ -24,12 +24,18 @@ namespace BoGK.Gameplay
 		{
 			_defaultPosition = Position;
 			_timer = GetNode<Timer>("CameraTimer");
+			_timer.Timeout += RestoreDefaultPosition;
 
 			refs = GetParent<GameSystem.SessionController>();
 			refs.SkillUsed += Shake;
 		}
 
 		public override void _PhysicsProcess(double delta)
+		{
+			AnimateHitReaction();
+		}
+
+		private void AnimateHitReaction()
 		{
 			if (_timer.TimeLeft > 0)
 			{
@@ -38,10 +44,11 @@ namespace BoGK.Gameplay
 
 				Position = _defaultPosition + new Vector2(horizontalOffset, verticalOffset);
 			}
-			else
-			{
-				Position = _defaultPosition;
-			}
+		}
+
+		private void RestoreDefaultPosition()
+		{
+			Position = _defaultPosition;
 		}
 	}
 }
