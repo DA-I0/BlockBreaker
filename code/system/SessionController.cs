@@ -183,7 +183,7 @@ namespace BoGK.GameSystem
 		public void ChangeGameState(GameState state)
 		{
 			_gameState = state;
-			GetTree().Paused = (_gameState == GameState.pause) || (_gameState == GameState.gameOver) || (_gameState == GameState.gameWin);
+			GetTree().Paused = (_gameState == GameState.pause) || (_gameState == GameState.gameOver) || (_gameState == GameState.gameWin) || (_gameState == GameState.stageClear);
 			Input.MouseMode = (_gameState == GameState.gameplay) ? Input.MouseModeEnum.Captured : Input.MouseModeEnum.Visible;
 			GameStateChanged?.Invoke(_gameState);
 		}
