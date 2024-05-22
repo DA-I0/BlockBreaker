@@ -8,6 +8,7 @@ namespace BoGK.Gameplay
 		private const int DebrisCount = 5;
 		private const int MaxOffesetHor = 90;
 		private const int MaxOffesetVer = 60;
+		private const float LockPaddleDuration = 3f;
 
 		public ScreenShake()
 		{
@@ -16,7 +17,7 @@ namespace BoGK.Gameplay
 
 		protected override void ApplySkillEffect()
 		{
-			refs.paddle.SetPaddleState(PaddleState.confused, 3f);
+			refs.paddle.SetPaddleState(PaddleState.confused, LockPaddleDuration);
 
 			RotateBalls();
 			SpawnDebris();
