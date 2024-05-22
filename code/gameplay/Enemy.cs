@@ -323,7 +323,7 @@ namespace BoGK.Gameplay
 			{
 				int pickupType = GD.RandRange(0, _pickups.Length - 1);
 				Area2D pickup = _pickups[pickupType].Instantiate<Area2D>();
-				GetNode("../../..").CallDeferred("add_child", pickup);
+				GetNode("../../..").CallDeferred(Node.MethodName.AddChild, pickup);
 				pickup.Position = Position;
 			}
 		}

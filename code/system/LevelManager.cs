@@ -115,7 +115,7 @@ namespace BoGK.GameSystem
 			ResourceLoader.LoadThreadedRequest(scenePath);
 			Node newScene = (ResourceLoader.LoadThreadedGet(scenePath) as PackedScene).Instantiate();
 
-			_currentScene.CallDeferred("add_child", newScene);
+			_currentScene.CallDeferred(Node.MethodName.AddChild, newScene);
 		}
 
 		private void FinalizeStageSetup(Node targetScene)

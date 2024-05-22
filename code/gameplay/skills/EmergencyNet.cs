@@ -22,7 +22,7 @@ namespace BoGK.Gameplay
 			}
 
 			safetyNet = ResourceLoader.Load<PackedScene>(PrefabPath).Instantiate();
-			refs.gameElements.CallDeferred("add_child", safetyNet);
+			refs.gameElements.CallDeferred(Node.MethodName.AddChild, safetyNet);
 			OnActivation();
 		}
 	}

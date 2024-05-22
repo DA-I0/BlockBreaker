@@ -15,7 +15,7 @@ namespace BoGK.Gameplay
 			}
 
 			safetyNet = ResourceLoader.Load<PackedScene>("res://prefabs/safety_net.tscn").Instantiate();
-			refs.gameElements.CallDeferred("add_child", safetyNet);
+			refs.gameElements.CallDeferred(Node.MethodName.AddChild, safetyNet);
 		}
 	}
 }
