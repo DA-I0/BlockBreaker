@@ -400,7 +400,6 @@ y_sort_enabled = true
 position = Vector2(0, 17)
 
 [node name="BenchLeft" parent="Props" instance=ExtResource("11_52dg7")]
-z_index = 3
 position = Vector2(95, 28)
 
 [node name="BenchRight" parent="Props" instance=ExtResource("12_ha8h4")]

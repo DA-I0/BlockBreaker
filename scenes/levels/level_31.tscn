@@ -355,12 +355,9 @@ y_sort_enabled = true
 position = Vector2(0, 17)
 
 [node name="BenchDown" parent="Props" instance=ExtResource("13_fodts")]
-z_index = 3
-y_sort_enabled = true
 position = Vector2(-80, -19)
 
 [node name="BenchLeft" parent="Props" instance=ExtResource("14_vxshb")]
-z_index = 3
 position = Vector2(82, 60)
 
 [node name="LevelExit" parent="." node_paths=PackedStringArray("_animator", "_sprites") instance=ExtResource("15_mjj7i")]

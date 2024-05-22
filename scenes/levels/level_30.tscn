@@ -431,22 +431,15 @@ y_sort_enabled = true
 position = Vector2(0, 17)
 
 [node name="BenchDown" parent="Props" instance=ExtResource("12_w1r6s")]
-z_index = 3
 position = Vector2(80, 47)
 
 [node name="BenchDown2" parent="Props" instance=ExtResource("12_w1r6s")]
-z_index = 3
-y_sort_enabled = true
 position = Vector2(-80, 47)
 
 [node name="BenchUp3" parent="Props" instance=ExtResource("13_grmb4")]
-z_as_relative = false
-y_sort_enabled = true
 position = Vector2(80, -26)
 
 [node name="BenchUp4" parent="Props" instance=ExtResource("13_grmb4")]
-z_as_relative = false
-y_sort_enabled = true
 position = Vector2(-80, -26)
 
 [node name="Enemies" type="Node2D" parent="."]

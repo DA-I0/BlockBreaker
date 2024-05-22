@@ -329,7 +329,7 @@ _sprites = [NodePath("Sprite")]
 y_sort_enabled = true
 
 [node name="ChairUp2" parent="Props" node_paths=PackedStringArray("_timer") instance=ExtResource("7_6ak2p")]
-position = Vector2(-50, -4)
+position = Vector2(-50, -6)
 _timer = NodePath("Timer")
 
 [node name="Potted_02" parent="Props" instance=ExtResource("9_tmoii")]
@@ -352,7 +352,7 @@ position = Vector2(-40, -19)
 _timer = NodePath("Timer")
 
 [node name="ChairSideLeft" parent="Props" node_paths=PackedStringArray("_timer") instance=ExtResource("13_n1hfk")]
-position = Vector2(-59, -3)
+position = Vector2(-59, -5)
 _timer = NodePath("Timer")
 
 [node name="LevelExit" parent="." node_paths=PackedStringArray("_animator", "_sprites") instance=ExtResource("13_rbr3g")]
