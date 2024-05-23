@@ -273,6 +273,7 @@ _data = {
 
 [node name="EnemyDefender" type="CharacterBody2D" node_paths=PackedStringArray("_path", "_movementTimer", "_animator", "_invulnerabilityTimer")]
 z_index = 1
+collision_mask = 49
 script = ExtResource("1_w70d1")
 _speed = 15.0
 _minMoveDistance = 5.0

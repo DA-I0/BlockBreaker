@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cmdj43x3y0oq8"]
+[gd_scene load_steps=8 format=3 uid="uid://cmdj43x3y0oq8"]
 
 [ext_resource type="Script" path="res://code/gameplay/Breakable.cs" id="1_plh30"]
 [ext_resource type="PackedScene" uid="uid://r3x55smb3e0x" path="res://prefabs/pickups/pickup_ball_slow.tscn" id="6_4n8x2"]
@@ -7,6 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://iq10idmsyirx" path="res://prefabs/pickups/pickup_safety_net.tscn" id="9_vddee"]
 [ext_resource type="Texture2D" uid="uid://dm2i1b8uv8ewt" path="res://assets/sprites/props/default/chairs/chair_side_l.png" id="10_vbd0t"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1y3jl"]
+size = Vector2(6, 7)
+
 [node name="ChairSideLeft" type="StaticBody2D" node_paths=PackedStringArray("_timer")]
 z_index = 1
 script = ExtResource("1_plh30")
@@ -14,12 +17,6 @@ _pointValue = 2
 _maxHealth = 4
 _pickups = Array[PackedScene]([ExtResource("6_4n8x2"), ExtResource("7_me26q"), ExtResource("8_e008f"), ExtResource("9_vddee")])
 _timer = NodePath("Timer")
-
-[node name="Sprite" type="Sprite2D" parent="."]
-position = Vector2(-4, -17)
-texture = ExtResource("10_vbd0t")
-centered = false
-hframes = 4
 
 [node name="LegCollider" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(2, 0, 2, -1, 3, -1, 3, 0)
@@ -35,6 +32,22 @@ polygon = PackedVector2Array(2, 0, 2, -1, 3, -1, 3, 0)
 [node name="LegCollider4" type="CollisionPolygon2D" parent="."]
 position = Vector2(-5, -5)
 polygon = PackedVector2Array(2, 0, 2, -1, 3, -1, 3, 0)
+
+[node name="EnemyCollider" type="StaticBody2D" parent="."]
+position = Vector2(15, -0.5)
+collision_layer = 32
+collision_mask = 32
+
+[node name="ColliderShape" type="CollisionShape2D" parent="EnemyCollider"]
+position = Vector2(-15, -3)
+shape = SubResource("RectangleShape2D_1y3jl")
+debug_color = Color(0.78228, 0.364105, 0.623112, 0.42)
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(-4, -17)
+texture = ExtResource("10_vbd0t")
+centered = false
+hframes = 4
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true

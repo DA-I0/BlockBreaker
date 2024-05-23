@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bam54mlcohbbx"]
+[gd_scene load_steps=8 format=3 uid="uid://bam54mlcohbbx"]
 
 [ext_resource type="Script" path="res://code/gameplay/Breakable.cs" id="1_rk47a"]
 [ext_resource type="PackedScene" uid="uid://r3x55smb3e0x" path="res://prefabs/pickups/pickup_ball_slow.tscn" id="6_d47oi"]
@@ -7,6 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://iq10idmsyirx" path="res://prefabs/pickups/pickup_safety_net.tscn" id="9_geghp"]
 [ext_resource type="Texture2D" uid="uid://cbpl8y051wamo" path="res://assets/sprites/props/default/chairs/chair_down.png" id="10_bn2tg"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_avr0i"]
+size = Vector2(7, 7)
+
 [node name="ChairDown" type="StaticBody2D" node_paths=PackedStringArray("_timer")]
 z_index = 1
 script = ExtResource("1_rk47a")
@@ -14,12 +17,6 @@ _pointValue = 2
 _maxHealth = 4
 _pickups = Array[PackedScene]([ExtResource("6_d47oi"), ExtResource("7_jgaei"), ExtResource("8_isoal"), ExtResource("9_geghp")])
 _timer = NodePath("Timer")
-
-[node name="Sprite" type="Sprite2D" parent="."]
-position = Vector2(-3, -19)
-texture = ExtResource("10_bn2tg")
-centered = false
-hframes = 4
 
 [node name="LegCollider" type="CollisionPolygon2D" parent="."]
 position = Vector2(-0.74375, 0)
@@ -37,6 +34,22 @@ polygon = PackedVector2Array(2, 0, 2, -1, 4, -1, 4, 0)
 [node name="LegCollider4" type="CollisionPolygon2D" parent="."]
 position = Vector2(-5, -5)
 polygon = PackedVector2Array(2, 0, 2, -1, 4, -1, 4, 0)
+
+[node name="EnemyCollider" type="StaticBody2D" parent="."]
+position = Vector2(15, -0.5)
+collision_layer = 32
+collision_mask = 32
+
+[node name="ColliderShape" type="CollisionShape2D" parent="EnemyCollider"]
+position = Vector2(-14.5, -3)
+shape = SubResource("RectangleShape2D_avr0i")
+debug_color = Color(0.78228, 0.364105, 0.623112, 0.42)
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(-3, -19)
+texture = ExtResource("10_bn2tg")
+centered = false
+hframes = 4
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
