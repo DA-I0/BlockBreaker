@@ -36,7 +36,7 @@ namespace BoGK.GameSystem
 
 		public void LoadGameScene(string sceneName)
 		{
-			string scenePath = $"res://scenes/levels/{sceneName}";
+			string scenePath = $"{ProjectSettings.GetSetting("global/DefaultLevelFolder")}/{sceneName}";
 			AddChild(_loadingScreen);
 			ClearCurrentScene(_currentScene);
 			SetupNewScene(scenePath);
