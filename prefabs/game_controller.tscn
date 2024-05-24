@@ -40,9 +40,6 @@ health = NodePath("Health")
 levelManager = NodePath("LevelManager")
 gameElements = NodePath("GameElements")
 
-[node name="SessionController" type="Node" parent="."]
-process_mode = 3
-
 [node name="MusicController" type="AudioStreamPlayer" parent="."]
 process_mode = 3
 bus = &"Music"
