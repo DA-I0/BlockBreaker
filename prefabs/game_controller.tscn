@@ -127,4 +127,3 @@ offset_bottom = 112.0
 mouse_filter = 2
 
 [connection signal="timeout" from="Score/ScoreTimer" to="Score" method="AddBonusScore"]
-[connection signal="child_entered_tree" from="CurrentScene" to="LevelManager" method="OnCurrentSceneChildEnteredTree"]

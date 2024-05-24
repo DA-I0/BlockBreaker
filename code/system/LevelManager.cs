@@ -28,8 +28,8 @@ namespace BoGK.GameSystem
 		public void LoadMenuScene()
 		{
 			string scenePath = $"res://scenes/menus/menu.tscn";
-			AddChild(_loadingScreen);
-			ClearCurrentScene(_currentScene);
+			DisplayLoadingScreen();
+			ClearCurrentScene();
 			SetupNewScene(scenePath);
 			ResetSession?.Invoke();
 		}
@@ -37,8 +37,8 @@ namespace BoGK.GameSystem
 		public void LoadGameScene(string sceneName)
 		{
 			string scenePath = $"{ProjectSettings.GetSetting("global/DefaultLevelFolder")}/{sceneName}";
-			AddChild(_loadingScreen);
-			ClearCurrentScene(_currentScene);
+			DisplayLoadingScreen();
+			ClearCurrentScene();
 			SetupNewScene(scenePath);
 		}
 
@@ -70,6 +70,7 @@ namespace BoGK.GameSystem
 		{
 			if (index >= _sessionLevels.Count || index < 0)
 			{
+				_sessionLevels.Clear();
 				return false;
 			}
 
@@ -97,11 +98,11 @@ namespace BoGK.GameSystem
 			refs = (SessionController)GetParent();
 		}
 
-		private void ClearCurrentScene(Node parentNode)
+		private void ClearCurrentScene()
 		{
-			if (parentNode.GetChildCount() > 0)
+			if (_currentScene.GetChildCount() > 0)
 			{
-				foreach (Node scene in parentNode.GetChildren())
+				foreach (Node scene in _currentScene.GetChildren())
 				{
 					scene.QueueFree();
 				}
@@ -128,6 +129,8 @@ namespace BoGK.GameSystem
 				SceneChanged?.Invoke();
 				SceneChangedWithInfo?.Invoke(targetScene.SceneFilePath.Split("/")[^1]);
 			}
+
+			HideLoadingScreen();
 		}
 
 		private void ApplyTilesetSettings(TileMap mapBackground)
@@ -170,14 +173,20 @@ namespace BoGK.GameSystem
 			}
 		}
 
-		private void OnCurrentSceneChildEnteredTree(Node node)
+		private void DisplayLoadingScreen()
 		{
-			if (GetChildCount() < 1)
+			if (_loadingScreen.GetParentOrNull<Node>() == null)
 			{
-				return;
+				AddChild(_loadingScreen);
 			}
+		}
 
-			RemoveChild(_loadingScreen);
+		private void HideLoadingScreen()
+		{
+			if (_loadingScreen.GetParentOrNull<Node>() != null)
+			{
+				RemoveChild(_loadingScreen);
+			}
 		}
 
 		private void ShuffleStageList()
