@@ -71,7 +71,7 @@ _livesDisplay = NodePath("Options/LivesDisplaySetting/LivesDisplayToggle")
 _stageClearDisplay = NodePath("Options/StageClearDisplaySetting/StageClearDisplayToggle")
 _focusTarget = [NodePath("Options/LanguageSetting/LanguageOptions"), NodePath("../../OptionsButtons/Confirm")]
 
-[node name="VideoOptions" parent="CategoryPanels" node_paths=PackedStringArray("_fullscreen", "_screenShake", "_pickupOrder", "_backgroundBrightnessText", "_backgroundColorPalette", "_backgroundBrightness", "_effectTransparencyText", "_effectTransparency", "_breakableColorPalette", "_breakableVariantContainer", "_colorPickerPanel", "_focusTarget") instance=ExtResource("4_i76gf")]
+[node name="VideoOptions" parent="CategoryPanels" node_paths=PackedStringArray("_fullscreen", "_screenShake", "_crtShader", "_pickupOrder", "_backgroundBrightnessText", "_backgroundColorPalette", "_backgroundBrightness", "_effectTransparencyText", "_effectTransparency", "_breakableColorPalette", "_breakableVariantContainer", "_colorPickerPanel", "_focusTarget") instance=ExtResource("4_i76gf")]
 layout_mode = 1
 offset_left = 0.0
 offset_top = 0.0
@@ -81,6 +81,7 @@ grow_horizontal = 2
 grow_vertical = 2
 _fullscreen = NodePath("Options/FullscreenSetting/FullscreenToggle")
 _screenShake = NodePath("Options/ScreenShakeSetting/ScreenShakeToggle")
+_crtShader = NodePath("Options/CRTShaderSetting/CRTShaderToggle")
 _pickupOrder = NodePath("Options/PickupSetting/PickupOptions")
 _backgroundBrightnessText = NodePath("Options/BackgroundSetting/HBoxContainer/BackgroundValue")
 _backgroundColorPalette = NodePath("Options/BackgroundColorPaletteSetting/BackgroundColorPaletteOptions")
