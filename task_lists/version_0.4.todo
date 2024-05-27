@@ -15,14 +15,11 @@ Version 0.4:
 					✔ Peaceful (acts as a moving obstacles rather than danger) @done(24-04-03 19:05)
 					✔ Defender (has a shield, can't be hurt from the front) @done(24-04-09 16:11)
 					✔ Deflector (when ball hits the shield they bash the ball acting like the "bouncy paddle") @low @done(24-04-16 17:03)
-			☐ River (slightly changes ball direction)
 			✔ Indestructible "breakables" (break to open and get a prize, in the form chests etc) @done(24-05-08 17:39)
 		Gameplay:
 			✔ Add option for session length (end game after x maps) @done(24-03-06 16:17)
 			✔ Add option for map progression randomization @done(24-03-06 18:18)
 			✔ Add bonus score for winning the game @done(24-03-18 14:28)
-		System:
-			☐ Dynamic translation loading (custom localization support) @low
 	Map elements:
 		New tileset: @low
 			✔ Floor tiles @done(24-04-24 16:21)
@@ -45,10 +42,8 @@ Version 0.4:
 	UI:
 		✔ Split options panel into separate scenes @done(24-03-14 20:18)
 		✔ Improve breakable color selection button styling (don't dim when disabled) @done(24-05-08 16:16)
-		☐ Improve breakable color selection without mouse
 		✔ Change language names to local versions @done(24-03-06 16:37)
 		✔ Split session customization into a separate panel from the game setup screen @done(24-03-07 17:47)
-		☐ Test stage display in options panel to show any graphics changes during setup (map transparency, breakable colors etc.) @low
 		✔ Keep button selection when returning to main menu from other panels instead of resetting to the first one @low @done(24-05-08 17:10)
 	Accessibility:
 		✔ Add support for palette swapping (background) @done(24-04-05 16:41)
@@ -58,16 +53,13 @@ Version 0.4:
 		☐ Refactor code @high
 		☐ Improve translations
 		☐ Compile all plans & dev notes into a proper design doc
-		☐ Implement optional CRT shader @low
-		☐ Make a new logo @low
-		☐ Add more music tracks @low
+		✔ Implement optional CRT shader @low @done(24-05-21 17:38)
 		✘ Replace manual color swapping with shader based solution @low @cancelled(24-04-12 16:35)
 			Too limiting, problematic edge cases.
 	Issues:
 		✔ Menu buttons lose focus making keyboard/gamepad navigation impossible @high @done(24-04-23 16:21)
-		☐ Random frame spikes (possibly engine issue) @high
-		☐ [Steam Deck] Have to manually open on-screen keyboard for text boxes
-		☐ Cloned balls don't copy all of the speed multiplier values
+		✔ Random frame spikes (possibly engine issue) @high @done(24-05-27 18:30)
+		✔ Cloned balls don't copy all of the speed multiplier values @done(24-05-27 20:11)
 		✔ Incorrect water tiles in stage 28 @done(24-03-12 15:24)
 		✔ Incorrect ball animation speed on release @done(24-03-13 16:46)
 		✔ Ball animation doesn't pause when using "ball control" skill @done(24-03-11 15:27)
@@ -76,3 +68,4 @@ Version 0.4:
 		✔ Pause menu retriggers when closed using keybind @done(24-03-18 13:53)
 		✔ Enemy draw order stuck based on position in hierarchy instead of position on map @done(24-05-07 18:15)
 		✔ Level switching freezes the game @high @done(24-05-13 21:13)
+		✔ "Advancing Speed" not triggering properly after death or ball reset @done(24-05-21 19:55)
