@@ -70,6 +70,11 @@ namespace BoGK.Gameplay
 			get { return Scale.X; }
 		}
 
+		public float[] GetAllSpeedParameters()
+		{
+			return new float[] { _speedMultiplier, _boostMultiplier, _advancingSpeedMultiplier, _lastSpeedUpdateComboValue };
+		}
+
 		public override void _Input(InputEvent @event)
 		{
 			if (refs.CurrentGameState != GameState.gameplay)
@@ -138,6 +143,9 @@ namespace BoGK.Gameplay
 				Position = sourceBall.Position;
 				ChangeSize(sourceBall.Size);
 				SpeedMultiplier = sourceBall.SpeedMultiplier;
+				SetTempSpeedMultiplier(sourceBall.GetAllSpeedParameters()[1]);
+				_advancingSpeedMultiplier = sourceBall.GetAllSpeedParameters()[2];
+				_lastSpeedUpdateComboValue = (int)sourceBall.GetAllSpeedParameters()[3];
 				Release();
 				ChangeRotation(sourceBall.RotationDegrees + angleChange);
 			}
