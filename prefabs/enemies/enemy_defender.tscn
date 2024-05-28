@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cb5kj1wnbuk65"]
+[gd_scene load_steps=20 format=3 uid="uid://cb5kj1wnbuk65"]
 
 [ext_resource type="Script" path="res://code/gameplay/EnemyDefender.cs" id="1_w70d1"]
 [ext_resource type="Texture2D" uid="uid://b02cdys1knl2t" path="res://assets/sprites/enemies/default/enemy_defender.png" id="2_fx5wy"]
@@ -8,6 +8,70 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2b8qt"]
 radius = 1.0
 height = 8.0
+
+[sub_resource type="Animation" id="Animation_b0ltj"]
+resource_name = "brace_down"
+length = 0.20001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+
+[sub_resource type="Animation" id="Animation_fwi07"]
+resource_name = "brace_left"
+length = 0.20001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [14]
+}
+
+[sub_resource type="Animation" id="Animation_ywn4s"]
+resource_name = "brace_right"
+length = 0.20001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [19]
+}
+
+[sub_resource type="Animation" id="Animation_c0ldp"]
+resource_name = "brace_up"
+length = 0.20001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [9]
+}
 
 [sub_resource type="Animation" id="Animation_c4fvq"]
 resource_name = "damage_down"
@@ -38,7 +102,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [11]
+"values": [13]
 }
 
 [sub_resource type="Animation" id="Animation_202o2"]
@@ -54,7 +118,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [15]
+"values": [18]
 }
 
 [sub_resource type="Animation" id="Animation_wpydl"]
@@ -70,7 +134,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [7]
+"values": [8]
 }
 
 [sub_resource type="Animation" id="Animation_ynh8e"]
@@ -110,7 +174,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Area2D/CollisionShape2D:polygon")
+tracks/1/path = NodePath("Shield/CollisionShape2D:polygon")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -147,12 +211,12 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.333333, 0.666667, 1),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [8, 9, 8, 10]
+"values": [10, 11, 10, 12]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Area2D/CollisionShape2D:polygon")
+tracks/1/path = NodePath("Shield/CollisionShape2D:polygon")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -189,12 +253,12 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.333333, 0.666667, 1),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [12, 13, 12, 14]
+"values": [15, 16, 15, 17]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Area2D/CollisionShape2D:polygon")
+tracks/1/path = NodePath("Shield/CollisionShape2D:polygon")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -231,12 +295,12 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.333333, 0.666667, 1),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [4, 5, 4, 6]
+"values": [5, 6, 5, 7]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Area2D/CollisionShape2D:polygon")
+tracks/1/path = NodePath("Shield/CollisionShape2D:polygon")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -260,6 +324,10 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0ciwk"]
 _data = {
+"brace_down": SubResource("Animation_b0ltj"),
+"brace_left": SubResource("Animation_fwi07"),
+"brace_right": SubResource("Animation_ywn4s"),
+"brace_up": SubResource("Animation_c0ldp"),
 "damage_down": SubResource("Animation_c4fvq"),
 "damage_left": SubResource("Animation_n7qww"),
 "damage_right": SubResource("Animation_202o2"),
@@ -273,7 +341,7 @@ _data = {
 
 [node name="EnemyDefender" type="CharacterBody2D" node_paths=PackedStringArray("_path", "_movementTimer", "_animator", "_invulnerabilityTimer")]
 z_index = 1
-collision_mask = 49
+collision_mask = 33
 script = ExtResource("1_w70d1")
 _speed = 15.0
 _minMoveDistance = 5.0
@@ -297,7 +365,7 @@ shape = SubResource("CapsuleShape2D_2b8qt")
 texture = ExtResource("2_fx5wy")
 centered = false
 offset = Vector2(-8, -15)
-hframes = 4
+hframes = 5
 vframes = 4
 region_rect = Rect2(4, 4, 44, 33)
 
@@ -315,13 +383,13 @@ one_shot = true
 
 [node name="DamageTimer" type="Timer" parent="."]
 
-[node name="Area2D" type="CharacterBody2D" parent="."]
+[node name="Shield" type="CharacterBody2D" parent="."]
 collision_layer = 16
 collision_mask = 16
 safe_margin = 0.1
 script = ExtResource("3_oox4l")
 
-[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Shield"]
 position = Vector2(0, 0.5)
 polygon = PackedVector2Array(-4, -0.5, -4, 0.5, 4, 0.5, 4, -0.5)
 
