@@ -39,7 +39,7 @@ DIFF_NAME,Name,Name,名前,Nazwa
 DIFF_PADDLE_SIZE_MAX,Max paddle size,Maximale Schlägergröße,最大値パドルサイズ,Maksymalna wielkość paletki
 DIFF_PADDLE_SIZE_MIN,Min paddle size,Mindest Schlägergröße,,Minimalna wielkość paletki
 DIFF_PADDLE_SIZE_START,Starting paddle size,Anfängliche Schlägergröße,初期パドルサイズ,Początkowy rozmiar paletki
-DIFF_PICKUP_SPEED,Pickup speed,,,
+DIFF_PICKUP_SPEED,Pickup speed,Aufnehmen Geschwindigkeit,拾うスピード,Prędkośc znajdziek
 DISCLAIMER_CUSTOM_DIFF,* Custom difficulty,,,* Własny poziom trudności
 DISCLAIMER_SWITCH_CONTROL_HINT,* Press {ui_focus_prev}/{ui_focus_next} to switch between settings.,,,
 DISCLAIMER_SWITCH_FOCUS_HINT,* Press {ui_toggle_focus} to switch between panels.,,,
