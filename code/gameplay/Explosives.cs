@@ -10,6 +10,9 @@ namespace BoGK.Gameplay
 		protected override void SetInitialValues()
 		{
 			_health = _maxHealth;
+			_isDead = _health <= 0;
+			_defaultSpritePath = _sprite.Texture.ResourcePath;
+			ApplySpriteVariant();
 			_animator.Play("idle");
 		}
 

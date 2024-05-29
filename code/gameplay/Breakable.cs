@@ -17,7 +17,7 @@ namespace BoGK.Gameplay
 		[Export] protected double _shakeDuration = 0.25f;
 
 		private Vector2 _defaultPosition;
-		private bool _isDead;
+		protected bool _isDead;
 		protected int _health;
 
 		protected string _defaultSpritePath;
@@ -87,7 +87,7 @@ namespace BoGK.Gameplay
 			_sprite.Frame = (_sprite.Hframes > _maxHealth - _health) ? _maxHealth - _health : 0;
 		}
 
-		private void ApplySpriteVariant()
+		protected void ApplySpriteVariant()
 		{
 			string breakableName = _defaultSpritePath.Split('/')[^1].Replace(".png", "");
 			BreakableVariant variant = refs.settings.FindVariant(breakableName);
