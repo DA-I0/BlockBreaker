@@ -115,6 +115,7 @@ namespace BoGK.Gameplay
 
 		private void SessionSetup()
 		{
+			_exitTimer.Stop();
 			Cleanup();
 		}
 
