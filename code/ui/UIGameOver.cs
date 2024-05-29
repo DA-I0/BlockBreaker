@@ -33,6 +33,7 @@ namespace BoGK.UI
 			{
 				if (canAddToLeaderboard)
 				{
+					_name.Clear();
 					_name.GrabFocus();
 				}
 				else
@@ -52,6 +53,7 @@ namespace BoGK.UI
 			{
 				_header.Text = $"[b][u]{Tr("GAME_WIN")}[/u][/b]";
 			}
+
 			SetupScoreValues();
 		}
 
