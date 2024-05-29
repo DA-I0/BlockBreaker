@@ -339,7 +339,7 @@ y_sort_enabled = true
 [node name="EnemyBasic" parent="Enemies" node_paths=PackedStringArray("_movementTimer", "_animator", "_invulnerabilityTimer") instance=ExtResource("11_tngim")]
 position = Vector2(-24, 13)
 _state = 1
-_movementTimer = NodePath("Timer")
+_movementTimer = NodePath("MovementTimer")
 _animator = NodePath("Animator")
 _invulnerabilityTimer = NodePath("DamageTimer")
 _moveDirection = Vector2(1, 0)
@@ -347,7 +347,7 @@ _moveDirection = Vector2(1, 0)
 [node name="EnemyBasic2" parent="Enemies" node_paths=PackedStringArray("_movementTimer", "_animator", "_invulnerabilityTimer") instance=ExtResource("11_tngim")]
 position = Vector2(24, 12)
 _state = 1
-_movementTimer = NodePath("Timer")
+_movementTimer = NodePath("MovementTimer")
 _animator = NodePath("Animator")
 _invulnerabilityTimer = NodePath("DamageTimer")
 _moveDirection = Vector2(-1, 0)
