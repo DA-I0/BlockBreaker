@@ -16,5 +16,10 @@ namespace BoGK.UI
 				((ScrollContainer)_focusTarget[0]).ScrollVertical -= 10;
 			}
 		}
+
+		protected override void UpdateDisplayedValues()
+		{
+			((ScrollContainer)_focusTarget[0]).ScrollVertical = 0;
+		}
 	}
 }
