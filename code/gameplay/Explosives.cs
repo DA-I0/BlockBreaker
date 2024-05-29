@@ -34,7 +34,7 @@ namespace BoGK.Gameplay
 		{
 			if (target as Ball != null)
 			{
-				((Ball)target).SetTempSpeedMultiplier(_strength / 2);
+				((Ball)target).ChangeTempSpeedMultiplier(_strength / 3);
 				return;
 			}
 
