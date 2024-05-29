@@ -185,7 +185,7 @@ namespace BoGK.GameSystem
 
 		public bool UseCRTShader
 		{
-			get { return (bool)_config.GetValue("display", "crt_shader", DefaultScreenShake); }
+			get { return (bool)_config.GetValue("display", "crt_shader", DefaultUseCRTShader); }
 			set { _config.SetValue("display", "crt_shader", value); }
 		}
 
