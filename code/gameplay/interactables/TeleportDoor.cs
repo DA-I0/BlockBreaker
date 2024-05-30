@@ -7,6 +7,13 @@ namespace BoGK.Gameplay
 		[Export] private TeleportDoor _linkedDoor;
 		[Export] private float _ballDisplacement = 5f;
 
+
+		protected override void UpdateState()
+		{
+			string state = (_isActived && _linkedDoor != null) ? "idle_enabled" : "idle_disabled";
+			_animator.Play(state);
+		}
+
 		private void TeleportBall(Ball ball)
 		{
 			Toggle();
