@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b3h1pgyhdyfg6"]
+[gd_scene load_steps=10 format=3 uid="uid://b3h1pgyhdyfg6"]
 
 [ext_resource type="Script" path="res://code/ui/UIGameSetupPanel.cs" id="1_qrg3h"]
 [ext_resource type="Shortcut" uid="uid://bhk5vranx2qfl" path="res://shortcuts/cancel.tres" id="2_c0qja"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bdnrfv0eveohj" path="res://assets/sprites/paddles/paddle_1.png" id="4_f1u0x"]
 [ext_resource type="Texture2D" uid="uid://l7mq8nojr42e" path="res://assets/sprites/ui_elements/session_setting_icons/stage_shuffle.png" id="5_lflxj"]
 [ext_resource type="Texture2D" uid="uid://dx34htag8x83i" path="res://assets/sprites/ui_elements/session_setting_icons/disable_pickups.png" id="6_uls5u"]
+[ext_resource type="Texture2D" uid="uid://ltrtbwa04xx5" path="res://assets/sprites/ui_elements/session_setting_icons/disappearing_ball.png" id="8_e8yrp"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_35ikn"]
 texture = ExtResource("3_xghkx")
@@ -167,6 +168,15 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("6_uls5u")
+stretch_mode = 2
+
+[node name="DisappearingBall" type="TextureRect" parent="MainContent/SidePanel/VBoxContainer/GridContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("8_e8yrp")
 stretch_mode = 2
 
 [node name="Spacer" type="Control" parent="MainContent/SidePanel/VBoxContainer"]

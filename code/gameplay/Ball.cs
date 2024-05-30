@@ -106,6 +106,7 @@ namespace BoGK.Gameplay
 			{
 				Move(delta);
 				ReduceTempSpeedMultiplier();
+				CallDeferred("AdjustTransparency");
 				return;
 			}
 
@@ -149,7 +150,6 @@ namespace BoGK.Gameplay
 				Release();
 				ChangeRotation(sourceBall.RotationDegrees + angleChange);
 			}
-
 		}
 
 		public void Reset()
@@ -381,6 +381,7 @@ namespace BoGK.Gameplay
 					break;
 
 				default:
+					Modulate = new Color(1f, 1f, 1f, 1f);
 					Velocity = Vector2.Zero;
 					SetTempSpeedMultiplier(1);
 					_animator.Play("idle");
@@ -415,6 +416,24 @@ namespace BoGK.Gameplay
 			else
 			{
 				_sprite.Texture = ResourceLoader.Load<Texture2D>(DefaultSprite);
+			}
+		}
+
+		private void AdjustTransparency()
+		{
+			if (refs.DisappearingBall)
+			{
+				float maxVisibilityDistance = 80f;
+				float distanceToPaddle = Position.DistanceTo(refs.paddle.Position) - 30f;
+
+				float newTransparency = (maxVisibilityDistance <= distanceToPaddle) ? 1f : distanceToPaddle / maxVisibilityDistance;
+
+				if (newTransparency < 0.01f)
+				{
+					newTransparency = 0.01f;
+				}
+
+				Modulate = new Color(1f, 1f, 1f, newTransparency);
 			}
 		}
 

@@ -9,6 +9,7 @@ namespace BoGK.UI
 		[Export] private HSlider _sessionLengthSlider;
 		[Export] private CheckButton _shuffleStagesButton;
 		[Export] private CheckButton _disablePickupsButton;
+		[Export] private CheckButton _disappearingBallButton;
 
 		public override void _Ready()
 		{
@@ -37,6 +38,7 @@ namespace BoGK.UI
 			_sessionLengthSlider.Value = (refs.SessionLength > 0) ? refs.SessionLength : refs.gameData.Levels.Count;
 			_shuffleStagesButton.ButtonPressed = refs.ShuffleStages;
 			_disablePickupsButton.ButtonPressed = refs.DisablePickups;
+			_disappearingBallButton.ButtonPressed = refs.DisappearingBall;
 		}
 
 		private void ToggleCustomSessionLength(bool setActive)
@@ -50,6 +52,7 @@ namespace BoGK.UI
 			refs.SessionLength = _customSessionLengthButton.ButtonPressed ? (int)_sessionLengthSlider.Value : -1;
 			refs.ShuffleStages = _shuffleStagesButton.ButtonPressed;
 			refs.DisablePickups = _disablePickupsButton.ButtonPressed;
+			refs.DisappearingBall = _disappearingBallButton.ButtonPressed;
 			uiController.TogglePanel("GameSetupPanel");
 		}
 

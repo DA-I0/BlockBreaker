@@ -132,6 +132,7 @@ namespace BoGK.UI
 
 			_customSettingsIcons.GetChild<Control>(1).Visible = refs.ShuffleStages;
 			_customSettingsIcons.GetChild<Control>(2).Visible = refs.DisablePickups;
+			_customSettingsIcons.GetChild<Control>(3).Visible = refs.DisappearingBall;
 		}
 
 		private void DisplayPaddlePanel()

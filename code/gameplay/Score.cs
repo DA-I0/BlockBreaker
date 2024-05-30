@@ -136,6 +136,7 @@ namespace BoGK.Gameplay
 			_currentScoreMultiplier += (ball.Size < 1) ? 1 : 0;
 			_currentScoreMultiplier += (ball.SpeedMultiplier > 1) ? 1 : 0;
 			_currentScoreMultiplier += refs.DisablePickups ? 1 : 0;
+			_currentScoreMultiplier += refs.DisappearingBall ? 1 : 0;
 
 			CheckMultiplierRange();
 		}

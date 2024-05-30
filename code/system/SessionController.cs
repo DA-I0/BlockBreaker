@@ -17,6 +17,7 @@ namespace BoGK.GameSystem
 		private int _sessionLength;
 		private bool _shuffleStages;
 		private bool _disablePickups;
+		private bool _disappearingBall;
 
 		public GameData gameData;
 		public Settings settings;
@@ -92,6 +93,12 @@ namespace BoGK.GameSystem
 		{
 			get { return _disablePickups; }
 			set { _disablePickups = value; }
+		}
+
+		public bool DisappearingBall
+		{
+			get { return _disappearingBall; }
+			set { _disappearingBall = value; }
 		}
 
 		public Godot.Collections.Array<Node> Balls
@@ -181,9 +188,10 @@ namespace BoGK.GameSystem
 			_currentDifficulty = 1;
 			_currentLevel = -1;
 			_currentSkill = 0;
-			_sessionLength = -1;
-			_shuffleStages = false;
-			_disablePickups = false;
+			SessionLength = -1;
+			ShuffleStages = false;
+			DisablePickups = false;
+			DisappearingBall = false;
 
 			ChangeGameState(GameState.menu);
 		}

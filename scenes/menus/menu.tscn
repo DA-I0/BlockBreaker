@@ -128,7 +128,7 @@ focus_next = NodePath("../GameSetup")
 focus_previous = NodePath("../Options")
 text = "BUTTON_EXIT"
 
-[node name="GameSetupPanel" parent="Control" node_paths=PackedStringArray("_levelGrid", "_paddleButton", "_difficultyButton", "_skillButton", "_customSettingsButton", "_customSettingsLabel", "uiController", "_focusTarget", "_returnButton") instance=ExtResource("31_xmcps")]
+[node name="GameSetupPanel" parent="Control" node_paths=PackedStringArray("_levelGrid", "_paddleButton", "_difficultyButton", "_skillButton", "_customSettingsButton", "_customSettingsIcons", "uiController", "_focusTarget", "_returnButton") instance=ExtResource("31_xmcps")]
 layout_mode = 1
 offset_right = 0.0
 offset_bottom = 0.0
@@ -137,7 +137,7 @@ _paddleButton = NodePath("MainContent/SidePanel/VBoxContainer/PaddleButton")
 _difficultyButton = NodePath("MainContent/SidePanel/VBoxContainer/DifficultyButton")
 _skillButton = NodePath("MainContent/SidePanel/VBoxContainer/SkillButton")
 _customSettingsButton = NodePath("MainContent/SidePanel/VBoxContainer/CustomSettingsButton")
-_customSettingsLabel = NodePath("MainContent/SidePanel/VBoxContainer/CustomSettingsDetailsLabel")
+_customSettingsIcons = NodePath("MainContent/SidePanel/VBoxContainer/GridContainer")
 uiController = NodePath("../..")
 _focusTarget = [NodePath("MainContent/SidePanel/VBoxContainer/PaddleButton")]
 _returnButton = NodePath("MainContent/SidePanel/VBoxContainer/Return")
@@ -240,17 +240,19 @@ _paginatorParent = NodePath("ItemPaginator")
 uiController = NodePath("../..")
 _returnButton = NodePath("Return")
 
-[node name="CustomSettingsPanel" parent="Control" node_paths=PackedStringArray("_customSessionLengthButton", "_sessionLengthLabel", "_sessionLengthSlider", "_shuffleStagesButton", "uiController", "_focusTarget", "_returnButton") instance=ExtResource("6_4weu7")]
+[node name="CustomSettingsPanel" parent="Control" node_paths=PackedStringArray("_customSessionLengthButton", "_sessionLengthLabel", "_sessionLengthSlider", "_shuffleStagesButton", "_disablePickupsButton", "_disappearingBallButton", "uiController", "_focusTarget", "_returnButton") instance=ExtResource("6_4weu7")]
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-_customSessionLengthButton = NodePath("VBoxContainer/CustomSessionLength/CustomSessionLengthCheckButton")
-_sessionLengthLabel = NodePath("VBoxContainer/CustomStageCount/CustomStageCountLabel")
-_sessionLengthSlider = NodePath("VBoxContainer/CustomStageCount/CustomStageCountSlider")
-_shuffleStagesButton = NodePath("VBoxContainer/ShuffleStages/ShuffleStagesCheckButton")
+_customSessionLengthButton = NodePath("Options/CustomSessionLength/CustomSessionLengthCheckButton")
+_sessionLengthLabel = NodePath("Options/CustomStageCount/CustomStageCountLabel")
+_sessionLengthSlider = NodePath("Options/CustomStageCount/CustomStageCountSlider")
+_shuffleStagesButton = NodePath("Options/ShuffleStages/ShuffleStagesCheckButton")
+_disablePickupsButton = NodePath("Options/DisablePickups/DisablePickupsCheckButton")
+_disappearingBallButton = NodePath("Options/DisappearingBall/DisappearingBallCheckButton")
 uiController = NodePath("../..")
-_focusTarget = [NodePath("VBoxContainer/CustomSessionLength/CustomSessionLengthCheckButton")]
+_focusTarget = [NodePath("Options/CustomSessionLength/CustomSessionLengthCheckButton"), NodePath("ConfirmSettings")]
 _returnButton = NodePath("Return")
 
 [node name="LangSelection" parent="." instance=ExtResource("41_j8o0y")]

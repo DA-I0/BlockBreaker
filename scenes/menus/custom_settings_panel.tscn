@@ -3,18 +3,19 @@
 [ext_resource type="Script" path="res://code/ui/UICustomSessionPanel.cs" id="1_jsgpn"]
 [ext_resource type="Shortcut" uid="uid://bhk5vranx2qfl" path="res://shortcuts/cancel.tres" id="16_yme4c"]
 
-[node name="CustomSettingsPanel" type="Panel" node_paths=PackedStringArray("_customSessionLengthButton", "_sessionLengthLabel", "_sessionLengthSlider", "_shuffleStagesButton", "_disablePickupsButton", "_focusTarget", "_returnButton")]
+[node name="CustomSettingsPanel" type="Panel" node_paths=PackedStringArray("_customSessionLengthButton", "_sessionLengthLabel", "_sessionLengthSlider", "_shuffleStagesButton", "_disablePickupsButton", "_disappearingBallButton", "_focusTarget", "_returnButton")]
 custom_minimum_size = Vector2(256, 224)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource("1_jsgpn")
-_customSessionLengthButton = NodePath("VBoxContainer/CustomSessionLength/CustomSessionLengthCheckButton")
-_sessionLengthLabel = NodePath("VBoxContainer/CustomStageCount/CustomStageCountLabel")
-_sessionLengthSlider = NodePath("VBoxContainer/CustomStageCount/CustomStageCountSlider")
-_shuffleStagesButton = NodePath("VBoxContainer/ShuffleStages/ShuffleStagesCheckButton")
-_disablePickupsButton = NodePath("VBoxContainer/DisablePickups/DisablePickupsCheckButton")
-_focusTarget = [NodePath("VBoxContainer/CustomSessionLength/CustomSessionLengthCheckButton")]
+_customSessionLengthButton = NodePath("Options/CustomSessionLength/CustomSessionLengthCheckButton")
+_sessionLengthLabel = NodePath("Options/CustomStageCount/CustomStageCountLabel")
+_sessionLengthSlider = NodePath("Options/CustomStageCount/CustomStageCountSlider")
+_shuffleStagesButton = NodePath("Options/ShuffleStages/ShuffleStagesCheckButton")
+_disablePickupsButton = NodePath("Options/DisablePickups/DisablePickupsCheckButton")
+_disappearingBallButton = NodePath("Options/DisappearingBall/DisappearingBallCheckButton")
+_focusTarget = [NodePath("Options/CustomSessionLength/CustomSessionLengthCheckButton"), NodePath("ConfirmSettings")]
 _returnButton = NodePath("Return")
 _returnTarget = "GameSetupPanel"
 
@@ -35,7 +36,7 @@ text = "HEADER_PADDLE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="Options" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.1
@@ -44,99 +45,104 @@ anchor_bottom = 1.0
 offset_top = 24.0
 offset_bottom = -22.0
 
-[node name="CustomSessionLength" type="Control" parent="VBoxContainer"]
+[node name="CustomSessionLength" type="Control" parent="Options"]
 custom_minimum_size = Vector2(0, 12)
 layout_mode = 2
 
-[node name="CustomSessionLengthLabel" type="Label" parent="VBoxContainer/CustomSessionLength"]
+[node name="CustomSessionLengthLabel" type="Label" parent="Options/CustomSessionLength"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.6
 anchor_bottom = 1.0
 text = "LABEL_ENABLE_CUSTOM_SESSION_LENGTH"
 
-[node name="CustomSessionLengthCheckButton" type="CheckButton" parent="VBoxContainer/CustomSessionLength"]
+[node name="CustomSessionLengthCheckButton" type="CheckButton" parent="Options/CustomSessionLength"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.6
 anchor_right = 1.0
 anchor_bottom = 1.0
-focus_neighbor_left = NodePath(".")
-focus_neighbor_top = NodePath("../../../ConfirmPaddle")
-focus_neighbor_right = NodePath(".")
-focus_previous = NodePath("../../../ConfirmPaddle")
 flat = true
 
-[node name="CustomStageCount" type="Control" parent="VBoxContainer"]
+[node name="CustomStageCount" type="Control" parent="Options"]
 custom_minimum_size = Vector2(0, 12)
 layout_mode = 2
 
-[node name="CustomStageCountLabel" type="Label" parent="VBoxContainer/CustomStageCount"]
+[node name="CustomStageCountLabel" type="Label" parent="Options/CustomStageCount"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.6
 anchor_bottom = 1.0
 text = "LABEL_SESSION_LENGTH"
 
-[node name="CustomStageCountSlider" type="HSlider" parent="VBoxContainer/CustomStageCount"]
+[node name="CustomStageCountSlider" type="HSlider" parent="Options/CustomStageCount"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.6
 anchor_right = 1.0
 anchor_bottom = 1.0
-focus_neighbor_left = NodePath(".")
-focus_neighbor_right = NodePath(".")
 min_value = 1.0
 value = 1.0
 rounded = true
 
-[node name="ShuffleStages" type="Control" parent="VBoxContainer"]
+[node name="ShuffleStages" type="Control" parent="Options"]
 custom_minimum_size = Vector2(0, 12)
 layout_mode = 2
 
-[node name="ShuffleStagesLabel" type="Label" parent="VBoxContainer/ShuffleStages"]
+[node name="ShuffleStagesLabel" type="Label" parent="Options/ShuffleStages"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.6
 anchor_bottom = 1.0
 text = "LABEL_SHUFFLE_STAGES"
 
-[node name="ShuffleStagesCheckButton" type="CheckButton" parent="VBoxContainer/ShuffleStages"]
+[node name="ShuffleStagesCheckButton" type="CheckButton" parent="Options/ShuffleStages"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.6
 anchor_right = 1.0
 anchor_bottom = 1.0
-focus_neighbor_left = NodePath(".")
-focus_neighbor_right = NodePath(".")
-focus_neighbor_bottom = NodePath("../../../ConfirmPaddle")
-focus_next = NodePath("../../../ConfirmPaddle")
 flat = true
 
-[node name="DisablePickups" type="Control" parent="VBoxContainer"]
+[node name="DisablePickups" type="Control" parent="Options"]
 custom_minimum_size = Vector2(0, 12)
 layout_mode = 2
 
-[node name="DisablePickupsLabel" type="Label" parent="VBoxContainer/DisablePickups"]
+[node name="DisablePickupsLabel" type="Label" parent="Options/DisablePickups"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.6
 anchor_bottom = 1.0
 text = "LABEL_DISABLE_PICKUPS"
 
-[node name="DisablePickupsCheckButton" type="CheckButton" parent="VBoxContainer/DisablePickups"]
+[node name="DisablePickupsCheckButton" type="CheckButton" parent="Options/DisablePickups"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.6
 anchor_right = 1.0
 anchor_bottom = 1.0
-focus_neighbor_left = NodePath(".")
-focus_neighbor_right = NodePath(".")
-focus_neighbor_bottom = NodePath("../../../ConfirmPaddle")
-focus_next = NodePath("../../../ConfirmPaddle")
 flat = true
 
-[node name="ConfirmPaddle" type="Button" parent="."]
+[node name="DisappearingBall" type="Control" parent="Options"]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+
+[node name="DisappearingBallLabel" type="Label" parent="Options/DisappearingBall"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.6
+anchor_bottom = 1.0
+text = "LABEL_DISAPPEARING_BALL"
+
+[node name="DisappearingBallCheckButton" type="CheckButton" parent="Options/DisappearingBall"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.6
+anchor_right = 1.0
+anchor_bottom = 1.0
+flat = true
+
+[node name="ConfirmSettings" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -147,10 +153,7 @@ offset_bottom = -6.0
 grow_horizontal = 2
 grow_vertical = 0
 focus_neighbor_left = NodePath(".")
-focus_neighbor_top = NodePath("../VBoxContainer/ShuffleStages/ShuffleStagesCheckButton")
-focus_neighbor_bottom = NodePath("../VBoxContainer/CustomSessionLength/CustomSessionLengthCheckButton")
-focus_next = NodePath("../VBoxContainer/CustomSessionLength/CustomSessionLengthCheckButton")
-focus_previous = NodePath("../VBoxContainer/ShuffleStages/ShuffleStagesCheckButton")
+focus_neighbor_right = NodePath(".")
 shortcut_in_tooltip = false
 text = "BUTTON_CONFIRM"
 
@@ -168,6 +171,6 @@ shortcut_feedback = false
 shortcut_in_tooltip = false
 text = "BUTTON_RETURN"
 
-[connection signal="toggled" from="VBoxContainer/CustomSessionLength/CustomSessionLengthCheckButton" to="." method="ToggleCustomSessionLength"]
-[connection signal="value_changed" from="VBoxContainer/CustomStageCount/CustomStageCountSlider" to="." method="UpdateSessionLengthText"]
-[connection signal="pressed" from="ConfirmPaddle" to="." method="SetSessionSettings"]
+[connection signal="toggled" from="Options/CustomSessionLength/CustomSessionLengthCheckButton" to="." method="ToggleCustomSessionLength"]
+[connection signal="value_changed" from="Options/CustomStageCount/CustomStageCountSlider" to="." method="UpdateSessionLengthText"]
+[connection signal="pressed" from="ConfirmSettings" to="." method="SetSessionSettings"]
