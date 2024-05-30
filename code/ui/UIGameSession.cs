@@ -118,6 +118,7 @@ namespace BoGK.UI
 
 			if (!refs.IsLastLevel)
 			{
+				refs.localization.UpdateUILocalization();
 				_exitPrompt.Visible = true;
 			}
 		}
