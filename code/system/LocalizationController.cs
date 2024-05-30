@@ -137,9 +137,6 @@ namespace BoGK.GameSystem
 				case "multiplier_combo_step":
 					return refs.gameScore.ComboMultiplierStep.ToString();
 
-				case "multiplier_max":
-					return refs.gameScore.MaxScoreMultiplier.ToString();
-
 				case "multiplier_max_combo":
 					return refs.gameScore.MaxComboMultiplier.ToString();
 

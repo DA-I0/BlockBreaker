@@ -7,7 +7,6 @@ namespace BoGK.Gameplay
 {
 	public partial class Score : Node
 	{
-		public readonly int MaxScoreMultiplier = 9;
 		public readonly int ComboMultiplierStep = 10;
 		public readonly int MaxComboMultiplier = 5;
 		public readonly int PaddleSizeForMultiplier = 3;
@@ -147,11 +146,6 @@ namespace BoGK.Gameplay
 			{
 				_currentScoreMultiplier = 1;
 				return;
-			}
-
-			if (_currentScoreMultiplier > MaxScoreMultiplier)
-			{
-				_currentScoreMultiplier = MaxScoreMultiplier;
 			}
 		}
 
