@@ -33,7 +33,7 @@ namespace BoGK.UI
 			_customSessionLengthButton.ButtonPressed = (refs.SessionLength > 0);
 			ToggleCustomSessionLength(_customSessionLengthButton.ButtonPressed);
 			_sessionLengthSlider.MaxValue = refs.gameData.Levels.Count;
-			_sessionLengthSlider.Value = refs.gameData.Levels.Count;
+			_sessionLengthSlider.Value = (refs.SessionLength > 0) ? refs.SessionLength : refs.gameData.Levels.Count;
 			_shuffleStagesButton.ButtonPressed = refs.ShuffleStages;
 		}
 
