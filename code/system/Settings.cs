@@ -23,6 +23,7 @@ namespace BoGK.GameSystem
 		private readonly SessionController refs;
 
 		public event Notification SettingsUpdated;
+		public event Notification ActiveInputTypeChanged;
 
 		public bool FirstLaunch
 		{
@@ -272,8 +273,12 @@ namespace BoGK.GameSystem
 			get { return _activeInputType; }
 			set
 			{
-				_activeInputType = value;
-				_config.SetValue("controls", "input_type", (int)value);
+				if (_activeInputType != value)
+				{
+					_activeInputType = value;
+					_config.SetValue("controls", "input_type", (int)value);
+					ActiveInputTypeChanged?.Invoke();
+				}
 			}
 		}
 

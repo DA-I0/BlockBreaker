@@ -219,13 +219,13 @@ namespace BoGK.GameSystem
 
 		private void SetActiveInputType(InputEvent @event)
 		{
-			if (@event.AsText().Contains("Joypad"))
+			if (@event is InputEventJoypadMotion || @event is InputEventJoypadButton)
 			{
 				settings.ActiveInputType = InputType.Joypad;
 				return;
 			}
 
-			if (@event.AsText().Contains("Mouse"))
+			if (@event is InputEventMouse)
 			{
 				settings.ActiveInputType = InputType.Mouse;
 				return;

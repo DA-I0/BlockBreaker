@@ -21,6 +21,8 @@ namespace BoGK.GameSystem
 		public LocalizationController(SessionController sessionController)
 		{
 			refs = sessionController;
+			refs.settings.ActiveInputTypeChanged += UpdateUILocalization;
+
 			LoadCustomValues();
 		}
 
