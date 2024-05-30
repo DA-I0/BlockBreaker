@@ -14,6 +14,7 @@ namespace BoGK.UI
 		public override void _Ready()
 		{
 			SetupBaseReferences();
+			SetupNavigation();
 			UpdateDisplayedValues();
 		}
 
@@ -39,6 +40,23 @@ namespace BoGK.UI
 			_shuffleStagesButton.ButtonPressed = refs.ShuffleStages;
 			_disablePickupsButton.ButtonPressed = refs.DisablePickups;
 			_disappearingBallButton.ButtonPressed = refs.DisappearingBall;
+		}
+
+		private void SetupNavigation()
+		{
+			Control parent = GetNode<Control>("Options");
+
+			for (int index = 0; index < parent.GetChildCount(); index++)
+			{
+				parent.GetChild(index).GetChild<Control>(1).FocusNeighborLeft = parent.GetChild(index).GetChild(1).GetPath();
+				parent.GetChild(index).GetChild<Control>(1).FocusNeighborRight = parent.GetChild(index).GetChild(1).GetPath();
+			}
+
+			parent.GetChild(0).GetChild<Control>(1).FocusNeighborTop = GetNode("ConfirmSettings").GetPath();
+			parent.GetChild(parent.GetChildCount() - 1).GetChild<Control>(1).FocusNeighborBottom = GetNode("ConfirmSettings").GetPath();
+
+			GetNode<Control>("ConfirmSettings").FocusNeighborTop = parent.GetChild(parent.GetChildCount() - 1).GetChild(1).GetPath();
+			GetNode<Control>("ConfirmSettings").FocusNeighborBottom = parent.GetChild(0).GetChild(1).GetPath();
 		}
 
 		private void ToggleCustomSessionLength(bool setActive)
