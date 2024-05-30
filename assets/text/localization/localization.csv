@@ -69,6 +69,7 @@ LABEL_ALL,All,Alle,すべて,Wszystkie
 LABEL_CUSTOM_SESSION,Custom settings,,,
 LABEL_DIFFICULTY,Difficulty,Schwierigkeitsgrad,難易度,Poziom trudności
 LABEL_DISABLE_PICKUPS,Disable pickups,,,
+LABEL_DISAPPEARING_BALL,Disappearing ball,,,
 LABEL_PADDLE,Paddle,Schläger,パドル,Paletka
 LABEL_ENEMY_CLEAR,Defated all enemies,,,
 LABEL_PERFECT_CLEAR,Perfect clear,,パーフェクトクリア,
