@@ -52,11 +52,11 @@ namespace BoGK.UI
 				parent.GetChild(index).GetChild<Control>(1).FocusNeighborRight = parent.GetChild(index).GetChild(1).GetPath();
 			}
 
-			parent.GetChild(0).GetChild<Control>(1).FocusNeighborTop = GetNode("ConfirmSettings").GetPath();
-			parent.GetChild(parent.GetChildCount() - 1).GetChild<Control>(1).FocusNeighborBottom = GetNode("ConfirmSettings").GetPath();
+			parent.GetChild(0).GetChild<Control>(2).FocusNeighborTop = GetNode("ConfirmSettings").GetPath();
+			parent.GetChild(parent.GetChildCount() - 1).GetChild<Control>(2).FocusNeighborBottom = GetNode("ConfirmSettings").GetPath();
 
-			GetNode<Control>("ConfirmSettings").FocusNeighborTop = parent.GetChild(parent.GetChildCount() - 1).GetChild(1).GetPath();
-			GetNode<Control>("ConfirmSettings").FocusNeighborBottom = parent.GetChild(0).GetChild(1).GetPath();
+			GetNode<Control>("ConfirmSettings").FocusNeighborTop = parent.GetChild(parent.GetChildCount() - 1).GetChild(2).GetPath();
+			GetNode<Control>("ConfirmSettings").FocusNeighborBottom = parent.GetChild(0).GetChild(2).GetPath();
 		}
 
 		private void ToggleCustomSessionLength(bool setActive)

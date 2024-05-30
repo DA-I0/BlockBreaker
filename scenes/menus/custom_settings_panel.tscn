@@ -1,6 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://h7igipx5q2nn"]
+[gd_scene load_steps=7 format=3 uid="uid://h7igipx5q2nn"]
 
 [ext_resource type="Script" path="res://code/ui/UICustomSessionPanel.cs" id="1_jsgpn"]
+[ext_resource type="Texture2D" uid="uid://djcpf6xatyjyh" path="res://assets/sprites/ui_elements/session_setting_icons/session_length.png" id="2_uladu"]
+[ext_resource type="Texture2D" uid="uid://l7mq8nojr42e" path="res://assets/sprites/ui_elements/session_setting_icons/stage_shuffle.png" id="3_er7sq"]
+[ext_resource type="Texture2D" uid="uid://dx34htag8x83i" path="res://assets/sprites/ui_elements/session_setting_icons/disable_pickups.png" id="4_r5dgr"]
+[ext_resource type="Texture2D" uid="uid://ltrtbwa04xx5" path="res://assets/sprites/ui_elements/session_setting_icons/disappearing_ball.png" id="5_6spvw"]
 [ext_resource type="Shortcut" uid="uid://bhk5vranx2qfl" path="res://shortcuts/cancel.tres" id="16_yme4c"]
 
 [node name="CustomSettingsPanel" type="Panel" node_paths=PackedStringArray("_customSessionLengthButton", "_sessionLengthLabel", "_sessionLengthSlider", "_shuffleStagesButton", "_disablePickupsButton", "_disappearingBallButton", "_focusTarget", "_returnButton")]
@@ -46,34 +50,45 @@ offset_top = 24.0
 offset_bottom = -22.0
 
 [node name="CustomSessionLength" type="Control" parent="Options"]
-custom_minimum_size = Vector2(0, 12)
+custom_minimum_size = Vector2(0, 16)
 layout_mode = 2
+
+[node name="CustomSessionLengthIcon" type="TextureRect" parent="Options/CustomSessionLength"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 0
+offset_right = 16.0
+offset_bottom = 16.0
+texture = ExtResource("2_uladu")
 
 [node name="CustomSessionLengthLabel" type="Label" parent="Options/CustomSessionLength"]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.6
+anchor_right = 0.8
 anchor_bottom = 1.0
+offset_left = 20.0
 text = "LABEL_ENABLE_CUSTOM_SESSION_LENGTH"
+vertical_alignment = 1
 
 [node name="CustomSessionLengthCheckButton" type="CheckButton" parent="Options/CustomSessionLength"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.6
+anchor_left = 0.8
 anchor_right = 1.0
 anchor_bottom = 1.0
 flat = true
 
 [node name="CustomStageCount" type="Control" parent="Options"]
-custom_minimum_size = Vector2(0, 12)
+custom_minimum_size = Vector2(0, 16)
 layout_mode = 2
 
 [node name="CustomStageCountLabel" type="Label" parent="Options/CustomStageCount"]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.6
+anchor_right = 0.8
 anchor_bottom = 1.0
+offset_left = 20.0
 text = "LABEL_SESSION_LENGTH"
+vertical_alignment = 1
 
 [node name="CustomStageCountSlider" type="HSlider" parent="Options/CustomStageCount"]
 layout_mode = 1
@@ -86,58 +101,85 @@ value = 1.0
 rounded = true
 
 [node name="ShuffleStages" type="Control" parent="Options"]
-custom_minimum_size = Vector2(0, 12)
+custom_minimum_size = Vector2(0, 16)
 layout_mode = 2
+
+[node name="ShuffleStagesIcon" type="TextureRect" parent="Options/ShuffleStages"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 0
+offset_right = 16.0
+offset_bottom = 16.0
+texture = ExtResource("3_er7sq")
 
 [node name="ShuffleStagesLabel" type="Label" parent="Options/ShuffleStages"]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.6
+anchor_right = 0.8
 anchor_bottom = 1.0
+offset_left = 20.0
 text = "LABEL_SHUFFLE_STAGES"
+vertical_alignment = 1
 
 [node name="ShuffleStagesCheckButton" type="CheckButton" parent="Options/ShuffleStages"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.6
+anchor_left = 0.8
 anchor_right = 1.0
 anchor_bottom = 1.0
 flat = true
 
 [node name="DisablePickups" type="Control" parent="Options"]
-custom_minimum_size = Vector2(0, 12)
+custom_minimum_size = Vector2(0, 16)
 layout_mode = 2
+
+[node name="DisablePickupsIcon" type="TextureRect" parent="Options/DisablePickups"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 0
+offset_right = 16.0
+offset_bottom = 16.0
+texture = ExtResource("4_r5dgr")
 
 [node name="DisablePickupsLabel" type="Label" parent="Options/DisablePickups"]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.6
+anchor_right = 0.8
 anchor_bottom = 1.0
+offset_left = 20.0
 text = "LABEL_DISABLE_PICKUPS"
+vertical_alignment = 1
 
 [node name="DisablePickupsCheckButton" type="CheckButton" parent="Options/DisablePickups"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.6
+anchor_left = 0.8
 anchor_right = 1.0
 anchor_bottom = 1.0
 flat = true
 
 [node name="DisappearingBall" type="Control" parent="Options"]
-custom_minimum_size = Vector2(0, 12)
+custom_minimum_size = Vector2(0, 16)
 layout_mode = 2
+
+[node name="DisappearingBallIcon" type="TextureRect" parent="Options/DisappearingBall"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 0
+offset_right = 16.0
+offset_bottom = 16.0
+texture = ExtResource("5_6spvw")
 
 [node name="DisappearingBallLabel" type="Label" parent="Options/DisappearingBall"]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.6
+anchor_right = 0.8
 anchor_bottom = 1.0
+offset_left = 20.0
 text = "LABEL_DISAPPEARING_BALL"
+vertical_alignment = 1
 
 [node name="DisappearingBallCheckButton" type="CheckButton" parent="Options/DisappearingBall"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.6
+anchor_left = 0.8
 anchor_right = 1.0
 anchor_bottom = 1.0
 flat = true
