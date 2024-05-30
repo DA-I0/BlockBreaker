@@ -64,10 +64,11 @@ HEADER_VIDEO,Video,Video,表示,Wideo
 INFO_BARRIERS_DESC,"[b][u]Barriers:[/u][/b]\nExist in two variants - basic and sturdy.\nBasic one can't be broken, sturdy breaks after {barrier_sturdy_health} hits.\n\nBarriers don't count towards level completion.",,,
 INFO_BLOCKS_DESC,"[b][u]Blocks:[/u][/b]\nExist in two variants - basic and sturdy.\nBasic blocks break after {block_health} hit, sturdy ones after {block_sturdy_health}.\n\nDestroy all to complete a level.",,,
 INFO_CONTROLS_DESC,[b][u]Controls:[/u][/b]\n[b]Move paddle:[/b] {game_left}{game_right}\n[b]Release ball:[/b] {game_play}\n[b]Use skill:[/b] {game_skill}\n[b]Reset ball (-1 life):[/b] {game_reset}\n[b]Pause game:[/b] {game_pause},,,
-INFO_SCORE_MULTIPLIER_DESC,"[b][u]Score:[/u][/b]\nIncreases by 1 for every {multiplier_combo_step} destroyed elements, up to x{multiplier_max_combo}.\nGrabbing difficulty increasing pickups (small/fast ball, smaller paddle) also increases multiplier independent of combo.\nMax score multiplier: x{multiplier_max}.",,,
+INFO_SCORE_MULTIPLIER_DESC,"[b][u]Score:[/u][/b]\nIncreases by 1 for every {multiplier_combo_step} destroyed elements, up to x{multiplier_max_combo}.\nGrabbing difficulty increasing pickups (small/fast ball, smaller paddle) also increases multiplier independent of combo.",,,
 LABEL_ALL,All,Alle,すべて,Wszystkie
 LABEL_CUSTOM_SESSION,Custom settings,,,
 LABEL_DIFFICULTY,Difficulty,Schwierigkeitsgrad,難易度,Poziom trudności
+LABEL_DISABLE_PICKUPS,Disable pickups,,,
 LABEL_PADDLE,Paddle,Schläger,パドル,Paletka
 LABEL_ENEMY_CLEAR,Defated all enemies,,,
 LABEL_PERFECT_CLEAR,Perfect clear,,パーフェクトクリア,
