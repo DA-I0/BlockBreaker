@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://code/ui/UICustomSessionPanel.cs" id="1_jsgpn"]
 [ext_resource type="Shortcut" uid="uid://bhk5vranx2qfl" path="res://shortcuts/cancel.tres" id="16_yme4c"]
 
-[node name="CustomSettingsPanel" type="Panel" node_paths=PackedStringArray("_customSessionLengthButton", "_sessionLengthLabel", "_sessionLengthSlider", "_shuffleStagesButton", "_focusTarget", "_returnButton")]
+[node name="CustomSettingsPanel" type="Panel" node_paths=PackedStringArray("_customSessionLengthButton", "_sessionLengthLabel", "_sessionLengthSlider", "_shuffleStagesButton", "_disablePickupsButton", "_focusTarget", "_returnButton")]
 custom_minimum_size = Vector2(256, 224)
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,6 +13,7 @@ _customSessionLengthButton = NodePath("VBoxContainer/CustomSessionLength/CustomS
 _sessionLengthLabel = NodePath("VBoxContainer/CustomStageCount/CustomStageCountLabel")
 _sessionLengthSlider = NodePath("VBoxContainer/CustomStageCount/CustomStageCountSlider")
 _shuffleStagesButton = NodePath("VBoxContainer/ShuffleStages/ShuffleStagesCheckButton")
+_disablePickupsButton = NodePath("VBoxContainer/DisablePickups/DisablePickupsCheckButton")
 _focusTarget = [NodePath("VBoxContainer/CustomSessionLength/CustomSessionLengthCheckButton")]
 _returnButton = NodePath("Return")
 _returnTarget = "GameSetupPanel"
@@ -101,6 +102,29 @@ anchor_bottom = 1.0
 text = "LABEL_SHUFFLE_STAGES"
 
 [node name="ShuffleStagesCheckButton" type="CheckButton" parent="VBoxContainer/ShuffleStages"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.6
+anchor_right = 1.0
+anchor_bottom = 1.0
+focus_neighbor_left = NodePath(".")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../../../ConfirmPaddle")
+focus_next = NodePath("../../../ConfirmPaddle")
+flat = true
+
+[node name="DisablePickups" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+
+[node name="DisablePickupsLabel" type="Label" parent="VBoxContainer/DisablePickups"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.6
+anchor_bottom = 1.0
+text = "LABEL_DISABLE_PICKUPS"
+
+[node name="DisablePickupsCheckButton" type="CheckButton" parent="VBoxContainer/DisablePickups"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.6

@@ -113,7 +113,7 @@ namespace BoGK.Gameplay
 
 		private void SpawnPickup()
 		{
-			if (_pickups == null || _isDead)
+			if (refs.DisablePickups || _pickups == null || _isDead)
 			{
 				return;
 			}

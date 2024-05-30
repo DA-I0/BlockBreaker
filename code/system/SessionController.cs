@@ -16,6 +16,7 @@ namespace BoGK.GameSystem
 		private int _currentSkill;
 		private int _sessionLength;
 		private bool _shuffleStages;
+		private bool _disablePickups;
 
 		public GameData gameData;
 		public Settings settings;
@@ -85,6 +86,12 @@ namespace BoGK.GameSystem
 		{
 			get { return _shuffleStages; }
 			set { _shuffleStages = value; }
+		}
+
+		public bool DisablePickups
+		{
+			get { return _disablePickups; }
+			set { _disablePickups = value; }
 		}
 
 		public Godot.Collections.Array<Node> Balls
@@ -176,6 +183,7 @@ namespace BoGK.GameSystem
 			_currentSkill = 0;
 			_sessionLength = -1;
 			_shuffleStages = false;
+			_disablePickups = false;
 
 			ChangeGameState(GameState.menu);
 		}
