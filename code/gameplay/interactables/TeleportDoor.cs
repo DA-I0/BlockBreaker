@@ -16,6 +16,7 @@ namespace BoGK.Gameplay
 
 			float newBallRotation = (Rotation - _linkedDoor.Rotation) + Mathf.DegToRad(180); // need improvements for (-)90 degree changes
 			ball.Velocity = ball.Velocity.Rotated(newBallRotation);
+			ball.ResetSpeedTrail();
 
 			_timer.Start(_cooldown);
 		}

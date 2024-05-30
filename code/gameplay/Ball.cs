@@ -213,6 +213,11 @@ namespace BoGK.Gameplay
 			AdjustPowerVisuals();
 		}
 
+		public void ResetSpeedTrail()
+		{
+			_speedTrailCurve.ClearPoints();
+		}
+
 		private void Release()
 		{
 			Velocity = new Vector2(0, -_baseSpeed).Rotated(_arrow.Rotation);
@@ -379,7 +384,7 @@ namespace BoGK.Gameplay
 					Velocity = Vector2.Zero;
 					SetTempSpeedMultiplier(1);
 					_animator.Play("idle");
-					_speedTrailCurve.ClearPoints();
+					ResetSpeedTrail();
 					break;
 			}
 		}
