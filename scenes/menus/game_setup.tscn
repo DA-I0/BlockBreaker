@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://b3h1pgyhdyfg6"]
+[gd_scene load_steps=8 format=3 uid="uid://b3h1pgyhdyfg6"]
 
 [ext_resource type="Script" path="res://code/ui/UIGameSetupPanel.cs" id="1_qrg3h"]
 [ext_resource type="Shortcut" uid="uid://bhk5vranx2qfl" path="res://shortcuts/cancel.tres" id="2_c0qja"]
 [ext_resource type="Texture2D" uid="uid://dkyo1knm2xxhn" path="res://assets/sprites/ui_elements/backgrounds/ui_frame.png" id="3_xghkx"]
+[ext_resource type="Texture2D" uid="uid://djcpf6xatyjyh" path="res://assets/sprites/ui_elements/session_setting_icons/session_length.png" id="4_c4050"]
 [ext_resource type="Texture2D" uid="uid://bdnrfv0eveohj" path="res://assets/sprites/paddles/paddle_1.png" id="4_f1u0x"]
+[ext_resource type="Texture2D" uid="uid://l7mq8nojr42e" path="res://assets/sprites/ui_elements/session_setting_icons/stage_shuffle.png" id="5_lflxj"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_35ikn"]
 texture = ExtResource("3_xghkx")
@@ -12,7 +14,7 @@ texture_margin_top = 1.0
 texture_margin_right = 5.0
 region_rect = Rect2(4, 4, 12, 8)
 
-[node name="GameSetupPanel" type="Panel" node_paths=PackedStringArray("_levelGrid", "_paddleButton", "_difficultyButton", "_skillButton", "_customSettingsButton", "_customSettingsLabel", "_focusTarget", "_returnButton")]
+[node name="GameSetupPanel" type="Panel" node_paths=PackedStringArray("_levelGrid", "_paddleButton", "_difficultyButton", "_skillButton", "_customSettingsButton", "_customSettingsIcons", "_focusTarget", "_returnButton")]
 custom_minimum_size = Vector2(256, 224)
 anchors_preset = 15
 anchor_right = 1.0
@@ -29,7 +31,7 @@ _paddleButton = NodePath("MainContent/SidePanel/VBoxContainer/PaddleButton")
 _difficultyButton = NodePath("MainContent/SidePanel/VBoxContainer/DifficultyButton")
 _skillButton = NodePath("MainContent/SidePanel/VBoxContainer/SkillButton")
 _customSettingsButton = NodePath("MainContent/SidePanel/VBoxContainer/CustomSettingsButton")
-_customSettingsLabel = NodePath("MainContent/SidePanel/VBoxContainer/CustomSettingsDetailsLabel")
+_customSettingsIcons = NodePath("MainContent/SidePanel/VBoxContainer/GridContainer")
 _focusTarget = [NodePath("MainContent/SidePanel/VBoxContainer/PaddleButton")]
 _returnButton = NodePath("MainContent/SidePanel/VBoxContainer/Return")
 
@@ -61,7 +63,7 @@ offset_right = -4.0
 offset_bottom = -4.0
 
 [node name="SidePanel" type="PanelContainer" parent="MainContent"]
-custom_minimum_size = Vector2(60, 0)
+custom_minimum_size = Vector2(62, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
@@ -85,12 +87,6 @@ focus_previous = NodePath("../CustomSettingsButton")
 icon = ExtResource("4_f1u0x")
 icon_alignment = 1
 
-[node name="Spacer" type="Control" parent="MainContent/SidePanel/VBoxContainer"]
-custom_minimum_size = Vector2(0, 3)
-layout_mode = 2
-size_flags_vertical = 2
-size_flags_stretch_ratio = 0.0
-
 [node name="SkillLabel" type="Label" parent="MainContent/SidePanel/VBoxContainer"]
 layout_mode = 2
 text = "LABEL_SKILL"
@@ -103,12 +99,6 @@ focus_neighbor_bottom = NodePath("../DifficultyButton")
 focus_next = NodePath("../DifficultyButton")
 focus_previous = NodePath("../PaddleButton")
 text = "selected_diff"
-
-[node name="Spacer2" type="Control" parent="MainContent/SidePanel/VBoxContainer"]
-custom_minimum_size = Vector2(0, 3)
-layout_mode = 2
-size_flags_vertical = 0
-size_flags_stretch_ratio = 0.0
 
 [node name="DifficultyLabel" type="Label" parent="MainContent/SidePanel/VBoxContainer"]
 layout_mode = 2
@@ -123,10 +113,6 @@ focus_next = NodePath("../CustomSettingsButton")
 focus_previous = NodePath("../SkillButton")
 text = "selected_diff"
 
-[node name="Spacer3" type="Control" parent="MainContent/SidePanel/VBoxContainer"]
-custom_minimum_size = Vector2(0, 3)
-layout_mode = 2
-
 [node name="CustomSettingsLabel" type="Label" parent="MainContent/SidePanel/VBoxContainer"]
 layout_mode = 2
 text = "LABEL_CUSTOM_SESSION"
@@ -140,10 +126,40 @@ focus_next = NodePath("../PaddleButton")
 focus_previous = NodePath("../DifficultyButton")
 text = "BUTTON_OPEN"
 
-[node name="CustomSettingsDetailsLabel" type="Label" parent="MainContent/SidePanel/VBoxContainer"]
+[node name="GridContainer" type="GridContainer" parent="MainContent/SidePanel/VBoxContainer"]
 layout_mode = 2
+columns = 3
 
-[node name="Spacer6" type="Control" parent="MainContent/SidePanel/VBoxContainer"]
+[node name="SessionLength" type="TextureRect" parent="MainContent/SidePanel/VBoxContainer/GridContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("4_c4050")
+
+[node name="StageCount" type="Label" parent="MainContent/SidePanel/VBoxContainer/GridContainer/SessionLength"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "6"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="ShuffleStages" type="TextureRect" parent="MainContent/SidePanel/VBoxContainer/GridContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("5_lflxj")
+
+[node name="Spacer" type="Control" parent="MainContent/SidePanel/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 10
 
@@ -158,7 +174,7 @@ shortcut = ExtResource("2_c0qja")
 shortcut_in_tooltip = false
 text = "BUTTON_RETURN"
 
-[node name="Spacer5" type="Control" parent="MainContent/SidePanel/VBoxContainer"]
+[node name="Spacer2" type="Control" parent="MainContent/SidePanel/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 8
 

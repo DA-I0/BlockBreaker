@@ -10,7 +10,7 @@ namespace BoGK.UI
 		[Export] private Button _difficultyButton;
 		[Export] private Button _skillButton;
 		[Export] private Button _customSettingsButton;
-		[Export] private Label _customSettingsLabel;
+		[Export] private Node _customSettingsIcons;
 
 		private int _lastActivePanel = -1;
 
@@ -127,17 +127,10 @@ namespace BoGK.UI
 
 		private void UpdateSessionCustomization()
 		{
-			_customSettingsLabel.Text = string.Empty;
+			_customSettingsIcons.GetChild<Control>(0).Visible = (refs.SessionLength > 0);
+			_customSettingsIcons.GetChild(0).GetChild<Label>(0).Text = refs.SessionLength.ToString();
 
-			if (refs.SessionLength > 0)
-			{
-				_customSettingsLabel.Text += $"{Tr("LABEL_SESSION_LENGTH")}: {refs.SessionLength}\n";
-			}
-
-			if (refs.ShuffleStages)
-			{
-				_customSettingsLabel.Text += $"{Tr("LABEL_SHUFFLE_STAGES")}\n";
-			}
+			_customSettingsIcons.GetChild<Control>(1).Visible = refs.ShuffleStages;
 		}
 
 		private void DisplayPaddlePanel()
