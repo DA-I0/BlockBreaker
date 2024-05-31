@@ -79,7 +79,15 @@ namespace BoGK.UI
 				string playerName = (_name.Text == string.Empty) ? Tr(_name.PlaceholderText) : _name.Text;
 				string difficultyName = refs.SelectedDifficulty.DifficultyName;
 
-				Models.HighScore playerScore = new Models.HighScore(playerName, difficultyName, refs.gameScore.CurrentScore, refs.IsCustomDifficultySelected);
+				Models.HighScore playerScore = new Models.HighScore(
+					playerName, difficultyName,
+					refs.gameScore.CurrentScore,
+					refs.IsCustomDifficultySelected,
+					(refs.SessionLength > 0),
+					refs.ShuffleStages,
+					refs.DisablePickups,
+					refs.DisappearingBall);
+
 				refs.gameData.AddScoreToLeaderboard(playerScore);
 			}
 

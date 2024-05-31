@@ -92,6 +92,10 @@ namespace BoGK.GameSystem
 				leaderboard[index].DifficultyName = (string)leaderboardFile.GetValue(player, "difficulty");
 				leaderboard[index].Score = (int)leaderboardFile.GetValue(player, "score");
 				leaderboard[index].UsedCustomDifficulty = (bool)leaderboardFile.GetValue(player, "usedCustomDifficulty");
+				leaderboard[index].UsedCustomSessionLenght = (bool)leaderboardFile.GetValue(player, "usedCustomSessionLenght", false);
+				leaderboard[index].UsedStageShuffle = (bool)leaderboardFile.GetValue(player, "usedStageShuffle", false);
+				leaderboard[index].UsedDisablePickups = (bool)leaderboardFile.GetValue(player, "usedDisablePickups", false);
+				leaderboard[index].UsedDisappearingBall = (bool)leaderboardFile.GetValue(player, "usedCustomDifficulty", false);
 				index++;
 			}
 
@@ -108,6 +112,10 @@ namespace BoGK.GameSystem
 				leaderboardFile.SetValue($"Player_{index}", "difficulty", leaderboard[index].DifficultyName);
 				leaderboardFile.SetValue($"Player_{index}", "score", leaderboard[index].Score);
 				leaderboardFile.SetValue($"Player_{index}", "usedCustomDifficulty", leaderboard[index].UsedCustomDifficulty);
+				leaderboardFile.SetValue($"Player_{index}", "usedCustomSessionLenght", leaderboard[index].UsedCustomSessionLenght);
+				leaderboardFile.SetValue($"Player_{index}", "usedStageShuffle", leaderboard[index].UsedStageShuffle);
+				leaderboardFile.SetValue($"Player_{index}", "usedDisablePickups", leaderboard[index].UsedDisablePickups);
+				leaderboardFile.SetValue($"Player_{index}", "usedDisappearingBall", leaderboard[index].UsedDisappearingBall);
 			}
 
 			leaderboardFile.SaveEncryptedPass(ProjectSettings.GetSetting("global/CustomLeaderboardFilePath").ToString(), ProjectSettings.GetSetting("global/EncryptionPassword").ToString());
