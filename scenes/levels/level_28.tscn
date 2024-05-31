@@ -308,7 +308,7 @@ position = Vector2(-56, -22)
 _state = 1
 _movementType = 1
 _path = [NodePath("../../PathMarkers/PathNode2"), NodePath("../../PathMarkers/PathNode")]
-_movementTimer = NodePath("Timer")
+_movementTimer = NodePath("MovementTimer")
 _animator = NodePath("Animator")
 _invulnerabilityTimer = NodePath("DamageTimer")
 
@@ -317,7 +317,7 @@ position = Vector2(56, -59)
 _state = 1
 _movementType = 1
 _path = [NodePath("../../PathMarkers/PathNode3"), NodePath("../../PathMarkers/PathNode4")]
-_movementTimer = NodePath("Timer")
+_movementTimer = NodePath("MovementTimer")
 _animator = NodePath("Animator")
 _invulnerabilityTimer = NodePath("DamageTimer")
 
