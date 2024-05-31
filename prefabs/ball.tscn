@@ -216,6 +216,7 @@ width = 8.0
 width_curve = SubResource("Curve_cy1tt")
 gradient = SubResource("Gradient_4yhjv")
 joint_mode = 1
+end_cap_mode = 2
 
 [node name="SpeedParticles" type="CPUParticles2D" parent="."]
 z_index = -1

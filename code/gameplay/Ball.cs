@@ -434,6 +434,7 @@ namespace BoGK.Gameplay
 				}
 
 				Modulate = new Color(1f, 1f, 1f, newTransparency);
+				_speedTrail.Modulate = new Color(1f, 1f, 1f, newTransparency);
 			}
 		}
 
