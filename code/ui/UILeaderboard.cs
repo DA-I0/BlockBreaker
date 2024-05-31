@@ -34,9 +34,12 @@ namespace BoGK.UI
 
 		private void ConstructHighScoreEntry(Models.HighScore entry, int position)
 		{
-			Control scoreEntry = new Control
+			TextureRect scoreEntry = new TextureRect
 			{
-				CustomMinimumSize = new Vector2(0, 12)
+				CustomMinimumSize = new Vector2(0, 12),
+				ExpandMode = TextureRect.ExpandModeEnum.IgnoreSize,
+				SelfModulate = new Color(0f, 0f, 0f, 0.05f),
+				Texture = ResourceLoader.Load<Texture2D>($"res://assets/sprites/game_area.png")
 			};
 
 			// Name and diff
@@ -47,6 +50,7 @@ namespace BoGK.UI
 				AnchorRight = 0.5f,
 				AnchorTop = 0,
 				AnchorBottom = 1,
+				OffsetLeft = 5,
 				Text = $"{position}. {entry.PlayerName} ({difficulty})\n",
 				VerticalAlignment = VerticalAlignment.Center,
 				GrowVertical = GrowDirection.Both
@@ -58,10 +62,13 @@ namespace BoGK.UI
 			HBoxContainer iconContainer = new HBoxContainer
 			{
 				AnchorLeft = 0.5f,
+				AnchorTop = 0.5f,
 				AnchorRight = 0.8f,
-				Name = $"{entry.PlayerName}SessionIcons",
-				CustomMinimumSize = new Vector2(0, 16),
-				Alignment = BoxContainer.AlignmentMode.End
+				AnchorBottom = 0.5f,
+				GrowVertical = GrowDirection.Both,
+				CustomMinimumSize = new Vector2(0, 12),
+				Alignment = BoxContainer.AlignmentMode.End,
+				Name = $"{entry.PlayerName}SessionIcons"
 			};
 
 			if (entry.UsedCustomSessionLenght)
@@ -93,6 +100,7 @@ namespace BoGK.UI
 				AnchorTop = 0,
 				AnchorRight = 1f,
 				AnchorBottom = 1,
+				OffsetRight = -5,
 				Text = $"{entry.Score}",
 				HorizontalAlignment = HorizontalAlignment.Right,
 				VerticalAlignment = VerticalAlignment.Center,
@@ -109,9 +117,9 @@ namespace BoGK.UI
 			return new TextureRect
 			{
 				CustomMinimumSize = new Vector2(8, 8),
+				SizeFlagsVertical = SizeFlags.ShrinkCenter,
 				StretchMode = TextureRect.StretchModeEnum.KeepAspect,
 				ExpandMode = TextureRect.ExpandModeEnum.IgnoreSize,
-				Scale = new Vector2(0.5f, 0.5f),
 				Texture = ResourceLoader.Load<Texture2D>($"{ProjectSettings.GetSetting("global/CustomSessionIconsFilePath")}/{iconName}.png")
 			};
 		}
