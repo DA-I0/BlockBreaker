@@ -13,6 +13,8 @@ namespace BoGK.UI
 
 		protected override void UpdateDisplayedValues()
 		{
+			ClearOldEntries();
+
 			int position = 1;
 
 			foreach (Models.HighScore entry in refs.gameData.Leaderboard)
