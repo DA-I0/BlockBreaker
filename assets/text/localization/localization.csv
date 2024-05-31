@@ -42,7 +42,7 @@ DIFF_PADDLE_SIZE_START,Starting paddle size,Anfängliche Schlägergröße,初期
 DIFF_PICKUP_SPEED,Pickup speed,Aufnehmen Geschwindigkeit,拾うスピード,Prędkośc znajdziek
 DISCLAIMER_CUSTOM_DIFF,* Custom difficulty,,,* Własny poziom trudności
 DISCLAIMER_SWITCH_CONTROL_HINT,* Press {ui_focus_prev}/{ui_focus_next} to switch between settings.,,,
-DISCLAIMER_SWITCH_FOCUS_HINT,* Press {ui_toggle_focus} to switch between panels.,,,
+DISCLAIMER_SWITCH_FOCUS_HINT,[right]* Press {ui_toggle_focus} to switch between panels.[/right],,,
 DISCLAIMER_SWITCH_FOCUS_SHORT_HINT,{ui_toggle_focus},{ui_toggle_focus},{ui_toggle_focus},{ui_toggle_focus}
 GAME_LIVES,Remaining lives,Verbleibende Leben,残りのライフ,Pozostałe życia
 GAME_OVER,Game over!,Spiel vorbei!,ゲームオーバー！,Koniec gry!
