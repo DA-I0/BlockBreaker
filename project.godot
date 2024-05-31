@@ -23,11 +23,11 @@ boot_splash/minimum_display_time=120
 
 [display]
 
-window/size/viewport_width=1280
-window/size/viewport_height=1120
+window/size/viewport_width=1024
+window/size/viewport_height=896
 window/size/mode=3
 window/stretch/mode="canvas_items"
-window/stretch/scale=5.0
+window/stretch/scale=4.0
 window/vsync/vsync_mode=2
 
 [dotnet]
