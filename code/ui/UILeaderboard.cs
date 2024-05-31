@@ -19,8 +19,7 @@ namespace BoGK.UI
 
 			foreach (Models.HighScore entry in refs.gameData.Leaderboard)
 			{
-				GenerateCustomSessionIcons(entry, position);
-
+				ConstructHighScoreEntry(entry, position);
 				position++;
 			}
 		}
@@ -33,7 +32,7 @@ namespace BoGK.UI
 			}
 		}
 
-		private void GenerateCustomSessionIcons(Models.HighScore entry, int position)
+		private void ConstructHighScoreEntry(Models.HighScore entry, int position)
 		{
 			Control scoreEntry = new Control
 			{
