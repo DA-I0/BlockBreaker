@@ -53,6 +53,7 @@ namespace BoGK.UI
 			refs.SkillReady += DisplaySkillIcon;
 			refs.SkillUsed += HideSkillIcon;
 			refs.gameScore.ScoreChanged += UpdateScore;
+			refs.gameScore.StageCleared += DisplayExitPrompt;
 			refs.gameScore.TimerStart += DisplayExitTimer;
 			refs.gameScore.ExitTimer.Timeout += DisplayExitPrompt;
 			refs.health.LifeChanged += UpdateLives;
@@ -134,6 +135,11 @@ namespace BoGK.UI
 			{
 				_exitPrompt.Visible = true;
 			}
+		}
+
+		private void DisplayExitPrompt(int score, int scoreMultiplier, int timeLeft, int enemyClearBonus, int perfectClearBonus)
+		{
+			DisplayExitPrompt();
 		}
 
 		private void UpdateTimer()
