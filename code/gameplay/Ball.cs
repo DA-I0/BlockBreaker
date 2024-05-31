@@ -433,8 +433,9 @@ namespace BoGK.Gameplay
 					newTransparency = 0.01f;
 				}
 
-				Modulate = new Color(1f, 1f, 1f, newTransparency);
+				_sprite.Modulate = new Color(1f, 1f, 1f, newTransparency);
 				_speedTrail.Modulate = new Color(1f, 1f, 1f, newTransparency);
+				_particles.Modulate = new Color(1f, 1f, 1f, newTransparency);
 			}
 		}
 
