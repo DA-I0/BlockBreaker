@@ -27,7 +27,6 @@ namespace BoGK.Gameplay
 		public event ScoreNotification ScoreChanged;
 		public event StageClearScoreNotification StageCleared;
 		public event Notification TimerStart;
-		public event Notification TimerEnd;
 
 		public int CurrentScore
 		{
@@ -42,6 +41,11 @@ namespace BoGK.Gameplay
 		public int TimeLeft
 		{
 			get { return (int)_exitTimer.TimeLeft; }
+		}
+
+		public Timer ExitTimer
+		{
+			get { return _exitTimer; }
 		}
 
 		public void Cleanup()
@@ -82,7 +86,6 @@ namespace BoGK.Gameplay
 			int timeLeft = TimeLeft;
 			ChangeScore(TimeLeft, false);
 			_exitTimer.Stop();
-			TimerEnd?.Invoke();
 
 			int currentEnemyBonus = 0;
 			int currentPerfectBonus = 0;

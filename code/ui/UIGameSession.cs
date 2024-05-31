@@ -29,7 +29,21 @@ namespace BoGK.UI
 		{
 			if (_exitPrompt.Visible && @event.IsActionReleased("game_play"))
 			{
-				refs.AdvanceCurrentLevel();
+				if (!refs.settings.StageClearScreen)
+				{
+					refs.gameScore.AddBonusScore();
+					refs.AdvanceCurrentLevel();
+					return;
+				}
+
+				if (!_stageClearPrompt.Visible)
+				{
+					refs.gameScore.AddBonusScore();
+				}
+				else
+				{
+					refs.AdvanceCurrentLevel();
+				}
 			}
 		}
 
@@ -40,7 +54,7 @@ namespace BoGK.UI
 			refs.SkillUsed += HideSkillIcon;
 			refs.gameScore.ScoreChanged += UpdateScore;
 			refs.gameScore.TimerStart += DisplayExitTimer;
-			refs.gameScore.TimerEnd += DisplayExitPrompt;
+			refs.gameScore.ExitTimer.Timeout += DisplayExitPrompt;
 			refs.health.LifeChanged += UpdateLives;
 			refs.levelManager.ResetSession += HideGameStateUI;
 			refs.levelManager.SceneChanged += DisplayGameStateUI;
