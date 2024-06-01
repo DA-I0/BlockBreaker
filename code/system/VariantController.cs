@@ -1,30 +1,37 @@
 using Godot;
 
-public enum Variant { none, basic, garden };
+public enum Variant { basic, room, garden };
 
-public partial class VariantController : Node2D
+namespace BoGK.GameSystem
 {
-	[Export] private Variant _variant;
-	[Export] private Sprite2D[] _sprites;
-
-	public override void _Ready()
+	public partial class VariantController : Node2D
 	{
-		ApplyVariant();
-	}
+		[Export] private Variant _variant;
+		[Export] private Sprite2D[] _sprites;
 
-	protected void ApplyVariant()
-	{
-		if (_variant == Variant.none)
+		protected SessionController refs;
+
+		public override void _Ready()
 		{
-			return;
+			refs = GetNode<SessionController>("/root/GameController");
+			ApplyVariant();
 		}
 
-		foreach (Sprite2D sprite in _sprites)
+		protected void ApplyVariant()
 		{
-			string spritePath = sprite.Texture.ResourcePath;
-			string oldSpriteVariant = spritePath.Split("_")[^1];
-			spritePath = spritePath.Replace(oldSpriteVariant, $"{_variant}.png");
-			sprite.Texture = ResourceLoader.Load<Texture2D>(spritePath);
+			foreach (Sprite2D sprite in _sprites)
+			{
+				string spritePath = HelperMethods.ReplaceSpritePalettePath(sprite.Texture.ResourcePath, refs.settings.InteractableColorPalette);
+				string defaultSpriteVariant = spritePath.Split("_")[^1];
+				string customSpritePath = spritePath.Replace(defaultSpriteVariant, $"{_variant}.png");
+
+				if (ResourceLoader.Exists(customSpritePath))
+				{
+					spritePath = customSpritePath;
+				}
+
+				sprite.Texture = ResourceLoader.Load<Texture2D>(spritePath);
+			}
 		}
 	}
 }

@@ -1,47 +1,50 @@
+using BoGK.GameSystem;
 using Godot;
 
-public partial class LevelExit : VariantController
+namespace BoGK.Gameplay
 {
-	private bool _isActive = false;
-
-	[Export] private AnimationPlayer _animator;
-
-	private Node _blockParent;
-	protected SessionController refs;
-
-	public override void _Ready()
+	public partial class LevelExit : VariantController
 	{
-		ApplyVariant();
+		private bool _isActive = false;
 
-		_blockParent = GetNode("../Blocks");
-		_blockParent.ChildExitingTree += CheckLevelProgress;
-		refs = GetNode<SessionController>("/root/GameController");
+		[Export] private AnimationPlayer _animator;
 
-		UpdateLevelExit();
-	}
+		private Node _blockParent;
 
-	private void OnBodyEntered(Node2D body)
-	{
-		if ((Ball)body != null)
+		public override void _Ready()
 		{
-			refs.gameScore.AddBonusScore();
+			refs = GetNode<SessionController>("/root/GameController");
+			ApplyVariant();
+
+			_blockParent = GetNode("../Blocks");
+			_blockParent.ChildExitingTree += CheckLevelProgress;
+
+			UpdateLevelExit();
 		}
-	}
 
-	private void CheckLevelProgress(Node node)
-	{
-		_isActive = _blockParent.GetChildCount() == 1;
-		UpdateLevelExit();
-	}
-
-	private void UpdateLevelExit()
-	{
-		string state = _isActive ? "idle_enabled" : "idle_disabled";
-		_animator.Play(state);
-
-		if (_isActive)
+		private void OnBodyEntered(Node2D body)
 		{
-			refs.gameScore.InvokeExitTimer();
+			if ((Ball)body != null)
+			{
+				refs.gameScore.AddBonusScore();
+			}
+		}
+
+		private void CheckLevelProgress(Node node)
+		{
+			_isActive = _blockParent.GetChildCount() == 1;
+			UpdateLevelExit();
+		}
+
+		private void UpdateLevelExit()
+		{
+			string state = _isActive ? "idle_enabled" : "idle_disabled";
+			_animator.Play(state);
+
+			if (_isActive)
+			{
+				refs.gameScore.InvokeExitTimer();
+			}
 		}
 	}
 }

@@ -7,11 +7,11 @@ namespace BoGK.UI
 		[Export] private Label _levelName;
 		[Export] private AnimationPlayer _animator;
 
-		private SessionController refs;
+		private GameSystem.SessionController refs;
 
 		public override void _Ready()
 		{
-			refs = GetNode<SessionController>("/root/GameController");
+			refs = GetNode<GameSystem.SessionController>("/root/GameController");
 			refs.levelManager.SceneChangedWithInfo += Display;
 		}
 

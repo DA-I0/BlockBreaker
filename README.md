@@ -4,7 +4,7 @@ Simple, SNES inspired block breaker game.
 *"Blockade of Gopher Keep" can be downloaded for free on [itch.io](https://da-i0.itch.io/blockade-of-gopher-keep).*
 
 ## Features:
-- 30 levels
+- 36 levels
 - 6 paddles
 - 4 skills
 - 12 pickups
@@ -14,9 +14,9 @@ Simple, SNES inspired block breaker game.
 
 ## Known issues:
 - some UI layout issues when using OpenDyslexic font
-- no on-screen keyboard for textboxes when using a controller
-- ball bounce animation appears frozen when triggered too often
-- [Steam Deck] random frame spikes
+- no on-screen keyboard for text boxes when using a controller
+- random frame spikes
+- CRT filter doesn't affect option selection
 - continuous lack of gophers
 
 ## Credits
@@ -29,3 +29,4 @@ Simple, SNES inspired block breaker game.
   - various tracks by [TipTopTomCat](https://tiptoptomcat.itch.io/)
   - ["beam" by sinneslöschen](https://pixabay.com/users/sinneschl%C3%B6sen-1888724/)
   - ["Ancestral" by RatticusVile](https://ratticusvile.itch.io/digdeep)
+- [CRT Shader by zuwiwano](https://godotshaders.com/shader/crt-shader-2/)

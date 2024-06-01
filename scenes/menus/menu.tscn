@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://2bhhrfvm7kux"]
+[gd_scene load_steps=13 format=3 uid="uid://2bhhrfvm7kux"]
 
-[ext_resource type="Script" path="res://code/ui/UIController.cs" id="1_5bop1"]
+[ext_resource type="Script" path="res://code/ui/UIControler.cs" id="1_5bop1"]
 [ext_resource type="PackedScene" uid="uid://drfe6ou5jke8d" path="res://scenes/menus/leaderboard_panel.tscn" id="2_faxfe"]
 [ext_resource type="PackedScene" uid="uid://b2pir58gb6mba" path="res://scenes/menus/paddle_panel.tscn" id="3_nju35"]
 [ext_resource type="PackedScene" uid="uid://bxrvi55amlhny" path="res://scenes/menus/difficulty_panel.tscn" id="4_4tq2l"]
+[ext_resource type="PackedScene" uid="uid://h7igipx5q2nn" path="res://scenes/menus/custom_settings_panel.tscn" id="6_4weu7"]
 [ext_resource type="PackedScene" uid="uid://d2lh5jna47ms" path="res://scenes/menus/info_panel.tscn" id="7_1to6h"]
 [ext_resource type="PackedScene" uid="uid://d1ubicvpl60sr" path="res://scenes/menus/patch_notes_panel.tscn" id="8_e7mht"]
 [ext_resource type="PackedScene" uid="uid://ier2relg61ni" path="res://scenes/menus/options_panel.tscn" id="9_v0j1q"]
@@ -83,7 +84,7 @@ offset_right = -5.0
 offset_bottom = -6.0
 alignment = 2
 
-[node name="Play" type="Button" parent="Control/MenuButtons"]
+[node name="GameSetup" type="Button" parent="Control/MenuButtons"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../Exit")
 focus_neighbor_bottom = NodePath("../Leaderboard")
@@ -93,10 +94,10 @@ text = "BUTTON_PLAY"
 
 [node name="Leaderboard" type="Button" parent="Control/MenuButtons"]
 layout_mode = 2
-focus_neighbor_top = NodePath("../Play")
+focus_neighbor_top = NodePath("../GameSetup")
 focus_neighbor_bottom = NodePath("../Info")
 focus_next = NodePath("../Info")
-focus_previous = NodePath("../Play")
+focus_previous = NodePath("../GameSetup")
 text = "BUTTON_LEADERBOARD"
 
 [node name="Info" type="Button" parent="Control/MenuButtons"]
@@ -122,10 +123,24 @@ text = "BUTTON_OPTIONS"
 [node name="Exit" type="Button" parent="Control/MenuButtons"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../Options")
-focus_neighbor_bottom = NodePath("../Play")
-focus_next = NodePath("../Play")
+focus_neighbor_bottom = NodePath("../GameSetup")
+focus_next = NodePath("../GameSetup")
 focus_previous = NodePath("../Options")
 text = "BUTTON_EXIT"
+
+[node name="GameSetupPanel" parent="Control" node_paths=PackedStringArray("_levelGrid", "_paddleButton", "_difficultyButton", "_skillButton", "_customSettingsButton", "_customSettingsIcons", "uiController", "_focusTarget", "_returnButton") instance=ExtResource("31_xmcps")]
+layout_mode = 1
+offset_right = 0.0
+offset_bottom = 0.0
+_levelGrid = NodePath("MainContent/LevelsContainer/Levels")
+_paddleButton = NodePath("MainContent/SidePanel/VBoxContainer/PaddleButton")
+_difficultyButton = NodePath("MainContent/SidePanel/VBoxContainer/DifficultyButton")
+_skillButton = NodePath("MainContent/SidePanel/VBoxContainer/SkillButton")
+_customSettingsButton = NodePath("MainContent/SidePanel/VBoxContainer/CustomSettingsButton")
+_customSettingsIcons = NodePath("MainContent/SidePanel/VBoxContainer/GridContainer")
+uiController = NodePath("../..")
+_focusTarget = [NodePath("MainContent/SidePanel/VBoxContainer/PaddleButton")]
+_returnButton = NodePath("MainContent/SidePanel/VBoxContainer/Return")
 
 [node name="LeaderboardPanel" parent="Control" node_paths=PackedStringArray("_playerNames", "_playerScore", "uiController", "_returnButton") instance=ExtResource("2_faxfe")]
 layout_mode = 1
@@ -133,6 +148,37 @@ grow_horizontal = 2
 grow_vertical = 2
 _playerNames = NodePath("PlayerNames")
 _playerScore = NodePath("PlayerScore")
+uiController = NodePath("../..")
+_returnButton = NodePath("Return")
+
+[node name="InfoPanel" parent="Control" node_paths=PackedStringArray("uiController", "_focusTarget", "_returnButton") instance=ExtResource("7_1to6h")]
+layout_mode = 1
+grow_horizontal = 2
+grow_vertical = 2
+uiController = NodePath("../..")
+_focusTarget = [NodePath("ScrollContainer")]
+_returnButton = NodePath("Return")
+_returnTarget = ""
+
+[node name="PatchNotesPanel" parent="Control" node_paths=PackedStringArray("_content", "uiController", "_focusTarget", "_returnButton") instance=ExtResource("8_e7mht")]
+layout_mode = 1
+grow_horizontal = 2
+grow_vertical = 2
+_content = NodePath("PatchNotesScrollContainer/PatchNotesContent")
+uiController = NodePath("../..")
+_focusTarget = [NodePath("PatchNotesScrollContainer")]
+_returnButton = NodePath("Return")
+_returnTarget = ""
+
+[node name="OptionsPanel" parent="Control" node_paths=PackedStringArray("_header", "_categoryPanels", "_previousCategoryShortuct", "_nextCategoryShortuct", "_confirmationPrompt", "uiController", "_returnButton") instance=ExtResource("9_v0j1q")]
+layout_mode = 1
+grow_horizontal = 2
+grow_vertical = 2
+_header = NodePath("HeaderPanel/HeaderLabel")
+_categoryPanels = NodePath("CategoryPanels")
+_previousCategoryShortuct = NodePath("CategoryButtons/PreviousShortcut")
+_nextCategoryShortuct = NodePath("CategoryButtons/NextShortcut")
+_confirmationPrompt = NodePath("SettingsSavedPrompt")
 uiController = NodePath("../..")
 _returnButton = NodePath("Return")
 
@@ -194,78 +240,19 @@ _paginatorParent = NodePath("ItemPaginator")
 uiController = NodePath("../..")
 _returnButton = NodePath("Return")
 
-[node name="GameSetupPanel" parent="Control" node_paths=PackedStringArray("_levelGrid", "_paddleButton", "_difficultyButton", "_skillButton", "uiController", "_focusTarget", "_returnButton") instance=ExtResource("31_xmcps")]
-layout_mode = 1
-offset_right = 0.0
-offset_bottom = 0.0
-_levelGrid = NodePath("MainContent/LevelsContainer/Levels")
-_paddleButton = NodePath("MainContent/SidePanel/VBoxContainer/PaddleButton")
-_difficultyButton = NodePath("MainContent/SidePanel/VBoxContainer/DifficultyButton")
-_skillButton = NodePath("MainContent/SidePanel/VBoxContainer/SkillButton")
+[node name="CustomSettingsPanel" parent="Control" node_paths=PackedStringArray("_customSessionLengthButton", "_sessionLengthLabel", "_sessionLengthSlider", "_shuffleStagesButton", "_disablePickupsButton", "_disappearingBallButton", "uiController", "_focusTarget", "_returnButton") instance=ExtResource("6_4weu7")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+_customSessionLengthButton = NodePath("Options/CustomSessionLength/CustomSessionLengthCheckButton")
+_sessionLengthLabel = NodePath("Options/CustomStageCount/CustomStageCountLabel")
+_sessionLengthSlider = NodePath("Options/CustomStageCount/CustomStageCountSlider")
+_shuffleStagesButton = NodePath("Options/ShuffleStages/ShuffleStagesCheckButton")
+_disablePickupsButton = NodePath("Options/DisablePickups/DisablePickupsCheckButton")
+_disappearingBallButton = NodePath("Options/DisappearingBall/DisappearingBallCheckButton")
 uiController = NodePath("../..")
-_focusTarget = [NodePath("MainContent/SidePanel/VBoxContainer/PaddleButton")]
-_returnButton = NodePath("MainContent/SidePanel/VBoxContainer/Return")
-
-[node name="InfoPanel" parent="Control" node_paths=PackedStringArray("uiController", "_focusTarget", "_returnButton") instance=ExtResource("7_1to6h")]
-layout_mode = 1
-grow_horizontal = 2
-grow_vertical = 2
-uiController = NodePath("../..")
-_focusTarget = [NodePath("ScrollContainer")]
-_returnButton = NodePath("Return")
-_returnTarget = ""
-
-[node name="PatchNotesPanel" parent="Control" node_paths=PackedStringArray("_content", "uiController", "_focusTarget", "_returnButton") instance=ExtResource("8_e7mht")]
-layout_mode = 1
-grow_horizontal = 2
-grow_vertical = 2
-_content = NodePath("PatchNotesScrollContainer/PatchNotesContent")
-uiController = NodePath("../..")
-_focusTarget = [NodePath("PatchNotesScrollContainer")]
-_returnButton = NodePath("Return")
-_returnTarget = ""
-
-[node name="OptionsPanel" parent="Control" node_paths=PackedStringArray("_header", "_language", "_font", "_controllerType", "_livesDisplay", "_stageClearDisplay", "_controlDevices", "_fullscreen", "_screenShake", "_pickupOrder", "_backgroundBrightnessText", "_backgroundBrightness", "_helperTransparencyText", "_helperTransparency", "_brekableVariantContainer", "_colorPickerPanel", "_masterVolumeText", "_masterVolume", "_musicVolumeText", "_musicVolume", "_effectsVolumeText", "_effectsVolume", "_keybindChangePanel", "_mouseSpeedText", "_mouseSpeed", "_keyboardSpeedText", "_keyboardSpeed", "_joypadSpeedText", "_joypadSpeed", "_activeJoypad", "_vibrations", "_previousCategoryShortuct", "_nextCategoryShortuct", "_categoryFocusTargets", "_confirmationPrompt", "uiController", "_focusTarget", "_returnButton") instance=ExtResource("9_v0j1q")]
-layout_mode = 1
-grow_horizontal = 2
-grow_vertical = 2
-_header = NodePath("HeaderPanel/HeaderLabel")
-_language = NodePath("GeneralOptions/Options/LanguageSetting/LanguageOptions")
-_font = NodePath("GeneralOptions/Options/FontSetting/FontOptions")
-_controllerType = NodePath("GeneralOptions/Options/UIControlsSetting/UIControlsOptions")
-_livesDisplay = NodePath("GeneralOptions/Options/LivesDisplaySetting/LivesDisplayToggle")
-_stageClearDisplay = NodePath("GeneralOptions/Options/StageClearDisplaySetting/StageClearDisplayToggle")
-_controlDevices = NodePath("ControlOptions/Options")
-_fullscreen = NodePath("VideoOptions/Options/FullscreenSetting/FullscreenToggle")
-_screenShake = NodePath("VideoOptions/Options/ScreenShakeSetting/ScreenShakeToggle")
-_pickupOrder = NodePath("VideoOptions/Options/PickupSetting/PickupOptions")
-_backgroundBrightnessText = NodePath("VideoOptions/Options/BackgroundSetting/HBoxContainer/BackgroundValue")
-_backgroundBrightness = NodePath("VideoOptions/Options/BackgroundSetting/BackgroundSlider")
-_helperTransparencyText = NodePath("VideoOptions/Options/EffectsTransparencySetting/EffectsTransparencyText/EffectsTransparencyValue")
-_helperTransparency = NodePath("VideoOptions/Options/EffectsTransparencySetting/EffectsTransparencySlider")
-_brekableVariantContainer = NodePath("VideoOptions/Options/BreakableVariantSetting")
-_colorPickerPanel = NodePath("ColorPickerPanel")
-_masterVolumeText = NodePath("AudioOptions/Options/MasterVolumeSetting/MasterVolumeText/MasterVolumeValue")
-_masterVolume = NodePath("AudioOptions/Options/MasterVolumeSetting/MasterVolumeSlider")
-_musicVolumeText = NodePath("AudioOptions/Options/MusicVolumeSetting/MusicVolumeText/MusicVolumeValue")
-_musicVolume = NodePath("AudioOptions/Options/MusicVolumeSetting/MusicVolumeSlider")
-_effectsVolumeText = NodePath("AudioOptions/Options/EffectsVolumeSetting/EffectsVolumeText/EffectsVolumeValue")
-_effectsVolume = NodePath("AudioOptions/Options/EffectsVolumeSetting/EffectsVolumeSlider")
-_keybindChangePanel = NodePath("../../KeybindChangePanel")
-_mouseSpeedText = NodePath("ControlOptions/Options/MouseSettings/Mouse/MouseSpeedSetting/MouseSpeedText/MouseSpeedValue")
-_mouseSpeed = NodePath("ControlOptions/Options/MouseSettings/Mouse/MouseSpeedSetting/MouseSpeedSlider")
-_keyboardSpeedText = NodePath("ControlOptions/Options/KeyboardSettings/Keyboard/KeyboardSpeedSetting/KeyboardSpeedText/KeyboardSpeedValue")
-_keyboardSpeed = NodePath("ControlOptions/Options/KeyboardSettings/Keyboard/KeyboardSpeedSetting/KeyboardSpeedSlider")
-_joypadSpeedText = NodePath("ControlOptions/Options/JoypadSettings/Joypad/ControllerSpeedSetting/ControllerSpeedText/ControllerSpeedValue")
-_joypadSpeed = NodePath("ControlOptions/Options/JoypadSettings/Joypad/ControllerSpeedSetting/ControllerSpeedSlider")
-_activeJoypad = NodePath("ControlOptions/Options/JoypadSettings/Joypad/ActiveController/ActiveGamepadOptions")
-_vibrations = NodePath("ControlOptions/Options/JoypadSettings/Joypad/VibrationSetting/VibrationToggle")
-_previousCategoryShortuct = NodePath("CategoryButtons/PreviousShortcut")
-_nextCategoryShortuct = NodePath("CategoryButtons/NextShortcut")
-_categoryFocusTargets = [NodePath("GeneralOptions/Options/LanguageSetting/LanguageOptions"), NodePath("VideoOptions/Options/FullscreenSetting/FullscreenToggle"), NodePath("AudioOptions/Options/MasterVolumeSetting/MasterVolumeSlider"), NodePath("ControlOptions/Options/MouseSettings/ToggleButton")]
-_confirmationPrompt = NodePath("SettingsSavedPrompt")
-uiController = NodePath("../..")
-_focusTarget = [NodePath("GeneralOptions/Options/LanguageSetting/LanguageOptions"), NodePath("OptionsButtons/Confirm")]
+_focusTarget = [NodePath("Options/CustomSessionLength/CustomSessionLengthCheckButton"), NodePath("ConfirmSettings")]
 _returnButton = NodePath("Return")
 
 [node name="LangSelection" parent="." instance=ExtResource("41_j8o0y")]
@@ -276,7 +263,7 @@ layout_mode = 2
 visible = false
 layout_mode = 2
 
-[connection signal="pressed" from="Control/MenuButtons/Play" to="." method="TogglePanel" binds= ["GameSetupPanel"]]
+[connection signal="pressed" from="Control/MenuButtons/GameSetup" to="." method="TogglePanel" binds= ["GameSetupPanel"]]
 [connection signal="pressed" from="Control/MenuButtons/Leaderboard" to="." method="TogglePanel" binds= ["LeaderboardPanel"]]
 [connection signal="pressed" from="Control/MenuButtons/Info" to="." method="TogglePanel" binds= ["InfoPanel"]]
 [connection signal="pressed" from="Control/MenuButtons/PatchNotes" to="." method="TogglePanel" binds= ["PatchNotesPanel"]]

@@ -1,11 +1,14 @@
 using Godot;
 
-public partial class ChangeLifes : Pickup
+namespace BoGK.Gameplay
 {
-	[Export] private int _amount = 1;
-
-	protected override void ApplyPickup()
+	public partial class ChangeLifes : Pickup
 	{
-		refs.health.ChangeLives(_amount);
+		[Export] private int _amount = 1;
+
+		protected override void ApplyPickup()
+		{
+			refs.health.ChangeLives(_amount);
+		}
 	}
 }

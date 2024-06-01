@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://b0nv0tb61h4oc"]
 
-[ext_resource type="Texture2D" uid="uid://crx7mhj1mb27o" path="res://assets/sprites/interactables/speed_pad.png" id="1_1d21n"]
+[ext_resource type="Texture2D" uid="uid://crx7mhj1mb27o" path="res://assets/sprites/interactables/default/speed_pad.png" id="1_1d21n"]
 [ext_resource type="Script" path="res://code/gameplay/interactables/SpeedPad.cs" id="1_ara8p"]
 
 [sub_resource type="Animation" id="Animation_8iu70"]
@@ -69,7 +69,7 @@ script = ExtResource("1_ara8p")
 _cooldown = 2.0
 _animator = NodePath("Animator")
 _timer = NodePath("Timer")
-_sprites = []
+_sprites = [NodePath("Sprite")]
 
 [node name="Trigger" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-5, -5, -1, -7, 1, -7, 5, -5, 5, 7, 3, 8, 1, 9, -1, 9, -3, 8, -5, 7)

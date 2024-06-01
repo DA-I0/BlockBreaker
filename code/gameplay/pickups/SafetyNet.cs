@@ -1,18 +1,21 @@
 using Godot;
 
-public partial class SafetyNet : Pickup
+namespace BoGK.Gameplay
 {
-	protected override void ApplyPickup()
+	public partial class SafetyNet : Pickup
 	{
-		Node safetyNet = refs.gameElements.GetNodeOrNull("SafetyNet");
-
-		if (safetyNet != null)
+		protected override void ApplyPickup()
 		{
-			refs.gameElements.RemoveChild(safetyNet);
-			((ObjectCleaner)safetyNet).Destroy();
-		}
+			Node safetyNet = refs.gameElements.GetNodeOrNull("SafetyNet");
 
-		safetyNet = ResourceLoader.Load<PackedScene>("res://prefabs/safety_net.tscn").Instantiate();
-		refs.gameElements.CallDeferred("add_child", safetyNet);
+			if (safetyNet != null)
+			{
+				refs.gameElements.RemoveChild(safetyNet);
+				((ObjectCleaner)safetyNet).Destroy();
+			}
+
+			safetyNet = ResourceLoader.Load<PackedScene>("res://prefabs/safety_net.tscn").Instantiate();
+			refs.gameElements.CallDeferred(Node.MethodName.AddChild, safetyNet);
+		}
 	}
 }

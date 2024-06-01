@@ -1,13 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://bfkkajngi247g"]
+[gd_scene load_steps=6 format=3 uid="uid://bfkkajngi247g"]
 
 [ext_resource type="Script" path="res://code/ui/UIGameSession.cs" id="1_wdiid"]
 [ext_resource type="Texture2D" uid="uid://ct1i42wllkc35" path="res://assets/sprites/ui_elements/backgrounds/ui_frame_thin.png" id="2_2kwjs"]
 [ext_resource type="Texture2D" uid="uid://bynfnyg3xa7g6" path="res://assets/sprites/ui_elements/gameplay/ui_life.png" id="3_npm6i"]
 [ext_resource type="StyleBox" uid="uid://bxlfb6t2obups" path="res://theme/panel_thin.tres" id="4_0yyln"]
-[ext_resource type="Texture2D" uid="uid://csp7417ptlu6y" path="res://assets/sprites/ui_elements/skill_icons/skill_ScreenShake.png" id="4_5cocx"]
 [ext_resource type="PackedScene" uid="uid://cf1rht26jg8pb" path="res://prefabs/ui/stage_clear_prompt.tscn" id="6_m8rur"]
 
 [node name="UIGameSession" type="Control" node_paths=PackedStringArray("_score", "_skill", "_lives", "_livesText", "_exitTimer", "_exitPrompt", "_stageClearPrompt")]
+process_mode = 3
 z_index = 10
 custom_minimum_size = Vector2(256, 224)
 layout_mode = 3
@@ -16,8 +16,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -128.0
 offset_top = -112.0
-offset_right = -128.0
-offset_bottom = -112.0
+offset_right = -1152.0
+offset_bottom = -1008.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_wdiid")
@@ -150,11 +150,11 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
-texture = ExtResource("4_5cocx")
 expand_mode = 2
 stretch_mode = 3
 
 [node name="ExitTimer" type="PanelContainer" parent="."]
+process_mode = 1
 clip_contents = true
 custom_minimum_size = Vector2(30, 24)
 layout_mode = 1
@@ -166,7 +166,7 @@ offset_right = 15.0
 grow_horizontal = 2
 size_flags_vertical = 0
 
-[node name="Label" type="Label" parent="ExitTimer" groups=["font_timer_variant"]]
+[node name="TimeLeft" type="Label" parent="ExitTimer" groups=["font_timer_variant"]]
 clip_contents = true
 layout_mode = 2
 size_flags_horizontal = 4
@@ -206,6 +206,7 @@ text = "<advance_to_next_map>"
 fit_content = true
 autowrap_mode = 0
 
-[node name="StageClearPrompt" parent="." instance=ExtResource("6_m8rur")]
+[node name="StageClearPrompt" parent="." node_paths=PackedStringArray("_text") instance=ExtResource("6_m8rur")]
 layout_mode = 1
 anchors_preset = -1
+_text = NodePath("Elements/ScoreSummary")

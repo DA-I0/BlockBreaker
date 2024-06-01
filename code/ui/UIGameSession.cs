@@ -12,7 +12,7 @@ namespace BoGK.UI
 		[Export] private Control _exitPrompt;
 		[Export] private Control _stageClearPrompt;
 
-		private SessionController refs;
+		private GameSystem.SessionController refs;
 
 		public override void _Ready()
 		{
@@ -29,18 +29,34 @@ namespace BoGK.UI
 		{
 			if (_exitPrompt.Visible && @event.IsActionReleased("game_play"))
 			{
-				refs.AdvanceCurrentLevel();
+				if (!refs.settings.StageClearScreen)
+				{
+					refs.gameScore.AddBonusScore();
+					refs.AdvanceCurrentLevel();
+					return;
+				}
+
+				if (!_stageClearPrompt.Visible)
+				{
+					refs.gameScore.AddBonusScore();
+				}
+				else
+				{
+					refs.AdvanceCurrentLevel();
+				}
 			}
 		}
 
 		private void SetupReferences()
 		{
-			refs = GetNode<SessionController>("/root/GameController");
+			refs = GetNode<GameSystem.SessionController>("/root/GameController");
 			refs.SkillReady += DisplaySkillIcon;
 			refs.SkillUsed += HideSkillIcon;
+			refs.GameStateChanged += ActOnGameState;
 			refs.gameScore.ScoreChanged += UpdateScore;
+			refs.gameScore.StageCleared += DisplayExitPrompt;
 			refs.gameScore.TimerStart += DisplayExitTimer;
-			refs.gameScore.TimerEnd += DisplayExitPrompt;
+			refs.gameScore.ExitTimer.Timeout += DisplayExitPrompt;
 			refs.health.LifeChanged += UpdateLives;
 			refs.levelManager.ResetSession += HideGameStateUI;
 			refs.levelManager.SceneChanged += DisplayGameStateUI;
@@ -69,7 +85,7 @@ namespace BoGK.UI
 		{
 			for (int i = 0; i < _lives.GetChildCount(); i++)
 			{
-				((CanvasItem)_lives.GetChild(i)).Visible = i < (lives - 1);
+				_lives.GetChild<CanvasItem>(i).Visible = i < (lives - 1);
 			}
 		}
 
@@ -122,15 +138,20 @@ namespace BoGK.UI
 			}
 		}
 
+		private void DisplayExitPrompt(int score, int scoreMultiplier, int timeLeft, int enemyClearBonus, int perfectClearBonus)
+		{
+			DisplayExitPrompt();
+		}
+
 		private void UpdateTimer()
 		{
-			((Label)_exitTimer.GetChild(0)).Text = refs.gameScore.TimeLeft.ToString();
+			_exitTimer.GetNode<Label>("TimeLeft").Text = refs.gameScore.TimeLeft.ToString();
 		}
 
 		private void UpdateSkillIcon()
 		{
-			string activeSkillIconPath = $"{ProjectSettings.GetSetting("global/SkillIconsFilePath")}/skill_{refs.SelectedSkill.GetType()}.png";
-			((TextureRect)_skill.GetChild(0)).Texture = ResourceLoader.Load<Texture2D>(activeSkillIconPath);
+			string activeSkillIconPath = $"{ProjectSettings.GetSetting("global/SkillIconsFilePath")}/skill_{refs.SelectedSkill}.png";
+			_skill.GetNode<TextureRect>("SkillIcon").Texture = ResourceLoader.Load<Texture2D>(activeSkillIconPath);
 		}
 
 		private void HideSkillIcon()
@@ -141,6 +162,15 @@ namespace BoGK.UI
 		private void DisplaySkillIcon()
 		{
 			_skill.Visible = true;
+		}
+
+		private void ActOnGameState(GameState newGameState)
+		{
+			if (newGameState == GameState.gameOver || newGameState == GameState.gameWin)
+			{
+				GD.Print("hide panels on game end");
+				HideExitElements();
+			}
 		}
 	}
 }

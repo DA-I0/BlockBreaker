@@ -4,13 +4,13 @@ namespace BoGK.UI
 {
 	public partial class UIPause : Control
 	{
-		SessionController refs;
+		private GameSystem.SessionController refs;
 
 		public override void _Ready()
 		{
-			refs = GetNode<SessionController>("/root/GameController");
+			refs = GetNode<GameSystem.SessionController>("/root/GameController");
 			refs.GameStateChanged += TogglePausePanel;
-			TogglePausePanel();
+			TogglePausePanel(GameState.gameplay);
 		}
 
 		public override void _Input(InputEvent @event)
@@ -33,9 +33,9 @@ namespace BoGK.UI
 			}
 		}
 
-		private void TogglePausePanel()
+		private void TogglePausePanel(GameState newState)
 		{
-			Visible = (refs.CurrentGameState == GameState.pause);
+			Visible = (newState == GameState.pause);
 			Focus();
 		}
 

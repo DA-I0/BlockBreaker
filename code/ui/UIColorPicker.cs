@@ -5,7 +5,7 @@ namespace BoGK.UI
 	public partial class UIColorPicker : Control
 	{
 		[Export] private ColorPicker _colorPicker;
-		[Export] TextureRect _targetSprite;
+		[Export] private TextureRect _targetSprite;
 
 		private Control _target;
 

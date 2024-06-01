@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bwbhskpc2w0te"]
 
-[ext_resource type="Texture2D" uid="uid://c04qsmn4iubf6" path="res://assets/sprites/props/fountains/fountain_03.png" id="1_wcuif"]
+[ext_resource type="Texture2D" uid="uid://c04qsmn4iubf6" path="res://assets/sprites/props/default/fountains/fountain_03.png" id="1_wcuif"]
 
 [sub_resource type="Animation" id="Animation_rnb1i"]
 resource_name = "idle"
@@ -26,19 +26,19 @@ _data = {
 }
 
 [node name="FountainWall01" type="StaticBody2D"]
+z_index = 1
 
 [node name="Collider" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-3, 0, -4, 1, -4, 3, -3, 4, 3, 4, 4, 3, 4, 1, 3, 0)
 
-[node name="Sprite" type="Sprite2D" parent="."]
-z_index = 2
+[node name="Sprite" type="Sprite2D" parent="." groups=["static_props"]]
 position = Vector2(-4, -13)
 texture = ExtResource("1_wcuif")
 centered = false
 hframes = 6
 
 [node name="Animator" type="AnimationPlayer" parent="."]
-autoplay = "idle"
 libraries = {
 "": SubResource("AnimationLibrary_y55gb")
 }
+autoplay = "idle"

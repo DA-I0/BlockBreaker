@@ -1,63 +1,60 @@
-[b][u]Version 0.3.2 - 05/03/2024[/u][/b]
-More hotfixes for game breaking bugs.
+[b][u]Version 0.4.0 - 01/06/2024[/u][/b]
+Once again we have a lot of tech improvements, including a ton of optimization work, bug fixes and implementation changes which should make the experience smoother and generally better.
+Game menus have been partially remade to improve their layout and navigation (especially with keyboard/controller).
 
-[b]Fixed:[/b]
-- ball not resetting properly during scene change
-- handling and cleanup of destroyed balls
-- handling and cleanup of destroyed breakables
-
-[b][u]Version 0.3.1 - 04/03/2024[/u][/b]
-I'm not sure how I missed it but blocks in stages 2 and 3 were missing all of their properties, which means no points, pickups and possible issues.
-
-This release fixes that.
-
-[b][u]Version 0.3.0 - 01/03/2024[/u][/b]
-New version is here!
-
-While the main focus for this release was on the technical aspects of the game I didn't forget about the player facing parts either.
-We have more content, more features, lots of improvements and bugfixes.
-
-Everything is work in progress, as always, but we're getting there.
+There are also new content additions! This time we have enemies, new gameplay modifiers as well as new tileset & props.
+Full change list below.
 
 [b]Added:[/b]
-- 7 new levels
-- 3 new skills: ball control, emergency net, power ball
-- new paddle: split (experimental)
-- new interactable: speed pad
-- new difficulty: very hard
-- new difficulty modifiers: pickup speed multiplier, advancing speed (each destroyed breakable increases ball speed)
-- new UI & user settings
-- new accessibility settings
-- bonus points for clearing stages without losing a life
-- stage clear panel with score bonus summary
-- new map tile variants
-- new visual effects
-- new music tracks and playlist shuffle
+- 6 new stages.
+- Enemies (basic, defender, deflector).
+- Play session customization: session length, randomize stage order, disable pickups, disappearing ball.
+- Bonus score for completing play session and killing all enemies.
+- New tileset.
+- New props.
+- Support for palette swaps with 2 new color palettes (Autumn, Muted), separate settings for stage and interactables.
+- Optional CRT filter.
+- New localization entries.
 
 [b]Changed:[/b]
-- updated Godot Engine to version 4.3 dev 3
-- paddle collision improvements
-- skill readiness from time delay to breakable destruction
-- minor difficulty adjustments
-- various level changes
-- various UI improvements: new game setup screen, pagination status, layout changes and more
-- improved keyboard/gamepad menu navigation
-- localization improvements
+- Updated target framework from .Net 6.0 to 7.0.
+- Increased max multiplier for "Advancing Speed" from x1.5 to x2.
+- Add instead of replacing the temporary boost value of balls caught in an explosion.
+- Removed max score multiplier limit.
+- Replaced English language names with localized versions.
+- Stage background brightness to use color instead of transparency.
+- Made "Shake" skill debris use "Effect Transparency" setting.
+- Various visual and layout adjustments for all stages.
+- Switched few stage backgrounds to the new tileset.
+- Various art adjustments.
+- Various theme improvements.
+- Menu navigation improvements.
+- Slightly reworked the leaderboard screen.
+- Trigger the stage clear panel on reaching the exit door instead of after exit timer runs out.
+- Minor adjustments to default game settings.
 
 [b]Fixed:[/b]
-- ball slides over paddle when colliding under very small angle
-- language selection doesn't appear on first launch
-- difficulty removal button not working
-- control settings partially obscured by category buttons when using German or Japanese language
-- exit prompt displays mouse controls regardless of used control method
-- stage music is fully randomized, might select the same song multiple times
-- [Steam Deck] game is zoomed in, with about half of the window visible on screen
+- General code improvements and optimization.
+- Lots of game object setup and implementations.
+- Random frame spikes.
+- "Advancing Speed" not triggering properly after death or ball reset.
+- Cloned balls don't copy all of the speed multiplier values.
+- Exit timer doesn't stop on return to menu.
+- Ball bounce animation appears frozen when triggered too often.
+- Ball keeps animating when using "Ball Control" skill.
+- Ball speed trail isn't cleared when teleporting.
+- Incorrect ball animation speed on release.
+- Incorrect water tiles in stage 28.
+- Some map details aren't affected by background brightness setting.
+- Exit prompt doesn't update its keybind to current active controller type.
+- Pause menu retriggering when canceling out with a keybind.
+- Player name field on game over/win panel doesn't reset between sessions.
+- Couple translation errors.
 
 [b]Known issues:[/b]
-- some UI layout issues when using OpenDyslexic font
-- no on-screen keyboard for text boxes when using a controller
-- ball bounce animation appears frozen when triggered too often
-- [Steam Deck] random frame spikes
-- continuous lack of gophers
+- Some UI layout issues when using OpenDyslexic font.
+- No on-screen keyboard for text boxes when using a controller.
+- CRT filter doesn't affect dropdown lists in the settings menu.
+- Continuous lack of gophers.
 
 

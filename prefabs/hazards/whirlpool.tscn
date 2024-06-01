@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://c7ob1oeeah2yr"]
 
 [ext_resource type="Script" path="res://code/gameplay/interactables/Whirlpool.cs" id="1_iacfm"]
-[ext_resource type="Texture2D" uid="uid://curt2gfv8yhut" path="res://assets/sprites/interactables/whirpool.png" id="2_c3fnj"]
+[ext_resource type="Texture2D" uid="uid://curt2gfv8yhut" path="res://assets/sprites/interactables/default/whirpool.png" id="2_c3fnj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_28lk8"]
 radius = 4.0
@@ -102,7 +102,7 @@ script = ExtResource("1_iacfm")
 _cooldown = 10.0
 _animator = NodePath("Animator")
 _timer = NodePath("Timer")
-_sprites = []
+_sprites = [NodePath("Sprite")]
 
 [node name="Trigger" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_28lk8")

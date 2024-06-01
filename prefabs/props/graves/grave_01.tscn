@@ -6,10 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://dpwpfxkjnkw8c" path="res://prefabs/pickups/pickup_ghost.tscn" id="8_gw4xm"]
 [ext_resource type="PackedScene" uid="uid://crgjb8hqapmxf" path="res://prefabs/pickups/pickup_paddle_freeze.tscn" id="9_6hb88"]
 [ext_resource type="PackedScene" uid="uid://iq10idmsyirx" path="res://prefabs/pickups/pickup_safety_net.tscn" id="10_qk35g"]
-[ext_resource type="Texture2D" uid="uid://csh7i0k2uvhhd" path="res://assets/sprites/props/graves/grave_01.png" id="11_yk8yo"]
+[ext_resource type="Texture2D" uid="uid://csh7i0k2uvhhd" path="res://assets/sprites/props/default/graves/grave_01.png" id="11_yk8yo"]
 
 [node name="Grave01" type="StaticBody2D" node_paths=PackedStringArray("_timer")]
-z_index = 2
+z_index = 1
 script = ExtResource("1_jyxbo")
 _pointValue = 2
 _maxHealth = 4

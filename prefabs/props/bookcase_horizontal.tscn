@@ -1,18 +1,18 @@
 [gd_scene load_steps=3 format=3 uid="uid://bcgjn3w6ux0au"]
 
-[ext_resource type="Texture2D" uid="uid://d1wrf62jqicxo" path="res://assets/sprites/props/bookcase_horizontal.png" id="1_mdjtp"]
+[ext_resource type="Texture2D" uid="uid://d1wrf62jqicxo" path="res://assets/sprites/props/default/other/bookcase_horizontal.png" id="1_mdjtp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_47th3"]
 size = Vector2(18, 6)
 
 [node name="BookcaseHorizontal" type="StaticBody2D"]
-z_index = 2
+z_index = 1
 
 [node name="Collider" type="CollisionShape2D" parent="."]
 position = Vector2(0, -3)
 shape = SubResource("RectangleShape2D_47th3")
 
-[node name="Sprite" type="Sprite2D" parent="."]
+[node name="Sprite" type="Sprite2D" parent="." groups=["static_props"]]
 position = Vector2(-9, -25)
 texture = ExtResource("1_mdjtp")
 centered = false

@@ -360,6 +360,7 @@ alignment = 1
 layout_mode = 2
 focus_mode = 1
 shortcut = ExtResource("12_lorva")
+shortcut_feedback = false
 shortcut_in_tooltip = false
 text = "BUTTON_CONFIRM"
 
@@ -424,6 +425,7 @@ offset_bottom = -6.0
 grow_vertical = 0
 focus_mode = 0
 shortcut = ExtResource("13_yt11b")
+shortcut_feedback = false
 shortcut_in_tooltip = false
 text = "BUTTON_RETURN"
 

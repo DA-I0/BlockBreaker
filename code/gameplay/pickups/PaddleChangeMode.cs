@@ -1,11 +1,14 @@
 using Godot;
 
-public partial class PaddleChangeMode : Pickup
+namespace BoGK.Gameplay
 {
-	[Export] PaddleMode _paddleMode;
-
-	protected override void ApplyPickup()
+	public partial class PaddleChangeMode : Pickup
 	{
-		refs.paddle.SetPaddleMode(_paddleMode);
+		[Export] private PaddleMode _paddleMode;
+
+		protected override void ApplyPickup()
+		{
+			refs.paddle.SetPaddleMode(_paddleMode);
+		}
 	}
 }

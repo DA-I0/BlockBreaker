@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://co6yw0xs41gc2"]
+
+[ext_resource type="Texture2D" uid="uid://ddfpm6oieuq" path="res://assets/sprites/props/default/other/organ_vertical.png" id="1_fc31w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_47th3"]
+size = Vector2(9, 20)
+
+[node name="OrganVertical" type="StaticBody2D"]
+z_index = 1
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 6)
+shape = SubResource("RectangleShape2D_47th3")
+
+[node name="Sprite" type="Sprite2D" parent="." groups=["static_props"]]
+position = Vector2(-7, -16)
+texture = ExtResource("1_fc31w")
+centered = false

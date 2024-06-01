@@ -1,17 +1,20 @@
-public class BallControl : Skill
+namespace BoGK.Gameplay
 {
-	public BallControl()
+	public class BallControl : Skill
 	{
-		_activationPointsCost = 5;
-	}
-
-	protected override void ApplySkillEffect()
-	{
-		for (int i = 0; i < refs.Balls.Count; i++)
+		public BallControl()
 		{
-			((Ball)refs.Balls[i]).BallMode = BallMode.angleSelection;
+			_activationPointsCost = 5;
 		}
 
-		OnActivation();
+		protected override void ApplySkillEffect()
+		{
+			for (int i = 0; i < refs.Balls.Count; i++)
+			{
+				((Ball)refs.Balls[i]).BallMode = BallMode.angleSelection;
+			}
+
+			OnActivation();
+		}
 	}
 }

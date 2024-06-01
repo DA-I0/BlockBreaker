@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://7gsh2bx2alvg"]
 
 [ext_resource type="Script" path="res://code/gameplay/interactables/Bollard.cs" id="1_f3s8j"]
-[ext_resource type="Texture2D" uid="uid://dhew86m1ys0l6" path="res://assets/sprites/interactables/bollard.png" id="2_nw1by"]
+[ext_resource type="Texture2D" uid="uid://dhew86m1ys0l6" path="res://assets/sprites/interactables/default/bollard.png" id="2_nw1by"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xjr6v"]
 size = Vector2(4, 4)
@@ -205,13 +205,12 @@ _data = {
 }
 
 [node name="Bollard" type="StaticBody2D" node_paths=PackedStringArray("_animator", "_timer", "_sprites")]
-z_index = 2
 script = ExtResource("1_f3s8j")
 _isActived = false
 _cooldown = 2.0
 _animator = NodePath("Animator")
 _timer = NodePath("Timer")
-_sprites = []
+_sprites = [NodePath("Sprite")]
 
 [node name="Collider" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_xjr6v")

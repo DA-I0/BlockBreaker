@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://e75vrnnsyvkt"]
 
 [ext_resource type="Script" path="res://code/gameplay/Breakable.cs" id="1_mkrom"]
-[ext_resource type="Texture2D" uid="uid://bl4uxnonu40gh" path="res://assets/sprites/blocks/emergency_net.png" id="2_ye5nr"]
+[ext_resource type="Texture2D" uid="uid://bl4uxnonu40gh" path="res://assets/sprites/blocks/default/emergency_net.png" id="2_ye5nr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jer7o"]
 size = Vector2(192, 7)

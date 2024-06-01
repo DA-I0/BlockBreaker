@@ -1,0 +1,245 @@
+[gd_scene load_steps=5 format=3 uid="uid://cpa5j345nunf6"]
+
+[ext_resource type="Theme" uid="uid://dj60ywofwk371" path="res://theme/ui.theme" id="1_w043y"]
+[ext_resource type="Texture2D" uid="uid://chk6oivvrr8nn" path="res://assets/sprites/ui_elements/buttons/ui_icon_arrow_right.png" id="2_62xec"]
+[ext_resource type="Script" path="res://code/ui/UIOptionsControlsPanel.cs" id="2_unrh7"]
+[ext_resource type="PackedScene" uid="uid://bjvyfeorydh7s" path="res://prefabs/ui/keybind_change_panel.tscn" id="4_lugwr"]
+
+[node name="ControlOptions" type="ScrollContainer" node_paths=PackedStringArray("_controlDevices", "_keybindChangePanel", "_mouseSpeedText", "_mouseSpeed", "_keyboardSpeedText", "_keyboardSpeed", "_joypadSpeedText", "_joypadSpeed", "_activeJoypad", "_vibrations", "_focusTarget")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 35.0
+offset_right = -4.0
+offset_bottom = -20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_w043y")
+follow_focus = true
+script = ExtResource("2_unrh7")
+_controlDevices = NodePath("Options")
+_keybindChangePanel = NodePath("KeybindChangePanel")
+_mouseSpeedText = NodePath("Options/MouseSettings/Mouse/MouseSpeedSetting/MouseSpeedText/MouseSpeedValue")
+_mouseSpeed = NodePath("Options/MouseSettings/Mouse/MouseSpeedSetting/MouseSpeedSlider")
+_keyboardSpeedText = NodePath("Options/KeyboardSettings/Keyboard/KeyboardSpeedSetting/KeyboardSpeedText/KeyboardSpeedValue")
+_keyboardSpeed = NodePath("Options/KeyboardSettings/Keyboard/KeyboardSpeedSetting/KeyboardSpeedSlider")
+_joypadSpeedText = NodePath("Options/JoypadSettings/Joypad/ControllerSpeedSetting/ControllerSpeedText/ControllerSpeedValue")
+_joypadSpeed = NodePath("Options/JoypadSettings/Joypad/ControllerSpeedSetting/ControllerSpeedSlider")
+_activeJoypad = NodePath("Options/JoypadSettings/Joypad/ActiveController/ActiveGamepadOptions")
+_vibrations = NodePath("Options/JoypadSettings/Joypad/VibrationSetting/VibrationToggle")
+_focusTarget = [NodePath("Options/MouseSettings/ToggleButton")]
+
+[node name="Options" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MouseSettings" type="VBoxContainer" parent="Options"]
+custom_minimum_size = Vector2(0, 19)
+layout_mode = 2
+
+[node name="ToggleButton" type="Button" parent="Options/MouseSettings"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../../JoypadSettings/ToggleButton")
+focus_next = NodePath(".")
+focus_previous = NodePath("../../JoypadSettings/ToggleButton")
+text = "BUTTON_MOUSE"
+icon = ExtResource("2_62xec")
+flat = true
+alignment = 0
+
+[node name="Mouse" type="VBoxContainer" parent="Options/MouseSettings"]
+layout_mode = 2
+
+[node name="MouseSpeedSetting" type="Control" parent="Options/MouseSettings/Mouse"]
+custom_minimum_size = Vector2(0, 19)
+layout_mode = 2
+
+[node name="MouseSpeedText" type="HBoxContainer" parent="Options/MouseSettings/Mouse/MouseSpeedSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.45
+anchor_bottom = 1.0
+offset_left = 11.0
+
+[node name="MouseSpeedLabel" type="Label" parent="Options/MouseSettings/Mouse/MouseSpeedSetting/MouseSpeedText"]
+layout_mode = 2
+text = "OPTION_INPUT_SENSITIVITY"
+vertical_alignment = 1
+
+[node name="MouseSpeedValue" type="Label" parent="Options/MouseSettings/Mouse/MouseSpeedSetting/MouseSpeedText"]
+layout_mode = 2
+text = "0"
+vertical_alignment = 1
+
+[node name="MouseSpeedSlider" type="HSlider" parent="Options/MouseSettings/Mouse/MouseSpeedSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+offset_right = -4.0
+min_value = 0.1
+max_value = 2.0
+step = 0.1
+value = 0.1
+allow_lesser = true
+
+[node name="KeyboardSettings" type="VBoxContainer" parent="Options"]
+custom_minimum_size = Vector2(0, 19)
+layout_mode = 2
+
+[node name="ToggleButton" type="Button" parent="Options/KeyboardSettings"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../../MouseSettings/ToggleButton")
+focus_next = NodePath("../../JoypadSettings/ToggleButton")
+focus_previous = NodePath("../../MouseSettings/ToggleButton")
+text = "BUTTON_KEYBOARD"
+icon = ExtResource("2_62xec")
+flat = true
+alignment = 0
+
+[node name="Keyboard" type="VBoxContainer" parent="Options/KeyboardSettings"]
+layout_mode = 2
+
+[node name="KeyboardSpeedSetting" type="Control" parent="Options/KeyboardSettings/Keyboard"]
+custom_minimum_size = Vector2(0, 19)
+layout_mode = 2
+
+[node name="KeyboardSpeedText" type="HBoxContainer" parent="Options/KeyboardSettings/Keyboard/KeyboardSpeedSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.45
+anchor_bottom = 1.0
+offset_left = 11.0
+
+[node name="KeyboardSpeedLabel" type="Label" parent="Options/KeyboardSettings/Keyboard/KeyboardSpeedSetting/KeyboardSpeedText"]
+layout_mode = 2
+text = "OPTION_INPUT_SENSITIVITY"
+vertical_alignment = 1
+
+[node name="KeyboardSpeedValue" type="Label" parent="Options/KeyboardSettings/Keyboard/KeyboardSpeedSetting/KeyboardSpeedText"]
+layout_mode = 2
+text = "0"
+vertical_alignment = 1
+
+[node name="KeyboardSpeedSlider" type="HSlider" parent="Options/KeyboardSettings/Keyboard/KeyboardSpeedSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+offset_right = -4.0
+min_value = 0.5
+max_value = 2.0
+step = 0.1
+value = 1.0
+
+[node name="JoypadSettings" type="VBoxContainer" parent="Options"]
+custom_minimum_size = Vector2(0, 19)
+layout_mode = 2
+
+[node name="ToggleButton" type="Button" parent="Options/JoypadSettings"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../../KeyboardSettings/ToggleButton")
+focus_neighbor_bottom = NodePath("../../MouseSettings/ToggleButton")
+focus_next = NodePath("../../MouseSettings/ToggleButton")
+focus_previous = NodePath("../../KeyboardSettings/ToggleButton")
+text = "BUTTON_CONTROLLER"
+icon = ExtResource("2_62xec")
+flat = true
+alignment = 0
+
+[node name="Joypad" type="VBoxContainer" parent="Options/JoypadSettings"]
+layout_mode = 2
+
+[node name="ActiveController" type="Control" parent="Options/JoypadSettings/Joypad"]
+custom_minimum_size = Vector2(0, 19)
+layout_mode = 2
+
+[node name="UIActiveGamepadLabel" type="Label" parent="Options/JoypadSettings/Joypad/ActiveController"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.45
+anchor_bottom = 1.0
+offset_left = 11.0
+text = "OPTION_INPUT_ACTIVE_GAMEPAD"
+vertical_alignment = 1
+
+[node name="ActiveGamepadOptions" type="OptionButton" parent="Options/JoypadSettings/Joypad/ActiveController"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+offset_right = -4.0
+
+[node name="ControllerSpeedSetting" type="Control" parent="Options/JoypadSettings/Joypad"]
+custom_minimum_size = Vector2(0, 19)
+layout_mode = 2
+
+[node name="ControllerSpeedText" type="HBoxContainer" parent="Options/JoypadSettings/Joypad/ControllerSpeedSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.45
+anchor_bottom = 1.0
+offset_left = 11.0
+
+[node name="ControllerSpeedLabel" type="Label" parent="Options/JoypadSettings/Joypad/ControllerSpeedSetting/ControllerSpeedText"]
+layout_mode = 2
+text = "OPTION_INPUT_SENSITIVITY"
+vertical_alignment = 1
+
+[node name="ControllerSpeedValue" type="Label" parent="Options/JoypadSettings/Joypad/ControllerSpeedSetting/ControllerSpeedText"]
+layout_mode = 2
+text = "0"
+vertical_alignment = 1
+
+[node name="ControllerSpeedSlider" type="HSlider" parent="Options/JoypadSettings/Joypad/ControllerSpeedSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+offset_right = -4.0
+focus_neighbor_top = NodePath("../../../../MouseSettings/Mouse/MouseSpeedSetting/MouseSpeedSlider")
+focus_neighbor_right = NodePath("../../../../../../OptionsButtons/Confirm")
+focus_previous = NodePath("../../../../MouseSettings/Mouse/MouseSpeedSetting/MouseSpeedSlider")
+min_value = 0.5
+max_value = 2.0
+step = 0.1
+value = 1.0
+
+[node name="VibrationSetting" type="Control" parent="Options/JoypadSettings/Joypad"]
+custom_minimum_size = Vector2(0, 19)
+layout_mode = 2
+
+[node name="VibrationLabel" type="Label" parent="Options/JoypadSettings/Joypad/VibrationSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.45
+anchor_bottom = 1.0
+offset_left = 11.0
+text = "OPTION_INPUT_CONTROLLER_VIBRATIONS"
+vertical_alignment = 1
+
+[node name="VibrationToggle" type="CheckButton" parent="Options/JoypadSettings/Joypad/VibrationSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+flat = true
+
+[node name="KeybindChangePanel" parent="." instance=ExtResource("4_lugwr")]
+layout_mode = 2
+
+[connection signal="value_changed" from="Options/MouseSettings/Mouse/MouseSpeedSetting/MouseSpeedSlider" to="." method="UpdateControlsTextValues" unbinds=1]
+[connection signal="value_changed" from="Options/KeyboardSettings/Keyboard/KeyboardSpeedSetting/KeyboardSpeedSlider" to="." method="UpdateControlsTextValues" unbinds=1]
+[connection signal="value_changed" from="Options/JoypadSettings/Joypad/ControllerSpeedSetting/ControllerSpeedSlider" to="." method="UpdateControlsTextValues" unbinds=1]

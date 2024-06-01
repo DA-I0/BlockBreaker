@@ -1,73 +1,76 @@
 using System;
 using Godot;
 
-public partial class MusicController : AudioController
+namespace BoGK.GameSystem
 {
-	[Export] private AudioStream _menuSong;
-
-	private int _playlistPosition = 0;
-
-	public override void _Ready()
+	public partial class MusicController : AudioController
 	{
-		SessionController tempRef = (SessionController)GetParent();
-		tempRef.levelManager.ResetSession += PlayMenuMusic;
-		tempRef.levelManager.ResetSession += ResetPlaylist;
-		tempRef.levelManager.SceneChanged += PlayNextTrack;
-	}
+		[Export] private AudioStream _menuSong;
 
-	public void PlayNextTrack()
-	{
-		if (_playlistPosition >= _clips.Length - 1)
+		private int _playlistPosition = 0;
+
+		public override void _Ready()
 		{
-			ResetPlaylist();
+			SessionController tempRef = (SessionController)GetParent();
+			tempRef.levelManager.ResetSession += PlayMenuMusic;
+			tempRef.levelManager.ResetSession += ResetPlaylist;
+			tempRef.levelManager.SceneChanged += PlayNextTrack;
 		}
 
-		_playlistPosition += 1;
-		PlayAudio(_playlistPosition);
-	}
-
-	public void PlayRandomTrack()
-	{
-		int index = GD.RandRange(0, _clips.Length - 1);
-		PlayAudio(index);
-	}
-
-	public void PlayMenuMusic()
-	{
-		PlayAudio(_menuSong);
-	}
-
-	public void PlayAudio(AudioStream clip)
-	{
-		Stream = clip;
-		Play();
-	}
-
-	private void ResetPlaylist()
-	{
-		ShuffleStageMusic(_clips);
-		_playlistPosition = -1;
-	}
-
-	private void ShuffleStageMusic(AudioStream[] targetArray)
-	{
-		Random randomizer = new Random();
-		AudioStream lastSong = targetArray[^1];
-
-		for (int index = targetArray.Length - 1; index > 0; index--)
+		public void PlayNextTrack()
 		{
-			int randomIndex = randomizer.Next(index + 1);
-			AudioStream value = targetArray[randomIndex];
-			targetArray[randomIndex] = targetArray[index];
-			targetArray[index] = value;
+			if (_playlistPosition >= _clips.Length - 1)
+			{
+				ResetPlaylist();
+			}
+
+			_playlistPosition += 1;
+			PlayAudio(_playlistPosition);
 		}
 
-		if (lastSong == targetArray[0])
+		public void PlayRandomTrack()
 		{
-			targetArray[0] = targetArray[1];
-			targetArray[1] = lastSong;
+			int index = GD.RandRange(0, _clips.Length - 1);
+			PlayAudio(index);
 		}
 
-		_clips = targetArray;
+		public void PlayMenuMusic()
+		{
+			PlayAudio(_menuSong);
+		}
+
+		public void PlayAudio(AudioStream clip)
+		{
+			Stream = clip;
+			Play();
+		}
+
+		private void ResetPlaylist()
+		{
+			ShuffleStageMusic(_clips);
+			_playlistPosition = -1;
+		}
+
+		private void ShuffleStageMusic(AudioStream[] targetArray)
+		{
+			Random randomizer = new Random();
+			AudioStream lastSong = targetArray[^1];
+
+			for (int index = targetArray.Length - 1; index > 0; index--)
+			{
+				int randomIndex = randomizer.Next(index + 1);
+				AudioStream value = targetArray[randomIndex];
+				targetArray[randomIndex] = targetArray[index];
+				targetArray[index] = value;
+			}
+
+			if (lastSong == targetArray[0])
+			{
+				targetArray[0] = targetArray[1];
+				targetArray[1] = lastSong;
+			}
+
+			_clips = targetArray;
+		}
 	}
 }

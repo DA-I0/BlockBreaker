@@ -5,10 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://dwa3x1brydi56" path="res://prefabs/pickups/pickup_extra_life.tscn" id="7_hd4ns"]
 [ext_resource type="PackedScene" uid="uid://crgjb8hqapmxf" path="res://prefabs/pickups/pickup_paddle_freeze.tscn" id="8_erlve"]
 [ext_resource type="PackedScene" uid="uid://iq10idmsyirx" path="res://prefabs/pickups/pickup_safety_net.tscn" id="9_vnny3"]
-[ext_resource type="Texture2D" uid="uid://3fhfj75hs4k8" path="res://assets/sprites/props/fences/fence_right.png" id="10_q1shn"]
+[ext_resource type="Texture2D" uid="uid://3fhfj75hs4k8" path="res://assets/sprites/props/default/fences/fence_right.png" id="10_q1shn"]
 
 [node name="FenceRight" type="StaticBody2D" node_paths=PackedStringArray("_timer")]
-z_index = 3
+z_index = 1
 script = ExtResource("1_s3elm")
 _pointValue = 2
 _maxHealth = 4

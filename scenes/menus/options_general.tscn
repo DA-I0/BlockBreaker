@@ -1,0 +1,159 @@
+[gd_scene load_steps=3 format=3 uid="uid://blmqanx6potxl"]
+
+[ext_resource type="Theme" uid="uid://dj60ywofwk371" path="res://theme/ui.theme" id="1_l0r5d"]
+[ext_resource type="Script" path="res://code/ui/UIOptionsGeneralPanel.cs" id="2_y72ya"]
+
+[node name="GeneralOptions" type="ScrollContainer" node_paths=PackedStringArray("_language", "_font", "_controllerType", "_livesDisplay", "_stageClearDisplay", "_focusTarget")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 35.0
+offset_right = -4.0
+offset_bottom = -20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_l0r5d")
+follow_focus = true
+script = ExtResource("2_y72ya")
+_language = NodePath("Options/LanguageSetting/LanguageOptions")
+_font = NodePath("Options/FontSetting/FontOptions")
+_controllerType = NodePath("Options/UIControlsSetting/UIControlsOptions")
+_livesDisplay = NodePath("Options/LivesDisplaySetting/LivesDisplayToggle")
+_stageClearDisplay = NodePath("Options/StageClearDisplaySetting/StageClearDisplayToggle")
+_focusTarget = [NodePath("Options/LanguageSetting/LanguageOptions")]
+
+[node name="Options" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="LanguageSetting" type="Control" parent="Options"]
+custom_minimum_size = Vector2(0, 19)
+layout_mode = 2
+
+[node name="LanguageLabel" type="Label" parent="Options/LanguageSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.6
+anchor_bottom = 1.0
+offset_left = 4.0
+text = "OPTION_GENERAL_LANGUAGE"
+vertical_alignment = 1
+
+[node name="LanguageOptions" type="OptionButton" parent="Options/LanguageSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.6
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+offset_right = -4.0
+focus_neighbor_top = NodePath("../../StageClearDisplaySetting/StageClearDisplayToggle")
+focus_previous = NodePath("../../StageClearDisplaySetting/StageClearDisplayToggle")
+
+[node name="FontSetting" type="Control" parent="Options"]
+custom_minimum_size = Vector2(0, 19)
+layout_mode = 2
+
+[node name="FontLabel" type="Label" parent="Options/FontSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.6
+anchor_bottom = 1.0
+offset_left = 4.0
+text = "OPTION_GENERAL_FONT"
+vertical_alignment = 1
+
+[node name="FontOptions" type="OptionButton" parent="Options/FontSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.6
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+offset_right = -4.0
+auto_translate = false
+item_count = 2
+popup/item_0/text = "Silver"
+popup/item_0/id = 0
+popup/item_1/text = "OpenDyslexic"
+popup/item_1/id = 1
+
+[node name="UIControlsSetting" type="Control" parent="Options"]
+custom_minimum_size = Vector2(0, 19)
+layout_mode = 2
+
+[node name="UIControlsLabel" type="Label" parent="Options/UIControlsSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.6
+anchor_bottom = 1.0
+offset_left = 4.0
+text = "OPTION_GENERAL_UI_PROMPTS"
+vertical_alignment = 1
+
+[node name="UIControlsOptions" type="OptionButton" parent="Options/UIControlsSetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.6
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+offset_right = -4.0
+item_count = 5
+popup/item_0/text = "Generic"
+popup/item_0/id = 1
+popup/item_1/text = "Nintendo"
+popup/item_1/id = 2
+popup/item_2/text = "Playstation"
+popup/item_2/id = 3
+popup/item_3/text = "Steam Deck"
+popup/item_3/id = 4
+popup/item_4/text = "XBox"
+popup/item_4/id = 5
+
+[node name="LivesDisplaySetting" type="Control" parent="Options"]
+custom_minimum_size = Vector2(0, 19)
+layout_mode = 2
+
+[node name="LivesDisplayLabel" type="Label" parent="Options/LivesDisplaySetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.6
+anchor_bottom = 1.0
+offset_left = 4.0
+text = "OPTION_UI_LIFE_DISPLAY"
+vertical_alignment = 1
+
+[node name="LivesDisplayToggle" type="CheckButton" parent="Options/LivesDisplaySetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.6
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+flat = true
+
+[node name="StageClearDisplaySetting" type="Control" parent="Options"]
+custom_minimum_size = Vector2(0, 19)
+layout_mode = 2
+
+[node name="StageClearDisplayLabel" type="Label" parent="Options/StageClearDisplaySetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.6
+anchor_bottom = 1.0
+offset_left = 4.0
+text = "OPTION_UI_DISPLAY_STAGE_COMPLETE_SCREEN"
+vertical_alignment = 1
+
+[node name="StageClearDisplayToggle" type="CheckButton" parent="Options/StageClearDisplaySetting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.6
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+focus_neighbor_bottom = NodePath("../../LanguageSetting/LanguageOptions")
+flat = true

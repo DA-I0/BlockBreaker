@@ -1,52 +1,55 @@
 using Godot;
 
-public partial class Whirlpool : Interactable
+namespace BoGK.Gameplay
 {
-	[Export] private float _releaseDelay = 1f;
-
-	private Ball _ball = null;
-
-	protected override void Toggle()
+	public partial class Whirlpool : Interactable
 	{
-		_isActived = !_isActived;
+		[Export] private float _releaseDelay = 1f;
 
-		if (!_isActived)
+		private Ball _ball = null;
+
+		protected override void Toggle()
 		{
-			ReleaseBall();
-			_timer.Start(_cooldown);
+			_isActived = !_isActived;
+
+			if (!_isActived)
+			{
+				ReleaseBall();
+				_timer.Start(_cooldown);
+			}
+
+			UpdateState();
 		}
 
-		UpdateState();
-	}
-
-	private void CatchBall(Ball targetBall)
-	{
-		_ball = targetBall;
-		_ball.BallMode = BallMode.spinning;
-		_ball.Position = Position;
-
-		float newRotation = Mathf.DegToRad(GD.RandRange(0, 359));
-		_ball.Velocity = _ball.Velocity.Rotated(newRotation);
-
-		_timer.Start(_releaseDelay);
-	}
-
-	private void ReleaseBall()
-	{
-		if (_ball == null)
+		private void CatchBall(Ball targetBall)
 		{
-			return;
+			_ball = targetBall;
+			_ball.BallMode = BallMode.spinning;
+			_ball.Position = Position;
+
+			float newRotation = Mathf.DegToRad(GD.RandRange(0, 359));
+			_ball.Velocity = _ball.Velocity.Rotated(newRotation);
+
+			_timer.Start(_releaseDelay);
 		}
 
-		_ball.BallMode = BallMode.moving;
-		_ball = null;
-	}
-
-	private void OnBodyEntered(Node2D body)
-	{
-		if (_ball == null && (Ball)body != null)
+		private void ReleaseBall()
 		{
-			CatchBall((Ball)body);
+			if (_ball == null)
+			{
+				return;
+			}
+
+			_ball.BallMode = BallMode.moving;
+			_ball = null;
+		}
+
+		private void OnBodyEntered(Node2D body)
+		{
+			if (_ball == null && (Ball)body != null)
+			{
+				CatchBall((Ball)body);
+			}
 		}
 	}
 }

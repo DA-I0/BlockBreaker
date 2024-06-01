@@ -4,14 +4,14 @@ namespace BoGK.UI
 {
 	public partial class UIPanel : Panel
 	{
-		[Export] protected UIController uiController;
+		[Export] protected UIControler uiController;
 		[Export] protected Control[] _focusTarget;
 		[Export] private Button _returnButton;
 		[Export] protected string _returnTarget = string.Empty;
 
 		protected int _focusIndex = 0;
 
-		protected SessionController refs;
+		protected GameSystem.SessionController refs;
 
 		public override void _Ready()
 		{
@@ -20,29 +20,37 @@ namespace BoGK.UI
 
 		public override void _Input(InputEvent @event)
 		{
-			if (!Visible)
-			{
-				return;
-			}
-
 			if (@event.IsActionPressed("ui_toggle_focus"))
 			{
 				ToggleFocus();
 			}
 		}
 
+		public void Enable()
+		{
+			ProcessMode = ProcessModeEnum.Inherit;
+			Visible = true;
+			Focus();
+			UpdateDisplayedValues();
+		}
+
+		public void Disable()
+		{
+			ProcessMode = ProcessModeEnum.Disabled;
+			Visible = false;
+		}
+
 		protected virtual void SetupBaseReferences()
 		{
-			refs = GetNode<SessionController>("/root/GameController");
-			uiController.RefreshUI += Focus;
+			refs = GetNode<GameSystem.SessionController>("/root/GameController");
 			_returnButton.Pressed += () => Return();
 		}
 
 		protected virtual void Focus()
 		{
-			if (Visible && _focusTarget.Length > 0)
+			if (_focusTarget.Length > 0)
 			{
-				_focusTarget[0].GrabFocus();
+				_focusTarget[0]?.GrabFocus();
 			}
 		}
 
@@ -58,6 +66,8 @@ namespace BoGK.UI
 
 			_focusTarget[_focusIndex]?.GrabFocus();
 		}
+
+		protected virtual void UpdateDisplayedValues() { }
 
 		protected virtual void Return()
 		{

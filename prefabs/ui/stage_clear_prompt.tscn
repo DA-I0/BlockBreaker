@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bkkudkcwwl8ml" path="res://assets/sprites/ui_elements/buttons/ui_icon_arrow_right_hover.png" id="4_go5pj"]
 
 [node name="StageClearPrompt" type="PanelContainer" node_paths=PackedStringArray("_text")]
+process_mode = 2
 z_index = 10
 anchors_preset = 8
 anchor_left = 0.5
@@ -33,6 +34,7 @@ text = "+ <time_left>
 horizontal_alignment = 2
 
 [node name="Continue" type="TextureButton" parent="Elements"]
+process_mode = 3
 layout_mode = 2
 size_flags_horizontal = 4
 texture_normal = ExtResource("2_1adyu")

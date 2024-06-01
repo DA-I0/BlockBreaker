@@ -1,48 +1,51 @@
 using Godot;
 
-public partial class DoublePaddle : Paddle
+namespace BoGK.Gameplay
 {
-	[Export] private CharacterBody2D _secondaryPaddle;
-	[Export] private NinePatchRect _secondarySprite;
-	[Export] private Texture2D[] _secondarySprites;
-
-	protected override void Recenter()
+	public partial class DoublePaddle : Paddle
 	{
-		Position = new Vector2(0, _positionY);
-		_secondaryPaddle.Position = Vector2.Zero;
-		_state = PaddleState.idle;
-	}
+		[Export] private CharacterBody2D _secondaryPaddle;
+		[Export] private NinePatchRect _secondarySprite;
+		[Export] private Texture2D[] _secondarySprites;
 
-	protected override void Movement(double delta)
-	{
-		if (_state != PaddleState.idle)
+		protected override void Recenter()
 		{
-			return;
+			Position = new Vector2(0, _positionY);
+			_secondaryPaddle.Position = Vector2.Zero;
+			_state = PaddleState.idle;
 		}
 
-		CalculateMoveVelocity(_inputDirection, _baseMoveSpeed);
-		KinematicCollision2D collision = MoveAndCollide(Velocity * (float)delta);
-
-		if (collision != null)
+		protected override void Movement(double delta)
 		{
-			VibrateController(0.05f, 0, 0.01f);
+			if (_state != PaddleState.idle)
+			{
+				return;
+			}
+
+			CalculateMoveVelocity(_inputDirection, _baseMoveSpeed);
+			KinematicCollision2D collision = MoveAndCollide(Velocity * (float)delta);
+
+			if (collision != null)
+			{
+				VibrateController(0.05f, 0, 0.01f);
+			}
+
+			float horizontalPosition = (Position.X > 0) ? 0 : Position.X;
+
+			Position = new Vector2(horizontalPosition, _positionY);
+			_secondaryPaddle.Position = new Vector2(-horizontalPosition * 2, 0);
+			_inputDirection = (refs.settings.ActiveInputType == InputType.Mouse) ? Vector2.Zero : _inputDirection;
 		}
 
-		float horizontalPosition = (Position.X > 0) ? 0 : Position.X;
-
-		Position = new Vector2(horizontalPosition, _positionY);
-		_secondaryPaddle.Position = new Vector2(-horizontalPosition * 2, 0);
-		_inputDirection = (refs.settings.ActiveInputType == InputType.Mouse) ? Vector2.Zero : _inputDirection;
-	}
-
-	protected override void AdjustSprite()
-	{
-		if (_sprites.Length < (int)_paddleMode)
+		protected override void AdjustSprite()
 		{
-			return;
-		}
+			if (_sprites.Length < (int)_paddleMode)
+			{
+				return;
+			}
 
-		_sprite.Texture = _sprites[(int)_paddleMode];
-		_secondarySprite.Texture = _secondarySprites[(int)_paddleMode];
+			_sprite.Texture = _sprites[(int)_paddleMode];
+			_secondarySprite.Texture = _secondarySprites[(int)_paddleMode];
+		}
 	}
 }

@@ -9,10 +9,12 @@ namespace BoGK.UI
 		[Export] private Button _paddleButton;
 		[Export] private Button _difficultyButton;
 		[Export] private Button _skillButton;
+		[Export] private Button _customSettingsButton;
+		[Export] private Node _customSettingsIcons;
 
 		private int _lastActivePanel = -1;
 
-		private UIController uIControler;
+		private UIControler uIControler;
 
 		public override void _Ready()
 		{
@@ -54,41 +56,44 @@ namespace BoGK.UI
 
 		protected void SetupReferences()
 		{
-			uiController = GetNode<UIController>("../..");
-			_paddleButton.Pressed += () => DisplayPaddlePanel();
-			_skillButton.Pressed += () => DisplaySkillPanel();
-			_difficultyButton.Pressed += () => DisplayDifficultyPanel();
+			uiController = GetNode<UIControler>("../..");
+		}
+
+		protected override void UpdateDisplayedValues()
+		{
+			UpdateSelectedPaddle();
+			UpdateSelectedDifficulty();
+			UpdateSelectedSkill();
+			UpdateSessionCustomization();
 		}
 
 		protected override void Focus()
 		{
-			if (Visible)
+			switch (_lastActivePanel)
 			{
-				switch (_lastActivePanel)
-				{
-					case 0:
-						_paddleButton.GrabFocus();
-						break;
+				case 0:
+					_paddleButton.GrabFocus();
+					break;
 
-					case 1:
-						_skillButton.GrabFocus();
-						break;
+				case 1:
+					_skillButton.GrabFocus();
+					break;
 
-					case 2:
-						_difficultyButton.GrabFocus();
-						break;
+				case 2:
+					_difficultyButton.GrabFocus();
+					break;
 
-					default:
-						((Button)_levelGrid.GetChild(0)).GrabFocus();
-						_focusIndex = 1;
-						break;
-				}
+				case 3:
+					_customSettingsButton.GrabFocus();
+					break;
 
-				UpdateSelectedPaddle();
-				UpdateSelectedDifficulty();
-				UpdateSelectedSkill();
-				_lastActivePanel = -1;
+				default:
+					_focusIndex = 1;
+					_levelGrid.GetChild<Button>(0).GrabFocus();
+					break;
 			}
+
+			_lastActivePanel = -1;
 		}
 
 		private void UpdateSelectedPaddle()
@@ -120,6 +125,16 @@ namespace BoGK.UI
 			_skillButton.Text = Tr($"SKILL_{refs.SelectedSkill.ToString().ToUpper()}_NAME");
 		}
 
+		private void UpdateSessionCustomization()
+		{
+			_customSettingsIcons.GetChild<Control>(0).Visible = (refs.SessionLength > 0);
+			_customSettingsIcons.GetChild(0).GetChild<Label>(0).Text = refs.SessionLength.ToString();
+
+			_customSettingsIcons.GetChild<Control>(1).Visible = refs.ShuffleStages;
+			_customSettingsIcons.GetChild<Control>(2).Visible = refs.DisablePickups;
+			_customSettingsIcons.GetChild<Control>(3).Visible = refs.DisappearingBall;
+		}
+
 		private void DisplayPaddlePanel()
 		{
 			_lastActivePanel = 0;
@@ -136,6 +151,12 @@ namespace BoGK.UI
 		{
 			_lastActivePanel = 2;
 			uiController.TogglePanel("DifficultyPanel");
+		}
+
+		private void DisplayCustomSettingsPanel()
+		{
+			_lastActivePanel = 3;
+			uiController.TogglePanel("CustomSettingsPanel");
 		}
 	}
 }

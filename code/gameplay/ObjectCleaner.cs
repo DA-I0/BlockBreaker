@@ -1,18 +1,21 @@
 using Godot;
 
-public partial class ObjectCleaner : Node2D
+namespace BoGK.Gameplay
 {
-	private SessionController refs;
-
-	public override void _Ready()
+	public partial class ObjectCleaner : Node2D
 	{
-		refs = GetNode<SessionController>("/root/GameController");
-		refs.levelManager.ResetSession += Destroy;
-	}
+		private GameSystem.SessionController refs;
 
-	public void Destroy()
-	{
-		refs.levelManager.ResetSession -= Destroy;
-		QueueFree();
+		public override void _Ready()
+		{
+			refs = GetNode<GameSystem.SessionController>("/root/GameController");
+			refs.levelManager.ResetSession += Destroy;
+		}
+
+		public void Destroy()
+		{
+			refs.levelManager.ResetSession -= Destroy;
+			QueueFree();
+		}
 	}
 }

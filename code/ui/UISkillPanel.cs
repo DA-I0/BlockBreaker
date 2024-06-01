@@ -19,25 +19,20 @@ namespace BoGK.UI
 
 		protected override void Focus()
 		{
-			if (Visible)
+			if (_focusTarget.Length > 0)
 			{
 				_currentSkill = refs.SelectedSkillIndex;
-				UpdateDisplayedValues();
-
-				if (_focusTarget.Length > 0)
-				{
-					_focusTarget[0].GrabFocus();
-				}
+				_focusTarget[0].GrabFocus();
 			}
 		}
 
-		private void UpdateDisplayedValues()
+		protected override void UpdateDisplayedValues()
 		{
-			Skill currentSkill = refs.gameData.Skills[_currentSkill];
+			Gameplay.Skill currentSkill = refs.gameData.Skills[_currentSkill];
 			_name.Text = $"SKILL_{currentSkill.ToString().ToUpper()}_NAME";
 			_description.Text = $"{Tr("SKILL_ACTIVATION_COST")}: {currentSkill.ActivationCost}\n\n{Tr($"SKILL_{currentSkill.ToString().ToUpper()}_DESC")}";
 
-			string activeSkillIconPath = $"{ProjectSettings.GetSetting("global/SkillIconsFilePath")}/skill_{currentSkill.GetType()}.png";
+			string activeSkillIconPath = $"{ProjectSettings.GetSetting("global/SkillIconsFilePath")}/skill_{currentSkill}.png";
 			_skillIcon.Texture = ResourceLoader.Load<Texture2D>(activeSkillIconPath);
 
 			UpdatePaginatorStatus(_currentSkill);

@@ -11,7 +11,7 @@ namespace BoGK.UI
 
 		private bool canAddToLeaderboard = false;
 
-		private SessionController refs;
+		private GameSystem.SessionController refs;
 
 		public override void _Ready()
 		{
@@ -21,7 +21,7 @@ namespace BoGK.UI
 
 		private void SetupReferences()
 		{
-			refs = GetNode<SessionController>("/root/GameController");
+			refs = GetNode<GameSystem.SessionController>("/root/GameController");
 			refs.GameSetup += TogglePrompt;
 			refs.levelManager.ResetSession += TogglePrompt;
 			refs.GameStateChanged += Display;
@@ -33,6 +33,7 @@ namespace BoGK.UI
 			{
 				if (canAddToLeaderboard)
 				{
+					_name.Clear();
 					_name.GrabFocus();
 				}
 				else
@@ -42,9 +43,9 @@ namespace BoGK.UI
 			}
 		}
 
-		private void Display()
+		private void Display(GameState newState)
 		{
-			if (refs.CurrentGameState == GameState.gameOver)
+			if (newState == GameState.gameOver)
 			{
 				_header.Text = $"[b][u]{Tr("GAME_OVER")}[/u][/b]";
 			}
@@ -52,6 +53,7 @@ namespace BoGK.UI
 			{
 				_header.Text = $"[b][u]{Tr("GAME_WIN")}[/u][/b]";
 			}
+
 			SetupScoreValues();
 		}
 
@@ -77,7 +79,15 @@ namespace BoGK.UI
 				string playerName = (_name.Text == string.Empty) ? Tr(_name.PlaceholderText) : _name.Text;
 				string difficultyName = refs.SelectedDifficulty.DifficultyName;
 
-				Models.HighScore playerScore = new Models.HighScore(playerName, difficultyName, refs.gameScore.CurrentScore, refs.IsCustomDifficultySelected);
+				Models.HighScore playerScore = new Models.HighScore(
+					playerName, difficultyName,
+					refs.gameScore.CurrentScore,
+					refs.IsCustomDifficultySelected,
+					(refs.SessionLength > 0),
+					refs.ShuffleStages,
+					refs.DisablePickups,
+					refs.DisappearingBall);
+
 				refs.gameData.AddScoreToLeaderboard(playerScore);
 			}
 

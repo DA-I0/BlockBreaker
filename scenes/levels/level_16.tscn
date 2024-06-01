@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://si648hfoph5q"]
 
-[ext_resource type="TileSet" uid="uid://cq216ryrvltw" path="res://assets/tilesets/brick.tres" id="1_i5u4j"]
+[ext_resource type="TileSet" uid="uid://k6j8nflqdn4d" path="res://assets/tilesets/room.tres" id="1_7xaay"]
 [ext_resource type="PackedScene" uid="uid://too80a13ex5u" path="res://prefabs/blocks/block_basic.tscn" id="2_sfg8v"]
 [ext_resource type="PackedScene" uid="uid://clchdmucxr4xn" path="res://prefabs/blocks/block_sturdy.tscn" id="3_mmhu2"]
 [ext_resource type="PackedScene" uid="uid://doawgt0jptjhp" path="res://prefabs/blocks/coffin.tscn" id="5_qdidp"]
@@ -19,14 +19,21 @@ normal = Vector2(-1, 0)
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_7jrrh"]
 normal = Vector2(0, 1)
 
-[node name="Map" type="Node"]
+[node name="Map" type="Node2D" groups=["levels"]]
+y_sort_enabled = true
 
 [node name="TileMap" type="TileMap" parent="."]
-tile_set = ExtResource("1_i5u4j")
+y_sort_enabled = true
+tile_set = ExtResource("1_7xaay")
 format = 2
-layer_0/tile_data = PackedInt32Array(-327688, 0, 0, -262152, 65536, 1610612736, -327687, 65536, 0, -262151, 0, 4, -327686, 65536, 0, -262150, 65536, 3, -327685, 131072, 0, -262149, 65536, 3, -327684, 65536, 0, -262148, 65536, 3, -327683, 65536, 0, -262147, 65536, 3, -327682, 65536, 0, -262146, 65536, 3, -327681, 65536, 0, -262145, 65536, 4, -393216, 65536, 0, -327680, 131072, 4, -393215, 65536, 0, -327679, 65536, 3, -393214, 65536, 0, -327678, 65536, 3, -393213, 65536, 0, -327677, 65536, 3, -393212, 131072, 0, -327676, 65536, 3, -393211, 65536, 0, -327675, 65536, 3, -393210, 65536, 0, -327674, 196608, 3, -393209, 0, 268435456, -327673, 65536, 1342177280, 458744, 65536, 1610612736, 393208, 65536, 1610612736, 327672, 65536, 1610612736, 262136, 65536, 1610612736, 196600, 65536, 1610612736, 131064, 65536, 1610612736, 65528, 131072, 1610612736, -8, 65536, 1610612736, -65544, 65536, 1610612736, -131080, 65536, 1610612736, -196616, 65536, 1610612736, -196615, 65536, 1610612739, -196614, 1, 4, -196613, 65537, 4, -196612, 65537, 4, -196611, 65537, 4, -196610, 65537, 4, -196609, 65537, 4, -262144, 65537, 4, -262143, 65537, 4, -262142, 65537, 4, -262141, 65537, 4, 458751, 65537, 5, 393216, 65537, 5, 458750, 65537, 5, 393217, 65537, 5, 458749, 65537, 5, 393218, 65537, 5, 458748, 65537, 5, 393219, 65537, 5, 458747, 65537, 5, 393220, 65537, 5, 458746, 1, 5, 393221, 131073, 5, 458745, 65536, 1610612739, 393209, 65536, 1610612739, 327673, 65536, 1610612739, 262137, 65536, 1610612739, 196601, 131072, 1610612739, 131065, 131072, 1610612740, 65529, 65536, 1610612739, -7, 65536, 1610612739, -65543, 65536, 1610612739, 393222, 65536, 1879048195, 393223, 65536, 1342177280, 327686, 65536, 1879048195, 327687, 65536, 1342177280, 262150, 65536, 1879048195, 262151, 65536, 1342177280, 196614, 65536, 1879048195, 196615, 65536, 1342177280, 131078, 65536, 1879048195, 131079, 65536, 1342177280, 65542, 65536, 1879048195, 65543, 65536, 1342177280, 6, 65536, 1879048195, 7, 131072, 1879048192, -65530, 131072, 1342177283, -65529, 65536, 1342177280, -131066, 65536, 1342177284, -131065, 65536, 1342177280, -196602, 65536, 1879048195, -196601, 65536, 1342177280, -262138, 65536, 1879048195, -262137, 65536, 1342177280, -131079, 65536, 1610612739, -262140, 65537, 4, -196604, 65537, 5, -262139, 131073, 4, -196603, 131073, 5, -131068, 65537, 5, -131067, 131073, 5, -65532, 65537, 5, -65531, 131073, 5, 4, 65537, 5, 5, 131073, 5, 65540, 65537, 5, 65541, 131073, 5, 131076, 65537, 5, 131077, 131073, 5, 131074, 65537, 5, 131075, 65537, 5, 196610, 65537, 5, 196611, 65537, 5, 262146, 65537, 5, 262147, 65537, 5, 262148, 65537, 5, 262149, 131073, 5, 196612, 65537, 5, 196613, 131073, 5, 327684, 65537, 5, 327685, 131073, 5, -131078, 1, 5, -131077, 65537, 5, -65542, 1, 5, -65541, 65537, 5, -6, 1, 5, -5, 65537, 5, 65530, 1, 5, 65531, 65537, 5, 131066, 1, 5, 131067, 65537, 5, 196602, 1, 5, 196603, 65537, 5, 262138, 1, 5, 262139, 65537, 5, 327674, 1, 5, 327675, 65537, 5, 393210, 1, 5, 393211, 65537, 5, 65536, 65537, 5, 0, 65537, 5, -65536, 65537, 5, -131072, 65537, 5, -196608, 65537, 5, -131073, 65537, 5, -131074, 65537, 5, -131075, 65537, 5, -131076, 65537, 5, -65540, 65537, 5, -4, 65537, 5, 65532, 65537, 5, 131068, 65537, 5, 196604, 65537, 5, 262140, 65537, 5, 327676, 65537, 5, 393212, 65537, 5, 393213, 65537, 5, 327677, 65537, 5, 262141, 65537, 5, 196605, 65537, 5, 131069, 65537, 5, 65533, 65537, 5, -3, 65537, 5, -65539, 65537, 5, -65538, 65537, 5, -2, 65537, 5, 65534, 65537, 5, 131070, 65537, 5, 196606, 65537, 5, 262142, 65537, 5, 327678, 65537, 5, 393214, 65537, 5, 393215, 65537, 5, 327679, 65537, 5, 262143, 65537, 5, 196607, 65537, 5, 131071, 65537, 5, 65535, 65537, 5, -1, 65537, 5, -65537, 65537, 5, 131072, 65537, 5, 196608, 65537, 5, 262144, 65537, 5, 327680, 65537, 5, 327681, 65537, 5, 262145, 65537, 5, 196609, 65537, 5, 131073, 65537, 5, 65537, 65537, 5, 1, 65537, 5, -65535, 65537, 5, -131071, 65537, 5, -196607, 65537, 5, -196606, 65537, 5, -131070, 65537, 5, -65534, 65537, 5, 2, 65537, 5, 65538, 65537, 5, 65539, 65537, 5, 3, 65537, 5, -65533, 65537, 5, -131069, 65537, 5, -196605, 65537, 5, 327682, 65537, 5, 327683, 65537, 5)
+layer_0/y_sort_enabled = true
+layer_0/tile_data = PackedInt32Array(-327688, 0, 3, -262152, 131072, 1073741827, -327687, 131072, 3, -262151, 0, 4, -327686, 65536, 3, -262150, 65536, 4, -327685, 131072, 3, -262149, 131072, 4, -327684, 65536, 5, -262148, 65536, 6, -327683, 131072, 5, -262147, 131072, 6, -327682, 65536, 3, -262146, 65536, 4, -327681, 131072, 3, -262145, 131072, 4, -393216, 65536, 3, -327680, 65536, 4, -393215, 131072, 3, -327679, 131072, 4, -393214, 65536, 3, -327678, 65536, 4, -393213, 131072, 3, -327677, 131072, 4, -393212, 65536, 3, -327676, 65536, 4, -393211, 131072, 3, -327675, 131072, 4, -393210, 65536, 3, -327674, 196608, 4, -393209, 0, 268435459, -327673, 131072, 1342177283, 458744, 65536, 1073741827, 393208, 131072, 1073741827, 327672, 65536, 1073741827, 262136, 131072, 1073741827, 196600, 65536, 1073741827, 131064, 131072, 1073741827, 65528, 65536, 1073741827, -8, 131072, 1073741827, -65544, 65536, 1073741827, -131080, 131072, 1073741827, -196616, 65536, 1073741827, -196615, 65536, 1073741828, -196614, 1, 0, -196613, 65537, 0, -196612, 65537, 0, -196611, 65537, 0, -196610, 65537, 0, -196609, 65537, 0, -262144, 65537, 0, -262143, 65537, 0, -262142, 65537, 0, -262141, 65537, 0, 458751, 65537, 1, 393216, 65537, 1, 458750, 65537, 1, 393217, 65537, 1, 458749, 65537, 1, 393218, 65537, 1, 458748, 65537, 1, 393219, 65537, 1, 458747, 65537, 1, 393220, 65537, 1, 458746, 1, 1, 393221, 131073, 1, 458745, 65536, 1073741828, 393209, 131072, 1073741828, 327673, 65536, 1073741828, 262137, 131072, 1073741828, 196601, 65536, 1073741828, 131065, 131072, 1073741828, 65529, 65536, 1073741828, -7, 131072, 1073741828, -65543, 65536, 1073741828, 393222, 65536, 1342177284, 393223, 65536, 1342177283, 327686, 131072, 1342177284, 327687, 131072, 1342177283, 262150, 65536, 1342177284, 262151, 65536, 1342177283, 196614, 131072, 1342177284, 196615, 131072, 1342177283, 131078, 65536, 1342177284, 131079, 65536, 1342177283, 65542, 131072, 1342177284, 65543, 131072, 1342177283, 6, 65536, 1342177284, 7, 65536, 1342177283, -65530, 131072, 1342177284, -65529, 131072, 1342177283, -131066, 65536, 1342177284, -131065, 65536, 1342177283, -196602, 131072, 1342177284, -196601, 131072, 1342177283, -262138, 65536, 1342177284, -262137, 65536, 1342177283, -131079, 131072, 1073741828, -262140, 65537, 0, -196604, 65537, 1, -262139, 131073, 0, -196603, 131073, 1, -131068, 65537, 1, -131067, 131073, 1, -65532, 65537, 1, -65531, 131073, 1, 4, 65537, 1, 5, 131073, 1, 65540, 65537, 1, 65541, 131073, 1, 131076, 65537, 1, 131077, 131073, 1, 131074, 65537, 1, 131075, 65537, 1, 196610, 65537, 1, 196611, 65537, 1, 262146, 65537, 1, 262147, 65537, 1, 262148, 65537, 1, 262149, 131073, 1, 196612, 65537, 1, 196613, 131073, 1, 327684, 65537, 1, 327685, 131073, 1, -131078, 1, 1, -131077, 65537, 1, -65542, 1, 1, -65541, 65537, 1, -6, 1, 1, -5, 65537, 1, 65530, 1, 1, 65531, 65537, 1, 131066, 1, 1, 131067, 65537, 1, 196602, 1, 1, 196603, 65537, 1, 262138, 1, 1, 262139, 65537, 1, 327674, 1, 1, 327675, 65537, 1, 393210, 1, 1, 393211, 65537, 1, 65536, 65537, 1, 0, 65537, 1, -65536, 65537, 1, -131072, 65537, 1, -196608, 65537, 1, -131073, 65537, 1, -131074, 65537, 1, -131075, 65537, 1, -131076, 65537, 1, -65540, 65537, 1, -4, 65537, 1, 65532, 65537, 1, 131068, 65537, 1, 196604, 65537, 1, 262140, 65537, 1, 327676, 65537, 1, 393212, 65537, 1, 393213, 65537, 1, 327677, 65537, 1, 262141, 65537, 1, 196605, 65537, 1, 131069, 65537, 1, 65533, 65537, 1, -3, 65537, 1, -65539, 65537, 1, -65538, 65537, 1, -2, 65537, 1, 65534, 65537, 1, 131070, 65537, 1, 196606, 65537, 1, 262142, 65537, 1, 327678, 65537, 1, 393214, 65537, 1, 393215, 65537, 1, 327679, 65537, 1, 262143, 65537, 1, 196607, 65537, 1, 131071, 65537, 1, 65535, 65537, 1, -1, 65537, 1, -65537, 65537, 1, 131072, 65537, 1, 196608, 65537, 1, 262144, 65537, 1, 327680, 65537, 1, 327681, 65537, 1, 262145, 65537, 1, 196609, 65537, 1, 131073, 65537, 1, 65537, 65537, 1, 1, 65537, 1, -65535, 65537, 1, -131071, 65537, 1, -196607, 65537, 1, -196606, 65537, 1, -131070, 65537, 1, -65534, 65537, 1, 2, 65537, 1, 65538, 65537, 1, 65539, 65537, 1, 3, 65537, 1, -65533, 65537, 1, -131069, 65537, 1, -196605, 65537, 1, 327682, 65537, 1, 327683, 65537, 1)
 layer_1/name = "Layer1"
-layer_1/tile_data = PackedInt32Array(-2, 327681, 4, 65534, 327681, 5, 131070, 327681, 6, -1, 393217, 4, 65535, 393217, 5, 131071, 393217, 6, -65536, 393217, 4, 0, 393217, 5, 65536, 393217, 6, -65535, 458753, 4, 1, 458753, 5, 65537, 458753, 6, 65529, 2, 1610612737, 6, 2, 1879048193, -262148, 2, 3, -327676, 2, 0, -327678, 65538, 0)
+layer_1/y_sort_enabled = true
+layer_1/tile_data = PackedInt32Array(-2, 327681, 0, 65534, 327681, 1, 131070, 327681, 2, -1, 393217, 0, 65535, 393217, 1, 131071, 393217, 2, -65536, 393217, 0, 0, 393217, 1, 65536, 393217, 2, -65535, 458753, 0, 1, 458753, 1, 65537, 458753, 2, 65529, 2, 1610612737, -327688, 0, 0, -393209, 0, 268435456, -327685, 131072, 0, -393212, 131072, 0, 65528, 131072, 1610612736, 7, 131072, 1879048192, -8, 65536, 1610612736, -65544, 65536, 1610612736, -131080, 65536, 1610612736, -196616, 65536, 1610612736, -262152, 65536, 1610612736, 131064, 65536, 1610612736, 196600, 65536, 1610612736, 262136, 65536, 1610612736, 327672, 65536, 1610612736, 393208, 65536, 1610612736, 458744, 65536, 1610612736, 393223, 65536, 1879048192, 327687, 65536, 1879048192, 262151, 65536, 1879048192, 196615, 65536, 1879048192, 131079, 65536, 1879048192, 65543, 65536, 1879048192, -65529, 65536, 1879048192, -131065, 65536, 1879048192, -196601, 65536, 1879048192, -262137, 65536, 1879048192, -327673, 65536, 1879048192, -393210, 65536, 268435456, -393211, 131072, 268435456, -393213, 65536, 268435456, -393214, 65536, 268435456, -393215, 65536, 268435456, -393216, 65536, 268435456, -327681, 65536, 268435456, -327682, 65536, 268435456, -327683, 65536, 268435456, -327684, 131072, 268435456, -327686, 65536, 268435456, -327687, 65536, 268435456)
+layer_2/name = "Layer2"
+layer_2/y_sort_enabled = true
+layer_2/tile_data = PackedInt32Array(-327684, 2, 2, -262148, 2, 3, -327683, 65538, 2, -262147, 65538, 3, 7, 2, 1342177281, -327677, 65538, 0, -327675, 2, 0)
 
 [node name="MapColliders" type="StaticBody2D" parent="."]
 collision_mask = 6
@@ -44,6 +51,7 @@ position = Vector2(0, -65)
 shape = SubResource("WorldBoundaryShape2D_7jrrh")
 
 [node name="Blocks" type="Node2D" parent="."]
+y_sort_enabled = true
 
 [node name="BlockBasic" parent="Blocks" instance=ExtResource("2_sfg8v")]
 position = Vector2(-80, -37)
@@ -274,6 +282,7 @@ position = Vector2(80, 59)
 _timer = NodePath("Timer")
 
 [node name="OtherBreakables" type="Node2D" parent="."]
+y_sort_enabled = true
 
 [node name="Coffin" parent="OtherBreakables" node_paths=PackedStringArray("_timer") instance=ExtResource("5_qdidp")]
 position = Vector2(-55, -43)
@@ -292,11 +301,13 @@ position = Vector2(61, 9)
 _animator = NodePath("Animator")
 
 [node name="Interactables" type="Node2D" parent="."]
+y_sort_enabled = true
 
-[node name="Whirlpool" parent="Interactables" node_paths=PackedStringArray("_animator", "_timer") instance=ExtResource("6_kwydn")]
+[node name="Whirlpool" parent="Interactables" node_paths=PackedStringArray("_animator", "_timer", "_sprites") instance=ExtResource("6_kwydn")]
 position = Vector2(0, 7)
 _animator = NodePath("Animator")
 _timer = NodePath("Timer")
+_sprites = [NodePath("Sprite")]
 
 [node name="TeleportDoor" parent="Interactables" node_paths=PackedStringArray("_linkedDoor", "_animator", "_timer", "_sprites") instance=ExtResource("7_vdsi0")]
 position = Vector2(-95, 45)
@@ -304,6 +315,7 @@ rotation = -1.5708
 _linkedDoor = NodePath("../TeleportDoor2")
 _animator = NodePath("Animator")
 _timer = NodePath("Timer")
+_variant = 1
 _sprites = [NodePath("ExitSprite"), NodePath("DoorSprite")]
 
 [node name="TeleportDoor2" parent="Interactables" node_paths=PackedStringArray("_linkedDoor", "_animator", "_timer", "_sprites") instance=ExtResource("7_vdsi0")]
@@ -312,6 +324,7 @@ rotation = 1.5708
 _linkedDoor = NodePath("../TeleportDoor")
 _animator = NodePath("Animator")
 _timer = NodePath("Timer")
+_variant = 1
 _sprites = [NodePath("ExitSprite"), NodePath("DoorSprite")]
 
 [node name="TeleportDoor3" parent="Interactables" node_paths=PackedStringArray("_linkedDoor", "_animator", "_timer", "_sprites") instance=ExtResource("7_vdsi0")]
@@ -320,6 +333,7 @@ rotation = -1.5708
 _linkedDoor = NodePath("../TeleportDoor4")
 _animator = NodePath("Animator")
 _timer = NodePath("Timer")
+_variant = 1
 _sprites = [NodePath("ExitSprite"), NodePath("DoorSprite")]
 
 [node name="TeleportDoor4" parent="Interactables" node_paths=PackedStringArray("_linkedDoor", "_animator", "_timer", "_sprites") instance=ExtResource("7_vdsi0")]
@@ -328,75 +342,89 @@ rotation = 1.5708
 _linkedDoor = NodePath("../TeleportDoor3")
 _animator = NodePath("Animator")
 _timer = NodePath("Timer")
+_variant = 1
 _sprites = [NodePath("ExitSprite"), NodePath("DoorSprite")]
 
-[node name="Bollard" parent="Interactables" node_paths=PackedStringArray("_animator", "_timer") instance=ExtResource("8_bdtib")]
+[node name="Bollard" parent="Interactables" node_paths=PackedStringArray("_animator", "_timer", "_sprites") instance=ExtResource("8_bdtib")]
 position = Vector2(48, 7)
 _isActived = true
 _animator = NodePath("Animator")
 _timer = NodePath("Timer")
+_sprites = [NodePath("Sprite")]
 
-[node name="Bollard2" parent="Interactables" node_paths=PackedStringArray("_animator", "_timer") instance=ExtResource("8_bdtib")]
+[node name="Bollard2" parent="Interactables" node_paths=PackedStringArray("_animator", "_timer", "_sprites") instance=ExtResource("8_bdtib")]
 position = Vector2(-41, -21)
 _animator = NodePath("Animator")
 _timer = NodePath("Timer")
+_sprites = [NodePath("Sprite")]
 
-[node name="Bollard7" parent="Interactables" node_paths=PackedStringArray("_animator", "_timer") instance=ExtResource("8_bdtib")]
+[node name="Bollard7" parent="Interactables" node_paths=PackedStringArray("_animator", "_timer", "_sprites") instance=ExtResource("8_bdtib")]
 position = Vector2(41, -21)
 _animator = NodePath("Animator")
 _timer = NodePath("Timer")
+_sprites = [NodePath("Sprite")]
 
-[node name="Bollard8" parent="Interactables" node_paths=PackedStringArray("_animator", "_timer") instance=ExtResource("8_bdtib")]
+[node name="Bollard8" parent="Interactables" node_paths=PackedStringArray("_animator", "_timer", "_sprites") instance=ExtResource("8_bdtib")]
 position = Vector2(-41, 35)
 _animator = NodePath("Animator")
 _timer = NodePath("Timer")
+_sprites = [NodePath("Sprite")]
 
-[node name="Bollard9" parent="Interactables" node_paths=PackedStringArray("_animator", "_timer") instance=ExtResource("8_bdtib")]
+[node name="Bollard9" parent="Interactables" node_paths=PackedStringArray("_animator", "_timer", "_sprites") instance=ExtResource("8_bdtib")]
 position = Vector2(41, 35)
 _animator = NodePath("Animator")
 _timer = NodePath("Timer")
+_sprites = [NodePath("Sprite")]
 
-[node name="Bollard3" parent="Interactables" node_paths=PackedStringArray("_animator", "_timer") instance=ExtResource("8_bdtib")]
+[node name="Bollard3" parent="Interactables" node_paths=PackedStringArray("_animator", "_timer", "_sprites") instance=ExtResource("8_bdtib")]
 position = Vector2(0, -40)
 _animator = NodePath("Animator")
 _timer = NodePath("Timer")
+_sprites = [NodePath("Sprite")]
 
-[node name="Bollard12" parent="Interactables" node_paths=PackedStringArray("_animator", "_timer") instance=ExtResource("8_bdtib")]
+[node name="Bollard12" parent="Interactables" node_paths=PackedStringArray("_animator", "_timer", "_sprites") instance=ExtResource("8_bdtib")]
 position = Vector2(0, 57)
 _animator = NodePath("Animator")
 _timer = NodePath("Timer")
+_sprites = [NodePath("Sprite")]
 
-[node name="Bollard4" parent="Interactables" node_paths=PackedStringArray("_animator", "_timer") instance=ExtResource("8_bdtib")]
+[node name="Bollard4" parent="Interactables" node_paths=PackedStringArray("_animator", "_timer", "_sprites") instance=ExtResource("8_bdtib")]
 position = Vector2(-25, -33)
 _isActived = true
 _animator = NodePath("Animator")
 _timer = NodePath("Timer")
+_sprites = [NodePath("Sprite")]
 
-[node name="Bollard6" parent="Interactables" node_paths=PackedStringArray("_animator", "_timer") instance=ExtResource("8_bdtib")]
+[node name="Bollard6" parent="Interactables" node_paths=PackedStringArray("_animator", "_timer", "_sprites") instance=ExtResource("8_bdtib")]
 position = Vector2(25, -33)
 _isActived = true
 _animator = NodePath("Animator")
 _timer = NodePath("Timer")
+_sprites = [NodePath("Sprite")]
 
-[node name="Bollard10" parent="Interactables" node_paths=PackedStringArray("_animator", "_timer") instance=ExtResource("8_bdtib")]
+[node name="Bollard10" parent="Interactables" node_paths=PackedStringArray("_animator", "_timer", "_sprites") instance=ExtResource("8_bdtib")]
 position = Vector2(-25, 47)
 _isActived = true
 _animator = NodePath("Animator")
 _timer = NodePath("Timer")
+_sprites = [NodePath("Sprite")]
 
-[node name="Bollard11" parent="Interactables" node_paths=PackedStringArray("_animator", "_timer") instance=ExtResource("8_bdtib")]
+[node name="Bollard11" parent="Interactables" node_paths=PackedStringArray("_animator", "_timer", "_sprites") instance=ExtResource("8_bdtib")]
 position = Vector2(25, 47)
 _isActived = true
 _animator = NodePath("Animator")
 _timer = NodePath("Timer")
+_sprites = [NodePath("Sprite")]
 
-[node name="Bollard5" parent="Interactables" node_paths=PackedStringArray("_animator", "_timer") instance=ExtResource("8_bdtib")]
+[node name="Bollard5" parent="Interactables" node_paths=PackedStringArray("_animator", "_timer", "_sprites") instance=ExtResource("8_bdtib")]
 position = Vector2(-48, 7)
 _isActived = true
 _animator = NodePath("Animator")
 _timer = NodePath("Timer")
+_sprites = [NodePath("Sprite")]
 
 [node name="LevelExit" parent="." node_paths=PackedStringArray("_animator", "_sprites") instance=ExtResource("9_bxojv")]
 position = Vector2(0, -63)
 _animator = NodePath("Animator")
+_variant = 1
 _sprites = [NodePath("ExitSprite"), NodePath("DoorSprite")]

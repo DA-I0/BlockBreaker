@@ -6,18 +6,20 @@ namespace BoGK.UI
 	{
 		public override void _Input(InputEvent @event)
 		{
-			if (Visible)
+			if (@event.IsActionPressed("ui_down"))
 			{
-				if (@event.IsActionPressed("ui_down"))
-				{
-					((ScrollContainer)_focusTarget[0]).ScrollVertical += 10;
-				}
-
-				if (@event.IsActionPressed("ui_up"))
-				{
-					((ScrollContainer)_focusTarget[0]).ScrollVertical -= 10;
-				}
+				((ScrollContainer)_focusTarget[0]).ScrollVertical += 10;
 			}
+
+			if (@event.IsActionPressed("ui_up"))
+			{
+				((ScrollContainer)_focusTarget[0]).ScrollVertical -= 10;
+			}
+		}
+
+		protected override void UpdateDisplayedValues()
+		{
+			((ScrollContainer)_focusTarget[0]).ScrollVertical = 0;
 		}
 	}
 }

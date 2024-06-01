@@ -2,6 +2,7 @@
 - Fonts: Silver by Poppy Works (https://poppyworks.itch.io/silver), OpenDyslexic by Abbie Gonzalez (https://opendyslexic.org/)
 - Sound effects made using: sfxr by DrPetter (https://www.drpetter.se/project_sfxr.html).
 - Localization help: Polyglot project (https://drive.google.com/open?id=17f0dQawb-s_Fd7DHgmVvJoEGDMH_yoSd8EYigrb0zmM)
+- CRT Shader by zuwiwano (https://godotshaders.com/shader/crt-shader-2/)
 
 ## Music:
 - various tracks by TipTopTomCat (https://tiptoptomcat.itch.io/)

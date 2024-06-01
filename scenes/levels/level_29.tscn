@@ -1,15 +1,27 @@
-[gd_scene load_steps=14 format=3 uid="uid://dhd5h8rrcybgy"]
+[gd_scene load_steps=26 format=3 uid="uid://dxay523hh2q18"]
 
-[ext_resource type="TileSet" uid="uid://c8le7h84mb1kt" path="res://assets/tilesets/garden.tres" id="1_jvymx"]
-[ext_resource type="PackedScene" uid="uid://too80a13ex5u" path="res://prefabs/blocks/block_basic.tscn" id="2_mbjay"]
-[ext_resource type="PackedScene" uid="uid://clchdmucxr4xn" path="res://prefabs/blocks/block_sturdy.tscn" id="3_ol4aw"]
-[ext_resource type="PackedScene" uid="uid://bg5r3twijp0e" path="res://prefabs/blocks/barrier_sturdy.tscn" id="4_8h67r"]
-[ext_resource type="PackedScene" uid="uid://u76dunxkcmbk" path="res://prefabs/props/graves/grave_01.tscn" id="5_1n38a"]
-[ext_resource type="PackedScene" uid="uid://wl2u6pnrqvcy" path="res://prefabs/blocks/explosives.tscn" id="6_84ne4"]
-[ext_resource type="PackedScene" uid="uid://74t5tvv8uh4i" path="res://prefabs/props/graves/grave_02.tscn" id="7_rh0p8"]
-[ext_resource type="PackedScene" uid="uid://rv6ehrudwl3l" path="res://prefabs/props/graves/grave_03.tscn" id="8_dxt35"]
-[ext_resource type="PackedScene" uid="uid://b666svkyjniq6" path="res://prefabs/props/benches/bench_down.tscn" id="9_vtfn7"]
-[ext_resource type="PackedScene" uid="uid://cgpa7sf8jgxu8" path="res://prefabs/level_exit.tscn" id="10_c6y61"]
+[ext_resource type="TileSet" uid="uid://c8le7h84mb1kt" path="res://assets/tilesets/garden.tres" id="1_27441"]
+[ext_resource type="PackedScene" uid="uid://bg5r3twijp0e" path="res://prefabs/blocks/barrier_sturdy.tscn" id="4_ffshj"]
+[ext_resource type="PackedScene" uid="uid://too80a13ex5u" path="res://prefabs/blocks/block_basic.tscn" id="4_uiwt7"]
+[ext_resource type="PackedScene" uid="uid://clchdmucxr4xn" path="res://prefabs/blocks/block_sturdy.tscn" id="5_u7jlh"]
+[ext_resource type="PackedScene" uid="uid://wl2u6pnrqvcy" path="res://prefabs/blocks/explosives.tscn" id="6_3unkt"]
+[ext_resource type="PackedScene" uid="uid://btjaldiyf3b7c" path="res://prefabs/props/fences/fence_up_left_out.tscn" id="7_8vnls"]
+[ext_resource type="PackedScene" uid="uid://dq77tbjk27cpl" path="res://prefabs/props/plants/pumpkin.tscn" id="7_j50wy"]
+[ext_resource type="PackedScene" uid="uid://cao0inchno7lh" path="res://prefabs/props/fences/fence_up.tscn" id="8_rd3ga"]
+[ext_resource type="PackedScene" uid="uid://ctgplrud2njoq" path="res://prefabs/hazards/teleport_door.tscn" id="9_3d1q4"]
+[ext_resource type="PackedScene" uid="uid://x664usbdnghx" path="res://prefabs/props/fences/fence_up_right_out.tscn" id="9_ayhq3"]
+[ext_resource type="PackedScene" uid="uid://drms5ps6bg2fo" path="res://prefabs/props/fences/fence_right.tscn" id="9_jgncc"]
+[ext_resource type="PackedScene" uid="uid://dps5d016c3rw2" path="res://prefabs/props/fences/fence_left_end.tscn" id="12_l2wdv"]
+[ext_resource type="PackedScene" uid="uid://bpwpu74d3owe3" path="res://prefabs/props/fences/fence_down_left_out.tscn" id="13_biwes"]
+[ext_resource type="PackedScene" uid="uid://c22wlfo5o7ip0" path="res://prefabs/props/fences/fence_right_end.tscn" id="14_sxopu"]
+[ext_resource type="PackedScene" uid="uid://djmnmdvjpyq1i" path="res://prefabs/props/fences/fence_down_right_out.tscn" id="15_5wlus"]
+[ext_resource type="PackedScene" uid="uid://cgpa7sf8jgxu8" path="res://prefabs/level_exit.tscn" id="16_uk2i8"]
+[ext_resource type="PackedScene" uid="uid://sfvyvisufeuw" path="res://prefabs/props/fences/fence_down.tscn" id="16_vjg2v"]
+[ext_resource type="PackedScene" uid="uid://b60als1nur4td" path="res://prefabs/props/benches/bench_left.tscn" id="18_d41n4"]
+[ext_resource type="PackedScene" uid="uid://d35418gb0o456" path="res://prefabs/props/fences/fence_left.tscn" id="18_sf1n7"]
+[ext_resource type="PackedScene" uid="uid://dgf74sxcnte1u" path="res://prefabs/props/benches/bench_right.tscn" id="19_yqci0"]
+[ext_resource type="PackedScene" uid="uid://cuq1qtdgfjphi" path="res://prefabs/props/bridge_center.tscn" id="20_0bvn5"]
+[ext_resource type="PackedScene" uid="uid://dlal65qsoq41b" path="res://prefabs/props/bridge_end.tscn" id="21_ho5xa"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_p587y"]
 normal = Vector2(1, 0)
@@ -20,19 +32,22 @@ normal = Vector2(-1, 0)
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_7jrrh"]
 normal = Vector2(0, 1)
 
-[node name="Map" type="Node"]
+[node name="Map" type="Node2D" groups=["levels"]]
+y_sort_enabled = true
 
 [node name="TileMap" type="TileMap" parent="."]
-tile_set = ExtResource("1_jvymx")
+y_sort_enabled = true
+tile_set = ExtResource("1_27441")
 format = 2
 layer_0/name = "Background"
-layer_0/tile_data = PackedInt32Array(-327688, 65539, 1, -262152, 65539, 1, -327687, 65539, 1, -262151, 65539, 1, -327686, 65539, 1, -262150, 65539, 1, -327685, 65539, 1, -262149, 65539, 1, -327684, 65539, 1, -262148, 65539, 1, -327683, 131075, 1, -262147, 131075, 1, -327682, 3, 5, -327681, 131075, 5, -262145, 131075, 5, -393216, 3, 1, -327680, 3, 1, -393215, 65539, 1, -327679, 65539, 1, -393214, 65539, 1, -327678, 65539, 1, -393213, 65539, 1, -327677, 65539, 1, -393212, 65539, 1, -327676, 65539, 1, -393211, 65539, 1, -327675, 65539, 1, -393210, 65539, 1, -327674, 65539, 1, -393209, 65539, 1, -327673, 65539, 1, 458744, 65539, 1, 393208, 65539, 1, 327672, 65539, 1, 262136, 65539, 1, 196600, 65539, 1, 131064, 65539, 1, 65528, 65539, 1, -8, 65539, 1, -65544, 65539, 1, -131080, 65539, 1, -196616, 65539, 1, -196615, 65539, 1, -196614, 65539, 1, -196613, 65539, 1, -196612, 65539, 3, -196611, 131075, 3, -196610, 3, 5, -196609, 131075, 5, -262144, 3, 3, -262143, 65539, 3, -262142, 65539, 3, -262141, 65539, 3, 458751, 65539, 1, 393216, 131075, 1, 458750, 65539, 1, 393217, 3, 5, 458749, 65539, 1, 393218, 131075, 5, 458748, 65539, 1, 393219, 3, 1, 458747, 65539, 1, 393220, 65539, 1, 458746, 65539, 1, 393221, 65539, 1, 458745, 65539, 1, 327673, 65539, 1, 131065, 65539, 1, 65529, 65539, 1, -7, 65539, 1, -65543, 65539, 1, 393222, 65539, 1, 393223, 65539, 1, 327686, 65539, 1, 327687, 65539, 1, 262150, 65539, 1, 262151, 65539, 1, 196614, 65539, 1, 196615, 65539, 1, 131078, 65539, 1, 131079, 65539, 1, 65542, 65539, 1, 65543, 65539, 1, 6, 65539, 1, 7, 65539, 1, -65530, 65539, 1, -65529, 65539, 1, -131066, 65539, 1, -131065, 65539, 1, -196602, 65539, 1, -196601, 65539, 1, -262138, 65539, 1, -262137, 65539, 1, -262140, 65539, 3, -196604, 131075, 7, -262139, 262147, 2, -196603, 3, 1, -131068, 65539, 0, -131067, 262147, 3, -65532, 3, 1, -65531, 65539, 1, 4, 3, 1, 5, 65539, 1, 65540, 3, 1, 65541, 65539, 1, 131076, 3, 1, 131077, 65539, 1, 131074, 131075, 2, 131075, 196611, 5, 196610, 65539, 4, 196611, 131075, 6, 262146, 131075, 5, 262147, 3, 0, 262148, 262147, 3, 262149, 65539, 1, 196612, 3, 1, 196613, 65539, 1, 327684, 65539, 1, 327685, 65539, 1, -131078, 65539, 1, -131077, 131075, 1, -65542, 65539, 1, -65541, 65539, 1, -6, 65539, 1, -5, 65539, 1, 65530, 65539, 1, 65531, 65539, 1, 131066, 65539, 1, 131067, 65539, 1, 196602, 65539, 1, 196603, 65539, 1, 262138, 65539, 1, 262139, 65539, 1, 327674, 65539, 1, 327675, 65539, 1, 393210, 65539, 1, 393211, 65539, 1, 65536, 196611, 5, 0, 196611, 5, -65536, 65539, 4, -131072, 3, 3, -196608, 65539, 7, -131073, 65539, 5, -131074, 65539, 5, -131075, 65539, 7, -131076, 3, 7, -65540, 65539, 0, -4, 131075, 1, 65532, 131075, 1, 131068, 131075, 1, 196604, 131075, 1, 262140, 131075, 1, 327676, 262147, 1, 393212, 65539, 1, 393213, 65539, 1, 327677, 65539, 0, 262141, 3, 6, 196605, 196611, 5, 131069, 196611, 5, 65533, 196611, 5, -3, 3, 4, -65539, 131075, 3, -65538, 3, 5, -2, 65539, 6, 65534, 3, 0, 131070, 3, 1, 196606, 3, 2, 262142, 65539, 7, 327678, 65539, 0, 393214, 65539, 1, 393215, 65539, 1, 327679, 65539, 0, 262143, 65539, 7, 196607, 131075, 2, 131071, 131075, 1, 65535, 131075, 0, -1, 65539, 6, -65537, 131075, 5, 131072, 196611, 5, 196608, 65539, 6, 262144, 131075, 0, 327680, 131075, 1, 327681, 3, 5, 262145, 3, 5, 196609, 65539, 4, 131073, 3, 2, 65537, 3, 1, 1, 3, 0, -65535, 65539, 7, -131071, 65539, 3, -196607, 65539, 7, -196606, 65539, 7, -131070, 65539, 3, -65534, 65539, 7, 2, 131075, 0, 65538, 131075, 1, 65539, 196611, 5, 3, 196611, 5, -65533, 131075, 4, -131069, 65539, 3, -196605, 65539, 7, 327682, 131075, 5, 327683, 3, 1, 393209, 65539, 1, 262137, 65539, 1, 196601, 65539, 1, -131079, 65539, 1, -262146, 3, 5)
+layer_0/y_sort_enabled = true
+layer_0/tile_data = PackedInt32Array(-327688, 2, 0, -327687, 65538, 0, -262151, 2, 3, -393210, 65538, 0, -327674, 196610, 3, -393209, 2, 268435456, -327673, 65538, 1879048192, -196614, 3, 0, -196613, 65539, 0, -196612, 65539, 0, -196611, 65539, 0, -196610, 131075, 0, -196609, 3, 5, -262144, 131075, 5, -262143, 3, 0, -262142, 65539, 0, -262141, 65539, 0, 458751, 3, 5, 393216, 131075, 5, 458750, 131075, 1, 393217, 3, 1, 458749, 65539, 1, 393218, 65539, 1, 458748, 65539, 1, 393219, 65539, 1, 458747, 65539, 1, 393220, 65539, 1, 458746, 3, 1, 393221, 131075, 1, 393222, 131074, 1879048196, 393223, 131074, 1879048192, 327686, 65538, 1879048196, 327687, 65538, 1879048192, 262150, 65538, 1342177283, 262151, 65538, 1879048192, 196614, 131074, 1879048195, 196615, 131074, 1879048192, 131078, 65538, 1342177283, 131079, 65538, 1879048192, 65542, 65538, 1342177283, 65543, 65538, 1879048192, 6, 65538, 1879048196, 7, 65538, 1879048192, -65530, 131074, 1879048195, -65529, 131074, 1879048192, -131066, 65538, 1342177283, -131065, 65538, 1879048192, -196602, 65538, 1879048196, -196601, 65538, 1879048192, -262138, 131074, 1879048195, -262137, 131074, 1879048192, -262140, 65539, 0, -196604, 65539, 1, -262139, 131075, 0, -196603, 131075, 1, -131068, 262147, 2, -131067, 131075, 1, -65532, 3, 1, -65531, 131075, 1, 4, 3, 2, 5, 131075, 2, 65540, 65539, 7, 65541, 65539, 7, 131076, 3, 0, 131077, 131075, 0, 131074, 3, 5, 131075, 131075, 5, 196610, 65539, 5, 196611, 131075, 5, 262146, 65539, 6, 262147, 131075, 6, 262148, 3, 1, 262149, 131075, 1, 196612, 3, 1, 196613, 131075, 1, 327684, 262147, 3, 327685, 131075, 1, -131078, 3, 1, -131077, 65539, 1, -65542, 3, 1, -65541, 262147, 0, -6, 3, 1, -5, 131075, 1, 65530, 3, 2, 65531, 131075, 2, 131066, 65539, 7, 131067, 65539, 7, 196602, 3, 0, 196603, 131075, 0, 262138, 3, 1, 262139, 131075, 1, 327674, 3, 1, 327675, 131075, 1, 393210, 3, 1, 393211, 262147, 1, 65536, 65539, 1, 0, 65539, 0, -65536, 65539, 6, -131072, 65539, 1, -196608, 131075, 5, -131073, 3, 5, -131074, 131075, 1, -131075, 65539, 1, -131076, 65539, 1, -65540, 65539, 2, -4, 3, 4, 65532, 3, 5, 131068, 65539, 5, 196604, 3, 5, 262140, 3, 5, 393212, 65539, 0, 393213, 65539, 0, 327677, 65539, 6, 262141, 65539, 5, 196605, 131075, 5, 131069, 131075, 5, 65533, 131075, 5, -3, 65539, 4, -65539, 65539, 2, -65538, 65539, 2, -2, 65539, 7, 65534, 3, 0, 131070, 3, 1, 196606, 3, 2, 262142, 65539, 4, 327678, 65539, 6, 393214, 131075, 0, 393215, 3, 5, 327679, 65539, 5, 262143, 65539, 4, 196607, 65539, 2, 131071, 65539, 1, 65535, 65539, 0, -1, 65539, 6, -65537, 65539, 1, 131072, 65539, 2, 196608, 65539, 4, 262144, 65539, 5, 327680, 131075, 5, 327681, 3, 0, 262145, 65539, 6, 196609, 65539, 4, 131073, 131075, 2, 65537, 131075, 1, 1, 131075, 0, -65535, 65539, 7, -131071, 65539, 2, -196607, 3, 1, -196606, 65539, 1, -131070, 65539, 2, -65534, 65539, 4, 2, 3, 5, 65538, 3, 5, 65539, 65539, 5, 3, 131075, 5, -65533, 131075, 4, -131069, 65539, 2, -196605, 65539, 1, 327682, 65539, 0, 327683, 65539, 0, 327676, 3, 6, -327686, 131074, 0, -327682, 131074, 0, -393215, 131074, 0, -393211, 131074, 0, -196616, 131074, 1610612736, -8, 131074, 1610612736, 262136, 131074, 1610612736, 458744, 131074, 1610612736, -393212, 65538, 0, -393213, 65538, 0, -393214, 65538, 0, -327681, 65538, 0, -393216, 65538, 0, -327683, 65538, 0, -327684, 65538, 0, -327685, 65538, 0, -262152, 65538, 1610612736, -131080, 65538, 1610612736, -65544, 65538, 1610612736, 65528, 65538, 1610612736, 131064, 65538, 1610612736, 196600, 65538, 1610612736, 327672, 65538, 1610612736, 393208, 65538, 1610612736, -262146, 131074, 3, -327675, 131074, 3, -7, 131074, 1610612739, 458745, 131074, 1610612739, -262150, 131074, 4, -327679, 131074, 4, -196615, 131074, 1610612740, 262137, 131074, 1610612740, -262148, 65538, 4, -262149, 65538, 4, -327677, 65538, 4, -262145, 65538, 4, -131079, 65538, 1610612740, 65529, 65538, 1610612740, 131065, 65538, 1610612740, 196601, 65538, 1610612740, 393209, 65538, 1610612740, -327676, 65538, 3, -327678, 65538, 3, -327680, 65538, 3, -262147, 65538, 3, -65543, 65538, 1610612739, 327673, 65538, 1610612739)
 layer_1/name = "Decorations"
-layer_1/tile_data = PackedInt32Array(262138, 458755, 1, 327674, 458755, 2, 262150, 589827, 2, 327686, 327683, 1, 393222, 327683, 2, 393209, 458755, 2, 327673, 589827, 0, 131064, 393219, 1, 196600, 393219, 1, 262136, 393219, 1, 327672, 393219, 1, 393208, 589827, 0, 458744, 458755, 1, 131065, 458755, 1, 196601, 589827, 1, 262137, 393219, 1, -196615, 393219, 1, -131079, 393219, 1, -65543, 393219, 1, -327688, 393219, 1, -262152, 393219, 1, -196616, 393219, 1, -131080, 393219, 1, -65544, 393219, 1, -8, 393219, 1, 65528, 393219, 1, -393209, 393219, 1, -327673, 589827, 2, -131066, 327683, 0, -65530, 327683, 1, 6, 589827, 3, 65542, 393219, 1, 131078, 589827, 2, 196614, 589827, 3, -262137, 327683, 1, -196601, 327683, 1, -131065, 589827, 3, -65529, 393219, 1, 7, 393219, 1, 65543, 393219, 1, 131079, 393219, 1, 196615, 393219, 1, 262151, 393219, 1, 327687, 393219, 1, 393223, 589827, 2, 196602, 458755, 0, -7, 589827, 0, 65529, 458755, 1, -6, 458755, 2, -65542, 589827, 0, -65541, 458755, 2, -131077, 458755, 0, -131078, 589827, 1, -196614, 458755, 1, -262151, 589827, 1, -262150, 458755, 0, -327687, 458755, 1, -393210, 327683, 1, 5, 327683, 0, 65541, 327683, 1, 131077, 327683, 2, 196613, 327683, 0, 262149, 327683, 2, -327674, 327683, 2, -393216, 327682, 1, -327680, 327682, 2, -393215, 327682, 1, -327679, 327682, 2, -393214, 327682, 1, -327678, 327682, 2, -393213, 327682, 1, -327677, 327682, 2, -393212, 327682, 1, -327676, 327682, 2, -393211, 262146, 268435460, -327675, 262146, 268435458, -327683, 327682, 1, -262147, 327682, 2, -327684, 327682, 1, -262148, 327682, 2, -327685, 262146, 0, -262149, 262146, 2, 196611, 262147, 7, 262141, 262147, 268435463, -3, 262147, 805306375, -65536, 262147, 805306375, -65533, 262147, 536870919, 196608, 262147, 268435463, 196610, 262147, 805306375, 196609, 262147, 536870919, -2, 262147, 7, -1, 262147, 268435463, -196613, 393218, 4, -65531, 393218, 4, -196603, 393218, 2, -131067, 393218, 3, -262139, 393218, 2, -131074, 262147, 536870919, -327681, 262146, 0, -262145, 262146, 2, -327682, 262146, 268435460, -262146, 262146, 268435458, -131073, 262147, 268435463)
+layer_1/y_sort_enabled = true
+layer_1/tile_data = PackedInt32Array(-65542, 393219, 3, -65541, 393219, 3, -65540, 393219, 3, -65539, 393219, 3, -65538, 393219, 3, -131071, 393219, 3, -131070, 393219, 3, -131069, 393219, 3, -131068, 393219, 3, -131067, 393219, 3, 196610, 262147, 7, 131068, 262147, 536870919, 327679, 262147, 536870919, -65534, 262147, 536870919, -3, 262147, 805306375, 65539, 262147, 805306375, 262144, 262147, 805306375, 262141, 262147, 268435463, 393223, 196612, 1342177280, 393222, 196612, 1342177281, 196615, 196612, 1342177280, 196614, 196612, 1342177281, -65529, 196612, 1342177280, -65530, 196612, 1342177281, -262137, 196612, 1342177280, -262138, 196612, 1342177281, -327675, 196612, 1, -393211, 196612, 0, -327679, 196612, 1, -393215, 196612, 0, -262146, 196612, 1, -327682, 196612, 0, -262150, 196612, 1, -327686, 196612, 0, -196616, 196612, 1610612736, -196615, 196612, 1610612737, -8, 196612, 1610612736, -7, 196612, 1610612737, 262136, 196612, 1610612736, 262137, 196612, 1610612737, 458744, 196612, 1610612736, 458745, 196612, 1610612737, -131066, 196612, 1342177282, -65543, 196612, 1073741826)
 layer_2/name = "Decorations2"
-layer_2/tile_data = PackedInt32Array(393222, 393218, 3, 458745, 393218, 3, 327686, 393218, 1, 393209, 393218, 1, 196608, 262147, 7, -65536, 262147, 536870919, -327675, 393218, 1, -262149, 393218, 1, -131074, 262147, 7, -131073, 262147, 805306375)
-layer_3/name = "Layer3"
-layer_3/tile_data = PackedInt32Array()
+layer_2/y_sort_enabled = true
+layer_2/tile_data = PackedInt32Array(-65542, 262146, 4, -65541, 262146, 268435460, 65531, 262146, 268435458, 65530, 262146, 2, -6, 458754, 268435456, -5, 458754, 1, -65531, 458754, 0, -65532, 458754, 268435457, 4, 262146, 2, 5, 262146, 268435458, -131068, 262146, 4, -131067, 262146, 268435460, 196602, 458754, 268435456, 196603, 458754, 1, 131076, 458754, 268435457, 131077, 458754, 0, 262148, 262146, 2, 262149, 262146, 268435458, 327674, 262146, 2, 327675, 262146, 268435458, 262138, 458754, 268435457, 196612, 458754, 268435456, 196613, 458754, 1, 262139, 458754, 0, 131066, 262146, 4, 131067, 262146, 268435460, 65540, 262146, 4, 65541, 262146, 268435460, 65539, 262147, 268435463, 131068, 262147, 7, -327679, 4, 268435457, -262146, 4, 1)
 
 [node name="MapColliders" type="StaticBody2D" parent="."]
 collision_mask = 6
@@ -50,256 +65,356 @@ position = Vector2(0, -65)
 shape = SubResource("WorldBoundaryShape2D_7jrrh")
 
 [node name="Blocks" type="Node2D" parent="."]
+y_sort_enabled = true
 
-[node name="BlockBasic" parent="Blocks" instance=ExtResource("2_mbjay")]
-position = Vector2(-56, -19)
+[node name="BlockBasic" parent="Blocks" instance=ExtResource("4_uiwt7")]
+position = Vector2(-52, -9)
 
-[node name="BlockBasic2" parent="Blocks" instance=ExtResource("2_mbjay")]
-position = Vector2(72, 61)
+[node name="BlockBasic2" parent="Blocks" instance=ExtResource("4_uiwt7")]
+position = Vector2(-36, -9)
 
-[node name="BlockBasic3" parent="Blocks" instance=ExtResource("2_mbjay")]
-position = Vector2(24, 21)
+[node name="BlockBasic3" parent="Blocks" instance=ExtResource("4_uiwt7")]
+position = Vector2(-52, -3)
 
-[node name="BlockBasic4" parent="Blocks" instance=ExtResource("2_mbjay")]
-position = Vector2(-56, 1)
+[node name="BlockBasic4" parent="Blocks" instance=ExtResource("4_uiwt7")]
+position = Vector2(36, -9)
 
-[node name="BlockBasic5" parent="Blocks" instance=ExtResource("2_mbjay")]
-position = Vector2(40, 15)
+[node name="BlockBasic5" parent="Blocks" instance=ExtResource("4_uiwt7")]
+position = Vector2(52, -9)
 
-[node name="BlockBasic7" parent="Blocks" instance=ExtResource("2_mbjay")]
-position = Vector2(-56, -29)
+[node name="BlockBasic6" parent="Blocks" instance=ExtResource("4_uiwt7")]
+position = Vector2(52, -3)
 
-[node name="BlockBasic8" parent="Blocks" instance=ExtResource("2_mbjay")]
-position = Vector2(-8, 45)
+[node name="BlockBasic7" parent="Blocks" instance=ExtResource("4_uiwt7")]
+position = Vector2(-40, 7)
 
-[node name="BlockBasic9" parent="Blocks" instance=ExtResource("2_mbjay")]
-position = Vector2(24, 39)
+[node name="BlockBasic8" parent="Blocks" instance=ExtResource("4_uiwt7")]
+position = Vector2(-56, 13)
 
-[node name="BlockBasic13" parent="Blocks" instance=ExtResource("2_mbjay")]
-position = Vector2(40, 21)
+[node name="BlockBasic9" parent="Blocks" instance=ExtResource("4_uiwt7")]
+position = Vector2(-40, 19)
 
-[node name="BlockBasic14" parent="Blocks" instance=ExtResource("2_mbjay")]
-position = Vector2(24, 33)
+[node name="BlockBasic10" parent="Blocks" instance=ExtResource("4_uiwt7")]
+position = Vector2(-56, 25)
 
-[node name="BlockBasic15" parent="Blocks" instance=ExtResource("2_mbjay")]
-position = Vector2(-24, 39)
+[node name="BlockBasic11" parent="Blocks" instance=ExtResource("4_uiwt7")]
+position = Vector2(-40, 31)
 
-[node name="BlockBasic16" parent="Blocks" instance=ExtResource("2_mbjay")]
-position = Vector2(-24, 45)
+[node name="BlockBasic12" parent="Blocks" instance=ExtResource("4_uiwt7")]
+position = Vector2(-56, 37)
 
-[node name="BlockBasic17" parent="Blocks" instance=ExtResource("2_mbjay")]
-position = Vector2(-56, 61)
+[node name="BlockBasic13" parent="Blocks" instance=ExtResource("4_uiwt7")]
+position = Vector2(-40, 43)
 
-[node name="BlockBasic18" parent="Blocks" instance=ExtResource("2_mbjay")]
-position = Vector2(24, 15)
+[node name="BlockBasic14" parent="Blocks" instance=ExtResource("4_uiwt7")]
+position = Vector2(-56, 49)
 
-[node name="BlockBasic20" parent="Blocks" instance=ExtResource("2_mbjay")]
-position = Vector2(-56, 11)
+[node name="BlockBasic15" parent="Blocks" instance=ExtResource("4_uiwt7")]
+position = Vector2(40, 7)
 
-[node name="BlockBasic21" parent="Blocks" instance=ExtResource("2_mbjay")]
-position = Vector2(24, 27)
+[node name="BlockBasic16" parent="Blocks" instance=ExtResource("4_uiwt7")]
+position = Vector2(56, 13)
 
-[node name="BlockBasic22" parent="Blocks" instance=ExtResource("2_mbjay")]
-position = Vector2(-24, 21)
+[node name="BlockBasic17" parent="Blocks" instance=ExtResource("4_uiwt7")]
+position = Vector2(40, 19)
 
-[node name="BlockBasic24" parent="Blocks" instance=ExtResource("2_mbjay")]
-position = Vector2(-56, 51)
+[node name="BlockBasic18" parent="Blocks" instance=ExtResource("4_uiwt7")]
+position = Vector2(56, 25)
 
-[node name="BlockBasic25" parent="Blocks" instance=ExtResource("2_mbjay")]
-position = Vector2(-8, 39)
+[node name="BlockBasic19" parent="Blocks" instance=ExtResource("4_uiwt7")]
+position = Vector2(40, 31)
 
-[node name="BlockBasic26" parent="Blocks" instance=ExtResource("2_mbjay")]
-position = Vector2(40, 9)
+[node name="BlockBasic20" parent="Blocks" instance=ExtResource("4_uiwt7")]
+position = Vector2(56, 37)
 
-[node name="BlockBasic28" parent="Blocks" instance=ExtResource("2_mbjay")]
-position = Vector2(-8, 27)
+[node name="BlockBasic21" parent="Blocks" instance=ExtResource("4_uiwt7")]
+position = Vector2(40, 43)
 
-[node name="BlockBasic29" parent="Blocks" instance=ExtResource("2_mbjay")]
-position = Vector2(40, 27)
+[node name="BlockBasic22" parent="Blocks" instance=ExtResource("4_uiwt7")]
+position = Vector2(56, 49)
 
-[node name="BlockBasic30" parent="Blocks" instance=ExtResource("2_mbjay")]
-position = Vector2(-8, 21)
+[node name="BlockBasic23" parent="Blocks" instance=ExtResource("4_uiwt7")]
+position = Vector2(-18, 8)
 
-[node name="BlockBasic31" parent="Blocks" instance=ExtResource("2_mbjay")]
-position = Vector2(-56, -9)
+[node name="BlockBasic24" parent="Blocks" instance=ExtResource("4_uiwt7")]
+position = Vector2(-18, 14)
 
-[node name="BlockBasic32" parent="Blocks" instance=ExtResource("2_mbjay")]
-position = Vector2(24, 9)
+[node name="BlockBasic25" parent="Blocks" instance=ExtResource("4_uiwt7")]
+position = Vector2(-18, 26)
 
-[node name="BlockBasic33" parent="Blocks" instance=ExtResource("2_mbjay")]
-position = Vector2(-40, -29)
+[node name="BlockBasic26" parent="Blocks" instance=ExtResource("4_uiwt7")]
+position = Vector2(-18, 32)
 
-[node name="BlockBasic35" parent="Blocks" instance=ExtResource("2_mbjay")]
-position = Vector2(-24, 9)
+[node name="BlockBasic27" parent="Blocks" instance=ExtResource("4_uiwt7")]
+position = Vector2(0, 8)
 
-[node name="BlockBasic36" parent="Blocks" instance=ExtResource("2_mbjay")]
-position = Vector2(-8, 9)
+[node name="BlockBasic28" parent="Blocks" instance=ExtResource("4_uiwt7")]
+position = Vector2(0, 14)
 
-[node name="BlockBasic37" parent="Blocks" instance=ExtResource("2_mbjay")]
-position = Vector2(40, 33)
+[node name="BlockBasic29" parent="Blocks" instance=ExtResource("4_uiwt7")]
+position = Vector2(0, 26)
 
-[node name="BlockBasic39" parent="Blocks" instance=ExtResource("2_mbjay")]
+[node name="BlockBasic30" parent="Blocks" instance=ExtResource("4_uiwt7")]
+position = Vector2(0, 32)
+
+[node name="BlockBasic31" parent="Blocks" instance=ExtResource("4_uiwt7")]
+position = Vector2(18, 8)
+
+[node name="BlockBasic32" parent="Blocks" instance=ExtResource("4_uiwt7")]
+position = Vector2(18, 14)
+
+[node name="BlockBasic33" parent="Blocks" instance=ExtResource("4_uiwt7")]
+position = Vector2(18, 26)
+
+[node name="BlockBasic34" parent="Blocks" instance=ExtResource("4_uiwt7")]
+position = Vector2(18, 32)
+
+[node name="BlockBasic35" parent="Blocks" instance=ExtResource("4_uiwt7")]
+position = Vector2(-48, 61)
+
+[node name="BlockBasic36" parent="Blocks" instance=ExtResource("4_uiwt7")]
+position = Vector2(-32, 67)
+
+[node name="BlockBasic37" parent="Blocks" instance=ExtResource("4_uiwt7")]
+position = Vector2(-16, 61)
+
+[node name="BlockBasic38" parent="Blocks" instance=ExtResource("4_uiwt7")]
+position = Vector2(0, 55)
+
+[node name="BlockBasic39" parent="Blocks" instance=ExtResource("4_uiwt7")]
+position = Vector2(16, 61)
+
+[node name="BlockBasic40" parent="Blocks" instance=ExtResource("4_uiwt7")]
+position = Vector2(32, 67)
+
+[node name="BlockBasic41" parent="Blocks" instance=ExtResource("4_uiwt7")]
+position = Vector2(48, 61)
+
+[node name="BlockBasic42" parent="Blocks" instance=ExtResource("4_uiwt7")]
+position = Vector2(-8, 67)
+
+[node name="BlockBasic43" parent="Blocks" instance=ExtResource("4_uiwt7")]
+position = Vector2(8, 67)
+
+[node name="BlockSturdy" parent="Blocks" node_paths=PackedStringArray("_timer") instance=ExtResource("5_u7jlh")]
+position = Vector2(-40, 13)
+_timer = NodePath("Timer")
+
+[node name="BlockSturdy2" parent="Blocks" node_paths=PackedStringArray("_timer") instance=ExtResource("5_u7jlh")]
+position = Vector2(-56, 19)
+_timer = NodePath("Timer")
+
+[node name="BlockSturdy3" parent="Blocks" node_paths=PackedStringArray("_timer") instance=ExtResource("5_u7jlh")]
+position = Vector2(-40, 25)
+_timer = NodePath("Timer")
+
+[node name="BlockSturdy4" parent="Blocks" node_paths=PackedStringArray("_timer") instance=ExtResource("5_u7jlh")]
 position = Vector2(-56, 31)
-
-[node name="BlockBasic40" parent="Blocks" instance=ExtResource("2_mbjay")]
-position = Vector2(-24, 27)
-
-[node name="BlockBasic42" parent="Blocks" instance=ExtResource("2_mbjay")]
-position = Vector2(-56, 41)
-
-[node name="BlockBasic44" parent="Blocks" instance=ExtResource("2_mbjay")]
-position = Vector2(-8, 3)
-
-[node name="BlockBasic45" parent="Blocks" instance=ExtResource("2_mbjay")]
-position = Vector2(-56, 21)
-
-[node name="BlockBasic46" parent="Blocks" instance=ExtResource("2_mbjay")]
-position = Vector2(-24, 3)
-
-[node name="BlockBasic47" parent="Blocks" instance=ExtResource("2_mbjay")]
-position = Vector2(72, 51)
-
-[node name="BlockSturdy" parent="Blocks" node_paths=PackedStringArray("_timer") instance=ExtResource("3_ol4aw")]
-position = Vector2(24, 3)
 _timer = NodePath("Timer")
 
-[node name="BlockSturdy2" parent="Blocks" node_paths=PackedStringArray("_timer") instance=ExtResource("3_ol4aw")]
-position = Vector2(-8, 33)
+[node name="BlockSturdy5" parent="Blocks" node_paths=PackedStringArray("_timer") instance=ExtResource("5_u7jlh")]
+position = Vector2(-40, 37)
 _timer = NodePath("Timer")
 
-[node name="BlockSturdy3" parent="Blocks" node_paths=PackedStringArray("_timer") instance=ExtResource("3_ol4aw")]
-position = Vector2(-24, 33)
+[node name="BlockSturdy6" parent="Blocks" node_paths=PackedStringArray("_timer") instance=ExtResource("5_u7jlh")]
+position = Vector2(-56, 43)
 _timer = NodePath("Timer")
 
-[node name="BlockSturdy4" parent="Blocks" node_paths=PackedStringArray("_timer") instance=ExtResource("3_ol4aw")]
-position = Vector2(-24, 15)
+[node name="BlockSturdy7" parent="Blocks" node_paths=PackedStringArray("_timer") instance=ExtResource("5_u7jlh")]
+position = Vector2(40, 13)
 _timer = NodePath("Timer")
 
-[node name="BlockSturdy5" parent="Blocks" node_paths=PackedStringArray("_timer") instance=ExtResource("3_ol4aw")]
-position = Vector2(-8, 15)
+[node name="BlockSturdy8" parent="Blocks" node_paths=PackedStringArray("_timer") instance=ExtResource("5_u7jlh")]
+position = Vector2(56, 19)
 _timer = NodePath("Timer")
 
-[node name="BlockBasic6" parent="Blocks" instance=ExtResource("2_mbjay")]
-position = Vector2(-40, -19)
-
-[node name="BlockBasic10" parent="Blocks" instance=ExtResource("2_mbjay")]
-position = Vector2(40, 39)
-
-[node name="BlockSturdy6" parent="Blocks" node_paths=PackedStringArray("_timer") instance=ExtResource("3_ol4aw")]
-position = Vector2(40, 3)
+[node name="BlockSturdy9" parent="Blocks" node_paths=PackedStringArray("_timer") instance=ExtResource("5_u7jlh")]
+position = Vector2(40, 25)
 _timer = NodePath("Timer")
 
-[node name="BlockSturdy7" parent="Blocks" node_paths=PackedStringArray("_timer") instance=ExtResource("3_ol4aw")]
-position = Vector2(24, 45)
+[node name="BlockSturdy10" parent="Blocks" node_paths=PackedStringArray("_timer") instance=ExtResource("5_u7jlh")]
+position = Vector2(56, 31)
 _timer = NodePath("Timer")
 
-[node name="BlockSturdy8" parent="Blocks" node_paths=PackedStringArray("_timer") instance=ExtResource("3_ol4aw")]
-position = Vector2(40, 45)
+[node name="BlockSturdy11" parent="Blocks" node_paths=PackedStringArray("_timer") instance=ExtResource("5_u7jlh")]
+position = Vector2(40, 37)
 _timer = NodePath("Timer")
 
-[node name="BlockBasic11" parent="Blocks" instance=ExtResource("2_mbjay")]
-position = Vector2(72, 41)
+[node name="BlockSturdy12" parent="Blocks" node_paths=PackedStringArray("_timer") instance=ExtResource("5_u7jlh")]
+position = Vector2(56, 43)
+_timer = NodePath("Timer")
 
-[node name="BlockBasic12" parent="Blocks" instance=ExtResource("2_mbjay")]
-position = Vector2(72, 31)
+[node name="BlockSturdy13" parent="Blocks" node_paths=PackedStringArray("_timer") instance=ExtResource("5_u7jlh")]
+position = Vector2(-18, 20)
+_timer = NodePath("Timer")
 
-[node name="BlockBasic19" parent="Blocks" instance=ExtResource("2_mbjay")]
-position = Vector2(72, 21)
-
-[node name="BlockBasic23" parent="Blocks" instance=ExtResource("2_mbjay")]
-position = Vector2(72, 11)
-
-[node name="BlockBasic27" parent="Blocks" instance=ExtResource("2_mbjay")]
-position = Vector2(72, 1)
-
-[node name="BlockBasic34" parent="Blocks" instance=ExtResource("2_mbjay")]
-position = Vector2(72, -9)
-
-[node name="BlockBasic38" parent="Blocks" instance=ExtResource("2_mbjay")]
-position = Vector2(72, -19)
-
-[node name="BlockBasic41" parent="Blocks" instance=ExtResource("2_mbjay")]
-position = Vector2(72, -29)
-
-[node name="BlockBasic43" parent="Blocks" instance=ExtResource("2_mbjay")]
-position = Vector2(56, -19)
-
-[node name="BlockBasic48" parent="Blocks" instance=ExtResource("2_mbjay")]
-position = Vector2(40, -19)
-
-[node name="BlockBasic49" parent="Blocks" instance=ExtResource("2_mbjay")]
-position = Vector2(24, -19)
-
-[node name="BlockBasic50" parent="Blocks" instance=ExtResource("2_mbjay")]
-position = Vector2(8, -19)
-
-[node name="BlockBasic51" parent="Blocks" instance=ExtResource("2_mbjay")]
-position = Vector2(56, -29)
-
-[node name="BlockBasic52" parent="Blocks" instance=ExtResource("2_mbjay")]
-position = Vector2(40, -29)
-
-[node name="BlockBasic53" parent="Blocks" instance=ExtResource("2_mbjay")]
-position = Vector2(24, -29)
-
-[node name="BlockBasic54" parent="Blocks" instance=ExtResource("2_mbjay")]
-position = Vector2(8, -29)
+[node name="BlockSturdy14" parent="Blocks" node_paths=PackedStringArray("_timer") instance=ExtResource("5_u7jlh")]
+position = Vector2(18, 20)
+_timer = NodePath("Timer")
 
 [node name="Barriers" type="Node2D" parent="."]
+y_sort_enabled = true
 
-[node name="BarrierSturdy" parent="Barriers" instance=ExtResource("4_8h67r")]
-position = Vector2(56, 51)
+[node name="BarrierSturdy" parent="Barriers" instance=ExtResource("4_ffshj")]
+position = Vector2(-7, -38)
 
-[node name="BarrierSturdy2" parent="Barriers" instance=ExtResource("4_8h67r")]
-position = Vector2(8, 51)
-
-[node name="BarrierSturdy3" parent="Barriers" instance=ExtResource("4_8h67r")]
-position = Vector2(-40, 51)
+[node name="BarrierSturdy2" parent="Barriers" instance=ExtResource("4_ffshj")]
+position = Vector2(7, -38)
 
 [node name="OtherBreakables" type="Node2D" parent="."]
+y_sort_enabled = true
 
-[node name="Explosives" parent="OtherBreakables" node_paths=PackedStringArray("_animator") instance=ExtResource("6_84ne4")]
-position = Vector2(-16, -16)
+[node name="Pumpkin" parent="OtherBreakables" node_paths=PackedStringArray("_timer") instance=ExtResource("7_j50wy")]
+position = Vector2(-85, -52)
+_timer = NodePath("Timer")
+
+[node name="Pumpkin2" parent="OtherBreakables" node_paths=PackedStringArray("_timer") instance=ExtResource("7_j50wy")]
+position = Vector2(-82, -38)
+_timer = NodePath("Timer")
+
+[node name="Pumpkin3" parent="OtherBreakables" node_paths=PackedStringArray("_timer") instance=ExtResource("7_j50wy")]
+position = Vector2(-67, -49)
+_timer = NodePath("Timer")
+
+[node name="Pumpkin4" parent="OtherBreakables" node_paths=PackedStringArray("_timer") instance=ExtResource("7_j50wy")]
+position = Vector2(-66, -35)
+_timer = NodePath("Timer")
+
+[node name="Pumpkin5" parent="OtherBreakables" node_paths=PackedStringArray("_timer") instance=ExtResource("7_j50wy")]
+position = Vector2(-50, -53)
+_timer = NodePath("Timer")
+
+[node name="Pumpkin6" parent="OtherBreakables" node_paths=PackedStringArray("_timer") instance=ExtResource("7_j50wy")]
+position = Vector2(-46, -38)
+_timer = NodePath("Timer")
+
+[node name="Pumpkin7" parent="OtherBreakables" node_paths=PackedStringArray("_timer") instance=ExtResource("7_j50wy")]
+position = Vector2(41, -52)
+_timer = NodePath("Timer")
+
+[node name="Pumpkin8" parent="OtherBreakables" node_paths=PackedStringArray("_timer") instance=ExtResource("7_j50wy")]
+position = Vector2(44, -38)
+_timer = NodePath("Timer")
+
+[node name="Pumpkin9" parent="OtherBreakables" node_paths=PackedStringArray("_timer") instance=ExtResource("7_j50wy")]
+position = Vector2(61, -49)
+_timer = NodePath("Timer")
+
+[node name="Pumpkin10" parent="OtherBreakables" node_paths=PackedStringArray("_timer") instance=ExtResource("7_j50wy")]
+position = Vector2(60, -37)
+_timer = NodePath("Timer")
+
+[node name="Pumpkin11" parent="OtherBreakables" node_paths=PackedStringArray("_timer") instance=ExtResource("7_j50wy")]
+position = Vector2(80, -51)
+_timer = NodePath("Timer")
+
+[node name="Pumpkin12" parent="OtherBreakables" node_paths=PackedStringArray("_timer") instance=ExtResource("7_j50wy")]
+position = Vector2(78, -37)
+_timer = NodePath("Timer")
+
+[node name="Explosives" parent="OtherBreakables" node_paths=PackedStringArray("_animator") instance=ExtResource("6_3unkt")]
+position = Vector2(-37, 56)
 _animator = NodePath("Animator")
 
-[node name="Grave09" parent="OtherBreakables" node_paths=PackedStringArray("_timer") instance=ExtResource("5_1n38a")]
-position = Vector2(53, -49)
+[node name="Explosives2" parent="OtherBreakables" node_paths=PackedStringArray("_animator") instance=ExtResource("6_3unkt")]
+position = Vector2(37, 56)
+_animator = NodePath("Animator")
+
+[node name="Explosives3" parent="OtherBreakables" node_paths=PackedStringArray("_animator") instance=ExtResource("6_3unkt")]
+position = Vector2(0, 22)
+_animator = NodePath("Animator")
+
+[node name="FenceUpLeftOut" parent="OtherBreakables" node_paths=PackedStringArray("_timer") instance=ExtResource("7_8vnls")]
+position = Vector2(-24, 4)
 _timer = NodePath("Timer")
 
-[node name="Grave10" parent="OtherBreakables" node_paths=PackedStringArray("_timer") instance=ExtResource("5_1n38a")]
-position = Vector2(39, -49)
+[node name="FenceUp" parent="OtherBreakables" node_paths=PackedStringArray("_timer") instance=ExtResource("8_rd3ga")]
+position = Vector2(-8, 4)
 _timer = NodePath("Timer")
 
-[node name="Grave14" parent="OtherBreakables" node_paths=PackedStringArray("_timer") instance=ExtResource("8_dxt35")]
-position = Vector2(4, -49)
+[node name="FenceUp2" parent="OtherBreakables" node_paths=PackedStringArray("_timer") instance=ExtResource("8_rd3ga")]
+position = Vector2(8, 4)
 _timer = NodePath("Timer")
 
-[node name="Grave15" parent="OtherBreakables" node_paths=PackedStringArray("_timer") instance=ExtResource("7_rh0p8")]
-position = Vector2(15, -49)
+[node name="FenceUpRightOut" parent="OtherBreakables" node_paths=PackedStringArray("_timer") instance=ExtResource("9_ayhq3")]
+position = Vector2(24, 4)
 _timer = NodePath("Timer")
 
-[node name="Grave16" parent="OtherBreakables" node_paths=PackedStringArray("_timer") instance=ExtResource("7_rh0p8")]
-position = Vector2(66, -49)
+[node name="FenceLeft" parent="OtherBreakables" node_paths=PackedStringArray("_timer") instance=ExtResource("18_sf1n7")]
+position = Vector2(-24, 20)
 _timer = NodePath("Timer")
 
-[node name="Grave17" parent="OtherBreakables" node_paths=PackedStringArray("_timer") instance=ExtResource("8_dxt35")]
-position = Vector2(27, -49)
+[node name="FenceRight" parent="OtherBreakables" node_paths=PackedStringArray("_timer") instance=ExtResource("9_jgncc")]
+position = Vector2(24, 20)
 _timer = NodePath("Timer")
 
-[node name="Grave23" parent="OtherBreakables" node_paths=PackedStringArray("_timer") instance=ExtResource("8_dxt35")]
-position = Vector2(77, -49)
+[node name="FenceLeftEnd" parent="OtherBreakables" node_paths=PackedStringArray("_timer") instance=ExtResource("12_l2wdv")]
+position = Vector2(-24, 40)
 _timer = NodePath("Timer")
+
+[node name="FenceDownLeftOut" parent="OtherBreakables" node_paths=PackedStringArray("_timer") instance=ExtResource("13_biwes")]
+position = Vector2(-24, 48)
+_timer = NodePath("Timer")
+
+[node name="FenceRightEnd" parent="OtherBreakables" node_paths=PackedStringArray("_timer") instance=ExtResource("14_sxopu")]
+position = Vector2(24, 40)
+_timer = NodePath("Timer")
+
+[node name="FenceDownRightOut" parent="OtherBreakables" node_paths=PackedStringArray("_timer") instance=ExtResource("15_5wlus")]
+position = Vector2(24, 48)
+_timer = NodePath("Timer")
+
+[node name="FenceDown" parent="OtherBreakables" node_paths=PackedStringArray("_timer") instance=ExtResource("16_vjg2v")]
+position = Vector2(-8, 48)
+_timer = NodePath("Timer")
+
+[node name="FenceDown2" parent="OtherBreakables" node_paths=PackedStringArray("_timer") instance=ExtResource("16_vjg2v")]
+position = Vector2(8, 48)
+_timer = NodePath("Timer")
+
+[node name="Interactables" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="TeleportDoor" parent="Interactables" node_paths=PackedStringArray("_linkedDoor", "_animator", "_timer", "_sprites") instance=ExtResource("9_3d1q4")]
+position = Vector2(-95, 24)
+rotation = -1.5708
+_linkedDoor = NodePath("../TeleportDoor4")
+_animator = NodePath("Animator")
+_timer = NodePath("Timer")
+_variant = 2
+_sprites = [NodePath("ExitSprite"), NodePath("DoorSprite")]
+
+[node name="TeleportDoor4" parent="Interactables" node_paths=PackedStringArray("_linkedDoor", "_animator", "_timer", "_sprites") instance=ExtResource("9_3d1q4")]
+position = Vector2(95, 24)
+rotation = 1.5708
+_linkedDoor = NodePath("../TeleportDoor")
+_animator = NodePath("Animator")
+_timer = NodePath("Timer")
+_variant = 2
+_sprites = [NodePath("ExitSprite"), NodePath("DoorSprite")]
 
 [node name="Props" type="Node2D" parent="."]
 y_sort_enabled = true
-position = Vector2(0, 20)
+position = Vector2(0, 17)
 
-[node name="BenchDown" parent="Props" instance=ExtResource("9_vtfn7")]
-position = Vector2(-48, -68)
+[node name="BenchLeft" parent="Props" instance=ExtResource("18_d41n4")]
+position = Vector2(33, -50)
 
-[node name="LevelExit" parent="." node_paths=PackedStringArray("_animator", "_sprites") instance=ExtResource("10_c6y61")]
-z_index = 3
-position = Vector2(-16, -63)
+[node name="BenchRight" parent="Props" instance=ExtResource("19_yqci0")]
+position = Vector2(-16, -50)
+
+[node name="BridgeCenter" parent="Props" instance=ExtResource("20_0bvn5")]
+position = Vector2(0, -37)
+
+[node name="BridgeEnd" parent="Props" instance=ExtResource("21_ho5xa")]
+position = Vector2(0, -49)
+
+[node name="BridgeEnd2" parent="Props" instance=ExtResource("21_ho5xa")]
+position = Vector2(0, -34)
+scale = Vector2(-1, -1)
+
+[node name="LevelExit" parent="." node_paths=PackedStringArray("_animator", "_sprites") instance=ExtResource("16_uk2i8")]
+position = Vector2(0, -63)
 _animator = NodePath("Animator")
 _variant = 2
 _sprites = [NodePath("ExitSprite"), NodePath("DoorSprite")]
