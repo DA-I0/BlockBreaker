@@ -80,7 +80,7 @@ namespace BoGK.UI
 		private void Disable()
 		{
 			GetParent<Control>().Visible = false;
-			GetParent().GetParent<UIController>().FocusOnButtons();
+			GetParent().GetParent<UIControler>().FocusOnButtons();
 		}
 	}
 }

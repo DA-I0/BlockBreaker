@@ -23,7 +23,7 @@ namespace BoGK.UI
 			get { return refs; }
 		}
 
-		public UIController UIController
+		public UIControler UIController
 		{
 			get { return uiController; }
 		}

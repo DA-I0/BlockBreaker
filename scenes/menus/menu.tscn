@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://2bhhrfvm7kux"]
 
-[ext_resource type="Script" path="res://code/ui/UIController.cs" id="1_5bop1"]
+[ext_resource type="Script" path="res://code/ui/UIControler.cs" id="1_5bop1"]
 [ext_resource type="PackedScene" uid="uid://drfe6ou5jke8d" path="res://scenes/menus/leaderboard_panel.tscn" id="2_faxfe"]
 [ext_resource type="PackedScene" uid="uid://b2pir58gb6mba" path="res://scenes/menus/paddle_panel.tscn" id="3_nju35"]
 [ext_resource type="PackedScene" uid="uid://bxrvi55amlhny" path="res://scenes/menus/difficulty_panel.tscn" id="4_4tq2l"]

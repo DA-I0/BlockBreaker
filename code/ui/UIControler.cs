@@ -3,7 +3,7 @@ using Godot;
 
 namespace BoGK.UI
 {
-	public partial class UIController : Node
+	public partial class UIControler : Node
 	{
 		[Export] private Label _gameTitle;
 		[Export] private Label _gameVersion;

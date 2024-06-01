@@ -150,7 +150,7 @@ namespace BoGK.UI
 
 		private void UpdateSkillIcon()
 		{
-			string activeSkillIconPath = $"{ProjectSettings.GetSetting("global/SkillIconsFilePath")}/skill_{refs.SelectedSkill.ToString()}.png";
+			string activeSkillIconPath = $"{ProjectSettings.GetSetting("global/SkillIconsFilePath")}/skill_{refs.SelectedSkill}.png";
 			_skill.GetNode<TextureRect>("SkillIcon").Texture = ResourceLoader.Load<Texture2D>(activeSkillIconPath);
 		}
 

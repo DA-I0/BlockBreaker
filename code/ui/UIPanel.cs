@@ -4,7 +4,7 @@ namespace BoGK.UI
 {
 	public partial class UIPanel : Panel
 	{
-		[Export] protected UIController uiController;
+		[Export] protected UIControler uiController;
 		[Export] protected Control[] _focusTarget;
 		[Export] private Button _returnButton;
 		[Export] protected string _returnTarget = string.Empty;

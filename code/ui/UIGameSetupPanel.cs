@@ -14,7 +14,7 @@ namespace BoGK.UI
 
 		private int _lastActivePanel = -1;
 
-		private UIController uIControler;
+		private UIControler uIControler;
 
 		public override void _Ready()
 		{
@@ -56,7 +56,7 @@ namespace BoGK.UI
 
 		protected void SetupReferences()
 		{
-			uiController = GetNode<UIController>("../..");
+			uiController = GetNode<UIControler>("../..");
 		}
 
 		protected override void UpdateDisplayedValues()
