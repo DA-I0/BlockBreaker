@@ -14,11 +14,14 @@ Version 0.4:
 				Variants:
 					✔ Peaceful (acts as a moving obstacles rather than danger) @done(24-04-03 19:05)
 					✔ Defender (has a shield, can't be hurt from the front) @done(24-04-09 16:11)
+						✔ Add small knockback when ball collides with the shield (distance depends on ball speed) @done(24-05-28 17:36)
 					✔ Deflector (when ball hits the shield they bash the ball acting like the "bouncy paddle") @low @done(24-04-16 17:03)
 			✔ Indestructible "breakables" (break to open and get a prize, in the form chests etc) @done(24-05-08 17:39)
 		Gameplay:
 			✔ Add option for session length (end game after x maps) @done(24-03-06 16:17)
 			✔ Add option for map progression randomization @done(24-03-06 18:18)
+			✔ Add option to disable pickups @done(24-05-30 19:23)
+			✔ Add option for disappearing ball @done(24-05-30 22:23)
 			✔ Add bonus score for winning the game @done(24-03-18 14:28)
 	Map elements:
 		New tileset: @low
@@ -50,9 +53,8 @@ Version 0.4:
 		✔ Add support for palette swapping (breakables) @done(24-04-17 18:48)
 		✔ Add support for palette swapping (static decorations) @done(24-05-06 20:16)
 	Other:
-		☐ Refactor code @high
-		☐ Improve translations
-		☐ Compile all plans & dev notes into a proper design doc
+		✔ Refactor code @high @done(24-06-01 19:27)
+		✔ Improve translations @done(24-06-01 19:27)
 		✔ Implement optional CRT shader @low @done(24-05-21 17:38)
 		✘ Replace manual color swapping with shader based solution @low @cancelled(24-04-12 16:35)
 			Too limiting, problematic edge cases.
@@ -69,3 +71,11 @@ Version 0.4:
 		✔ Enemy draw order stuck based on position in hierarchy instead of position on map @done(24-05-07 18:15)
 		✔ Level switching freezes the game @high @done(24-05-13 21:13)
 		✔ "Advancing Speed" not triggering properly after death or ball reset @done(24-05-21 19:55)
+		✘ CRT filter doesn't affect dropdown lists in the settings menu @cancelled(24-05-28 21:52)
+			PopupMenu renders as a separate window, I should implement my own version to avoid this problem.
+		✔ Info and patch notes panels keep their scroll position when reentering. @low @done(24-05-29 16:56)
+		✔ Player name field on game end panel (game over/win) doesn't reset between sessions. @done(24-05-29 16:57)
+		✔ Exit timer doesn't stop on return to menu. @done(24-05-29 17:00)
+		✔ Color palette not applied to explosives. @done(24-05-29 17:49)
+		✔ Exit prompt doesn't update its keybind to current active controller type. @done(24-05-30 12:07)
+		✔ Ball speed trail isn't cleared when teleporting. @done(24-05-30 14:14)

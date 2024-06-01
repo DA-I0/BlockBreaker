@@ -17,6 +17,7 @@ Version 0.5:
 				☐ Available after each 5 levels or after boss fights
 			☐ Multi-room levels (ball can travel to another room/screen, can be side-to-side or up-down)
 				There are potential issues with room transition and handling edge casees like multiple balls. Maybe freeze all the interactables in the original room and keep one ball active between transitions?
+			☐ Ability to switch active skill between stage branches
 			☐ Ability to rebuild parts of the keep for coins to get bonuses
 			☐ Chest items (drops coins and other Keep Mode limited items?)
 			☐ Save/load system
@@ -31,6 +32,9 @@ Version 0.5:
 					☐ Action
 			☐ River (slightly changes ball direction)
 			☐ Indestructible "breakables" (break to open and get a prize, in the form chests etc)
+		Session settings:
+			☐ Time attack mode
+			☐ Disappearing ball (ball transparency rises the closer it is to the paddle)
 		System:
 			☐ Dynamic translation loading (custom localization support) @low
 	Map elements:
@@ -40,6 +44,7 @@ Version 0.5:
 			☐ Ball can't move up through wall at the bottom of the stairs or railing
 		☐ Cracked walls (can be destroyed with TNT)
 	UI:
+		☐ Implement my own version of PopupMenu object to fix text scaling and draw order issues
 		☐ Improve breakable color selection without mouse
 		☐ Add access to options and info panels in-game (from pause menu) @low
 		☐ Test stage display in options panel to show any graphics changes during setup (map transparency, breakable colors etc.) @low
