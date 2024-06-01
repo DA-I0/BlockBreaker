@@ -52,6 +52,7 @@ namespace BoGK.UI
 			refs = GetNode<GameSystem.SessionController>("/root/GameController");
 			refs.SkillReady += DisplaySkillIcon;
 			refs.SkillUsed += HideSkillIcon;
+			refs.GameStateChanged += ActOnGameState;
 			refs.gameScore.ScoreChanged += UpdateScore;
 			refs.gameScore.StageCleared += DisplayExitPrompt;
 			refs.gameScore.TimerStart += DisplayExitTimer;
@@ -161,6 +162,15 @@ namespace BoGK.UI
 		private void DisplaySkillIcon()
 		{
 			_skill.Visible = true;
+		}
+
+		private void ActOnGameState(GameState newGameState)
+		{
+			if (newGameState == GameState.gameOver || newGameState == GameState.gameWin)
+			{
+				GD.Print("hide panels on game end");
+				HideExitElements();
+			}
 		}
 	}
 }
