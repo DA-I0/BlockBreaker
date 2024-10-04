@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=3 uid="uid://rkpvbny55lx5"]
+
+[ext_resource type="Texture2D" uid="uid://c6d1lucta66nf" path="res://assets/sprites/props/default/other/brazier.png" id="1_cs8b2"]
+
+[sub_resource type="Animation" id="Animation_863wp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_aohns"]
+resource_name = "idle"
+loop_mode = 1
+step = 0.0714286
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 0.142857, 0.285714, 0.428571, 0.571429, 0.714286, 0.857143),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u8r1f"]
+_data = {
+"RESET": SubResource("Animation_863wp"),
+"idle": SubResource("Animation_aohns")
+}
+
+[node name="Brazier" type="StaticBody2D"]
+z_index = 1
+
+[node name="Collider" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-2, 0, 3, 0, 3, -1, 1, -1, 1, -2, 0, -2, 0, -1, -2, -1)
+
+[node name="Sprite" type="Sprite2D" parent="." groups=["static_props"]]
+position = Vector2(-2, -11)
+texture = ExtResource("1_cs8b2")
+centered = false
+hframes = 7
+
+[node name="Animator" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_u8r1f")
+}
+autoplay = "idle"

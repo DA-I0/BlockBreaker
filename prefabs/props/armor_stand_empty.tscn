@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsjjmx1hahobg"]
+
+[ext_resource type="Texture2D" uid="uid://bm2gfddopcs81" path="res://assets/sprites/props/default/other/armor_stand_empty.png" id="1_7xvsc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_47th3"]
+size = Vector2(5, 4)
+
+[node name="ArmorStand" type="StaticBody2D"]
+z_index = 1
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 1)
+shape = SubResource("RectangleShape2D_47th3")
+
+[node name="Sprite" type="Sprite2D" parent="." groups=["static_props"]]
+position = Vector2(-2, -9)
+texture = ExtResource("1_7xvsc")
+centered = false
